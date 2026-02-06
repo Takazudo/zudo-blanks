@@ -84,6 +84,13 @@ jobs:
           name: docusaurus-build-production
           path: doc/build
 
+      - name: Restructure build for base path
+        run: |
+          mkdir -p deploy-dir/pj/zblanks
+          cp -r doc/build/* deploy-dir/pj/zblanks/
+          # Redirect root to base path
+          echo "/ /pj/zblanks/ 301" > deploy-dir/_redirects
+
       - name: Deploy to Netlify Production
         id: deploy
         uses: ./.github/actions/deploy-netlify
@@ -92,7 +99,7 @@ jobs:
           netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           deploy-production: 'true'
           deploy-message: 'Production deploy: ${{ github.sha }}'
-          build-dir: 'doc/build'
+          build-dir: 'deploy-dir'
 
       - name: Create deployment record
         uses: actions/github-script@v8
