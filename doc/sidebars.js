@@ -15,7 +15,7 @@
  @type {import('@docusaurus/plugin-content-docs').SidebarsConfig}
  */
 const sidebars = {
-  overviewSidebar: ['overview/index', 'overview/overview'],
+  overviewSidebar: ['overview/index', 'overview/overview', 'overview/file-structure'],
   howToSidebar: [
     'how-to/index',
     'how-to/kicad-workflow',
