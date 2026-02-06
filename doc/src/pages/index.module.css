@@ -45,6 +45,22 @@
   margin-bottom: 2rem;
 }
 
+.logoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  background: var(--ifm-color-primary);
+  border-radius: 12px;
+  margin-top: 1rem;
+}
+
+.bigLogo {
+  width: 200px;
+  height: 200px;
+  filter: brightness(0) invert(1);
+}
+
 /* Links Section */
 .linksSection h2 {
   font-size: 1.5rem;
@@ -89,5 +105,14 @@
 
   .headerSection h1 {
     font-size: 2rem;
+  }
+
+  .logoContainer {
+    padding: 2rem;
+  }
+
+  .bigLogo {
+    width: 150px;
+    height: 150px;
   }
 }
