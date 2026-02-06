@@ -17,10 +17,7 @@ zudo-blanks/
 ├── artwork-resources/         # Source artwork files (AI, SVG)
 ├── jlcpcb-order-snapshots/    # JLCPCB order history snapshots
 ├── doc/                       # Docusaurus documentation site
-├── __inbox/                   # Temporary working files (gitignored)
-├── blank-panels.kicad_pro     # Root KiCad project file
-├── blank-panels.kicad_sch     # Root KiCad schematic (minimal)
-└── blank-panels.kicad_pcb     # Root KiCad PCB file
+└── __inbox/                   # Temporary working files (gitignored)
 ```
 
 ## panels/

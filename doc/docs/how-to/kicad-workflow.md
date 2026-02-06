@@ -4,14 +4,15 @@ Workflow for designing blank panels in KiCad, from PCB layout to manufacturing f
 
 ## Prerequisites
 
-**CRITICAL:** Ensure your KiCad project files are located at the repository root:
+**CRITICAL:** Each panel is a standalone KiCad project under `panels/`:
 
 ```
-zudo-blanks/          ← Repository root
-├── blank-panels.kicad_pro       ← Project file must be here
-├── blank-panels.kicad_sch       ← Schematic file (minimal)
-├── blank-panels.kicad_pcb       ← PCB file
-└── footprints/                  ← Footprint library
+zudo-blanks/
+├── panels/
+│   └── alumi-blanks-v1-3U-8hp/   ← Example panel project
+│       ├── 8hp.kicad_pcb          ← PCB file
+│       └── 8hp.kicad_pro          ← Project file
+└── footprints/                    ← Shared footprint library
     └── kicad/
 ```
 

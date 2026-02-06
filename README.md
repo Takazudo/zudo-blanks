@@ -14,11 +14,11 @@ This project contains KiCad PCB designs for blank panels in various HP widths fo
 
 ## Repository Structure
 
-- `blank-panels.kicad_pro` - KiCad project file
-- `blank-panels.kicad_sch` - KiCad schematic (minimal, for blank panels)
-- `blank-panels.kicad_pcb` - KiCad PCB layout
-- `footprints/` - KiCad footprint library
-- `symbols/` - KiCad symbol library (placeholder)
+- `panels/` - All KiCad panel projects (one directory per panel)
+- `footprints/` - Shared KiCad footprint library
+- `symbols/` - KiCad symbol library (minimal)
+- `artwork-resources/` - Source artwork files (AI, SVG)
+- `jlcpcb-order-snapshots/` - JLCPCB order history
 - `doc/` - Docusaurus documentation site
 - `.github/` - GitHub Actions CI/CD
 
