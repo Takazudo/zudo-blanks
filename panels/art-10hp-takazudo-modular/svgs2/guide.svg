@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="a" data-name="Z Guide" xmlns="http://www.w3.org/2000/svg" width="58.91mm" height="128.5mm" viewBox="0 0 166.99 364.25">
+  <g>
+    <rect x="126.99" y="279.21" width="16.16" height="85.04" style="fill: #ed1c24; stroke-width: 0px;"/>
+    <rect x="58.11" y="360.85" width="85.04" height="3.4" style="fill: #ed1c24; stroke-width: 0px;"/>
+  </g>
+  <g>
+    <rect x="0" y="279.21" width="16.16" height="85.04" transform="translate(16.16 643.46) rotate(180)" style="fill: #ed1c24; stroke-width: 0px;"/>
+    <rect x="0" y="360.85" width="85.04" height="3.4" transform="translate(85.04 725.1) rotate(180)" style="fill: #ed1c24; stroke-width: 0px;"/>
+  </g>
+  <g>
+    <rect width="16.16" height="85.04" transform="translate(16.16 85.04) rotate(180)" style="fill: #ed1c24; stroke-width: 0px;"/>
+    <rect y="0" width="85.04" height="3.4" transform="translate(85.04 3.4) rotate(180)" style="fill: #ed1c24; stroke-width: 0px;"/>
+  </g>
+  <g>
+    <rect x="126.99" y="0" width="16.16" height="85.04" style="fill: #ed1c24; stroke-width: 0px;"/>
+    <rect x="58.11" y="0" width="85.04" height="3.4" style="fill: #ed1c24; stroke-width: 0px;"/>
+  </g>
+</svg>

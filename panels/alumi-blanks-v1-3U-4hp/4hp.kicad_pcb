@@ -1,0 +1,299 @@
+(kicad_pcb
+	(version 20240108)
+	(generator "pcbnew")
+	(generator_version "8.0")
+	(general
+		(thickness 1.6)
+		(legacy_teardrops no)
+	)
+	(paper "A4")
+	(layers
+		(0 "F.Cu" signal)
+		(31 "B.Cu" signal)
+		(32 "B.Adhes" user "B.Adhesive")
+		(33 "F.Adhes" user "F.Adhesive")
+		(34 "B.Paste" user)
+		(35 "F.Paste" user)
+		(36 "B.SilkS" user "B.Silkscreen")
+		(37 "F.SilkS" user "F.Silkscreen")
+		(38 "B.Mask" user)
+		(39 "F.Mask" user)
+		(40 "Dwgs.User" user "User.Drawings")
+		(41 "Cmts.User" user "User.Comments")
+		(42 "Eco1.User" user "User.Eco1")
+		(43 "Eco2.User" user "User.Eco2")
+		(44 "Edge.Cuts" user)
+		(45 "Margin" user)
+		(46 "B.CrtYd" user "B.Courtyard")
+		(47 "F.CrtYd" user "F.Courtyard")
+		(48 "B.Fab" user)
+		(49 "F.Fab" user)
+		(50 "User.1" user)
+		(51 "User.2" user)
+		(52 "User.3" user)
+		(53 "User.4" user)
+		(54 "User.5" user)
+		(55 "User.6" user)
+		(56 "User.7" user)
+		(57 "User.8" user)
+		(58 "User.9" user)
+	)
+	(setup
+		(pad_to_mask_clearance 0)
+		(allow_soldermask_bridges_in_footprints no)
+		(pcbplotparams
+			(layerselection 0x00010fc_ffffffff)
+			(plot_on_all_layers_selection 0x0000000_00000000)
+			(disableapertmacros no)
+			(usegerberextensions no)
+			(usegerberattributes yes)
+			(usegerberadvancedattributes yes)
+			(creategerberjobfile yes)
+			(dashed_line_dash_ratio 12.000000)
+			(dashed_line_gap_ratio 3.000000)
+			(svgprecision 4)
+			(plotframeref no)
+			(viasonmask no)
+			(mode 1)
+			(useauxorigin no)
+			(hpglpennumber 1)
+			(hpglpenspeed 20)
+			(hpglpendiameter 15.000000)
+			(pdf_front_fp_property_popups yes)
+			(pdf_back_fp_property_popups yes)
+			(dxfpolygonmode yes)
+			(dxfimperialunits yes)
+			(dxfusepcbnewfont yes)
+			(psnegative no)
+			(psa4output no)
+			(plotreference yes)
+			(plotvalue yes)
+			(plotfptext yes)
+			(plotinvisibletext no)
+			(sketchpadsonfab no)
+			(subtractmaskfromsilk no)
+			(outputformat 1)
+			(mirror no)
+			(drillshape 0)
+			(scaleselection 1)
+			(outputdirectory "gerber/")
+		)
+	)
+	(net 0 "")
+	(footprint "Takazudo:BlankPanelHole-M3-Alumi"
+		(layer "F.Cu")
+		(uuid "6efce6dd-0d76-479e-ab7e-7d0ee5c447fe")
+		(at 11.05 3)
+		(property "Reference" "REF**"
+			(at 0 -0.5 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "3512c9af-54b5-47a1-aa91-34b5a46ca5fb")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+		(property "Value" "BlankPanelHole-M3-Alumi"
+			(at 0 1 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a0b00998-fdce-47f1-b1bf-7897f0c1ff00")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "Takazudo:BlankPanelHole-M3-Alumi"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "907482e2-9047-4dac-90ef-cbce530ad358")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "24ffbc7b-24c3-4e67-bdf5-e3ab8d77817b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "276d572e-70c0-40a4-be0b-7055a1b5049e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(attr through_hole)
+		(pad "" np_thru_hole roundrect
+			(at 0 0 90)
+			(size 3.6 10.7)
+			(drill oval 3.2 10.3)
+			(layers "F.Cu" "F.Mask")
+			(roundrect_rratio 0.5)
+			(uuid "58f4e65f-83d6-4529-8574-fa7438f272ff")
+		)
+	)
+	(footprint ""
+		(layer "F.Cu")
+		(uuid "a267e47a-a4e8-451c-b6e7-7e49666c50d1")
+		(at 8.8 125.5)
+		(property "Reference" ""
+			(at 0 0 0)
+			(layer "F.SilkS")
+			(uuid "dac432fa-37f9-4a0b-b1fa-f9cb04b5dc2f")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" ""
+			(at 0 0 0)
+			(layer "F.Fab")
+			(uuid "056c31a8-0d32-4e56-b877-9709ae20bbe0")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4839e9eb-e5b9-437e-b156-2adc68f60df1")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2d6309d6-a779-49d8-9d33-372e5487c2e9")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f9a21266-0ec6-4d4c-ac5c-0056390b4505")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "" np_thru_hole roundrect
+			(at 0 0 90)
+			(size 3.6 10.7)
+			(drill oval 3.2 10.3)
+			(layers "F.Cu" "In1.Cu" "In2.Cu" "In3.Cu" "In4.Cu" "In5.Cu" "In6.Cu" "In7.Cu"
+				"In8.Cu" "In9.Cu" "In10.Cu" "In11.Cu" "In12.Cu" "In13.Cu" "In14.Cu" "In15.Cu"
+				"In16.Cu" "In17.Cu" "In18.Cu" "In19.Cu" "In20.Cu" "In21.Cu" "In22.Cu"
+				"In23.Cu" "In24.Cu" "In25.Cu" "In26.Cu" "In27.Cu" "In28.Cu" "In29.Cu"
+				"In30.Cu" "F.Mask"
+			)
+			(roundrect_rratio 0.5)
+			(uuid "58f4e65f-83d6-4529-8574-fa7438f272ff")
+		)
+	)
+	(gr_poly
+		(pts
+			(xy 20.024584 128.525299) (xy 0.025412 128.525299) (xy 0.025412 0.024695) (xy 20.024584 0.024695)
+		)
+		(stroke
+			(width 0.049389)
+			(type solid)
+			(color 35 31 32 1)
+		)
+		(fill none)
+		(layer "Edge.Cuts")
+		(uuid "d1476883-ac39-4923-aa17-cbe3a6db4770")
+	)
+	(gr_poly
+		(pts
+			(xy 19.852816 128.494736) (xy 1.608545 128.494736) (xy 1.608545 127.295387) (xy 19.852816 127.295387)
+		)
+		(stroke
+			(width -0.000001)
+			(type solid)
+		)
+		(fill solid)
+		(layer "User.1")
+		(uuid "164da0b7-4627-4acf-8414-fae1c6de7de0")
+	)
+	(gr_poly
+		(pts
+			(xy 17.450583 1.204617) (xy 0.000001 1.204617) (xy 0.000001 0.005265) (xy 17.450583 0.005265)
+		)
+		(stroke
+			(width -0.000001)
+			(type solid)
+		)
+		(fill solid)
+		(layer "User.1")
+		(uuid "21dea214-43af-4fdd-ae6e-f23537a86a8d")
+	)
+	(gr_poly
+		(pts
+			(xy 5.700454 30.003191) (xy 0.000001 30.003191) (xy 0.000001 0.005265) (xy 5.700454 0.005265)
+		)
+		(stroke
+			(width -0.000001)
+			(type solid)
+		)
+		(fill solid)
+		(layer "User.1")
+		(uuid "2a44deb1-fd13-48cc-a624-e83913b4874b")
+	)
+	(gr_poly
+		(pts
+			(xy 19.856342 128.494736) (xy 14.15589 128.494736) (xy 14.15589 98.496803) (xy 19.856342 98.496803)
+		)
+		(stroke
+			(width -0.000001)
+			(type solid)
+		)
+		(fill solid)
+		(layer "User.1")
+		(uuid "eeb73e83-872f-4aa0-a592-ca27462d05c6")
+	)
+)

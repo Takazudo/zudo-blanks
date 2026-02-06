@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="116.09mm" height="128.5mm" viewBox="0 0 329.08 364.25">
+  <g id="a" data-name="UFO hole">
+    <circle cx="21.26" cy="8.5" r="4.54" style="fill: #ed1c24; stroke-width: 0px;"/>
+    <circle cx="265.89" cy="355.89" r="4.54" style="fill: #ed1c24; stroke-width: 0px;"/>
+  </g>
+  <g id="b" data-name="UFL start point">
+    <rect width="28.35" height="28.35" style="fill: #ed1c24; stroke-width: 0px;"/>
+  </g>
+</svg>
