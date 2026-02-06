@@ -1,0 +1,40 @@
+{
+  "overview": {
+    "pages": [
+      {
+        "docId": "overview/overview",
+        "title": "Project Overview",
+        "position": 2
+      }
+    ],
+    "subcategories": []
+  },
+  "inbox": {
+    "pages": [],
+    "subcategories": []
+  },
+  "how-to": {
+    "pages": [
+      {
+        "docId": "how-to/kicad-parts-download",
+        "title": "Download KiCad Footprints",
+        "position": 2
+      },
+      {
+        "docId": "how-to/create-footprint-svg",
+        "title": "Create Footprint SVG Files for Documentation",
+        "position": 3
+      },
+      {
+        "docId": "how-to/kicad-workflow",
+        "title": "KiCad Blank Panel Workflow",
+        "position": 999
+      }
+    ],
+    "subcategories": []
+  },
+  "misc": {
+    "pages": [],
+    "subcategories": []
+  }
+}
