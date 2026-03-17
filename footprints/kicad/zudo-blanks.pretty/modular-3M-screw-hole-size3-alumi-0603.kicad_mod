@@ -1,0 +1,68 @@
+(footprint "modular-3M-screw-hole-size3-alumi-0603"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 0 -0.5 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "ffef1597-a513-4f48-b9f3-6d52df0c6ae2")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(property "Value" "modular-3M-screw-hole-size3-alumi-0603"
+		(at 0 1 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "66fc3f9d-a2fc-4059-a125-02bfdc3cc9cb")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "3c3499f3-fc8e-4756-a34b-1a10db6ccc40")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "4f4be3f5-214e-45d9-861f-917c68c5f68a")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(pad "" np_thru_hole roundrect
+		(at 0 0 90)
+		(size 4.001 16.161)
+		(drill oval 3.2 15.36)
+		(layers "*.Mask")
+		(roundrect_rratio 0.4998750312)
+		(uuid "c2e2fb5d-1f7f-4e2d-a06a-c8b9bb484274")
+	)
+	(embedded_fonts no)
+)
