@@ -94,9 +94,9 @@
         "missing_tuning_profile": "warning",
         "net_conflict": "warning",
         "nonmirrored_text_on_back_layer": "warning",
-        "npth_inside_courtyard": "ignore",
+        "npth_inside_courtyard": "error",
         "padstack": "warning",
-        "pth_inside_courtyard": "ignore",
+        "pth_inside_courtyard": "error",
         "shorting_items": "error",
         "silk_edge_clearance": "warning",
         "silk_over_copper": "warning",
@@ -137,7 +137,7 @@
         "min_text_height": 0.8,
         "min_text_thickness": 0.08,
         "min_through_hole_diameter": 0.3,
-        "min_track_width": 0.0,
+        "min_track_width": 0.2,
         "min_via_annular_width": 0.1,
         "min_via_diameter": 0.5,
         "solder_mask_to_copper_clearance": 0.0,
@@ -248,7 +248,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "3u-to-1u-v1.kicad_pro",
+    "filename": "zb-side-frame-1u.kicad_pro",
     "version": 3
   },
   "net_settings": {
@@ -282,14 +282,10 @@
   },
   "pcbnew": {
     "last_paths": {
-      "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "exported/",
-      "pos_files": "",
+      "plot": "dist/",
       "specctra_dsn": "",
-      "step": "3u-to-1u-v1.step",
-      "svg": "",
       "vrml": ""
     },
     "page_layout_descr_file": ""
@@ -298,13 +294,7 @@
     "bus_aliases": {},
     "legacy_lib_dir": "",
     "legacy_lib_list": [],
-    "top_level_sheets": [
-      {
-        "filename": "3u-to-1u-v1.kicad_sch",
-        "name": "3u-to-1u-v1",
-        "uuid": "00000000-0000-0000-0000-000000000000"
-      }
-    ]
+    "top_level_sheets": []
   },
   "sheets": [],
   "text_variables": {},

@@ -62,3 +62,7 @@ fp-info-cache
 # Autosave files
 _autosave-*
 \#auto_saved_files#
+
+# Panel project local history and zips
+panels/*/.history/
+panels/*/*.zip
