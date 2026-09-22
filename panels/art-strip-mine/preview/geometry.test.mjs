@@ -74,12 +74,30 @@ for (let x = 0; x < free.length; x++) for (let y = x + 1; y < free.length; y++) 
   assert.ok(gap <= 0 || gap >= G.STROKE_GAP - 1e-6, `stroke ends at ${a.p} and ${b.p} ${gap.toFixed(3)} mm apart`);
 }
 
-// Strips either touch (same or merged building) or keep STROKE_GAP apart: no etched slits
+// No stroke chain (pieces of one source joined end to end) is shorter than MIN_CHAIN_W x its width
+{
+  const parent = top.strokes.map((_, k) => k), find = (k) => (parent[k] === k ? k : (parent[k] = find(parent[k])));
+  const endsOf = (u) => [u.pts[0], u.pts[u.pts.length - 1]];
+  top.strokes.forEach((s, k) => top.strokes.forEach((t, m) => {
+    if (m <= k || s.source !== t.source) return;
+    if (endsOf(s).some((p) => endsOf(t).some((q) => p[0] === q[0] && p[1] === q[1]))) parent[find(k)] = find(m);
+  }));
+  const chains = new Map();
+  top.strokes.forEach(({ pts, w }, k) => {
+    const c = chains.get(find(k)) || { len: 0, w: 0, at: pts[0] };
+    for (let i = 1; i < pts.length; i++) c.len += Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]);
+    c.w = Math.max(c.w, w);
+    chains.set(find(k), c);
+  });
+  for (const c of chains.values()) assert.ok(c.len >= G.MIN_CHAIN_W * c.w, `stub chain at ${c.at}: ${c.len.toFixed(2)} mm`);
+}
+
+// Strips either touch (same or merged building) or keep BUILDING_GAP apart: no etched slits
 for (let x = 0; x < top.rects.length; x++) for (let y = x + 1; y < top.rects.length; y++) {
   const a = top.rects[x], b = top.rects[y];
   const dx = Math.max(b.x - (a.x + a.w), a.x - (b.x + b.w)), dy = Math.max(b.y - (a.y + a.h), a.y - (b.y + b.h));
   const gap = Math.hypot(Math.max(dx, 0), Math.max(dy, 0));
-  assert.ok(gap < 1e-6 || gap >= G.STROKE_GAP - 1e-6, `building strips at ${[a.x, a.y]} and ${[b.x, b.y]} ${gap.toFixed(3)} mm apart`);
+  assert.ok(gap < 1e-6 || gap >= G.BUILDING_GAP - 1e-6, `building strips at ${[a.x, a.y]} and ${[b.x, b.y]} ${gap.toFixed(3)} mm apart`);
 }
 
 // Building strips never cover a window
