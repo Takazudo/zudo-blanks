@@ -24,7 +24,7 @@ const GERBER_LAYERS = "F.Cu,B.Cu,F.Mask,B.Mask,F.Silkscreen,B.Silkscreen,Edge.Cu
 // KiCad default inherited unchanged from the art-ufo-v2 template.
 const INTENTIONAL_IGNORES = ["copper_edge_clearance", "lib_footprint_issues", "lib_footprint_mismatch", "shorting_items", "solder_mask_bridge"];
 const MIN_GAP = 0.35, MIN_WIDTH = 0.25, MIN_NEST_STEP = 2;
-const SLOT_LEN = G.SLOT_DRILL[0], HOLE = G.M3_HOLE;
+const [SLOT_LEN, SLOT_WIDTH] = G.SLOT_DRILL, HOLE = G.M3_HOLE;
 
 let failures = 0;
 function check(name, fn) {
@@ -135,12 +135,12 @@ try {
         expect(p.draws.length + p.flashes.length + p.regions.length === 0 && !/D0[123]\*/.test(t), `${s} draws`);
       }
     });
-    check(`${b.name} drills: 4 x round Ø${HOLE} at the screw positions${i === 0 ? `, 4 slots ${HOLE} x ${SLOT_LEN}` : ", no slots"}`, () => {
+    check(`${b.name} drills: 4 x round Ø${HOLE} at the screw positions${i === 0 ? `, 4 slots ${SLOT_WIDTH} x ${SLOT_LEN}` : ", no slots"}`, () => {
       const drl = parseDrill(text(".drl"));
       expect(drl.holes.length === 4 && drl.holes.every((h) => h.dia === HOLE), `holes ${drl.holes.map((h) => h.dia)}`);
       for (const s of G.SCREWS) expect(drl.holes.some((h) => samePt(gerberPt(h.at), s.map((v) => +v.toFixed(4)))), `no hole at ${s}`);
       const slots = drl.slots.map((s) => ({ dia: s.dia, len: Math.hypot(s.to[0] - s.from[0], s.to[1] - s.from[1]) + s.dia }));
-      if (i === 0) expect(slots.length === 4 && slots.every((s) => s.dia === HOLE && near(s.len, SLOT_LEN)), `slots ${JSON.stringify(slots)}`);
+      if (i === 0) expect(slots.length === 4 && slots.every((s) => s.dia === SLOT_WIDTH && near(s.len, SLOT_LEN)), `slots ${JSON.stringify(slots)}`);
       else expect(slots.length === 0, `${slots.length} slots`);
       return `${drl.holes.length} holes, ${slots.length} slots`;
     });
