@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Strip Mine Stack</title>
+<style>
+  :root {
+    --bg: #141517;
+    --panel: #1d1f22;
+    --line: #2e3136;
+    --text: #e6e3dc;
+    --muted: #9a968d;
+    --gold: #d9b45a;
+    --warn: #ff7a5c;
+    --ok: #7fd18b;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font: 13px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    overflow: hidden;
+  }
+  #viewport { position: relative; min-height: 0; }
+  #viewport canvas { display: block; width: 100%; height: 100%; }
+  .hint {
+    position: absolute; left: 12px; bottom: 10px; margin: 0;
+    color: var(--muted); font-size: 12px; pointer-events: none;
+  }
+  aside {
+    background: var(--panel);
+    border-left: 1px solid var(--line);
+    padding: 16px;
+    overflow-y: auto;
+  }
+  h1 { font-size: 16px; margin: 0 0 2px; }
+  h2 { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 20px 0 8px; }
+  p.sub { margin: 0; color: var(--muted); }
+  .buttons { display: flex; flex-wrap: wrap; gap: 6px; }
+  button {
+    background: #2a2d31; color: var(--text); border: 1px solid var(--line);
+    border-radius: 6px; padding: 5px 10px; font: inherit; cursor: pointer;
+  }
+  button:hover { border-color: var(--gold); }
+  label { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 8px 0 2px; }
+  label.check { justify-content: flex-start; margin: 4px 0; }
+  input[type=range] { width: 100%; }
+  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  td { padding: 2px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  td:last-child { text-align: right; color: var(--gold); }
+  .swatch { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; border: 1px solid #555; }
+  ul.checks { list-style: none; padding: 0; margin: 0; }
+  ul.checks li { padding: 2px 0; }
+  ul.checks li.ok::before { content: "✓ "; color: var(--ok); }
+  ul.checks li.bad::before { content: "✗ "; color: var(--warn); }
+  ul.checks li.bad { color: var(--warn); }
+  @media (max-width: 760px) {
+    body { grid-template-columns: 1fr; grid-template-rows: 60vh auto; overflow: auto; }
+    aside { border-left: 0; border-top: 1px solid var(--line); }
+  }
+</style>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+} }
+</script>
+</head>
+<body>
+<div id="viewport">
+  <p class="hint">Drag to orbit · scroll to zoom · right-drag to pan</p>
+</div>
+<aside>
+  <h1>Strip Mine — 20HP stack</h1>
+  <p class="sub">9 PCBs + 3 mm spacers on 4 × M3 · dimensions in mm</p>
+
+  <h2>View</h2>
+  <div class="buttons">
+    <button data-view="iso">Iso</button>
+    <button data-view="front">Front</button>
+    <button data-view="side">Side</button>
+    <button data-view="back">Back</button>
+    <button data-view="low">Low angle</button>
+  </div>
+  <label for="gap">Explode <output id="gap-v">0 mm</output></label>
+  <input id="gap" type="range" min="0" max="20" step="0.5" value="0">
+  <label for="layers">Visible PCBs <output id="layers-v">9 / 9</output></label>
+  <input id="layers" type="range" min="1" max="9" step="1" value="9">
+  <label class="check"><input id="hw" type="checkbox" checked> Screws, spacers, nuts</label>
+  <label class="check"><input id="rails" type="checkbox" checked> Eurorack rails (from zudo-rail STL profile)</label>
+  <label class="check"><input id="section" type="checkbox"> Half section (cut at hole center)</label>
+
+  <h2>Stack (top → bottom)</h2>
+  <table id="stack"></table>
+
+  <h2>Key dimensions</h2>
+  <table id="dims"></table>
+
+  <h2>Checks</h2>
+  <ul class="checks" id="checks"></ul>
+</aside>
+
+<script type="module">
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
+
+// ---------------------------------------------------------------------------
+// Spec. Panel coordinates follow KiCad: origin top-left, +y downward.
+// ---------------------------------------------------------------------------
+const W = 101.3, H = 128.5, T = 1.6, SPACER = 3;
+
+// Rail slots copied from panels/art-ufo-v2/ufo-panel.kicad_pcb (must stay identical)
+const SLOTS = [[10.17, 2.87], [91.13, 2.86], [10.16, 125.64], [91.14, 125.65]];
+const SLOT_DRILL = [10.28, 3.2], SLOT_PAD = [11.08, 4];
+
+// zudo-rail nuts-v2 profile: 12.59 mm tall, nut channel centred 6.37 mm from its outer face
+const RAIL_TALL = 12.59, RAIL_DEEP = 20.13, RAIL_NUT_FROM_OUTER = 6.37;
+const RAIL_REACH = SLOTS[0][1] + (RAIL_TALL - RAIL_NUT_FROM_OUTER); // rail's inner edge, from panel edge
+const RAIL_SPACING = 8; // requested margin on top of the rail reach
+const KEEP_OUT = +(RAIL_REACH + RAIL_SPACING).toFixed(2);
+
+const SCREW_INSET_X = 6.5, SCREW_FROM_LOWER_EDGE = 6.5;
+const SCREW_Y = KEEP_OUT + SCREW_FROM_LOWER_EDGE;
+const SCREWS = [[SCREW_INSET_X, SCREW_Y], [W - SCREW_INSET_X, SCREW_Y],
+                [SCREW_INSET_X, H - SCREW_Y], [W - SCREW_INSET_X, H - SCREW_Y]];
+const M3_HOLE = 3.2, SPACER_OD = 6, HEAD_D = 5.5, HEAD_H = 2.2, NUT_AF = 5.5, NUT_H = 2.4;
+
+const LAYERS = [
+  { name: "Black", mask: "#101113" },
+  { name: "Red", mask: "#a3121b" },
+  { name: "Black", mask: "#101113" },
+  { name: "Red", mask: "#a3121b" },
+  { name: "Black", mask: "#101113" },
+  { name: "Red", mask: "#a3121b" },
+  { name: "Black", mask: "#101113" },
+  { name: "Red", mask: "#a3121b" },
+  { name: "Blue (lake)", mask: "#1450c8" },
+];
+const PITCH = T + SPACER;
+const STACK_DEPTH = LAYERS.length * T + (LAYERS.length - 1) * SPACER;
+
+// ---------------------------------------------------------------------------
+// Pit openings: faceted, shrinking terraces that drift slightly down-left
+// ---------------------------------------------------------------------------
+function rng(seed) {
+  return () => {
+    seed |= 0; seed = seed + 0x6d2b79f5 | 0;
+    let t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+}
+const FACETS = 15, OPENINGS = LAYERS.length - 1;
+const TOP_RX = 35, TOP_RY = 32, BOTTOM_SCALE = 0.3;
+const CENTER0 = [W / 2 + 1, H / 2 - 1], DRIFT = [-0.4, 0.35];
+const shared = (() => { const r = rng(7); return Array.from({ length: FACETS }, () => r() * 2 - 1); })();
+const openings = Array.from({ length: OPENINGS }, (_, i) => {
+  const r = rng(100 + i);
+  const s = 1 - (1 - BOTTOM_SCALE) * i / (OPENINGS - 1);
+  const cx = CENTER0[0] + DRIFT[0] * i, cy = CENTER0[1] + DRIFT[1] * i;
+  return Array.from({ length: FACETS }, (_, k) => {
+    const a = (k / FACETS) * Math.PI * 2 + 0.2;
+    const j = 1 + shared[k] * 0.08 + (r() * 2 - 1) * 0.012;
+    return [cx + Math.cos(a) * TOP_RX * s * j, cy + Math.sin(a) * TOP_RY * s * j];
+  });
+});
+
+function pointInPoly([x, y], poly) {
+  let inside = false;
+  for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
+    const [xi, yi] = poly[i], [xj, yj] = poly[j];
+    if ((yi > y) !== (yj > y) && x < (xj - xi) * (y - yi) / (yj - yi) + xi) inside = !inside;
+  }
+  return inside;
+}
+function distToPoly([x, y], poly) {
+  let best = Infinity;
+  for (let i = 0; i < poly.length; i++) {
+    const [ax, ay] = poly[i], [bx, by] = poly[(i + 1) % poly.length];
+    const dx = bx - ax, dy = by - ay;
+    const t = Math.max(0, Math.min(1, ((x - ax) * dx + (y - ay) * dy) / (dx * dx + dy * dy)));
+    best = Math.min(best, Math.hypot(x - ax - t * dx, y - ay - t * dy));
+  }
+  return best;
+}
+const bbox = (poly) => {
+  const xs = poly.map((p) => p[0]), ys = poly.map((p) => p[1]);
+  return [Math.min(...xs), Math.min(...ys), Math.max(...xs), Math.max(...ys)];
+};
+
+// ---------------------------------------------------------------------------
+// Artwork (ENIG + mask) drawn to canvas in panel mm coordinates
+// ---------------------------------------------------------------------------
+const PX = 10;
+const GOLD = "#d8b25a";
+const RIM = 1.0;
+
+function stadiumPath(ctx, cx, cy, len, wid) {
+  const r = wid / 2, hl = len / 2 - r;
+  ctx.beginPath();
+  ctx.moveTo(cx - hl, cy - r);
+  ctx.lineTo(cx + hl, cy - r);
+  ctx.arc(cx + hl, cy, r, -Math.PI / 2, Math.PI / 2);
+  ctx.lineTo(cx - hl, cy + r);
+  ctx.arc(cx - hl, cy, r, Math.PI / 2, Math.PI * 1.5);
+  ctx.closePath();
+}
+function polyPath(ctx, poly, smooth = false) {
+  ctx.beginPath();
+  if (!smooth) {
+    poly.forEach(([x, y], i) => (i ? ctx.lineTo(x, y) : ctx.moveTo(x, y)));
+  } else {
+    const n = poly.length, mid = (a, b) => [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2];
+    const m0 = mid(poly[n - 1], poly[0]);
+    ctx.moveTo(...m0);
+    for (let i = 0; i < n; i++) ctx.quadraticCurveTo(...poly[i], ...mid(poly[i], poly[(i + 1) % n]));
+  }
+  ctx.closePath();
+}
+
+function buildings() {
+  const r = rng(42), out = [];
+  const from = [57, 12], to = [84, 29], n = 7;
+  for (let i = 0; i < n; i++) {
+    const t = i / (n - 1);
+    const w = 3 + r() * 3, h = 2.6 + r() * 2.6;
+    const x = from[0] + (to[0] - from[0]) * t + (r() - 0.5) * 3;
+    const y = from[1] + (to[1] - from[1]) * t + (r() - 0.5) * 3;
+    const windows = [];
+    const cols = Math.max(1, Math.floor((w - 0.8) / 1.5)), rows = Math.max(1, Math.floor((h - 0.8) / 1.5));
+    for (let c = 0; c < cols; c++) for (let k = 0; k < rows; k++) if (r() > 0.35) windows.push([c, k]);
+    out.push({ x, y, w, h, cols, rows, windows });
+  }
+  return out;
+}
+const BUILDINGS = buildings();
+
+// Topographic contour lines radiating out from the pit (top PCB only)
+const CONTOURS = (() => {
+  const r = rng(9);
+  return [1.18, 1.4, 1.68, 2.0, 2.4, 2.85, 3.4].map((s, n) => openings[0].map(([x, y], k) => {
+    const dx = x - CENTER0[0], dy = y - CENTER0[1];
+    const wob = 1 + (r() - 0.5) * 0.16 + Math.sin(k * 1.7 + n) * 0.05;
+    return [CENTER0[0] + dx * s * wob, CENTER0[1] + dy * s * wob * 1.05];
+  }));
+})();
+
+function artwork(i) {
+  const layer = LAYERS[i];
+  const top = i === 0, bottom = i === LAYERS.length - 1;
+  const color = document.createElement("canvas"), orm = document.createElement("canvas");
+  color.width = orm.width = Math.round(W * PX);
+  color.height = orm.height = Math.round(H * PX);
+  const c = color.getContext("2d"), o = orm.getContext("2d");
+  for (const ctx of [c, o]) ctx.setTransform(PX, 0, 0, PX, 0, 0);
+  c.fillStyle = layer.mask; c.fillRect(0, 0, W, H);
+  // ORM: G = roughness, B = metalness
+  o.fillStyle = "rgb(0,110,0)"; o.fillRect(0, 0, W, H);
+
+  // Gold is drawn once per target with matching style, so both canvases stay in sync
+  const gold = (draw) => {
+    c.fillStyle = c.strokeStyle = GOLD; draw(c);
+    o.fillStyle = o.strokeStyle = "rgb(0,70,255)"; draw(o);
+  };
+  const mask = (draw) => {
+    c.fillStyle = c.strokeStyle = layer.mask; draw(c);
+    o.fillStyle = o.strokeStyle = "rgb(0,110,0)"; draw(o);
+  };
+
+  if (top) {
+    // Topographic contour lines radiating out from the pit
+    gold((ctx) => {
+      ctx.lineWidth = 0.45;
+      for (const ring of CONTOURS) { polyPath(ctx, ring, true); ctx.stroke(); }
+    });
+    // Clearance around every other feature so contours never touch them
+    mask((ctx) => {
+      for (const [x, y] of SLOTS) { stadiumPath(ctx, x, y, SLOT_PAD[0] + 2, SLOT_PAD[1] + 2); ctx.fill(); }
+      for (const [x, y] of SCREWS) { ctx.beginPath(); ctx.arc(x, y, SPACER_OD / 2 + 1.1, 0, Math.PI * 2); ctx.fill(); }
+      for (const b of BUILDINGS) ctx.fillRect(b.x - 0.9, b.y - 0.9, b.w + 1.8, b.h + 1.8);
+      ctx.lineWidth = 2.2; polyPath(ctx, openings[0]); ctx.stroke();
+      ctx.lineWidth = 2 * 1.6; ctx.strokeRect(0, 0, W, H);
+    });
+    gold((ctx) => {
+      // Edge band ("gold on the edge"), slot pads as in the UFO panel, screw rings
+      ctx.lineWidth = 2 * 0.9; ctx.strokeRect(0, 0, W, H);
+      for (const [x, y] of SLOTS) { stadiumPath(ctx, x, y, ...SLOT_PAD); ctx.fill(); }
+      for (const [x, y] of SCREWS) {
+        ctx.lineWidth = 1.2; ctx.beginPath(); ctx.arc(x, y, SPACER_OD / 2 - 0.3, 0, Math.PI * 2); ctx.stroke();
+      }
+      for (const b of BUILDINGS) ctx.fillRect(b.x, b.y, b.w, b.h);
+    });
+    mask((ctx) => {
+      for (const b of BUILDINGS) {
+        const cw = (b.w - 0.8) / b.cols, ch = (b.h - 0.8) / b.rows;
+        for (const [cc, rr] of b.windows) ctx.fillRect(b.x + 0.4 + cc * cw + cw * 0.25, b.y + 0.4 + rr * ch + ch * 0.25, cw * 0.5, ch * 0.5);
+      }
+    });
+  }
+  if (!bottom) {
+    // Gold rim around the terrace edge — the "gold on the edge" of each step
+    gold((ctx) => { ctx.lineWidth = RIM * 2; polyPath(ctx, openings[i]); ctx.stroke(); });
+  }
+  return { color, orm };
+}
+
+// ---------------------------------------------------------------------------
+// Geometry
+// ---------------------------------------------------------------------------
+// Three uses +y up; panel y is flipped so the canvas texture maps directly.
+const P = (x, y) => new THREE.Vector2(x, H - y);
+function holePath(points) { return new THREE.Path(points.map(([x, y]) => P(x, y)).reverse()); }
+function circleHole(x, y, d, seg = 32) {
+  return holePath(Array.from({ length: seg }, (_, k) => {
+    const a = (k / seg) * Math.PI * 2; return [x + Math.cos(a) * d / 2, y + Math.sin(a) * d / 2];
+  }));
+}
+function slotHole(x, y, len, wid, seg = 16) {
+  const r = wid / 2, hl = len / 2 - r, pts = [];
+  for (let k = 0; k <= seg; k++) { const a = -Math.PI / 2 + Math.PI * k / seg; pts.push([x + hl + Math.cos(a) * r, y + Math.sin(a) * r]); }
+  for (let k = 0; k <= seg; k++) { const a = Math.PI / 2 + Math.PI * k / seg; pts.push([x - hl + Math.cos(a) * r, y + Math.sin(a) * r]); }
+  return holePath(pts);
+}
+function panelShape(i) {
+  const top = i === 0;
+  const [y0, y1] = top ? [0, H] : [KEEP_OUT, H - KEEP_OUT];
+  const shape = new THREE.Shape([P(0, y1), P(W, y1), P(W, y0), P(0, y0)]);
+  if (top) for (const [x, y] of SLOTS) shape.holes.push(slotHole(x, y, ...SLOT_DRILL));
+  for (const [x, y] of SCREWS) shape.holes.push(circleHole(x, y, M3_HOLE));
+  if (i < OPENINGS) shape.holes.push(holePath(openings[i]));
+  return shape;
+}
+
+// ---------------------------------------------------------------------------
+// Scene
+// ---------------------------------------------------------------------------
+const viewport = document.getElementById("viewport");
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.setClearColor(0x141517);
+renderer.localClippingEnabled = true;
+renderer.toneMapping = THREE.NeutralToneMapping;
+viewport.prepend(renderer.domElement);
+const scene = new THREE.Scene();
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+scene.environmentIntensity = 0.55;
+const key = new THREE.DirectionalLight(0xfff3dd, 1.6); key.position.set(80, 160, 220); scene.add(key);
+
+const camera = new THREE.PerspectiveCamera(32, 1, 1, 5000);
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.target.set(W / 2, H / 2, -STACK_DEPTH / 2);
+
+const clip = new THREE.Plane(new THREE.Vector3(-1, 0, 0), CENTER0[0]);
+const clipped = [];
+const mat = (m) => { clipped.push(m); return m; };
+
+const fr4 = mat(new THREE.MeshStandardMaterial({ color: 0xbfae80, roughness: 0.7, side: THREE.DoubleSide }));
+const panels = LAYERS.map((layer, i) => {
+  const shape = panelShape(i);
+  const body = new THREE.Mesh(
+    new THREE.ExtrudeGeometry(shape, { depth: T, bevelEnabled: false, curveSegments: 16 }),
+    [mat(new THREE.MeshStandardMaterial({ color: layer.mask, roughness: 0.42 })), fr4],
+  );
+  const { color, orm } = artwork(i);
+  const map = new THREE.CanvasTexture(color); map.colorSpace = THREE.SRGBColorSpace;
+  const ormTex = new THREE.CanvasTexture(orm);
+  for (const t of [map, ormTex]) { t.repeat.set(1 / W, 1 / H); t.anisotropy = 8; }
+  const face = new THREE.Mesh(new THREE.ShapeGeometry(shape, 16), mat(new THREE.MeshStandardMaterial({
+    map, roughnessMap: ormTex, metalnessMap: ormTex, roughness: 1, metalness: 1,
+    polygonOffset: true, polygonOffsetFactor: -1,
+  })));
+  face.position.z = T + 0.005;
+  const group = new THREE.Group();
+  group.add(body, face);
+  scene.add(group);
+  return group;
+});
+
+const steel = mat(new THREE.MeshStandardMaterial({ color: 0xc8cacc, metalness: 1, roughness: 0.3 }));
+const brass = mat(new THREE.MeshStandardMaterial({ color: 0xb9a36a, metalness: 1, roughness: 0.35 }));
+const hardware = new THREE.Group(); scene.add(hardware);
+const screwParts = SCREWS.map(([x, y]) => {
+  const along = (geo) => { geo.rotateX(Math.PI / 2); return geo; };
+  const head = new THREE.Mesh(along(new THREE.CylinderGeometry(HEAD_D / 2, HEAD_D / 2, HEAD_H, 32)), steel);
+  const shaft = new THREE.Mesh(along(new THREE.CylinderGeometry(1.5, 1.5, 1, 20)), steel);
+  const nut = new THREE.Mesh(along(new THREE.CylinderGeometry(NUT_AF / Math.sqrt(3), NUT_AF / Math.sqrt(3), NUT_H, 6)), steel);
+  const spacers = Array.from({ length: LAYERS.length - 1 }, () =>
+    new THREE.Mesh(along(new THREE.CylinderGeometry(SPACER_OD / 2, SPACER_OD / 2, SPACER, 24)), brass));
+  for (const m of [head, shaft, nut, ...spacers]) { m.position.x = x; m.position.y = H - y; hardware.add(m); }
+  return { head, shaft, nut, spacers };
+});
+
+const railMat = mat(new THREE.MeshStandardMaterial({ color: 0x8a8f96, metalness: 0.6, roughness: 0.5, transparent: true, opacity: 0.55 }));
+const rails = new THREE.Group(); scene.add(rails);
+for (const outer of [-(RAIL_NUT_FROM_OUTER - SLOTS[0][1]), H + (RAIL_NUT_FROM_OUTER - SLOTS[0][1])]) {
+  const span = 150;
+  const rail = new THREE.Mesh(new THREE.BoxGeometry(span, RAIL_TALL, RAIL_DEEP), railMat);
+  const inward = outer < 0 ? 1 : -1;
+  rail.position.set(W / 2, H - (outer + inward * RAIL_TALL / 2), -T - RAIL_DEEP / 2);
+  rails.add(rail);
+}
+
+// ---------------------------------------------------------------------------
+// Layout / controls
+// ---------------------------------------------------------------------------
+const $ = (id) => document.getElementById(id);
+let frame;
+function render() {
+  cancelAnimationFrame(frame);
+  frame = requestAnimationFrame(() => {
+    const { width, height } = viewport.getBoundingClientRect();
+    renderer.setSize(width, height, false);
+    camera.aspect = width / height; camera.updateProjectionMatrix();
+    renderer.render(scene, camera);
+  });
+}
+controls.addEventListener("change", render);
+new ResizeObserver(render).observe(viewport);
+
+function update() {
+  const gap = +$("gap").value, count = +$("layers").value;
+  $("gap-v").value = `${gap} mm`; $("layers-v").value = `${count} / ${LAYERS.length}`;
+  const front = (i) => -i * (PITCH + gap);
+  panels.forEach((g, i) => { g.visible = i < count; g.position.z = front(i) - T; });
+  const last = count - 1;
+  for (const s of screwParts) {
+    s.head.position.z = HEAD_H / 2;
+    const backZ = front(last) - T;
+    s.nut.position.z = backZ - NUT_H / 2;
+    s.nut.visible = count > 1;
+    const tip = backZ - NUT_H - 1.5;
+    s.shaft.scale.z = -tip; s.shaft.position.z = tip / 2;
+    s.spacers.forEach((m, i) => { m.visible = i < last; m.position.z = front(i) - T - (PITCH + gap - T) / 2; });
+  }
+  hardware.visible = $("hw").checked;
+  rails.visible = $("rails").checked;
+  for (const m of clipped) m.clippingPlanes = $("section").checked ? [clip] : [];
+  render();
+}
+for (const id of ["gap", "layers"]) $(id).addEventListener("input", update);
+for (const id of ["hw", "rails", "section"]) $(id).addEventListener("change", update);
+
+const VIEWS = {
+  iso: [0.9, -0.55, 1.2], front: [0, 0, 1], side: [1, 0, 0.001], back: [-0.5, -0.3, -1], low: [0.25, -1.1, 0.55],
+};
+function view(name) {
+  const dir = new THREE.Vector3(...VIEWS[name]).normalize();
+  const center = new THREE.Vector3(W / 2, H / 2, -STACK_DEPTH / 2);
+  camera.up.set(0, 1, 0);
+  camera.position.copy(center).addScaledVector(dir, 330);
+  controls.target.copy(center); controls.update(); render();
+}
+document.querySelectorAll("[data-view]").forEach((b) => b.addEventListener("click", () => view(b.dataset.view)));
+
+// ---------------------------------------------------------------------------
+// Side panel: stack, dimensions, checks
+// ---------------------------------------------------------------------------
+const fmt = (v) => v.toFixed(1);
+$("stack").innerHTML = LAYERS.map((l, i) => {
+  const b = i < OPENINGS ? bbox(openings[i]) : null;
+  const hole = b ? `${fmt(b[2] - b[0])} × ${fmt(b[3] - b[1])} hole` : "no hole";
+  const size = i === 0 ? `${W} × ${H}` : `${W} × ${fmt(H - 2 * KEEP_OUT)}`;
+  return `<tr><td><span class="swatch" style="background:${l.mask}"></span>${i + 1}. ${l.name}<br><small style="color:var(--muted)">${size}</small></td><td>${hole}</td></tr>`;
+}).join("");
+
+const screwMin = STACK_DEPTH + NUT_H + 1;
+$("dims").innerHTML = [
+  ["Rail reach from panel edge", `${fmt(RAIL_REACH)}`],
+  ["Lower-PCB keep-out (reach + 8)", `${fmt(KEEP_OUT)}`],
+  ["Lower PCB height", `${fmt(H - 2 * KEEP_OUT)}`],
+  ["Screw centres (x / y)", `${SCREW_INSET_X}, ${fmt(W - SCREW_INSET_X)} / ${fmt(SCREW_Y)}, ${fmt(H - SCREW_Y)}`],
+  ["Stack depth (9 × 1.6 + 8 × 3)", `${fmt(STACK_DEPTH)}`],
+  ["Min. screw length under head", `${fmt(screwMin)} → M3×45`],
+  ["Depth behind panel incl. nut", `${fmt(STACK_DEPTH - T + NUT_H + 4)}`],
+].map(([k, v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join("");
+
+const checks = [];
+for (let i = 1; i < OPENINGS; i++) {
+  const inside = openings[i].every((p) => pointInPoly(p, openings[i - 1]));
+  const min = Math.min(...openings[i].map((p) => distToPoly(p, openings[i - 1])));
+  checks.push([inside && min >= 2, `Terrace ${i + 1} visible step ≥ 2 mm (min ${fmt(min)})`]);
+}
+const lowestTop = Math.min(...openings[0].map((p) => p[1])), highestBottom = Math.max(...openings[0].map((p) => p[1]));
+checks.push([lowestTop - KEEP_OUT >= 8 && H - KEEP_OUT - highestBottom >= 8, `Top opening clear of lower-PCB edges by ≥ 8 (${fmt(lowestTop - KEEP_OUT)} / ${fmt(H - KEEP_OUT - highestBottom)})`]);
+const screwClear = Math.min(...SCREWS.map((s) => distToPoly(s, openings[0]) - SPACER_OD / 2));
+checks.push([screwClear >= 3 && SCREWS.every((s) => !pointInPoly(s, openings[0])), `Spacers clear of pit wall (${fmt(screwClear)})`]);
+checks.push([SCREW_Y - SPACER_OD / 2 > RAIL_REACH, `Spacers clear of rail (${fmt(SCREW_Y - SPACER_OD / 2 - RAIL_REACH)} gap)`]);
+const buildingGap = Math.min(...BUILDINGS.flatMap((b) => [[b.x, b.y], [b.x + b.w, b.y], [b.x, b.y + b.h], [b.x + b.w, b.y + b.h]])
+  .map((p) => (pointInPoly(p, openings[0]) ? -1 : distToPoly(p, openings[0]))));
+checks.push([buildingGap >= 2, `Building symbols clear of pit rim (${fmt(buildingGap)})`]);
+checks.push([Math.abs(STACK_DEPTH - 38.4) < 0.01, `Stack depth ≈ 40 mm target (${fmt(STACK_DEPTH)})`]);
+$("checks").innerHTML = checks.map(([ok, t]) => `<li class="${ok ? "ok" : "bad"}">${t}</li>`).join("");
+window.__checks = checks;
+
+update();
+view("iso");
+</script>
+</body>
+</html>
