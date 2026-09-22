@@ -485,6 +485,31 @@ function spaceStrokeEnds(strokes) {
   return out;
 }
 
+// Clipping leaves short stubs. A stroke also starts afresh at every width change, so a heavy
+// line is a run of ~0.5 mm pieces: judge whole chains (pieces of one source joined end to end)
+// and drop any chain shorter than MIN_CHAIN_W times its widest piece.
+const MIN_CHAIN_W = 2;
+function dropStubs(strokes) {
+  const parent = strokes.map((_, k) => k);
+  const find = (k) => (parent[k] === k ? k : (parent[k] = find(parent[k])));
+  const byEnd = new Map();
+  strokes.forEach(({ pts, source }, k) => {
+    for (const p of [pts[0], pts[pts.length - 1]]) {
+      const key = `${source}:${p[0]},${p[1]}`;
+      if (byEnd.has(key)) parent[find(k)] = find(byEnd.get(key));
+      else byEnd.set(key, k);
+    }
+  });
+  const chain = new Map();
+  strokes.forEach(({ pts, w }, k) => {
+    const c = chain.get(find(k)) || { len: 0, w: 0 };
+    for (let i = 1; i < pts.length; i++) c.len += Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]);
+    c.w = Math.max(c.w, w);
+    chain.set(find(k), c);
+  });
+  return strokes.filter((_, k) => { const c = chain.get(find(k)); return c.len >= MIN_CHAIN_W * c.w; });
+}
+
 // Building rect minus its windows: solid row bands, and within each window row
 // the strips between windows
 function buildingRects(b) {
@@ -526,27 +551,18 @@ function rectGap(a, b) {
   return [Math.max(b.x - (a.x + a.w), a.x - (b.x + b.w)), Math.max(b.y - (a.y + a.h), a.y - (b.y + b.h))];
 }
 // A cluster's annex square sits a fixed 4 mm off its building whatever the building's size, so it
-// can land a hair away from another building and etch as a sub-0.35 mm slit. Nudge each building
-// directly away from an earlier near miss until STROKE_GAP separates them; one that still conflicts
-// afterwards, or now reaches the pit, is dropped. Overlapping buildings stay merged as before.
-function spaceBuildings(bldgs) {
-  const kept = [];
-  const nearMiss = (b) => kept.find((k) => {
-    const [dx, dy] = rectGap(k, b);
-    return !(dx < 0 && dy < 0) && Math.hypot(Math.max(dx, 0), Math.max(dy, 0)) < STROKE_GAP - 1e-9;
-  });
-  for (const b of bldgs) {
-    const k = nearMiss(b);
-    if (!k) { kept.push(b); continue; }
-    // Move along the separating axis, or diagonally when they only face corner to corner
-    const [rx, ry] = rectGap(k, b), dx = Math.max(rx, 0), dy = Math.max(ry, 0), len = Math.hypot(dx, dy);
-    const [ax, ay] = len > 0 ? [dx, dy] : [+(rx >= 0), +(ry >= 0)], norm = Math.hypot(ax, ay);
-    const [ux, uy] = [ax / norm, ay / norm];
-    const sx = Math.sign(b.x + b.w / 2 - k.x - k.w / 2) || 1, sy = Math.sign(b.y + b.h / 2 - k.y - k.h / 2) || 1;
-    const moved = { ...b, x: b.x + sx * ux * (STROKE_GAP - len), y: b.y + sy * uy * (STROKE_GAP - len) };
-    if (!nearMiss(moved) && pitGap(moved) >= BUILDING_PIT_GAP) kept.push(moved);
-  }
-  return kept;
+// can land a hair away from another building and etch as a sub-0.35 mm slit. Two buildings must
+// touch/overlap or keep BUILDING_GAP apart; of a near pair the smaller one is dropped.
+const BUILDING_GAP = 0.4;
+function separateBuildings(bldgs) {
+  const near = (a, b) => {
+    const [dx, dy] = rectGap(a, b);
+    return !(dx < 0 && dy < 0) && Math.hypot(Math.max(dx, 0), Math.max(dy, 0)) < BUILDING_GAP - 1e-9;
+  };
+  const order = bldgs.map((_, k) => k).sort((p, q) => bldgs[q].w * bldgs[q].h - bldgs[p].w * bldgs[p].h || p - q);
+  const keep = new Set();
+  for (const k of order) if (![...keep].some((m) => near(bldgs[m], bldgs[k]))) keep.add(k);
+  return bldgs.filter((_, k) => keep.has(k));
 }
 
 // Top board Edge.Cuts outline, verbatim from panels/art-ufo-v2/ufo-panel.kicad_pcb (within 2 um of W x H)
@@ -594,11 +610,11 @@ function composeBoard(i, { pattern = 4, buildings = true } = {}) {
   const out = { strokes: [], dots: [], rects: [], rims: [] };
   if (i === 0) {
     const art = tracePattern(pattern);
-    const bldgs = buildings ? spaceBuildings(art.buildings.filter((b) => pitGap(b) >= BUILDING_PIT_GAP)) : [];
+    const bldgs = buildings ? separateBuildings(art.buildings.filter((b) => pitGap(b) >= BUILDING_PIT_GAP)) : [];
     const clearance = halos({ buildings: bldgs });
     const cleared = [];
     for (const s of art.strokes) clearStroke(s, clearance, cleared);
-    out.strokes.push(...spaceStrokeEnds(separateStrokes(cleared)));
+    out.strokes.push(...dropStubs(spaceStrokeEnds(separateStrokes(cleared))));
     for (const [x, y, r] of art.dots) if (clearance([x, y], [x, y]) >= r) out.dots.push({ x, y, r });
     for (const b of bldgs) out.rects.push(...buildingRects(b));
     // Rims straddle the cut: half of the stroke width is routed away
@@ -618,7 +634,7 @@ globalThis.StripMineGeometry = {
   LAYERS, PITCH, STACK_DEPTH, FACETS, OPENINGS, CENTER0, openings,
   rng, pointInPoly, distToPoly, bbox, noise2, pitDist, isolines, resample, fragment, wander,
   WAVES, org, levels, SITES, buildingCluster, strata, TOP_VARIANTS, tracePattern,
-  TOP_RIM, RIM, EDGE_BAND, LINE_MIN, BUILDING_PIT_GAP, pitGap, composeBoard,
+  TOP_RIM, RIM, EDGE_BAND, LINE_MIN, BUILDING_PIT_GAP, BUILDING_GAP, MIN_CHAIN_W, pitGap, composeBoard,
   TOP_OUTLINE, SLOT_PAD_CLEAR, slotPadDist, STROKE_GAP,
 };
 })();
