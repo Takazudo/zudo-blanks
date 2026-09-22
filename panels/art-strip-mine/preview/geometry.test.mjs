@@ -62,6 +62,26 @@ for (let x = 0; x < segs.length; x++) for (let y = x + 1; y < segs.length; y++) 
   assert.ok(segSeg(s.a, s.b, t.a, t.b) >= m - 1e-6, `strokes ${s.a} and ${t.a} closer than STROKE_GAP`);
 }
 
+// Free end caps of one source line overlap or keep STROKE_GAP apart; ends where two pieces meet
+// (a width change mid-line) are continuous copper and skipped
+const ends = top.strokes.flatMap(({ pts, w, source }, id) => [pts[0], pts[pts.length - 1]].map((p) => ({ p, w, source, id })));
+const joined = (e) => ends.filter((f) => f.source === e.source && f.p[0] === e.p[0] && f.p[1] === e.p[1]).length > 1;
+const free = ends.filter((e) => !joined(e));
+for (let x = 0; x < free.length; x++) for (let y = x + 1; y < free.length; y++) {
+  const a = free[x], b = free[y];
+  if (a.source !== b.source || a.id === b.id) continue;
+  const gap = Math.hypot(a.p[0] - b.p[0], a.p[1] - b.p[1]) - (a.w + b.w) / 2;
+  assert.ok(gap <= 0 || gap >= G.STROKE_GAP - 1e-6, `stroke ends at ${a.p} and ${b.p} ${gap.toFixed(3)} mm apart`);
+}
+
+// Strips either touch (same or merged building) or keep STROKE_GAP apart: no etched slits
+for (let x = 0; x < top.rects.length; x++) for (let y = x + 1; y < top.rects.length; y++) {
+  const a = top.rects[x], b = top.rects[y];
+  const dx = Math.max(b.x - (a.x + a.w), a.x - (b.x + b.w)), dy = Math.max(b.y - (a.y + a.h), a.y - (b.y + b.h));
+  const gap = Math.hypot(Math.max(dx, 0), Math.max(dy, 0));
+  assert.ok(gap < 1e-6 || gap >= G.STROKE_GAP - 1e-6, `building strips at ${[a.x, a.y]} and ${[b.x, b.y]} ${gap.toFixed(3)} mm apart`);
+}
+
 // Building strips never cover a window
 const art = G.tracePattern(4);
 for (const b of art.buildings) {
