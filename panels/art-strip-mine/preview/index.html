@@ -197,7 +197,12 @@ function artwork(i, { pattern = 4, buildings = true, px = PX } = {}) {
     }
     for (const { x, y, r } of art.dots) { ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fill(); }
     for (const { x, y, w, h } of art.rects) ctx.fillRect(x, y, w, h);
-    for (const { pts, w } of art.rims) { ctx.lineWidth = w; polyPath(ctx, pts); ctx.stroke(); }
+    for (const { pts, w, closed } of art.rims) {
+      ctx.lineWidth = w; ctx.beginPath();
+      pts.forEach(([x, y], k) => (k ? ctx.lineTo(x, y) : ctx.moveTo(x, y)));
+      if (closed) ctx.closePath();
+      ctx.stroke();
+    }
     if (i === 0) for (const [x, y] of SLOTS) { stadiumPath(ctx, x, y, ...SLOT_PAD); ctx.fill(); }
     // Annular M3 pad; the hole itself is cut from the board geometry
     for (const [x, y] of SCREWS) {

@@ -15,7 +15,20 @@ assert.equal(G.SCREW_PAD, 6);
 const top = G.composeBoard(0, { pattern: 4 });
 assert.ok(top.strokes.length > 0, "board 0 has strokes");
 assert.ok(top.rects.length > 0, "board 0 has building strips");
-assert.deepEqual(top.rims.map((r) => [r.w, r.closed]), [[2 * G.TOP_RIM, true], [2 * G.EDGE_BAND, true]]);
+assert.deepEqual([top.rims[0].w, top.rims[0].closed], [2 * G.TOP_RIM, true]);
+// Edge band: open pieces along the UFO outline, broken around the four rail slot pads
+const band = top.rims.slice(1);
+assert.equal(band.length, 4, "edge band breaks once per slot");
+for (const { pts, w, closed } of band) {
+  assert.deepEqual([w, closed], [2 * G.EDGE_BAND, false]);
+  for (let k = 1; k < pts.length; k++) {
+    for (let s = 0; s <= 50; s++) {
+      const p = [pts[k - 1][0] + (pts[k][0] - pts[k - 1][0]) * s / 50, pts[k - 1][1] + (pts[k][1] - pts[k - 1][1]) * s / 50];
+      assert.ok(G.slotPadDist(p) >= w / 2 + G.SLOT_PAD_CLEAR - 1e-5, `edge band at ${p} too close to a slot pad`);
+      assert.ok(G.distToPoly(p, G.TOP_OUTLINE) < EPS, `edge band at ${p} leaves the outline`);
+    }
+  }
+}
 
 // Stroke points keep w/2 clear of the screw discs and slot stadium halos
 const segDist = ([ax, ay], [bx, by], [px, py]) => {
@@ -36,6 +49,18 @@ for (const { pts, w } of top.strokes) {
 }
 
 assert.ok(top.rects.every((r) => G.pitGap(r) >= G.BUILDING_PIT_GAP), "building strips clear of the pit");
+
+// Strokes from different source lines keep STROKE_GAP between their copper edges (brute force)
+const segs = top.strokes.flatMap(({ pts, w, source }) => pts.slice(1).map((b, k) => {
+  const a = pts[k];
+  return { a, b, w, source, box: [Math.min(a[0], b[0]), Math.min(a[1], b[1]), Math.max(a[0], b[0]), Math.max(a[1], b[1])] };
+}));
+const segSeg = (p, q, r, s) => Math.min(segDist(r, s, p), segDist(r, s, q), segDist(p, q, r), segDist(p, q, s));
+for (let x = 0; x < segs.length; x++) for (let y = x + 1; y < segs.length; y++) {
+  const s = segs[x], t = segs[y], m = (s.w + t.w) / 2 + G.STROKE_GAP;
+  if (s.source === t.source || t.box[0] - s.box[2] > m || s.box[0] - t.box[2] > m || t.box[1] - s.box[3] > m || s.box[1] - t.box[3] > m) continue;
+  assert.ok(segSeg(s.a, s.b, t.a, t.b) >= m - 1e-6, `strokes ${s.a} and ${t.a} closer than STROKE_GAP`);
+}
 
 // Building strips never cover a window
 const art = G.tracePattern(4);
