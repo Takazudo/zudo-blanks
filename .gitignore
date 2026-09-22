@@ -66,3 +66,7 @@ _autosave-*
 # Panel project local history and zips
 panels/*/.history/
 panels/*/*.zip
+# Nested panel project dirs (e.g. panels/art-strip-mine/pcb-NN-*/) and their gerber exports
+panels/**/.history/
+panels/**/*.zip
+panels/art-strip-mine/**/gerber/
