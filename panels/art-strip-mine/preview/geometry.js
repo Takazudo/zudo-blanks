@@ -294,7 +294,7 @@ function tracePattern(index) {
   const variant = TOP_VARIANTS[index];
   const n = noise2(variant.seed), r = rng(variant.seed * 31);
   const strokes = [], dots = [];
-  let minGap = Infinity, result_dbg;
+  let minGap = Infinity, result_dbg, source = 0; // source: id of the isoline or walk a stroke was cut from
   const emit = (line, { width = [0.3, 0.5], mode = "solid", taper = false, mix = false } = {}) => {
     if (line.length < 4) return;
     const pts = resample(line, 0.5);
@@ -310,7 +310,7 @@ function tracePattern(index) {
     }
     let on = true, run = 0, onLen = 2 + r() * 4, offLen = 1 + r() * 1.5;
     const chunkPts = [];
-    const flush = () => { if (chunkPts.length > 1) strokes.push({ pts: chunkPts.slice(), w: chunkPts.w }); chunkPts.length = 0; };
+    const flush = () => { if (chunkPts.length > 1) strokes.push({ pts: chunkPts.slice(), w: chunkPts.w, source }); chunkPts.length = 0; };
     for (let i = 0; i < pts.length; i++) {
       const s = i * 0.5;
       let w = w0 * (0.8 + 0.4 * (n(pts[i][0] * 3, pts[i][1] * 3, 8) + 0.5));
@@ -339,9 +339,10 @@ function tracePattern(index) {
     const steps = layer.levels.slice(1).map((v, i) => v - layer.levels[i]).filter((s) => s > 0);
     if (steps.length) (result_dbg ??= []).push([Math.min(...steps).toFixed(2), maxGrad.toFixed(2)]);
     if (steps.length) minGap = Math.min(minGap, Math.min(...steps) / maxGrad - (Array.isArray(layer.width) ? layer.width[1] : layer.width));
-    for (const line of lines) for (const part of layer.frag ? fragment(line, r, layer.frag) : [line]) emit(part, layer);
+    for (const line of lines) { source++; for (const part of layer.frag ? fragment(line, r, layer.frag) : [line]) emit(part, layer); }
   }
   for (const walk of variant.walks ? variant.walks(n, r) : []) {
+    source++;
     emit(walk.line, { width: walk.width, mode: walk.mode || "solid", taper: walk.taper });
     if (walk.pad && walk.line.length > 10) { const p = walk.line[walk.line.length - 1]; dots.push([p[0], p[1], 0.9]); }
   }
@@ -406,15 +407,56 @@ function halos({ buildings }) {
 }
 
 // Split a polyline wherever a vertex or segment comes within w/2 of a halo
-function clearStroke({ pts, w }, clearance, out) {
+function clearStroke(stroke, clearance, out) {
+  const { pts, w } = stroke;
   let piece = [];
-  const flush = () => { if (piece.length >= 2) out.push({ pts: piece, w }); piece = []; };
+  const flush = () => { if (piece.length >= 2) out.push({ ...stroke, pts: piece }); piece = []; };
   for (let k = 0; k < pts.length; k++) {
     if (clearance(pts[k], pts[k]) < w / 2) { flush(); continue; }
     if (piece.length && clearance(piece[piece.length - 1], pts[k]) < w / 2) flush();
     piece.push(pts[k]);
   }
   flush();
+}
+
+// Strokes from different source lines (fine vs accent levels of the same field) can run
+// nearly tangent, leaving a sub-0.1 mm gap or a copper sliver. Wider strokes win: each
+// thinner stroke is split wherever it comes within STROKE_GAP of a wider one from another line.
+const STROKE_GAP = 0.4, CELL = 2;
+function separateStrokes(strokes) {
+  const order = strokes.map((_, k) => k).sort((a, b) => strokes[b].w - strokes[a].w || a - b);
+  const grid = new Map(), kept = strokes.map(() => []);
+  const cells = (x0, y0, x1, y1, fn) => {
+    for (let i = Math.floor(x0 / CELL); i <= Math.floor(x1 / CELL); i++) for (let j = Math.floor(y0 / CELL); j <= Math.floor(y1 / CELL); j++) fn(`${i},${j}`);
+  };
+  let reach = 0; // widest accepted stroke so far, bounds the grid query
+  for (const k of order) {
+    const s = strokes[k];
+    const clearance = (a, b) => {
+      const m = s.w / 2 + STROKE_GAP + reach / 2, seen = new Set();
+      let best = Infinity;
+      cells(Math.min(a[0], b[0]) - m, Math.min(a[1], b[1]) - m, Math.max(a[0], b[0]) + m, Math.max(a[1], b[1]) + m, (c) => {
+        for (const seg of grid.get(c) || []) {
+          if (seen.has(seg) || seg.source === s.source) continue;
+          seen.add(seg);
+          best = Math.min(best, segSegDist(a, b, seg.a, seg.b) - seg.w / 2 - STROKE_GAP);
+        }
+      });
+      return best;
+    };
+    clearStroke(s, clearance, kept[k]);
+    for (const { pts, w, source } of kept[k]) {
+      reach = Math.max(reach, w);
+      for (let p = 1; p < pts.length; p++) {
+        const seg = { a: pts[p - 1], b: pts[p], w, source };
+        cells(Math.min(seg.a[0], seg.b[0]), Math.min(seg.a[1], seg.b[1]), Math.max(seg.a[0], seg.b[0]), Math.max(seg.a[1], seg.b[1]), (c) => {
+          if (!grid.has(c)) grid.set(c, []);
+          grid.get(c).push(seg);
+        });
+      }
+    }
+  }
+  return kept.flat();
 }
 
 // Building rect minus its windows: solid row bands, and within each window row
@@ -453,7 +495,44 @@ function pitGap({ x, y, w, h }) {
 // Buildings closer than this would fuse into the pit rim or be routed away with the cut
 const BUILDING_PIT_GAP = 2;
 
-const OUTLINE = [[0, 0], [W, 0], [W, H], [0, H]];
+// Top board Edge.Cuts outline, verbatim from panels/art-ufo-v2/ufo-panel.kicad_pcb (within 2 um of W x H)
+const TOP_OUTLINE = [[101.298286, 128.498474], [0, 128.498474], [0, 0.001518], [101.298286, 0.001518]];
+
+// The rail slot pads reach 0.87 mm in from the edge, inside the edge band, so the band
+// breaks around each pad with this much copper clearance (KiCad default 0.2 + margin).
+const SLOT_PAD_CLEAR = 0.3;
+function slotPadDist(p) {
+  const hl = (SLOT_PAD[0] - SLOT_PAD[1]) / 2;
+  return Math.min(...SLOTS.map(([x, y]) => segPointDist([x - hl, y], [x + hl, y], p))) - SLOT_PAD[1] / 2;
+}
+// Open polylines along `outline` where a stroke of width w keeps SLOT_PAD_CLEAR off every slot pad
+function bandPieces(outline, w) {
+  const ok = (p) => slotPadDist(p) >= w / 2 + SLOT_PAD_CLEAR;
+  const at = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
+  // Boundary between a kept and a dropped parameter, bisected to 1 um on a 100 mm edge
+  const edgeT = (a, b, lo, hi) => {
+    for (let k = 0; k < 20; k++) { const m = (lo + hi) / 2; if (ok(at(a, b, m)) === ok(at(a, b, lo))) lo = m; else hi = m; }
+    return ok(at(a, b, lo)) ? lo : hi;
+  };
+  if (!ok(outline[0])) throw new Error("bandPieces: outline must start at a kept vertex");
+  const pieces = [];
+  let cur = [outline[0]];
+  for (let k = 0; k < outline.length; k++) {
+    const a = outline[k], b = outline[(k + 1) % outline.length];
+    const n = Math.ceil(Math.hypot(b[0] - a[0], b[1] - a[1]) / 0.1);
+    for (let s = 1; s <= n; s++) {
+      const t0 = (s - 1) / n, t1 = s / n, k0 = ok(at(a, b, t0)), k1 = ok(at(a, b, t1));
+      if (k0 && !k1) { cur.push(at(a, b, edgeT(a, b, t0, t1))); pieces.push(cur); cur = null; }
+      else if (!k0 && k1) cur = [at(a, b, edgeT(a, b, t1, t0))];
+    }
+    if (cur) cur.push(b);
+  }
+  // The walk ends back at outline[0]; join that tail onto the first piece
+  if (cur && pieces.length) pieces[0] = [...cur.slice(0, -1), ...pieces[0]];
+  else if (cur) return [{ pts: outline, w, closed: true }];
+  return pieces.map((pts) => ({ pts, w, closed: false }));
+}
+
 const composed = new Map();
 function composeBoard(i, { pattern = 4, buildings = true } = {}) {
   const key = `${i}:${pattern}:${buildings}`;
@@ -463,12 +542,14 @@ function composeBoard(i, { pattern = 4, buildings = true } = {}) {
     const art = tracePattern(pattern);
     const bldgs = buildings ? art.buildings.filter((b) => pitGap(b) >= BUILDING_PIT_GAP) : [];
     const clearance = halos({ buildings: bldgs });
-    for (const s of art.strokes) clearStroke(s, clearance, out.strokes);
+    const cleared = [];
+    for (const s of art.strokes) clearStroke(s, clearance, cleared);
+    out.strokes.push(...separateStrokes(cleared));
     for (const [x, y, r] of art.dots) if (clearance([x, y], [x, y]) >= r) out.dots.push({ x, y, r });
     for (const b of bldgs) out.rects.push(...buildingRects(b));
     // Rims straddle the cut: half of the stroke width is routed away
     out.rims.push({ pts: openings[0], w: 2 * TOP_RIM, closed: true });
-    out.rims.push({ pts: OUTLINE, w: 2 * EDGE_BAND, closed: true });
+    out.rims.push(...bandPieces(TOP_OUTLINE, 2 * EDGE_BAND));
   } else if (i < OPENINGS) {
     out.rims.push({ pts: openings[i], w: 2 * RIM, closed: true });
   }
@@ -484,5 +565,6 @@ globalThis.StripMineGeometry = {
   rng, pointInPoly, distToPoly, bbox, noise2, pitDist, isolines, resample, fragment, wander,
   WAVES, org, levels, SITES, buildingCluster, strata, TOP_VARIANTS, tracePattern,
   TOP_RIM, RIM, EDGE_BAND, LINE_MIN, BUILDING_PIT_GAP, pitGap, composeBoard,
+  TOP_OUTLINE, SLOT_PAD_CLEAR, slotPadDist, STROKE_GAP,
 };
 })();
