@@ -92,319 +92,55 @@
 		(layer "Edge.Cuts")
 		(uuid "efa70409-1179-5784-b3b5-4693d585fc91")
 	)
-	(footprint "Takazudo:stack-M3-screw-hole-pad6"
+	(footprint "Takazudo:stack-M3-NPTH"
 		(layer "F.Cu")
 		(uuid "f98460b4-837f-5fd1-aa3d-856a6e4c0cd4")
 		(at 6.5 23.6)
-		(property "Reference" "REF**"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.SilkS")
-			(hide yes)
-			(uuid "4fb8b70d-a4fb-5f19-b292-9bca046466aa")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.1)
-				)
-			)
-		)
-		(property "Value" "stack-M3-screw-hole-pad6"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "527834a6-9ed6-5a05-8289-7dd9392aad5b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Footprint" "Takazudo:stack-M3-screw-hole-pad6"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "a721e4b0-078c-5146-91d4-d745a1b0aa0e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "54ed2e9c-4784-56eb-a24f-f3e78b256000")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "6441d8ac-01d7-5b20-a202-ea4a5c97a88b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(attr through_hole)
-		(pad "1" thru_hole circle
+		(attr exclude_from_pos_files exclude_from_bom)
+		(pad "" np_thru_hole circle
 			(at 0 0)
-			(size 6 6)
+			(size 3.2 3.2)
 			(drill 3.2)
 			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
 			(uuid "aecb4e28-6ba2-5247-a5fa-17b2a76032ac")
 		)
 	)
-	(footprint "Takazudo:stack-M3-screw-hole-pad6"
+	(footprint "Takazudo:stack-M3-NPTH"
 		(layer "F.Cu")
 		(uuid "291ac565-ee5e-5c85-9c94-b5c7308981b7")
 		(at 94.8 23.6)
-		(property "Reference" "REF**"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.SilkS")
-			(hide yes)
-			(uuid "ec248b9b-16d5-5ad1-a9be-89dc2bcdc6bc")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.1)
-				)
-			)
-		)
-		(property "Value" "stack-M3-screw-hole-pad6"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "f97f3588-47ba-56b6-8e90-4d4395818518")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Footprint" "Takazudo:stack-M3-screw-hole-pad6"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "4978744e-11f8-54d1-905e-4826d6872e8e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "bd962735-01fc-561e-9393-da80ae210bf4")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "a3d124db-a022-5313-96a8-ab131165d4e7")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(attr through_hole)
-		(pad "1" thru_hole circle
+		(attr exclude_from_pos_files exclude_from_bom)
+		(pad "" np_thru_hole circle
 			(at 0 0)
-			(size 6 6)
+			(size 3.2 3.2)
 			(drill 3.2)
 			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
 			(uuid "bd3a0cfd-2fca-5b9c-84ac-fcd4a4d98e17")
 		)
 	)
-	(footprint "Takazudo:stack-M3-screw-hole-pad6"
+	(footprint "Takazudo:stack-M3-NPTH"
 		(layer "F.Cu")
 		(uuid "d0c734e1-9b85-5ca4-8b5d-0aa529fe3ff0")
 		(at 6.5 104.9)
-		(property "Reference" "REF**"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.SilkS")
-			(hide yes)
-			(uuid "e0e21724-0908-53a8-83b7-a217eea2ad7c")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.1)
-				)
-			)
-		)
-		(property "Value" "stack-M3-screw-hole-pad6"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "5bf24489-5742-56df-a759-2e7dcf0bcfa4")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Footprint" "Takazudo:stack-M3-screw-hole-pad6"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "c96316c7-d2ed-5f75-974f-0b0feeeca70d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "22cc9a39-6314-5233-83e3-fde28556a5da")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "c8a704a2-6907-54b4-9ef3-823fbc9de1ea")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(attr through_hole)
-		(pad "1" thru_hole circle
+		(attr exclude_from_pos_files exclude_from_bom)
+		(pad "" np_thru_hole circle
 			(at 0 0)
-			(size 6 6)
+			(size 3.2 3.2)
 			(drill 3.2)
 			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
 			(uuid "e2f311c7-b6aa-5c8f-a667-346f22250f66")
 		)
 	)
-	(footprint "Takazudo:stack-M3-screw-hole-pad6"
+	(footprint "Takazudo:stack-M3-NPTH"
 		(layer "F.Cu")
 		(uuid "7d7cfc6b-617f-556a-b45d-56d63b6e007c")
 		(at 94.8 104.9)
-		(property "Reference" "REF**"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.SilkS")
-			(hide yes)
-			(uuid "aa8e5c3f-d7c4-59fc-8ebe-73f0cf9cae34")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.1)
-				)
-			)
-		)
-		(property "Value" "stack-M3-screw-hole-pad6"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "7efab506-e8bd-5489-a043-049f886d6bf4")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Footprint" "Takazudo:stack-M3-screw-hole-pad6"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "4564847f-314f-5c14-a05b-3651d20e20fd")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "9cfcd8cf-55b0-5f88-a031-572a1dfe321d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "1cda890d-a48d-59fb-9f57-f5d7be223263")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(attr through_hole)
-		(pad "1" thru_hole circle
+		(attr exclude_from_pos_files exclude_from_bom)
+		(pad "" np_thru_hole circle
 			(at 0 0)
-			(size 6 6)
+			(size 3.2 3.2)
 			(drill 3.2)
 			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
 			(uuid "c171e783-4782-5afc-a960-a03644be624e")
 		)
 	)

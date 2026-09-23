@@ -2,10 +2,10 @@
 // the shared preview geometry. Usage: node panels/art-strip-mine/scripts/build-pcbs.mjs
 // All boards share the top board's frame: KiCad origin top-left, +y down, same as the preview.
 
-import { mkdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import "../preview/geometry.js";
-import { assertUniqueUuids, board, circle, line, num, outline, project, rect, screwFootprint, slotFootprint } from "./kicad-emit.mjs";
+import { assertUniqueUuids, bareHoleFootprint, board, circle, line, num, outline, project, rect, screwFootprint, slotFootprint } from "./kicad-emit.mjs";
 
 const G = globalThis.StripMineGeometry;
 
@@ -62,7 +62,7 @@ function buildBoard(i) {
   if (i === 0) {
     UFO_SLOTS.forEach(({ at, ...opts }, s) => { items.push(slotFootprint(at[0], at[1], `${name}:F.Cu:slot:${s}`, opts)); count.footprint++; });
   }
-  G.SCREWS.forEach(([x, y], s) => { items.push(screwFootprint(x, y, `${name}:F.Cu:screw:${s}`)); count.footprint++; });
+  G.SCREWS.forEach(([x, y], s) => { items.push((i === 8 ? bareHoleFootprint : screwFootprint)(x, y, `${name}:F.Cu:screw:${s}`)); count.footprint++; });
 
   const pcb = board({ items });
   assertUniqueUuids(pcb, `${name}.kicad_pcb`);
@@ -76,6 +76,6 @@ for (let i = 0; i < G.LAYERS.length; i++) {
   const out = fileURLToPath(new URL(`${dir}/`, PANEL_DIR));
   mkdirSync(out, { recursive: true });
   writeFileSync(`${out}${name}.kicad_pcb`, pcb);
-  writeFileSync(`${out}${name}.kicad_pro`, project(name));
+  if (!existsSync(`${out}${name}.kicad_pro`)) writeFileSync(`${out}${name}.kicad_pro`, project(name));
   console.log(summary);
 }

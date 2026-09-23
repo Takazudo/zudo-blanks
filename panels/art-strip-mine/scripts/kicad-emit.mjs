@@ -166,6 +166,13 @@ export function screwFootprint(x, y, key) {
   );
 }
 
+// Copper-free mechanical hole for the blue lake board.
+export function bareHoleFootprint(x, y, key) {
+  return footprint("Takazudo:stack-M3-NPTH", x, y, key, [], "exclude_from_pos_files exclude_from_bom",
+    ['(pad "" np_thru_hole circle', "\t(at 0 0)", "\t(size 3.2 3.2)",
+     "\t(drill 3.2)", '\t(layers "*.Cu" "*.Mask")']);
+}
+
 // Header blocks copied verbatim from panels/art-ufo-v2/ufo-panel.kicad_pcb.
 const HEADER = `(kicad_pcb
 	(version 20240108)

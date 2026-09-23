@@ -1,0 +1,7 @@
+strip-mine-red-panel: 202.6 x 188.6 mm, 1.6 mm FR-4, 2 layers, 1 oz, red mask, ENIG.
+Panel by customer; 4 DIFFERENT designs. One panel makes one stack's red lower boards.
+V-SCORE ALL lines in the separate User_Drawings Gerber (KiCad Dwgs.User layer). These are NOT routed slots or silkscreen.
+Route the outside perimeter and all inner pit contours from Edge_Cuts. No silkscreen.
+Copper intentionally reaches the routed pit edges. Confirm this and V-score acceptance with CAM before manufacture.
+Preserve finished sub-board dimensions 101.3 x 94.3 mm and all hole positions.
+Panel contains no top board and no blue bottom board.

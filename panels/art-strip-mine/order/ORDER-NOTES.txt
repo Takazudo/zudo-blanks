@@ -1,0 +1,34 @@
+STRIP MINE — FOUR SEPARATE ORDER ITEMS
+
+All: FR-4, 1.6 mm, 2 layers, no silkscreen; 1 oz for copper-bearing boards.
+Order equal quantities of all four items. Five of each makes five complete
+nine-board stacks. Each combined panel yields one of each included board.
+
+01-top-black-ENIG.zip
+  Board 01: black mask, ENIG; single PCB, clean routed perimeter.
+  Approximately 101.3 x 128.5 mm.
+
+02-lower-black-ENIG-panel.zip
+  Boards 03/05/07: black mask, ENIG.
+  Panel by customer; 3 different designs; 303.9 x 94.3 mm.
+
+03-lower-red-ENIG-panel.zip
+  Boards 02/04/06/08: red mask, ENIG.
+  Panel by customer; 4 different designs; 202.6 x 188.6 mm.
+
+04-bottom-blue-NO-ENIG.zip
+  Board 09: blue mask, NO ENIG; single PCB; 101.3 x 94.3 mm.
+  No copper on either side, four unplated 3.2 mm holes.
+  If a finish selection is mandatory, choose a standard non-ENIG option
+  such as lead-free HASL. Ask CAM to preserve the copper-free blue board.
+
+Upload each ZIP as a separate item. Do not also order individual 02–08.
+Combined-panel ZIPs include FABRICATION.txt.
+User_Drawings.gbr specifies full-span V-SCORE lines, NOT milling or silk.
+Edge_Cuts specifies the routed perimeter and clean inner pit openings.
+Confirm V-scoring and intentional copper at routed pit edges with CAM.
+Panelization savings still require a quote.
+
+New combined panels and blue board pass DRC/geometry checks.
+Existing top-board intentional pad/frame clearance violations and
+individual board-08 settings mismatch remain documented.

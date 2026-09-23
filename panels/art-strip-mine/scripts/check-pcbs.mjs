@@ -136,7 +136,9 @@ try {
       }
     });
     check(`${b.name} drills: 4 x round Ø${HOLE} at the screw positions${i === 0 ? `, 4 slots ${SLOT_WIDTH} x ${SLOT_LEN}` : ", no slots"}`, () => {
-      const drl = parseDrill(text(".drl"));
+      const drillFiles = files.filter((f) => f.endsWith(".drl"));
+      const parsed = drillFiles.map((f) => parseDrill(readFileSync(join(out, f), "utf8")));
+      const drl = { holes: parsed.flatMap((d) => d.holes), slots: parsed.flatMap((d) => d.slots) };
       expect(drl.holes.length === 4 && drl.holes.every((h) => h.dia === HOLE), `holes ${drl.holes.map((h) => h.dia)}`);
       for (const s of G.SCREWS) expect(drl.holes.some((h) => samePt(gerberPt(h.at), s.map((v) => +v.toFixed(4)))), `no hole at ${s}`);
       const slots = drl.slots.map((s) => ({ dia: s.dia, len: Math.hypot(s.to[0] - s.from[0], s.to[1] - s.from[1]) + s.dia }));
@@ -152,9 +154,20 @@ try {
     });
   }
 
+  const blue = boards[8];
+  check("blue board has no copper on either side and four NPTH holes", () => {
+    const out = join(PANEL_DIR, blue.dir, "gerber");
+    for (const ext of ["F_Cu.gtl", "B_Cu.gbl"]) {
+      const g = parseGerber(readFileSync(join(out, blue.name + "-" + ext), "utf8"));
+      expect(g.draws.length + g.flashes.length + g.regions.length === 0, ext + " contains copper");
+    }
+    expect((blue.pcb.match(/np_thru_hole/g) || []).length === 4, "expected four NPTH holes");
+    expect(!/\(pad "[^"]*" thru_hole/.test(blue.pcb), "unexpected plated hole");
+  });
+
   // --- 3. Output-level copper gap and width -----------------------------------------------------
   console.log(`\n## 3. F.Cu copper gap/width (kicad-cli SVG rasterised by ${PYTHON})`);
-  const svgs = boards.map((b) => {
+  const svgs = boards.slice(0, 8).map((b) => {
     const svg = join(tmp, `${b.name}-F_Cu.svg`);
     const r = kicad(["pcb", "export", "svg", "--layers", "F.Cu", "--exclude-drawing-sheet", "--black-and-white", "--mode-single", "-o", svg, b.pcbPath]);
     if (r.status !== 0) throw new Error(`svg export ${b.name}: ${r.stderr}`);
@@ -221,7 +234,7 @@ try {
     return dirs.join(" > ");
   });
   check("4 screw pads at identical coordinates on every board (= geometry.js SCREWS)", () => {
-    const screwsOf = (b) => footprints(b.pcb).filter((f) => f.includes('"Takazudo:stack-M3-screw-hole-pad6"')).map(footprintAt);
+    const screwsOf = (b) => footprints(b.pcb).filter((f) => (f.includes('"Takazudo:stack-M3-screw-hole-pad6"') || f.includes('"Takazudo:stack-M3-NPTH"'))).map(footprintAt);
     const want = G.SCREWS;
     for (const b of boards) {
       const got = screwsOf(b);

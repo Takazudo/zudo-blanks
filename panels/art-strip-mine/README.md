@@ -4,7 +4,7 @@ A decorative 20HP Eurorack blank made from nine stacked PCBs. The top board carr
 contour-line artwork with small building clusters around an open-pit mine. Each board below has
 a smaller faceted cutout, so looking into the pit you see the terraces step down through
 alternating black and red boards to a blue "lake" at the bottom. There are no electronics. Every
-board is plain FR-4 with exposed copper artwork and M3 stack holes.
+board is FR-4 with M3 stack holes. Boards 01–08 carry exposed copper; blue board 09 is copper-free.
 
 - Epic: https://github.com/Takazudo/zudo-blanks/issues/2
 - Interactive preview: [`preview/index.html`](preview/index.html). Open it directly over
@@ -49,10 +49,13 @@ to engage a standard 2.4 mm nut fully, so don't use it with a standard nut.
 Order each of the nine boards as its own design, using the files in `pcb-NN-*/gerber/`:
 
 - Base material FR-4, 2 layers, **1.6 mm**, 1 oz outer copper
-- Surface finish **ENIG** (the exposed copper artwork is the visible gold)
+- Boards 01–08: **ENIG** (the exposed copper artwork is the visible gold).
+- Board 09: **no ENIG**, no copper on either side, four unplated Ø3.2 mm holes.
+  Choose the vendor’s non-ENIG standard option (e.g. lead-free HASL if a finish is mandatory);
+  there are no copper pads to finish. Ask CAM to retain the copper-free blue-mask design.
 - Solder mask colour per board: black for 01/03/05/07, red for 02/04/06/08, blue for 09
 - **No silkscreen** (the silkscreen gerbers are empty)
-- Board 1 has four plated 3.2 × 10.28 mm slots. Every board has four Ø3.2 mm plated holes.
+- Board 1 has four plated 3.2 × 10.28 mm slots. Boards 01–08 have four Ø3.2 mm plated holes; board 09 has four unplated holes.
 
 Copper reaches the routed edge on purpose (edge band and pit rims), same as art-ufo-v2 which was
 produced this way. Board 1’s outer copper and mask band is continuous across all four
@@ -105,3 +108,37 @@ STRIP_MINE_PYTHON=/tmp/strip-mine-venv/bin/python node panels/art-strip-mine/scr
 `KICAD_CLI` overrides the kicad-cli path (default: the macOS KiCad.app bundle). Unit tests for the
 shared code: `node panels/art-strip-mine/preview/geometry.test.mjs` and
 `node panels/art-strip-mine/scripts/emit.test.mjs`.
+
+## Combined lower-board panels
+
+The board dimensions and screw positions are unchanged. Keep top board 01 separate for its
+clean outer edge, and blue board 09 separate to avoid ENIG. Alternative quote packages:
+
+| Package | Contents per panel | Size | Finish |
+| --- | --- | --- | --- |
+| panel-black | 03, 05, 07, left to right | 303.9 × 94.3 mm | ENIG, black |
+| panel-red | 02, 04 top row; 06, 08 bottom row | 202.6 × 188.6 mm | ENIG, red |
+| pcb-09-blue | 09 | 101.3 × 94.3 mm | No ENIG, blue |
+
+Use **Panel by customer**, declaring **3 different designs** for black and **4** for red.
+Each panel produces one stack's boards of that colour. Do not also order the individual
+lower boards unless intentionally buying extras. Panelization savings are not confirmed;
+compare quotes including the different-design fees.
+
+The separate **User_Drawings.gbr** contains full-span V-score lines, not milling or
+silkscreen. Edge_Cuts contains only the panel perimeter and routed pit openings.
+Break only the scored outer seams; the visible pit edges stay routed. The ZIP includes
+FABRICATION.txt with these instructions. CAM must confirm scoring and the intentional
+copper at routed pit edges before manufacture. Reference:
+https://jlcpcb.com/help/article/pcb-panelization
+
+Regenerate panel sources, export both panels and the blue board, then verify:
+```sh
+node panels/art-strip-mine/scripts/build-panels.mjs
+python3 panels/art-strip-mine/scripts/export-panels.py
+node panels/art-strip-mine/scripts/panels.test.mjs
+```
+
+Each output directory contains its own `*-gerbers.zip` (local, gitignored). The original
+individual board sources remain available. The interactive stack preview also shows
+board 09 without gold mounting pads.
