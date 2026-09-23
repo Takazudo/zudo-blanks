@@ -55,7 +55,9 @@ Order each of the nine boards as its own design, using the files in `pcb-NN-*/ge
 - Board 1 has four plated 3.2 × 10.28 mm slots. Every board has four Ø3.2 mm plated holes.
 
 Copper reaches the routed edge on purpose (edge band and pit rims), same as art-ufo-v2 which was
-produced this way.
+produced this way. Board 1’s outer copper and mask band is continuous across all four
+rail slots and intentionally overlaps their pads, forming one exposed frame. KiCad reports
+four clearance violations at these intentional no-net pad/frame joins.
 
 ## Regenerate and check
 

@@ -16,18 +16,12 @@ const top = G.composeBoard(0, { pattern: 4 });
 assert.ok(top.strokes.length > 0, "board 0 has strokes");
 assert.ok(top.rects.length > 0, "board 0 has building strips");
 assert.deepEqual([top.rims[0].w, top.rims[0].closed], [2 * G.TOP_RIM, true]);
-// Edge band: open pieces along the UFO outline, broken around the four rail slot pads
-const band = top.rims.slice(1);
-assert.equal(band.length, 4, "edge band breaks once per slot");
-for (const { pts, w, closed } of band) {
-  assert.deepEqual([w, closed], [2 * G.EDGE_BAND, false]);
-  for (let k = 1; k < pts.length; k++) {
-    for (let s = 0; s <= 50; s++) {
-      const p = [pts[k - 1][0] + (pts[k][0] - pts[k - 1][0]) * s / 50, pts[k - 1][1] + (pts[k][1] - pts[k - 1][1]) * s / 50];
-      assert.ok(G.slotPadDist(p) >= w / 2 + G.SLOT_PAD_CLEAR - 1e-5, `edge band at ${p} too close to a slot pad`);
-      assert.ok(G.distToPoly(p, G.TOP_OUTLINE) < EPS, `edge band at ${p} leaves the outline`);
-    }
-  }
+// The outer frame is closed and overlaps every rail slot pad.
+assert.deepEqual(top.rims.slice(1), [{ pts: G.TOP_OUTLINE, w: 2 * G.EDGE_BAND, closed: true }]);
+for (const [x, y] of G.SLOTS) {
+  const edgeY = y < G.H / 2 ? G.TOP_OUTLINE[2][1] : G.TOP_OUTLINE[0][1];
+  assert.ok(Math.abs(y - edgeY) - G.SLOT_PAD[1] / 2 < G.EDGE_BAND,
+    `frame must overlap slot pad at ${x},${y}`);
 }
 
 // Stroke points keep w/2 clear of the screw discs and slot stadium halos

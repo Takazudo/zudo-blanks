@@ -568,41 +568,6 @@ function separateBuildings(bldgs) {
 // Top board Edge.Cuts outline, verbatim from panels/art-ufo-v2/ufo-panel.kicad_pcb (within 2 um of W x H)
 const TOP_OUTLINE = [[101.298286, 128.498474], [0, 128.498474], [0, 0.001518], [101.298286, 0.001518]];
 
-// The rail slot pads reach 0.87 mm in from the edge, inside the edge band, so the band
-// breaks around each pad with the same copper clearance as between strokes.
-const SLOT_PAD_CLEAR = STROKE_GAP;
-function slotPadDist(p) {
-  const hl = (SLOT_PAD[0] - SLOT_PAD[1]) / 2;
-  return Math.min(...SLOTS.map(([x, y]) => segPointDist([x - hl, y], [x + hl, y], p))) - SLOT_PAD[1] / 2;
-}
-// Open polylines along `outline` where a stroke of width w keeps SLOT_PAD_CLEAR off every slot pad
-function bandPieces(outline, w) {
-  const ok = (p) => slotPadDist(p) >= w / 2 + SLOT_PAD_CLEAR;
-  const at = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
-  // Boundary between a kept and a dropped parameter, bisected to 1 um on a 100 mm edge
-  const edgeT = (a, b, lo, hi) => {
-    for (let k = 0; k < 20; k++) { const m = (lo + hi) / 2; if (ok(at(a, b, m)) === ok(at(a, b, lo))) lo = m; else hi = m; }
-    return ok(at(a, b, lo)) ? lo : hi;
-  };
-  if (!ok(outline[0])) throw new Error("bandPieces: outline must start at a kept vertex");
-  const pieces = [];
-  let cur = [outline[0]];
-  for (let k = 0; k < outline.length; k++) {
-    const a = outline[k], b = outline[(k + 1) % outline.length];
-    const n = Math.ceil(Math.hypot(b[0] - a[0], b[1] - a[1]) / 0.1);
-    for (let s = 1; s <= n; s++) {
-      const t0 = (s - 1) / n, t1 = s / n, k0 = ok(at(a, b, t0)), k1 = ok(at(a, b, t1));
-      if (k0 && !k1) { cur.push(at(a, b, edgeT(a, b, t0, t1))); pieces.push(cur); cur = null; }
-      else if (!k0 && k1) cur = [at(a, b, edgeT(a, b, t1, t0))];
-    }
-    if (cur) cur.push(b);
-  }
-  // The walk ends back at outline[0]; join that tail onto the first piece
-  if (cur && pieces.length) pieces[0] = [...cur.slice(0, -1), ...pieces[0]];
-  else if (cur) return [{ pts: outline, w, closed: true }];
-  return pieces.map((pts) => ({ pts, w, closed: false }));
-}
-
 const composed = new Map();
 function composeBoard(i, { pattern = 4, buildings = true } = {}) {
   const key = `${i}:${pattern}:${buildings}`;
@@ -619,7 +584,8 @@ function composeBoard(i, { pattern = 4, buildings = true } = {}) {
     for (const b of bldgs) out.rects.push(...buildingRects(b));
     // Rims straddle the cut: half of the stroke width is routed away
     out.rims.push({ pts: openings[0], w: 2 * TOP_RIM, closed: true });
-    out.rims.push(...bandPieces(TOP_OUTLINE, 2 * EDGE_BAND));
+    // Continuous exposed copper frame, intentionally joined to all four rail slot pads.
+    out.rims.push({ pts: TOP_OUTLINE, w: 2 * EDGE_BAND, closed: true });
   } else if (i < OPENINGS) {
     out.rims.push({ pts: openings[i], w: 2 * RIM, closed: true });
   }
@@ -635,6 +601,6 @@ globalThis.StripMineGeometry = {
   rng, pointInPoly, distToPoly, bbox, noise2, pitDist, isolines, resample, fragment, wander,
   WAVES, org, levels, SITES, buildingCluster, strata, TOP_VARIANTS, tracePattern,
   TOP_RIM, RIM, EDGE_BAND, LINE_MIN, BUILDING_PIT_GAP, BUILDING_GAP, MIN_CHAIN_W, pitGap, composeBoard,
-  TOP_OUTLINE, SLOT_PAD_CLEAR, slotPadDist, STROKE_GAP,
+  TOP_OUTLINE, STROKE_GAP,
 };
 })();
