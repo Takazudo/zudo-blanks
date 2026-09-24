@@ -13,9 +13,18 @@ The geometry is **a routing candidate, not an orderable manufacturing release**.
 `audit_art_candidate.py` inventories all 715 original selected copper/mask pair
 findings by source hash, original polygon pair and closest points. Every one is
 marked unresolved until a finished-union printability proof and local repair
-ledger exist. The copper/mask artwork has not been repaired or exported to
-native project boards. In particular, do not use a Rev5 preview or the legacy
+ledger exist. The same diagnostic inventories 819 distinct finished-union mask
+pairs and 197 copper pairs below the frozen 0.25 mm gap rule. Another 374 gold
+components fail the necessary test of containing a 0.25 mm disk. This is a
+failure screen, not a sufficient width proof; it does not test necks or webs
+within one connected component. The copper/mask artwork has
+not been repaired or exported to native project boards. In particular, do not
+use a Rev5 preview or the legacy
 panel-home boards as proof of corrected CAM.
+
+A straight 0.25 mm hidden copper join fits the safe region for 188 of the 197
+pair findings. Nine Coral top pairs need a different local path or motif
+adjustment. This is feasibility evidence only; no joins are emitted.
 
 Run the lightweight candidate checks with:
 

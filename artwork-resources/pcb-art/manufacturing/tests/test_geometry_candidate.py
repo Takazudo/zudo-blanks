@@ -1,6 +1,7 @@
 """Independent checks for the separate routing candidate and its indexed deltas."""
 import hashlib
 import importlib.util
+import itertools
 import json
 from pathlib import Path
 import unittest
@@ -50,6 +51,13 @@ class ManufacturingGeometryCandidateTests(unittest.TestCase):
         self.assertEqual(report['geometrySha256'],digest(HERE/'manufacturing-geometry.json'))
         self.assertEqual(len({f['key'] for f in report['findings']}),715)
         self.assertTrue(all(f['disposition'].startswith('unresolved') for f in report['findings']))
+        self.assertEqual(len(report['finishedUnionPairs']),1016)
+        self.assertEqual(len({f['key'] for f in report['finishedUnionPairs']}),1016)
+        self.assertTrue(all(f['gapMm']<.25 for f in report['finishedUnionPairs']))
+        self.assertEqual(len(report['necessaryWidthFailures']),374)
+        copper_pairs=[f for f in report['finishedUnionPairs'] if f['feature']=='F.Cu island gap']
+        self.assertEqual(len(copper_pairs),197)
+        self.assertEqual(sum(not f['straight025MmJoinFitsCopperSafeRegion'] for f in copper_pairs),9)
 
     def test_inventory_closures_and_explicit_indices(self):
         self.assertEqual(sum(len(d['layers']) for d in selected(self.candidate)), 43)
@@ -125,6 +133,10 @@ class ManufacturingGeometryCandidateTests(unittest.TestCase):
                 with self.subTest(board=board):
                     self.assertEqual(drilled.geom_type,'Polygon')
                     self.assertGreaterEqual(len(export.polygons(drilled.buffer(-.5))),1)
+                    cut_boundaries=[Polygon(r) for r in drilled.interiors]
+                    widths=[p.distance(drilled.exterior) for p in cut_boundaries]
+                    widths.extend(a.distance(b) for a,b in itertools.combinations(cut_boundaries,2))
+                    self.assertGreaterEqual(min(widths,default=1),.999)
                     upper,lower = ((0,127.5) if before['index']==0 else (17.1,110.4))
                     for y in (upper,lower):
                         self.assertLess(box(0,y,101.3,y+1).difference(substrate).area,.00001)
