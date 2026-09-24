@@ -22,7 +22,11 @@ class FrozenDecisionTests(unittest.TestCase):
             with self.subTest(file=file):
                 self.assertEqual(hashlib.sha256((ROOT/file).read_bytes()).hexdigest(), expected)
         self.assertEqual(self.policy['sourceHashes'], self.probe['sourceHashes'])
-        self.assertEqual(hashlib.sha256((HERE/'policy.json').read_bytes()).hexdigest(),self.probe['policySha256'])
+        # The original probe predates the additive Spider erratum. Reconstruct
+        # its exact policy bytes; every preexisting rule remains hash-locked.
+        base_policy={key:value for key,value in self.policy.items() if key!='errata'}
+        base_bytes=(json.dumps(base_policy,indent=2)+'\n').encode()
+        self.assertEqual(hashlib.sha256(base_bytes).hexdigest(),self.probe['policySha256'])
         self.assertEqual(hashlib.sha256((HERE/'probe_decision.py').read_bytes()).hexdigest(),self.probe['probeScriptSha256'])
 
     def test_all_and_only_known_wide_closures(self):

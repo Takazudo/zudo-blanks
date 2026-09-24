@@ -1311,5 +1311,55 @@
         "reason": "original collar copper approaches adjacent decorative route to 0.248274 mm; inward shift preserves full ring width and clearance"
       }
     ]
-  }
+  },
+  "errata": [
+    {
+      "id": "spider-l01-channel-merge-2026-09-25",
+      "boardId": "01-spider-nest-L01-black-enig-art",
+      "evidence": "spider-channel-erratum.json",
+      "evidenceSha256": "8bcd2a4dfdfba0febc17adfa1aa0c9fbfb082840ae8f95a87df8b1816127c8c3",
+      "approvedSourceSha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "reviewedCandidateSha256": "ceda4de34fb2ca999e263bfaba0233730f7a60551049807c319721239855d0a1",
+      "evidenceCandidateSha256": "f40a5bd4f0abb63d9f20f81a6f53eb397ac9c92e4c0c1c9d88152cb97927d068",
+      "preMergeMaskNormalizedWkbSha256": "b5781b9fc194ac05dc51758332fbe684594b30ccc3692d2f0e1d9684f3f261f4",
+      "sourceStrokePairs0": [
+        [
+          41,
+          111
+        ],
+        [
+          33,
+          97
+        ],
+        [
+          38,
+          112
+        ]
+      ],
+      "permittedPatchCount": 4,
+      "maximumTotalAddedGoldAreaMm2": 30.0,
+      "minimumMaskSafeClearanceMm": 0.35,
+      "preservePreMergeGold": true,
+      "preserveAllNineRimCores": true,
+      "explicitBlackPaintAllowed": false,
+      "newTrappedMaskPocketsAllowed": false,
+      "productionApproval": false,
+      "requiredGates": [
+        "indexed exact patch accounting",
+        "positive gold width including connected branches",
+        "negative mask width including channels inside one gold component",
+        "no new trapped mask pockets",
+        "all existing route/drill/copper/appearance rules",
+        "full-board and enlarged before/after visual comparison"
+      ],
+      "referencePatchAreasAreEqualityRequirements": false,
+      "closingRadiusMm": 0.1255,
+      "permittedClosingQuadrantSegments": [
+        32,
+        64
+      ],
+      "patchSelection": "exactly four channel patches touching both members of the named component pairs; preserve every other region",
+      "perPatchEnvelope": "union of the captured 32-segment and 64-segment polygons for that patch ID, with existing 0.001 mm distance tolerance"
+    }
+  ]
 }
