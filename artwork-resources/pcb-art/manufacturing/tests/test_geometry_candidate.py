@@ -3,10 +3,12 @@ import hashlib
 import importlib.util
 import itertools
 import json
+import copy
 from pathlib import Path
 import unittest
 
-from shapely.geometry import Point, Polygon, box
+import shapely
+from shapely.geometry import LineString, Point, Polygon, box
 from shapely.ops import unary_union
 
 HERE = Path(__file__).resolve().parents[1]
@@ -14,6 +16,10 @@ ROOT = HERE.parent
 module = importlib.util.spec_from_file_location('export_reference', ROOT/'tools/export_kicad.py')
 export = importlib.util.module_from_spec(module)
 module.loader.exec_module(export)
+mask_module = importlib.util.spec_from_file_location('repair_mask_candidate',
+                                                     HERE/'repair_mask_candidate.py')
+mask_repair = importlib.util.module_from_spec(mask_module)
+mask_module.loader.exec_module(mask_repair)
 
 
 def digest(path):
@@ -51,13 +57,19 @@ class ManufacturingGeometryCandidateTests(unittest.TestCase):
         self.assertEqual(report['geometrySha256'],digest(HERE/'manufacturing-geometry.json'))
         self.assertEqual(len({f['key'] for f in report['findings']}),715)
         self.assertTrue(all(f['disposition'].startswith('unresolved') for f in report['findings']))
-        self.assertEqual(len(report['finishedUnionPairs']),1016)
-        self.assertEqual(len({f['key'] for f in report['finishedUnionPairs']}),1016)
+        self.assertEqual(len(report['finishedUnionPairs']),980)
+        self.assertEqual(len({f['key'] for f in report['finishedUnionPairs']}),980)
         self.assertTrue(all(f['gapMm']<.25 for f in report['finishedUnionPairs']))
-        self.assertEqual(len(report['necessaryWidthFailures']),374)
+        self.assertEqual(len(report['necessaryWidthFailures']),289)
         copper_pairs=[f for f in report['finishedUnionPairs'] if f['feature']=='F.Cu island gap']
-        self.assertEqual(len(copper_pairs),197)
-        self.assertEqual(sum(not f['straight025MmJoinFitsCopperSafeRegion'] for f in copper_pairs),9)
+        self.assertEqual(len(copper_pairs),175)
+        self.assertEqual(sum(not f['straight025MmJoinFitsCopperSafeRegion'] for f in copper_pairs),8)
+        self.assertEqual(len(self.ledger['strokeWidthChanges']),680)
+        source_strokes=sum(1 for design in selected(self.original) for layer in design['layers']
+                           for stroke in layer['art']['strokes'] if stroke.get('color') is None
+                           and stroke.get('purpose')!='top-gold-border'
+                           and 0<stroke.get('w',0)<.25)
+        self.assertEqual(source_strokes,680)
 
     def test_inventory_closures_and_explicit_indices(self):
         self.assertEqual(sum(len(d['layers']) for d in selected(self.candidate)), 43)
@@ -82,12 +94,26 @@ class ManufacturingGeometryCandidateTests(unittest.TestCase):
                 key = (before_design['id'], before['index']+1)
                 with self.subTest(board=key):
                     self.assertEqual(before['outer'], after['outer'])
+                    expected_art=copy.deepcopy(before['art'])
+                    expected_widths={c['artStrokeIndex0']:c for c in self.ledger['strokeWidthChanges']
+                                     if c['board']==f'{key[0]}-L{key[1]:02d}'}
+                    for i,change in expected_widths.items():
+                        self.assertEqual(expected_art['strokes'][i]['w'],change['originalWidthMm'])
+                        expected_art['strokes'][i]['w']=change['manufacturingWidthMm']
+                    for change in self.ledger['artGuideChanges']:
+                        if change['board']==f'{key[0]}-L{key[1]:02d}':
+                            i=change['artStrokeIndex0']
+                            expected_art['strokes'][i]['pts']=after['art']['strokes'][i]['pts']
+                    for change in self.ledger['artFillChanges']:
+                        if change['board']==f'{key[0]}-L{key[1]:02d}':
+                            i=change['artFillIndex0']
+                            expected_art['fills'][i]['pts']=after['art']['fills'][i]['pts']
                     if key==('coral-vault',1):
-                        changed={i for i,(a,b) in enumerate(zip(before['art']['strokes'],after['art']['strokes'])) if a!=b}
-                        self.assertEqual(len(changed),3)
-                        self.assertEqual({after['art']['strokes'][i]['featureIndex'] for i in changed},{1,2,3})
-                    else:
-                        self.assertEqual(before['art'], after['art'])
+                        for i,(a,b) in enumerate(zip(expected_art['strokes'],after['art']['strokes'])):
+                            if (a.get('purpose')=='top-gold-border' and a.get('feature')=='stack-hole'
+                                    and a.get('featureIndex') in (1,2,3)):
+                                a['pts']=b['pts']
+                    self.assertEqual(expected_art,after['art'])
                     old = unary_union([Polygon(h) for h in before['holes']])
                     new = unary_union([Polygon(h) for h in after['holes']])
                     self.assertLess(new.difference(old).area, .00001)
@@ -166,6 +192,29 @@ class ManufacturingGeometryCandidateTests(unittest.TestCase):
             if original['id']=='woven-maze':
                 self.assertEqual(len(paths),len(set(paths)))
 
+    def test_indexed_guide_relocation(self):
+        self.assertEqual(len(self.ledger['artGuideChanges']),22)
+        self.assertEqual(len(self.ledger['artFillChanges']),16)
+        original={d['id']:d for d in selected(self.original)}
+        corrected={d['id']:d for d in selected(self.candidate)}
+        for change in self.ledger['artGuideChanges']:
+            design_id=change['board'].split('-L')[0]
+            before=original[design_id]['layers'][0]
+            after=corrected[design_id]['layers'][0]
+            index=change['artStrokeIndex0']
+            old=before['art']['strokes'][index]['pts']
+            new=after['art']['strokes'][index]['pts']
+            distance=LineString(old).hausdorff_distance(LineString(new))
+            self.assertLessEqual(distance,.5)
+            self.assertGreater(distance,.10)
+        for change in self.ledger['artFillChanges']:
+            self.assertEqual(change['board'],'woven-maze-L01')
+            index=change['artFillIndex0']
+            old=original['woven-maze']['layers'][0]['art']['fills'][index]['pts']
+            new=corrected['woven-maze']['layers'][0]['art']['fills'][index]['pts']
+            self.assertEqual(len(old),len(new))
+            self.assertAlmostEqual(max(Point(a).distance(Point(b)) for a,b in zip(old,new)),.0155,7)
+
     def test_top_border_cores_in_candidate(self):
         for design in selected(self.candidate):
             layer=design['layers'][0]
@@ -182,6 +231,55 @@ class ManufacturingGeometryCandidateTests(unittest.TestCase):
                                   index=stroke.get('featureIndex')):
                     core=export.stroke_geometry(dict(stroke,w=.25),design.get('artStyle')=='angular')
                     self.assertLess(core.difference(mask).area,.00001)
+
+    def test_mask_repair_candidate_scope(self):
+        report=json.loads((HERE/'mask-repair-candidate.json').read_text())
+        self.assertEqual(report['sourceGeometrySha256'],digest(HERE/'manufacturing-geometry.json'))
+        self.assertEqual(len(report['boards']),11)
+        self.assertTrue(report['status'].startswith('candidate;'))
+        self.assertEqual(sum(len(b['originalMaskFindingDispositions']) for b in report['boards']),650)
+        design_by_id={d['id']:d for d in selected(self.candidate)}
+        for entry in report['boards']:
+            design=design_by_id[next(d for d in design_by_id if f'-{d}-' in entry['boardId'])]
+            layer=design['layers'][int(entry['boardId'].split('-L')[1][:2])-1]
+            mask=shapely.from_wkb(bytes.fromhex(entry['afterMaskWkbHex']))
+            with self.subTest(board=entry['boardId']):
+                self.assertTrue(mask.is_valid)
+                self.assertEqual(len(list(mask_repair.pairs(mask))),0)
+                self.assertLessEqual(entry['goldLossFractionFromApproved'],.30)
+                self.assertEqual(entry['retreatCount'],sum(r['operation']=='one-sided local mask retreat'
+                    for r in entry['records']))
+                self.assertTrue(all(d['finishedUnionPairScreen'].startswith('pass:')
+                                    for d in entry['originalMaskFindingDispositions']))
+                if layer['index']==0:
+                    for stroke in (s for s in layer['art']['strokes']
+                                   if s.get('purpose')=='top-gold-border'):
+                        core=export.stroke_geometry(dict(stroke,w=.25),
+                                                    design.get('artStyle')=='angular')
+                        self.assertLess(core.difference(mask).area,.00001)
+                if design['id']=='kumiko-void':
+                    original_wide=next(d for d in self.original['designs']
+                                       if d['id']=='kumiko-void')['variants'][0]
+                    for action in self.policy['selectedApertureActions']:
+                        if action['layerNumber']!=layer['index']+1:
+                            continue
+                        closed=Polygon(original_wide['layers'][layer['index']]['holes'][
+                            action['geometryHoleIndex0']])
+                        self.assertLess(mask.intersection(closed).area,.00001)
+                if design['id']=='spider-nest' and layer['index']==0:
+                    merges=[r for r in entry['records'] if r['operation'].startswith(
+                        'measured Spider guide-to-web')]
+                    self.assertEqual(len(merges),4)
+                    self.assertLessEqual(sum(r['patchAreaMm2'] for r in merges),30)
+                    self.assertEqual({tuple(pair) for r in merges
+                                      for pair in r['originalFinishedUnionPairs0']},
+                                     {(0,1),(0,5),(0,2)})
+                    self.assertEqual({tuple(pair) for r in merges
+                                      for pair in r['sourceArtStrokePairs0']},
+                                     {(41,111),(33,97),(38,112)})
+                    self.assertLess(entry['widthResidueAreaMm2'],.5)
+                if design['id']=='woven-maze' and layer['index']==0:
+                    self.assertLess(entry['widthResidueAreaMm2'],.4)
 
 
 if __name__ == '__main__':

@@ -12,7 +12,8 @@ import importlib.util
 import json
 from pathlib import Path
 
-from shapely.geometry import Point, Polygon
+from shapely.geometry import LineString, Point, Polygon
+from shapely.ops import unary_union
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
@@ -46,6 +47,9 @@ def run() -> None:
     actions = {(a['layerNumber'], a['geometryHoleIndex0']): a for a in policy['selectedApertureActions']}
     changes = []
     border_changes = []
+    stroke_width_changes = []
+    art_guide_changes = []
+    art_fill_changes = []
     closed = set()
     for family in data['designs']:
         if family['id'] == 'kumiko-void':
@@ -94,6 +98,67 @@ def run() -> None:
                             'toolCenterComponents': len(export.polygons(center)),
                         })
                 layer['holes'] = corrected
+                for stroke_index, stroke in enumerate(layer['art']['strokes']):
+                    if (stroke.get('color') is None and stroke.get('purpose')!='top-gold-border'
+                            and 0 < stroke.get('w',0) < .25):
+                        old_width=stroke['w']
+                        stroke['w']=.251
+                        stroke_width_changes.append({
+                            'board':board,
+                            'sourceGeometrySha256':digest(original_bytes),
+                            'artStrokeIndex0':stroke_index,
+                            'originalContourSha256':ring_hash(stroke['pts']),
+                            'originalWidthMm':old_width,
+                            'manufacturingWidthMm':stroke['w'],
+                            'operation':'widen source gold stroke to exceed 0.25 mm nominal width',
+                        })
+                if layer['index']==0 and design['id'] in ('spider-nest','woven-maze'):
+                    target_indices=(range(95,114) if design['id']=='spider-nest' else range(0,3))
+                    offset=.105 if design['id']=='spider-nest' else .145
+                    for stroke_index in target_indices:
+                        stroke=layer['art']['strokes'][stroke_index]
+                        original_pts=copy.deepcopy(stroke['pts'])
+                        if design['id']=='woven-maze':
+                            guide=Polygon(original_pts).buffer(offset,join_style='mitre',
+                                mitre_limit=10).exterior
+                        else:
+                            guide=LineString(original_pts).offset_curve(-offset,
+                                join_style='bevel',mitre_limit=10)
+                        if guide.geom_type not in ('LineString','LinearRing') or guide.is_empty:
+                            raise ValueError(f'{board}: guide offset changed path topology at {stroke_index}')
+                        translated=[[round(x,9),round(y,9)] for x,y in guide.coords]
+                        if LineString(original_pts).hausdorff_distance(guide)>.5:
+                            raise ValueError(f'{board}: guide offset exceeded local reach at {stroke_index}')
+                        stroke['pts']=translated
+                        art_guide_changes.append({
+                            'board':board,'artStrokeIndex0':stroke_index,
+                            'sourceGeometrySha256':digest(original_bytes),
+                            'operation':'move guide centerline into retained substrate while retaining stroke width',
+                            'offsetMm':offset,
+                            'originalContourSha256':ring_hash(original_pts),
+                            'manufacturingContourSha256':ring_hash(translated),
+                        })
+                    if design['id']=='woven-maze':
+                        for fill_index in range(2,18):
+                            fill=layer['art']['fills'][fill_index]
+                            original_pts=copy.deepcopy(fill['pts'])
+                            xs=[p[0] for p in original_pts];ys=[p[1] for p in original_pts]
+                            minx,maxx,miny,maxy=min(xs),max(xs),min(ys),max(ys)
+                            if abs(maxy-miny-.22)<.000001:
+                                fill['pts']=[[x,round(y+(.0155 if y>miny else -.0155),9)]
+                                             for x,y in original_pts]
+                            elif abs(maxx-minx-.22)<.000001:
+                                fill['pts']=[[round(x+(.0155 if x>minx else -.0155),9),y]
+                                             for x,y in original_pts]
+                            else:
+                                raise ValueError(f'{board}: woven guide fill {fill_index} is not 0.22 mm')
+                            art_fill_changes.append({
+                                'board':board,'artFillIndex0':fill_index,
+                                'sourceGeometrySha256':digest(original_bytes),
+                                'operation':'widen 0.22 mm rectangular bar to 0.251 mm across short axis',
+                                'originalContourSha256':ring_hash(original_pts),
+                                'manufacturingContourSha256':ring_hash(fill['pts']),
+                            })
                 if layer['index'] == 0:
                     for stroke in layer['art']['strokes']:
                         if stroke.get('purpose') != 'top-gold-border':
@@ -127,6 +192,9 @@ def run() -> None:
         'policySha256': digest((HERE / 'policy.json').read_bytes()),
         'changes': changes,
         'borderChanges': border_changes,
+        'strokeWidthChanges': stroke_width_changes,
+        'artGuideChanges':art_guide_changes,
+        'artFillChanges':art_fill_changes,
         'closedIssueIds': sorted(closed),
         'unresolvedAlternativeIssueIds': policy['alternativeUnresolvedIssueIds'],
     }
