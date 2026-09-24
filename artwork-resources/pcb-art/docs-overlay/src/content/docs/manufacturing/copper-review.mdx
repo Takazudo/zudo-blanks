@@ -1,0 +1,52 @@
+---
+title: "Copper and Mask Export Review"
+description: "Gold-area changes and narrow gaps in the export candidate."
+sidebar_position: 3
+---
+
+## Export candidate rules
+
+The native-board draft offsets exposed gold and underlying copper from edges and drills. The chosen rules are not factory-approved requirements.
+
+| Feature | Candidate clearance |
+| --- | ---: |
+| Gold opening in F.Mask | At least 0.35 mm |
+| Copper in F.Cu | At least 0.30 mm |
+| Copper extension under the mask | 0.05 mm |
+
+Copper is represented as filled editable graphic polygons, not electrical zones. Regions are split around openings. Kumiko's black facets are excluded from gold openings in the original paint order.
+
+## Changes to visible gold
+
+![Approved art and export candidate comparison](/assets/pcb-art/images/pcb-art-cad-gold-comparison.png)
+
+The clearance adaptation reduces visible gold, especially on Spider full-gold layers and detailed Kumiko surfaces.
+
+| Board | Gold in preview, mm² | Exposed gold candidate, mm² | Reduced |
+| --- | ---: | ---: | ---: |
+| Spider top | 948.1 | 819.9 | 13.5% |
+| Spider layer 3 | 2743.2 | 2057.2 | 25.0% |
+| Spider layer 5 | 2743.0 | 2057.0 | 25.0% |
+| Spider layer 7 | 2724.1 | 2046.2 | 24.9% |
+| Coral top | 1440.3 | 1417.2 | 1.6% |
+| Coral layer 4 | 5281.8 | 4877.0 | 7.7% |
+| Fault top | 1093.8 | 1088.4 | 0.5% |
+| Wide Kumiko top | 2816.3 | 2509.4 | 10.9% |
+| Wide Kumiko layer 4 | 874.8 | 721.2 | 17.6% |
+| Wide Kumiko layer 7 | 716.5 | 590.0 | 17.7% |
+| Standard Kumiko top | 3286.9 | 3053.7 | 7.1% |
+| Standard Kumiko layer 4 | 601.3 | 495.4 | 17.6% |
+| Standard Kumiko layer 7 | 419.7 | 344.3 | 18.0% |
+| Woven Maze top | 672.1 | 542.5 | 19.3% |
+
+These rounded figures come from the original PCB manifest metrics. They are not price reductions.
+
+## Narrow gaps remain
+
+The independent export review reports gaps below 0.01 mm between some separate copper polygons and mask openings. Examples include about 0.000829 mm between Coral top copper, 0.009907 mm between Spider top copper, 0.009866 mm between wide Kumiko top copper, and 0.002195 mm between Kumiko top mask openings. Pair coordinates are in export-art-review.json and resources/manufacturing-review/artwork-gap-review.csv.
+
+The source screen compared copper gaps against 0.10 mm and black mask bridges against 0.13 mm reference thresholds. A detected pair is not necessarily a distinct defect; inspect its actual local shape. Possible edits include joining hidden copper under mask, widening black facets, or intentionally joining neighboring gold. Compare each proposed edit with the art before adopting it.
+
+## Decision evidence
+
+The export measurements establish only what the generated polygons contain. They do not prove current supplier capability, DRC status, CAM acceptance, or quote impact. Record the process rule agreed with the fabricator, the selected art change, and the resulting CAM review.

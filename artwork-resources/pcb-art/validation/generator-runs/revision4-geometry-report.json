@@ -1,0 +1,435 @@
+{
+  "revision": 4,
+  "source": "preview-source/assets/geometry.json",
+  "baseline": "preview-source/assets/reference-revision3.json",
+  "patternCoverage": {
+    "spider-nest": {
+      "top": {
+        "solidMm2": 2191.8272,
+        "goldMm2": 127.8782
+      },
+      "bottom": {
+        "solidMm2": 2210.8472,
+        "goldMm2": 128.4607
+      },
+      "left": {
+        "solidMm2": 371.6322,
+        "goldMm2": 37.1961
+      },
+      "right": {
+        "solidMm2": 371.3783,
+        "goldMm2": 33.1392
+      },
+      "center": {
+        "solidMm2": 946.5453,
+        "goldMm2": 410.7302
+      }
+    },
+    "coral-vault": {
+      "top": {
+        "solidMm2": 2186.7379,
+        "goldMm2": 458.6038
+      },
+      "bottom": {
+        "solidMm2": 2152.7829,
+        "goldMm2": 450.6036
+      },
+      "left": {
+        "solidMm2": 440.0756,
+        "goldMm2": 91.1743
+      },
+      "right": {
+        "solidMm2": 395.9069,
+        "goldMm2": 81.4882
+      },
+      "center": {
+        "solidMm2": 890.6505,
+        "goldMm2": 174.0816
+      }
+    },
+    "kumiko-void": {
+      "top": {
+        "solidMm2": 2147.0877,
+        "goldMm2": 748.0416
+      },
+      "bottom": {
+        "solidMm2": 2325.7924,
+        "goldMm2": 759.5088
+      },
+      "left": {
+        "solidMm2": 418.4086,
+        "goldMm2": 143.7847
+      },
+      "right": {
+        "solidMm2": 426.5743,
+        "goldMm2": 146.9096
+      },
+      "center": {
+        "solidMm2": 2415.8775,
+        "goldMm2": 920.2923
+      }
+    }
+  },
+  "growth": {
+    "spider-nest": {
+      "beforeAreaMm2": 5228.4081,
+      "afterAreaMm2": 6769.9587,
+      "ratio": 1.294841,
+      "beforeBounds": [
+        10.5,
+        27.0,
+        90.8,
+        101.5
+      ],
+      "afterBounds": [
+        2.5,
+        19.0,
+        98.8,
+        109.5
+      ],
+      "variantId": null
+    },
+    "coral-vault": {
+      "beforeAreaMm2": 4195.8194,
+      "afterAreaMm2": 6796.0349,
+      "ratio": 1.619716,
+      "beforeBounds": [
+        11.9,
+        28.4,
+        89.4,
+        100.1
+      ],
+      "afterBounds": [
+        2.5,
+        19.0,
+        98.7389,
+        109.5
+      ],
+      "variantId": null
+    },
+    "fault-line": {
+      "beforeAreaMm2": 3069.4206,
+      "afterAreaMm2": 4238.25,
+      "ratio": 1.380798,
+      "beforeBounds": [
+        12.2004,
+        25.0,
+        89.0072,
+        103.3841
+      ],
+      "afterBounds": [
+        4.0,
+        19.4,
+        97.0,
+        108.9
+      ],
+      "variantId": null
+    },
+    "kumiko-void": {
+      "beforeAreaMm2": 3566.479,
+      "afterAreaMm2": 5128.4483,
+      "ratio": 1.437958,
+      "beforeBounds": [
+        10.5,
+        27.0,
+        90.8,
+        101.5
+      ],
+      "afterBounds": [
+        2.5,
+        19.0,
+        98.8,
+        109.5
+      ],
+      "variantId": "wide"
+    },
+    "woven-maze": {
+      "beforeAreaMm2": 4690.2169,
+      "afterAreaMm2": 6904.1042,
+      "ratio": 1.472022,
+      "beforeBounds": [
+        10.5,
+        27.0,
+        90.8,
+        101.5
+      ],
+      "afterBounds": [
+        2.5,
+        19.0,
+        98.8,
+        109.5
+      ],
+      "variantId": null
+    }
+  },
+  "wovenPaths": {
+    "layers": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "pairwiseDistinct": true,
+    "comparisons": [
+      {
+        "layers": [
+          2,
+          3
+        ],
+        "differentAreaMm2": 950.7116
+      },
+      {
+        "layers": [
+          2,
+          4
+        ],
+        "differentAreaMm2": 1156.5118
+      },
+      {
+        "layers": [
+          2,
+          5
+        ],
+        "differentAreaMm2": 1080.4978
+      },
+      {
+        "layers": [
+          2,
+          6
+        ],
+        "differentAreaMm2": 1304.2403
+      },
+      {
+        "layers": [
+          2,
+          7
+        ],
+        "differentAreaMm2": 1419.8243
+      },
+      {
+        "layers": [
+          2,
+          8
+        ],
+        "differentAreaMm2": 1631.0063
+      },
+      {
+        "layers": [
+          3,
+          4
+        ],
+        "differentAreaMm2": 1275.5031
+      },
+      {
+        "layers": [
+          3,
+          5
+        ],
+        "differentAreaMm2": 942.1674
+      },
+      {
+        "layers": [
+          3,
+          6
+        ],
+        "differentAreaMm2": 880.4023
+      },
+      {
+        "layers": [
+          3,
+          7
+        ],
+        "differentAreaMm2": 1002.7766
+      },
+      {
+        "layers": [
+          3,
+          8
+        ],
+        "differentAreaMm2": 1230.0819
+      },
+      {
+        "layers": [
+          4,
+          5
+        ],
+        "differentAreaMm2": 1085.3892
+      },
+      {
+        "layers": [
+          4,
+          6
+        ],
+        "differentAreaMm2": 1139.2369
+      },
+      {
+        "layers": [
+          4,
+          7
+        ],
+        "differentAreaMm2": 1255.701
+      },
+      {
+        "layers": [
+          4,
+          8
+        ],
+        "differentAreaMm2": 1164.824
+      },
+      {
+        "layers": [
+          5,
+          6
+        ],
+        "differentAreaMm2": 1091.2174
+      },
+      {
+        "layers": [
+          5,
+          7
+        ],
+        "differentAreaMm2": 1221.4797
+      },
+      {
+        "layers": [
+          5,
+          8
+        ],
+        "differentAreaMm2": 932.3342
+      },
+      {
+        "layers": [
+          6,
+          7
+        ],
+        "differentAreaMm2": 965.2661
+      },
+      {
+        "layers": [
+          6,
+          8
+        ],
+        "differentAreaMm2": 916.0168
+      },
+      {
+        "layers": [
+          7,
+          8
+        ],
+        "differentAreaMm2": 949.1583
+      }
+    ]
+  },
+  "progression": {
+    "coral-vault": {
+      "nested": true,
+      "areasMm2": [
+        6796.0349,
+        5990.7788,
+        5107.8099,
+        4238.5955,
+        3375.7345,
+        2544.1116,
+        1798.2491
+      ],
+      "componentCounts": [
+        10,
+        10,
+        11,
+        8,
+        9,
+        8,
+        8
+      ],
+      "shapeCompactness": [
+        0.1212,
+        0.123,
+        0.0984,
+        0.1047,
+        0.0885,
+        0.0858,
+        0.0782
+      ]
+    },
+    "fault-line": {
+      "nested": true,
+      "areasMm2": [
+        4238.25,
+        3548.1905,
+        3221.8094,
+        2625.0861,
+        2308.6814,
+        1728.3072,
+        1445.88,
+        987.2052
+      ],
+      "componentCounts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3
+      ],
+      "shapeCompactness": [
+        0.2399,
+        0.3553,
+        0.2756,
+        0.3159,
+        0.2262,
+        0.2745,
+        0.1931,
+        0.2021
+      ]
+    }
+  },
+  "structuralChecks": {
+    "spider-nest": {
+      "connectedLayers": 8,
+      "supports": true,
+      "inwardOffsetMm": 0.5
+    },
+    "coral-vault": {
+      "connectedLayers": 8,
+      "supports": true,
+      "inwardOffsetMm": 0.5
+    },
+    "fault-line": {
+      "connectedLayers": 9,
+      "supports": true,
+      "inwardOffsetMm": 0.5
+    },
+    "kumiko-void:standard": {
+      "connectedLayers": 9,
+      "supports": true,
+      "inwardOffsetMm": 0.5
+    },
+    "kumiko-void:wide": {
+      "connectedLayers": 9,
+      "supports": true,
+      "inwardOffsetMm": 0.5
+    },
+    "woven-maze": {
+      "connectedLayers": 9,
+      "supports": true,
+      "inwardOffsetMm": 0.5
+    }
+  },
+  "kumikoVariants": {
+    "standardGeometryAndArtworkUnchanged": true,
+    "default": "wide",
+    "standardOpeningMm2": 3566.479,
+    "wideOpeningMm2": 5128.4483
+  },
+  "configurationTotals": {
+    "families": 5,
+    "boards": 43,
+    "enigBoards": 11
+  },
+  "passed": true
+}

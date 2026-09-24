@@ -1,0 +1,6 @@
+﻿part,quantity_per_set,quantity,dimensions_or_basis,status
+M3 x 40 mm stack screw,8,8,Two 8-PCB stacks; 33.8 mm + assumed 2.4 mm nut + 1.0 mm allowance = 37.2 mm,Length candidate; confirm actual nut/washer and case clearance
+M3 x 45 mm stack screw,12,12,Three 9-PCB stacks; 38.4 mm + assumed 2.4 mm nut + 1.0 mm allowance = 41.8 mm,Length candidate inherited from Strip Mine; confirm actual hardware
+Unthreaded spacer,152,152,"Height 3.0 mm, OD 6.0 mm, ID 3.2 mm; 2 x 7 gaps x 4 + 3 x 8 gaps x 4","Confirm material, tolerance and actual fit"
+M3 nut,20,20,Four stack nuts per design; 2.4 mm thickness is the screw-length calculation assumption,Confirm purchased nut dimensions; no specific supplier item selected
+Rail mounting screw,20,20,Four rail slots per top; thread and length depend on the actual Eurorack case,Select for actual rail/nut; separate from the stack screws

@@ -1,0 +1,4113 @@
+{
+  "schemaVersion": 1,
+  "revision": 5,
+  "source": "preview-source/assets/geometry.json",
+  "sourceSha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+  "units": "mm",
+  "manufacturingResolutionRequired": true,
+  "referenceRouterDiameterMm": 1.0,
+  "sourceGeometryChanged": false,
+  "methods": {
+    "wholeApertureTooSmall": "Negative buffer radius0.5 finds candidates; each is confirmed with a convex-hull MIC upper bound below1.0mm. MIC lower bound is twice distance from an interior point to aperture boundary. All calculations use nominal serialized polygons and floating-point arithmetic.",
+    "routerUnreachableArea": "Area(A) - Area(A intersect buffer(buffer(A,-0.5),+0.5)); 32 circular segments per quadrant. Shows inaccessible sharp tips and narrow zones under a1.0mm circular-router model, not approved factory CAM or a suggested replacement outline.",
+    "routingDensityProxy": "Sum decorative inner-contour perimeter plus rail-slot perimeter divided by original rectangular board area; mm^-1 multiplied by1000 to m/m². Does not include plunge/lead-in/repeated passes; is not the actual cutter-center toolpath or a quote.",
+    "geometryConnectivity": "A single Polygon after all drilling and one significant connected component after0.5mm inward offset. Erosion may remove thin dangling detail; this does not prove minimum width everywhere or mechanical load capacity."
+  },
+  "sources": [
+    {
+      "title": "JLCPCB rigid PCB capabilities",
+      "url": "https://jlcpcb.com/capabilities/pcb-capabilities",
+      "checked": "2026-09-24",
+      "fields": [
+        "Min. Non-Plated Slots1.0mm",
+        "Rectangular Holes / Slots without rounded corners not supported",
+        "Routed Cu clearance≥0.2mm",
+        "NPTH-to-Track0.2mm",
+        "1oz min track/space0.10/0.10mm",
+        "Black/white mask bridge0.13mm",
+        "1.6mm thickness±10%"
+      ]
+    },
+    {
+      "title": "JLCPCB extra charges",
+      "url": "https://jlcpcb.com/help/article/in-what-cases-will-there-be-charged-extra",
+      "checked": "2026-09-24",
+      "sections": [
+        "3 Routing Fee",
+        "5 ENIG Area over30%",
+        "1 Different Designs in One Gerber File"
+      ]
+    },
+    {
+      "title": "JLCPCB NPTH design guide",
+      "url": "https://jlcpcb.com/blog/npth-design-guide",
+      "checked": "2026-09-24"
+    },
+    {
+      "title": "JLCPCB solder mask guide",
+      "url": "https://jlcpcb.com/blog/basic-design-of-solder-mask",
+      "checked": "2026-09-24"
+    },
+    {
+      "title": "Shapely maximum_inscribed_circle",
+      "url": "https://shapely.readthedocs.io/en/stable/reference/shapely.maximum_inscribed_circle.html",
+      "checked": "2026-09-24"
+    }
+  ],
+  "designs": [
+    {
+      "id": "spider-nest",
+      "variantId": null,
+      "key": "spider-nest",
+      "layers": [
+        {
+          "layer": 1,
+          "colorKey": "black",
+          "finish": "enig-art",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 19,
+          "decorativeApertureAreaMm2": 6769.958688,
+          "routingContourLengthProxyMm": 1606.673022,
+          "routingContourDensityProxyMPerM2": 123.428351,
+          "minHoleToOuterMaterialMm": 1.25,
+          "minInterholeMaterialMm": 1.479912,
+          "minInterholeGeometryIndices0": [
+            3,
+            18
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 2.739358,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 6.178948,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.000913
+        },
+        {
+          "layer": 2,
+          "colorKey": "white",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 19,
+          "decorativeApertureAreaMm2": 6802.100113,
+          "routingContourLengthProxyMm": 1458.852146,
+          "routingContourDensityProxyMPerM2": 152.717969,
+          "minHoleToOuterMaterialMm": 1.9,
+          "minInterholeMaterialMm": 1.479957,
+          "minInterholeGeometryIndices0": [
+            8,
+            16
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 2.739345,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 6.791591,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.000998
+        },
+        {
+          "layer": 3,
+          "colorKey": "gold",
+          "finish": "enig-fill",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 19,
+          "decorativeApertureAreaMm2": 6777.24259,
+          "routingContourLengthProxyMm": 1497.146071,
+          "routingContourDensityProxyMPerM2": 156.726717,
+          "minHoleToOuterMaterialMm": 1.9,
+          "minInterholeMaterialMm": 1.479918,
+          "minInterholeGeometryIndices0": [
+            0,
+            15
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 2.73932,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 6.72301,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.000992
+        },
+        {
+          "layer": 4,
+          "colorKey": "white",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 18,
+          "decorativeApertureAreaMm2": 6801.503773,
+          "routingContourLengthProxyMm": 1470.685128,
+          "routingContourDensityProxyMPerM2": 153.956689,
+          "minHoleToOuterMaterialMm": 1.9,
+          "minInterholeMaterialMm": 1.479933,
+          "minInterholeGeometryIndices0": [
+            11,
+            17
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 2.739324,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 6.623648,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.000974
+        },
+        {
+          "layer": 5,
+          "colorKey": "gold",
+          "finish": "enig-fill",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 19,
+          "decorativeApertureAreaMm2": 6777.387216,
+          "routingContourLengthProxyMm": 1495.644924,
+          "routingContourDensityProxyMPerM2": 156.569572,
+          "minHoleToOuterMaterialMm": 1.9,
+          "minInterholeMaterialMm": 1.47993,
+          "minInterholeGeometryIndices0": [
+            5,
+            18
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 2.739339,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 7.768747,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.001146
+        },
+        {
+          "layer": 6,
+          "colorKey": "white",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 18,
+          "decorativeApertureAreaMm2": 6782.564578,
+          "routingContourLengthProxyMm": 1505.606146,
+          "routingContourDensityProxyMPerM2": 157.612349,
+          "minHoleToOuterMaterialMm": 1.9,
+          "minInterholeMaterialMm": 1.479911,
+          "minInterholeGeometryIndices0": [
+            2,
+            14
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 2.739311,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 5.906595,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.000871
+        },
+        {
+          "layer": 7,
+          "colorKey": "gold",
+          "finish": "enig-fill",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 19,
+          "decorativeApertureAreaMm2": 6796.331384,
+          "routingContourLengthProxyMm": 1471.431111,
+          "routingContourDensityProxyMPerM2": 154.034781,
+          "minHoleToOuterMaterialMm": 1.9,
+          "minInterholeMaterialMm": 1.47993,
+          "minInterholeGeometryIndices0": [
+            6,
+            15
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 2.73934,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 6.574912,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.000967
+        },
+        {
+          "layer": 8,
+          "colorKey": "red",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 0,
+          "decorativeApertureAreaMm2": 0.0,
+          "routingContourLengthProxyMm": 0.0,
+          "routingContourDensityProxyMPerM2": 0.0,
+          "minHoleToOuterMaterialMm": 4.9,
+          "minInterholeMaterialMm": 78.1,
+          "minInterholeGeometryIndices0": [
+            0,
+            2
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": null,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 0.0,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0
+        }
+      ],
+      "goldNominalStrokes": [
+        {
+          "layer": 1,
+          "minNominalStrokeWidthMm": 0.22,
+          "strokesBelow025Mm": 19,
+          "strokeCount": 123
+        }
+      ],
+      "wholeAperturesTooSmallForOneMmRouter": 0,
+      "totalRouterUnreachableAreaMm2": 46.567451,
+      "minMaterialBetweenDistinctHolesMm": 1.479911,
+      "nominalStackMm": 33.8,
+      "stackThicknessToleranceOnlyMm": [
+        32.52,
+        35.08
+      ],
+      "spacerCountForOneStack": 28
+    },
+    {
+      "id": "coral-vault",
+      "variantId": null,
+      "key": "coral-vault",
+      "layers": [
+        {
+          "layer": 1,
+          "colorKey": "black",
+          "finish": "enig-art",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 10,
+          "decorativeApertureAreaMm2": 6796.034944,
+          "routingContourLengthProxyMm": 936.11094,
+          "routingContourDensityProxyMPerM2": 71.914216,
+          "minHoleToOuterMaterialMm": 1.25,
+          "minInterholeMaterialMm": 1.548292,
+          "minInterholeGeometryIndices0": [
+            8,
+            14
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 0.148275,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 0.985817,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.000145
+        },
+        {
+          "layer": 2,
+          "colorKey": "green",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 10,
+          "decorativeApertureAreaMm2": 5990.778843,
+          "routingContourLengthProxyMm": 782.476077,
+          "routingContourDensityProxyMPerM2": 81.912453,
+          "minHoleToOuterMaterialMm": 2.4087,
+          "minInterholeMaterialMm": 2.026328,
+          "minInterholeGeometryIndices0": [
+            9,
+            13
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 0.626272,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 0.522667,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 8.7e-05
+        },
+        {
+          "layer": 3,
+          "colorKey": "purple",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 11,
+          "decorativeApertureAreaMm2": 5107.809884,
+          "routingContourLengthProxyMm": 807.679892,
+          "routingContourDensityProxyMPerM2": 84.55088,
+          "minHoleToOuterMaterialMm": 3.0734,
+          "minInterholeMaterialMm": 1.959903,
+          "minInterholeGeometryIndices0": [
+            3,
+            8
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 1.352211,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 0.669685,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.000131
+        },
+        {
+          "layer": 4,
+          "colorKey": "gold",
+          "finish": "enig-fill",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 8,
+          "decorativeApertureAreaMm2": 4238.595461,
+          "routingContourLengthProxyMm": 713.326289,
+          "routingContourDensityProxyMPerM2": 74.6736,
+          "minHoleToOuterMaterialMm": 4.0598,
+          "minInterholeMaterialMm": 3.295775,
+          "minInterholeGeometryIndices0": [
+            2,
+            5
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 2.271289,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 0.559756,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.000132
+        },
+        {
+          "layer": 5,
+          "colorKey": "red",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 9,
+          "decorativeApertureAreaMm2": 3375.734528,
+          "routingContourLengthProxyMm": 692.221529,
+          "routingContourDensityProxyMPerM2": 72.464277,
+          "minHoleToOuterMaterialMm": 4.9,
+          "minInterholeMaterialMm": 1.959927,
+          "minInterholeGeometryIndices0": [
+            0,
+            1
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 2.885681,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 0.74624,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.000221
+        },
+        {
+          "layer": 6,
+          "colorKey": "yellow",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 8,
+          "decorativeApertureAreaMm2": 2544.11165,
+          "routingContourLengthProxyMm": 610.32768,
+          "routingContourDensityProxyMPerM2": 63.89133,
+          "minHoleToOuterMaterialMm": 4.9,
+          "minInterholeMaterialMm": 4.085006,
+          "minInterholeGeometryIndices0": [
+            0,
+            1
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 3.587263,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 0.894897,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.000352
+        },
+        {
+          "layer": 7,
+          "colorKey": "red",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 8,
+          "decorativeApertureAreaMm2": 1798.249144,
+          "routingContourLengthProxyMm": 537.615725,
+          "routingContourDensityProxyMPerM2": 56.279577,
+          "minHoleToOuterMaterialMm": 4.9,
+          "minInterholeMaterialMm": 5.874095,
+          "minInterholeGeometryIndices0": [
+            7,
+            10
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 4.472233,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 1.025037,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.00057
+        },
+        {
+          "layer": 8,
+          "colorKey": "blue",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 0,
+          "decorativeApertureAreaMm2": 0.0,
+          "routingContourLengthProxyMm": 0.0,
+          "routingContourDensityProxyMPerM2": 0.0,
+          "minHoleToOuterMaterialMm": 4.9,
+          "minInterholeMaterialMm": 78.1,
+          "minInterholeGeometryIndices0": [
+            0,
+            2
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": null,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 0.0,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0
+        }
+      ],
+      "goldNominalStrokes": [
+        {
+          "layer": 1,
+          "minNominalStrokeWidthMm": 0.2,
+          "strokesBelow025Mm": 627,
+          "strokeCount": 1278
+        }
+      ],
+      "wholeAperturesTooSmallForOneMmRouter": 0,
+      "totalRouterUnreachableAreaMm2": 5.404099,
+      "minMaterialBetweenDistinctHolesMm": 1.548292,
+      "nominalStackMm": 33.8,
+      "stackThicknessToleranceOnlyMm": [
+        32.52,
+        35.08
+      ],
+      "spacerCountForOneStack": 28
+    },
+    {
+      "id": "fault-line",
+      "variantId": null,
+      "key": "fault-line",
+      "layers": [
+        {
+          "layer": 1,
+          "colorKey": "black",
+          "finish": "enig-art",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 1,
+          "decorativeApertureAreaMm2": 4238.25,
+          "routingContourLengthProxyMm": 567.97917,
+          "routingContourDensityProxyMPerM2": 43.633478,
+          "minHoleToOuterMaterialMm": 1.25,
+          "minInterholeMaterialMm": 8.491358,
+          "minInterholeGeometryIndices0": [
+            0,
+            4
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 7.089599,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 3.619072,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.000854
+        },
+        {
+          "layer": 2,
+          "colorKey": "red",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 1,
+          "decorativeApertureAreaMm2": 3548.190466,
+          "routingContourLengthProxyMm": 354.245091,
+          "routingContourDensityProxyMPerM2": 37.08367,
+          "minHoleToOuterMaterialMm": 3.22,
+          "minInterholeMaterialMm": 16.558051,
+          "minInterholeGeometryIndices0": [
+            0,
+            2
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 15.156667,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 0.030335,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 9e-06
+        },
+        {
+          "layer": 3,
+          "colorKey": "black",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 1,
+          "decorativeApertureAreaMm2": 3221.809381,
+          "routingContourLengthProxyMm": 383.283591,
+          "routingContourDensityProxyMPerM2": 40.123526,
+          "minHoleToOuterMaterialMm": 4.08,
+          "minInterholeMaterialMm": 17.109051,
+          "minInterholeGeometryIndices0": [
+            0,
+            2
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 15.707716,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 0.364899,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.000113
+        },
+        {
+          "layer": 4,
+          "colorKey": "red",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 1,
+          "decorativeApertureAreaMm2": 2625.086078,
+          "routingContourLengthProxyMm": 323.146483,
+          "routingContourDensityProxyMPerM2": 33.828154,
+          "minHoleToOuterMaterialMm": 4.87,
+          "minInterholeMaterialMm": 22.435314,
+          "minInterholeGeometryIndices0": [
+            0,
+            2
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 21.035316,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 0.055586,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 2.1e-05
+        },
+        {
+          "layer": 5,
+          "colorKey": "black",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 1,
+          "decorativeApertureAreaMm2": 2308.681379,
+          "routingContourLengthProxyMm": 358.10995,
+          "routingContourDensityProxyMPerM2": 37.488257,
+          "minHoleToOuterMaterialMm": 4.9,
+          "minInterholeMaterialMm": 22.985988,
+          "minInterholeGeometryIndices0": [
+            0,
+            2
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 21.585989,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 0.473536,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.000205
+        },
+        {
+          "layer": 6,
+          "colorKey": "red",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 1,
+          "decorativeApertureAreaMm2": 1728.307164,
+          "routingContourLengthProxyMm": 281.260505,
+          "routingContourDensityProxyMPerM2": 29.443377,
+          "minHoleToOuterMaterialMm": 4.9,
+          "minInterholeMaterialMm": 27.751453,
+          "minInterholeGeometryIndices0": [
+            0,
+            1
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 26.3503,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 0.152527,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 8.8e-05
+        },
+        {
+          "layer": 7,
+          "colorKey": "black",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 1,
+          "decorativeApertureAreaMm2": 1445.879969,
+          "routingContourLengthProxyMm": 306.771024,
+          "routingContourDensityProxyMPerM2": 32.113911,
+          "minHoleToOuterMaterialMm": 4.9,
+          "minInterholeMaterialMm": 28.301469,
+          "minInterholeGeometryIndices0": [
+            0,
+            1
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 26.900388,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 0.503676,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.000348
+        },
+        {
+          "layer": 8,
+          "colorKey": "red",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 3,
+          "decorativeApertureAreaMm2": 987.205181,
+          "routingContourLengthProxyMm": 247.72959,
+          "routingContourDensityProxyMPerM2": 25.933238,
+          "minHoleToOuterMaterialMm": 4.9,
+          "minInterholeMaterialMm": 2.062253,
+          "minInterholeGeometryIndices0": [
+            0,
+            2
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 27.551014,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 0.131262,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.000133
+        },
+        {
+          "layer": 9,
+          "colorKey": "black",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 0,
+          "decorativeApertureAreaMm2": 0.0,
+          "routingContourLengthProxyMm": 0.0,
+          "routingContourDensityProxyMPerM2": 0.0,
+          "minHoleToOuterMaterialMm": 4.9,
+          "minInterholeMaterialMm": 78.1,
+          "minInterholeGeometryIndices0": [
+            0,
+            2
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": null,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 0.0,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0
+        }
+      ],
+      "goldNominalStrokes": [
+        {
+          "layer": 1,
+          "minNominalStrokeWidthMm": 0.23,
+          "strokesBelow025Mm": 31,
+          "strokeCount": 68
+        }
+      ],
+      "wholeAperturesTooSmallForOneMmRouter": 0,
+      "totalRouterUnreachableAreaMm2": 5.330893,
+      "minMaterialBetweenDistinctHolesMm": 2.062253,
+      "nominalStackMm": 38.4,
+      "stackThicknessToleranceOnlyMm": [
+        36.96,
+        39.84
+      ],
+      "spacerCountForOneStack": 32
+    },
+    {
+      "id": "kumiko-void",
+      "variantId": "standard",
+      "key": "kumiko-void-standard",
+      "layers": [
+        {
+          "layer": 1,
+          "colorKey": "black",
+          "finish": "enig-art",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 73,
+          "decorativeApertureAreaMm2": 3566.479042,
+          "routingContourLengthProxyMm": 2763.481827,
+          "routingContourDensityProxyMPerM2": 212.297089,
+          "minHoleToOuterMaterialMm": 1.25,
+          "minInterholeMaterialMm": 1.719925,
+          "minInterholeGeometryIndices0": [
+            5,
+            6
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 2.249762,
+          "noOneMmRouterHoleCount": 3,
+          "noOneMmRouterIssueIds": [
+            "kumiko-void-standard-L01-H01",
+            "kumiko-void-standard-L01-H02",
+            "kumiko-void-standard-L01-H03"
+          ],
+          "routerUnreachableAreaMm2": 78.502146,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.022011,
+          "annotation": "resources/manufacturing-review/kumiko-standard-L01.svg"
+        },
+        {
+          "layer": 2,
+          "colorKey": "red",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 49,
+          "decorativeApertureAreaMm2": 4009.610759,
+          "routingContourLengthProxyMm": 2114.422818,
+          "routingContourDensityProxyMPerM2": 221.345501,
+          "minHoleToOuterMaterialMm": 4.9,
+          "minInterholeMaterialMm": 1.849904,
+          "minInterholeGeometryIndices0": [
+            36,
+            37
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 2.249762,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 46.582279,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.011618
+        },
+        {
+          "layer": 3,
+          "colorKey": "green",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 46,
+          "decorativeApertureAreaMm2": 4405.133125,
+          "routingContourLengthProxyMm": 1730.382807,
+          "routingContourDensityProxyMPerM2": 181.14279,
+          "minHoleToOuterMaterialMm": 4.9,
+          "minInterholeMaterialMm": 1.849932,
+          "minInterholeGeometryIndices0": [
+            17,
+            18
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 2.249762,
+          "noOneMmRouterHoleCount": 2,
+          "noOneMmRouterIssueIds": [
+            "kumiko-void-standard-L03-H01",
+            "kumiko-void-standard-L03-H02"
+          ],
+          "routerUnreachableAreaMm2": 40.217662,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.00913,
+          "annotation": "resources/manufacturing-review/kumiko-standard-L03.svg"
+        },
+        {
+          "layer": 4,
+          "colorKey": "black",
+          "finish": "enig-art",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 42,
+          "decorativeApertureAreaMm2": 4350.606944,
+          "routingContourLengthProxyMm": 1806.549829,
+          "routingContourDensityProxyMPerM2": 189.116232,
+          "minHoleToOuterMaterialMm": 4.9,
+          "minInterholeMaterialMm": 1.849918,
+          "minInterholeGeometryIndices0": [
+            22,
+            23
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 2.249762,
+          "noOneMmRouterHoleCount": 2,
+          "noOneMmRouterIssueIds": [
+            "kumiko-void-standard-L04-H01",
+            "kumiko-void-standard-L04-H02"
+          ],
+          "routerUnreachableAreaMm2": 42.563504,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.009783,
+          "annotation": "resources/manufacturing-review/kumiko-standard-L04.svg"
+        },
+        {
+          "layer": 5,
+          "colorKey": "red",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 31,
+          "decorativeApertureAreaMm2": 4793.160688,
+          "routingContourLengthProxyMm": 1388.151259,
+          "routingContourDensityProxyMPerM2": 145.316742,
+          "minHoleToOuterMaterialMm": 4.9,
+          "minInterholeMaterialMm": 1.849933,
+          "minInterholeGeometryIndices0": [
+            5,
+            28
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 2.249762,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 25.039474,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.005224
+        },
+        {
+          "layer": 6,
+          "colorKey": "green",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 38,
+          "decorativeApertureAreaMm2": 4422.680551,
+          "routingContourLengthProxyMm": 1752.48958,
+          "routingContourDensityProxyMPerM2": 183.457008,
+          "minHoleToOuterMaterialMm": 4.9,
+          "minInterholeMaterialMm": 1.849918,
+          "minInterholeGeometryIndices0": [
+            11,
+            20
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 2.249762,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 36.2707,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.008201
+        },
+        {
+          "layer": 7,
+          "colorKey": "black",
+          "finish": "enig-art",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 32,
+          "decorativeApertureAreaMm2": 4834.410392,
+          "routingContourLengthProxyMm": 1352.506128,
+          "routingContourDensityProxyMPerM2": 141.58528,
+          "minHoleToOuterMaterialMm": 4.9,
+          "minInterholeMaterialMm": 1.849918,
+          "minInterholeGeometryIndices0": [
+            7,
+            22
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 2.249762,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 24.91806,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.005154
+        },
+        {
+          "layer": 8,
+          "colorKey": "red",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 39,
+          "decorativeApertureAreaMm2": 4374.883216,
+          "routingContourLengthProxyMm": 1804.786493,
+          "routingContourDensityProxyMPerM2": 188.93164,
+          "minHoleToOuterMaterialMm": 4.9,
+          "minInterholeMaterialMm": 1.849895,
+          "minInterholeGeometryIndices0": [
+            0,
+            2
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 2.249762,
+          "noOneMmRouterHoleCount": 1,
+          "noOneMmRouterIssueIds": [
+            "kumiko-void-standard-L08-H01"
+          ],
+          "routerUnreachableAreaMm2": 37.404041,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.00855,
+          "annotation": "resources/manufacturing-review/kumiko-standard-L08.svg"
+        },
+        {
+          "layer": 9,
+          "colorKey": "green",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 0,
+          "decorativeApertureAreaMm2": 0.0,
+          "routingContourLengthProxyMm": 0.0,
+          "routingContourDensityProxyMPerM2": 0.0,
+          "minHoleToOuterMaterialMm": 4.9,
+          "minInterholeMaterialMm": 78.1,
+          "minInterholeGeometryIndices0": [
+            0,
+            2
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": null,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 0.0,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0
+        }
+      ],
+      "goldNominalStrokes": [
+        {
+          "layer": 1,
+          "minNominalStrokeWidthMm": 0.32,
+          "strokesBelow025Mm": 0,
+          "strokeCount": 9
+        }
+      ],
+      "wholeAperturesTooSmallForOneMmRouter": 8,
+      "totalRouterUnreachableAreaMm2": 331.497866,
+      "minMaterialBetweenDistinctHolesMm": 1.719925,
+      "nominalStackMm": 38.4,
+      "stackThicknessToleranceOnlyMm": [
+        36.96,
+        39.84
+      ],
+      "spacerCountForOneStack": 32
+    },
+    {
+      "id": "kumiko-void",
+      "variantId": "wide",
+      "key": "kumiko-void-wide",
+      "layers": [
+        {
+          "layer": 1,
+          "colorKey": "black",
+          "finish": "enig-art",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 102,
+          "decorativeApertureAreaMm2": 5128.448263,
+          "routingContourLengthProxyMm": 3854.480064,
+          "routingContourDensityProxyMPerM2": 296.110107,
+          "minHoleToOuterMaterialMm": 1.25,
+          "minInterholeMaterialMm": 0.116619,
+          "minInterholeGeometryIndices0": [
+            68,
+            101
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 0.199975,
+          "noOneMmRouterHoleCount": 11,
+          "noOneMmRouterIssueIds": [
+            "kumiko-void-wide-L01-H01",
+            "kumiko-void-wide-L01-H02",
+            "kumiko-void-wide-L01-H03",
+            "kumiko-void-wide-L01-H04",
+            "kumiko-void-wide-L01-H05",
+            "kumiko-void-wide-L01-H06",
+            "kumiko-void-wide-L01-H07",
+            "kumiko-void-wide-L01-H08",
+            "kumiko-void-wide-L01-H09",
+            "kumiko-void-wide-L01-H10",
+            "kumiko-void-wide-L01-H11"
+          ],
+          "routerUnreachableAreaMm2": 156.654468,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.030546,
+          "annotation": "resources/manufacturing-review/kumiko-wide-L01.svg"
+        },
+        {
+          "layer": 2,
+          "colorKey": "red",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 64,
+          "decorativeApertureAreaMm2": 6006.566483,
+          "routingContourLengthProxyMm": 2735.287879,
+          "routingContourDensityProxyMPerM2": 286.339922,
+          "minHoleToOuterMaterialMm": 1.9,
+          "minInterholeMaterialMm": 1.599971,
+          "minInterholeGeometryIndices0": [
+            3,
+            66
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 0.2,
+          "noOneMmRouterHoleCount": 5,
+          "noOneMmRouterIssueIds": [
+            "kumiko-void-wide-L02-H01",
+            "kumiko-void-wide-L02-H02",
+            "kumiko-void-wide-L02-H03",
+            "kumiko-void-wide-L02-H04",
+            "kumiko-void-wide-L02-H05"
+          ],
+          "routerUnreachableAreaMm2": 53.132531,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.008846,
+          "annotation": "resources/manufacturing-review/kumiko-wide-L02.svg"
+        },
+        {
+          "layer": 3,
+          "colorKey": "green",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 67,
+          "decorativeApertureAreaMm2": 6133.986414,
+          "routingContourLengthProxyMm": 2630.635625,
+          "routingContourDensityProxyMPerM2": 275.384542,
+          "minHoleToOuterMaterialMm": 1.9,
+          "minInterholeMaterialMm": 1.599971,
+          "minInterholeGeometryIndices0": [
+            39,
+            68
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 0.2,
+          "noOneMmRouterHoleCount": 6,
+          "noOneMmRouterIssueIds": [
+            "kumiko-void-wide-L03-H01",
+            "kumiko-void-wide-L03-H02",
+            "kumiko-void-wide-L03-H03",
+            "kumiko-void-wide-L03-H04",
+            "kumiko-void-wide-L03-H05",
+            "kumiko-void-wide-L03-H06"
+          ],
+          "routerUnreachableAreaMm2": 52.212642,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.008512,
+          "annotation": "resources/manufacturing-review/kumiko-wide-L03.svg"
+        },
+        {
+          "layer": 4,
+          "colorKey": "black",
+          "finish": "enig-art",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 70,
+          "decorativeApertureAreaMm2": 6168.564534,
+          "routingContourLengthProxyMm": 2603.030117,
+          "routingContourDensityProxyMPerM2": 272.494697,
+          "minHoleToOuterMaterialMm": 1.9,
+          "minInterholeMaterialMm": 1.599902,
+          "minInterholeGeometryIndices0": [
+            27,
+            71
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 0.199943,
+          "noOneMmRouterHoleCount": 9,
+          "noOneMmRouterIssueIds": [
+            "kumiko-void-wide-L04-H01",
+            "kumiko-void-wide-L04-H02",
+            "kumiko-void-wide-L04-H03",
+            "kumiko-void-wide-L04-H04",
+            "kumiko-void-wide-L04-H05",
+            "kumiko-void-wide-L04-H06",
+            "kumiko-void-wide-L04-H07",
+            "kumiko-void-wide-L04-H08",
+            "kumiko-void-wide-L04-H09"
+          ],
+          "routerUnreachableAreaMm2": 60.70422,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.009841,
+          "annotation": "resources/manufacturing-review/kumiko-wide-L04.svg"
+        },
+        {
+          "layer": 5,
+          "colorKey": "red",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 44,
+          "decorativeApertureAreaMm2": 6810.311163,
+          "routingContourLengthProxyMm": 2039.177783,
+          "routingContourDensityProxyMPerM2": 213.468576,
+          "minHoleToOuterMaterialMm": 1.9,
+          "minInterholeMaterialMm": 1.599971,
+          "minInterholeGeometryIndices0": [
+            21,
+            47
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 0.2,
+          "noOneMmRouterHoleCount": 4,
+          "noOneMmRouterIssueIds": [
+            "kumiko-void-wide-L05-H01",
+            "kumiko-void-wide-L05-H02",
+            "kumiko-void-wide-L05-H03",
+            "kumiko-void-wide-L05-H04"
+          ],
+          "routerUnreachableAreaMm2": 37.75101,
+          "aperturesWithSplitToolCenterRegions": [
+            14
+          ],
+          "routerUnreachableFraction": 0.005543,
+          "annotation": "resources/manufacturing-review/kumiko-wide-L05.svg"
+        },
+        {
+          "layer": 6,
+          "colorKey": "green",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 57,
+          "decorativeApertureAreaMm2": 6500.496015,
+          "routingContourLengthProxyMm": 2321.004534,
+          "routingContourDensityProxyMPerM2": 242.971229,
+          "minHoleToOuterMaterialMm": 1.9,
+          "minInterholeMaterialMm": 1.599917,
+          "minInterholeGeometryIndices0": [
+            5,
+            59
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 0.199958,
+          "noOneMmRouterHoleCount": 9,
+          "noOneMmRouterIssueIds": [
+            "kumiko-void-wide-L06-H01",
+            "kumiko-void-wide-L06-H02",
+            "kumiko-void-wide-L06-H03",
+            "kumiko-void-wide-L06-H04",
+            "kumiko-void-wide-L06-H05",
+            "kumiko-void-wide-L06-H06",
+            "kumiko-void-wide-L06-H07",
+            "kumiko-void-wide-L06-H08",
+            "kumiko-void-wide-L06-H09"
+          ],
+          "routerUnreachableAreaMm2": 47.574948,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.007319,
+          "annotation": "resources/manufacturing-review/kumiko-wide-L06.svg"
+        },
+        {
+          "layer": 7,
+          "colorKey": "black",
+          "finish": "enig-art",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 52,
+          "decorativeApertureAreaMm2": 6650.469178,
+          "routingContourLengthProxyMm": 2106.562648,
+          "routingContourDensityProxyMPerM2": 220.52267,
+          "minHoleToOuterMaterialMm": 1.9,
+          "minInterholeMaterialMm": 1.599971,
+          "minInterholeGeometryIndices0": [
+            5,
+            54
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 0.2,
+          "noOneMmRouterHoleCount": 4,
+          "noOneMmRouterIssueIds": [
+            "kumiko-void-wide-L07-H01",
+            "kumiko-void-wide-L07-H02",
+            "kumiko-void-wide-L07-H03",
+            "kumiko-void-wide-L07-H04"
+          ],
+          "routerUnreachableAreaMm2": 43.569636,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.006551,
+          "annotation": "resources/manufacturing-review/kumiko-wide-L07.svg"
+        },
+        {
+          "layer": 8,
+          "colorKey": "red",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 55,
+          "decorativeApertureAreaMm2": 6383.311794,
+          "routingContourLengthProxyMm": 2448.143982,
+          "routingContourDensityProxyMPerM2": 256.280651,
+          "minHoleToOuterMaterialMm": 1.9,
+          "minInterholeMaterialMm": 1.599971,
+          "minInterholeGeometryIndices0": [
+            19,
+            56
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 0.2,
+          "noOneMmRouterHoleCount": 8,
+          "noOneMmRouterIssueIds": [
+            "kumiko-void-wide-L08-H01",
+            "kumiko-void-wide-L08-H02",
+            "kumiko-void-wide-L08-H03",
+            "kumiko-void-wide-L08-H04",
+            "kumiko-void-wide-L08-H05",
+            "kumiko-void-wide-L08-H06",
+            "kumiko-void-wide-L08-H07",
+            "kumiko-void-wide-L08-H08"
+          ],
+          "routerUnreachableAreaMm2": 104.13293,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.016313,
+          "annotation": "resources/manufacturing-review/kumiko-wide-L08.svg"
+        },
+        {
+          "layer": 9,
+          "colorKey": "green",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 0,
+          "decorativeApertureAreaMm2": 0.0,
+          "routingContourLengthProxyMm": 0.0,
+          "routingContourDensityProxyMPerM2": 0.0,
+          "minHoleToOuterMaterialMm": 4.9,
+          "minInterholeMaterialMm": 78.1,
+          "minInterholeGeometryIndices0": [
+            0,
+            2
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": null,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 0.0,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0
+        }
+      ],
+      "goldNominalStrokes": [
+        {
+          "layer": 1,
+          "minNominalStrokeWidthMm": 0.32,
+          "strokesBelow025Mm": 0,
+          "strokeCount": 9
+        }
+      ],
+      "wholeAperturesTooSmallForOneMmRouter": 56,
+      "totalRouterUnreachableAreaMm2": 555.732385,
+      "minMaterialBetweenDistinctHolesMm": 0.116619,
+      "nominalStackMm": 38.4,
+      "stackThicknessToleranceOnlyMm": [
+        36.96,
+        39.84
+      ],
+      "spacerCountForOneStack": 32
+    },
+    {
+      "id": "woven-maze",
+      "variantId": null,
+      "key": "woven-maze",
+      "layers": [
+        {
+          "layer": 1,
+          "colorKey": "black",
+          "finish": "enig-art",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 3,
+          "decorativeApertureAreaMm2": 6904.104222,
+          "routingContourLengthProxyMm": 1125.747499,
+          "routingContourDensityProxyMPerM2": 86.482536,
+          "minHoleToOuterMaterialMm": 1.25,
+          "minInterholeMaterialMm": 2.690755,
+          "minInterholeGeometryIndices0": [
+            2,
+            7
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 1.290788,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 1.55815,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.000226
+        },
+        {
+          "layer": 2,
+          "colorKey": "white",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 4,
+          "decorativeApertureAreaMm2": 7067.878372,
+          "routingContourLengthProxyMm": 1047.576138,
+          "routingContourDensityProxyMPerM2": 109.664095,
+          "minHoleToOuterMaterialMm": 1.9,
+          "minInterholeMaterialMm": 2.690755,
+          "minInterholeGeometryIndices0": [
+            3,
+            6
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 1.290788,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 4.203005,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.000595
+        },
+        {
+          "layer": 3,
+          "colorKey": "black",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 5,
+          "decorativeApertureAreaMm2": 7010.453259,
+          "routingContourLengthProxyMm": 1146.686853,
+          "routingContourDensityProxyMPerM2": 120.039367,
+          "minHoleToOuterMaterialMm": 1.9,
+          "minInterholeMaterialMm": 2.690755,
+          "minInterholeGeometryIndices0": [
+            0,
+            7
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 1.290788,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 1.68969,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.000241
+        },
+        {
+          "layer": 4,
+          "colorKey": "white",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 5,
+          "decorativeApertureAreaMm2": 7043.265482,
+          "routingContourLengthProxyMm": 1089.269841,
+          "routingContourDensityProxyMPerM2": 114.028744,
+          "minHoleToOuterMaterialMm": 1.9,
+          "minInterholeMaterialMm": 2.690755,
+          "minInterholeGeometryIndices0": [
+            2,
+            7
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 1.290788,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 4.663753,
+          "aperturesWithSplitToolCenterRegions": [
+            0
+          ],
+          "routerUnreachableFraction": 0.000662
+        },
+        {
+          "layer": 5,
+          "colorKey": "black",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 3,
+          "decorativeApertureAreaMm2": 6839.336191,
+          "routingContourLengthProxyMm": 1285.753782,
+          "routingContourDensityProxyMPerM2": 134.5974,
+          "minHoleToOuterMaterialMm": 1.9,
+          "minInterholeMaterialMm": 2.690755,
+          "minInterholeGeometryIndices0": [
+            2,
+            5
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 1.290788,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 1.425385,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.000208
+        },
+        {
+          "layer": 6,
+          "colorKey": "white",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 6,
+          "decorativeApertureAreaMm2": 6950.326867,
+          "routingContourLengthProxyMm": 1167.532641,
+          "routingContourDensityProxyMPerM2": 122.22158,
+          "minHoleToOuterMaterialMm": 1.9,
+          "minInterholeMaterialMm": 2.690755,
+          "minInterholeGeometryIndices0": [
+            2,
+            8
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 1.290788,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 5.241597,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.000754
+        },
+        {
+          "layer": 7,
+          "colorKey": "black",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 6,
+          "decorativeApertureAreaMm2": 6779.886758,
+          "routingContourLengthProxyMm": 1191.675366,
+          "routingContourDensityProxyMPerM2": 124.748928,
+          "minHoleToOuterMaterialMm": 1.9,
+          "minInterholeMaterialMm": 2.690755,
+          "minInterholeGeometryIndices0": [
+            1,
+            9
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 1.290788,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 2.208802,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.000326
+        },
+        {
+          "layer": 8,
+          "colorKey": "white",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 6,
+          "decorativeApertureAreaMm2": 7071.548528,
+          "routingContourLengthProxyMm": 1157.272564,
+          "routingContourDensityProxyMPerM2": 121.147518,
+          "minHoleToOuterMaterialMm": 1.9,
+          "minInterholeMaterialMm": 2.690755,
+          "minInterholeGeometryIndices0": [
+            3,
+            8
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": 1.290754,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 6.154749,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0.00087
+        },
+        {
+          "layer": 9,
+          "colorKey": "black",
+          "finish": "mask-only",
+          "connected": true,
+          "erosion05Connected": true,
+          "decorativeApertureCount": 0,
+          "decorativeApertureAreaMm2": 0.0,
+          "routingContourLengthProxyMm": 0.0,
+          "routingContourDensityProxyMPerM2": 0.0,
+          "minHoleToOuterMaterialMm": 4.9,
+          "minInterholeMaterialMm": 78.1,
+          "minInterholeGeometryIndices0": [
+            0,
+            2
+          ],
+          "minSpacerFootprintMarginToDecorativeCutoutMm": null,
+          "noOneMmRouterHoleCount": 0,
+          "noOneMmRouterIssueIds": [],
+          "routerUnreachableAreaMm2": 0.0,
+          "aperturesWithSplitToolCenterRegions": [],
+          "routerUnreachableFraction": 0
+        }
+      ],
+      "goldNominalStrokes": [
+        {
+          "layer": 1,
+          "minNominalStrokeWidthMm": 0.22,
+          "strokesBelow025Mm": 3,
+          "strokeCount": 12
+        }
+      ],
+      "wholeAperturesTooSmallForOneMmRouter": 0,
+      "totalRouterUnreachableAreaMm2": 27.145131,
+      "minMaterialBetweenDistinctHolesMm": 2.690755,
+      "nominalStackMm": 38.4,
+      "stackThicknessToleranceOnlyMm": [
+        36.96,
+        39.84
+      ],
+      "spacerCountForOneStack": 32
+    }
+  ],
+  "apertureIssues": [
+    {
+      "issueId": "kumiko-void-standard-L01-H01",
+      "localId": "H01",
+      "designId": "kumiko-void",
+      "variantId": "standard",
+      "layer": 1,
+      "geometryHoleIndex0": 9,
+      "areaMm2": 1.23298318,
+      "boundsMm": [
+        20.5386,
+        100.6563,
+        23.4614,
+        101.5
+      ],
+      "verticesMm": [
+        [
+          22.0,
+          100.6563
+        ],
+        [
+          20.5386,
+          101.5
+        ],
+        [
+          23.4614,
+          101.5
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.78313,
+      "micDiameterUpperBoundMm": 0.78313,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        22.0,
+        101.108435
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-standard-L01-H02",
+      "localId": "H02",
+      "designId": "kumiko-void",
+      "variantId": "standard",
+      "layer": 1,
+      "geometryHoleIndex0": 44,
+      "areaMm2": 1.23298318,
+      "boundsMm": [
+        76.5386,
+        100.6563,
+        79.4614,
+        101.5
+      ],
+      "verticesMm": [
+        [
+          79.4614,
+          101.5
+        ],
+        [
+          78.0,
+          100.6563
+        ],
+        [
+          76.5386,
+          101.5
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.78313,
+      "micDiameterUpperBoundMm": 0.78313,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        78.0,
+        101.108435
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-standard-L01-H03",
+      "localId": "H03",
+      "designId": "kumiko-void",
+      "variantId": "standard",
+      "layer": 1,
+      "geometryHoleIndex0": 58,
+      "areaMm2": 1.23298318,
+      "boundsMm": [
+        48.5386,
+        100.6563,
+        51.4614,
+        101.5
+      ],
+      "verticesMm": [
+        [
+          51.4614,
+          101.5
+        ],
+        [
+          50.0,
+          100.6563
+        ],
+        [
+          48.5386,
+          101.5
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.78313,
+      "micDiameterUpperBoundMm": 0.78313,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        50.0,
+        101.108435
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-standard-L03-H01",
+      "localId": "H01",
+      "designId": "kumiko-void",
+      "variantId": "standard",
+      "layer": 3,
+      "geometryHoleIndex0": 13,
+      "areaMm2": 0.9102225,
+      "boundsMm": [
+        90.725,
+        42.7737,
+        90.8,
+        54.9966
+      ],
+      "verticesMm": [
+        [
+          90.725,
+          42.817
+        ],
+        [
+          90.725,
+          54.9966
+        ],
+        [
+          90.8,
+          54.8667
+        ],
+        [
+          90.8,
+          42.7737
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.075,
+      "micDiameterUpperBoundMm": 0.075,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        90.7625,
+        48.84185
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-standard-L03-H02",
+      "localId": "H02",
+      "designId": "kumiko-void",
+      "variantId": "standard",
+      "layer": 3,
+      "geometryHoleIndex0": 14,
+      "areaMm2": 0.9102225,
+      "boundsMm": [
+        90.725,
+        61.9009,
+        90.8,
+        74.1238
+      ],
+      "verticesMm": [
+        [
+          90.725,
+          61.9009
+        ],
+        [
+          90.725,
+          74.0805
+        ],
+        [
+          90.8,
+          74.1238
+        ],
+        [
+          90.8,
+          62.0308
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.075,
+      "micDiameterUpperBoundMm": 0.075,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        90.7625,
+        68.05565
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-standard-L04-H01",
+      "localId": "H01",
+      "designId": "kumiko-void",
+      "variantId": "standard",
+      "layer": 4,
+      "geometryHoleIndex0": 0,
+      "areaMm2": 1.59128923,
+      "boundsMm": [
+        23.525,
+        27.0,
+        24.8805,
+        29.3479
+      ],
+      "verticesMm": [
+        [
+          23.525,
+          29.3479
+        ],
+        [
+          24.8805,
+          27.0
+        ],
+        [
+          23.525,
+          27.0
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.99230895,
+      "micDiameterUpperBoundMm": 0.99230895,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        24.02115448,
+        27.49615448
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-standard-L04-H02",
+      "localId": "H02",
+      "designId": "kumiko-void",
+      "variantId": "standard",
+      "layer": 4,
+      "geometryHoleIndex0": 1,
+      "areaMm2": 1.59128922,
+      "boundsMm": [
+        20.3195,
+        27.0,
+        21.675,
+        29.3479
+      ],
+      "verticesMm": [
+        [
+          21.675,
+          29.3479
+        ],
+        [
+          21.675,
+          27.0
+        ],
+        [
+          20.3195,
+          27.0
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.99230895,
+      "micDiameterUpperBoundMm": 0.99230895,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        21.17884552,
+        27.49615448
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-standard-L08-H01",
+      "localId": "H01",
+      "designId": "kumiko-void",
+      "variantId": "standard",
+      "layer": 8,
+      "geometryHoleIndex0": 31,
+      "areaMm2": 0.77448834,
+      "boundsMm": [
+        78.5418,
+        100.8313,
+        80.8582,
+        101.5
+      ],
+      "verticesMm": [
+        [
+          78.5418,
+          101.5
+        ],
+        [
+          80.8582,
+          101.5
+        ],
+        [
+          79.7,
+          100.8313
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.62068789,
+      "micDiameterUpperBoundMm": 0.62068789,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        79.7,
+        101.18965605
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L01-H01",
+      "localId": "H01",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 1,
+      "geometryHoleIndex0": 1,
+      "areaMm2": 1.51441248,
+      "boundsMm": [
+        2.5,
+        57.0663,
+        4.7904,
+        58.3887
+      ],
+      "verticesMm": [
+        [
+          2.5,
+          57.0663
+        ],
+        [
+          2.5,
+          58.3887
+        ],
+        [
+          4.7904,
+          58.3887
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.96805541,
+      "micDiameterUpperBoundMm": 0.96805541,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        2.98402771,
+        57.90467229
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L01-H02",
+      "localId": "H02",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 1,
+      "geometryHoleIndex0": 2,
+      "areaMm2": 1.51441248,
+      "boundsMm": [
+        2.5,
+        60.1087,
+        4.7904,
+        61.4311
+      ],
+      "verticesMm": [
+        [
+          2.5,
+          60.1087
+        ],
+        [
+          2.5,
+          61.4311
+        ],
+        [
+          4.7904,
+          60.1087
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.96805541,
+      "micDiameterUpperBoundMm": 0.96805541,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        2.98402771,
+        60.59272771
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L01-H03",
+      "localId": "H03",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 1,
+      "geometryHoleIndex0": 5,
+      "areaMm2": 0.80710921,
+      "boundsMm": [
+        2.5,
+        106.15,
+        3.9607,
+        106.8861
+      ],
+      "verticesMm": [
+        [
+          3.9607,
+          106.8861
+        ],
+        [
+          3.3,
+          106.2255
+        ],
+        [
+          3.3,
+          106.15
+        ],
+        [
+          2.5,
+          106.15
+        ],
+        [
+          2.5,
+          106.8861
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.73601085,
+      "micDiameterUpperBoundMm": 0.7361,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        3.05253224,
+        106.51800542
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L01-H04",
+      "localId": "H04",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 1,
+      "geometryHoleIndex0": 6,
+      "areaMm2": 1.35542057,
+      "boundsMm": [
+        2.5,
+        108.6061,
+        4.7904,
+        109.5
+      ],
+      "verticesMm": [
+        [
+          2.5,
+          109.5
+        ],
+        [
+          3.2422,
+          109.5
+        ],
+        [
+          4.7904,
+          108.6061
+        ],
+        [
+          2.5,
+          108.6061
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.8939,
+      "micDiameterUpperBoundMm": 0.8939,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        3.12243473,
+        109.05305
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L01-H05",
+      "localId": "H05",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 1,
+      "geometryHoleIndex0": 17,
+      "areaMm2": 17.90714114,
+      "boundsMm": [
+        11.2096,
+        108.6061,
+        32.7904,
+        109.5
+      ],
+      "verticesMm": [
+        [
+          12.7578,
+          109.5
+        ],
+        [
+          31.2422,
+          109.5
+        ],
+        [
+          32.7904,
+          108.6061
+        ],
+        [
+          11.2096,
+          108.6061
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.8939,
+      "micDiameterUpperBoundMm": 0.8939,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        22.0,
+        109.05305
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L01-H06",
+      "localId": "H06",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 1,
+      "geometryHoleIndex0": 67,
+      "areaMm2": 0.94494516,
+      "boundsMm": [
+        97.7554,
+        19.0,
+        98.8,
+        20.8092
+      ],
+      "verticesMm": [
+        [
+          98.8,
+          19.0
+        ],
+        [
+          97.7554,
+          19.0
+        ],
+        [
+          98.8,
+          20.8092
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.76468684,
+      "micDiameterUpperBoundMm": 0.76468684,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        98.41765658,
+        19.38234342
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L01-H07",
+      "localId": "H07",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 1,
+      "geometryHoleIndex0": 78,
+      "areaMm2": 0.80710921,
+      "boundsMm": [
+        97.3393,
+        106.15,
+        98.8,
+        106.8861
+      ],
+      "verticesMm": [
+        [
+          98.0,
+          106.15
+        ],
+        [
+          98.0,
+          106.2255
+        ],
+        [
+          97.3393,
+          106.8861
+        ],
+        [
+          98.8,
+          106.8861
+        ],
+        [
+          98.8,
+          106.15
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.7361,
+      "micDiameterUpperBoundMm": 0.7361,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        98.43195,
+        106.51805
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L01-H08",
+      "localId": "H08",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 1,
+      "geometryHoleIndex0": 79,
+      "areaMm2": 2.51749057,
+      "boundsMm": [
+        95.2096,
+        108.6061,
+        98.8,
+        109.5
+      ],
+      "verticesMm": [
+        [
+          98.8,
+          108.6061
+        ],
+        [
+          95.2096,
+          108.6061
+        ],
+        [
+          96.7578,
+          109.5
+        ],
+        [
+          98.8,
+          109.5
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.8939,
+      "micDiameterUpperBoundMm": 0.8939,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        97.39185,
+        109.05305
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L01-H09",
+      "localId": "H09",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 1,
+      "geometryHoleIndex0": 80,
+      "areaMm2": 17.90714114,
+      "boundsMm": [
+        67.2096,
+        108.6061,
+        88.7904,
+        109.5
+      ],
+      "verticesMm": [
+        [
+          87.2422,
+          109.5
+        ],
+        [
+          88.7904,
+          108.6061
+        ],
+        [
+          67.2096,
+          108.6061
+        ],
+        [
+          68.7578,
+          109.5
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.8939,
+      "micDiameterUpperBoundMm": 0.8939,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        78.0,
+        109.05305
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L01-H10",
+      "localId": "H10",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 1,
+      "geometryHoleIndex0": 86,
+      "areaMm2": 17.90714114,
+      "boundsMm": [
+        39.2096,
+        108.6061,
+        60.7904,
+        109.5
+      ],
+      "verticesMm": [
+        [
+          39.2096,
+          108.6061
+        ],
+        [
+          40.7578,
+          109.5
+        ],
+        [
+          59.2422,
+          109.5
+        ],
+        [
+          60.7904,
+          108.6061
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.8939,
+      "micDiameterUpperBoundMm": 0.8939,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        50.0,
+        109.05305
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L01-H11",
+      "localId": "H11",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 1,
+      "geometryHoleIndex0": 101,
+      "areaMm2": 0.06538131,
+      "boundsMm": [
+        92.86,
+        26.1855,
+        93.4162,
+        26.7417
+      ],
+      "verticesMm": [
+        [
+          93.4162,
+          26.7417
+        ],
+        [
+          92.86,
+          26.1855
+        ],
+        [
+          92.86,
+          26.4206
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.15717427,
+      "micDiameterUpperBoundMm": 0.15717427,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        92.93858713,
+        26.37522613
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L02-H01",
+      "localId": "H01",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 2,
+      "geometryHoleIndex0": 8,
+      "areaMm2": 0.00756845,
+      "boundsMm": [
+        24.2855,
+        19.0,
+        24.5145,
+        19.0661
+      ],
+      "verticesMm": [
+        [
+          24.5145,
+          19.0
+        ],
+        [
+          24.2855,
+          19.0
+        ],
+        [
+          24.4,
+          19.0661
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.06135505,
+      "micDiameterUpperBoundMm": 0.06135505,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        24.4,
+        19.03067753
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L02-H02",
+      "localId": "H02",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 2,
+      "geometryHoleIndex0": 40,
+      "areaMm2": 0.00756845,
+      "boundsMm": [
+        80.2855,
+        19.0,
+        80.5145,
+        19.0661
+      ],
+      "verticesMm": [
+        [
+          80.2855,
+          19.0
+        ],
+        [
+          80.4,
+          19.0661
+        ],
+        [
+          80.5145,
+          19.0
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.06135505,
+      "micDiameterUpperBoundMm": 0.06135505,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        80.4,
+        19.03067753
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L02-H03",
+      "localId": "H03",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 2,
+      "geometryHoleIndex0": 43,
+      "areaMm2": 0.25939284,
+      "boundsMm": [
+        97.8521,
+        61.4737,
+        98.8,
+        62.021
+      ],
+      "verticesMm": [
+        [
+          98.8,
+          62.021
+        ],
+        [
+          98.8,
+          61.4737
+        ],
+        [
+          97.8521,
+          61.4737
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.40064452,
+      "micDiameterUpperBoundMm": 0.40064452,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        98.59967774,
+        61.67402226
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L02-H04",
+      "localId": "H04",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 2,
+      "geometryHoleIndex0": 48,
+      "areaMm2": 0.04056418,
+      "boundsMm": [
+        98.5836,
+        103.2751,
+        98.8,
+        103.65
+      ],
+      "verticesMm": [
+        [
+          98.8,
+          103.65
+        ],
+        [
+          98.8,
+          103.2751
+        ],
+        [
+          98.5836,
+          103.65
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.15842707,
+      "micDiameterUpperBoundMm": 0.15842707,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        98.72078646,
+        103.57078646
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L02-H05",
+      "localId": "H05",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 2,
+      "geometryHoleIndex0": 49,
+      "areaMm2": 0.25934544,
+      "boundsMm": [
+        97.8521,
+        107.5739,
+        98.8,
+        108.1211
+      ],
+      "verticesMm": [
+        [
+          98.8,
+          108.1211
+        ],
+        [
+          98.8,
+          107.5739
+        ],
+        [
+          97.8521,
+          108.1211
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.40059452,
+      "micDiameterUpperBoundMm": 0.40059452,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        98.59970274,
+        107.92080274
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L03-H01",
+      "localId": "H01",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 3,
+      "geometryHoleIndex0": 0,
+      "areaMm2": 0.34490662,
+      "boundsMm": [
+        2.5,
+        54.5829,
+        3.2729,
+        55.9216
+      ],
+      "verticesMm": [
+        [
+          2.5,
+          54.5829
+        ],
+        [
+          2.5,
+          55.4754
+        ],
+        [
+          3.2729,
+          55.9216
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.41420906,
+      "micDiameterUpperBoundMm": 0.41420906,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        2.70710453,
+        55.35582359
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L03-H02",
+      "localId": "H02",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 3,
+      "geometryHoleIndex0": 1,
+      "areaMm2": 0.34486798,
+      "boundsMm": [
+        2.5,
+        60.9759,
+        3.2729,
+        62.3145
+      ],
+      "verticesMm": [
+        [
+          2.5,
+          61.4221
+        ],
+        [
+          2.5,
+          62.3145
+        ],
+        [
+          3.2729,
+          60.9759
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.41418585,
+      "micDiameterUpperBoundMm": 0.41418585,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        2.70709293,
+        61.54166971
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L03-H03",
+      "localId": "H03",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 3,
+      "geometryHoleIndex0": 2,
+      "areaMm2": 0.09367072,
+      "boundsMm": [
+        2.5,
+        103.0804,
+        2.8289,
+        103.65
+      ],
+      "verticesMm": [
+        [
+          2.5,
+          103.0804
+        ],
+        [
+          2.5,
+          103.65
+        ],
+        [
+          2.8289,
+          103.65
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.24076193,
+      "micDiameterUpperBoundMm": 0.24076193,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        2.62038096,
+        103.52961904
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L03-H04",
+      "localId": "H04",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 3,
+      "geometryHoleIndex0": 51,
+      "areaMm2": 0.50824994,
+      "boundsMm": [
+        97.8133,
+        102.8181,
+        98.8,
+        103.65
+      ],
+      "verticesMm": [
+        [
+          97.8133,
+          103.3878
+        ],
+        [
+          98.0,
+          103.5745
+        ],
+        [
+          98.0,
+          103.65
+        ],
+        [
+          98.8,
+          103.65
+        ],
+        [
+          98.8,
+          102.8181
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.60898341,
+      "micDiameterUpperBoundMm": 0.60898341,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        98.49550829,
+        103.34550829
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L03-H05",
+      "localId": "H05",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 3,
+      "geometryHoleIndex0": 53,
+      "areaMm2": 0.00041118,
+      "boundsMm": [
+        87.2266,
+        109.4733,
+        87.2729,
+        109.5
+      ],
+      "verticesMm": [
+        [
+          87.2266,
+          109.5
+        ],
+        [
+          87.2574,
+          109.5
+        ],
+        [
+          87.2729,
+          109.4733
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.01428701,
+      "micDiameterUpperBoundMm": 0.01428701,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        87.25328701,
+        109.49285649
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L03-H06",
+      "localId": "H06",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 3,
+      "geometryHoleIndex0": 57,
+      "areaMm2": 0.00041118,
+      "boundsMm": [
+        64.3271,
+        109.4733,
+        64.3734,
+        109.5
+      ],
+      "verticesMm": [
+        [
+          64.3271,
+          109.4733
+        ],
+        [
+          64.3426,
+          109.5
+        ],
+        [
+          64.3734,
+          109.5
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.01428701,
+      "micDiameterUpperBoundMm": 0.01428701,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        64.34671299,
+        109.49285649
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L04-H01",
+      "localId": "H01",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 4,
+      "geometryHoleIndex0": 5,
+      "areaMm2": 1.17474,
+      "boundsMm": [
+        3.6017,
+        108.1,
+        6.0574,
+        109.5
+      ],
+      "verticesMm": [
+        [
+          3.6017,
+          109.5
+        ],
+        [
+          5.2491,
+          109.5
+        ],
+        [
+          6.0574,
+          108.1
+        ],
+        [
+          6.0266,
+          108.1
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.76455478,
+      "micDiameterUpperBoundMm": 0.76455478,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        5.02839336,
+        109.11772261
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L04-H02",
+      "localId": "H02",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 4,
+      "geometryHoleIndex0": 6,
+      "areaMm2": 0.07267124,
+      "boundsMm": [
+        7.3853,
+        108.9983,
+        7.675,
+        109.5
+      ],
+      "verticesMm": [
+        [
+          7.675,
+          108.9983
+        ],
+        [
+          7.3853,
+          109.5
+        ],
+        [
+          7.675,
+          109.5
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.21206505,
+      "micDiameterUpperBoundMm": 0.21206505,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        7.56896747,
+        109.39396747
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L04-H03",
+      "localId": "H03",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 4,
+      "geometryHoleIndex0": 7,
+      "areaMm2": 0.07267124,
+      "boundsMm": [
+        9.525,
+        108.9983,
+        9.8147,
+        109.5
+      ],
+      "verticesMm": [
+        [
+          9.525,
+          108.9983
+        ],
+        [
+          9.525,
+          109.5
+        ],
+        [
+          9.8147,
+          109.5
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.21206505,
+      "micDiameterUpperBoundMm": 0.21206505,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        9.63103253,
+        109.39396747
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L04-H04",
+      "localId": "H04",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 4,
+      "geometryHoleIndex0": 38,
+      "areaMm2": 1.17517279,
+      "boundsMm": [
+        87.6017,
+        108.0733,
+        90.0729,
+        109.5
+      ],
+      "verticesMm": [
+        [
+          89.2491,
+          109.5
+        ],
+        [
+          90.0729,
+          108.0733
+        ],
+        [
+          87.6017,
+          109.5
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.76454758,
+      "micDiameterUpperBoundMm": 0.76454758,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        89.02840677,
+        109.11772621
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L04-H05",
+      "localId": "H05",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 4,
+      "geometryHoleIndex0": 40,
+      "areaMm2": 1.17517279,
+      "boundsMm": [
+        67.1271,
+        108.0733,
+        69.5983,
+        109.5
+      ],
+      "verticesMm": [
+        [
+          69.5983,
+          109.5
+        ],
+        [
+          67.1271,
+          108.0733
+        ],
+        [
+          67.9509,
+          109.5
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.76454758,
+      "micDiameterUpperBoundMm": 0.76454758,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        68.17159323,
+        109.11772621
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L04-H06",
+      "localId": "H06",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 4,
+      "geometryHoleIndex0": 42,
+      "areaMm2": 1.17517279,
+      "boundsMm": [
+        59.6017,
+        108.0733,
+        62.0729,
+        109.5
+      ],
+      "verticesMm": [
+        [
+          61.2491,
+          109.5
+        ],
+        [
+          62.0729,
+          108.0733
+        ],
+        [
+          59.6017,
+          109.5
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.76454758,
+      "micDiameterUpperBoundMm": 0.76454758,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        61.02840677,
+        109.11772621
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L04-H07",
+      "localId": "H07",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 4,
+      "geometryHoleIndex0": 53,
+      "areaMm2": 1.17517279,
+      "boundsMm": [
+        39.1271,
+        108.0733,
+        41.5983,
+        109.5
+      ],
+      "verticesMm": [
+        [
+          41.5983,
+          109.5
+        ],
+        [
+          39.1271,
+          108.0733
+        ],
+        [
+          39.9509,
+          109.5
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.76454758,
+      "micDiameterUpperBoundMm": 0.76454758,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        40.17159323,
+        109.11772621
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L04-H08",
+      "localId": "H08",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 4,
+      "geometryHoleIndex0": 54,
+      "areaMm2": 0.07267125,
+      "boundsMm": [
+        37.525,
+        108.9983,
+        37.8147,
+        109.5
+      ],
+      "verticesMm": [
+        [
+          37.8147,
+          109.5
+        ],
+        [
+          37.525,
+          108.9983
+        ],
+        [
+          37.525,
+          109.5
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.21206505,
+      "micDiameterUpperBoundMm": 0.21206505,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        37.63103253,
+        109.39396747
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L04-H09",
+      "localId": "H09",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 4,
+      "geometryHoleIndex0": 55,
+      "areaMm2": 0.07267124,
+      "boundsMm": [
+        35.3853,
+        108.9983,
+        35.675,
+        109.5
+      ],
+      "verticesMm": [
+        [
+          35.675,
+          109.5
+        ],
+        [
+          35.675,
+          108.9983
+        ],
+        [
+          35.3853,
+          109.5
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.21206505,
+      "micDiameterUpperBoundMm": 0.21206505,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        35.56896747,
+        109.39396747
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L05-H01",
+      "localId": "H01",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 5,
+      "geometryHoleIndex0": 2,
+      "areaMm2": 0.03492916,
+      "boundsMm": [
+        2.5,
+        62.4737,
+        2.8479,
+        62.6745
+      ],
+      "verticesMm": [
+        [
+          2.8479,
+          62.4737
+        ],
+        [
+          2.5,
+          62.4737
+        ],
+        [
+          2.5,
+          62.6745
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.14700976,
+      "micDiameterUpperBoundMm": 0.14700976,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        2.57350488,
+        62.54720488
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L05-H02",
+      "localId": "H02",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 5,
+      "geometryHoleIndex0": 3,
+      "areaMm2": 0.93545421,
+      "boundsMm": [
+        2.5,
+        64.0759,
+        3.7729,
+        66.2805
+      ],
+      "verticesMm": [
+        [
+          3.7729,
+          64.0759
+        ],
+        [
+          2.5,
+          64.8107
+        ],
+        [
+          2.5,
+          66.2805
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.68215935,
+      "micDiameterUpperBoundMm": 0.68215935,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        2.84107967,
+        65.00763707
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L05-H03",
+      "localId": "H03",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 5,
+      "geometryHoleIndex0": 11,
+      "areaMm2": 1.96855365,
+      "boundsMm": [
+        74.4535,
+        19.0,
+        78.1465,
+        20.0661
+      ],
+      "verticesMm": [
+        [
+          74.4535,
+          19.0
+        ],
+        [
+          76.3,
+          20.0661
+        ],
+        [
+          78.1465,
+          19.0
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.98955464,
+      "micDiameterUpperBoundMm": 0.98955464,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        76.3,
+        19.49477732
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L05-H04",
+      "localId": "H04",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 5,
+      "geometryHoleIndex0": 16,
+      "areaMm2": 0.33279332,
+      "boundsMm": [
+        98.1801,
+        24.85,
+        98.8,
+        25.9237
+      ],
+      "verticesMm": [
+        [
+          98.8,
+          24.85
+        ],
+        [
+          98.1801,
+          24.85
+        ],
+        [
+          98.8,
+          25.9237
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.45379852,
+      "micDiameterUpperBoundMm": 0.45379852,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        98.57310074,
+        25.07689926
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L06-H01",
+      "localId": "H01",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 6,
+      "geometryHoleIndex0": 1,
+      "areaMm2": 0.34404925,
+      "boundsMm": [
+        2.5,
+        19.0,
+        3.1303,
+        20.0917
+      ],
+      "verticesMm": [
+        [
+          2.5,
+          20.0917
+        ],
+        [
+          3.1303,
+          19.0
+        ],
+        [
+          2.5,
+          19.0
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.46141007,
+      "micDiameterUpperBoundMm": 0.46141007,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        2.73070503,
+        19.23070503
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L06-H02",
+      "localId": "H02",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 6,
+      "geometryHoleIndex0": 4,
+      "areaMm2": 0.64620084,
+      "boundsMm": [
+        2.5,
+        102.6841,
+        3.5717,
+        103.65
+      ],
+      "verticesMm": [
+        [
+          2.5,
+          103.65
+        ],
+        [
+          3.3,
+          103.65
+        ],
+        [
+          3.3,
+          103.5745
+        ],
+        [
+          3.5717,
+          103.3028
+        ],
+        [
+          2.5,
+          102.6841
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.70710464,
+      "micDiameterUpperBoundMm": 0.70710464,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        2.85355232,
+        103.29644768
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L06-H03",
+      "localId": "H03",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 6,
+      "geometryHoleIndex0": 6,
+      "areaMm2": 0.00298489,
+      "boundsMm": [
+        9.0163,
+        109.3983,
+        9.075,
+        109.5
+      ],
+      "verticesMm": [
+        [
+          9.075,
+          109.5
+        ],
+        [
+          9.075,
+          109.3983
+        ],
+        [
+          9.0163,
+          109.5
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.04297522,
+      "micDiameterUpperBoundMm": 0.04297522,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        9.05351239,
+        109.47851239
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L06-H04",
+      "localId": "H04",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 6,
+      "geometryHoleIndex0": 7,
+      "areaMm2": 0.00298489,
+      "boundsMm": [
+        10.925,
+        109.3983,
+        10.9837,
+        109.5
+      ],
+      "verticesMm": [
+        [
+          10.925,
+          109.3983
+        ],
+        [
+          10.925,
+          109.5
+        ],
+        [
+          10.9837,
+          109.5
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.04297522,
+      "micDiameterUpperBoundMm": 0.04297522,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        10.94648761,
+        109.47851239
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L06-H05",
+      "localId": "H05",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 6,
+      "geometryHoleIndex0": 8,
+      "areaMm2": 0.60862776,
+      "boundsMm": [
+        12.5271,
+        108.4733,
+        14.3055,
+        109.5
+      ],
+      "verticesMm": [
+        [
+          12.5271,
+          108.4733
+        ],
+        [
+          13.1199,
+          109.5
+        ],
+        [
+          14.3055,
+          109.5
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.55021702,
+      "micDiameterUpperBoundMm": 0.55021702,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        13.27872935,
+        109.22489149
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L06-H06",
+      "localId": "H06",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 6,
+      "geometryHoleIndex0": 29,
+      "areaMm2": 0.52446789,
+      "boundsMm": [
+        97.4521,
+        58.3737,
+        98.8,
+        59.1519
+      ],
+      "verticesMm": [
+        [
+          98.8,
+          58.3737
+        ],
+        [
+          97.4521,
+          58.3737
+        ],
+        [
+          98.8,
+          59.1519
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.56968436,
+      "micDiameterUpperBoundMm": 0.56968436,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        98.51515782,
+        58.65854218
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L06-H07",
+      "localId": "H07",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 6,
+      "geometryHoleIndex0": 36,
+      "areaMm2": 0.00298489,
+      "boundsMm": [
+        94.925,
+        109.3983,
+        94.9837,
+        109.5
+      ],
+      "verticesMm": [
+        [
+          94.9837,
+          109.5
+        ],
+        [
+          94.925,
+          109.3983
+        ],
+        [
+          94.925,
+          109.5
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.04297522,
+      "micDiameterUpperBoundMm": 0.04297522,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        94.94648761,
+        109.47851239
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L06-H08",
+      "localId": "H08",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 6,
+      "geometryHoleIndex0": 37,
+      "areaMm2": 0.00298489,
+      "boundsMm": [
+        93.0163,
+        109.3983,
+        93.075,
+        109.5
+      ],
+      "verticesMm": [
+        [
+          93.075,
+          109.5
+        ],
+        [
+          93.075,
+          109.3983
+        ],
+        [
+          93.0163,
+          109.5
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.04297522,
+      "micDiameterUpperBoundMm": 0.04297522,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        93.05351239,
+        109.47851239
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L06-H09",
+      "localId": "H09",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 6,
+      "geometryHoleIndex0": 41,
+      "areaMm2": 0.60862776,
+      "boundsMm": [
+        33.6945,
+        108.4733,
+        35.4729,
+        109.5
+      ],
+      "verticesMm": [
+        [
+          34.8801,
+          109.5
+        ],
+        [
+          35.4729,
+          108.4733
+        ],
+        [
+          33.6945,
+          109.5
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.55021702,
+      "micDiameterUpperBoundMm": 0.55021702,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        34.72127065,
+        109.22489149
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L07-H01",
+      "localId": "H01",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 7,
+      "geometryHoleIndex0": 1,
+      "areaMm2": 0.44949358,
+      "boundsMm": [
+        2.5,
+        59.4033,
+        3.7479,
+        60.1237
+      ],
+      "verticesMm": [
+        [
+          3.7479,
+          60.1237
+        ],
+        [
+          2.5,
+          59.4033
+        ],
+        [
+          2.5,
+          60.1237
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.5273869,
+      "micDiameterUpperBoundMm": 0.5273869,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        2.76369345,
+        59.86000655
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L07-H02",
+      "localId": "H02",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 7,
+      "geometryHoleIndex0": 3,
+      "areaMm2": 0.04493355,
+      "boundsMm": [
+        2.5,
+        103.2555,
+        2.7278,
+        103.65
+      ],
+      "verticesMm": [
+        [
+          2.7278,
+          103.65
+        ],
+        [
+          2.5,
+          103.2555
+        ],
+        [
+          2.5,
+          103.65
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.16675298,
+      "micDiameterUpperBoundMm": 0.16675298,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        2.58337649,
+        103.56662351
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L07-H03",
+      "localId": "H03",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 7,
+      "geometryHoleIndex0": 9,
+      "areaMm2": 0.55506105,
+      "boundsMm": [
+        20.2195,
+        19.0,
+        22.1805,
+        19.5661
+      ],
+      "verticesMm": [
+        [
+          20.2195,
+          19.0
+        ],
+        [
+          21.2,
+          19.5661
+        ],
+        [
+          22.1805,
+          19.0
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.52545485,
+      "micDiameterUpperBoundMm": 0.52545485,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        21.2,
+        19.26272742
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L07-H04",
+      "localId": "H04",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 7,
+      "geometryHoleIndex0": 37,
+      "areaMm2": 0.55506105,
+      "boundsMm": [
+        48.2195,
+        19.0,
+        50.1805,
+        19.5661
+      ],
+      "verticesMm": [
+        [
+          48.2195,
+          19.0
+        ],
+        [
+          49.2,
+          19.5661
+        ],
+        [
+          50.1805,
+          19.0
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.52545485,
+      "micDiameterUpperBoundMm": 0.52545485,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        49.2,
+        19.26272742
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L08-H01",
+      "localId": "H01",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 8,
+      "geometryHoleIndex0": 3,
+      "areaMm2": 0.85884446,
+      "boundsMm": [
+        2.5,
+        106.15,
+        3.9957,
+        106.9211
+      ],
+      "verticesMm": [
+        [
+          2.5,
+          106.9211
+        ],
+        [
+          3.9957,
+          106.9211
+        ],
+        [
+          3.3,
+          106.2255
+        ],
+        [
+          3.3,
+          106.15
+        ],
+        [
+          2.5,
+          106.15
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.77100871,
+      "micDiameterUpperBoundMm": 0.7711,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        2.99511285,
+        106.53550435
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L08-H02",
+      "localId": "H02",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 8,
+      "geometryHoleIndex0": 4,
+      "areaMm2": 2.27172618,
+      "boundsMm": [
+        2.5,
+        108.7711,
+        6.2479,
+        109.5
+      ],
+      "verticesMm": [
+        [
+          2.5,
+          108.7711
+        ],
+        [
+          2.5,
+          109.5
+        ],
+        [
+          4.9854,
+          109.5
+        ],
+        [
+          6.2479,
+          108.7711
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.7289,
+      "micDiameterUpperBoundMm": 0.7289,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        4.058325,
+        109.13555
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L08-H03",
+      "localId": "H03",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 8,
+      "geometryHoleIndex0": 5,
+      "areaMm2": 19.93745592,
+      "boundsMm": [
+        9.8132,
+        108.7711,
+        37.5868,
+        109.5
+      ],
+      "verticesMm": [
+        [
+          9.8132,
+          109.5
+        ],
+        [
+          37.5868,
+          109.5
+        ],
+        [
+          37.166,
+          108.7711
+        ],
+        [
+          10.234,
+          108.7711
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.7289,
+      "micDiameterUpperBoundMm": 0.7289,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        23.7,
+        109.13555
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L08-H04",
+      "localId": "H04",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 8,
+      "geometryHoleIndex0": 20,
+      "areaMm2": 0.78390603,
+      "boundsMm": [
+        97.1521,
+        60.2737,
+        98.8,
+        61.2251
+      ],
+      "verticesMm": [
+        [
+          98.8,
+          60.2737
+        ],
+        [
+          97.1521,
+          60.2737
+        ],
+        [
+          98.8,
+          61.2251
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.69647674,
+      "micDiameterUpperBoundMm": 0.69647674,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        98.45176163,
+        60.62193837
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L08-H05",
+      "localId": "H05",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 8,
+      "geometryHoleIndex0": 26,
+      "areaMm2": 0.73986627,
+      "boundsMm": [
+        97.3043,
+        106.15,
+        98.8,
+        106.9211
+      ],
+      "verticesMm": [
+        [
+          97.5123,
+          106.7132
+        ],
+        [
+          97.3043,
+          106.9211
+        ],
+        [
+          98.8,
+          106.9211
+        ],
+        [
+          98.8,
+          106.15
+        ],
+        [
+          98.4878,
+          106.15
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.69643644,
+      "micDiameterUpperBoundMm": 0.69643644,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        98.45178178,
+        106.57288178
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L08-H06",
+      "localId": "H06",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 8,
+      "geometryHoleIndex0": 27,
+      "areaMm2": 3.48151796,
+      "boundsMm": [
+        93.8132,
+        108.7711,
+        98.8,
+        109.5
+      ],
+      "verticesMm": [
+        [
+          94.234,
+          108.7711
+        ],
+        [
+          93.8132,
+          109.5
+        ],
+        [
+          98.8,
+          109.5
+        ],
+        [
+          98.8,
+          108.7711
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.7289,
+      "micDiameterUpperBoundMm": 0.7289,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        96.4118,
+        109.13555
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L08-H07",
+      "localId": "H07",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 8,
+      "geometryHoleIndex0": 28,
+      "areaMm2": 17.76686461,
+      "boundsMm": [
+        67.3021,
+        108.7711,
+        92.0979,
+        109.5
+      ],
+      "verticesMm": [
+        [
+          92.0979,
+          108.7711
+        ],
+        [
+          67.3021,
+          108.7711
+        ],
+        [
+          67.723,
+          109.5
+        ],
+        [
+          91.677,
+          109.5
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.7289,
+      "micDiameterUpperBoundMm": 0.7289,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        79.7,
+        109.13555
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    },
+    {
+      "issueId": "kumiko-void-wide-L08-H08",
+      "localId": "H08",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 8,
+      "geometryHoleIndex0": 29,
+      "areaMm2": 14.45649237,
+      "boundsMm": [
+        41.1521,
+        108.7711,
+        62.2479,
+        109.5
+      ],
+      "verticesMm": [
+        [
+          62.2479,
+          108.7711
+        ],
+        [
+          41.1521,
+          108.7711
+        ],
+        [
+          42.4146,
+          109.5
+        ],
+        [
+          60.9854,
+          109.5
+        ]
+      ],
+      "micDiameterLowerBoundMm": 0.7289,
+      "micDiameterUpperBoundMm": 0.7289,
+      "micNumericalSearchToleranceMm": 0.0001,
+      "micCenterMm": [
+        51.7,
+        109.13555
+      ],
+      "upperBoundMethod": "convex-hull maximum-inscribed-circle linear program",
+      "noOneMmCircularRouterFits": true,
+      "requiredAction": "Resolve locally against selected fabrication route; preserve source until a documented manufacturing variant is reviewed."
+    }
+  ],
+  "thinMaterialIssues": [
+    {
+      "issueId": "kumiko-void-wide-L01-THIN-68-101",
+      "designId": "kumiko-void",
+      "variantId": "wide",
+      "layer": 1,
+      "geometryHoleIndices0": [
+        68,
+        101
+      ],
+      "widthMm": 0.116618566,
+      "closestPointsMm": [
+        [
+          93.5172,
+          26.8
+        ],
+        [
+          93.4162,
+          26.7417
+        ]
+      ],
+      "requiredAction": "Review the local ligament together with the adjacent tiny aperture before manufacturing; the connectivity erosion test does not preserve every thin detail."
+    }
+  ]
+}

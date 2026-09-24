@@ -1,0 +1,272 @@
+{
+  "revision": 3,
+  "source": "preview-source/assets/geometry.json",
+  "patternCoverage": {
+    "spider-nest": {
+      "top": {
+        "solidMm2": 2657.6694,
+        "goldMm2": 219.6421,
+        "goldFraction": 0.0826
+      },
+      "bottom": {
+        "solidMm2": 2657.6694,
+        "goldMm2": 221.5343,
+        "goldFraction": 0.0834
+      },
+      "left": {
+        "solidMm2": 782.25,
+        "goldMm2": 62.6358,
+        "goldFraction": 0.0801
+      },
+      "right": {
+        "solidMm2": 782.25,
+        "goldMm2": 67.4749,
+        "goldFraction": 0.0863
+      },
+      "center": {
+        "solidMm2": 753.9419,
+        "goldMm2": 151.4161,
+        "goldFraction": 0.2008
+      }
+    },
+    "coral-vault": {
+      "top": {
+        "solidMm2": 2657.6694,
+        "goldMm2": 577.1648,
+        "goldFraction": 0.2172
+      },
+      "bottom": {
+        "solidMm2": 2657.6694,
+        "goldMm2": 576.8819,
+        "goldFraction": 0.2171
+      },
+      "left": {
+        "solidMm2": 782.25,
+        "goldMm2": 179.3735,
+        "goldFraction": 0.2293
+      },
+      "right": {
+        "solidMm2": 782.25,
+        "goldMm2": 176.2814,
+        "goldFraction": 0.2254
+      },
+      "center": {
+        "solidMm2": 1786.5306,
+        "goldMm2": 340.3459,
+        "goldFraction": 0.1905
+      }
+    },
+    "kumiko-void": {
+      "top": {
+        "solidMm2": 2657.6694,
+        "goldMm2": 909.0796,
+        "goldFraction": 0.3421
+      },
+      "bottom": {
+        "solidMm2": 2657.6694,
+        "goldMm2": 870.1779,
+        "goldFraction": 0.3274
+      },
+      "left": {
+        "solidMm2": 782.25,
+        "goldMm2": 265.3338,
+        "goldFraction": 0.3392
+      },
+      "right": {
+        "solidMm2": 782.25,
+        "goldMm2": 270.3842,
+        "goldFraction": 0.3456
+      },
+      "center": {
+        "solidMm2": 2415.871,
+        "goldMm2": 920.2923,
+        "goldFraction": 0.3809
+      }
+    }
+  },
+  "wovenPaths": {
+    "layers": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "pairwiseDistinct": true,
+    "comparisons": [
+      {
+        "layers": [
+          2,
+          3
+        ],
+        "differentAreaMm2": 996.1525
+      },
+      {
+        "layers": [
+          2,
+          4
+        ],
+        "differentAreaMm2": 1193.515
+      },
+      {
+        "layers": [
+          2,
+          5
+        ],
+        "differentAreaMm2": 1080.8725
+      },
+      {
+        "layers": [
+          2,
+          6
+        ],
+        "differentAreaMm2": 1354.01
+      },
+      {
+        "layers": [
+          2,
+          7
+        ],
+        "differentAreaMm2": 1401.1925
+      },
+      {
+        "layers": [
+          2,
+          8
+        ],
+        "differentAreaMm2": 1607.965
+      },
+      {
+        "layers": [
+          3,
+          4
+        ],
+        "differentAreaMm2": 1245.95
+      },
+      {
+        "layers": [
+          3,
+          5
+        ],
+        "differentAreaMm2": 917.135
+      },
+      {
+        "layers": [
+          3,
+          6
+        ],
+        "differentAreaMm2": 897.0
+      },
+      {
+        "layers": [
+          3,
+          7
+        ],
+        "differentAreaMm2": 1009.845
+      },
+      {
+        "layers": [
+          3,
+          8
+        ],
+        "differentAreaMm2": 1206.5375
+      },
+      {
+        "layers": [
+          4,
+          5
+        ],
+        "differentAreaMm2": 1032.965
+      },
+      {
+        "layers": [
+          4,
+          6
+        ],
+        "differentAreaMm2": 1193.16
+      },
+      {
+        "layers": [
+          4,
+          7
+        ],
+        "differentAreaMm2": 1246.595
+      },
+      {
+        "layers": [
+          4,
+          8
+        ],
+        "differentAreaMm2": 1208.5
+      },
+      {
+        "layers": [
+          5,
+          6
+        ],
+        "differentAreaMm2": 1110.585
+      },
+      {
+        "layers": [
+          5,
+          7
+        ],
+        "differentAreaMm2": 1227.8
+      },
+      {
+        "layers": [
+          5,
+          8
+        ],
+        "differentAreaMm2": 994.2913
+      },
+      {
+        "layers": [
+          6,
+          7
+        ],
+        "differentAreaMm2": 988.7663
+      },
+      {
+        "layers": [
+          6,
+          8
+        ],
+        "differentAreaMm2": 858.95
+      },
+      {
+        "layers": [
+          7,
+          8
+        ],
+        "differentAreaMm2": 983.645
+      }
+    ]
+  },
+  "faultProgression": {
+    "nested": true,
+    "apertureAreasMm2": [
+      3069.4206,
+      2759.9879,
+      2419.25,
+      2018.0245,
+      1653.8732,
+      1309.3027,
+      1028.0761,
+      718.3957
+    ],
+    "apertureComponentCounts": [
+      1,
+      1,
+      1,
+      2,
+      6,
+      5,
+      3,
+      3
+    ]
+  },
+  "passed": true
+}

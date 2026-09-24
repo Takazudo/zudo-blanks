@@ -1,0 +1,25 @@
+---
+title: "Open Items Before Acceptance"
+description: "Specific process and prototype evidence still required."
+sidebar_position: 5
+---
+
+## Known review items
+
+Kumiko has 64 openings below the assumed router entry size and a wide-top ligament about 0.1166 mm wide. The export candidate clips visible gold; some copper and mask gaps are also very narrow. Use the measured locations in the review records and decide any design change with the chosen process.
+
+| Topic | Check | Evidence to record |
+| --- | --- | --- |
+| Tool diameter and interior radius | Minimum manufacturable strands, lattice, paths, and walls | Supplier response and revised drawing |
+| Copper and mask clearance | Distances from outside edges, cutouts, and NPTH holes | Applied rules and DRC |
+| Exposed ENIG | Top borders, hole rims, and full-gold layers | Copper/mask CAM image |
+| Narrow supports | Local strength and handling | Prototype and assembly review |
+| Mask colors | Availability and actual hue, including purple and yellow | Supplier specification or sample |
+| Mask-only boards | Accepted empty decorative copper layers and finish | Supplier confirmation and quote |
+| Drills and slots | NPTH treatment, slot output, drill origin | CAM output and supplier confirmation |
+| Spacers and screws | Actual sizes, stack length, nut allowance, rail clearance | Part numbers and trial assembly |
+| Kumiko variant | Standard or wide as a complete set | Selected manifest |
+
+If a change is needed, record board ID, layer, coordinates, reason, and geometry delta. Plan whether the generator or KiCad production copy becomes the source of truth.
+
+A planar connectivity check does not establish physical strength. A prototype is needed to assess breakage, flex, edge feel, screw load, stack sight lines, and color. These items remain pending; the imported files are not factory-accepted.

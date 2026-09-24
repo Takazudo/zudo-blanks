@@ -1,0 +1,30 @@
+---
+title: "Colors and ENIG"
+description: "The selected set uses 11 ENIG boards and 32 mask-only boards."
+sidebar_position: 2
+---
+
+## Selected set
+
+Choose either Kumiko variant to get a 43-board set. ENIG is used on 11 boards where visible gold is part of the design; 32 boards have no exposed decorative copper.
+
+| Design | ENIG layers | ENIG boards | Mask-only boards |
+| --- | --- | ---: | ---: |
+| Spider Nest | 1, 3, 5, 7 | 4 | 4 |
+| Coral Vault | 1, 4 | 2 | 6 |
+| Fault Line | 1 | 1 | 8 |
+| Kumiko Void | 1, 4, 7 | 3 | 6 |
+| Woven Maze | 1 | 1 | 8 |
+| Total |  | 11 | 32 |
+
+The Revision 5 borders are added to top boards that already use ENIG, so the ENIG board count does not increase. The visible gold area changes, so the price need not stay the same.
+
+## Finish meaning
+
+“Mask-only” means no exposed decorative copper and no decorative solder-mask openings. It does not specify copper-free laminate. The native stackup retains a common two-copper-layer FR-4 assumption; ask the chosen supplier whether a board with empty decorative copper layers can be ordered as intended.
+
+Gold is copper exposed through F.Mask. A gold rim around a hole is flat surface artwork and does not request plated hole walls, edge plating, or an electrical net. There is no back-side decorative artwork.
+
+## Estimate against real process rules
+
+The current export candidate sets mask openings at least 0.35 mm from edges and drills, copper at least 0.30 mm away, and copper 0.05 mm under the mask. Those are export choices, not supplier approval. Review the [before-and-after gold areas](../manufacturing/copper-review.mdx). Compare actual files, colors, and quantities with current supplier rules and quotes; ENIG counts do not imply a specific discount.

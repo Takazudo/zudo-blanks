@@ -1,0 +1,2286 @@
+{
+  "schemaVersion": 4,
+  "revision": 5,
+  "spec": {
+    "width": 101.3,
+    "height": 128.5,
+    "thickness": 1.6,
+    "gap": 3.0,
+    "keepout": 17.1,
+    "slots": [
+      [
+        10.17,
+        2.87
+      ],
+      [
+        91.13,
+        2.86
+      ],
+      [
+        10.16,
+        125.64
+      ],
+      [
+        91.14,
+        125.65
+      ]
+    ],
+    "slotDrill": [
+      10.28,
+      3.2
+    ],
+    "screws": [
+      [
+        6.5,
+        23.6
+      ],
+      [
+        94.8,
+        23.6
+      ],
+      [
+        6.5,
+        104.9
+      ],
+      [
+        94.8,
+        104.9
+      ]
+    ],
+    "screwDiameter": 3.2,
+    "padDiameter": 6,
+    "spacerOD": 6,
+    "railTall": 12.59,
+    "railDeep": 20.13,
+    "railNutFromOuter": 6.37,
+    "referenceUrl": "https://github.com/Takazudo/zudo-blanks/tree/main/panels/art-strip-mine/preview"
+  },
+  "designs": [
+    {
+      "id": "spider-nest",
+      "number": "01",
+      "name": "Spider Nest",
+      "stackDepth": 33.8,
+      "totalAreaMm2": 31998.41,
+      "checks": [
+        {
+          "label": "各層が1枚のPCBとして接続",
+          "ok": true,
+          "detail": "8/8 層、穴を差し引いた後も単一の連結形状"
+        },
+        {
+          "label": "上辺・下辺の連続性",
+          "ok": true,
+          "detail": "全層で上下の外周がつながっています"
+        },
+        {
+          "label": "実寸とレールの逃げ",
+          "ok": true,
+          "detail": "前面 101.3 ×128.5 mm／下層 101.3 ×94.3 mm"
+        },
+        {
+          "label": "固定穴と支持部",
+          "ok": true,
+          "detail": "4軸共通、穴径3.2 mm／支持部径6.1 mm以上"
+        },
+        {
+          "label": "トップ外周と固定穴の金縁",
+          "ok": true,
+          "detail": "外周1本・積層穴4個・レール長穴4個、板面内の平面ENIG装飾"
+        },
+        {
+          "label": "指定した層順",
+          "ok": true,
+          "detail": "マスク色・全面ENIG・底板の順番を確認"
+        },
+        {
+          "label": "層ごとのENIG使用方針",
+          "ok": true,
+          "detail": "ENIG 4枚／露出銅箔なし 4枚"
+        },
+        {
+          "label": "細い接続部の形状チェック",
+          "ok": true,
+          "detail": "0.5 mm内側へオフセットした形状の接続性（製造DRCの代替ではありません）"
+        },
+        {
+          "label": "トップ全面の模様",
+          "ok": true,
+          "detail": "上・下・左・右・中央の板面すべてに銅箔模様があります"
+        }
+      ],
+      "finishSummary": {
+        "enigLayers": [
+          1,
+          3,
+          5,
+          7
+        ],
+        "maskOnlyLayers": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "enigCount": 4,
+        "maskOnlyCount": 4,
+        "totalLayers": 8,
+        "rationale": "トップの巣模様と、指定した3枚の全面金層にENIGを残す。白3枚と赤い底板は単色。"
+      },
+      "comparisonToRevision3": {
+        "previousAreaMm2": 5228.408,
+        "currentAreaMm2": 6769.959,
+        "areaScale": 1.2948,
+        "previousBoundsMm": [
+          10.5,
+          27.0,
+          90.8,
+          101.5
+        ],
+        "currentBoundsMm": [
+          2.5,
+          19.0,
+          98.8,
+          109.5
+        ]
+      },
+      "topGoldBorders": {
+        "revision": 5,
+        "flatArtwork": true,
+        "topOnly": true,
+        "closedStrokeCount": 9,
+        "perimeter": {
+          "centerlineInsetMm": 0.55,
+          "strokeWidthMm": 0.32,
+          "minimumBoardEdgeClearanceMm": 0.39
+        },
+        "stackHoles": {
+          "count": 4,
+          "outline": "octagonal",
+          "centerlineRadiusMm": 2.7,
+          "strokeWidthMm": 0.4,
+          "supportRadiusMm": 3.05,
+          "minimumDrillClearanceMm": 0.6945,
+          "minimumBoardBoundaryClearanceMm": 0.6945
+        },
+        "railSlots": {
+          "count": 4,
+          "outline": "rectangular",
+          "centerlineOffsetFromSlotAxisMm": 2.1,
+          "strokeWidthMm": 0.4,
+          "minimumDrillClearanceMm": 0.3,
+          "joinedToPerimeter": true
+        },
+        "allCopperInsideBoard": true,
+        "drillsUnchanged": true,
+        "platedHolesRequired": false,
+        "edgePlatingRequired": false
+      },
+      "layers": [
+        {
+          "index": 0,
+          "colorKey": "black",
+          "surface": "mask",
+          "finish": "enig-art",
+          "finishLabel": "ENIG装飾",
+          "solid": false,
+          "stats": {
+            "areaMm2": 6092.232,
+            "volumeMm3": 9747.572,
+            "components": 1,
+            "apertures": 19,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 6769.957,
+            "apertureBoundsMm": [
+              2.5,
+              19.0,
+              98.8,
+              109.5
+            ],
+            "exposedCopperArt": true
+          }
+        },
+        {
+          "index": 1,
+          "colorKey": "white",
+          "surface": "mask",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "solid": false,
+          "stats": {
+            "areaMm2": 2718.371,
+            "volumeMm3": 4349.394,
+            "components": 1,
+            "apertures": 19,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 6802.1,
+            "apertureBoundsMm": [
+              2.5,
+              19.0,
+              98.8,
+              109.5
+            ],
+            "exposedCopperArt": false
+          }
+        },
+        {
+          "index": 2,
+          "colorKey": "gold",
+          "surface": "gold",
+          "finish": "enig-fill",
+          "finishLabel": "全面ENIG",
+          "solid": false,
+          "stats": {
+            "areaMm2": 2743.232,
+            "volumeMm3": 4389.171,
+            "components": 1,
+            "apertures": 19,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 6777.24,
+            "apertureBoundsMm": [
+              2.5,
+              19.0,
+              98.8,
+              109.5
+            ],
+            "exposedCopperArt": true
+          }
+        },
+        {
+          "index": 3,
+          "colorKey": "white",
+          "surface": "mask",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "solid": false,
+          "stats": {
+            "areaMm2": 2718.966,
+            "volumeMm3": 4350.346,
+            "components": 1,
+            "apertures": 18,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 6801.506,
+            "apertureBoundsMm": [
+              2.5,
+              19.0,
+              98.8,
+              109.5
+            ],
+            "exposedCopperArt": false
+          }
+        },
+        {
+          "index": 4,
+          "colorKey": "gold",
+          "surface": "gold",
+          "finish": "enig-fill",
+          "finishLabel": "全面ENIG",
+          "solid": false,
+          "stats": {
+            "areaMm2": 2743.087,
+            "volumeMm3": 4388.939,
+            "components": 1,
+            "apertures": 19,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 6777.385,
+            "apertureBoundsMm": [
+              2.5,
+              19.0,
+              98.8,
+              109.5
+            ],
+            "exposedCopperArt": true
+          }
+        },
+        {
+          "index": 5,
+          "colorKey": "white",
+          "surface": "mask",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "solid": false,
+          "stats": {
+            "areaMm2": 2737.906,
+            "volumeMm3": 4380.649,
+            "components": 1,
+            "apertures": 18,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 6782.566,
+            "apertureBoundsMm": [
+              2.5,
+              19.0,
+              98.8,
+              109.5
+            ],
+            "exposedCopperArt": false
+          }
+        },
+        {
+          "index": 6,
+          "colorKey": "gold",
+          "surface": "gold",
+          "finish": "enig-fill",
+          "finishLabel": "全面ENIG",
+          "solid": false,
+          "stats": {
+            "areaMm2": 2724.143,
+            "volumeMm3": 4358.629,
+            "components": 1,
+            "apertures": 19,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 6796.329,
+            "apertureBoundsMm": [
+              2.5,
+              19.0,
+              98.8,
+              109.5
+            ],
+            "exposedCopperArt": true
+          }
+        },
+        {
+          "index": 7,
+          "colorKey": "red",
+          "surface": "mask",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "solid": true,
+          "stats": {
+            "areaMm2": 9520.472,
+            "volumeMm3": 15232.755,
+            "components": 1,
+            "apertures": 0,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 0,
+            "apertureBoundsMm": null,
+            "exposedCopperArt": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "coral-vault",
+      "number": "03",
+      "name": "CORAL VAULT",
+      "stackDepth": 33.8,
+      "totalAreaMm2": 49654.18,
+      "checks": [
+        {
+          "label": "各層が1枚のPCBとして接続",
+          "ok": true,
+          "detail": "8/8 層、穴を差し引いた後も単一の連結形状"
+        },
+        {
+          "label": "上辺・下辺の連続性",
+          "ok": true,
+          "detail": "全層で上下の外周がつながっています"
+        },
+        {
+          "label": "実寸とレールの逃げ",
+          "ok": true,
+          "detail": "前面 101.3 ×128.5 mm／下層 101.3 ×94.3 mm"
+        },
+        {
+          "label": "固定穴と支持部",
+          "ok": true,
+          "detail": "4軸共通、穴径3.2 mm／支持部径6.1 mm以上"
+        },
+        {
+          "label": "トップ外周と固定穴の金縁",
+          "ok": true,
+          "detail": "外周1本・積層穴4個・レール長穴4個、板面内の平面ENIG装飾"
+        },
+        {
+          "label": "指定した層順",
+          "ok": true,
+          "detail": "マスク色・全面ENIG・底板の順番を確認"
+        },
+        {
+          "label": "層ごとのENIG使用方針",
+          "ok": true,
+          "detail": "ENIG 2枚／露出銅箔なし 6枚"
+        },
+        {
+          "label": "細い接続部の形状チェック",
+          "ok": true,
+          "detail": "0.5 mm内側へオフセットした形状の接続性（製造DRCの代替ではありません）"
+        },
+        {
+          "label": "奥へ狭まる開口",
+          "ok": true,
+          "detail": "各段の開口は手前の開口の内側にあり、面積が順に減少します"
+        },
+        {
+          "label": "トップ全面の模様",
+          "ok": true,
+          "detail": "上・下・左・右・中央の板面すべてに銅箔模様があります"
+        }
+      ],
+      "finishSummary": {
+        "enigLayers": [
+          1,
+          4
+        ],
+        "maskOnlyLayers": [
+          2,
+          3,
+          5,
+          6,
+          7,
+          8
+        ],
+        "enigCount": 2,
+        "maskOnlyCount": 6,
+        "totalLayers": 8,
+        "rationale": "トップのサンゴ模様と第4層の全面金を残す。ほかの6枚はレジスト色で表現。"
+      },
+      "comparisonToRevision3": {
+        "previousAreaMm2": 4195.819,
+        "currentAreaMm2": 6796.035,
+        "areaScale": 1.6197,
+        "previousBoundsMm": [
+          11.9,
+          28.4,
+          89.4,
+          100.1
+        ],
+        "currentBoundsMm": [
+          2.5,
+          19.0,
+          98.739,
+          109.5
+        ]
+      },
+      "topGoldBorders": {
+        "revision": 5,
+        "flatArtwork": true,
+        "topOnly": true,
+        "closedStrokeCount": 9,
+        "perimeter": {
+          "centerlineInsetMm": 0.55,
+          "strokeWidthMm": 0.32,
+          "minimumBoardEdgeClearanceMm": 0.39
+        },
+        "stackHoles": {
+          "count": 4,
+          "outline": "circular",
+          "centerlineRadiusMm": 2.7,
+          "strokeWidthMm": 0.4,
+          "supportRadiusMm": 3.05,
+          "minimumDrillClearanceMm": 0.8986,
+          "minimumBoardBoundaryClearanceMm": 0.2485
+        },
+        "railSlots": {
+          "count": 4,
+          "outline": "capsule",
+          "centerlineOffsetFromSlotAxisMm": 2.1,
+          "strokeWidthMm": 0.4,
+          "minimumDrillClearanceMm": 0.2993,
+          "joinedToPerimeter": true
+        },
+        "allCopperInsideBoard": true,
+        "drillsUnchanged": true,
+        "platedHolesRequired": false,
+        "edgePlatingRequired": false
+      },
+      "layers": [
+        {
+          "index": 0,
+          "colorKey": "black",
+          "surface": "mask",
+          "finish": "enig-art",
+          "finishLabel": "ENIG装飾",
+          "solid": false,
+          "stats": {
+            "areaMm2": 6066.155,
+            "volumeMm3": 9705.847,
+            "components": 1,
+            "apertures": 10,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 6796.035,
+            "apertureBoundsMm": [
+              2.5,
+              19.0,
+              98.739,
+              109.5
+            ],
+            "exposedCopperArt": true
+          }
+        },
+        {
+          "index": 1,
+          "colorKey": "green",
+          "surface": "mask",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "solid": false,
+          "stats": {
+            "areaMm2": 3529.691,
+            "volumeMm3": 5647.506,
+            "components": 1,
+            "apertures": 10,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 5990.78,
+            "apertureBoundsMm": [
+              3.701,
+              19.509,
+              97.962,
+              108.304
+            ],
+            "exposedCopperArt": false
+          }
+        },
+        {
+          "index": 2,
+          "colorKey": "purple",
+          "surface": "mask",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "solid": false,
+          "stats": {
+            "areaMm2": 4412.661,
+            "volumeMm3": 7060.257,
+            "components": 1,
+            "apertures": 11,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 5107.811,
+            "apertureBoundsMm": [
+              4.373,
+              20.173,
+              97.238,
+              107.219
+            ],
+            "exposedCopperArt": false
+          }
+        },
+        {
+          "index": 3,
+          "colorKey": "gold",
+          "surface": "gold",
+          "finish": "enig-fill",
+          "finishLabel": "全面ENIG",
+          "solid": false,
+          "stats": {
+            "areaMm2": 5281.877,
+            "volumeMm3": 8451.003,
+            "components": 1,
+            "apertures": 8,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 4238.595,
+            "apertureBoundsMm": [
+              5.048,
+              21.16,
+              96.239,
+              106.345
+            ],
+            "exposedCopperArt": true
+          }
+        },
+        {
+          "index": 4,
+          "colorKey": "red",
+          "surface": "mask",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "solid": false,
+          "stats": {
+            "areaMm2": 6144.738,
+            "volumeMm3": 9831.581,
+            "components": 1,
+            "apertures": 9,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 3375.733,
+            "apertureBoundsMm": [
+              5.97,
+              22.368,
+              94.707,
+              105.577
+            ],
+            "exposedCopperArt": false
+          }
+        },
+        {
+          "index": 5,
+          "colorKey": "yellow",
+          "surface": "mask",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "solid": false,
+          "stats": {
+            "areaMm2": 6976.36,
+            "volumeMm3": 11162.176,
+            "components": 1,
+            "apertures": 8,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 2544.112,
+            "apertureBoundsMm": [
+              7.321,
+              23.244,
+              93.435,
+              104.833
+            ],
+            "exposedCopperArt": false
+          }
+        },
+        {
+          "index": 6,
+          "colorKey": "red",
+          "surface": "mask",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "solid": false,
+          "stats": {
+            "areaMm2": 7722.223,
+            "volumeMm3": 12355.557,
+            "components": 1,
+            "apertures": 8,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 1798.249,
+            "apertureBoundsMm": [
+              9.239,
+              23.905,
+              92.671,
+              103.987
+            ],
+            "exposedCopperArt": false
+          }
+        },
+        {
+          "index": 7,
+          "colorKey": "blue",
+          "surface": "mask",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "solid": true,
+          "stats": {
+            "areaMm2": 9520.472,
+            "volumeMm3": 15232.755,
+            "components": 1,
+            "apertures": 0,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 0,
+            "apertureBoundsMm": null,
+            "exposedCopperArt": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "fault-line",
+      "number": "13",
+      "name": "Fault Line",
+      "stackDepth": 38.4,
+      "totalAreaMm2": 68922.55,
+      "checks": [
+        {
+          "label": "各層が1枚のPCBとして接続",
+          "ok": true,
+          "detail": "9/9 層、穴を差し引いた後も単一の連結形状"
+        },
+        {
+          "label": "上辺・下辺の連続性",
+          "ok": true,
+          "detail": "全層で上下の外周がつながっています"
+        },
+        {
+          "label": "実寸とレールの逃げ",
+          "ok": true,
+          "detail": "前面 101.3 ×128.5 mm／下層 101.3 ×94.3 mm"
+        },
+        {
+          "label": "固定穴と支持部",
+          "ok": true,
+          "detail": "4軸共通、穴径3.2 mm／支持部径6.1 mm以上"
+        },
+        {
+          "label": "トップ外周と固定穴の金縁",
+          "ok": true,
+          "detail": "外周1本・積層穴4個・レール長穴4個、板面内の平面ENIG装飾"
+        },
+        {
+          "label": "指定した層順",
+          "ok": true,
+          "detail": "マスク色・全面ENIG・底板の順番を確認"
+        },
+        {
+          "label": "層ごとのENIG使用方針",
+          "ok": true,
+          "detail": "ENIG 1枚／露出銅箔なし 8枚"
+        },
+        {
+          "label": "細い接続部の形状チェック",
+          "ok": true,
+          "detail": "0.5 mm内側へオフセットした形状の接続性（製造DRCの代替ではありません）"
+        },
+        {
+          "label": "奥へ狭まる開口",
+          "ok": true,
+          "detail": "各段の開口は手前の開口の内側にあり、面積が順に減少します"
+        }
+      ],
+      "finishSummary": {
+        "enigLayers": [
+          1
+        ],
+        "maskOnlyLayers": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "enigCount": 1,
+        "maskOnlyCount": 8,
+        "totalLayers": 9,
+        "rationale": "ENIGはトップの岩盤の亀裂模様だけ。下層は赤と黒の段差で深さを表現。"
+      },
+      "comparisonToRevision3": {
+        "previousAreaMm2": 3069.421,
+        "currentAreaMm2": 4238.25,
+        "areaScale": 1.3808,
+        "previousBoundsMm": [
+          12.2,
+          25.0,
+          89.007,
+          103.384
+        ],
+        "currentBoundsMm": [
+          4.0,
+          19.4,
+          97.0,
+          108.9
+        ]
+      },
+      "topGoldBorders": {
+        "revision": 5,
+        "flatArtwork": true,
+        "topOnly": true,
+        "closedStrokeCount": 9,
+        "perimeter": {
+          "centerlineInsetMm": 0.55,
+          "strokeWidthMm": 0.32,
+          "minimumBoardEdgeClearanceMm": 0.39
+        },
+        "stackHoles": {
+          "count": 4,
+          "outline": "circular",
+          "centerlineRadiusMm": 2.7,
+          "strokeWidthMm": 0.4,
+          "supportRadiusMm": 3.05,
+          "minimumDrillClearanceMm": 0.8986,
+          "minimumBoardBoundaryClearanceMm": 0.8986
+        },
+        "railSlots": {
+          "count": 4,
+          "outline": "capsule",
+          "centerlineOffsetFromSlotAxisMm": 2.1,
+          "strokeWidthMm": 0.4,
+          "minimumDrillClearanceMm": 0.2993,
+          "joinedToPerimeter": true
+        },
+        "allCopperInsideBoard": true,
+        "drillsUnchanged": true,
+        "platedHolesRequired": false,
+        "edgePlatingRequired": false
+      },
+      "layers": [
+        {
+          "index": 0,
+          "colorKey": "black",
+          "surface": "mask",
+          "finish": "enig-art",
+          "finishLabel": "ENIG装飾",
+          "solid": false,
+          "stats": {
+            "areaMm2": 8623.939,
+            "volumeMm3": 13798.303,
+            "components": 1,
+            "apertures": 1,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 4238.25,
+            "apertureBoundsMm": [
+              4.0,
+              19.4,
+              97.0,
+              108.9
+            ],
+            "exposedCopperArt": true
+          }
+        },
+        {
+          "index": 1,
+          "colorKey": "red",
+          "surface": "mask",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "solid": false,
+          "stats": {
+            "areaMm2": 5972.281,
+            "volumeMm3": 9555.65,
+            "components": 1,
+            "apertures": 1,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 3548.19,
+            "apertureBoundsMm": [
+              16.821,
+              20.32,
+              86.671,
+              108.11
+            ],
+            "exposedCopperArt": false
+          }
+        },
+        {
+          "index": 2,
+          "colorKey": "black",
+          "surface": "mask",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "solid": false,
+          "stats": {
+            "areaMm2": 6298.662,
+            "volumeMm3": 10077.86,
+            "components": 1,
+            "apertures": 1,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 3221.81,
+            "apertureBoundsMm": [
+              17.372,
+              21.24,
+              86.12,
+              107.32
+            ],
+            "exposedCopperArt": false
+          }
+        },
+        {
+          "index": 3,
+          "colorKey": "red",
+          "surface": "mask",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "solid": false,
+          "stats": {
+            "areaMm2": 6895.386,
+            "volumeMm3": 11032.617,
+            "components": 1,
+            "apertures": 1,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 2625.086,
+            "apertureBoundsMm": [
+              22.434,
+              22.16,
+              80.625,
+              106.53
+            ],
+            "exposedCopperArt": false
+          }
+        },
+        {
+          "index": 4,
+          "colorKey": "black",
+          "surface": "mask",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "solid": false,
+          "stats": {
+            "areaMm2": 7211.79,
+            "volumeMm3": 11538.865,
+            "components": 1,
+            "apertures": 1,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 2308.681,
+            "apertureBoundsMm": [
+              22.985,
+              23.08,
+              80.074,
+              105.74
+            ],
+            "exposedCopperArt": false
+          }
+        },
+        {
+          "index": 5,
+          "colorKey": "red",
+          "surface": "mask",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "solid": false,
+          "stats": {
+            "areaMm2": 7792.165,
+            "volumeMm3": 12467.464,
+            "components": 1,
+            "apertures": 1,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 1728.307,
+            "apertureBoundsMm": [
+              27.823,
+              23.63,
+              75.945,
+              100.014
+            ],
+            "exposedCopperArt": false
+          }
+        },
+        {
+          "index": 6,
+          "colorKey": "black",
+          "surface": "mask",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "solid": false,
+          "stats": {
+            "areaMm2": 8074.592,
+            "volumeMm3": 12919.347,
+            "components": 1,
+            "apertures": 1,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 1445.88,
+            "apertureBoundsMm": [
+              28.374,
+              24.92,
+              75.394,
+              99.275
+            ],
+            "exposedCopperArt": false
+          }
+        },
+        {
+          "index": 7,
+          "colorKey": "red",
+          "surface": "mask",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "solid": false,
+          "stats": {
+            "areaMm2": 8533.266,
+            "volumeMm3": 13653.226,
+            "components": 1,
+            "apertures": 3,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 987.205,
+            "apertureBoundsMm": [
+              29.392,
+              26.053,
+              74.037,
+              98.518
+            ],
+            "exposedCopperArt": false
+          }
+        },
+        {
+          "index": 8,
+          "colorKey": "black",
+          "surface": "mask",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "solid": true,
+          "stats": {
+            "areaMm2": 9520.472,
+            "volumeMm3": 15232.755,
+            "components": 1,
+            "apertures": 0,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 0,
+            "apertureBoundsMm": null,
+            "exposedCopperArt": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "kumiko-void",
+      "number": "17",
+      "name": "Kumiko Void",
+      "stackDepth": 38.4,
+      "totalAreaMm2": 54269.07,
+      "checks": [
+        {
+          "label": "各層が1枚のPCBとして接続",
+          "ok": true,
+          "detail": "9/9 層、穴を差し引いた後も単一の連結形状"
+        },
+        {
+          "label": "上辺・下辺の連続性",
+          "ok": true,
+          "detail": "全層で上下の外周がつながっています"
+        },
+        {
+          "label": "実寸とレールの逃げ",
+          "ok": true,
+          "detail": "前面 101.3 ×128.5 mm／下層 101.3 ×94.3 mm"
+        },
+        {
+          "label": "固定穴と支持部",
+          "ok": true,
+          "detail": "4軸共通、穴径3.2 mm／支持部径6.1 mm以上"
+        },
+        {
+          "label": "トップ外周と固定穴の金縁",
+          "ok": true,
+          "detail": "外周1本・積層穴4個・レール長穴4個、板面内の平面ENIG装飾"
+        },
+        {
+          "label": "指定した層順",
+          "ok": true,
+          "detail": "マスク色・全面ENIG・底板の順番を確認"
+        },
+        {
+          "label": "層ごとのENIG使用方針",
+          "ok": true,
+          "detail": "ENIG 3枚／露出銅箔なし 6枚"
+        },
+        {
+          "label": "細い接続部の形状チェック",
+          "ok": true,
+          "detail": "0.5 mm内側へオフセットした形状の接続性（製造DRCの代替ではありません）"
+        },
+        {
+          "label": "トップ全面の模様",
+          "ok": true,
+          "detail": "上・下・左・右・中央の板面すべてに銅箔模様があります"
+        }
+      ],
+      "finishSummary": {
+        "enigLayers": [
+          1,
+          4,
+          7
+        ],
+        "maskOnlyLayers": [
+          2,
+          3,
+          5,
+          6,
+          8,
+          9
+        ],
+        "enigCount": 3,
+        "maskOnlyCount": 6,
+        "totalLayers": 9,
+        "rationale": "立体感を作る黒3層の金の面を残す。赤・緑6層は単色。"
+      },
+      "comparisonToRevision3": {
+        "previousAreaMm2": 3566.479,
+        "currentAreaMm2": 3566.479,
+        "areaScale": 1.0,
+        "previousBoundsMm": [
+          10.5,
+          27.0,
+          90.8,
+          101.5
+        ],
+        "currentBoundsMm": [
+          10.5,
+          27.0,
+          90.8,
+          101.5
+        ]
+      },
+      "topGoldBorders": {
+        "revision": 5,
+        "flatArtwork": true,
+        "topOnly": true,
+        "closedStrokeCount": 9,
+        "perimeter": {
+          "centerlineInsetMm": 0.55,
+          "strokeWidthMm": 0.32,
+          "minimumBoardEdgeClearanceMm": 0.39
+        },
+        "stackHoles": {
+          "count": 4,
+          "outline": "octagonal",
+          "centerlineRadiusMm": 2.7,
+          "strokeWidthMm": 0.4,
+          "supportRadiusMm": 3.05,
+          "minimumDrillClearanceMm": 0.6945,
+          "minimumBoardBoundaryClearanceMm": 0.6945
+        },
+        "railSlots": {
+          "count": 4,
+          "outline": "rectangular",
+          "centerlineOffsetFromSlotAxisMm": 2.1,
+          "strokeWidthMm": 0.4,
+          "minimumDrillClearanceMm": 0.3,
+          "joinedToPerimeter": true
+        },
+        "allCopperInsideBoard": true,
+        "drillsUnchanged": true,
+        "platedHolesRequired": false,
+        "edgePlatingRequired": false
+      },
+      "layers": [
+        {
+          "index": 0,
+          "colorKey": "black",
+          "surface": "mask",
+          "finish": "enig-art",
+          "finishLabel": "ENIG装飾",
+          "solid": false,
+          "stats": {
+            "areaMm2": 9295.707,
+            "volumeMm3": 14873.131,
+            "components": 1,
+            "apertures": 73,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 3566.483,
+            "apertureBoundsMm": [
+              10.5,
+              27.0,
+              90.8,
+              101.5
+            ],
+            "exposedCopperArt": true
+          }
+        },
+        {
+          "index": 1,
+          "colorKey": "red",
+          "surface": "mask",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "solid": false,
+          "stats": {
+            "areaMm2": 5510.875,
+            "volumeMm3": 8817.4,
+            "components": 1,
+            "apertures": 49,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 4009.597,
+            "apertureBoundsMm": [
+              10.5,
+              27.0,
+              90.8,
+              101.5
+            ],
+            "exposedCopperArt": false
+          }
+        },
+        {
+          "index": 2,
+          "colorKey": "green",
+          "surface": "mask",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "solid": false,
+          "stats": {
+            "areaMm2": 5115.347,
+            "volumeMm3": 8184.555,
+            "components": 1,
+            "apertures": 47,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 4405.125,
+            "apertureBoundsMm": [
+              10.5,
+              27.0,
+              90.8,
+              101.5
+            ],
+            "exposedCopperArt": false
+          }
+        },
+        {
+          "index": 3,
+          "colorKey": "black",
+          "surface": "mask",
+          "finish": "enig-art",
+          "finishLabel": "ENIG装飾",
+          "solid": false,
+          "stats": {
+            "areaMm2": 5169.877,
+            "volumeMm3": 8271.803,
+            "components": 1,
+            "apertures": 42,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 4350.595,
+            "apertureBoundsMm": [
+              10.5,
+              27.0,
+              90.8,
+              101.5
+            ],
+            "exposedCopperArt": true
+          }
+        },
+        {
+          "index": 4,
+          "colorKey": "red",
+          "surface": "mask",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "solid": false,
+          "stats": {
+            "areaMm2": 4727.315,
+            "volumeMm3": 7563.704,
+            "components": 1,
+            "apertures": 33,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 4793.157,
+            "apertureBoundsMm": [
+              10.5,
+              27.0,
+              90.8,
+              101.5
+            ],
+            "exposedCopperArt": false
+          }
+        },
+        {
+          "index": 5,
+          "colorKey": "green",
+          "surface": "mask",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "solid": false,
+          "stats": {
+            "areaMm2": 5097.802,
+            "volumeMm3": 8156.484,
+            "components": 1,
+            "apertures": 38,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 4422.669,
+            "apertureBoundsMm": [
+              10.5,
+              27.0,
+              90.8,
+              101.5
+            ],
+            "exposedCopperArt": false
+          }
+        },
+        {
+          "index": 6,
+          "colorKey": "black",
+          "surface": "mask",
+          "finish": "enig-art",
+          "finishLabel": "ENIG装飾",
+          "solid": false,
+          "stats": {
+            "areaMm2": 4686.069,
+            "volumeMm3": 7497.71,
+            "components": 1,
+            "apertures": 32,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 4834.403,
+            "apertureBoundsMm": [
+              10.5,
+              27.0,
+              90.8,
+              101.5
+            ],
+            "exposedCopperArt": true
+          }
+        },
+        {
+          "index": 7,
+          "colorKey": "red",
+          "surface": "mask",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "solid": false,
+          "stats": {
+            "areaMm2": 5145.601,
+            "volumeMm3": 8232.961,
+            "components": 1,
+            "apertures": 39,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 4374.871,
+            "apertureBoundsMm": [
+              10.5,
+              27.0,
+              90.8,
+              101.5
+            ],
+            "exposedCopperArt": false
+          }
+        },
+        {
+          "index": 8,
+          "colorKey": "green",
+          "surface": "mask",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "solid": true,
+          "stats": {
+            "areaMm2": 9520.472,
+            "volumeMm3": 15232.755,
+            "components": 1,
+            "apertures": 0,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 0,
+            "apertureBoundsMm": null,
+            "exposedCopperArt": false
+          }
+        }
+      ],
+      "variantId": "standard",
+      "variantLabel": "標準",
+      "variants": [
+        {
+          "id": "kumiko-void",
+          "number": "17",
+          "name": "Kumiko Void",
+          "stackDepth": 38.4,
+          "totalAreaMm2": 39243.9,
+          "checks": [
+            {
+              "label": "各層が1枚のPCBとして接続",
+              "ok": true,
+              "detail": "9/9 層、穴を差し引いた後も単一の連結形状"
+            },
+            {
+              "label": "上辺・下辺の連続性",
+              "ok": true,
+              "detail": "全層で上下の外周がつながっています"
+            },
+            {
+              "label": "実寸とレールの逃げ",
+              "ok": true,
+              "detail": "前面 101.3 ×128.5 mm／下層 101.3 ×94.3 mm"
+            },
+            {
+              "label": "固定穴と支持部",
+              "ok": true,
+              "detail": "4軸共通、穴径3.2 mm／支持部径6.1 mm以上"
+            },
+            {
+              "label": "トップ外周と固定穴の金縁",
+              "ok": true,
+              "detail": "外周1本・積層穴4個・レール長穴4個、板面内の平面ENIG装飾"
+            },
+            {
+              "label": "指定した層順",
+              "ok": true,
+              "detail": "マスク色・全面ENIG・底板の順番を確認"
+            },
+            {
+              "label": "層ごとのENIG使用方針",
+              "ok": true,
+              "detail": "ENIG 3枚／露出銅箔なし 6枚"
+            },
+            {
+              "label": "細い接続部の形状チェック",
+              "ok": true,
+              "detail": "0.5 mm内側へオフセットした形状の接続性（製造DRCの代替ではありません）"
+            },
+            {
+              "label": "トップ全面の模様",
+              "ok": true,
+              "detail": "上・下・左・右・中央の板面すべてに銅箔模様があります"
+            }
+          ],
+          "finishSummary": {
+            "enigLayers": [
+              1,
+              4,
+              7
+            ],
+            "maskOnlyLayers": [
+              2,
+              3,
+              5,
+              6,
+              8,
+              9
+            ],
+            "enigCount": 3,
+            "maskOnlyCount": 6,
+            "totalLayers": 9,
+            "rationale": "立体感を作る黒3層の金の面を残す。赤・緑6層は単色。"
+          },
+          "comparisonToRevision3": {
+            "previousAreaMm2": 3566.479,
+            "currentAreaMm2": 5128.448,
+            "areaScale": 1.438,
+            "previousBoundsMm": [
+              10.5,
+              27.0,
+              90.8,
+              101.5
+            ],
+            "currentBoundsMm": [
+              2.5,
+              19.0,
+              98.8,
+              109.5
+            ]
+          },
+          "topGoldBorders": {
+            "revision": 5,
+            "flatArtwork": true,
+            "topOnly": true,
+            "closedStrokeCount": 9,
+            "perimeter": {
+              "centerlineInsetMm": 0.55,
+              "strokeWidthMm": 0.32,
+              "minimumBoardEdgeClearanceMm": 0.39
+            },
+            "stackHoles": {
+              "count": 4,
+              "outline": "octagonal",
+              "centerlineRadiusMm": 2.7,
+              "strokeWidthMm": 0.4,
+              "supportRadiusMm": 3.05,
+              "minimumDrillClearanceMm": 0.6945,
+              "minimumBoardBoundaryClearanceMm": 0.2835
+            },
+            "railSlots": {
+              "count": 4,
+              "outline": "rectangular",
+              "centerlineOffsetFromSlotAxisMm": 2.1,
+              "strokeWidthMm": 0.4,
+              "minimumDrillClearanceMm": 0.3,
+              "joinedToPerimeter": true
+            },
+            "allCopperInsideBoard": true,
+            "drillsUnchanged": true,
+            "platedHolesRequired": false,
+            "edgePlatingRequired": false
+          },
+          "layers": [
+            {
+              "index": 0,
+              "colorKey": "black",
+              "surface": "mask",
+              "finish": "enig-art",
+              "finishLabel": "ENIG装飾",
+              "solid": false,
+              "stats": {
+                "areaMm2": 7733.734,
+                "volumeMm3": 12373.974,
+                "components": 1,
+                "apertures": 102,
+                "closedOutline": true,
+                "valid": true,
+                "neckTestMm": 1.0,
+                "erosionConnected": true,
+                "erosionComponents": 1,
+                "topBottomConnected": true,
+                "mountSupports": true,
+                "apertureAreaMm2": 5128.456,
+                "apertureBoundsMm": [
+                  2.5,
+                  19.0,
+                  98.8,
+                  109.5
+                ],
+                "exposedCopperArt": true
+              }
+            },
+            {
+              "index": 1,
+              "colorKey": "red",
+              "surface": "mask",
+              "finish": "mask-only",
+              "finishLabel": "露出銅箔なし",
+              "solid": false,
+              "stats": {
+                "areaMm2": 3513.922,
+                "volumeMm3": 5622.276,
+                "components": 1,
+                "apertures": 65,
+                "closedOutline": true,
+                "valid": true,
+                "neckTestMm": 1.0,
+                "erosionConnected": true,
+                "erosionComponents": 1,
+                "topBottomConnected": true,
+                "mountSupports": true,
+                "apertureAreaMm2": 6006.549,
+                "apertureBoundsMm": [
+                  2.5,
+                  19.0,
+                  98.8,
+                  109.5
+                ],
+                "exposedCopperArt": false
+              }
+            },
+            {
+              "index": 2,
+              "colorKey": "green",
+              "surface": "mask",
+              "finish": "mask-only",
+              "finishLabel": "露出銅箔なし",
+              "solid": false,
+              "stats": {
+                "areaMm2": 3386.5,
+                "volumeMm3": 5418.401,
+                "components": 1,
+                "apertures": 68,
+                "closedOutline": true,
+                "valid": true,
+                "neckTestMm": 1.0,
+                "erosionConnected": true,
+                "erosionComponents": 1,
+                "topBottomConnected": true,
+                "mountSupports": true,
+                "apertureAreaMm2": 6133.971,
+                "apertureBoundsMm": [
+                  2.5,
+                  19.0,
+                  98.8,
+                  109.5
+                ],
+                "exposedCopperArt": false
+              }
+            },
+            {
+              "index": 3,
+              "colorKey": "black",
+              "surface": "mask",
+              "finish": "enig-art",
+              "finishLabel": "ENIG装飾",
+              "solid": false,
+              "stats": {
+                "areaMm2": 3351.924,
+                "volumeMm3": 5363.078,
+                "components": 1,
+                "apertures": 70,
+                "closedOutline": true,
+                "valid": true,
+                "neckTestMm": 1.0,
+                "erosionConnected": true,
+                "erosionComponents": 1,
+                "topBottomConnected": true,
+                "mountSupports": true,
+                "apertureAreaMm2": 6168.548,
+                "apertureBoundsMm": [
+                  2.5,
+                  19.0,
+                  98.8,
+                  109.5
+                ],
+                "exposedCopperArt": true
+              }
+            },
+            {
+              "index": 4,
+              "colorKey": "red",
+              "surface": "mask",
+              "finish": "mask-only",
+              "finishLabel": "露出銅箔なし",
+              "solid": false,
+              "stats": {
+                "areaMm2": 2710.169,
+                "volumeMm3": 4336.27,
+                "components": 1,
+                "apertures": 45,
+                "closedOutline": true,
+                "valid": true,
+                "neckTestMm": 1.0,
+                "erosionConnected": true,
+                "erosionComponents": 1,
+                "topBottomConnected": true,
+                "mountSupports": true,
+                "apertureAreaMm2": 6810.303,
+                "apertureBoundsMm": [
+                  2.5,
+                  19.0,
+                  98.8,
+                  109.5
+                ],
+                "exposedCopperArt": false
+              }
+            },
+            {
+              "index": 5,
+              "colorKey": "green",
+              "surface": "mask",
+              "finish": "mask-only",
+              "finishLabel": "露出銅箔なし",
+              "solid": false,
+              "stats": {
+                "areaMm2": 3019.991,
+                "volumeMm3": 4831.985,
+                "components": 1,
+                "apertures": 57,
+                "closedOutline": true,
+                "valid": true,
+                "neckTestMm": 1.0,
+                "erosionConnected": true,
+                "erosionComponents": 1,
+                "topBottomConnected": true,
+                "mountSupports": true,
+                "apertureAreaMm2": 6500.481,
+                "apertureBoundsMm": [
+                  2.5,
+                  19.0,
+                  98.8,
+                  109.5
+                ],
+                "exposedCopperArt": false
+              }
+            },
+            {
+              "index": 6,
+              "colorKey": "black",
+              "surface": "mask",
+              "finish": "enig-art",
+              "finishLabel": "ENIG装飾",
+              "solid": false,
+              "stats": {
+                "areaMm2": 2870.012,
+                "volumeMm3": 4592.02,
+                "components": 1,
+                "apertures": 52,
+                "closedOutline": true,
+                "valid": true,
+                "neckTestMm": 1.0,
+                "erosionConnected": true,
+                "erosionComponents": 1,
+                "topBottomConnected": true,
+                "mountSupports": true,
+                "apertureAreaMm2": 6650.459,
+                "apertureBoundsMm": [
+                  2.5,
+                  19.0,
+                  98.8,
+                  108.621
+                ],
+                "exposedCopperArt": true
+              }
+            },
+            {
+              "index": 7,
+              "colorKey": "red",
+              "surface": "mask",
+              "finish": "mask-only",
+              "finishLabel": "露出銅箔なし",
+              "solid": false,
+              "stats": {
+                "areaMm2": 3137.177,
+                "volumeMm3": 5019.484,
+                "components": 1,
+                "apertures": 55,
+                "closedOutline": true,
+                "valid": true,
+                "neckTestMm": 1.0,
+                "erosionConnected": true,
+                "erosionComponents": 1,
+                "topBottomConnected": true,
+                "mountSupports": true,
+                "apertureAreaMm2": 6383.294,
+                "apertureBoundsMm": [
+                  2.5,
+                  19.0,
+                  98.8,
+                  109.5
+                ],
+                "exposedCopperArt": false
+              }
+            },
+            {
+              "index": 8,
+              "colorKey": "green",
+              "surface": "mask",
+              "finish": "mask-only",
+              "finishLabel": "露出銅箔なし",
+              "solid": true,
+              "stats": {
+                "areaMm2": 9520.472,
+                "volumeMm3": 15232.755,
+                "components": 1,
+                "apertures": 0,
+                "closedOutline": true,
+                "valid": true,
+                "neckTestMm": 1.0,
+                "erosionConnected": true,
+                "erosionComponents": 1,
+                "topBottomConnected": true,
+                "mountSupports": true,
+                "apertureAreaMm2": 0,
+                "apertureBoundsMm": null,
+                "exposedCopperArt": false
+              }
+            }
+          ],
+          "variantId": "wide",
+          "variantLabel": "開口拡大"
+        }
+      ]
+    },
+    {
+      "id": "woven-maze",
+      "number": "18",
+      "name": "Woven Maze",
+      "stackDepth": 38.4,
+      "totalAreaMm2": 33359.16,
+      "checks": [
+        {
+          "label": "各層が1枚のPCBとして接続",
+          "ok": true,
+          "detail": "9/9 層、穴を差し引いた後も単一の連結形状"
+        },
+        {
+          "label": "上辺・下辺の連続性",
+          "ok": true,
+          "detail": "全層で上下の外周がつながっています"
+        },
+        {
+          "label": "実寸とレールの逃げ",
+          "ok": true,
+          "detail": "前面 101.3 ×128.5 mm／下層 101.3 ×94.3 mm"
+        },
+        {
+          "label": "固定穴と支持部",
+          "ok": true,
+          "detail": "4軸共通、穴径3.2 mm／支持部径6.1 mm以上"
+        },
+        {
+          "label": "トップ外周と固定穴の金縁",
+          "ok": true,
+          "detail": "外周1本・積層穴4個・レール長穴4個、板面内の平面ENIG装飾"
+        },
+        {
+          "label": "指定した層順",
+          "ok": true,
+          "detail": "マスク色・全面ENIG・底板の順番を確認"
+        },
+        {
+          "label": "層ごとのENIG使用方針",
+          "ok": true,
+          "detail": "ENIG 1枚／露出銅箔なし 8枚"
+        },
+        {
+          "label": "細い接続部の形状チェック",
+          "ok": true,
+          "detail": "0.5 mm内側へオフセットした形状の接続性（製造DRCの代替ではありません）"
+        }
+      ],
+      "finishSummary": {
+        "enigLayers": [
+          1
+        ],
+        "maskOnlyLayers": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "enigCount": 1,
+        "maskOnlyCount": 8,
+        "totalLayers": 9,
+        "rationale": "ENIGはトップの縁取りと迷路模様だけ。白4枚と下層の黒4枚は単色。"
+      },
+      "comparisonToRevision3": {
+        "previousAreaMm2": 4690.217,
+        "currentAreaMm2": 6904.104,
+        "areaScale": 1.472,
+        "previousBoundsMm": [
+          10.5,
+          27.0,
+          90.8,
+          101.5
+        ],
+        "currentBoundsMm": [
+          2.5,
+          19.0,
+          98.8,
+          109.5
+        ]
+      },
+      "topGoldBorders": {
+        "revision": 5,
+        "flatArtwork": true,
+        "topOnly": true,
+        "closedStrokeCount": 9,
+        "perimeter": {
+          "centerlineInsetMm": 0.55,
+          "strokeWidthMm": 0.32,
+          "minimumBoardEdgeClearanceMm": 0.39
+        },
+        "stackHoles": {
+          "count": 4,
+          "outline": "circular",
+          "centerlineRadiusMm": 2.7,
+          "strokeWidthMm": 0.4,
+          "supportRadiusMm": 3.05,
+          "minimumDrillClearanceMm": 0.8986,
+          "minimumBoardBoundaryClearanceMm": 0.8986
+        },
+        "railSlots": {
+          "count": 4,
+          "outline": "capsule",
+          "centerlineOffsetFromSlotAxisMm": 2.1,
+          "strokeWidthMm": 0.4,
+          "minimumDrillClearanceMm": 0.2993,
+          "joinedToPerimeter": true
+        },
+        "allCopperInsideBoard": true,
+        "drillsUnchanged": true,
+        "platedHolesRequired": false,
+        "edgePlatingRequired": false
+      },
+      "layers": [
+        {
+          "index": 0,
+          "colorKey": "black",
+          "surface": "mask",
+          "finish": "enig-art",
+          "finishLabel": "ENIG装飾",
+          "solid": false,
+          "stats": {
+            "areaMm2": 5958.085,
+            "volumeMm3": 9532.936,
+            "components": 1,
+            "apertures": 3,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 6904.105,
+            "apertureBoundsMm": [
+              2.5,
+              19.0,
+              98.8,
+              109.5
+            ],
+            "exposedCopperArt": true
+          }
+        },
+        {
+          "index": 1,
+          "colorKey": "white",
+          "surface": "mask",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "solid": false,
+          "stats": {
+            "areaMm2": 2452.593,
+            "volumeMm3": 3924.148,
+            "components": 1,
+            "apertures": 4,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 7067.879,
+            "apertureBoundsMm": [
+              2.5,
+              19.0,
+              98.8,
+              109.5
+            ],
+            "exposedCopperArt": false
+          }
+        },
+        {
+          "index": 2,
+          "colorKey": "black",
+          "surface": "mask",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "solid": false,
+          "stats": {
+            "areaMm2": 2510.018,
+            "volumeMm3": 4016.029,
+            "components": 1,
+            "apertures": 5,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 7010.454,
+            "apertureBoundsMm": [
+              2.5,
+              19.0,
+              98.8,
+              109.5
+            ],
+            "exposedCopperArt": false
+          }
+        },
+        {
+          "index": 3,
+          "colorKey": "white",
+          "surface": "mask",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "solid": false,
+          "stats": {
+            "areaMm2": 2477.206,
+            "volumeMm3": 3963.529,
+            "components": 1,
+            "apertures": 5,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 7043.266,
+            "apertureBoundsMm": [
+              2.5,
+              19.0,
+              98.8,
+              109.5
+            ],
+            "exposedCopperArt": false
+          }
+        },
+        {
+          "index": 4,
+          "colorKey": "black",
+          "surface": "mask",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "solid": false,
+          "stats": {
+            "areaMm2": 2681.134,
+            "volumeMm3": 4289.815,
+            "components": 1,
+            "apertures": 3,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 6839.337,
+            "apertureBoundsMm": [
+              2.5,
+              19.0,
+              98.8,
+              109.5
+            ],
+            "exposedCopperArt": false
+          }
+        },
+        {
+          "index": 5,
+          "colorKey": "white",
+          "surface": "mask",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "solid": false,
+          "stats": {
+            "areaMm2": 2570.144,
+            "volumeMm3": 4112.23,
+            "components": 1,
+            "apertures": 6,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 6950.328,
+            "apertureBoundsMm": [
+              2.5,
+              19.0,
+              98.8,
+              109.5
+            ],
+            "exposedCopperArt": false
+          }
+        },
+        {
+          "index": 6,
+          "colorKey": "black",
+          "surface": "mask",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "solid": false,
+          "stats": {
+            "areaMm2": 2740.584,
+            "volumeMm3": 4384.935,
+            "components": 1,
+            "apertures": 6,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 6779.887,
+            "apertureBoundsMm": [
+              2.5,
+              19.0,
+              98.8,
+              109.5
+            ],
+            "exposedCopperArt": false
+          }
+        },
+        {
+          "index": 7,
+          "colorKey": "white",
+          "surface": "mask",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "solid": false,
+          "stats": {
+            "areaMm2": 2448.923,
+            "volumeMm3": 3918.276,
+            "components": 1,
+            "apertures": 6,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 7071.549,
+            "apertureBoundsMm": [
+              2.5,
+              19.0,
+              98.8,
+              109.5
+            ],
+            "exposedCopperArt": false
+          }
+        },
+        {
+          "index": 8,
+          "colorKey": "black",
+          "surface": "mask",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "solid": true,
+          "stats": {
+            "areaMm2": 9520.472,
+            "volumeMm3": 15232.755,
+            "components": 1,
+            "apertures": 0,
+            "closedOutline": true,
+            "valid": true,
+            "neckTestMm": 1.0,
+            "erosionConnected": true,
+            "erosionComponents": 1,
+            "topBottomConnected": true,
+            "mountSupports": true,
+            "apertureAreaMm2": 0,
+            "apertureBoundsMm": null,
+            "exposedCopperArt": false
+          }
+        }
+      ]
+    }
+  ]
+}

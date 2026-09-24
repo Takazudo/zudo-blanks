@@ -1,0 +1,94 @@
+{
+  "checkedAt": "2026-09-24 UTC",
+  "scope": "Official public zudo-doc documentation and selected GitHub plugin reads of the user-provided example repositories.",
+  "framework": [
+    {
+      "url": "https://zudo-doc.takazudomodular.com/docs/getting-started/installation/",
+      "usedFor": [
+        "Node.js >=22",
+        "pnpm initializer",
+        "project file layout"
+      ]
+    },
+    {
+      "url": "https://zudo-doc.takazudomodular.com/docs/reference/create-zudo-doc/",
+      "usedFor": [
+        "destination",
+        "--name",
+        "--yes",
+        "--lang ja",
+        "--no-i18n",
+        "--no-install",
+        "--no-git",
+        "--no-doc-history"
+      ]
+    },
+    {
+      "url": "https://zudo-doc.takazudomodular.com/docs/guides/configuration/",
+      "usedFor": [
+        "zfb.config.ts",
+        "defineConfig(zudoDoc(...))",
+        "home.introMarkdown",
+        "headerNav",
+        "entryDocSlug",
+        "defaultLocale"
+      ]
+    },
+    {
+      "url": "https://zudo-doc.takazudomodular.com/docs/getting-started/writing-docs/",
+      "usedFor": [
+        "MDX",
+        "title/description/sidebar_position",
+        "no body H1",
+        "relative .mdx links"
+      ]
+    },
+    {
+      "url": "https://zudo-doc.takazudomodular.com/docs/getting-started/structuring-navigations/",
+      "usedFor": [
+        "six categories",
+        "categoryMatch",
+        "CategoryNav",
+        "short category landing pages"
+      ]
+    }
+  ],
+  "repositories": [
+    {
+      "repository": "Takazudo/zudo-led-lamp",
+      "ref": "main",
+      "treeSha": "de6b355107d8b6adaa1a706358fe5c02315f272a",
+      "filesRead": [
+        "doc/zfb.config.ts",
+        "doc/package.json",
+        "doc/src/content/docs/getting-started/index.mdx",
+        "doc/src/content/docs/architecture/index.mdx"
+      ],
+      "observedDocDependency": "@takazudo/zudo-doc ^5.27.0",
+      "note": "Observed example dependency, not a claim that this is the latest available release."
+    },
+    {
+      "repository": "Takazudo/zudo-test-wisdom",
+      "ref": "main",
+      "treeSha": "796338e9feeb95be81567f9ee35828c99282af66",
+      "filesRead": [
+        "zfb.config.ts",
+        "src/content/docs-ja/overview/index.mdx"
+      ]
+    }
+  ],
+  "preparedFiles": [
+    "docs-overlay/zfb.config.ts",
+    "docs-overlay/src/content/docs/",
+    "documentation/bootstrap_zudo_doc.py",
+    "documentation/copy_site_assets.py",
+    "documentation/verify_docs.py"
+  ],
+  "executedHere": {
+    "zudoDocInitializer": false,
+    "dependencyInstall": false,
+    "zudoDocBuild": false,
+    "staticMdxAndResourceChecks": true
+  },
+  "adoption": "Use the current official initializer locally; keep its generated package.json, lockfile, pages, tsconfig and CSS imports. Copy this project-owned content and config overlay. No deployment was requested."
+}
