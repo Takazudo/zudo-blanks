@@ -13,12 +13,12 @@ The documentation is automatically deployed to Netlify:
 - **Production URL**: https://takazudomodular.com/pj/zblanks/
 - **Base Path**: `/pj/zblanks/`
 - **Deployment**: Automatic on every push to `main` branch
-- **Technology**: Docusaurus static site deployed via Netlify CLI on GitHub Actions
+- **Technology**: zudo-doc static site deployed via Netlify CLI on GitHub Actions
 - **Configuration**: See `.github/workflows/main-deploy.yml` for deployment workflow
 
 ## Repository Structure
 
-For the full file structure documentation, see `/doc/docs/overview/file-structure.md`.
+For the full file structure documentation, see `/doc/src/content/docs/overview/file-structure.md`.
 
 ### Key Directories
 - `/panels/` - **All KiCad panel projects** (flat structure, one dir per panel)
@@ -29,7 +29,7 @@ For the full file structure documentation, see `/doc/docs/overview/file-structur
 - `/symbols/` - **Shared KiCad symbol library** (minimal)
 - `/artwork-resources/` - **Source artwork files** (AI, SVG)
 - `/jlcpcb-order-snapshots/` - **JLCPCB order history** (`{date}-{panel}/`)
-- `/doc/` - **Docusaurus documentation site**
+- `/doc/` - **zudo-doc documentation site**
 - `/__inbox/` - **Temporary files** (gitignored)
 
 ## Documentation Language
@@ -44,13 +44,13 @@ Use English for all text to ensure international accessibility and collaboration
 
 ## URL Reference Guidelines
 
-When the user provides URLs starting with `http://localhost:43621/pj/zblanks/` or `http://zblanks.localhost:43621/pj/zblanks/` in the conversation:
+When the user provides URLs under `http://localhost:4321/pj/zblanks/` in the conversation:
 
-- **DO NOT fetch the URL** - These are local documentation URLs served by Docusaurus
+- **DO NOT fetch the URL** - These are local documentation URLs served by zudo-doc
 - **Instead, find and read the corresponding markdown file** in the `/doc/` directory
-- Map URLs to file paths following Docusaurus routing (note: `/pj/zblanks/` is the base path):
-  - `http://zblanks.localhost:43621/pj/zblanks/` → `/doc/docs/` (root pages)
-  - `http://zblanks.localhost:43621/pj/zblanks/docs/inbox/overview` → `/doc/docs/inbox/overview.md`
+- Map URLs to file paths following zudo-doc routing (note: `/pj/zblanks/` is the base path):
+  - `http://localhost:4321/pj/zblanks/` → `/doc/pages/index.tsx` (home page)
+  - `http://localhost:4321/pj/zblanks/docs/overview/project-overview` → `/doc/src/content/docs/overview/project-overview.md`
 - Use the Read tool to access the actual markdown source files
 
 ## File Types
@@ -63,10 +63,10 @@ When the user provides URLs starting with `http://localhost:43621/pj/zblanks/` o
 - `.kicad_sym` - KiCad symbol library files (schematic symbols)
 - `fp-lib-table` - Footprint library configuration
 - `sym-lib-table` - Symbol library configuration
-- No code compilation or testing is required - this is a hardware design project
+- Documentation code requires `pnpm check`, link checks, and a static build under `doc/`
 
 ## Directory-Scoped CLAUDE.md Files
 
 Subdirectories with their own conventions have dedicated CLAUDE.md files:
-- `/doc/CLAUDE.md` - Docusaurus sidebar structure, adding pages, dev commands
+- `/doc/CLAUDE.md` - zudo-doc navigation structure, adding pages, dev commands
 - `/footprints/CLAUDE.md` - Footprint file organization, SVG export workflow

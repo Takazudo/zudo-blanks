@@ -1,81 +1,37 @@
 {
-  "name": "doc",
-  "version": "0.0.0",
+  "name": "zudo-blanks-doc",
+  "version": "0.0.1",
   "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
-    "docusaurus": "docusaurus",
-    "generate-doc-titles": "node scripts/generate-doc-titles.js",
-    "generate-category-nav": "node scripts/generate-category-nav.js",
-    "start": "docusaurus start --port 43621 --host zblanks.localhost",
-    "build": "npm run generate-doc-titles && npm run generate-category-nav && docusaurus build",
-    "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy",
-    "clear": "docusaurus clear",
-    "serve": "docusaurus serve",
-    "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids",
-    "lint": "eslint src --ext .ts,.tsx,.js,.jsx",
-    "lint:fix": "eslint src --ext .ts,.tsx,.js,.jsx --fix",
-    "typecheck": "tsc --noEmit",
-    "format": "prettier --check \"**/*.{ts,tsx,js,jsx,json,css,md,mdx}\" \"!node_modules/**\" \"!.docusaurus/**\" \"!build/**\"",
-    "format:fix": "prettier --write \"**/*.{ts,tsx,js,jsx,json,css,md,mdx}\" \"!node_modules/**\" \"!.docusaurus/**\" \"!build/**\"",
-    "check": "pnpm run typecheck && pnpm run lint && pnpm run format",
-    "check:fix": "pnpm run lint:fix && pnpm run format:fix",
-    "prepare": "cd .. && husky doc/.husky || true"
+    "dev": "run-parallel dev:zfb dev:history",
+    "build": "zfb build",
+    "preview": "zfb preview",
+    "check": "zfb check",
+    "check:links": "node scripts/check-links.js",
+    "check:images": "zudo-doc check images",
+    "dev:zfb": "zfb dev",
+    "dev:zfb:network": "zfb dev --host 0.0.0.0",
+    "dev:network": "run-parallel dev:zfb:network dev:history",
+    "dev:history": "doc-history-server --port 4322 --content-dir src/content/docs"
   },
   "dependencies": {
-    "@docusaurus/core": "3.9.2",
-    "@docusaurus/plugin-content-docs": "3.9.2",
-    "@docusaurus/preset-classic": "3.9.2",
-    "@docusaurus/theme-common": "3.9.2",
-    "@docusaurus/theme-mermaid": "^3.9.2",
-    "@mdx-js/react": "^3.1.1",
-    "clsx": "^2.1.1",
-    "prism-react-renderer": "^2.4.1",
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3"
+    "@takazudo/zfb": "2.20.1",
+    "@takazudo/zfb-runtime": "2.20.1",
+    "@takazudo/zfb-md-wasm": "2.20.1",
+    "@takazudo/zudo-doc": "5.26.5",
+    "zod": "^4.3.6",
+    "preact": "^10.29.1",
+    "preact-render-to-string": "^6.6.6",
+    "diff": "^8.0.3",
+    "@takazudo/zudo-doc-history-server": "5.26.5"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.9.2",
-    "@docusaurus/types": "3.9.2",
-    "@eslint/js": "^9.39.2",
-    "@types/react": "^19.2.8",
-    "@types/react-dom": "^19.2.3",
-    "@typescript-eslint/eslint-plugin": "^8.53.0",
-    "@typescript-eslint/parser": "^8.53.0",
-    "eslint": "^9.39.2",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.4",
-    "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^7.0.1",
-    "globals": "^17.0.0",
-    "gray-matter": "^4.0.3",
-    "husky": "^9.1.7",
-    "lint-staged": "^16.2.7",
-    "prettier": "^3.7.4",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.0",
+    "@types/node": "^22.0.0"
   },
-  "browserslist": {
-    "production": [
-      ">0.5%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 3 chrome version",
-      "last 3 firefox version",
-      "last 5 safari version"
-    ]
-  },
-  "engines": {
-    "node": ">=20.0"
-  },
-  "lint-staged": {
-    "docs/**/*.{md,mdx}": [
-      "node sub-packages/mdx-formatter/src/cli.js --write"
-    ],
-    "**/*.{ts,tsx,js,jsx,json,css}": [
-      "prettier --write"
-    ]
-  }
+  "packageManager": "pnpm@10.28.1"
 }

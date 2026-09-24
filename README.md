@@ -8,9 +8,9 @@ This project contains KiCad PCB designs for blank panels in various HP widths fo
 
 ## Documentation
 
-- **Documentation site**: Built with Docusaurus
-- **Development**: `cd doc && pnpm install && pnpm start`
-- **URL**: `http://zblanks.localhost:43621/pj/zblanks/`
+- **Documentation site**: Built with zudo-doc
+- **Development**: `cd doc && pnpm install --frozen-lockfile && pnpm dev`
+- **URL**: `http://localhost:4321/pj/zblanks/`
 
 ## Repository Structure
 
@@ -19,7 +19,7 @@ This project contains KiCad PCB designs for blank panels in various HP widths fo
 - `symbols/` - KiCad symbol library (minimal)
 - `artwork-resources/` - Source artwork files (AI, SVG)
 - `jlcpcb-order-snapshots/` - JLCPCB order history
-- `doc/` - Docusaurus documentation site
+- `doc/` - zudo-doc documentation site
 - `.github/` - GitHub Actions CI/CD
 
 ## Workflow
@@ -27,3 +27,22 @@ This project contains KiCad PCB designs for blank panels in various HP widths fo
 1. Design panel in KiCad (Edge.Cuts outline, mounting holes, silkscreen)
 2. Export Gerber files
 3. Order from JLCPCB
+
+## Documentation build and deployment
+
+The site is a static zudo-doc export in `doc/dist/`. GitHub Actions installs the pinned pnpm lockfile with Node 22, checks the docs, builds `dist/`, and stages it at `deploy-dir/pj/zblanks/` for the existing Netlify site. Production remains at https://takazudomodular.com/pj/zblanks/.
+
+The migration used `create-zudo-doc@5.26.5` (`pnpm create zudo-doc /tmp/zblanks-zudo-doc-13 --yes --lang en --no-i18n --no-git --no-install --claude-resources`) in a scratch directory. The config keeps the starter defaults except for site identity, base path, repository-scoped Claude resources, navigation, and strict broken-link reporting. `--claude-resources` publishes project `.claude/skills`; it does not install zudo-doc's authoring skills. To roll back, revert the documentation migration commit(s) and redeploy the prior Docusaurus build.
+
+### Published route migration
+
+| Previous URL below `/pj/zblanks/` | New URL | Handling |
+| --- | --- | --- |
+| `/docs/overview` | `/docs/overview` | Preserved |
+| `/docs/overview/project-overview` | same | Preserved by filename |
+| `/docs/overview/file-structure` | same | Preserved |
+| `/docs/how-to/*`, `/docs/misc`, `/docs/inbox` | same | Preserved |
+| `/docs/{overview,how-to,misc,inbox}/index` | `/docs/{section}` | Netlify 301 redirects |
+| `/` at the Netlify site root | `/pj/zblanks/` | Netlify 301 redirect |
+
+The catalog, manufacturing, workflow, and Claude sections are new. The final catalog content is maintained with the corresponding panel work.
