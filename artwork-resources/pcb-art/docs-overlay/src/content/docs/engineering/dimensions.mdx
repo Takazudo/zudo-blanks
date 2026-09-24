@@ -1,0 +1,47 @@
+---
+title: "Dimensions and Mounting"
+description: "Millimetre coordinates, screw holes, rail slots, and stack height."
+sidebar_position: 1
+---
+
+## Coordinate system
+
+All values use millimetres. The preview origin is the top-left corner of the top board, with X to the right and Y downward. SVG follows this orientation. KiCad and DXF import details are in [the native-board guide](../manufacturing/kicad.mdx).
+
+| Item | Dimension |
+| --- | --- |
+| Top board | 101.3 × 128.5 mm |
+| Lower board | 101.3 × 94.3 mm |
+| Lower-board Y extent | 17.1 to 111.4 mm |
+| Board thickness | 1.6 mm |
+| Spacer height | 3.0 mm |
+| Stack holes | Four Ø3.2 mm holes |
+| Material retained around stack holes before drilling | 3.05 mm radius |
+| Eight-board stack, boards plus gaps | 33.8 mm |
+| Nine-board stack, boards plus gaps | 38.4 mm |
+
+The stack height is board count × 1.6 mm plus gap count × 3.0 mm. It excludes screw heads, nuts, washers, and thread allowance.
+
+## Stack-hole centers
+
+| Position | X | Y |
+| --- | ---: | ---: |
+| Upper left | 6.5 | 23.6 |
+| Upper right | 94.8 | 23.6 |
+| Lower left | 6.5 | 104.9 |
+| Lower right | 94.8 | 104.9 |
+
+All layers share these centers. Each board must retain its own support material and connections; another PCB or fastener does not replace a disconnected section.
+
+## Rail slots
+
+Only the top board has four rail slots, each 10.28 × 3.2 mm. The handoff retains their original centers; do not round small coordinate differences to force symmetry.
+
+| Position | X | Y |
+| --- | ---: | ---: |
+| Upper left | 10.17 | 2.87 |
+| Upper right | 91.13 | 2.86 |
+| Lower left | 10.16 | 125.64 |
+| Lower right | 91.14 | 125.65 |
+
+Lower boards stop before the upper and lower 17.1 mm rail regions. Check rail, nut, and case-bottom clearance against the actual case. The primary numeric source is preview-source/src/build_common.py and the spec object in preview-source/assets/geometry.json.

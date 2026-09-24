@@ -1,0 +1,37 @@
+---
+title: "17 Kumiko Void"
+description: "Selected wide design, standard alternative, and layer sequence."
+sidebar_position: 4
+---
+
+[Open the selected wide preview](/assets/pcb-art/previews/17-kumiko-void-wide.html)
+
+Kumiko combines an asanoha lattice with black, red, and green layers. On black layers 1, 4, and 7, the flat gold and black surfaces create the visual shadow; no raised metal parts are specified. The standard option preserves the earlier opening. The selected wide option extends the same lattice toward the perimeter and increases top opening area by about 43.8% relative to standard.
+
+![Standard and wide opening comparison](/assets/pcb-art/images/kumiko-void-variants.png)
+
+[Open standard](/assets/pcb-art/previews/17-kumiko-void.html) · [Open wide](/assets/pcb-art/previews/17-kumiko-void-wide.html)
+
+## Treat the variants as whole sets
+
+The selected set uses wide Kumiko. Its nine standard boards are retained under panels/art-kumiko-void/alternatives/standard. Replace all nine layers together if choosing standard; do not mix layers from the two variants. Revision 5 borders are present on both tops.
+
+## Small openings to review
+
+The source screen flags 8 standard openings and 56 wide openings that do not fit the assumed 1.0 mm router. The wide top also has a narrow material ligament. The exact locations are in [the routing review](../manufacturing/kumiko-routing.mdx). Fine black and gold spacing is covered by [the copper and mask review](../manufacturing/copper-review.mdx).
+
+Preserve the angular lattice. If tool radius requires local interior changes, document the actual feature and process constraint.
+
+## Front-to-back layers
+
+| Layer | Color | Finish |
+| ---: | --- | --- |
+| 1 | Black | ENIG artwork |
+| 2 | Red | Mask-only |
+| 3 | Green | Mask-only |
+| 4 | Black | ENIG artwork |
+| 5 | Red | Mask-only |
+| 6 | Green | Mask-only |
+| 7 | Black | ENIG artwork |
+| 8 | Red | Mask-only |
+| 9 | Green | Mask-only bottom |

@@ -1,0 +1,31 @@
+---
+title: "Source of Truth and Regeneration"
+description: "How editable art becomes canonical geometry and native boards."
+sidebar_position: 4
+---
+
+## Data roles
+
+| Source | Role |
+| --- | --- |
+| artwork-resources/pcb-art/preview-source/src/designs | Per-design shape and art generators |
+| artwork-resources/pcb-art/preview-source/src/build_common.py | Shared dimensions, supports, and board outlines |
+| artwork-resources/pcb-art/preview-source/src/finish_policy.py | ENIG and mask-only metadata |
+| artwork-resources/pcb-art/preview-source/scripts/build_geometry.py | Holes, shared art, checks, and geometry serialization |
+| artwork-resources/pcb-art/preview-source/assets/geometry.json | Canonical millimetre geometry for preview and PCB export |
+| artwork-resources/pcb-art/tools/export_kicad.py | Converts geometry into native PCB and vector review outputs |
+| panels/art-* | Imported editable native PCB drafts |
+| artwork-resources/pcb-art/generated/rev5-export/resources/vector | Default regenerated layer-by-layer vector outputs; ignored by Git |
+| artwork-resources/pcb-art/docs-overlay/src/content/docs | Curated documentation source, not the published site |
+
+## Export to a new location
+
+From the repository root, create a new output destination:
+
+    python3 artwork-resources/pcb-art/tools/export_kicad.py --input artwork-resources/pcb-art/preview-source/assets/geometry.json --output artwork-resources/pcb-art/generated/rev5-export
+
+The output contains regenerated boards and vector records for comparison. It does not overwrite panel-home boards. Keep manual manufacturing edits in a separate, versioned production copy and record their relationship to the source geometry.
+
+To rebuild the offline viewer, follow preview-source/README.md. The build writes geometry, validation, and dist outputs; the dist directory is generated and ignored.
+
+Keep reference-revision3.json and reference-revision4.json unchanged. The source three.js license notice remains in preview-source/THIRD_PARTY_NOTICES.txt.

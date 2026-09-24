@@ -1,0 +1,45 @@
+---
+title: "Continue in KiCad"
+description: "Open native boards and review them against the chosen process."
+sidebar_position: 1
+---
+
+The included boards target KiCad 8 or later, but this handoff has not run KiCad's parser, DRC, Gerber, or drill export. Review them locally.
+
+## Board locations
+
+The selected boards are in panels/art-spider-nest, panels/art-coral-vault, panels/art-fault-line, panels/art-kumiko-void, and panels/art-woven-maze. The nine standard Kumiko boards are in panels/art-kumiko-void/alternatives/standard. Use pcb/manifest.json and pcb/manifest.csv to check each original ID, layer, mask color, and finish.
+
+## Board semantics
+
+| KiCad item | Meaning |
+| --- | --- |
+| Edge.Cuts | Closed outer contour and decorative routed openings |
+| NPTH pads | Four stack holes; the top also has four rail slots |
+| F.Cu | Front decorative copper polygons |
+| F.Mask | Positive openings exposing gold |
+| B.Cu | No decorative artwork |
+| Silkscreen | Not used for this art |
+
+F.Mask records openings, not painted solder mask. Decorative copper has no electrical nets. In Kumiko, check that black shadow facets remain covered by mask.
+
+## Review sequence
+
+1. Open one top board and measure outline, hole centers, and slot orientation.
+2. Inspect Edge.Cuts for closed loops, overlaps, and loose islands.
+3. Compare copper and mask and confirm that gold rims and art will be exposed as intended.
+4. Open a mask-only board and confirm no decorative copper or mask openings are present.
+5. Apply the actual supplier design rules, run DRC, and save its full result.
+6. Export Gerbers and drills and inspect them in an independent CAM viewer; compare each layer with the manifest.
+
+Prioritize thin strands, lattice details, maze paths, and coral partitions. Make local, recorded changes for actual process limits rather than scaling every design.
+
+## Vector interchange
+
+The default generated/rev5-export/resources/vector tree contains layer-specific SVG and DXF. SVG uses a common 101.3 × 128.5 mm canvas, with lower layers preserving their Y=17.1 mm position. DXF uses CAD Y-up, so its Y coordinate is the negated preview value. Import at 1:1 in millimetres and confirm the origin.
+
+Edge_Cuts is for routed board shape; Drill files are reference only because the native NPTH pads define holes. The F.Cu and F.Mask DXFs are outlines, not filled-area semantics. Prefer the native PCB or corresponding SVG for positive art regions.
+
+## Local KiCad helper
+
+tools/local_kicad_check.py can run KiCad DRC and optional review-only CAM into a new directory. It requires a local KiCad CLI installation. Its output is not a manufacturing release. Use the manifest and check actual supplier settings; the source does not contain a project rule file or supplier-approved rules.

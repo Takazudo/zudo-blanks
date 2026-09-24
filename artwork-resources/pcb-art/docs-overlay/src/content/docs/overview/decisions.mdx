@@ -1,0 +1,31 @@
+---
+title: "Design Decisions and Revisions"
+description: "Decisions to preserve while checking process-specific constraints."
+sidebar_position: 2
+---
+
+## Decisions to preserve
+
+- The top board is 101.3 × 128.5 mm; lower boards are 101.3 × 94.3 mm.
+- Boards are 1.6 mm thick and separated by 3.0 mm spacers. Every layer remains one connected physical PCB.
+- The openings reach toward the perimeter; do not reduce the designs to a small centered square.
+- The gold outer frame and hole rims appear on top boards only.
+- Spider Nest and Kumiko Void use angular decorative outlines. Functional screw holes and slots keep their specified shapes.
+- Kumiko gold and black are flat artwork, not raised metal bars.
+- Colors and ENIG layers are listed in [the finish table](../engineering/finishes.mdx).
+
+## Kumiko selection
+
+The default set uses wide Kumiko in panels/art-kumiko-void. The nine standard boards in panels/art-kumiko-void/alternatives/standard replace all nine wide boards as a set. Do not mix layers between variants. Both versions share the same color and ENIG sequence.
+
+## Revision history
+
+| Revision | Decision |
+| --- | --- |
+| Initial concepts | Selected five concepts for layered PCB implementation |
+| Finish policy | Removed decorative exposed copper from mask-only boards to limit ENIG use |
+| Art revision | Made Woven lower layers distinct and extended motifs across top surfaces |
+| Revision 4 | Expanded top openings, made Coral and Fault narrowing irregular, and added wide Kumiko |
+| Revision 5 | Added gold borders to every top board and prepared the native-board handoff |
+
+Record the location and size of any process-driven change. Check local edits in the stacked view. Supplier capabilities, prices, physical fit, and final fastener choices remain open for the later review.

@@ -1,0 +1,1758 @@
+{
+  "mode": "focused-revision",
+  "startedAt": "2026-09-24T15:30:54.601Z",
+  "entry": "preview-source/dist/index.html",
+  "checks": [
+    {
+      "label": "Actual polygons: larger openings, connected supported PCBs, preserved Kumiko standard, distinct Woven paths, nested Coral/Fault",
+      "passed": true
+    },
+    {
+      "label": "Revision-4 offline HTML starts with a live WebGL2 model",
+      "passed": true,
+      "width": 1100,
+      "height": 897,
+      "webgl2": true,
+      "lost": false
+    },
+    {
+      "label": "spider-nest: approved colors and selected-board ENIG in data, UI and rendered meshes/textures",
+      "passed": true
+    },
+    {
+      "label": "coral-vault: approved colors and selected-board ENIG in data, UI and rendered meshes/textures",
+      "passed": true
+    },
+    {
+      "label": "fault-line: approved colors and selected-board ENIG in data, UI and rendered meshes/textures",
+      "passed": true
+    },
+    {
+      "label": "kumiko-void:wide: approved colors and selected-board ENIG in data, UI and rendered meshes/textures",
+      "passed": true
+    },
+    {
+      "label": "kumiko-void:standard: approved colors and selected-board ENIG in data, UI and rendered meshes/textures",
+      "passed": true
+    },
+    {
+      "label": "Kumiko variants retain controls and camera; standard/wide comparison uses one identical pose",
+      "passed": true
+    },
+    {
+      "label": "PNG export identifies the selected Kumiko variant",
+      "passed": true,
+      "filename": "kumiko-void-wide-iso.png",
+      "savedAs": "revision-export.png",
+      "bytes": 587746
+    },
+    {
+      "label": "woven-maze: approved colors and selected-board ENIG in data, UI and rendered meshes/textures",
+      "passed": true
+    },
+    {
+      "label": "Woven L1-L8 actual captures form a same-physical-scale comparison",
+      "passed": true
+    },
+    {
+      "label": "Woven white stays free of decorative meshes/textures and art toggles only the ENIG board",
+      "passed": true
+    },
+    {
+      "label": "Standalone initial variant: 17-kumiko-void.html → standard",
+      "passed": true
+    },
+    {
+      "label": "Standalone initial variant: 17-kumiko-void-wide.html → wide",
+      "passed": true
+    },
+    {
+      "label": "Mobile variant buttons respond to touch; picker, finish labels and controls fit 390px",
+      "passed": true,
+      "width": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "No HTTP(S) requests while opening and using file:// HTML",
+      "passed": true
+    },
+    {
+      "label": "No JavaScript exceptions or console errors",
+      "passed": true
+    }
+  ],
+  "screenshots": [
+    "pcb-art-openings-before-after.png",
+    "spider-nest-oblique.png",
+    "spider-nest-front.png",
+    "spider-nest-top-pattern.png",
+    "coral-vault-oblique.png",
+    "coral-vault-front.png",
+    "coral-vault-top-pattern.png",
+    "fault-line-oblique.png",
+    "fault-line-front.png",
+    "fault-line-top-pattern.png",
+    "kumiko-void-oblique.png",
+    "kumiko-void-top-pattern.png",
+    "kumiko-void-standard-oblique.png",
+    "kumiko-void-standard-render.png",
+    "kumiko-void-wide-render.png",
+    "kumiko-void-variants.png",
+    "woven-maze-oblique.png",
+    "woven-maze-layer-01.png",
+    "woven-maze-layer-02.png",
+    "woven-maze-layer-03.png",
+    "woven-maze-layer-04.png",
+    "woven-maze-layer-05.png",
+    "woven-maze-layer-06.png",
+    "woven-maze-layer-07.png",
+    "woven-maze-layer-08.png",
+    "woven-maze-layers-01-08.png",
+    "woven-maze-white-no-gold.png",
+    "revision-mobile-controls-390x844.png",
+    "revision-mobile-390x844.png"
+  ],
+  "networkRequests": [],
+  "browserErrors": [],
+  "revision": 4,
+  "geometry": {
+    "revision": 4,
+    "source": "preview-source/assets/geometry.json",
+    "baseline": "preview-source/assets/reference-revision3.json",
+    "patternCoverage": {
+      "spider-nest": {
+        "top": {
+          "solidMm2": 2191.8272,
+          "goldMm2": 127.8782
+        },
+        "bottom": {
+          "solidMm2": 2210.8472,
+          "goldMm2": 128.4607
+        },
+        "left": {
+          "solidMm2": 371.6322,
+          "goldMm2": 37.1961
+        },
+        "right": {
+          "solidMm2": 371.3783,
+          "goldMm2": 33.1392
+        },
+        "center": {
+          "solidMm2": 946.5453,
+          "goldMm2": 410.7302
+        }
+      },
+      "coral-vault": {
+        "top": {
+          "solidMm2": 2186.7379,
+          "goldMm2": 458.6038
+        },
+        "bottom": {
+          "solidMm2": 2152.7829,
+          "goldMm2": 450.6036
+        },
+        "left": {
+          "solidMm2": 440.0756,
+          "goldMm2": 91.1743
+        },
+        "right": {
+          "solidMm2": 395.9069,
+          "goldMm2": 81.4882
+        },
+        "center": {
+          "solidMm2": 890.6505,
+          "goldMm2": 174.0816
+        }
+      },
+      "kumiko-void": {
+        "top": {
+          "solidMm2": 2147.0877,
+          "goldMm2": 748.0416
+        },
+        "bottom": {
+          "solidMm2": 2325.7924,
+          "goldMm2": 759.5088
+        },
+        "left": {
+          "solidMm2": 418.4086,
+          "goldMm2": 143.7847
+        },
+        "right": {
+          "solidMm2": 426.5743,
+          "goldMm2": 146.9096
+        },
+        "center": {
+          "solidMm2": 2415.8775,
+          "goldMm2": 920.2923
+        }
+      }
+    },
+    "growth": {
+      "spider-nest": {
+        "beforeAreaMm2": 5228.4081,
+        "afterAreaMm2": 6769.9587,
+        "ratio": 1.294841,
+        "beforeBounds": [
+          10.5,
+          27,
+          90.8,
+          101.5
+        ],
+        "afterBounds": [
+          2.5,
+          19,
+          98.8,
+          109.5
+        ],
+        "variantId": null
+      },
+      "coral-vault": {
+        "beforeAreaMm2": 4195.8194,
+        "afterAreaMm2": 6796.0349,
+        "ratio": 1.619716,
+        "beforeBounds": [
+          11.9,
+          28.4,
+          89.4,
+          100.1
+        ],
+        "afterBounds": [
+          2.5,
+          19,
+          98.7389,
+          109.5
+        ],
+        "variantId": null
+      },
+      "fault-line": {
+        "beforeAreaMm2": 3069.4206,
+        "afterAreaMm2": 4238.25,
+        "ratio": 1.380798,
+        "beforeBounds": [
+          12.2004,
+          25,
+          89.0072,
+          103.3841
+        ],
+        "afterBounds": [
+          4,
+          19.4,
+          97,
+          108.9
+        ],
+        "variantId": null
+      },
+      "kumiko-void": {
+        "beforeAreaMm2": 3566.479,
+        "afterAreaMm2": 5128.4483,
+        "ratio": 1.437958,
+        "beforeBounds": [
+          10.5,
+          27,
+          90.8,
+          101.5
+        ],
+        "afterBounds": [
+          2.5,
+          19,
+          98.8,
+          109.5
+        ],
+        "variantId": "wide"
+      },
+      "woven-maze": {
+        "beforeAreaMm2": 4690.2169,
+        "afterAreaMm2": 6904.1042,
+        "ratio": 1.472022,
+        "beforeBounds": [
+          10.5,
+          27,
+          90.8,
+          101.5
+        ],
+        "afterBounds": [
+          2.5,
+          19,
+          98.8,
+          109.5
+        ],
+        "variantId": null
+      }
+    },
+    "wovenPaths": {
+      "layers": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "pairwiseDistinct": true,
+      "comparisons": [
+        {
+          "layers": [
+            2,
+            3
+          ],
+          "differentAreaMm2": 950.7116
+        },
+        {
+          "layers": [
+            2,
+            4
+          ],
+          "differentAreaMm2": 1156.5118
+        },
+        {
+          "layers": [
+            2,
+            5
+          ],
+          "differentAreaMm2": 1080.4978
+        },
+        {
+          "layers": [
+            2,
+            6
+          ],
+          "differentAreaMm2": 1304.2403
+        },
+        {
+          "layers": [
+            2,
+            7
+          ],
+          "differentAreaMm2": 1419.8243
+        },
+        {
+          "layers": [
+            2,
+            8
+          ],
+          "differentAreaMm2": 1631.0063
+        },
+        {
+          "layers": [
+            3,
+            4
+          ],
+          "differentAreaMm2": 1275.5031
+        },
+        {
+          "layers": [
+            3,
+            5
+          ],
+          "differentAreaMm2": 942.1674
+        },
+        {
+          "layers": [
+            3,
+            6
+          ],
+          "differentAreaMm2": 880.4023
+        },
+        {
+          "layers": [
+            3,
+            7
+          ],
+          "differentAreaMm2": 1002.7766
+        },
+        {
+          "layers": [
+            3,
+            8
+          ],
+          "differentAreaMm2": 1230.0819
+        },
+        {
+          "layers": [
+            4,
+            5
+          ],
+          "differentAreaMm2": 1085.3892
+        },
+        {
+          "layers": [
+            4,
+            6
+          ],
+          "differentAreaMm2": 1139.2369
+        },
+        {
+          "layers": [
+            4,
+            7
+          ],
+          "differentAreaMm2": 1255.701
+        },
+        {
+          "layers": [
+            4,
+            8
+          ],
+          "differentAreaMm2": 1164.824
+        },
+        {
+          "layers": [
+            5,
+            6
+          ],
+          "differentAreaMm2": 1091.2174
+        },
+        {
+          "layers": [
+            5,
+            7
+          ],
+          "differentAreaMm2": 1221.4797
+        },
+        {
+          "layers": [
+            5,
+            8
+          ],
+          "differentAreaMm2": 932.3342
+        },
+        {
+          "layers": [
+            6,
+            7
+          ],
+          "differentAreaMm2": 965.2661
+        },
+        {
+          "layers": [
+            6,
+            8
+          ],
+          "differentAreaMm2": 916.0168
+        },
+        {
+          "layers": [
+            7,
+            8
+          ],
+          "differentAreaMm2": 949.1583
+        }
+      ]
+    },
+    "progression": {
+      "coral-vault": {
+        "nested": true,
+        "areasMm2": [
+          6796.0349,
+          5990.7788,
+          5107.8099,
+          4238.5955,
+          3375.7345,
+          2544.1116,
+          1798.2491
+        ],
+        "componentCounts": [
+          10,
+          10,
+          11,
+          8,
+          9,
+          8,
+          8
+        ],
+        "shapeCompactness": [
+          0.1212,
+          0.123,
+          0.0984,
+          0.1047,
+          0.0885,
+          0.0858,
+          0.0782
+        ]
+      },
+      "fault-line": {
+        "nested": true,
+        "areasMm2": [
+          4238.25,
+          3548.1905,
+          3221.8094,
+          2625.0861,
+          2308.6814,
+          1728.3072,
+          1445.88,
+          987.2052
+        ],
+        "componentCounts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          3
+        ],
+        "shapeCompactness": [
+          0.2399,
+          0.3553,
+          0.2756,
+          0.3159,
+          0.2262,
+          0.2745,
+          0.1931,
+          0.2021
+        ]
+      }
+    },
+    "structuralChecks": {
+      "spider-nest": {
+        "connectedLayers": 8,
+        "supports": true,
+        "inwardOffsetMm": 0.5
+      },
+      "coral-vault": {
+        "connectedLayers": 8,
+        "supports": true,
+        "inwardOffsetMm": 0.5
+      },
+      "fault-line": {
+        "connectedLayers": 9,
+        "supports": true,
+        "inwardOffsetMm": 0.5
+      },
+      "kumiko-void:standard": {
+        "connectedLayers": 9,
+        "supports": true,
+        "inwardOffsetMm": 0.5
+      },
+      "kumiko-void:wide": {
+        "connectedLayers": 9,
+        "supports": true,
+        "inwardOffsetMm": 0.5
+      },
+      "woven-maze": {
+        "connectedLayers": 9,
+        "supports": true,
+        "inwardOffsetMm": 0.5
+      }
+    },
+    "kumikoVariants": {
+      "standardGeometryAndArtworkUnchanged": true,
+      "default": "wide",
+      "standardOpeningMm2": 3566.479,
+      "wideOpeningMm2": 5128.4483
+    },
+    "configurationTotals": {
+      "families": 5,
+      "boards": 43,
+      "enigBoards": 11
+    },
+    "passed": true
+  },
+  "finishPolicy": {
+    "spider-nest": {
+      "variantId": null,
+      "finishSummary": {
+        "enigLayers": [
+          1,
+          3,
+          5,
+          7
+        ],
+        "maskOnlyLayers": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "enigCount": 4,
+        "maskOnlyCount": 4,
+        "totalLayers": 8,
+        "rationale": "トップの巣模様と、指定した3枚の全面金層にENIGを残す。白3枚と赤い底板は単色。"
+      },
+      "layers": [
+        {
+          "index": 0,
+          "colorKey": "black",
+          "finish": "enig-art",
+          "finishLabel": "ENIG装飾",
+          "surface": "mask",
+          "strokeCount": 114,
+          "fillCount": 0,
+          "rendered": {
+            "index": 0,
+            "finish": "enig-art",
+            "surface": "mask",
+            "artworkMeshCount": 1,
+            "artworkVisibleCount": 1,
+            "artworkTextureCount": 2,
+            "strokeJoin": "miter",
+            "strokeCap": "butt",
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 1,
+          "colorKey": "white",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 1,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 2,
+          "colorKey": "gold",
+          "finish": "enig-fill",
+          "finishLabel": "全面ENIG",
+          "surface": "gold",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 2,
+            "finish": "enig-fill",
+            "surface": "gold",
+            "artworkMeshCount": 1,
+            "artworkVisibleCount": 1,
+            "artworkTextureCount": 2,
+            "strokeJoin": "miter",
+            "strokeCap": "butt",
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 3,
+          "colorKey": "white",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 3,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 4,
+          "colorKey": "gold",
+          "finish": "enig-fill",
+          "finishLabel": "全面ENIG",
+          "surface": "gold",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 4,
+            "finish": "enig-fill",
+            "surface": "gold",
+            "artworkMeshCount": 1,
+            "artworkVisibleCount": 1,
+            "artworkTextureCount": 2,
+            "strokeJoin": "miter",
+            "strokeCap": "butt",
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 5,
+          "colorKey": "white",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 5,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 6,
+          "colorKey": "gold",
+          "finish": "enig-fill",
+          "finishLabel": "全面ENIG",
+          "surface": "gold",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 6,
+            "finish": "enig-fill",
+            "surface": "gold",
+            "artworkMeshCount": 1,
+            "artworkVisibleCount": 1,
+            "artworkTextureCount": 2,
+            "strokeJoin": "miter",
+            "strokeCap": "butt",
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 7,
+          "colorKey": "red",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 7,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        }
+      ]
+    },
+    "coral-vault": {
+      "variantId": null,
+      "finishSummary": {
+        "enigLayers": [
+          1,
+          4
+        ],
+        "maskOnlyLayers": [
+          2,
+          3,
+          5,
+          6,
+          7,
+          8
+        ],
+        "enigCount": 2,
+        "maskOnlyCount": 6,
+        "totalLayers": 8,
+        "rationale": "トップのサンゴ模様と第4層の全面金を残す。ほかの6枚はレジスト色で表現。"
+      },
+      "layers": [
+        {
+          "index": 0,
+          "colorKey": "black",
+          "finish": "enig-art",
+          "finishLabel": "ENIG装飾",
+          "surface": "mask",
+          "strokeCount": 1269,
+          "fillCount": 0,
+          "rendered": {
+            "index": 0,
+            "finish": "enig-art",
+            "surface": "mask",
+            "artworkMeshCount": 1,
+            "artworkVisibleCount": 1,
+            "artworkTextureCount": 2,
+            "strokeJoin": "round",
+            "strokeCap": "round",
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 1,
+          "colorKey": "green",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 1,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 2,
+          "colorKey": "purple",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 2,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 3,
+          "colorKey": "gold",
+          "finish": "enig-fill",
+          "finishLabel": "全面ENIG",
+          "surface": "gold",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 3,
+            "finish": "enig-fill",
+            "surface": "gold",
+            "artworkMeshCount": 1,
+            "artworkVisibleCount": 1,
+            "artworkTextureCount": 2,
+            "strokeJoin": "round",
+            "strokeCap": "round",
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 4,
+          "colorKey": "red",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 4,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 5,
+          "colorKey": "yellow",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 5,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 6,
+          "colorKey": "red",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 6,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 7,
+          "colorKey": "blue",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 7,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        }
+      ]
+    },
+    "fault-line": {
+      "variantId": null,
+      "finishSummary": {
+        "enigLayers": [
+          1
+        ],
+        "maskOnlyLayers": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "enigCount": 1,
+        "maskOnlyCount": 8,
+        "totalLayers": 9,
+        "rationale": "ENIGはトップの岩盤の亀裂模様だけ。下層は赤と黒の段差で深さを表現。"
+      },
+      "layers": [
+        {
+          "index": 0,
+          "colorKey": "black",
+          "finish": "enig-art",
+          "finishLabel": "ENIG装飾",
+          "surface": "mask",
+          "strokeCount": 68,
+          "fillCount": 0,
+          "rendered": {
+            "index": 0,
+            "finish": "enig-art",
+            "surface": "mask",
+            "artworkMeshCount": 1,
+            "artworkVisibleCount": 1,
+            "artworkTextureCount": 2,
+            "strokeJoin": "miter",
+            "strokeCap": "butt",
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 1,
+          "colorKey": "red",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 1,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 2,
+          "colorKey": "black",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 2,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 3,
+          "colorKey": "red",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 3,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 4,
+          "colorKey": "black",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 4,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 5,
+          "colorKey": "red",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 5,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 6,
+          "colorKey": "black",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 6,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 7,
+          "colorKey": "red",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 7,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 8,
+          "colorKey": "black",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 8,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        }
+      ]
+    },
+    "kumiko-void:wide": {
+      "variantId": "wide",
+      "finishSummary": {
+        "enigLayers": [
+          1,
+          4,
+          7
+        ],
+        "maskOnlyLayers": [
+          2,
+          3,
+          5,
+          6,
+          8,
+          9
+        ],
+        "enigCount": 3,
+        "maskOnlyCount": 6,
+        "totalLayers": 9,
+        "rationale": "立体感を作る黒3層の金の面を残す。赤・緑6層は単色。"
+      },
+      "layers": [
+        {
+          "index": 0,
+          "colorKey": "black",
+          "finish": "enig-art",
+          "finishLabel": "ENIG装飾",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 1685,
+          "rendered": {
+            "index": 0,
+            "finish": "enig-art",
+            "surface": "mask",
+            "artworkMeshCount": 1,
+            "artworkVisibleCount": 1,
+            "artworkTextureCount": 2,
+            "strokeJoin": "miter",
+            "strokeCap": "butt",
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 1,
+          "colorKey": "red",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 1,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 2,
+          "colorKey": "green",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 2,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 3,
+          "colorKey": "black",
+          "finish": "enig-art",
+          "finishLabel": "ENIG装飾",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 186,
+          "rendered": {
+            "index": 3,
+            "finish": "enig-art",
+            "surface": "mask",
+            "artworkMeshCount": 1,
+            "artworkVisibleCount": 1,
+            "artworkTextureCount": 2,
+            "strokeJoin": "miter",
+            "strokeCap": "butt",
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 4,
+          "colorKey": "red",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 4,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 5,
+          "colorKey": "green",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 5,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 6,
+          "colorKey": "black",
+          "finish": "enig-art",
+          "finishLabel": "ENIG装飾",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 149,
+          "rendered": {
+            "index": 6,
+            "finish": "enig-art",
+            "surface": "mask",
+            "artworkMeshCount": 1,
+            "artworkVisibleCount": 1,
+            "artworkTextureCount": 2,
+            "strokeJoin": "miter",
+            "strokeCap": "butt",
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 7,
+          "colorKey": "red",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 7,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 8,
+          "colorKey": "green",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 8,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        }
+      ]
+    },
+    "kumiko-void:standard": {
+      "variantId": "standard",
+      "finishSummary": {
+        "enigLayers": [
+          1,
+          4,
+          7
+        ],
+        "maskOnlyLayers": [
+          2,
+          3,
+          5,
+          6,
+          8,
+          9
+        ],
+        "enigCount": 3,
+        "maskOnlyCount": 6,
+        "totalLayers": 9,
+        "rationale": "立体感を作る黒3層の金の面を残す。赤・緑6層は単色。"
+      },
+      "layers": [
+        {
+          "index": 0,
+          "colorKey": "black",
+          "finish": "enig-art",
+          "finishLabel": "ENIG装飾",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 2364,
+          "rendered": {
+            "index": 0,
+            "finish": "enig-art",
+            "surface": "mask",
+            "artworkMeshCount": 1,
+            "artworkVisibleCount": 1,
+            "artworkTextureCount": 2,
+            "strokeJoin": "miter",
+            "strokeCap": "butt",
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 1,
+          "colorKey": "red",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 1,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 2,
+          "colorKey": "green",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 2,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 3,
+          "colorKey": "black",
+          "finish": "enig-art",
+          "finishLabel": "ENIG装飾",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 110,
+          "rendered": {
+            "index": 3,
+            "finish": "enig-art",
+            "surface": "mask",
+            "artworkMeshCount": 1,
+            "artworkVisibleCount": 1,
+            "artworkTextureCount": 2,
+            "strokeJoin": "miter",
+            "strokeCap": "butt",
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 4,
+          "colorKey": "red",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 4,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 5,
+          "colorKey": "green",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 5,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 6,
+          "colorKey": "black",
+          "finish": "enig-art",
+          "finishLabel": "ENIG装飾",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 87,
+          "rendered": {
+            "index": 6,
+            "finish": "enig-art",
+            "surface": "mask",
+            "artworkMeshCount": 1,
+            "artworkVisibleCount": 1,
+            "artworkTextureCount": 2,
+            "strokeJoin": "miter",
+            "strokeCap": "butt",
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 7,
+          "colorKey": "red",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 7,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 8,
+          "colorKey": "green",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 8,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        }
+      ]
+    },
+    "woven-maze": {
+      "variantId": null,
+      "finishSummary": {
+        "enigLayers": [
+          1
+        ],
+        "maskOnlyLayers": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "enigCount": 1,
+        "maskOnlyCount": 8,
+        "totalLayers": 9,
+        "rationale": "ENIGはトップの縁取りと迷路模様だけ。白4枚と下層の黒4枚は単色。"
+      },
+      "layers": [
+        {
+          "index": 0,
+          "colorKey": "black",
+          "finish": "enig-art",
+          "finishLabel": "ENIG装飾",
+          "surface": "mask",
+          "strokeCount": 12,
+          "fillCount": 18,
+          "rendered": {
+            "index": 0,
+            "finish": "enig-art",
+            "surface": "mask",
+            "artworkMeshCount": 1,
+            "artworkVisibleCount": 1,
+            "artworkTextureCount": 2,
+            "strokeJoin": "round",
+            "strokeCap": "round",
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 1,
+          "colorKey": "white",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 1,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 2,
+          "colorKey": "black",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 2,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 3,
+          "colorKey": "white",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 3,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 4,
+          "colorKey": "black",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 4,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 5,
+          "colorKey": "white",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 5,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 6,
+          "colorKey": "black",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 6,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 7,
+          "colorKey": "white",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 7,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        },
+        {
+          "index": 8,
+          "colorKey": "black",
+          "finish": "mask-only",
+          "finishLabel": "露出銅箔なし",
+          "surface": "mask",
+          "strokeCount": 0,
+          "fillCount": 0,
+          "rendered": {
+            "index": 8,
+            "finish": "mask-only",
+            "surface": "mask",
+            "artworkMeshCount": 0,
+            "artworkVisibleCount": 0,
+            "artworkTextureCount": 0,
+            "strokeJoin": null,
+            "strokeCap": null,
+            "boardMaterialMetalness": 0
+          }
+        }
+      ]
+    }
+  },
+  "kumikoComparison": {
+    "cameraPosition": [
+      197.25581813705415,
+      -39.23645986144993,
+      270.79970044654783
+    ],
+    "cameraTarget": [
+      50.65,
+      64.25,
+      -18.099999999999998
+    ],
+    "samePose": true
+  },
+  "download": {
+    "filename": "kumiko-void-wide-iso.png",
+    "savedAs": "revision-export.png",
+    "bytes": 587746
+  },
+  "passed": true,
+  "finishedAt": "2026-09-24T15:31:50.361Z"
+}

@@ -1,0 +1,274 @@
+{
+  "revision": 5,
+  "source": "preview-source/assets/geometry.json",
+  "baseline": "preview-source/assets/reference-revision4.json",
+  "physicalGeometryHash": {
+    "algorithm": "sha256",
+    "revision4": "c9d90599c114f71d604f777d06cf23001395509a85c7faff1293f3ae3a30525f",
+    "revision5": "c9d90599c114f71d604f777d06cf23001395509a85c7faff1293f3ae3a30525f"
+  },
+  "boardRecords": 52,
+  "effectiveTopVariants": 6,
+  "totalClosedRimStrokes": 54,
+  "designs": {
+    "spider-nest": {
+      "boardCount": 8,
+      "physicalGeometryUnchanged": true,
+      "lowerArtworkUnchanged": true,
+      "preexistingTopMotifUnchanged": true,
+      "paletteAndFinishUnchanged": true,
+      "rimStrokesDrawnLast": true,
+      "taggedClosedBorderCount": 9,
+      "outsideCopperAreaMm2": 0.0,
+      "minimumCopperToBoardBoundaryMm": 0.3,
+      "parameters": {
+        "revision": 5,
+        "flatArtwork": true,
+        "topOnly": true,
+        "closedStrokeCount": 9,
+        "perimeter": {
+          "centerlineInsetMm": 0.55,
+          "strokeWidthMm": 0.32,
+          "minimumBoardEdgeClearanceMm": 0.39
+        },
+        "stackHoles": {
+          "count": 4,
+          "outline": "octagonal",
+          "centerlineRadiusMm": 2.7,
+          "strokeWidthMm": 0.4,
+          "supportRadiusMm": 3.05,
+          "minimumDrillClearanceMm": 0.6945,
+          "minimumBoardBoundaryClearanceMm": 0.6945
+        },
+        "railSlots": {
+          "count": 4,
+          "outline": "rectangular",
+          "centerlineOffsetFromSlotAxisMm": 2.1,
+          "strokeWidthMm": 0.4,
+          "minimumDrillClearanceMm": 0.3,
+          "joinedToPerimeter": true
+        },
+        "allCopperInsideBoard": true,
+        "drillsUnchanged": true,
+        "platedHolesRequired": false,
+        "edgePlatingRequired": false
+      }
+    },
+    "coral-vault": {
+      "boardCount": 8,
+      "physicalGeometryUnchanged": true,
+      "lowerArtworkUnchanged": true,
+      "preexistingTopMotifUnchanged": true,
+      "paletteAndFinishUnchanged": true,
+      "rimStrokesDrawnLast": true,
+      "taggedClosedBorderCount": 9,
+      "outsideCopperAreaMm2": 0.0,
+      "minimumCopperToBoardBoundaryMm": 0.2485,
+      "parameters": {
+        "revision": 5,
+        "flatArtwork": true,
+        "topOnly": true,
+        "closedStrokeCount": 9,
+        "perimeter": {
+          "centerlineInsetMm": 0.55,
+          "strokeWidthMm": 0.32,
+          "minimumBoardEdgeClearanceMm": 0.39
+        },
+        "stackHoles": {
+          "count": 4,
+          "outline": "circular",
+          "centerlineRadiusMm": 2.7,
+          "strokeWidthMm": 0.4,
+          "supportRadiusMm": 3.05,
+          "minimumDrillClearanceMm": 0.8986,
+          "minimumBoardBoundaryClearanceMm": 0.2485
+        },
+        "railSlots": {
+          "count": 4,
+          "outline": "capsule",
+          "centerlineOffsetFromSlotAxisMm": 2.1,
+          "strokeWidthMm": 0.4,
+          "minimumDrillClearanceMm": 0.2993,
+          "joinedToPerimeter": true
+        },
+        "allCopperInsideBoard": true,
+        "drillsUnchanged": true,
+        "platedHolesRequired": false,
+        "edgePlatingRequired": false
+      }
+    },
+    "fault-line": {
+      "boardCount": 9,
+      "physicalGeometryUnchanged": true,
+      "lowerArtworkUnchanged": true,
+      "preexistingTopMotifUnchanged": true,
+      "paletteAndFinishUnchanged": true,
+      "rimStrokesDrawnLast": true,
+      "taggedClosedBorderCount": 9,
+      "outsideCopperAreaMm2": 0.0,
+      "minimumCopperToBoardBoundaryMm": 0.2993,
+      "parameters": {
+        "revision": 5,
+        "flatArtwork": true,
+        "topOnly": true,
+        "closedStrokeCount": 9,
+        "perimeter": {
+          "centerlineInsetMm": 0.55,
+          "strokeWidthMm": 0.32,
+          "minimumBoardEdgeClearanceMm": 0.39
+        },
+        "stackHoles": {
+          "count": 4,
+          "outline": "circular",
+          "centerlineRadiusMm": 2.7,
+          "strokeWidthMm": 0.4,
+          "supportRadiusMm": 3.05,
+          "minimumDrillClearanceMm": 0.8986,
+          "minimumBoardBoundaryClearanceMm": 0.8986
+        },
+        "railSlots": {
+          "count": 4,
+          "outline": "capsule",
+          "centerlineOffsetFromSlotAxisMm": 2.1,
+          "strokeWidthMm": 0.4,
+          "minimumDrillClearanceMm": 0.2993,
+          "joinedToPerimeter": true
+        },
+        "allCopperInsideBoard": true,
+        "drillsUnchanged": true,
+        "platedHolesRequired": false,
+        "edgePlatingRequired": false
+      }
+    },
+    "kumiko-void:standard": {
+      "boardCount": 9,
+      "physicalGeometryUnchanged": true,
+      "lowerArtworkUnchanged": true,
+      "preexistingTopMotifUnchanged": true,
+      "paletteAndFinishUnchanged": true,
+      "rimStrokesDrawnLast": true,
+      "taggedClosedBorderCount": 9,
+      "outsideCopperAreaMm2": 0.0,
+      "minimumCopperToBoardBoundaryMm": 0.3,
+      "parameters": {
+        "revision": 5,
+        "flatArtwork": true,
+        "topOnly": true,
+        "closedStrokeCount": 9,
+        "perimeter": {
+          "centerlineInsetMm": 0.55,
+          "strokeWidthMm": 0.32,
+          "minimumBoardEdgeClearanceMm": 0.39
+        },
+        "stackHoles": {
+          "count": 4,
+          "outline": "octagonal",
+          "centerlineRadiusMm": 2.7,
+          "strokeWidthMm": 0.4,
+          "supportRadiusMm": 3.05,
+          "minimumDrillClearanceMm": 0.6945,
+          "minimumBoardBoundaryClearanceMm": 0.6945
+        },
+        "railSlots": {
+          "count": 4,
+          "outline": "rectangular",
+          "centerlineOffsetFromSlotAxisMm": 2.1,
+          "strokeWidthMm": 0.4,
+          "minimumDrillClearanceMm": 0.3,
+          "joinedToPerimeter": true
+        },
+        "allCopperInsideBoard": true,
+        "drillsUnchanged": true,
+        "platedHolesRequired": false,
+        "edgePlatingRequired": false
+      }
+    },
+    "kumiko-void:wide": {
+      "boardCount": 9,
+      "physicalGeometryUnchanged": true,
+      "lowerArtworkUnchanged": true,
+      "preexistingTopMotifUnchanged": true,
+      "paletteAndFinishUnchanged": true,
+      "rimStrokesDrawnLast": true,
+      "taggedClosedBorderCount": 9,
+      "outsideCopperAreaMm2": 0.0,
+      "minimumCopperToBoardBoundaryMm": 0.2835,
+      "parameters": {
+        "revision": 5,
+        "flatArtwork": true,
+        "topOnly": true,
+        "closedStrokeCount": 9,
+        "perimeter": {
+          "centerlineInsetMm": 0.55,
+          "strokeWidthMm": 0.32,
+          "minimumBoardEdgeClearanceMm": 0.39
+        },
+        "stackHoles": {
+          "count": 4,
+          "outline": "octagonal",
+          "centerlineRadiusMm": 2.7,
+          "strokeWidthMm": 0.4,
+          "supportRadiusMm": 3.05,
+          "minimumDrillClearanceMm": 0.6945,
+          "minimumBoardBoundaryClearanceMm": 0.2835
+        },
+        "railSlots": {
+          "count": 4,
+          "outline": "rectangular",
+          "centerlineOffsetFromSlotAxisMm": 2.1,
+          "strokeWidthMm": 0.4,
+          "minimumDrillClearanceMm": 0.3,
+          "joinedToPerimeter": true
+        },
+        "allCopperInsideBoard": true,
+        "drillsUnchanged": true,
+        "platedHolesRequired": false,
+        "edgePlatingRequired": false
+      }
+    },
+    "woven-maze": {
+      "boardCount": 9,
+      "physicalGeometryUnchanged": true,
+      "lowerArtworkUnchanged": true,
+      "preexistingTopMotifUnchanged": true,
+      "paletteAndFinishUnchanged": true,
+      "rimStrokesDrawnLast": true,
+      "taggedClosedBorderCount": 9,
+      "outsideCopperAreaMm2": 0.0,
+      "minimumCopperToBoardBoundaryMm": 0.2993,
+      "parameters": {
+        "revision": 5,
+        "flatArtwork": true,
+        "topOnly": true,
+        "closedStrokeCount": 9,
+        "perimeter": {
+          "centerlineInsetMm": 0.55,
+          "strokeWidthMm": 0.32,
+          "minimumBoardEdgeClearanceMm": 0.39
+        },
+        "stackHoles": {
+          "count": 4,
+          "outline": "circular",
+          "centerlineRadiusMm": 2.7,
+          "strokeWidthMm": 0.4,
+          "supportRadiusMm": 3.05,
+          "minimumDrillClearanceMm": 0.8986,
+          "minimumBoardBoundaryClearanceMm": 0.8986
+        },
+        "railSlots": {
+          "count": 4,
+          "outline": "capsule",
+          "centerlineOffsetFromSlotAxisMm": 2.1,
+          "strokeWidthMm": 0.4,
+          "minimumDrillClearanceMm": 0.2993,
+          "joinedToPerimeter": true
+        },
+        "allCopperInsideBoard": true,
+        "drillsUnchanged": true,
+        "platedHolesRequired": false,
+        "edgePlatingRequired": false
+      }
+    }
+  },
+  "passed": true
+}

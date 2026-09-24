@@ -1,0 +1,30 @@
+---
+title: "Prepare Order Data"
+description: "Tie the selected files to process, color, finish, and quantity."
+sidebar_position: 4
+---
+
+## Order unit
+
+One layered design consists of multiple separate PCBs. L01 and L02 are board sequence numbers, not copper-layer counts. Each board needs its own outline, mask color, finish, and quantity. Different designs cannot be assumed to share a panel quote just because they use the same color.
+
+The imported order-plan.csv describes required quantities for one selected 43-board set and leaves supplier order quantities blank. hardware-plan.csv lists candidate fasteners and spacers. Neither file is a purchase order.
+
+## Confirm each specification
+
+Use pcb/manifest.csv as the starting point and confirm the chosen Kumiko variant as a complete set.
+
+| Item | Record |
+| --- | --- |
+| Design and layer | Original design ID and L01 onward layer |
+| Revision and file | Source revision, native file hash, and final manufacturing package hash |
+| Material and thickness | Supplier-agreed FR-4 process and 1.6 mm thickness |
+| Mask color | Applicable black, white, green, purple, red, yellow, or blue |
+| Surface finish | Supplier-agreed ENIG or mask-only finish |
+| Cutouts and holes | Routing and NPTH treatment |
+| Quantity | Board quantity and number of complete sets |
+| Output data | Gerber archive, drill files, and notes |
+
+Screen colors are approximate. Confirm supplier availability, physical colors, and any surcharge for purple and yellow. Confirm how empty copper layers on mask-only boards are handled.
+
+View final Gerbers and drills independently. Compare board outline, holes, slots, mask openings, layer direction, and file list with KiCad and the manifest. Link supplier answers to the open-item record before releasing an order package.

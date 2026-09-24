@@ -1,0 +1,126 @@
+{
+  "startedAt": "2026-09-23T18:46:02.296Z",
+  "entry": "preview-source/dist/index.html",
+  "checks": [
+    {
+      "label": "Desktop file:// entry starts with a live WebGL2 model",
+      "passed": true,
+      "width": 1100,
+      "height": 897,
+      "webgl2": true,
+      "lost": false
+    },
+    {
+      "label": "spider-nest: 8 PCBs, spacing, partial stack, floor isolation, restore, four camera views",
+      "passed": true
+    },
+    {
+      "label": "coral-vault: 8 PCBs, spacing, partial stack, floor isolation, restore, four camera views",
+      "passed": true
+    },
+    {
+      "label": "fault-line: 9 PCBs, spacing, partial stack, floor isolation, restore, four camera views",
+      "passed": true
+    },
+    {
+      "label": "kumiko-void: 9 PCBs, spacing, partial stack, floor isolation, restore, four camera views",
+      "passed": true
+    },
+    {
+      "label": "woven-maze: 9 PCBs, spacing, partial stack, floor isolation, restore, four camera views",
+      "passed": true
+    },
+    {
+      "label": "UI switch hardware: both directions",
+      "passed": true
+    },
+    {
+      "label": "UI switch rails: both directions",
+      "passed": true
+    },
+    {
+      "label": "UI switch artwork: both directions",
+      "passed": true
+    },
+    {
+      "label": "UI switch section: both directions",
+      "passed": true
+    },
+    {
+      "label": "Current-view PNG download",
+      "passed": true,
+      "filename": "woven-maze-iso.png",
+      "savedAs": "downloaded-preview.png",
+      "bytes": 309162
+    },
+    {
+      "label": "Mobile 390×844: no horizontal overflow, native touch scrolling, reachable controls, touch camera/layer actions",
+      "passed": true,
+      "scrollAfterSwipe": 455
+    },
+    {
+      "label": "Standalone cold start: 01-spider-nest.html",
+      "passed": true,
+      "designId": "spider-nest"
+    },
+    {
+      "label": "Final built standalone PNG export",
+      "passed": true,
+      "filename": "spider-nest-iso.png",
+      "savedAs": "downloaded-preview.png",
+      "bytes": 268015
+    },
+    {
+      "label": "Standalone cold start: 03-coral-vault.html",
+      "passed": true,
+      "designId": "coral-vault"
+    },
+    {
+      "label": "Standalone cold start: 13-fault-line.html",
+      "passed": true,
+      "designId": "fault-line"
+    },
+    {
+      "label": "Standalone cold start: 17-kumiko-void.html",
+      "passed": true,
+      "designId": "kumiko-void"
+    },
+    {
+      "label": "Standalone cold start: 18-woven-maze.html",
+      "passed": true,
+      "designId": "woven-maze"
+    },
+    {
+      "label": "No HTTP(S) requests while opening and using file:// HTML",
+      "passed": true
+    },
+    {
+      "label": "No JavaScript exceptions or console errors",
+      "passed": true
+    }
+  ],
+  "screenshots": [
+    "spider-nest-oblique.png",
+    "spider-nest-front.png",
+    "coral-vault-oblique.png",
+    "coral-vault-front.png",
+    "fault-line-oblique.png",
+    "fault-line-front.png",
+    "kumiko-void-oblique.png",
+    "kumiko-void-front.png",
+    "woven-maze-oblique.png",
+    "woven-maze-front.png",
+    "mobile-390x844.png",
+    "mobile-controls-390x844.png"
+  ],
+  "networkRequests": [],
+  "browserErrors": [],
+  "download": {
+    "filename": "spider-nest-iso.png",
+    "savedAs": "downloaded-preview.png",
+    "bytes": 268015
+  },
+  "passed": true,
+  "resumedAt": "2026-09-23T18:49:44.107Z",
+  "finishedAt": "2026-09-23T18:50:25.981Z"
+}

@@ -70,3 +70,14 @@ panels/*/*.zip
 panels/**/.history/
 panels/**/*.zip
 panels/art-strip-mine/**/gerber/
+
+# PCB art handoff imports keep generated viewer, vector, review, and CAM outputs local.
+/artwork-resources/pcb-art/generated/
+/artwork-resources/pcb-art/preview-source/dist/
+/artwork-resources/pcb-art/preview-source/node_modules/
+/artwork-resources/pcb-art/preview-source/.venv/
+/artwork-resources/pcb-art/resources/vector/
+panels/art-*/gerber/
+panels/art-*/**/gerber/
+panels/art-*/cam/
+panels/art-*/**/cam/

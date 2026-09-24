@@ -1,0 +1,23 @@
+---
+title: "Continuation Task Notes"
+description: "A scoped guide for future documentation and board-review work."
+sidebar_position: 2
+---
+
+## Goal
+
+Use the Revision 5 source and native boards to continue the five layered panels. Preserve the approved geometry, colors, and complete wide Kumiko selection while resolving process-specific questions with evidence.
+
+## Design and board source
+
+Start with the central PCB art README, preview-source/src/CONTRACT.md, preview-source/FINISH_PLAN.md, and pcb/manifest.json. Board IDs are retained in the five panel homes; the standard Kumiko set is a full replacement alternative.
+
+For intentional design changes, record the board ID, layer, location, and reason. Update the geometry generator and regenerate when the shape itself changes. Keep manual manufacturing edits in a separate versioned copy and protect them from regeneration.
+
+## Evidence sequence
+
+Open representative boards in the chosen KiCad release. Check dimensions, cutouts, holes, copper and mask, layer order, color, and finish. Apply actual process rules and record DRC output. Review Gerber and drill exports independently in a CAM viewer. Address the small Kumiko openings, thin material, and narrow copper or mask gaps with a process-specific change record.
+
+Check actual fastener and case fit in a prototype. Keep geometry checks, native KiCad results, CAM review, supplier decisions, physical measurements, and orders as separate evidence.
+
+The published documentation site migration belongs to a later task. These English MDX sources and site config are imported inputs; this task has not installed or built a site.
