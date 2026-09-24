@@ -1,0 +1,1315 @@
+{
+  "schemaVersion": 1,
+  "decisionId": "fabrication-2026-09-25",
+  "checkedOn": "2026-09-25",
+  "status": "frozen local design rules; factory acceptance pending",
+  "selectedKumiko": "wide",
+  "sourceHashes": {
+    "preview-source/assets/geometry.json": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+    "preview-source/assets/reference-revision4.json": "3345a749783eda73178acb815d81b05aeb5c8cb1b8c342801543783e944302b9",
+    "preview-source/assets/reference-revision3.json": "963de26abbed3fd9c3715375a57911f8e987a4e4a0eda369e5d85d037abbaac8",
+    "validation/fabrication-review.json": "3c79cd77cb7e8c0f866c2e13907439969545f3a1c954ea611b53d54dd5600aea",
+    "validation/export-art-review.json": "565f1c397fa98a957db25dbf4d5a2d53f62be08705f7e919c7d90f7a8c29cc17",
+    "pcb/manifest.json": "95b25b4b7bf775ea4006bfcfef532af4db6cfa01f1396f6567280ebb7b04d221",
+    "resources/manufacturing-review/kumiko-routing-issues.csv": "c9a64e0f43f793d6f3ab3f0b17380bf81a29cd3e221404fe7fde3d2646ee8ee7",
+    "resources/manufacturing-review/artwork-gap-review.csv": "6c3d65c01de8b636696fd2b70abccd7282b9719b634a7d496c429513f7697f35"
+  },
+  "rulesMm": {
+    "routerDiameter": 1.0,
+    "routerRadius": 0.5,
+    "minimumMaterialLigament": 1.0,
+    "minimumBridgeWidth": 1.0,
+    "supportDiskRadiusBeforeDrilling": 3.05,
+    "topCopperToRoutedEdgeOrDrill": 0.3,
+    "topMaskToRoutedEdgeOrDrill": 0.35,
+    "lowerCopperToOuterEdge": 0.5,
+    "lowerMaskToOuterEdge": 0.55,
+    "lowerCopperToRoutedApertureOrDrill": 0.3,
+    "lowerMaskToRoutedApertureOrDrill": 0.35,
+    "copperUnderMaskMargin": 0.05,
+    "minimumCopperWidth": 0.25,
+    "minimumSeparateCopperGap": 0.25,
+    "minimumVisibleGoldWidth": 0.25,
+    "minimumMaskWeb": 0.25,
+    "blackMaskPublishedFloor": 0.13,
+    "hiddenCopperJoinWidth": 0.25,
+    "maskToUnrelatedCopper": 0.09,
+    "numericDistanceTolerance": 0.001,
+    "numericAreaTolerance": 1e-05,
+    "routingComparisonHausdorffMax": 0.75,
+    "localMaskCorrectionReachMax": 0.5,
+    "localCopperJoinLengthMax": 0.6,
+    "maximumPanelSide": 475,
+    "minimumScoredPanelSide": 70,
+    "panelRailWidth": 5,
+    "scoreCopperClearance": 0.5,
+    "scoreMaskClearance": 0.55,
+    "scoreApertureAndSupportClearance": 1.0,
+    "minimumParallelScoreSpacing": 3.0
+  },
+  "material": {
+    "substrate": "FR-4",
+    "thicknessMm": 1.6,
+    "copperLayers": 2,
+    "copperOz": 1,
+    "backArtwork": false,
+    "solderPaste": false,
+    "silkscreen": false,
+    "platedHoles": false,
+    "edgePlating": false
+  },
+  "inventory": {
+    "selected": 43,
+    "alternatives": 9,
+    "tops": 5,
+    "lower": 38,
+    "completeSets": 25,
+    "finishedPieces": 1075
+  },
+  "mechanical": {
+    "topBoundsMm": [
+      0,
+      0,
+      101.3,
+      128.5
+    ],
+    "lowerBoundsMm": [
+      0,
+      17.1,
+      101.3,
+      111.4
+    ],
+    "screwCentersMm": [
+      [
+        6.5,
+        23.6
+      ],
+      [
+        94.8,
+        23.6
+      ],
+      [
+        6.5,
+        104.9
+      ],
+      [
+        94.8,
+        104.9
+      ]
+    ],
+    "screwDiameterMm": 3.2,
+    "railSlotCentersMm": [
+      [
+        10.17,
+        2.87
+      ],
+      [
+        91.13,
+        2.86
+      ],
+      [
+        10.16,
+        125.64
+      ],
+      [
+        91.14,
+        125.65
+      ]
+    ],
+    "railSlotDimensionsMm": [
+      10.28,
+      3.2
+    ],
+    "spacerGapMm": 3.0
+  },
+  "selectedApertureActions": [
+    {
+      "issueId": "kumiko-void-wide-L01-H01",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 1,
+      "layerNumber": 1,
+      "boundsMm": [
+        2.5,
+        57.0663,
+        4.7904,
+        58.3887
+      ],
+      "originalAreaMm2": 1.51441248,
+      "centerMm": [
+        2.98402771,
+        57.90467229
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L01-H02",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 2,
+      "layerNumber": 1,
+      "boundsMm": [
+        2.5,
+        60.1087,
+        4.7904,
+        61.4311
+      ],
+      "originalAreaMm2": 1.51441248,
+      "centerMm": [
+        2.98402771,
+        60.59272771
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L01-H03",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 5,
+      "layerNumber": 1,
+      "boundsMm": [
+        2.5,
+        106.15,
+        3.9607,
+        106.8861
+      ],
+      "originalAreaMm2": 0.80710921,
+      "centerMm": [
+        3.05253224,
+        106.51800542
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L01-H04",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 6,
+      "layerNumber": 1,
+      "boundsMm": [
+        2.5,
+        108.6061,
+        4.7904,
+        109.5
+      ],
+      "originalAreaMm2": 1.35542057,
+      "centerMm": [
+        3.12243473,
+        109.05305
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L01-H05",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 17,
+      "layerNumber": 1,
+      "boundsMm": [
+        11.2096,
+        108.6061,
+        32.7904,
+        109.5
+      ],
+      "originalAreaMm2": 17.90714114,
+      "centerMm": [
+        22.0,
+        109.05305
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L01-H06",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 67,
+      "layerNumber": 1,
+      "boundsMm": [
+        97.7554,
+        19.0,
+        98.8,
+        20.8092
+      ],
+      "originalAreaMm2": 0.94494516,
+      "centerMm": [
+        98.41765658,
+        19.38234342
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L01-H07",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 78,
+      "layerNumber": 1,
+      "boundsMm": [
+        97.3393,
+        106.15,
+        98.8,
+        106.8861
+      ],
+      "originalAreaMm2": 0.80710921,
+      "centerMm": [
+        98.43195,
+        106.51805
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L01-H08",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 79,
+      "layerNumber": 1,
+      "boundsMm": [
+        95.2096,
+        108.6061,
+        98.8,
+        109.5
+      ],
+      "originalAreaMm2": 2.51749057,
+      "centerMm": [
+        97.39185,
+        109.05305
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L01-H09",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 80,
+      "layerNumber": 1,
+      "boundsMm": [
+        67.2096,
+        108.6061,
+        88.7904,
+        109.5
+      ],
+      "originalAreaMm2": 17.90714114,
+      "centerMm": [
+        78.0,
+        109.05305
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L01-H10",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 86,
+      "layerNumber": 1,
+      "boundsMm": [
+        39.2096,
+        108.6061,
+        60.7904,
+        109.5
+      ],
+      "originalAreaMm2": 17.90714114,
+      "centerMm": [
+        50.0,
+        109.05305
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L01-H11",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 101,
+      "layerNumber": 1,
+      "boundsMm": [
+        92.86,
+        26.1855,
+        93.4162,
+        26.7417
+      ],
+      "originalAreaMm2": 0.06538131,
+      "centerMm": [
+        92.93858713,
+        26.37522613
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L02-H01",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 8,
+      "layerNumber": 2,
+      "boundsMm": [
+        24.2855,
+        19.0,
+        24.5145,
+        19.0661
+      ],
+      "originalAreaMm2": 0.00756845,
+      "centerMm": [
+        24.4,
+        19.03067753
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L02-H02",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 40,
+      "layerNumber": 2,
+      "boundsMm": [
+        80.2855,
+        19.0,
+        80.5145,
+        19.0661
+      ],
+      "originalAreaMm2": 0.00756845,
+      "centerMm": [
+        80.4,
+        19.03067753
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L02-H03",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 43,
+      "layerNumber": 2,
+      "boundsMm": [
+        97.8521,
+        61.4737,
+        98.8,
+        62.021
+      ],
+      "originalAreaMm2": 0.25939284,
+      "centerMm": [
+        98.59967774,
+        61.67402226
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L02-H04",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 48,
+      "layerNumber": 2,
+      "boundsMm": [
+        98.5836,
+        103.2751,
+        98.8,
+        103.65
+      ],
+      "originalAreaMm2": 0.04056418,
+      "centerMm": [
+        98.72078646,
+        103.57078646
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L02-H05",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 49,
+      "layerNumber": 2,
+      "boundsMm": [
+        97.8521,
+        107.5739,
+        98.8,
+        108.1211
+      ],
+      "originalAreaMm2": 0.25934544,
+      "centerMm": [
+        98.59970274,
+        107.92080274
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L03-H01",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 0,
+      "layerNumber": 3,
+      "boundsMm": [
+        2.5,
+        54.5829,
+        3.2729,
+        55.9216
+      ],
+      "originalAreaMm2": 0.34490662,
+      "centerMm": [
+        2.70710453,
+        55.35582359
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L03-H02",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 1,
+      "layerNumber": 3,
+      "boundsMm": [
+        2.5,
+        60.9759,
+        3.2729,
+        62.3145
+      ],
+      "originalAreaMm2": 0.34486798,
+      "centerMm": [
+        2.70709293,
+        61.54166971
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L03-H03",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 2,
+      "layerNumber": 3,
+      "boundsMm": [
+        2.5,
+        103.0804,
+        2.8289,
+        103.65
+      ],
+      "originalAreaMm2": 0.09367072,
+      "centerMm": [
+        2.62038096,
+        103.52961904
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L03-H04",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 51,
+      "layerNumber": 3,
+      "boundsMm": [
+        97.8133,
+        102.8181,
+        98.8,
+        103.65
+      ],
+      "originalAreaMm2": 0.50824994,
+      "centerMm": [
+        98.49550829,
+        103.34550829
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L03-H05",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 53,
+      "layerNumber": 3,
+      "boundsMm": [
+        87.2266,
+        109.4733,
+        87.2729,
+        109.5
+      ],
+      "originalAreaMm2": 0.00041118,
+      "centerMm": [
+        87.25328701,
+        109.49285649
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L03-H06",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 57,
+      "layerNumber": 3,
+      "boundsMm": [
+        64.3271,
+        109.4733,
+        64.3734,
+        109.5
+      ],
+      "originalAreaMm2": 0.00041118,
+      "centerMm": [
+        64.34671299,
+        109.49285649
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L04-H01",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 5,
+      "layerNumber": 4,
+      "boundsMm": [
+        3.6017,
+        108.1,
+        6.0574,
+        109.5
+      ],
+      "originalAreaMm2": 1.17474,
+      "centerMm": [
+        5.02839336,
+        109.11772261
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L04-H02",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 6,
+      "layerNumber": 4,
+      "boundsMm": [
+        7.3853,
+        108.9983,
+        7.675,
+        109.5
+      ],
+      "originalAreaMm2": 0.07267124,
+      "centerMm": [
+        7.56896747,
+        109.39396747
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L04-H03",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 7,
+      "layerNumber": 4,
+      "boundsMm": [
+        9.525,
+        108.9983,
+        9.8147,
+        109.5
+      ],
+      "originalAreaMm2": 0.07267124,
+      "centerMm": [
+        9.63103253,
+        109.39396747
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L04-H04",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 38,
+      "layerNumber": 4,
+      "boundsMm": [
+        87.6017,
+        108.0733,
+        90.0729,
+        109.5
+      ],
+      "originalAreaMm2": 1.17517279,
+      "centerMm": [
+        89.02840677,
+        109.11772621
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L04-H05",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 40,
+      "layerNumber": 4,
+      "boundsMm": [
+        67.1271,
+        108.0733,
+        69.5983,
+        109.5
+      ],
+      "originalAreaMm2": 1.17517279,
+      "centerMm": [
+        68.17159323,
+        109.11772621
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L04-H06",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 42,
+      "layerNumber": 4,
+      "boundsMm": [
+        59.6017,
+        108.0733,
+        62.0729,
+        109.5
+      ],
+      "originalAreaMm2": 1.17517279,
+      "centerMm": [
+        61.02840677,
+        109.11772621
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L04-H07",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 53,
+      "layerNumber": 4,
+      "boundsMm": [
+        39.1271,
+        108.0733,
+        41.5983,
+        109.5
+      ],
+      "originalAreaMm2": 1.17517279,
+      "centerMm": [
+        40.17159323,
+        109.11772621
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L04-H08",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 54,
+      "layerNumber": 4,
+      "boundsMm": [
+        37.525,
+        108.9983,
+        37.8147,
+        109.5
+      ],
+      "originalAreaMm2": 0.07267125,
+      "centerMm": [
+        37.63103253,
+        109.39396747
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L04-H09",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 55,
+      "layerNumber": 4,
+      "boundsMm": [
+        35.3853,
+        108.9983,
+        35.675,
+        109.5
+      ],
+      "originalAreaMm2": 0.07267124,
+      "centerMm": [
+        35.56896747,
+        109.39396747
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L05-H01",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 2,
+      "layerNumber": 5,
+      "boundsMm": [
+        2.5,
+        62.4737,
+        2.8479,
+        62.6745
+      ],
+      "originalAreaMm2": 0.03492916,
+      "centerMm": [
+        2.57350488,
+        62.54720488
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L05-H02",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 3,
+      "layerNumber": 5,
+      "boundsMm": [
+        2.5,
+        64.0759,
+        3.7729,
+        66.2805
+      ],
+      "originalAreaMm2": 0.93545421,
+      "centerMm": [
+        2.84107967,
+        65.00763707
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L05-H03",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 11,
+      "layerNumber": 5,
+      "boundsMm": [
+        74.4535,
+        19.0,
+        78.1465,
+        20.0661
+      ],
+      "originalAreaMm2": 1.96855365,
+      "centerMm": [
+        76.3,
+        19.49477732
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L05-H04",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 16,
+      "layerNumber": 5,
+      "boundsMm": [
+        98.1801,
+        24.85,
+        98.8,
+        25.9237
+      ],
+      "originalAreaMm2": 0.33279332,
+      "centerMm": [
+        98.57310074,
+        25.07689926
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L06-H01",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 1,
+      "layerNumber": 6,
+      "boundsMm": [
+        2.5,
+        19.0,
+        3.1303,
+        20.0917
+      ],
+      "originalAreaMm2": 0.34404925,
+      "centerMm": [
+        2.73070503,
+        19.23070503
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L06-H02",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 4,
+      "layerNumber": 6,
+      "boundsMm": [
+        2.5,
+        102.6841,
+        3.5717,
+        103.65
+      ],
+      "originalAreaMm2": 0.64620084,
+      "centerMm": [
+        2.85355232,
+        103.29644768
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L06-H03",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 6,
+      "layerNumber": 6,
+      "boundsMm": [
+        9.0163,
+        109.3983,
+        9.075,
+        109.5
+      ],
+      "originalAreaMm2": 0.00298489,
+      "centerMm": [
+        9.05351239,
+        109.47851239
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L06-H04",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 7,
+      "layerNumber": 6,
+      "boundsMm": [
+        10.925,
+        109.3983,
+        10.9837,
+        109.5
+      ],
+      "originalAreaMm2": 0.00298489,
+      "centerMm": [
+        10.94648761,
+        109.47851239
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L06-H05",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 8,
+      "layerNumber": 6,
+      "boundsMm": [
+        12.5271,
+        108.4733,
+        14.3055,
+        109.5
+      ],
+      "originalAreaMm2": 0.60862776,
+      "centerMm": [
+        13.27872935,
+        109.22489149
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L06-H06",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 29,
+      "layerNumber": 6,
+      "boundsMm": [
+        97.4521,
+        58.3737,
+        98.8,
+        59.1519
+      ],
+      "originalAreaMm2": 0.52446789,
+      "centerMm": [
+        98.51515782,
+        58.65854218
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L06-H07",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 36,
+      "layerNumber": 6,
+      "boundsMm": [
+        94.925,
+        109.3983,
+        94.9837,
+        109.5
+      ],
+      "originalAreaMm2": 0.00298489,
+      "centerMm": [
+        94.94648761,
+        109.47851239
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L06-H08",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 37,
+      "layerNumber": 6,
+      "boundsMm": [
+        93.0163,
+        109.3983,
+        93.075,
+        109.5
+      ],
+      "originalAreaMm2": 0.00298489,
+      "centerMm": [
+        93.05351239,
+        109.47851239
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L06-H09",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 41,
+      "layerNumber": 6,
+      "boundsMm": [
+        33.6945,
+        108.4733,
+        35.4729,
+        109.5
+      ],
+      "originalAreaMm2": 0.60862776,
+      "centerMm": [
+        34.72127065,
+        109.22489149
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L07-H01",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 1,
+      "layerNumber": 7,
+      "boundsMm": [
+        2.5,
+        59.4033,
+        3.7479,
+        60.1237
+      ],
+      "originalAreaMm2": 0.44949358,
+      "centerMm": [
+        2.76369345,
+        59.86000655
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L07-H02",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 3,
+      "layerNumber": 7,
+      "boundsMm": [
+        2.5,
+        103.2555,
+        2.7278,
+        103.65
+      ],
+      "originalAreaMm2": 0.04493355,
+      "centerMm": [
+        2.58337649,
+        103.56662351
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L07-H03",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 9,
+      "layerNumber": 7,
+      "boundsMm": [
+        20.2195,
+        19.0,
+        22.1805,
+        19.5661
+      ],
+      "originalAreaMm2": 0.55506105,
+      "centerMm": [
+        21.2,
+        19.26272742
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L07-H04",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 37,
+      "layerNumber": 7,
+      "boundsMm": [
+        48.2195,
+        19.0,
+        50.1805,
+        19.5661
+      ],
+      "originalAreaMm2": 0.55506105,
+      "centerMm": [
+        49.2,
+        19.26272742
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L08-H01",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 3,
+      "layerNumber": 8,
+      "boundsMm": [
+        2.5,
+        106.15,
+        3.9957,
+        106.9211
+      ],
+      "originalAreaMm2": 0.85884446,
+      "centerMm": [
+        2.99511285,
+        106.53550435
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L08-H02",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 4,
+      "layerNumber": 8,
+      "boundsMm": [
+        2.5,
+        108.7711,
+        6.2479,
+        109.5
+      ],
+      "originalAreaMm2": 2.27172618,
+      "centerMm": [
+        4.058325,
+        109.13555
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L08-H03",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 5,
+      "layerNumber": 8,
+      "boundsMm": [
+        9.8132,
+        108.7711,
+        37.5868,
+        109.5
+      ],
+      "originalAreaMm2": 19.93745592,
+      "centerMm": [
+        23.7,
+        109.13555
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L08-H04",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 20,
+      "layerNumber": 8,
+      "boundsMm": [
+        97.1521,
+        60.2737,
+        98.8,
+        61.2251
+      ],
+      "originalAreaMm2": 0.78390603,
+      "centerMm": [
+        98.45176163,
+        60.62193837
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L08-H05",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 26,
+      "layerNumber": 8,
+      "boundsMm": [
+        97.3043,
+        106.15,
+        98.8,
+        106.9211
+      ],
+      "originalAreaMm2": 0.73986627,
+      "centerMm": [
+        98.45178178,
+        106.57288178
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L08-H06",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 27,
+      "layerNumber": 8,
+      "boundsMm": [
+        93.8132,
+        108.7711,
+        98.8,
+        109.5
+      ],
+      "originalAreaMm2": 3.48151796,
+      "centerMm": [
+        96.4118,
+        109.13555
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L08-H07",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 28,
+      "layerNumber": 8,
+      "boundsMm": [
+        67.3021,
+        108.7711,
+        92.0979,
+        109.5
+      ],
+      "originalAreaMm2": 17.76686461,
+      "centerMm": [
+        79.7,
+        109.13555
+      ]
+    },
+    {
+      "issueId": "kumiko-void-wide-L08-H08",
+      "action": "close entire original decorative aperture with substrate; preserve mask/color; do not add gold",
+      "geometryHoleIndex0": 29,
+      "layerNumber": 8,
+      "boundsMm": [
+        41.1521,
+        108.7711,
+        62.2479,
+        109.5
+      ],
+      "originalAreaMm2": 14.45649237,
+      "centerMm": [
+        51.7,
+        109.13555
+      ]
+    }
+  ],
+  "resolvedByClosure": {
+    "kumiko-void-wide-L01-THIN-68-101": "kumiko-void-wide-L01-H11"
+  },
+  "alternativeUnresolvedIssueIds": [
+    "kumiko-void-standard-L01-H01",
+    "kumiko-void-standard-L01-H02",
+    "kumiko-void-standard-L01-H03",
+    "kumiko-void-standard-L03-H01",
+    "kumiko-void-standard-L03-H02",
+    "kumiko-void-standard-L04-H01",
+    "kumiko-void-standard-L04-H02",
+    "kumiko-void-standard-L08-H01"
+  ],
+  "panelGroups": [
+    {
+      "id": "white-hasl",
+      "color": "white",
+      "finish": "lead-free HASL",
+      "memberIds": [
+        "01-spider-nest-L02-white-mask-only",
+        "01-spider-nest-L04-white-mask-only",
+        "01-spider-nest-L06-white-mask-only",
+        "18-woven-maze-L02-white-mask-only",
+        "18-woven-maze-L04-white-mask-only",
+        "18-woven-maze-L06-white-mask-only",
+        "18-woven-maze-L08-white-mask-only"
+      ],
+      "columns": 2,
+      "rows": 4,
+      "railMm": 5,
+      "widthMm": 212.6,
+      "heightMm": 387.2,
+      "unusedCells": 1,
+      "quantity": 25,
+      "mode": "full grid V-score with routed decorative apertures"
+    },
+    {
+      "id": "black-enig",
+      "color": "black",
+      "finish": "ENIG",
+      "memberIds": [
+        "01-spider-nest-L03-gold-enig-fill",
+        "01-spider-nest-L05-gold-enig-fill",
+        "01-spider-nest-L07-gold-enig-fill",
+        "03-coral-vault-L04-gold-enig-fill",
+        "17-kumiko-void-wide-L04-black-enig-art",
+        "17-kumiko-void-wide-L07-black-enig-art"
+      ],
+      "columns": 3,
+      "rows": 2,
+      "railMm": 5,
+      "widthMm": 313.9,
+      "heightMm": 198.6,
+      "unusedCells": 0,
+      "quantity": 25,
+      "mode": "full grid V-score with routed decorative apertures"
+    },
+    {
+      "id": "red-hasl",
+      "color": "red",
+      "finish": "lead-free HASL",
+      "memberIds": [
+        "01-spider-nest-L08-red-mask-only",
+        "03-coral-vault-L05-red-mask-only",
+        "03-coral-vault-L07-red-mask-only",
+        "13-fault-line-L02-red-mask-only",
+        "13-fault-line-L04-red-mask-only",
+        "13-fault-line-L06-red-mask-only",
+        "13-fault-line-L08-red-mask-only",
+        "17-kumiko-void-wide-L02-red-mask-only",
+        "17-kumiko-void-wide-L05-red-mask-only",
+        "17-kumiko-void-wide-L08-red-mask-only"
+      ],
+      "columns": 3,
+      "rows": 4,
+      "railMm": 5,
+      "widthMm": 313.9,
+      "heightMm": 387.2,
+      "unusedCells": 2,
+      "quantity": 25,
+      "mode": "full grid V-score with routed decorative apertures"
+    },
+    {
+      "id": "green-hasl",
+      "color": "green",
+      "finish": "lead-free HASL",
+      "memberIds": [
+        "03-coral-vault-L02-green-mask-only",
+        "17-kumiko-void-wide-L03-green-mask-only",
+        "17-kumiko-void-wide-L06-green-mask-only",
+        "17-kumiko-void-wide-L09-green-mask-only"
+      ],
+      "columns": 2,
+      "rows": 2,
+      "railMm": 5,
+      "widthMm": 212.6,
+      "heightMm": 198.6,
+      "unusedCells": 0,
+      "quantity": 25,
+      "mode": "full grid V-score with routed decorative apertures"
+    },
+    {
+      "id": "purple-hasl",
+      "color": "purple",
+      "finish": "lead-free HASL",
+      "memberIds": [
+        "03-coral-vault-L03-purple-mask-only"
+      ],
+      "columns": 1,
+      "rows": 1,
+      "railMm": 0,
+      "widthMm": 101.3,
+      "heightMm": 94.3,
+      "unusedCells": 0,
+      "quantity": 25,
+      "mode": "standalone routed lower"
+    },
+    {
+      "id": "yellow-hasl",
+      "color": "yellow",
+      "finish": "lead-free HASL",
+      "memberIds": [
+        "03-coral-vault-L06-yellow-mask-only"
+      ],
+      "columns": 1,
+      "rows": 1,
+      "railMm": 0,
+      "widthMm": 101.3,
+      "heightMm": 94.3,
+      "unusedCells": 0,
+      "quantity": 25,
+      "mode": "standalone routed lower"
+    },
+    {
+      "id": "blue-hasl",
+      "color": "blue",
+      "finish": "lead-free HASL",
+      "memberIds": [
+        "03-coral-vault-L08-blue-mask-only"
+      ],
+      "columns": 1,
+      "rows": 1,
+      "railMm": 0,
+      "widthMm": 101.3,
+      "heightMm": 94.3,
+      "unusedCells": 0,
+      "quantity": 25,
+      "mode": "standalone routed lower"
+    },
+    {
+      "id": "black-hasl",
+      "color": "black",
+      "finish": "lead-free HASL",
+      "memberIds": [
+        "13-fault-line-L03-black-mask-only",
+        "13-fault-line-L05-black-mask-only",
+        "13-fault-line-L07-black-mask-only",
+        "13-fault-line-L09-black-mask-only",
+        "18-woven-maze-L03-black-mask-only",
+        "18-woven-maze-L05-black-mask-only",
+        "18-woven-maze-L07-black-mask-only",
+        "18-woven-maze-L09-black-mask-only"
+      ],
+      "columns": 2,
+      "rows": 4,
+      "railMm": 5,
+      "widthMm": 212.6,
+      "heightMm": 387.2,
+      "unusedCells": 0,
+      "quantity": 25,
+      "mode": "full grid V-score with routed decorative apertures"
+    }
+  ],
+  "appearanceLimits": {
+    "maximumApertureLossFractionPerBoard": 0.02,
+    "kumikoWideL01MaximumApertureLossFraction": 0.035,
+    "maximumRemovedGoldAreaFraction": 0.3
+  },
+  "topBorderPolicy": {
+    "closedPathsPerTop": 9,
+    "minimumGoldCoreWidthMm": 0.25,
+    "originalCenterlinesUnchanged": false,
+    "railRimInnerEdgeRetreatMm": 0.05,
+    "nominalRemainingRailRimWidthMm": 0.35,
+    "indexedFeatures": [
+      "rail-slot:0",
+      "rail-slot:1",
+      "rail-slot:2",
+      "rail-slot:3"
+    ],
+    "scope": "every selected top; clearance clipping only, then preserve minimum core",
+    "centerlineExceptions": [
+      {
+        "designId": "coral-vault",
+        "layerNumber": 1,
+        "feature": "stack-hole",
+        "featureIndex": 1,
+        "centerMm": [
+          94.8,
+          23.6
+        ],
+        "originalRadiusMm": 2.7,
+        "manufacturingRadiusMm": 2.55,
+        "widthMm": 0.4,
+        "reason": "original collar copper approaches adjacent decorative route to 0.248274 mm; inward shift preserves full ring width and clearance"
+      },
+      {
+        "designId": "coral-vault",
+        "layerNumber": 1,
+        "feature": "stack-hole",
+        "featureIndex": 2,
+        "centerMm": [
+          6.5,
+          104.9
+        ],
+        "originalRadiusMm": 2.7,
+        "manufacturingRadiusMm": 2.55,
+        "widthMm": 0.4,
+        "reason": "original collar copper approaches adjacent decorative route to 0.248274 mm; inward shift preserves full ring width and clearance"
+      },
+      {
+        "designId": "coral-vault",
+        "layerNumber": 1,
+        "feature": "stack-hole",
+        "featureIndex": 3,
+        "centerMm": [
+          94.8,
+          104.9
+        ],
+        "originalRadiusMm": 2.7,
+        "manufacturingRadiusMm": 2.55,
+        "widthMm": 0.4,
+        "reason": "original collar copper approaches adjacent decorative route to 0.248274 mm; inward shift preserves full ring width and clearance"
+      }
+    ]
+  }
+}
