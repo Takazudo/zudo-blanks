@@ -1,0 +1,26 @@
+{
+  "checkedOn": "2026-09-25",
+  "updates": [
+    {
+      "issue": 15,
+      "url": "https://github.com/Takazudo/zudo-blanks/issues/15",
+      "bodySha256": "5c258046d8bb8812f65bd20d8cebe91d818655a3f44528e56e696f8374b54a24",
+      "addedHeading": "Frozen fabrication decision from #14 (2026-09-25)",
+      "previousBodyPreserved": true
+    },
+    {
+      "issue": 16,
+      "url": "https://github.com/Takazudo/zudo-blanks/issues/16",
+      "bodySha256": "a93ec48a3969bbe96d4b5b55f454d13c28b92bc79052007969dd9cf5277c3a50",
+      "addedHeading": "Frozen fabrication decision from #14 (2026-09-25)",
+      "previousBodyPreserved": true
+    },
+    {
+      "issue": 17,
+      "url": "https://github.com/Takazudo/zudo-blanks/issues/17",
+      "bodySha256": "2d5fda64c138c63717d4e35bb657bc3356467d0d58651d7de2f9a991dbbefa7d",
+      "addedHeading": "Frozen fabrication decision from #14 (2026-09-25)",
+      "previousBodyPreserved": true
+    }
+  ]
+}
