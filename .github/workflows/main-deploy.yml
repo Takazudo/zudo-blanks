@@ -31,10 +31,10 @@ jobs:
         with:
           lfs: false
 
-      - name: Build Docusaurus application
-        uses: ./.github/actions/build-docusaurus
+      - name: Build zudo-doc application
+        uses: ./.github/actions/build-zudo-doc
         with:
-          node-version: '20'
+          node-version: '22'
           pnpm-version: '10'
           working-directory: 'doc'
 
@@ -44,14 +44,14 @@ jobs:
           echo "================================"
 
           # Calculate sizes (using portable commands)
-          BUILD_SIZE=$(du -sh doc/build 2>/dev/null | cut -f1 || echo "Unknown")
+          BUILD_SIZE=$(du -sh doc/dist 2>/dev/null | cut -f1 || echo "Unknown")
 
           echo "📁 Build directory: $BUILD_SIZE"
           echo "================================"
 
           # Count files for metrics
-          if [ -d "doc/build" ]; then
-            PAGE_COUNT=$(find doc/build -name "*.html" | wc -l)
+          if [ -d "doc/dist" ]; then
+            PAGE_COUNT=$(find doc/dist -name "*.html" | wc -l)
             echo "📄 HTML pages: $PAGE_COUNT"
           fi
 
@@ -60,8 +60,8 @@ jobs:
       - name: Upload build artifacts
         uses: actions/upload-artifact@v5
         with:
-          name: docusaurus-build-production
-          path: doc/build/
+          name: zudo-doc-build-production
+          path: doc/dist/
           include-hidden-files: true
           retention-days: 1
 
@@ -81,15 +81,21 @@ jobs:
       - name: Download build artifacts
         uses: actions/download-artifact@v6
         with:
-          name: docusaurus-build-production
-          path: doc/build
+          name: zudo-doc-build-production
+          path: doc/dist
 
       - name: Restructure build for base path
         run: |
           mkdir -p deploy-dir/pj/zblanks
-          cp -r doc/build/* deploy-dir/pj/zblanks/
+          cp -a doc/dist/. deploy-dir/pj/zblanks/
           # Redirect root to base path
-          echo "/ /pj/zblanks/ 301" > deploy-dir/_redirects
+          cat > deploy-dir/_redirects <<'EOF'
+          / /pj/zblanks/ 301
+          /pj/zblanks/docs/overview/index /pj/zblanks/docs/overview 301
+          /pj/zblanks/docs/how-to/index /pj/zblanks/docs/how-to 301
+          /pj/zblanks/docs/misc/index /pj/zblanks/docs/misc 301
+          /pj/zblanks/docs/inbox/index /pj/zblanks/docs/inbox 301
+          EOF
 
       - name: Deploy to Netlify Production
         id: deploy
