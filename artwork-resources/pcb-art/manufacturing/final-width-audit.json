@@ -2,8 +2,8 @@
   "status": "diagnostic; connected-component width and boundary-run proof still required",
   "radiusMm": 0.124999,
   "manufacturingGeometrySha256": "598fa0279d4d6ea1fd4562aa21360c34ca8f43d18b64964b3e76f4e46f7adf33",
-  "maskCandidateSha256": "3829d8e37ee7ae56c6073ec2374b93d77e56206237e24ca3aaed8b878b50e13e",
-  "copperLedgerSha256": "68714e66269fd3295a2065dc3c66718fd5562769aa79e4dc98bb7111f84fa3b7",
+  "maskCandidateSha256": "3d599846966dabaf1cade27002d93a22333a5611f58569ded61de2bec895b437",
+  "copperLedgerSha256": "71acb62b6f2e24a7687ec1c184194706c8ba201a56f3a1a7746e791c85a29758",
   "boards": [
     {
       "boardId": "01-spider-nest-L01-black-enig-art",
@@ -299,7 +299,7 @@
         "componentCount": 66,
         "componentsWithout025MmDisk": 2,
         "componentsWithout025MmDiskAreaMm2": 7.83e-06,
-        "toleranceAwareMiterResidueAreaMm2": 76.924272243,
+        "toleranceAwareMiterResidueAreaMm2": 76.822249158,
         "largestResidues": [
           {
             "areaMm2": 6.068284359,
@@ -587,7 +587,7 @@
         "componentCount": 5,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
-        "toleranceAwareMiterResidueAreaMm2": 0.003117878,
+        "toleranceAwareMiterResidueAreaMm2": 0.003269717,
         "largestResidues": [
           {
             "areaMm2": 0.000183849,
@@ -604,16 +604,16 @@
             }
           },
           {
-            "areaMm2": 0.00015833,
+            "areaMm2": 0.000162376,
             "boundsMm": [
-              50.95092,
-              77.729395,
-              56.072602,
-              98.237421
+              60.247551,
+              3.530134,
+              84.154202,
+              5.025155
             ],
             "nearestOriginalArtFeature": {
               "type": "stroke",
-              "originalIndex0": 16,
+              "originalIndex0": 91,
               "color": null
             }
           },
@@ -632,6 +632,20 @@
             }
           },
           {
+            "areaMm2": 0.000136416,
+            "boundsMm": [
+              10.404286,
+              90.570253,
+              25.5895,
+              102.159272
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 19,
+              "color": null
+            }
+          },
+          {
             "areaMm2": 0.00013433,
             "boundsMm": [
               58.911843,
@@ -642,20 +656,6 @@
             "nearestOriginalArtFeature": {
               "type": "stroke",
               "originalIndex0": 72,
-              "color": null
-            }
-          },
-          {
-            "areaMm2": 0.000127052,
-            "boundsMm": [
-              71.057315,
-              118.571829,
-              94.153823,
-              118.701545
-            ],
-            "nearestOriginalArtFeature": {
-              "type": "stroke",
-              "originalIndex0": 92,
               "color": null
             }
           },
@@ -786,16 +786,16 @@
             }
           },
           {
-            "areaMm2": 9.6221e-05,
+            "areaMm2": 9.6533e-05,
             "boundsMm": [
-              45.726146,
-              3.933816,
-              59.816065,
-              6.1429
+              34.256634,
+              19.79377,
+              36.928644,
+              31.873647
             ],
             "nearestOriginalArtFeature": {
               "type": "stroke",
-              "originalIndex0": 90,
+              "originalIndex0": 2,
               "color": null
             }
           },
@@ -844,14 +844,14 @@
           {
             "areaMm2": 8.76e-05,
             "boundsMm": [
-              85.3,
-              123.3,
-              96.981227,
-              123.300015
+              4.328773,
+              5.219985,
+              16.01,
+              5.22
             ],
             "nearestOriginalArtFeature": {
               "type": "stroke",
-              "originalIndex0": 122,
+              "originalIndex0": 119,
               "color": null
             }
           },

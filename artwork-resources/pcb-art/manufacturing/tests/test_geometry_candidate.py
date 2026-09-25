@@ -334,6 +334,11 @@ class ManufacturingGeometryCandidateTests(unittest.TestCase):
             self.assertEqual(layer['art']['strokes'][i],approved['layers'][0]['art']['strokes'][i])
         report=json.loads((HERE/'mask-repair-candidate.json').read_text())
         entry=next(b for b in report['boards'] if b['boardId'].startswith('01-spider-nest-L01'))
+        terminal=[r for r in entry['records'] if r['operation']==
+                  'round bounded Spider enclosed channel terminal']
+        self.assertEqual({tuple(r['sourceArtStrokeIndices0']) for r in terminal},
+                         {(7,101),(8,103)})
+        self.assertAlmostEqual(sum(r['terminalCapAreaMm2'] for r in terminal),.215574956,5)
         mask=shapely.from_wkb(bytes.fromhex(entry['afterMaskWkbHex']))
         body=mask_repair.source_body(layer,self.candidate['spec'])
         stage=json.loads((HERE/'spider-prior-stage.json').read_text())

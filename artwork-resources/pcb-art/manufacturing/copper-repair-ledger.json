@@ -1,16 +1,16 @@
 {
   "status": "candidate; full copper/gold width and output proof pending",
   "sourceGeometrySha256": "598fa0279d4d6ea1fd4562aa21360c34ca8f43d18b64964b3e76f4e46f7adf33",
-  "maskCandidateSha256": "3829d8e37ee7ae56c6073ec2374b93d77e56206237e24ca3aaed8b878b50e13e",
+  "maskCandidateSha256": "3d599846966dabaf1cade27002d93a22333a5611f58569ded61de2bec895b437",
   "policySha256": "0f60b5ff35be5db3123ed8c14cb1147570f11c7e19d221fbb48391e15f78b797",
   "gridMm": 1e-06,
   "boards": [
     {
       "boardId": "01-spider-nest-L01-black-enig-art",
-      "beforeCopperWkbSha256": "5a639d9f4406e1688d880e7c94b5c75baeca1f4b34e553a2cff95643dc1a6259",
-      "afterCopperWkbSha256": "5a639d9f4406e1688d880e7c94b5c75baeca1f4b34e553a2cff95643dc1a6259",
-      "beforeCopperAreaMm2": 1312.053008,
-      "afterCopperAreaMm2": 1312.053008,
+      "beforeCopperWkbSha256": "caec4b99f1d1ae1e0aa4cb131b7914fddf272a109e94118e36e577fafc7f41d5",
+      "afterCopperWkbSha256": "caec4b99f1d1ae1e0aa4cb131b7914fddf272a109e94118e36e577fafc7f41d5",
+      "beforeCopperAreaMm2": 1312.133479,
+      "afterCopperAreaMm2": 1312.133479,
       "joinCount": 0,
       "insetAnchorJoinCount": 0,
       "records": []

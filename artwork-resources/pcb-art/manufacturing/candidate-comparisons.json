@@ -2,37 +2,37 @@
   "status": "visual candidate; inspected art-width gates still pending",
   "approvedGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
   "manufacturingGeometrySha256": "598fa0279d4d6ea1fd4562aa21360c34ca8f43d18b64964b3e76f4e46f7adf33",
-  "maskCandidateSha256": "3829d8e37ee7ae56c6073ec2374b93d77e56206237e24ca3aaed8b878b50e13e",
+  "maskCandidateSha256": "3d599846966dabaf1cade27002d93a22333a5611f58569ded61de2bec895b437",
   "designs": [
     {
       "designId": "spider-nest",
       "selectedEnigLayers": 4,
       "image": "candidate-comparison-spider-nest.png",
-      "imageSha256": "461e32ed8236395657a39d7472558c1d3d4a766666d72dccd25c5635506c32b9"
+      "imageSha256": "46e00c4b86708d64f0af034e4e857245017893a5710b0327174dd1cec418d5bd"
     },
     {
       "designId": "coral-vault",
       "selectedEnigLayers": 2,
       "image": "candidate-comparison-coral-vault.png",
-      "imageSha256": "f376f6e95c2fc45f3fd0dbc5b96e84d0184136cf56b5d8db4497bcd7acc10371"
+      "imageSha256": "4950cec0864cc84ebd5c6fb94593f59a59717f5b6d705f0b7154ff3324064853"
     },
     {
       "designId": "fault-line",
       "selectedEnigLayers": 1,
       "image": "candidate-comparison-fault-line.png",
-      "imageSha256": "9e0421854a87d07fe6a470efe7a81652e15ee5d74dcd599d7f769563be6c7bb6"
+      "imageSha256": "5243e6efc09164aedc1c140e7cf3252327f2c26096193395db47354da4ada9f7"
     },
     {
       "designId": "kumiko-void",
       "selectedEnigLayers": 3,
       "image": "candidate-comparison-kumiko-void.png",
-      "imageSha256": "457f7247face2ad7e0ce2dd34374e3f2a3db681a1f84dc9540ff2a57d2927923"
+      "imageSha256": "8bedd0e05f93584c84a8d0f61440c08b5e32225521d705127561a05cdc860639"
     },
     {
       "designId": "woven-maze",
       "selectedEnigLayers": 1,
       "image": "candidate-comparison-woven-maze.png",
-      "imageSha256": "69eac7ec9c6a5ab1cc7ee2d6a57c0f3f24e5d4596261f5067d2d9bfa735814bb"
+      "imageSha256": "3928f0994732e4fa43681fd28e1d00cfd1e62520daf75747b12f533471cf949e"
     }
   ],
   "details": [
@@ -150,31 +150,31 @@
       "designId": "spider-nest",
       "selectedLayers": 8,
       "image": "candidate-geometry-spider-nest.png",
-      "imageSha256": "c6fbd85dbd830a45e9f11021d8b25aee09742e6e27f123e6385f42ea67838d0e"
+      "imageSha256": "0bc105b8b45e279015aabed9d29bccbb9f3635e34b58831e0ea5b34f3e4626bf"
     },
     {
       "designId": "coral-vault",
       "selectedLayers": 8,
       "image": "candidate-geometry-coral-vault.png",
-      "imageSha256": "89852caf491952b87fb30ff6daee7a9e0eea6e7ddc2d84f78e75e11ed8b333d5"
+      "imageSha256": "7ed21619bcdabec207e1367679e51b43c06d7b82694a03755383c2837c748246"
     },
     {
       "designId": "fault-line",
       "selectedLayers": 9,
       "image": "candidate-geometry-fault-line.png",
-      "imageSha256": "df81537dda36409d6bfb24ceed08b152dadb4f5d781663d19d1d5690ec2abd2d"
+      "imageSha256": "48f55b1691e9f01f9f4204aebbfa5cf66c48f8f4f08235a957a7007e08029593"
     },
     {
       "designId": "kumiko-void",
       "selectedLayers": 9,
       "image": "candidate-geometry-kumiko-void.png",
-      "imageSha256": "ab232bd05dc937d51b86f249ec9229f4e38ff86835d4f2a25e0950edce278863"
+      "imageSha256": "787e6e1cff3e9aa339d6d981a0123226640daa7ddf160e2b4e0702d9fdb477ff"
     },
     {
       "designId": "woven-maze",
       "selectedLayers": 9,
       "image": "candidate-geometry-woven-maze.png",
-      "imageSha256": "95e9ab403ea82993ebdce8a014b37d313189367dd3d9e1eaf5472043e9c2a64a"
+      "imageSha256": "05219d1942d6d2845207aca79d8eae33c3484f6dbd1239b7be561028cb30e096"
     }
   ]
 }

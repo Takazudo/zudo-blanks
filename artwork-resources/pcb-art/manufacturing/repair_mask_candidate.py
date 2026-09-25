@@ -145,6 +145,38 @@ def merge_spider_web_slivers(design,layer,body,mask,records):
         })
     result=rounded(mask.union(additions))
     if rib_local:
+        # Two enclosed black channels terminate as sub-width pointed pockets
+        # inside the newly widened rib. Round only those source-indexed ends;
+        # an open third channel continues beyond the authorized rib envelope.
+        indexed_ink=[
+            ([7,101],4.99588643,[56.373370,44.149271,73.585645,54.659973]),
+            ([8,103],2.896711386,[55.864859,48.388865,65.869368,54.832917]),
+        ]
+        ink_parts=export.polygons(body.difference(result))
+        terminal_patches=[]
+        for strokes,expected_area,bounds in indexed_ink:
+            found=[part for part in ink_parts if abs(part.area-expected_area)<.00001
+                   and max(abs(a-b) for a,b in zip(part.bounds,bounds))<.001]
+            if len(found)!=1:
+                raise ValueError(f'Spider indexed terminal channel {strokes} changed')
+            channel=found[0]
+            rounded_ink=channel.buffer(-.125,quad_segs=64).buffer(.125,quad_segs=64)
+            patch=channel.difference(rounded_ink)
+            if patch.difference(ribbon.buffer(.5)).area>.00001:
+                raise ValueError('Spider terminal cap exceeded rib/guide envelope')
+            terminal_patches.append(patch)
+            records.append({
+                'operation':'round bounded Spider enclosed channel terminal',
+                'sourceArtStrokeIndices0':strokes,
+                'beforeInkAreaMm2':round(channel.area,9),
+                'beforeInkBoundsMm':[round(v,6) for v in channel.bounds],
+                'terminalCapAreaMm2':round(patch.area,9),
+                'terminalCapWkbSha256':digest(patch.wkb),
+            })
+        terminal_additions=unary_union(terminal_patches).difference(result)
+        if abs(terminal_additions.area-.215574956)>.0001:
+            raise ValueError('Spider indexed terminal cap area changed')
+        result=rounded(result.union(terminal_additions))
         prior_final=shapely.from_wkb(bytes.fromhex(stage['preRibFinalMaskWkbHex']))
         if digest(prior_final.wkb)!=stage['preRibFinalMaskWkbSha256']:
             raise ValueError('Captured pre-rib final Spider mask hash changed')

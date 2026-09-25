@@ -2,8 +2,8 @@
   "status": "distinct-component gap repairs cross-referenced; full width proof pending",
   "sourceReviewSha256": "565f1c397fa98a957db25dbf4d5a2d53f62be08705f7e919c7d90f7a8c29cc17",
   "manufacturingGeometrySha256": "598fa0279d4d6ea1fd4562aa21360c34ca8f43d18b64964b3e76f4e46f7adf33",
-  "maskCandidateSha256": "3829d8e37ee7ae56c6073ec2374b93d77e56206237e24ca3aaed8b878b50e13e",
-  "copperLedgerSha256": "68714e66269fd3295a2065dc3c66718fd5562769aa79e4dc98bb7111f84fa3b7",
+  "maskCandidateSha256": "3d599846966dabaf1cade27002d93a22333a5611f58569ded61de2bec895b437",
+  "copperLedgerSha256": "71acb62b6f2e24a7687ec1c184194706c8ba201a56f3a1a7746e791c85a29758",
   "selectedFindingCount": 715,
   "alternativeIssueIds": [
     "kumiko-void-standard-L01-H01",

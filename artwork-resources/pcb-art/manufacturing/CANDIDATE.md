@@ -53,8 +53,11 @@ adds 6.07430225 mm² of material along the exact 2.0 mm flat-cap ribbon plus
 98/101/103 move; source central strokes 7/8 and all four earlier channel
 patches remain intact. Both straight rib midsections have three gold strands
 of 0.251/0.280/0.251 mm and two 0.251 mm black channels. The two previously
-isolated no-disk black channels are gone; transition widths still need the
-full boundary-run proof. It preserves the nine protected top
+isolated no-disk black channels receive two source-indexed rounded terminal
+caps, adding 0.215575 mm² of gold inside the rib/guide envelope. The open
+channel continuing beside stroke 6 and other Spider web channels still fail
+the black-width rule; transition widths still need the full boundary-run
+proof. It preserves the nine protected top
 rim cores and stays within each 30% gold-loss budget. Coral L01 has five
 source-indexed neck-centerline relocations, 19 indexed unpainted rim-island
 merges and a 0.251 mm local gold corridor bound to strokes 527/524. That
