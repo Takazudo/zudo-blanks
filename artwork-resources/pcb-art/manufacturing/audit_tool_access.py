@@ -34,7 +34,9 @@ def run():
                 original=Polygon(points)
                 if any(original.covers(Point(d['x'],d['y'])) for d in drills):
                     continue
-                center=original.buffer(-.5,quad_segs=64)
+                rib_affected=board=='spider-nest-L01' and index in (1,6,16)
+                aperture=corrected_cutouts.intersection(original) if rib_affected else original
+                center=aperture.buffer(-.5,quad_segs=64)
                 change=indexed.get((board,index))
                 if center.is_empty:
                     if not change or not change['issueId']:
@@ -48,9 +50,9 @@ def run():
                 for component_index,part in enumerate(export.ordered(center)):
                     plunge=part.representative_point()
                     disk=plunge.buffer(.5,quad_segs=64)
-                    if disk.difference(original).area>.00001:
+                    if disk.difference(aperture).area>.00001:
                         raise ValueError(f'{board} H{index}: plunge disk escapes aperture')
-                    swept.append(part.buffer(.5,quad_segs=64).intersection(original))
+                    swept.append(part.buffer(.5,quad_segs=64).intersection(aperture))
                     minx,miny,maxx,maxy=part.bounds
                     path=[LineString(part.exterior.coords)]
                     path.extend(LineString(ring.coords) for ring in part.interiors)
@@ -63,8 +65,8 @@ def run():
                     if any(segment.difference(part).length>.000001 for segment in path):
                         raise ValueError(f'{board} H{index}: toolpath escapes center domain')
                     swept_path=unary_union([segment.buffer(.5,quad_segs=64)
-                                            for segment in path]).intersection(original)
-                    target=part.buffer(.5,quad_segs=64).intersection(original)
+                                            for segment in path]).intersection(aperture)
+                    target=part.buffer(.5,quad_segs=64).intersection(aperture)
                     if (target.difference(swept_path).area>.00001 or
                             swept_path.difference(target).area>.00001):
                         raise ValueError(f'{board} H{index}: finite toolpath misses swept area')
@@ -91,6 +93,7 @@ def run():
                     raise ValueError(f'{board} H{index}: indexed center count changed')
                 records.append({'board':board,'originalHoleIndex0':index,
                                 'status':'admissible component plunge domains',
+                                'ribCorrectedAperture':rib_affected,
                                 'components':components})
     split=[r for r in records if len(r['components'])>1]
     if {(r['board'],r['originalHoleIndex0']) for r in split}!={

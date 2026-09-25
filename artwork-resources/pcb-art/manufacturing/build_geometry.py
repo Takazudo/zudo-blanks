@@ -10,8 +10,10 @@ import copy
 import hashlib
 import importlib.util
 import json
+import math
 from pathlib import Path
 
+import shapely
 from shapely.geometry import LineString, Point, Polygon, box
 from shapely.ops import nearest_points, unary_union
 
@@ -50,8 +52,20 @@ def run() -> None:
     stroke_width_changes = []
     art_guide_changes = []
     art_neck_changes = []
+    spider_rib_changes = []
+    spider_rib_guide_changes = []
     art_fill_changes = []
     closed = set()
+    rib_rule=next(rule for rule in policy['errata']
+                  if rule['id']=='spider-l01-rib-width-2026-09-25')
+    rib_evidence=json.loads((HERE/rib_rule['evidence']).read_text())
+    assert digest((HERE/rib_rule['evidence']).read_bytes())==rib_rule['evidenceSha256']
+    rib=LineString(rib_rule['centerlineMm']).buffer(
+        rib_rule['ribbonWidthMm']/2,cap_style='flat',join_style='mitre')
+    captured_body=shapely.from_wkb(bytes.fromhex(json.loads(
+        (HERE/'spider-channel-erratum.json').read_text())['candidateBodyWkbHex']))
+    assert digest(shapely.normalize(rib.difference(captured_body)).wkb)==rib_rule[
+        'initialAdditionNormalizedWkbSha256']
     for family in data['designs']:
         if family['id'] == 'kumiko-void':
             designs = [next(d for d in family['variants'] if d.get('variantId') == 'wide')]
@@ -78,6 +92,25 @@ def run() -> None:
                         if center.is_empty:
                             raise ValueError(f'{board}: unindexed aperture closure at {index}')
                         after = center.buffer(.5, quad_segs=64).intersection(hole)
+                        if board=='spider-nest-L01' and index in (1,6,16):
+                            initial=after.difference(rib)
+                            routed_center=initial.buffer(-.5,quad_segs=64)
+                            if routed_center.is_empty:
+                                raise ValueError(f'{board}: rib closed aperture {index}')
+                            routed=routed_center.buffer(.5,quad_segs=64).intersection(initial)
+                            spider_rib_changes.append({
+                                'board':board,'sourceGeometrySha256':digest(original_bytes),
+                                'originalGeometryHoleIndex0':index,
+                                'operation':'exact 2.0 mm flat-cap rib then all-center cutter sweep',
+                                'beforeRibAreaMm2':round(after.area,9),
+                                'initialRibbonMaterialAdditionMm2':round(after.difference(initial).area,9),
+                                'routingCleanupMaterialAdditionMm2':round(initial.difference(routed).area,9),
+                                'afterAreaMm2':round(routed.area,9),
+                                'deltaBoundsMm':[round(v,6) for v in after.difference(routed).bounds],
+                                'beforeContourSha256':digest(shapely.normalize(after).wkb),
+                                'afterContourSha256':digest(shapely.normalize(routed).wkb),
+                            })
+                            after=routed
                         for part in export.ordered(after):
                             corrected.append(manufacturing_ring(part.exterior))
                     delta = hole.symmetric_difference(after)
@@ -160,6 +193,53 @@ def run() -> None:
                                 'originalContourSha256':ring_hash(original_pts),
                                 'manufacturingContourSha256':ring_hash(fill['pts']),
                             })
+                if design['id']=='spider-nest' and layer['index']==0:
+                    central=[layer['art']['strokes'][i]['pts'] for i in (7,8)]
+                    def offset_at(point,segment_index,signed):
+                        a,b=central[segment_index]
+                        dx,dy=b[0]-a[0],b[1]-a[1]
+                        length=math.hypot(dx,dy)
+                        t=((point[0]-a[0])*dx+(point[1]-a[1])*dy)/(length*length)
+                        return [round(a[0]+t*dx-signed*dy/length,9),
+                                round(a[1]+t*dy+signed*dx/length,9)]
+                    negative_offset=LineString(rib_rule['centerlineMm']).offset_curve(
+                        -.5165,join_style='mitre')
+                    segments=list(negative_offset.geoms) if hasattr(negative_offset,'geoms') \
+                             else [negative_offset]
+                    junction=list(segments[0].coords)[-1]
+                    for guide_index,vertex_map in (
+                        (98,[(8,0),(9,0)]),
+                        (101,[(2,1),(3,0)]),
+                        (103,[(31,1),(32,1)]),
+                    ):
+                        stroke=layer['art']['strokes'][guide_index]
+                        before=copy.deepcopy(stroke['pts'])
+                        revised=copy.deepcopy(before)
+                        signed=-.5165 if guide_index==101 else .5165
+                        for vertex_index,segment_index in vertex_map:
+                            revised[vertex_index]=offset_at(before[vertex_index],
+                                                            segment_index,signed)
+                        if guide_index==101:
+                            revised.insert(3,[round(junction[0],9),round(junction[1],9)])
+                        source_line=LineString(original_layer['art']['strokes'][guide_index]['pts'])
+                        new_line=LineString(revised)
+                        reach=source_line.hausdorff_distance(new_line)
+                        if reach>.5:
+                            raise ValueError(f'{board}: Spider guide {guide_index} reach {reach}')
+                        stroke['pts']=revised
+                        spider_rib_guide_changes.append({
+                            'board':board,'artStrokeIndex0':guide_index,
+                            'sourceGeometrySha256':digest(original_bytes),
+                            'operation':'relocate named guide portion in widened 2.0 mm rib',
+                            'sourceContourSha256':ring_hash(
+                                original_layer['art']['strokes'][guide_index]['pts']),
+                            'beforeRibContourSha256':ring_hash(before),
+                            'afterContourSha256':ring_hash(revised),
+                            'changedGenericVertexIndices0':[i for i,_ in vertex_map],
+                            'insertedMiterPointIndex0':3 if guide_index==101 else None,
+                            'maximumDisplacementFromApprovedMm':round(reach,9),
+                            'guideWidthMm':stroke['w'],
+                        })
                 if design['id']=='kumiko-void' and layer['index']==6:
                     # Two pointed L07 fill edges taper below the nominal gold
                     # width. Extend only their adjacent gold faces into retained
@@ -250,6 +330,12 @@ def run() -> None:
                                 'afterContourSha256':ring_hash(stroke['pts']),
                             })
     assert len(closed) == 56
+    assert [c['originalGeometryHoleIndex0'] for c in spider_rib_changes]==[1,6,16]
+    initial_area=sum(c['initialRibbonMaterialAdditionMm2'] for c in spider_rib_changes)
+    cleanup_area=sum(c['routingCleanupMaterialAdditionMm2'] for c in spider_rib_changes)
+    assert initial_area<=rib_rule['maximumInitialAdditionAreaMm2']
+    assert cleanup_area<=rib_rule['maximumAdditionalRoutingCleanupAreaMm2']
+    assert initial_area+cleanup_area<=rib_rule['maximumCombinedAdditionAreaMm2']
     result = {
         'schemaVersion': 1,
         'role': 'manufacturing geometry candidate; approved Rev5 source remains immutable',
@@ -261,6 +347,8 @@ def run() -> None:
         'strokeWidthChanges': stroke_width_changes,
         'artGuideChanges':art_guide_changes,
         'artNeckChanges':art_neck_changes,
+        'spiderRibChanges':spider_rib_changes,
+        'spiderRibGuideChanges':spider_rib_guide_changes,
         'artFillChanges':art_fill_changes,
         'closedIssueIds': sorted(closed),
         'unresolvedAlternativeIssueIds': policy['alternativeUnresolvedIssueIds'],

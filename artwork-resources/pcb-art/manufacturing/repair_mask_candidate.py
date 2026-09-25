@@ -81,21 +81,46 @@ def merge_spider_web_slivers(design,layer,body,mask,records):
     evidence=json.loads((HERE/rule['evidence']).read_text())
     normalized_hash=digest(shapely.normalize(mask).wkb)
     example=evidence['implementationExample']
+    rib_local=False
     if normalized_hash!=example['preMergeMaskNormalizedWkbSha256']:
-        raise ValueError('Spider pre-merge mask differs from bounded erratum evidence')
+        rib_rule=next(item for item in policy['errata'] if item['id']==
+                      'spider-l01-rib-width-2026-09-25')
+        if digest((HERE/rib_rule['evidence']).read_bytes())!=rib_rule['evidenceSha256']:
+            raise ValueError('Spider rib decision evidence hash changed')
+        stage=json.loads((HERE/'spider-prior-stage.json').read_text())
+        if stage['priorChannelEvidenceSha256']!=digest((HERE/rule['evidence']).read_bytes()):
+            raise ValueError('Captured pre-rib implementation evidence changed')
+        prior=shapely.from_wkb(bytes.fromhex(stage['preRibMaskWkbHex']))
+        if digest(shapely.normalize(prior).wkb)!=example[
+                'preMergeMaskNormalizedWkbSha256']:
+            raise ValueError('Captured pre-rib Spider mask hash changed')
+        ribbon=LineString(rib_rule['centerlineMm']).buffer(
+            rib_rule['ribbonWidthMm']/2,cap_style='flat',join_style='mitre')
+        captured_body=shapely.from_wkb(bytes.fromhex(evidence['candidateBodyWkbHex']))
+        if (captured_body.difference(body).area>.00001 or
+                body.difference(captured_body).area>rib_rule['maximumCombinedAdditionAreaMm2']):
+            raise ValueError('Spider body differs beyond bounded rib addition')
+        if mask.symmetric_difference(prior).difference(ribbon.buffer(.5)).area>.00001:
+            raise ValueError('Spider pre-merge mask changed outside rib/guide envelope')
+        rib_local=True
     parts=export.ordered(mask)
     measured={(0,1):.034614,(0,5):.044372,(0,2):.002574}
     source_strokes={(0,1):[41,111],(0,5):[33,97],(0,2):[38,112]}
     for (i,j),expected in measured.items():
         if abs(parts[i].distance(parts[j])-expected)>.001:
             raise ValueError(f'Spider indexed channel {i},{j} changed unexpectedly')
-    closing=mask.buffer(.1255,quad_segs=64).buffer(-.1255,quad_segs=64)
     selected=[]
-    for patch in export.ordered(closing.difference(mask)):
-        matching=[list(pair) for pair in measured if patch.distance(parts[pair[0]])<.00001
-                  and patch.distance(parts[pair[1]])<.00001]
-        if matching:
-            selected.append((patch,matching))
+    if rib_local:
+        selected=[(shapely.from_wkb(bytes.fromhex(item['wkbHex'])),
+                   [item['componentIndices0']])
+                  for item in example['patches']]
+    else:
+        closing=mask.buffer(.1255,quad_segs=64).buffer(-.1255,quad_segs=64)
+        for patch in export.ordered(closing.difference(mask)):
+            matching=[list(pair) for pair in measured if patch.distance(parts[pair[0]])<.00001
+                      and patch.distance(parts[pair[1]])<.00001]
+            if matching:
+                selected.append((patch,matching))
     if len(selected)!=4:
         raise ValueError(f'Spider requires exactly four indexed channel patches, found {len(selected)}')
     example_hashes={item['normalizedWkbSha256'] for item in example['patches']}
@@ -119,6 +144,12 @@ def merge_spider_web_slivers(design,layer,body,mask,records):
             'patchWkbHex':patch.wkb_hex,
         })
     result=rounded(mask.union(additions))
+    if rib_local:
+        prior_final=shapely.from_wkb(bytes.fromhex(stage['preRibFinalMaskWkbHex']))
+        if digest(prior_final.wkb)!=stage['preRibFinalMaskWkbSha256']:
+            raise ValueError('Captured pre-rib final Spider mask hash changed')
+        if result.symmetric_difference(prior_final).difference(ribbon.buffer(.5)).area>.00001:
+            raise ValueError('Spider final mask changed outside rib/guide envelope')
     if list(pairs(result)):
         raise ValueError('Spider indexed channel merge left a narrow black web')
     if result.difference(safe).area>.00001:
@@ -336,6 +367,75 @@ def corrected_mask(design,layer,spec,original_layer,actions):
                 raise ValueError('Fault tip cap damaged a top-rim core')
         else:
             raise ValueError('Fault tip cap did not converge')
+        # The three remaining isolated ink pockets are bounded by the named
+        # source stroke pairs. Widen their ink locally, restore neighboring
+        # gold to full width, then cap only local terminal wedges.
+        expected_pockets=[
+            ([16,52],.006035327,[18.496780,58.552294,18.643675,58.640432]),
+            ([20,52],.000172576,[7.951416,60.835954,7.991034,60.851636]),
+            ([16,57],.175149401,[76.913557,110.931111,77.816905,112.305962]),
+        ]
+        ink=body.difference(mask)
+        pocket_parts=export.polygons(ink)
+        indexed=[]
+        for stroke_pair,area,bounds in expected_pockets:
+            matches=[part for part in pocket_parts
+                     if abs(part.area-area)<.000001 and
+                     max(abs(a-b) for a,b in zip(part.bounds,bounds))<.001]
+            if len(matches)!=1:
+                raise ValueError(f'Fault indexed ink pocket {stroke_pair} changed')
+            pocket=matches[0]
+            indexed.append(pocket)
+            records.append({
+                'operation':'repair source-indexed Fault black pocket',
+                'originalArtStrokePairIndices0':stroke_pair,
+                'originalStrokeWkbSha256':[digest(source_strokes[i].wkb)
+                                           for i in stroke_pair],
+                'pocketBoundsMm':[round(v,6) for v in pocket.bounds],
+                'pocketAreaMm2':round(pocket.area,9),
+                'pocketWkbSha256':digest(pocket.wkb),
+            })
+        retreat=unary_union([part.buffer(.126,quad_segs=64) for part in indexed])
+        envelope=unary_union([part.buffer(.49,quad_segs=64) for part in indexed])
+        repaired=mask.difference(retreat).union(retreat.buffer(.251,quad_segs=64).difference(retreat))
+        closing=repaired.buffer(.126,quad_segs=64).buffer(-.126,quad_segs=64)
+        local_joins=closing.difference(repaired).intersection(envelope).difference(retreat)
+        repaired=repaired.union(local_joins)
+        radius=.124999
+        reconstructed=repaired.buffer(-radius,join_style='mitre',quad_segs=64).buffer(
+            radius,join_style='mitre',quad_segs=64)
+        terminal_caps=repaired.difference(reconstructed).intersection(envelope)
+        repaired=shapely.from_wkb(rounded(repaired.difference(terminal_caps)).wkb)
+        added=repaired.difference(mask)
+        removed=mask.difference(repaired)
+        if (added.difference(envelope).area>.00001 or
+                removed.difference(envelope).area>.00001 or
+                added.difference(safe_region(layer,body,'mask')).area>.00001):
+            raise ValueError('Fault local black-pocket repair exceeded indexed envelope')
+        if protected.difference(repaired).area>.00001:
+            raise ValueError('Fault local black-pocket repair damaged a top-rim core')
+        final_ink=body.difference(repaired)
+        if (len(export.polygons(repaired))!=original_parts or
+                sum(len(p.interiors) for p in export.polygons(repaired))!=original_pockets or
+                list(pairs(repaired))):
+            raise ValueError('Fault local black-pocket repair changed topology or mask webs')
+        if any(part.area>1e-8 and part.buffer(-.125,quad_segs=64).is_empty
+               for part in export.polygons(final_ink)):
+            raise ValueError('Fault local black-pocket repair left a no-disk ink island')
+        records.append({
+            'operation':'bounded Fault ink-widening/gold-restoration/cap composite',
+            'sourceArtStrokePairs0':[p[0] for p in expected_pockets],
+            'inkRetreatRadiusMm':.126,
+            'goldRestorationRadiusMm':.251,
+            'localEnvelopeRadiusMm':.49,
+            'goldAddedAreaMm2':round(added.area,9),
+            'goldRemovedAreaMm2':round(removed.area,9),
+            'localJoinAreaMm2':round(local_joins.area,9),
+            'terminalCapAreaMm2':round(terminal_caps.area,9),
+            'addedWkbSha256':digest(added.wkb),
+            'removedWkbSha256':digest(removed.wkb),
+        })
+        mask=repaired
     if design['id']=='kumiko-void' and layer['index'] in (0,3,6):
         mask=shapely.from_wkb(mask.wkb)
         fill_indices=[i for i,fill in enumerate(original_layer['art']['fills'])

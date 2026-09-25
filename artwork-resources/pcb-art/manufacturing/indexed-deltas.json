@@ -3,7 +3,7 @@
   "role": "manufacturing geometry candidate; approved Rev5 source remains immutable",
   "decisionId": "fabrication-2026-09-25",
   "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
-  "policySha256": "4259fb83b06afa80c7200d1589ff88f091fdb52855b581e586e380d5014ecc62",
+  "policySha256": "0f60b5ff35be5db3123ed8c14cb1147570f11c7e19d221fbb48391e15f78b797",
   "changes": [
     {
       "board": "spider-nest-L01",
@@ -48,9 +48,9 @@
         47.4847
       ],
       "beforeAreaMm2": 579.70291867,
-      "afterAreaMm2": 579.54200993,
+      "afterAreaMm2": 578.21163458,
       "beforeContourSha256": "cda3e0f5c9c9d6e786b24a6c1fa4dcc22a076144db7ce1f2852679e8b36fe3d1",
-      "afterContourSha256": "97e7e40c3564231053e1d30ea8d02aabd0b0589815b2a09b1e6ca4804aad819a",
+      "afterContourSha256": "08a808cc1aa469f631e76b220ce727332ca1cc4979e154569036529e47a13d1b",
       "toolCenterComponents": 1
     },
     {
@@ -168,9 +168,9 @@
         109.5
       ],
       "beforeAreaMm2": 1369.02964826,
-      "afterAreaMm2": 1368.34277312,
+      "afterAreaMm2": 1366.58040401,
       "beforeContourSha256": "afae53dded8b4a9815882b2e735f06c521df021d2c2c4d89c268230e96b3d11c",
-      "afterContourSha256": "59e17a037e62841fac83da2e09424a8ec0da6cf4bcb8fa7c5c3d334685e410ce",
+      "afterContourSha256": "2ec563b07f1abf346c557a61dc696484feac710df03ba791965e6c8e5260fb1f",
       "toolCenterComponents": 1
     },
     {
@@ -408,9 +408,9 @@
         61.2777
       ],
       "beforeAreaMm2": 161.97245912,
-      "afterAreaMm2": 161.59247139,
+      "afterAreaMm2": 158.42006177,
       "beforeContourSha256": "73b5628658cfdd3e0ef74ee5b1f4d9b3d587b1154c3a598f2354c4a7cf8dc60c",
-      "afterContourSha256": "d89f4c6d5857e1ceee450ce22ea9428f6eec3cf5adaf9fbb77893fe73df03d31",
+      "afterContourSha256": "7c6a07855a4b7bfaf09e80bea8bd4ce08c219cc783f1452013b49c8d83b30813",
       "toolCenterComponents": 1
     },
     {
@@ -24637,6 +24637,112 @@
       "manufacturingContourSha256": "641954a4fb520e5c7a0e5052f2af169e89c7136873d6553ef05ee06d732e6bb4"
     }
   ],
+  "spiderRibChanges": [
+    {
+      "board": "spider-nest-L01",
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "originalGeometryHoleIndex0": 1,
+      "operation": "exact 2.0 mm flat-cap rib then all-center cutter sweep",
+      "beforeRibAreaMm2": 579.542009931,
+      "initialRibbonMaterialAdditionMm2": 1.295999622,
+      "routingCleanupMaterialAdditionMm2": 0.034375727,
+      "afterAreaMm2": 578.211634582,
+      "deltaBoundsMm": [
+        56.928898,
+        19.835991,
+        88.773631,
+        47.342235
+      ],
+      "beforeContourSha256": "682b39c56335802193aea96c4b81a2b724349fbae1a11cedd8847f0bd2f5b28c",
+      "afterContourSha256": "c2c2bb05f6571f96159e85c3d1af8d92faf4c17d128a8dd416f2d04416f8e37e"
+    },
+    {
+      "board": "spider-nest-L01",
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "originalGeometryHoleIndex0": 6,
+      "operation": "exact 2.0 mm flat-cap rib then all-center cutter sweep",
+      "beforeRibAreaMm2": 1368.342773117,
+      "initialRibbonMaterialAdditionMm2": 1.70103503,
+      "routingCleanupMaterialAdditionMm2": 0.061334075,
+      "afterAreaMm2": 1366.580404012,
+      "deltaBoundsMm": [
+        28.912552,
+        38.941916,
+        65.376576,
+        109.494174
+      ],
+      "beforeContourSha256": "d399c0891097c1ced8379f5fbfc49677d189c92909b3016012089a19fc46faa2",
+      "afterContourSha256": "ce145387888c219b622d8a7c6aa4090ad655745e481d6ae98b987730038b913e"
+    },
+    {
+      "board": "spider-nest-L01",
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "originalGeometryHoleIndex0": 16,
+      "operation": "exact 2.0 mm flat-cap rib then all-center cutter sweep",
+      "beforeRibAreaMm2": 161.592471389,
+      "initialRibbonMaterialAdditionMm2": 3.077267598,
+      "routingCleanupMaterialAdditionMm2": 0.095142024,
+      "afterAreaMm2": 158.420061767,
+      "deltaBoundsMm": [
+        57.68068,
+        45.208442,
+        79.961843,
+        61.125269
+      ],
+      "beforeContourSha256": "1a604890b50785d0575f0a09ea40c752bf5c1b4719a78d61fc0a0bb1e51a9b91",
+      "afterContourSha256": "09709ec7c292d5869494b94228e5831d8f988315df0eef065b79b3252248e342"
+    }
+  ],
+  "spiderRibGuideChanges": [
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 98,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "operation": "relocate named guide portion in widened 2.0 mm rib",
+      "sourceContourSha256": "c797341ee025fe88a958e348d52fb9eeae20654532b3e36701137f2b0487e1bb",
+      "beforeRibContourSha256": "06a8c38d80803fcd95fb9dd622580de14ca03ff59789c358532204ee50a0956b",
+      "afterContourSha256": "2cd83898d657f1bdaff5b6cb085f73e0fc0cab4e60b5c9b04e71a314ed78d936",
+      "changedGenericVertexIndices0": [
+        8,
+        9
+      ],
+      "insertedMiterPointIndex0": null,
+      "maximumDisplacementFromApprovedMm": 0.14849001,
+      "guideWidthMm": 0.251
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 101,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "operation": "relocate named guide portion in widened 2.0 mm rib",
+      "sourceContourSha256": "e78a8b1fc0b898195733fe5b98bfb8668e5ffbc417f1ea6b51c364781f667226",
+      "beforeRibContourSha256": "ccbb3b7209d14d0baa23a37833e346a041893f317dc8ba86c87ee69180beef3f",
+      "afterContourSha256": "38708bd96ab213b97717b3b2155984b01394601df6947cd0a197caa7ed065fbf",
+      "changedGenericVertexIndices0": [
+        2,
+        3
+      ],
+      "insertedMiterPointIndex0": 3,
+      "maximumDisplacementFromApprovedMm": 0.108793164,
+      "guideWidthMm": 0.251
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 103,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "operation": "relocate named guide portion in widened 2.0 mm rib",
+      "sourceContourSha256": "b86483375da0424344fe216272915980fe6695a0d32f42ca7c33e52e748b51e4",
+      "beforeRibContourSha256": "9dcbeda92196f56d1388b4163b07e23240e566238d01d08f7932b61d172ceee5",
+      "afterContourSha256": "7354927b026da9b1bcf08c1b4e9a4efec697756f7b00e3751ec989b5ea95bfdd",
+      "changedGenericVertexIndices0": [
+        31,
+        32
+      ],
+      "insertedMiterPointIndex0": null,
+      "maximumDisplacementFromApprovedMm": 0.148515091,
+      "guideWidthMm": 0.251
+    }
+  ],
   "artFillChanges": [
     {
       "board": "kumiko-void-L07",
@@ -24865,5 +24971,5 @@
     "kumiko-void-standard-L04-H02",
     "kumiko-void-standard-L08-H01"
   ],
-  "manufacturingGeometrySha256": "547a68278be78f55ab165bbe364bf39bd414eae850c9d78eebd28b71207b562c"
+  "manufacturingGeometrySha256": "598fa0279d4d6ea1fd4562aa21360c34ca8f43d18b64964b3e76f4e46f7adf33"
 }

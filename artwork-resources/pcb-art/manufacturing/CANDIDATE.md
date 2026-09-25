@@ -47,7 +47,14 @@ removes indexed isolated gold fragments that cannot contain a 0.25 mm disk,
 and applies indexed local one-sided retreats to clear distinct-component mask
 gaps. Three measured Spider guide-to-web slivers instead use exactly four
 indexed closing patches with no original black paint; the patches add
-29.892211 mm² of gold and retain the web. It preserves the nine protected top
+29.892211 mm² of gold and retain the web. The bounded Spider rib amendment
+adds 6.07430225 mm² of material along the exact 2.0 mm flat-cap ribbon plus
+0.190851826 mm² of cutter cleanup on original holes 1/6/16. Only guide portions
+98/101/103 move; source central strokes 7/8 and all four earlier channel
+patches remain intact. Both straight rib midsections have three gold strands
+of 0.251/0.280/0.251 mm and two 0.251 mm black channels. The two previously
+isolated no-disk black channels are gone; transition widths still need the
+full boundary-run proof. It preserves the nine protected top
 rim cores and stays within each 30% gold-loss budget. Coral L01 has five
 source-indexed neck-centerline relocations, 19 indexed unpainted rim-island
 merges and a 0.251 mm local gold corridor bound to strokes 527/524. That
@@ -55,9 +62,12 @@ corridor adds 0.05877989 mm² and clears its measured positive and negative
 local width wedges. Indexed terminal caps
 reduce the tolerance-aware positive-gold miter residue below 0.00001 mm² on
 Fault L01 and Kumiko wide L01/L04/L07, preserving their component and black
-pocket counts. Other Coral width candidates, Spider's constrained ink channels,
-Fault and Kumiko black-mask widths, and copper within-component width remain
-open. Direct erosion of Fault's
+pocket counts. Three indexed Fault black pockets between source strokes
+16/52, 20/52 and 16/57 are locally widened with compensating gold restoration
+and caps; the composite adds 0.887012277 mm², removes 0.629928518 mm², keeps
+six gold components and all rim cores, and leaves no no-disk ink component.
+Other Coral width candidates, Spider transition widths, Fault/Kumiko remaining
+black-mask necks, and copper within-component width remain open. Direct erosion of Fault's
 artwork splits its main gold component, so it remains only a diagnostic.
 
 `generate_native.py` writes all 43 selected `.kicad_pcb` files and per-board

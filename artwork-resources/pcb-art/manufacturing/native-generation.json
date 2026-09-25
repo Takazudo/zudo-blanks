@@ -1,25 +1,25 @@
 {
   "status": "candidate; native KiCad load/DRC/CAM is issue 16, full art proof pending",
-  "manufacturingGeometrySha256": "547a68278be78f55ab165bbe364bf39bd414eae850c9d78eebd28b71207b562c",
-  "maskCandidateSha256": "95a136bb409b449852dfc3a535ce7320420f748eda6b41a517b8096ded327a62",
-  "copperCandidateSha256": "7f387e4991b5ea6ab97edea590b4bd788368bd64e2cf15cafe69d4e8469ac5bc",
-  "copperLedgerSha256": "a70263b83aa6f3c864db8f9be2808b8ced45eba36ea26a1cc89358e62b649763",
+  "manufacturingGeometrySha256": "598fa0279d4d6ea1fd4562aa21360c34ca8f43d18b64964b3e76f4e46f7adf33",
+  "maskCandidateSha256": "3829d8e37ee7ae56c6073ec2374b93d77e56206237e24ca3aaed8b878b50e13e",
+  "copperCandidateSha256": "2d0acaea37f9dc2502ca6e39ff7a3af9e09ba17e7700740551f1bf443436fcc1",
+  "copperLedgerSha256": "68714e66269fd3295a2065dc3c66718fd5562769aa79e4dc98bb7111f84fa3b7",
   "generatorSha256": "fa342580663553e337e5e9c1ef339fbfdb4c526ad2e585d9247a750bb3871aa0",
   "selectedBoardCount": 43,
   "boards": [
     {
       "boardId": "01-spider-nest-L01-black-enig-art",
       "nativeBoard": "panels/art-spider-nest/01-spider-nest-L01-black-enig-art.kicad_pcb",
-      "sha256": "cc33cd8c6e3ba97214de8e1147d0075961e554f7609e7c410288d182999cb8a6",
+      "sha256": "bfea173cab2c7454f2ae8bd8cbf31e0f0e90a7bb233980aee6eaa48745a5888b",
       "project": "panels/art-spider-nest/01-spider-nest-L01-black-enig-art.kicad_pro",
       "projectSha256": "de95e993d9fcc4f99b36663924afbcb1b6faa1704918c46490344d7b5f4d1152",
       "edgeLoopCount": 20,
       "npthRoundCount": 4,
       "npthSlotCount": 4,
-      "nativeCopperPolygons": 173,
+      "nativeCopperPolygons": 167,
       "nativeMaskPolygons": 124,
-      "copperSourceWkbSha256": "3bbfc4bc90b0e25966ea246cbc3664ccb3e86887a1236f4310e1f837ed352901",
-      "maskSourceWkbSha256": "9ad3a122ec4f44fcf07e4f718c923e18eaec03c264d51485118a75ba78abe9cf"
+      "copperSourceWkbSha256": "5a639d9f4406e1688d880e7c94b5c75baeca1f4b34e553a2cff95643dc1a6259",
+      "maskSourceWkbSha256": "8e287e6c09b8924719079a455a8fa45155949ed63a99f96de486f83531c5ea38"
     },
     {
       "boardId": "01-spider-nest-L02-white-mask-only",
@@ -234,16 +234,16 @@
     {
       "boardId": "13-fault-line-L01-black-enig-art",
       "nativeBoard": "panels/art-fault-line/13-fault-line-L01-black-enig-art.kicad_pcb",
-      "sha256": "d72562718b0435aa14b5d644220722ad788d870c547f834c400e8401ae14877a",
+      "sha256": "0b5253a7c1a10d4b1a29211739b614b5cd058a9fe0f712ff24d451f84eb13bf3",
       "project": "panels/art-fault-line/13-fault-line-L01-black-enig-art.kicad_pro",
       "projectSha256": "6b5c52269e27f0f8bce9ec840b9545e1de8ec0572423eefbb6a1a047bb6a959c",
       "edgeLoopCount": 2,
       "npthRoundCount": 4,
       "npthSlotCount": 4,
-      "nativeCopperPolygons": 213,
-      "nativeMaskPolygons": 211,
-      "copperSourceWkbSha256": "aaaacdf0e6f1caa6ae62fd6e4499e21129afc68d3ccfde01577ec68ae2c7a095",
-      "maskSourceWkbSha256": "262ccbfa59d13e723bb3ce84110d3bf3babc81f7efc6751adb2928cffaa01a54"
+      "nativeCopperPolygons": 219,
+      "nativeMaskPolygons": 210,
+      "copperSourceWkbSha256": "9c7e25cdc6d2437e775a321e334f401c6d933a588c19df2872780f87d242f22d",
+      "maskSourceWkbSha256": "7640f442edc45d392e34d47d8ebc8bd928c1cd5b6abc421e788dab563cbdeec7"
     },
     {
       "boardId": "13-fault-line-L02-red-mask-only",

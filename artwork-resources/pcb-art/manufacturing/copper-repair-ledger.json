@@ -1,16 +1,16 @@
 {
   "status": "candidate; full copper/gold width and output proof pending",
-  "sourceGeometrySha256": "547a68278be78f55ab165bbe364bf39bd414eae850c9d78eebd28b71207b562c",
-  "maskCandidateSha256": "95a136bb409b449852dfc3a535ce7320420f748eda6b41a517b8096ded327a62",
-  "policySha256": "4259fb83b06afa80c7200d1589ff88f091fdb52855b581e586e380d5014ecc62",
+  "sourceGeometrySha256": "598fa0279d4d6ea1fd4562aa21360c34ca8f43d18b64964b3e76f4e46f7adf33",
+  "maskCandidateSha256": "3829d8e37ee7ae56c6073ec2374b93d77e56206237e24ca3aaed8b878b50e13e",
+  "policySha256": "0f60b5ff35be5db3123ed8c14cb1147570f11c7e19d221fbb48391e15f78b797",
   "gridMm": 1e-06,
   "boards": [
     {
       "boardId": "01-spider-nest-L01-black-enig-art",
-      "beforeCopperWkbSha256": "3bbfc4bc90b0e25966ea246cbc3664ccb3e86887a1236f4310e1f837ed352901",
-      "afterCopperWkbSha256": "3bbfc4bc90b0e25966ea246cbc3664ccb3e86887a1236f4310e1f837ed352901",
-      "beforeCopperAreaMm2": 1311.32353,
-      "afterCopperAreaMm2": 1311.32353,
+      "beforeCopperWkbSha256": "5a639d9f4406e1688d880e7c94b5c75baeca1f4b34e553a2cff95643dc1a6259",
+      "afterCopperWkbSha256": "5a639d9f4406e1688d880e7c94b5c75baeca1f4b34e553a2cff95643dc1a6259",
+      "beforeCopperAreaMm2": 1312.053008,
+      "afterCopperAreaMm2": 1312.053008,
       "joinCount": 0,
       "insetAnchorJoinCount": 0,
       "records": []
@@ -1636,10 +1636,10 @@
     },
     {
       "boardId": "13-fault-line-L01-black-enig-art",
-      "beforeCopperWkbSha256": "bd9aa039b592ae5cbef4818233042dd454f6c9de9aa97fd6f408237565fb9582",
-      "afterCopperWkbSha256": "aaaacdf0e6f1caa6ae62fd6e4499e21129afc68d3ccfde01577ec68ae2c7a095",
-      "beforeCopperAreaMm2": 1538.185532,
-      "afterCopperAreaMm2": 1538.257838,
+      "beforeCopperWkbSha256": "5cb886f6257d0e0f47be4dc590485fccc2e771706059c2a46c069364cbaac9c5",
+      "afterCopperWkbSha256": "9c7e25cdc6d2437e775a321e334f401c6d933a588c19df2872780f87d242f22d",
+      "beforeCopperAreaMm2": 1538.580382,
+      "afterCopperAreaMm2": 1538.652687,
       "joinCount": 1,
       "insetAnchorJoinCount": 0,
       "records": [
@@ -1650,8 +1650,8 @@
             1
           ],
           "beforeComponentWkbSha256": [
-            "b1d17f259b2750a471e7d99e2214ba6efd48ddb2c080da4abf09b9151561d821",
-            "21eca92612df97323f5a29f50a101d41a72c79e1af7cf1e6093ff06b79a2ad50"
+            "9becff080a7ff5ea31678967d7087fb1bfe7030089ddb5d2aaebde0d84a5de19",
+            "6e25051c307934aaeb429e0785bd37396f8c9c9a60e341fed02c6a1310ceb461"
           ],
           "beforeGapMm": 0.224454086,
           "route": "direct",
