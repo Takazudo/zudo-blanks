@@ -32,7 +32,8 @@ class SpiderErratumTests(unittest.TestCase):
         cls.safe=cls.body.buffer(-.35,quad_segs=64)
 
     def test_source_and_candidate_bindings(self):
-        self.assertEqual(len(self.policy['errata']),1)
+        self.assertEqual({r['id'] for r in self.policy['errata']},
+                         {'spider-l01-channel-merge-2026-09-25','spider-l01-rib-width-2026-09-25'})
         self.assertEqual(hashlib.sha256(self.raw).hexdigest(),self.rule['evidenceSha256'])
         self.assertEqual(self.rule['id'],'spider-l01-channel-merge-2026-09-25')
         self.assertEqual(self.rule['boardId'],'01-spider-nest-L01-black-enig-art')

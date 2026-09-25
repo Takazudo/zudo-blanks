@@ -75,6 +75,43 @@ Before applying the exception, verify the approved source and stroke hashes and 
 
 Issue 15 must prove **positive gold widths and negative mask widths**, including branches/channels inside a single connected component; preserve the source strands and rim cores; and reject new trapped mask pockets or sub-width channel ends. Require full-board and enlarged before/after comparisons showing the actual four additions and source/candidate hashes. Convex-corner reconstruction residue must be distinguished from a positive-length thin branch; neither eroded-core connectivity nor a vanished component-gap warning is sufficient. The captured full-board and enlarged comparison is `spider-channel-erratum.png`; it shows preserved strands and the bounded additions. Regenerate it from repository root with `uv run --python 3.13 --with shapely==2.1.2 --with pillow python artwork-resources/pcb-art/manufacturing/render_spider_erratum.py`. Final production width tests and output-level visual acceptance remain pending. The earlier decision probe and approved Rev5 history remain immutable; the policy test reconstructs the exact pre-erratum policy for the old probe hash and verifies this additive exception separately.
 
+## Spider L01 rib-width erratum — 2026-09-25
+
+The width conflict beside central source strokes **7/8** cannot be repaired by moving three gold strands inside the existing material. At their midpoints `(69.8334,46.2349)` and `(61.1195,51.5244)`, the rib measures **1.661166 / 1.661193 mm**. After two 0.35 mm mask setbacks, only **0.961166 / 0.961193 mm** remains. Two 0.251 mm guides, a 0.280 mm central stroke and two 0.250 mm black channels require **1.282 mm**. The current internal black channels are approximately 0.080 mm wide. Even substituting the published 0.13 mm black-mask floor would require **1.042 mm**, still more than the available space; that comparison does not authorize reducing the frozen 0.25 mm rule. The two long enclosed ink islands are not exempt because they admit a larger circle somewhere else.
+
+Permit a **2.0 mm material ribbon with flat caps and miter joins**, along exactly:
+
+```text
+(73.5804,43.9604) -> (66.0864,48.5094) -> (56.1526,54.5394)
+```
+
+The initial operation is `new_body = captured_body union ribbon`. It removes no material and changes no outside dimensions or functional drills. `spider-rib-decision.json` binds the approved source hash `00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e`, the captured body from `spider-channel-erratum.json`, the exact ribbon/addition hashes, and the affected original hole-contour hashes. The initial addition measures **6.074302 mm²**; require the exact ribbon operation within existing numerical tolerances, with an upper area bound of **6.10 mm²**. The cap alone grants no authority to add material elsewhere.
+
+Only original decorative hole indices **1, 6 and 16** are affected. The initial probe retains the board's connected piece and hole count, full radius-3.05 mm support disks before drilling, continuous upper/lower strips, backed top apertures and all functional drills. Its cumulative aperture loss versus approved Rev5 is **0.180907%**, below the unchanged **2%** Spider per-board budget. These are checks of the initial material proposal, not the completed routing/artwork pipeline.
+
+Re-run the existing **1.0 mm cutter sweep over every center component** of the three affected remaining apertures. The bounded probe finds **0.215386 mm²** of additional unreached area on those apertures; it does not leave that area as an accepted machining discrepancy. Permit at most **0.25 mm²** additional material from this specific cutter-envelope correction, with each original hole/coordinate delta indexed, and at most **6.35 mm²** combined material addition. No arbitrary extra fill or edits to other apertures are authorized by this erratum. The 2% cumulative aperture-loss budget and all mechanical invariants still apply after this correction. The operator supplies a candidate contour, not a plunge/toolpath or strength proof; recheck actual access, internal corners, minimum material widths and native/CAM contours.
+
+Keep the central paths of strokes **7/8** and their **0.280 mm** width. Move only the adjacent portions of guide strokes **98/101/103** to the following nominal offsets, retaining **0.251 mm** guide widths. For a directed central segment `(dx,dy)`, define the positive unit normal as `(-dy,dx)/length`.
+
+| Central segment | Guide | Signed center offset mm |
+| --- | --- | ---: |
+| stroke 7 | 98 | +0.5165 |
+| stroke 7 | 101 | -0.5165 |
+| stroke 8 | 101 | -0.5165 |
+| stroke 8 | 103 | +0.5165 |
+
+In a straight 2.0 mm section, these positions provide **0.251 mm black channels** and **0.358 mm outer mask clearance**: `0.358 + 0.251 + 0.251 + 0.280 + 0.251 + 0.251 + 0.358 = 2.000`. These are nominal targets; all guide ends and transitions must independently meet the existing 0.25 mm positive-gold/negative-mask widths and 0.35 mm mask clearance. Limit transition displacement to **0.50 mm** from the indexed original guide portions, inside the ribbon buffered by 0.50 mm; retain every other portion of these closed guide paths. Preserve the radial motif, all nine rim cores, flat gold appearance, and mask/finish/layer order. Rebuild copper only after validating the final mask.
+
+Compose this operation with the prior channel erratum explicitly. Its four authorized gold patches and <=30.0 mm² gold-addition cap remain unchanged. The rib/guide change envelope is disjoint from those patches. Evaluate source/hash bindings at the relevant intermediate pipeline stage; only the newly authorized rib-local body and guide deltas may differ when comparing to that prior captured Spider state. Account for the differences in a separate ledger. This is not permission to broaden either erratum or to treat every later Spider shape as equivalent.
+
+Issue 15 must provide complete indexed deltas, cumulative aperture metrics, updated support/bridge/backing/one-piece checks, cutter-center/plunge/toolpath evidence, positive-gold and negative-mask width proofs including transitions, and full-board/enlarged comparisons of the corrected geometry and finished appearance. Issue 16 must independently verify regenerated native PCB and CAM output. `spider-rib-comparison.png` shows only the initial material addition; planned artwork locations are a cross-section budget, not accepted final artwork. Regenerate the bounded evidence and figure with:
+
+```sh
+uv run --python 3.13 --with shapely==2.1.2 --with pillow python artwork-resources/pcb-art/manufacturing/probe_spider_rib.py
+```
+
+No production or factory acceptance is granted. Do not silently accept excess area, a new aperture closure, a support regression, a failed transition, or a failed cutter-access check; record the exact evidence for a further bounded decision if required.
+
 ## Separate manufacturing artifacts and tests
 
 Never modify `preview-source/assets/geometry.json`, `reference-revision4.json`, `reference-revision3.json`, the historic tests, or imported evidence to make corrections pass. In particular, `preview-source/tests/rev5_gold.py` continues to compare the approved Rev5 and immutable Rev4 inputs, retaining exact physical/lower-art assertions. New manufacturing code must load the frozen input, apply explicit indexed deltas, and emit **a separately named manufacturing geometry artifact** with provenance. Do not repoint the reference test, preview, manifest or screenshots to corrected shapes without labeling the artifact's role. The production exporter must read that new artifact explicitly.
