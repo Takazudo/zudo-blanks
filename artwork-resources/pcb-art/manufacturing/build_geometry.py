@@ -12,7 +12,7 @@ import importlib.util
 import json
 from pathlib import Path
 
-from shapely.geometry import LineString, Point, Polygon
+from shapely.geometry import LineString, Point, Polygon, box
 from shapely.ops import unary_union
 
 HERE = Path(__file__).resolve().parent
@@ -159,6 +159,34 @@ def run() -> None:
                                 'originalContourSha256':ring_hash(original_pts),
                                 'manufacturingContourSha256':ring_hash(fill['pts']),
                             })
+                if design['id']=='kumiko-void' and layer['index']==6:
+                    # Two pointed L07 fill edges taper below the nominal gold
+                    # width. Extend only their adjacent gold faces into retained
+                    # material; the later black facets retain their paint order.
+                    for fill_index, bounds in (
+                        (120,(90.625,21.9007,90.876,25.2993)),
+                        (134,(90.625,103.2007,90.876,106.5993)),
+                    ):
+                        fill=layer['art']['fills'][fill_index]
+                        assert fill.get('color') is None
+                        original_pts=copy.deepcopy(fill['pts'])
+                        source_shape=Polygon(original_pts)
+                        revised=source_shape.union(box(*bounds))
+                        if revised.geom_type!='Polygon' or len(revised.interiors):
+                            raise ValueError(f'{board}: L07 fill {fill_index} changed topology')
+                        added=revised.difference(source_shape)
+                        if not 0 < added.area < .7:
+                            raise ValueError(f'{board}: L07 fill {fill_index} changed area unexpectedly')
+                        fill['pts']=manufacturing_ring(revised.exterior)
+                        art_fill_changes.append({
+                            'board':board,'artFillIndex0':fill_index,
+                            'sourceGeometrySha256':digest(original_bytes),
+                            'operation':'locally widen tapered L07 gold fill within 0.50 mm reach',
+                            'additionBoundsMm':[round(v,6) for v in added.bounds],
+                            'addedAreaMm2':round(added.area,9),
+                            'originalContourSha256':ring_hash(original_pts),
+                            'manufacturingContourSha256':ring_hash(fill['pts']),
+                        })
                 if layer['index'] == 0:
                     for stroke in layer['art']['strokes']:
                         if stroke.get('purpose') != 'top-gold-border':

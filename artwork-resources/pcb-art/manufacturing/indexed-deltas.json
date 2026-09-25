@@ -3,7 +3,7 @@
   "role": "manufacturing geometry candidate; approved Rev5 source remains immutable",
   "decisionId": "fabrication-2026-09-25",
   "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
-  "policySha256": "5c8a745f67777cae78ebc1b99be9fc75f9b007af4cf7e59ba05a01683703722a",
+  "policySha256": "4259fb83b06afa80c7200d1589ff88f091fdb52855b581e586e380d5014ecc62",
   "changes": [
     {
       "board": "spider-nest-L01",
@@ -24592,6 +24592,36 @@
   ],
   "artFillChanges": [
     {
+      "board": "kumiko-void-L07",
+      "artFillIndex0": 120,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "operation": "locally widen tapered L07 gold fill within 0.50 mm reach",
+      "additionBoundsMm": [
+        90.7,
+        21.4217,
+        91.18,
+        25.7783
+      ],
+      "addedAreaMm2": 0.5981526,
+      "originalContourSha256": "201cc01d8296fbbc0766495e8ea6b97fefd04edd8bbeea2540b6b4fabf237213",
+      "manufacturingContourSha256": "9e0ff38c8c4ac6c638820d576e93fa8fd8765496a26cb0cd45e27a9f204859f5"
+    },
+    {
+      "board": "kumiko-void-L07",
+      "artFillIndex0": 134,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "operation": "locally widen tapered L07 gold fill within 0.50 mm reach",
+      "additionBoundsMm": [
+        90.7,
+        103.2007,
+        90.876,
+        106.5993
+      ],
+      "addedAreaMm2": 0.5981526,
+      "originalContourSha256": "c82ce7b492e096269f599ac1577ad519afbb1accb71649b7c8e6bb38fef6c9ed",
+      "manufacturingContourSha256": "fab0d159024e9803548bc76fc48a7e614e89029701bd1c94b9d405ab8179fe6d"
+    },
+    {
       "board": "woven-maze-L01",
       "artFillIndex0": 2,
       "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
@@ -24788,5 +24818,5 @@
     "kumiko-void-standard-L04-H02",
     "kumiko-void-standard-L08-H01"
   ],
-  "manufacturingGeometrySha256": "f40a5bd4f0abb63d9f20f81a6f53eb397ac9c92e4c0c1c9d88152cb97927d068"
+  "manufacturingGeometrySha256": "842259adbd089878984469b868cf06c6013a3d99228f92f16d568961b67fc072"
 }

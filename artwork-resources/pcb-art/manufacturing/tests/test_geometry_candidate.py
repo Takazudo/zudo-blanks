@@ -194,7 +194,7 @@ class ManufacturingGeometryCandidateTests(unittest.TestCase):
 
     def test_indexed_guide_relocation(self):
         self.assertEqual(len(self.ledger['artGuideChanges']),22)
-        self.assertEqual(len(self.ledger['artFillChanges']),16)
+        self.assertEqual(len(self.ledger['artFillChanges']),18)
         original={d['id']:d for d in selected(self.original)}
         corrected={d['id']:d for d in selected(self.candidate)}
         for change in self.ledger['artGuideChanges']:
@@ -208,12 +208,28 @@ class ManufacturingGeometryCandidateTests(unittest.TestCase):
             self.assertLessEqual(distance,.5)
             self.assertGreater(distance,.10)
         for change in self.ledger['artFillChanges']:
+            if change['board']=='kumiko-void-L07':
+                self.assertIn(change['artFillIndex0'],(120,134))
+                self.assertLess(change['addedAreaMm2'],.7)
+                continue
             self.assertEqual(change['board'],'woven-maze-L01')
             index=change['artFillIndex0']
             old=original['woven-maze']['layers'][0]['art']['fills'][index]['pts']
             new=corrected['woven-maze']['layers'][0]['art']['fills'][index]['pts']
             self.assertEqual(len(old),len(new))
             self.assertAlmostEqual(max(Point(a).distance(Point(b)) for a,b in zip(old,new)),.0155,7)
+        wide_before=original['kumiko-void']
+        wide_after=corrected['kumiko-void']
+        old_layer=wide_before['layers'][6]
+        new_layer=wide_after['layers'][6]
+        old_gold=export.paint_gold(old_layer,wide_before,
+                                   mask_repair.source_body(old_layer,self.original['spec']))
+        new_body=mask_repair.source_body(new_layer,self.candidate['spec'])
+        new_gold=export.paint_gold(new_layer,wide_after,new_body)
+        added=new_gold.difference(old_gold)
+        self.assertAlmostEqual(added.area,1.1963052,6)
+        self.assertLess(added.difference(mask_repair.safe_region(new_layer,new_body,'mask')).area,
+                        .00001)
 
     def test_top_border_cores_in_candidate(self):
         for design in selected(self.candidate):
@@ -246,6 +262,8 @@ class ManufacturingGeometryCandidateTests(unittest.TestCase):
             with self.subTest(board=entry['boardId']):
                 self.assertTrue(mask.is_valid)
                 self.assertEqual(len(list(mask_repair.pairs(mask))),0)
+                if layer['index']>0:
+                    self.assertGreaterEqual(mask.distance(Polygon(layer['outer']).exterior),.549)
                 self.assertLessEqual(entry['goldLossFractionFromApproved'],.30)
                 self.assertEqual(entry['retreatCount'],sum(r['operation']=='one-sided local mask retreat'
                     for r in entry['records']))

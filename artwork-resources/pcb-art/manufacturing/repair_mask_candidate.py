@@ -54,6 +54,16 @@ def source_body(layer,spec):
         unary_union([export.drill_shape(d) for d in drills]))
 
 
+def safe_region(layer,body,art_layer):
+    setback=.35 if art_layer=='mask' else .30
+    safe=body.buffer(-setback,quad_segs=64)
+    if layer['index']>0:
+        outer_setback=.55 if art_layer=='mask' else .50
+        safe=safe.intersection(Polygon(layer['outer']).buffer(-outer_setback,
+            join_style='mitre'))
+    return safe
+
+
 def merge_spider_web_slivers(design,layer,body,mask,records):
     """Apply only the three measured guide-to-web channel joins.
 
@@ -65,6 +75,14 @@ def merge_spider_web_slivers(design,layer,body,mask,records):
         return mask
     if any(item.get('color') for key in ('fills','strokes') for item in layer['art'][key]):
         raise ValueError('Spider web merge would cover explicitly painted black art')
+    policy=json.loads((HERE/'policy.json').read_text())
+    rule=next(item for item in policy['errata'] if item['id']==
+              'spider-l01-channel-merge-2026-09-25')
+    evidence=json.loads((HERE/rule['evidence']).read_text())
+    normalized_hash=digest(shapely.normalize(mask).wkb)
+    example=evidence['implementationExample']
+    if normalized_hash!=example['preMergeMaskNormalizedWkbSha256']:
+        raise ValueError('Spider pre-merge mask differs from bounded erratum evidence')
     parts=export.ordered(mask)
     measured={(0,1):.034614,(0,5):.044372,(0,2):.002574}
     source_strokes={(0,1):[41,111],(0,5):[33,97],(0,2):[38,112]}
@@ -80,9 +98,13 @@ def merge_spider_web_slivers(design,layer,body,mask,records):
             selected.append((patch,matching))
     if len(selected)!=4:
         raise ValueError(f'Spider requires exactly four indexed channel patches, found {len(selected)}')
-    safe=body.buffer(-.35,quad_segs=64)
+    example_hashes={item['normalizedWkbSha256'] for item in example['patches']}
+    selected_hashes={digest(shapely.normalize(patch).wkb) for patch,_ in selected}
+    if selected_hashes!=example_hashes:
+        raise ValueError('Spider channel patches differ from bounded erratum envelope')
+    safe=safe_region(layer,body,'mask')
     additions=rounded(unary_union([p for p,_ in selected]).intersection(safe).difference(mask))
-    if not 29.8<=additions.area<=30.0:
+    if not 29.8<=additions.area<=rule['maximumTotalAddedGoldAreaMm2']:
         raise ValueError(f'Spider web merge area changed: {additions.area}')
     for patch,matching in selected:
         records.append({
@@ -107,7 +129,7 @@ def merge_spider_web_slivers(design,layer,body,mask,records):
 def corrected_mask(design,layer,spec,original_layer,actions):
     body=source_body(layer,spec)
     gold=export.paint_gold(layer,design,body)
-    mask=gold.intersection(body.buffer(-.35,quad_segs=64))
+    mask=gold.intersection(safe_region(layer,body,'mask'))
     closed=[]
     if design['id']=='kumiko-void':
         for action in actions:
@@ -209,6 +231,10 @@ def run():
                 continue
             before,after,records=corrected_mask(design,layer,data['spec'],original_layer,
                                                  policy['selectedApertureActions'])
+            # Measure the serialized geometry that downstream consumers read.
+            # GEOS overlay objects can carry a different vertex traversal until
+            # round-tripped, which affects acute-tip buffer diagnostics.
+            after=shapely.from_wkb(after.wkb)
             old_review=next(b for b in review['boards'] if b['boardId']==board_id(design,layer))
             patch_shapes=[(index,shapely.from_wkb(bytes.fromhex(record['patchWkbHex'])))
                           for index,record in enumerate(records) if 'patchWkbHex' in record]

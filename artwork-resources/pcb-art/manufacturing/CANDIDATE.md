@@ -12,6 +12,13 @@ operation. Standard Kumiko remains an
 unchanged, non-orderable alternative. The approved input and historical tests
 are unaffected.
 
+Two indexed Kumiko wide L07 fills (original indices 120 and 134) receive local
+additive rectangles to widen tapered gold faces. The printed gold union gains
+1.1963052 mm², entirely in the 0.35 mm mask-safe region. The twelve Fault L01
+strokes at exactly 0.25 mm remain unchanged: their nominal width meets the
+frozen rule, and an erosion-at-threshold artifact alone does not justify a
+source edit.
+
 The geometry is **a routing candidate, not an orderable manufacturing release**.
 `audit_art_candidate.py` inventories all 715 original selected copper/mask pair
 findings by source hash, original polygon pair and closest points. Every one is

@@ -24,6 +24,14 @@ def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def safe_region(layer,body,art_layer):
+    safe=body.buffer(-(.35 if art_layer=='mask' else .30),quad_segs=64)
+    if layer['index']>0:
+        safe=safe.intersection(Polygon(layer['outer']).buffer(
+            -(.55 if art_layer=='mask' else .50),join_style='mitre'))
+    return safe
+
+
 def union_pairs(board_id, feature, geom, input_hash):
     """Screen distinct finished positive-region components at the frozen 0.25 mm rule."""
     parts=export.ordered(geom)
@@ -73,8 +81,8 @@ def run():
             body=Polygon(layer['outer']).difference(unary_union(cutouts)).difference(
                 unary_union([export.drill_shape(d) for d in drills]))
             gold=export.paint_gold(layer,design,body)
-            mask=gold.intersection(body.buffer(-.35,quad_segs=64))
-            copper_safe=body.buffer(-.30,quad_segs=64)
+            mask=gold.intersection(safe_region(layer,body,'mask'))
+            copper_safe=safe_region(layer,body,'copper')
             copper=mask.buffer(.05,quad_segs=64).intersection(copper_safe)
             copper_pairs=union_pairs(finding['boardId'],'F.Cu island gap',copper,input_hash)
             for pair in copper_pairs:
