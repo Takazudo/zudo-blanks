@@ -517,7 +517,73 @@ def corrected_mask(design,layer,spec,original_layer,actions):
             'goldAddedWkbSha256':digest(neck_added.wkb),
         })
         repaired=with_necks
-        mask=repaired
+        before_vendor_caps=shapely.from_wkb(repaired.wkb)
+        if digest(before_vendor_caps.wkb)!=(
+                'ae5f8d0a37d1c2e344869fce12bf87a96cf0f98b40d898480cdd7accd79a576c'):
+            raise ValueError('Fault pre-cap serialized gold changed')
+        # At the published 0.13 mm black-mask class, 48 source-attributed
+        # pointed ink tips can be rounded without touching a gold core. Two
+        # remaining tips at stroke 54 / bottom rim require paired geometry;
+        # retain them rather than create a new sub-width gold wedge.
+        radius=.064999
+        ink=body.difference(before_vendor_caps)
+        reconstructed=ink.buffer(-radius,join_style='mitre',quad_segs=64).buffer(
+            radius,join_style='mitre',quad_segs=64)
+        tips=[part for part in export.polygons(ink.difference(reconstructed))
+              if part.area>1e-8]
+        reserved=[
+            (.003133116,[13.021111,68.850091,13.124701,68.914013]),
+            (.00000946,[77.445,128.11,86.0504,128.1101]),
+        ]
+        selected=[]
+        excluded=[]
+        for tip in tips:
+            match=any(abs(tip.area-area)<.000001 and
+                      max(abs(a-b) for a,b in zip(tip.bounds,bounds))<.001
+                      for area,bounds in reserved)
+            (excluded if match else selected).append(tip)
+        if (len(selected)!=48 or len(excluded)!=2 or
+                abs(sum(p.area for p in selected)-.107720255)>.00001):
+            raise ValueError('Fault published-mask tip inventory changed')
+        if any(item.get('color') for item in original_layer['art']['strokes']):
+            raise ValueError('Fault vendor-class ink caps would cover explicit black paint')
+        for tip in selected:
+            index=int(source_tree.nearest(tip.representative_point()))
+            if tip.difference(source_strokes[index].buffer(.5,quad_segs=64)).area>.00001:
+                raise ValueError('Fault vendor-class ink tip exceeded source reach')
+            records.append({
+                'operation':'cap indexed Fault sub-0.13 mm unpainted ink tip',
+                'originalArtStrokeIndex0':index,
+                'originalStrokeWkbSha256':digest(source_strokes[index].wkb),
+                'patchBoundsMm':[round(v,6) for v in tip.bounds],
+                'patchAreaMm2':round(tip.area,9),
+                'patchWkbSha256':digest(tip.wkb),
+                'patchWkbHex':tip.wkb_hex,
+            })
+        cap_union=unary_union(selected).intersection(safe_region(layer,body,'mask'))
+        mask=shapely.from_wkb(rounded(before_vendor_caps.union(cap_union)).wkb)
+        after_ink=body.difference(mask)
+        gold_core=mask.buffer(-.124999,join_style='mitre',quad_segs=64)
+        gold_residue=mask.difference(gold_core.buffer(.124999,join_style='mitre',
+                                                    quad_segs=64)).area
+        black_core=after_ink.buffer(-radius,join_style='mitre',quad_segs=64)
+        black_residue=after_ink.difference(black_core.buffer(radius,join_style='mitre',
+                                                              quad_segs=64)).area
+        if (len(export.polygons(mask))!=original_parts or
+                sum(len(p.interiors) for p in export.polygons(mask))!=original_pockets or
+                len(export.polygons(after_ink))!=103 or
+                protected.difference(mask).area>.00001 or list(pairs(mask)) or
+                gold_residue>.00001 or black_residue>.00315):
+            raise ValueError('Fault vendor-class ink caps changed topology or gold width')
+        records.append({
+            'operation':'bounded Fault published-mask class screen repair; project 0.25 mm still open',
+            'sourceArtStrokeIndices0':sorted({r['originalArtStrokeIndex0'] for r in records
+                if r['operation']=='cap indexed Fault sub-0.13 mm unpainted ink tip'}),
+            'capCount':len(selected),
+            'goldAddedAreaMm2':round(mask.difference(before_vendor_caps).area,9),
+            'black013ResidueAreaMm2':round(black_residue,9),
+            'gold025ResidueAreaMm2':round(gold_residue,9),
+        })
     if design['id']=='kumiko-void' and layer['index'] in (0,3,6):
         mask=shapely.from_wkb(mask.wkb)
         fill_indices=[i for i,fill in enumerate(original_layer['art']['fills'])

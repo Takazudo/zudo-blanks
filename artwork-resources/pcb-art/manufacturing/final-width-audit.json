@@ -2,8 +2,8 @@
   "status": "diagnostic; connected-component width and boundary-run proof still required",
   "radiusMm": 0.124999,
   "manufacturingGeometrySha256": "af65154b789a43ecced82dab019b6822da418edb14233ac9f3eae446ad973aee",
-  "maskCandidateSha256": "a27ad404f0e12b5291b0a31d9c7b02681fa5401e3fd20e7716d0bd910ac27225",
-  "copperLedgerSha256": "40dc6d298b810f91abce12ee093a6d041cb176c66270af114e7a2cde006db8dc",
+  "maskCandidateSha256": "cf04ff39a89463751dff94b92b35af0066633f53bdd89d7a3de5c93d3127c068",
+  "copperLedgerSha256": "64892daa79a553e5250261508843c7b3f2456387b1fcfede1a0e7caae0571b5c",
   "boards": [
     {
       "boardId": "01-spider-nest-L01-black-enig-art",
@@ -4137,11 +4137,11 @@
       "boardId": "13-fault-line-L01-black-enig-art",
       "gold": {
         "componentCount": 6,
-        "erodedCoreComponentCount": 7,
-        "erodedCoreSplitExcessCount": 1,
+        "erodedCoreComponentCount": 6,
+        "erodedCoreSplitExcessCount": 0,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
-        "toleranceAwareMiterResidueAreaMm2": 6.906e-06,
+        "toleranceAwareMiterResidueAreaMm2": 6.897e-06,
         "largestResidues": [
           {
             "areaMm2": 3.134e-06,
@@ -4172,12 +4172,12 @@
             }
           },
           {
-            "areaMm2": 6.54e-07,
+            "areaMm2": 5.78e-07,
             "boundsMm": [
               1.944099,
               58.111802,
-              6.019544,
-              60.149526
+              5.833014,
+              60.056261
             ],
             "nearestOriginalArtFeature": {
               "type": "stroke",
@@ -4186,11 +4186,11 @@
             }
           },
           {
-            "areaMm2": 5.41e-07,
+            "areaMm2": 4.99e-07,
             "boundsMm": [
               78.03289,
-              38.55054,
-              80.123095,
+              38.562348,
+              80.079801,
               39.120594
             ],
             "nearestOriginalArtFeature": {
@@ -4200,10 +4200,10 @@
             }
           },
           {
-            "areaMm2": 2.4e-07,
+            "areaMm2": 2.46e-07,
             "boundsMm": [
-              15.028944,
-              114.007347,
+              15.041771,
+              114.036207,
               18.114225,
               120.949233
             ],
@@ -4214,12 +4214,12 @@
             }
           },
           {
-            "areaMm2": 1.76e-07,
+            "areaMm2": 2.26e-07,
             "boundsMm": [
-              19.059119,
-              58.722127,
-              19.114297,
-              58.776751
+              27.525966,
+              53.890732,
+              27.939296,
+              54.120358
             ],
             "nearestOriginalArtFeature": {
               "type": "stroke",
@@ -4238,6 +4238,20 @@
             "nearestOriginalArtFeature": {
               "type": "stroke",
               "originalIndex0": 48,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 1.53e-07,
+            "boundsMm": [
+              68.939296,
+              106.109268,
+              69.3266,
+              106.324439
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 57,
               "color": null
             }
           },
@@ -4312,20 +4326,6 @@
             }
           },
           {
-            "areaMm2": 8.9e-08,
-            "boundsMm": [
-              27.525965,
-              53.890732,
-              27.939296,
-              54.120359
-            ],
-            "nearestOriginalArtFeature": {
-              "type": "stroke",
-              "originalIndex0": 52,
-              "color": null
-            }
-          },
-          {
             "areaMm2": 7.8e-08,
             "boundsMm": [
               80.912668,
@@ -4340,24 +4340,10 @@
             }
           },
           {
-            "areaMm2": 6.5e-08,
-            "boundsMm": [
-              68.939296,
-              106.109268,
-              69.3266,
-              106.324438
-            ],
-            "nearestOriginalArtFeature": {
-              "type": "stroke",
-              "originalIndex0": 57,
-              "color": null
-            }
-          },
-          {
-            "areaMm2": 4.8e-08,
+            "areaMm2": 6.9e-08,
             "boundsMm": [
               12.663824,
-              68.886716,
+              68.886715,
               12.941509,
               68.942231
             ],
@@ -4368,16 +4354,16 @@
             }
           },
           {
-            "areaMm2": 3e-08,
+            "areaMm2": 4.8e-08,
             "boundsMm": [
-              18.083994,
-              58.288267,
-              18.088026,
-              58.288401
+              73.011317,
+              61.094358,
+              73.342718,
+              61.124484
             ],
             "nearestOriginalArtFeature": {
               "type": "stroke",
-              "originalIndex0": 16,
+              "originalIndex0": 53,
               "color": null
             }
           },
@@ -4392,6 +4378,20 @@
             "nearestOriginalArtFeature": {
               "type": "stroke",
               "originalIndex0": 19,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 1.4e-08,
+            "boundsMm": [
+              18.083999,
+              58.288267,
+              18.088026,
+              58.288401
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 16,
               "color": null
             }
           },
@@ -4431,13 +4431,13 @@
         "erodedCoreSplitExcessCount": 9,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
-        "toleranceAwareMiterResidueAreaMm2": 0.477713272,
+        "toleranceAwareMiterResidueAreaMm2": 0.369993447,
         "largestResidues": [
           {
-            "areaMm2": 0.067002683,
+            "areaMm2": 0.060535816,
             "boundsMm": [
-              28.3421,
-              29.614463,
+              28.484246,
+              29.766126,
               30.431971,
               32.400855
             ],
@@ -4448,12 +4448,12 @@
             }
           },
           {
-            "areaMm2": 0.048030826,
+            "areaMm2": 0.038304954,
             "boundsMm": [
               0.71,
               73.200826,
               1.669788,
-              76.185957
+              75.884244
             ],
             "nearestOriginalArtFeature": {
               "type": "stroke",
@@ -4462,25 +4462,25 @@
             }
           },
           {
-            "areaMm2": 0.036100845,
+            "areaMm2": 0.030863481,
             "boundsMm": [
-              72.836735,
-              116.743781,
-              73.743686,
-              118.013512
+              71.700226,
+              116.878368,
+              73.622993,
+              118.150229
             ],
             "nearestOriginalArtFeature": {
               "type": "stroke",
-              "originalIndex0": 57,
+              "originalIndex0": 16,
               "color": null
             }
           },
           {
-            "areaMm2": 0.033730127,
+            "areaMm2": 0.030221404,
             "boundsMm": [
               73.011317,
-              61.079623,
-              73.504795,
+              61.094358,
+              73.352413,
               61.260067
             ],
             "nearestOriginalArtFeature": {
@@ -4490,26 +4490,26 @@
             }
           },
           {
-            "areaMm2": 0.033647703,
+            "areaMm2": 0.025582573,
             "boundsMm": [
-              23.883034,
-              91.992222,
-              24.648294,
-              92.921344
+              22.266745,
+              92.111988,
+              24.477232,
+              93.48069
             ],
             "nearestOriginalArtFeature": {
               "type": "stroke",
-              "originalIndex0": 4,
+              "originalIndex0": 55,
               "color": null
             }
           },
           {
-            "areaMm2": 0.033505075,
+            "areaMm2": 0.02534321,
             "boundsMm": [
               29.903959,
-              111.078922,
-              31.081791,
-              112.395079
+              110.784523,
+              32.967321,
+              112.221615
             ],
             "nearestOriginalArtFeature": {
               "type": "stroke",
@@ -4518,26 +4518,26 @@
             }
           },
           {
-            "areaMm2": 0.027133638,
+            "areaMm2": 0.022982259,
             "boundsMm": [
-              34.341617,
-              15.738276,
-              35.43941,
-              17.259346
+              34.391093,
+              12.370545,
+              35.738418,
+              17.104616
             ],
             "nearestOriginalArtFeature": {
               "type": "stroke",
-              "originalIndex0": 14,
+              "originalIndex0": 49,
               "color": null
             }
           },
           {
-            "areaMm2": 0.024478842,
+            "areaMm2": 0.017859734,
             "boundsMm": [
               19.378207,
               72.049349,
-              22.304161,
-              73.512326
+              22.119469,
+              73.40481
             ],
             "nearestOriginalArtFeature": {
               "type": "stroke",
@@ -4546,12 +4546,12 @@
             }
           },
           {
-            "areaMm2": 0.019505253,
+            "areaMm2": 0.01423112,
             "boundsMm": [
               1.944099,
               58.111802,
-              6.019544,
-              60.149526
+              5.833014,
+              60.104286
             ],
             "nearestOriginalArtFeature": {
               "type": "stroke",
@@ -4560,26 +4560,12 @@
             }
           },
           {
-            "areaMm2": 0.014860916,
-            "boundsMm": [
-              0.71,
-              81.885224,
-              0.797526,
-              82.2248
-            ],
-            "nearestOriginalArtFeature": {
-              "type": "stroke",
-              "originalIndex0": 59,
-              "color": null
-            }
-          },
-          {
-            "areaMm2": 0.012884517,
+            "areaMm2": 0.012884218,
             "boundsMm": [
               26.721458,
               52.205106,
               27.939296,
-              54.120359
+              54.120357
             ],
             "nearestOriginalArtFeature": {
               "type": "stroke",
@@ -4602,9 +4588,23 @@
             }
           },
           {
-            "areaMm2": 0.011156615,
+            "areaMm2": 0.010842592,
             "boundsMm": [
-              95.518623,
+              0.71,
+              82.055836,
+              0.797526,
+              82.224801
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 59,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.008319864,
+            "boundsMm": [
+              95.5783,
               127.5626,
               95.957944,
               127.79
@@ -4616,30 +4616,16 @@
             }
           },
           {
-            "areaMm2": 0.011156615,
+            "areaMm2": 0.008319864,
             "boundsMm": [
               86.322056,
               127.5626,
-              86.761377,
+              86.7017,
               127.79
             ],
             "nearestOriginalArtFeature": {
               "type": "stroke",
               "originalIndex0": 67,
-              "color": null
-            }
-          },
-          {
-            "areaMm2": 0.01055794,
-            "boundsMm": [
-              32.184306,
-              113.82059,
-              34.760362,
-              116.332245
-            ],
-            "nearestOriginalArtFeature": {
-              "type": "stroke",
-              "originalIndex0": 16,
               "color": null
             }
           },
@@ -4658,12 +4644,26 @@
             }
           },
           {
-            "areaMm2": 0.007393594,
+            "areaMm2": 0.007703033,
+            "boundsMm": [
+              32.255755,
+              113.921124,
+              32.382598,
+              114.061045
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 56,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.0053944,
             "boundsMm": [
               72.73549,
               89.756042,
-              75.212067,
-              91.131891
+              75.109721,
+              91.10736
             ],
             "nearestOriginalArtFeature": {
               "type": "stroke",
@@ -4672,44 +4672,44 @@
             }
           },
           {
-            "areaMm2": 0.006153332,
+            "areaMm2": 0.004504433,
             "boundsMm": [
-              83.919337,
-              57.410416,
-              85.155038,
-              59.881818
+              18.907809,
+              57.772909,
+              21.466155,
+              60.114342
             ],
             "nearestOriginalArtFeature": {
               "type": "stroke",
-              "originalIndex0": 53,
+              "originalIndex0": 52,
               "color": null
             }
           },
           {
-            "areaMm2": 0.005660882,
+            "areaMm2": 0.004489529,
             "boundsMm": [
-              76.802672,
-              91.72841,
-              79.341879,
-              92.272526
-            ],
-            "nearestOriginalArtFeature": {
-              "type": "stroke",
-              "originalIndex0": 58,
-              "color": null
-            }
-          },
-          {
-            "areaMm2": 0.005637464,
-            "boundsMm": [
-              86.188897,
-              53.903144,
-              86.908674,
-              55.342697
+              84.551382,
+              57.486272,
+              85.107889,
+              58.03583
             ],
             "nearestOriginalArtFeature": {
               "type": "stroke",
               "originalIndex0": 10,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.003842144,
+            "boundsMm": [
+              14.516424,
+              0.71,
+              14.987944,
+              0.9574
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 64,
               "color": null
             }
           }
@@ -4721,8 +4721,22 @@
         "erodedCoreSplitExcessCount": 2,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
-        "toleranceAwareMiterResidueAreaMm2": 0.006128422,
+        "toleranceAwareMiterResidueAreaMm2": 0.00616781,
         "largestResidues": [
+          {
+            "areaMm2": 0.000187608,
+            "boundsMm": [
+              47.991283,
+              18.145,
+              73.006931,
+              18.145015
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 3,
+              "color": null
+            }
+          },
           {
             "areaMm2": 0.000187608,
             "boundsMm": [
@@ -4818,20 +4832,6 @@
             "nearestOriginalArtFeature": {
               "type": "stroke",
               "originalIndex0": 22,
-              "color": null
-            }
-          },
-          {
-            "areaMm2": 0.000187543,
-            "boundsMm": [
-              48.0,
-              18.145,
-              73.006931,
-              18.145015
-            ],
-            "nearestOriginalArtFeature": {
-              "type": "stroke",
-              "originalIndex0": 3,
               "color": null
             }
           },

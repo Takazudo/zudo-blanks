@@ -71,6 +71,11 @@ and caps; the composite adds 0.887012277 mm², removes 0.629928518 mm², keeps
 six gold components and all rim cores, and leaves no no-disk ink component.
 Two source-pair-indexed Fault butt/round joins at 24/29 and 19/23 add
 0.014198 mm² gold and reconnect two eroded-core branches near the top cliff.
+At the published 0.13 mm black-mask screening class, 48 source-stroke-indexed
+unpainted Fault ink tips receive 0.107728 mm² of local gold caps. The serialized
+black residue falls from 0.110863 to 0.003143 mm² while its 0.25 mm gold
+residue stays below 0.00001 mm². Two tips remain because their simple caps
+create a narrow gold wedge; the frozen 0.25 mm black target is still open.
 One Kumiko top black facet beside fill 137 and rail rim 7 receives an indexed
 0.299323 mm² gold retreat; its lower 116/117 facet remains open.
 Eight source-indexed unpainted Woven L01 terminal ink tips along strokes

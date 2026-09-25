@@ -1,7 +1,7 @@
 {
   "status": "candidate; full copper/gold width and output proof pending",
   "sourceGeometrySha256": "af65154b789a43ecced82dab019b6822da418edb14233ac9f3eae446ad973aee",
-  "maskCandidateSha256": "a27ad404f0e12b5291b0a31d9c7b02681fa5401e3fd20e7716d0bd910ac27225",
+  "maskCandidateSha256": "cf04ff39a89463751dff94b92b35af0066633f53bdd89d7a3de5c93d3127c068",
   "policySha256": "3504e658adde328d577ab431dc4cf3cc0874bba25c728ed4c987fbfacda5bc0d",
   "gridMm": 1e-06,
   "boards": [
@@ -1636,10 +1636,10 @@
     },
     {
       "boardId": "13-fault-line-L01-black-enig-art",
-      "beforeCopperWkbSha256": "2eeec1c7056e1103c6211f16b370b57d19d36ebe86ad12494e5aa398ce73aa43",
-      "afterCopperWkbSha256": "706eac08527dc6f842a564f1a96ec733db695ed118fd3673270239f5aa525a9a",
-      "beforeCopperAreaMm2": 1538.586127,
-      "afterCopperAreaMm2": 1538.658433,
+      "beforeCopperWkbSha256": "493bc50dcb999a834d6c6309680916595b519a310874f8d15974d5afdaaf56b2",
+      "afterCopperWkbSha256": "5dfe9b4fefd9e71d2b5f5fb8edd9ea0634294421fb635f30bde692280ac76b1a",
+      "beforeCopperAreaMm2": 1538.587136,
+      "afterCopperAreaMm2": 1538.659442,
       "joinCount": 1,
       "insetAnchorJoinCount": 0,
       "records": [
@@ -1650,8 +1650,8 @@
             1
           ],
           "beforeComponentWkbSha256": [
-            "1b38c570baeb5b0d69ff19543a3383cf618cb06476c3fd7f462497d03f428419",
-            "dd2f29068d546e10b8fe1cf38677fa8297e22df689a48d70c80a2cb6a70d1379"
+            "5f260ea7db54651b4858eea0245afb5646f635a925e444e2fb1513336ae76ce7",
+            "84d86ef6b11d6db0e9538074b7aaa30740500fe837398d4ded8973609b1eccfa"
           ],
           "beforeGapMm": 0.224454086,
           "route": "direct",

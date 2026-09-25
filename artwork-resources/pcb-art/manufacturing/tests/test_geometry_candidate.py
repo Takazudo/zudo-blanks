@@ -423,6 +423,14 @@ class ManufacturingGeometryCandidateTests(unittest.TestCase):
                     neck_total=next(r for r in entry['records'] if r['operation']==
                                     'bounded Fault eroded-core neck additions')
                     self.assertAlmostEqual(neck_total['goldAddedAreaMm2'],.014198473,5)
+                    vendor_caps=[r for r in entry['records'] if r['operation']==
+                                 'cap indexed Fault sub-0.13 mm unpainted ink tip']
+                    self.assertEqual(len(vendor_caps),48)
+                    vendor_screen=next(r for r in entry['records'] if r['operation'].startswith(
+                        'bounded Fault published-mask class screen repair'))
+                    self.assertAlmostEqual(vendor_screen['goldAddedAreaMm2'],.107727933,5)
+                    self.assertLessEqual(vendor_screen['black013ResidueAreaMm2'],.00315)
+                    self.assertLessEqual(vendor_screen['gold025ResidueAreaMm2'],.00001)
                     ink=mask_repair.source_body(layer,self.candidate['spec']).difference(mask)
                     self.assertFalse(any(p.area>1e-8 and p.buffer(-.125,quad_segs=64).is_empty
                                          for p in export.polygons(ink)))
