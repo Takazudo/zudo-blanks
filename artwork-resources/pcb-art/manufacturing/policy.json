@@ -1360,6 +1360,90 @@
       ],
       "patchSelection": "exactly four channel patches touching both members of the named component pairs; preserve every other region",
       "perPatchEnvelope": "union of the captured 32-segment and 64-segment polygons for that patch ID, with existing 0.001 mm distance tolerance"
+    },
+    {
+      "id": "spider-l01-rib-width-2026-09-25",
+      "boardId": "01-spider-nest-L01-black-enig-art",
+      "evidence": "spider-rib-decision.json",
+      "evidenceSha256": "8a8883fe326e0c37ea99f7920cabe14c0b197c0a2f2fe4f547fcf41766a100f2",
+      "approvedSourceSha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "baseEvidenceSha256": "8bcd2a4dfdfba0febc17adfa1aa0c9fbfb082840ae8f95a87df8b1816127c8c3",
+      "baseBodyNormalizedWkbSha256": "acdf5936eb2f7bf7fb265a45dc050ce5ada92e474805072666e8096f6a83735e",
+      "centerlineMm": [
+        [
+          73.5804,
+          43.9604
+        ],
+        [
+          66.0864,
+          48.5094
+        ],
+        [
+          56.1526,
+          54.5394
+        ]
+      ],
+      "ribbonWidthMm": 2.0,
+      "capStyle": "flat",
+      "joinStyle": "mitre",
+      "allowedInitialOperation": "union the exact named ribbon with the captured body; no material removal",
+      "initialAdditionNormalizedWkbSha256": "91d434d53fcabba787be98bba2db895b5346a3de9fd5b01f67a87119abcb17aa",
+      "maximumInitialAdditionAreaMm2": 6.1,
+      "affectedOriginalGeometryHoleIndices0": [
+        1,
+        6,
+        16
+      ],
+      "maximumAdditionalRoutingCleanupAreaMm2": 0.25,
+      "maximumCombinedAdditionAreaMm2": 6.35,
+      "routingCleanupOperation": "apply the existing 1.0 mm all-center-component cutter sweep only to the three affected remaining apertures; index each delta; no arbitrary extra fill",
+      "maximumCumulativeApertureLossFraction": 0.02,
+      "centralStrokeIndices0": [
+        7,
+        8
+      ],
+      "centralGoldWidthMm": 0.28,
+      "guideGoldWidthMm": 0.251,
+      "guidePortions": [
+        {
+          "guideStrokeIndex0": 98,
+          "alongCentralStrokeIndex0": 7,
+          "signedNormalOffsetMm": 0.5165
+        },
+        {
+          "guideStrokeIndex0": 101,
+          "alongCentralStrokeIndex0": 7,
+          "signedNormalOffsetMm": -0.5165
+        },
+        {
+          "guideStrokeIndex0": 101,
+          "alongCentralStrokeIndex0": 8,
+          "signedNormalOffsetMm": -0.5165
+        },
+        {
+          "guideStrokeIndex0": 103,
+          "alongCentralStrokeIndex0": 8,
+          "signedNormalOffsetMm": 0.5165
+        }
+      ],
+      "normalConvention": "for directed segment (dx,dy), unit normal=(-dy,dx)/length",
+      "nominalBlackWebMm": 0.251,
+      "nominalOuterMaskClearanceMm": 0.358,
+      "minimumRequiredMaskClearanceMm": 0.35,
+      "maximumGuideTransitionDisplacementMm": 0.5,
+      "guideChangeEnvelope": "named ribbon buffered by 0.5 mm; named guide portions and their local endpoint transitions only",
+      "priorChannelPatchGeometryMustRemainUnchanged": true,
+      "productionApproval": false,
+      "requiredGates": [
+        "source-indexed initial and routing-cleanup deltas",
+        "unchanged dimensions drills support disks bridges backing and one-piece topology",
+        "cumulative aperture loss <=2%",
+        "rerun all affected cutter sweeps and plunge/toolpath access",
+        "positive gold and negative mask widths including connected branches and guide transitions",
+        "unchanged nine rim cores and radial motif",
+        "full-board and enlarged before/after comparisons",
+        "regenerated native PCB and independent CAM verification"
+      ]
     }
   ]
 }
