@@ -372,6 +372,26 @@ class ManufacturingGeometryCandidateTests(unittest.TestCase):
                 self.assertGreaterEqual(segments[j+1][0]-segments[j][1],.250)
             self.assertAlmostEqual(body.intersection(line).length,2.0,4)
 
+    def test_final_width_diagnostic_tracks_serialized_candidates(self):
+        report=json.loads((HERE/'final-width-audit.json').read_text())
+        self.assertTrue(report['status'].startswith('diagnostic;'))
+        self.assertEqual(report['manufacturingGeometrySha256'],
+                         digest(HERE/'manufacturing-geometry.json'))
+        self.assertEqual(report['maskCandidateSha256'],
+                         digest(HERE/'mask-repair-candidate.json'))
+        self.assertEqual(report['copperLedgerSha256'],
+                         digest(HERE/'copper-repair-ledger.json'))
+        self.assertEqual(len(report['boards']),11)
+        for board in report['boards']:
+            for name in ('gold','ink','copper'):
+                region=board[name]
+                self.assertEqual(region['erodedCoreSplitExcessCount'],
+                                 max(0,region['erodedCoreComponentCount']-
+                                     region['componentCount']))
+        spider=next(b for b in report['boards'] if b['boardId'].startswith(
+            '01-spider-nest-L01'))
+        self.assertGreater(spider['ink']['toleranceAwareMiterResidueAreaMm2'],1)
+
     def test_mask_repair_candidate_scope(self):
         report=json.loads((HERE/'mask-repair-candidate.json').read_text())
         self.assertEqual(report['sourceGeometrySha256'],digest(HERE/'manufacturing-geometry.json'))
