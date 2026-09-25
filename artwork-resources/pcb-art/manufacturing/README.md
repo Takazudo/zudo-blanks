@@ -112,6 +112,63 @@ uv run --python 3.13 --with shapely==2.1.2 --with pillow python artwork-resource
 
 No production or factory acceptance is granted. Do not silently accept excess area, a new aperture closure, a support regression, a failed transition, or a failed cutter-access check; record the exact evidence for a further bounded decision if required.
 
+## Spider L01 complete-network amendment — 2026-09-25
+
+This amendment **supersedes the material, affected-aperture and guide-portion scope of the earlier 7/8 rib erratum**. Retain its evidence as history. Apply the complete network once from the captured pre-rib body in `spider-channel-erratum.json`; do not add the old 6.35 mm² allowance to the new allowance. The four channel-merge patches, their exact envelopes and their <=30.0 mm² gold cap remain unchanged. No other board or process rule changes.
+
+The reproducible survey in `spider-network-decision.json` binds the immutable approved source and `spider-network-input.json`, a captured diagnostic candidate, not approved output. Normal sections at <=0.20 mm intervals locate **38 sustained runs below 0.13 mm** (369.509 channel-mm) and **46 interior runs below 0.25 mm** (483.324 channel-mm), across 12 and 14 connected black regions respectively. Each run records the source segment, adjacent guide, position, width range and connected-region hash. These are genuine long channels, not an inference from erosion component counts. Five outer-rim taper flags on 74/75/80/88/91 remain separate indexed terminal checks under the existing rim policy; this amendment permits no extra material there. The survey is not an exhaustive final-width certificate.
+
+### Exact material operation
+
+Add 2.0 mm ribbons, **flat caps and miter joins**, along all points of approved source paths **2, 3, 4, 5, 6, 9, 10, 15, 16, 17, 18, 25, 27, 31, 34, 36 and 39**. Include the earlier **7/8** path as one continuous mitered ribbon, once. Use the exact coordinates and hashes in the decision evidence; no extensions, freehand patches or width changes. Union this network with the hash-bound pre-rib body without material removal. Initial addition is **73.921152 mm²**, including the earlier **6.074302 mm²**. The additional ribbon area relative to the captured survey body is **67.846462 mm²**; that is an explanatory comparison, not the operation's baseline or a second budget.
+
+Only original decorative apertures **0, 1, 2, 3, 5, 6, 7, 11, 12, 13, 14, 15, 16, 17 and 18** change. Preserve apertures 4/8/9/10 exactly. On each affected post-union aperture `A`, compute every component of `C = A.buffer(-0.5, quad_segs=64)` and retain the aperture `C.buffer(0.5, quad_segs=64).intersection(A)`. This exact cutter-envelope cleanup adds **2.208271 mm²**, for **76.129423 mm² combined addition** relative to the pre-rib body. The evidence binds each aperture, cleanup delta and final shape by normalized WKB hash; the numeric maxima in policy allow only the existing 0.00001 mm² arithmetic tolerance. An area cap alone never authorizes another shape. Do not repeat cleanup until an arbitrary result converges, transfer budget between apertures or change an unaffected aperture.
+
+After the measured cleanup, cumulative aperture loss versus approved Rev5 is **1.215701%**, within the unchanged **2%** cap. The probe preserves 19 decorative apertures, all eight functional holes/slots, one material component, exact outer dimensions, full pre-drill radius-3.05 mm support disks, upper/lower bridges and backing. Material is only added, so existing material ligaments and the unchanged lower floor cannot shrink. All 19 apertures retain one nonempty connected 1.0 mm cutter-center region and a contained plunge disk. This establishes geometric access feasibility; final serialized contours, finite cutter paths, native/CAM output and actual manufacturing remain separate gates.
+
+### Indexed guide relocation and transitions
+
+Keep all central radial paths and their 0.280 mm width. The following table lists adjacent guide indices on the negative/positive normal sides of each directed approved path; normal is `(-dy,dx)/length`:
+
+| Central path | Negative guide | Positive guide |
+| --- | ---: | ---: |
+| 2 | 104 | 109 |
+| 3 | 105 | 106 |
+| 4 | 98 | 104 |
+| 5 | 103 | 105 |
+| 6 | 95 | 98 |
+| 7 | 101 | 98 |
+| 8 | 101 | 103 |
+| 9 | 96 | 95 |
+| 10 | 100 | 101 |
+| 15 | 103 | 99 |
+| 16 | 103 | 102 |
+| 17 | 108 | 103 |
+| 18 | 107 | 103 |
+| 25 | 106 | 103 |
+| 27 | 105 | 103 |
+| 31 | 100 | 103 |
+| 34 | 102 | 103 |
+| 36 | 107 | 103 |
+| 39 | 110 | 103 |
+
+The evidence freezes **50 guide portions** by original contour hash, edge index, clipped original endpoints and corresponding central-segment interval. Place their straight centerlines at **±0.5165 mm**, retaining **0.251 mm** guide gold. The greatest nominal move from the approved guide is **0.140923 mm**; all nominal portion strokes fit the measured 0.35 mm mask-safe region. The evidence also provides **125 per-segment cross sections**. The straight-section budget is unchanged: `.358 clearance + .251 gold + .251 ink + .280 gold + .251 ink + .251 gold + .358 clearance = 2.000 mm`.
+
+Only these portions and their endpoint transitions may change. A transition must lie in both the network ribbon buffered by **0.50 mm** and the **0.50 mm neighborhood of that indexed original portion's endpoint**. Its centerline remains within **0.50 mm** of the indexed original guide; preserve every other portion of the manufacturing guide paths. Split shared edge 101:1 at the 7/8 junction and use the corresponding miter intersection, rather than moving the whole edge twice. At other consecutive portions, use bounded miter/rounded joins with independently compliant gold and ink widths; nominal straight sections do not certify joins.
+
+Rounded ink terminals are permitted only as an indexed cap of the **same existing channel**, with a full >=0.25 mm disk at the terminal and no positive-length sub-width approach. They must retain protected radial gold, guide strands, all nine rim cores and the channel's existing connectivity; do not create a new enclosed ink pocket, erase a channel or extend any of the four older gold-merge patches. A short cross-sectional chord through the end of a valid round cap is not itself a thin branch. Prove the complete terminal/approach boundary; do not exempt a channel because a larger disk fits elsewhere. Reject any transition that needs a larger envelope, loss of a strand, alteration of an unrelated guide or a new connection. Record that blocker for a decision, not an automatic repair.
+
+The new network envelope can overlap the older patch neighborhoods at junctions; the old claim of disjointness applied only to the 7/8 ribbon. **The four actual gold patch geometries still remain unchanged.** Reconcile intermediate-stage hashes and separately ledger all new material, guide and terminal changes. Preserve the approved radial motif and flat gold appearance. Rebuild hidden copper only after final mask validation; all 0.25 mm copper/gold/ink rules and 0.35 mm mask setbacks remain in force.
+
+Require full-board and enlarged **actual finished-art** comparisons, both-phase within-component width proofs, exact indexed geometry checks, support/bridge/backing/registration invariants, cutter-center/plunge/finite-path evidence and independent native/CAM checks. `spider-network-comparison.png` compares material only and does not approve the finished artwork. Reproduce the decision and its tests with:
+
+```sh
+uv run --python 3.13 --with shapely==2.1.2 --with pillow python artwork-resources/pcb-art/manufacturing/probe_spider_network.py
+uv run --python 3.13 --with shapely==2.1.2 --with pillow python -m unittest discover -s artwork-resources/pcb-art/manufacturing/tests -p 'test_spider_network.py'
+```
+
+No production or factory acceptance is granted. This amendment retains the conservative process targets; it is not a process-class relaxation and cannot pass any measured 0.08 mm channel.
+
 ## Separate manufacturing artifacts and tests
 
 Never modify `preview-source/assets/geometry.json`, `reference-revision4.json`, `reference-revision3.json`, the historic tests, or imported evidence to make corrections pass. In particular, `preview-source/tests/rev5_gold.py` continues to compare the approved Rev5 and immutable Rev4 inputs, retaining exact physical/lower-art assertions. New manufacturing code must load the frozen input, apply explicit indexed deltas, and emit **a separately named manufacturing geometry artifact** with provenance. Do not repoint the reference test, preview, manifest or screenshots to corrected shapes without labeling the artifact's role. The production exporter must read that new artifact explicitly.
