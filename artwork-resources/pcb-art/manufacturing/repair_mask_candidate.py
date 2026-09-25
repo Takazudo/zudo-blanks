@@ -11,7 +11,7 @@ import json
 from pathlib import Path
 
 import shapely
-from shapely.geometry import LineString, Point, Polygon
+from shapely.geometry import LineString, Point, Polygon, box
 from shapely.ops import nearest_points, unary_union
 from shapely.strtree import STRtree
 
@@ -82,11 +82,13 @@ def merge_spider_web_slivers(design,layer,body,mask,records):
     normalized_hash=digest(shapely.normalize(mask).wkb)
     example=evidence['implementationExample']
     rib_local=False
+    network_local=False
     if normalized_hash!=example['preMergeMaskNormalizedWkbSha256']:
-        rib_rule=next(item for item in policy['errata'] if item['id']==
-                      'spider-l01-rib-width-2026-09-25')
-        if digest((HERE/rib_rule['evidence']).read_bytes())!=rib_rule['evidenceSha256']:
-            raise ValueError('Spider rib decision evidence hash changed')
+        network_rule=next(item for item in policy['errata'] if item['id']==
+                          'spider-l01-complete-network-2026-09-25')
+        if digest((HERE/network_rule['evidence']).read_bytes())!=network_rule['evidenceSha256']:
+            raise ValueError('Spider network decision evidence hash changed')
+        network_decision=json.loads((HERE/network_rule['evidence']).read_text())
         stage=json.loads((HERE/'spider-prior-stage.json').read_text())
         if stage['priorChannelEvidenceSha256']!=digest((HERE/rule['evidence']).read_bytes()):
             raise ValueError('Captured pre-rib implementation evidence changed')
@@ -94,15 +96,19 @@ def merge_spider_web_slivers(design,layer,body,mask,records):
         if digest(shapely.normalize(prior).wkb)!=example[
                 'preMergeMaskNormalizedWkbSha256']:
             raise ValueError('Captured pre-rib Spider mask hash changed')
-        ribbon=LineString(rib_rule['centerlineMm']).buffer(
-            rib_rule['ribbonWidthMm']/2,cap_style='flat',join_style='mitre')
+        ribbon=unary_union([LineString(path['pointsMm']).buffer(
+            network_rule['ribbonWidthMm']/2,cap_style='flat',join_style='mitre')
+            for path in network_decision['paths']])
         captured_body=shapely.from_wkb(bytes.fromhex(evidence['candidateBodyWkbHex']))
         if (captured_body.difference(body).area>.00001 or
-                body.difference(captured_body).area>rib_rule['maximumCombinedAdditionAreaMm2']):
-            raise ValueError('Spider body differs beyond bounded rib addition')
-        if mask.symmetric_difference(prior).difference(ribbon.buffer(.5)).area>.00001:
-            raise ValueError('Spider pre-merge mask changed outside rib/guide envelope')
+                body.difference(captured_body).area>network_rule['maximumCombinedAdditionAreaMm2']):
+            raise ValueError('Spider body differs beyond bounded network addition')
+        if shapely.set_precision(mask,.000001).symmetric_difference(
+                shapely.set_precision(prior,.000001)).difference(
+                    ribbon.buffer(.500001)).area>.00001:
+            raise ValueError('Spider pre-merge mask changed outside network/guide envelope')
         rib_local=True
+        network_local=True
     parts=export.ordered(mask)
     measured={(0,1):.034614,(0,5):.044372,(0,2):.002574}
     source_strokes={(0,1):[41,111],(0,5):[33,97],(0,2):[38,112]}
@@ -144,7 +150,7 @@ def merge_spider_web_slivers(design,layer,body,mask,records):
             'patchWkbHex':patch.wkb_hex,
         })
     result=rounded(mask.union(additions))
-    if rib_local:
+    if rib_local and not network_local:
         # Two enclosed black channels terminate as sub-width pointed pockets
         # inside the newly widened rib. Round only those source-indexed ends;
         # an open third channel continues beyond the authorized rib envelope.
@@ -177,10 +183,13 @@ def merge_spider_web_slivers(design,layer,body,mask,records):
         if abs(terminal_additions.area-.215574956)>.0001:
             raise ValueError('Spider indexed terminal cap area changed')
         result=rounded(result.union(terminal_additions))
+    if rib_local:
         prior_final=shapely.from_wkb(bytes.fromhex(stage['preRibFinalMaskWkbHex']))
         if digest(prior_final.wkb)!=stage['preRibFinalMaskWkbSha256']:
             raise ValueError('Captured pre-rib final Spider mask hash changed')
-        if result.symmetric_difference(prior_final).difference(ribbon.buffer(.5)).area>.00001:
+        if shapely.set_precision(result,.000001).symmetric_difference(
+                shapely.set_precision(prior_final,.000001)).difference(
+                    ribbon.buffer(.500001)).area>.00001:
             raise ValueError('Spider final mask changed outside rib/guide envelope')
     if list(pairs(result)):
         raise ValueError('Spider indexed channel merge left a narrow black web')
@@ -467,6 +476,47 @@ def corrected_mask(design,layer,spec,original_layer,actions):
             'addedWkbSha256':digest(added.wkb),
             'removedWkbSha256':digest(removed.wkb),
         })
+        # Two short nominally 0.251 mm angular source joins disappear under
+        # erosion even though the positive miter residue is nearly zero.
+        # Restore only their indexed butt/round junctions.
+        junctions=[
+            ([24,29],LineString([(1.4173,28.6187),(1.4538,28.5248)])),
+            ([19,23],Point(4.2741,31.5871)),
+        ]
+        neck_patches=[]
+        for indices,center in junctions:
+            patch=center.buffer(.1255,quad_segs=64)
+            if patch.difference(unary_union([source_strokes[i] for i in indices]).buffer(
+                    .5,quad_segs=64)).area>.00001:
+                raise ValueError('Fault indexed eroded-core neck exceeds source reach')
+            neck_patches.append(patch)
+            records.append({
+                'operation':'restore indexed Fault gold butt/round neck',
+                'originalArtStrokePairIndices0':indices,
+                'originalStrokeWkbSha256':[digest(source_strokes[i].wkb)
+                                           for i in indices],
+                'centerMm':[[round(x,9),round(y,9)] for x,y in center.coords]
+                           if center.geom_type=='LineString' else
+                           [[round(center.x,9),round(center.y,9)]],
+                'nominalWidthMm':.251,
+                'patchWkbSha256':digest(patch.wkb),
+            })
+        neck_union=unary_union(neck_patches)
+        with_necks=rounded(repaired.union(neck_union))
+        neck_added=with_necks.difference(repaired)
+        if (abs(neck_added.area-.014198473)>.00001 or
+                neck_added.difference(safe_region(layer,body,'mask')).area>.00001 or
+                len(export.polygons(with_necks))!=original_parts or
+                sum(len(p.interiors) for p in export.polygons(with_necks))!=original_pockets or
+                protected.difference(with_necks).area>.00001):
+            raise ValueError('Fault indexed eroded-core neck geometry/topology changed')
+        records.append({
+            'operation':'bounded Fault eroded-core neck additions',
+            'sourceArtStrokePairs0':[item[0] for item in junctions],
+            'goldAddedAreaMm2':round(neck_added.area,9),
+            'goldAddedWkbSha256':digest(neck_added.wkb),
+        })
+        repaired=with_necks
         mask=repaired
     if design['id']=='kumiko-void' and layer['index'] in (0,3,6):
         mask=shapely.from_wkb(mask.wkb)
@@ -506,6 +556,46 @@ def corrected_mask(design,layer,spec,original_layer,actions):
             radius,join_style='mitre',quad_segs=64)
         if mask.difference(reconstructed).area>.00001:
             raise ValueError('Kumiko tip caps left a positive-width residue')
+        if layer['index']==0:
+            # Open only the upper, explicitly black fill-137 facet beside the
+            # protected left rail rim. The lower 116/117 facet is separate.
+            upper=original_layer['art']['fills'][137]
+            if upper.get('color')!='#15161a':
+                raise ValueError('Kumiko upper black facet paint changed')
+            local=box(15.85,123.2,17.1,124.85)
+            rect=box(15.925,123.3,16.175,124.7).difference(protected)
+            guide=LineString([(16.175,124.036575),(16.389,123.9131),
+                              (16.610596,123.967345)])
+            band=guide.offset_curve(-.1255).buffer(.1255,quad_segs=64)
+            before=mask
+            mask=rounded(mask.difference(rect.union(band)))
+            cap_areas=[]
+            for _ in range(2):
+                reconstructed=mask.buffer(-radius,join_style='mitre',quad_segs=64).buffer(
+                    radius,join_style='mitre',quad_segs=64)
+                cap=mask.difference(reconstructed).intersection(local)
+                cap_areas.append(round(cap.area,9))
+                mask=rounded(mask.difference(cap))
+            changed=before.difference(mask)
+            if (abs(changed.area-.299322758)>.00001 or
+                    mask.difference(before).area>.00001 or
+                    changed.difference(local).area>.00001 or
+                    protected.difference(mask).area>.00001 or
+                    len(export.polygons(mask))!=original_parts or
+                    len(export.polygons(body.difference(mask)))!=64):
+                raise ValueError('Kumiko upper black facet retreat changed envelope/topology')
+            records.append({
+                'operation':'retreat gold beside indexed Kumiko upper black facet',
+                'originalBlackArtFillIndex0':137,
+                'originalBlackFillWkbSha256':digest(Polygon(upper['pts']).wkb),
+                'protectedRailSlotArtStrokeIndex0':7,
+                'guideCenterlineMm':list(map(list,guide.coords)),
+                'guideOffsetMm':-.1255,
+                'bandRadiusMm':.1255,
+                'localCapAreaMm2':cap_areas,
+                'goldRemovedAreaMm2':round(changed.area,9),
+                'goldRemovedWkbSha256':digest(changed.wkb),
+            })
     if design['id']=='woven-maze' and layer['index']==0:
         if any(item.get('color') for key in ('fills','strokes')
                for item in original_layer['art'][key]):

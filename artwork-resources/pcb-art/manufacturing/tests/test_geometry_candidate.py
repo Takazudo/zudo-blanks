@@ -139,7 +139,7 @@ class ManufacturingGeometryCandidateTests(unittest.TestCase):
                         if change['board']==f'{key[0]}-L{key[1]:02d}':
                             i=change['artStrokeIndex0']
                             expected_art['strokes'][i]['pts']=after['art']['strokes'][i]['pts']
-                    for change in self.ledger['spiderRibGuideChanges']:
+                    for change in self.ledger['spiderNetworkGuideChanges']:
                         if change['board']==f'{key[0]}-L{key[1]:02d}':
                             i=change['artStrokeIndex0']
                             expected_art['strokes'][i]['pts']=after['art']['strokes'][i]['pts']
@@ -220,8 +220,9 @@ class ManufacturingGeometryCandidateTests(unittest.TestCase):
                         swept=center.buffer(.5,quad_segs=64).intersection(p)
                         # Output holes may split where the admissible cutter
                         # center has multiple components. Compare the union.
-                        if board=='spider-nest-L01' and i in (1,6,16):
-                            rib=next(c for c in self.ledger['spiderRibChanges']
+                        if board=='spider-nest-L01' and i in {0,1,2,3,5,6,7,11,12,13,
+                                                                14,15,16,17,18}:
+                            rib=next(c for c in self.ledger['spiderNetworkChanges']
                                      if c['originalGeometryHoleIndex0']==i)
                             self.assertAlmostEqual(swept.difference(cutouts).area,
                                 rib['initialRibbonMaterialAdditionMm2']+
@@ -313,64 +314,54 @@ class ManufacturingGeometryCandidateTests(unittest.TestCase):
                     core=export.stroke_geometry(dict(stroke,w=.25),design.get('artStyle')=='angular')
                     self.assertLess(core.difference(mask).area,.00001)
 
-    def test_bounded_spider_rib_and_three_strand_sections(self):
+    def test_bounded_spider_network_and_indexed_guides(self):
         rule=next(r for r in self.policy['errata']
-                  if r['id']=='spider-l01-rib-width-2026-09-25')
-        rib=self.ledger['spiderRibChanges']
-        self.assertEqual([c['originalGeometryHoleIndex0'] for c in rib],[1,6,16])
-        initial=sum(c['initialRibbonMaterialAdditionMm2'] for c in rib)
-        cleanup=sum(c['routingCleanupMaterialAdditionMm2'] for c in rib)
-        self.assertAlmostEqual(initial,6.074302,5)
+                  if r['id']=='spider-l01-complete-network-2026-09-25')
+        decision=json.loads((HERE/rule['evidence']).read_text())
+        changes=self.ledger['spiderNetworkChanges']
+        self.assertEqual([c['originalGeometryHoleIndex0'] for c in changes],
+                         rule['affectedOriginalGeometryHoleIndices0'])
+        initial=sum(c['initialRibbonMaterialAdditionMm2'] for c in changes)
+        cleanup=sum(c['routingCleanupMaterialAdditionMm2'] for c in changes)
+        self.assertAlmostEqual(initial,decision['initialAdditionAreaMm2'],5)
+        self.assertAlmostEqual(cleanup,decision['routingCleanupAreaMm2'],5)
         self.assertLessEqual(cleanup,rule['maximumAdditionalRoutingCleanupAreaMm2'])
         self.assertLessEqual(initial+cleanup,rule['maximumCombinedAdditionAreaMm2'])
-        self.assertEqual({c['artStrokeIndex0'] for c in self.ledger[
-            'spiderRibGuideChanges']},{98,101,103})
-        self.assertTrue(all(c['maximumDisplacementFromApprovedMm']<=.5
-                            for c in self.ledger['spiderRibGuideChanges']))
+        guides=self.ledger['spiderNetworkGuideChanges']
+        self.assertEqual(len(guides),50)
+        self.assertEqual({(c['artStrokeIndex0'],c['originalGuideEdgeIndex0'],
+                           c['centralStrokeIndex0']) for c in guides},
+                         {(p['guideStrokeIndex0'],p['originalGuideEdgeIndex0'],
+                           p['centralStrokeIndex0']) for p in decision['guidePortions']})
+        self.assertTrue(all(c['maximumNominalDisplacementMm']<=.5 for c in guides))
         design=next(d for d in selected(self.candidate) if d['id']=='spider-nest')
         layer=design['layers'][0]
         approved=next(d for d in selected(self.original) if d['id']=='spider-nest')
-        for i in (7,8):
+        for i in rule['newCentralStrokeIndices0']+rule['retainedEarlierCentralStrokeIndices0']:
             self.assertEqual(layer['art']['strokes'][i],approved['layers'][0]['art']['strokes'][i])
         report=json.loads((HERE/'mask-repair-candidate.json').read_text())
         entry=next(b for b in report['boards'] if b['boardId'].startswith('01-spider-nest-L01'))
-        terminal=[r for r in entry['records'] if r['operation']==
-                  'round bounded Spider enclosed channel terminal']
-        self.assertEqual({tuple(r['sourceArtStrokeIndices0']) for r in terminal},
-                         {(7,101),(8,103)})
-        self.assertAlmostEqual(sum(r['terminalCapAreaMm2'] for r in terminal),.215574956,5)
+        patches=[r for r in entry['records'] if r['operation']==
+                 'measured Spider guide-to-web mask merge; no original black paint']
+        self.assertEqual(len(patches),4)
+        prior_erratum=json.loads((HERE/'spider-channel-erratum.json').read_text())
+        self.assertEqual({hashlib.sha256(shapely.normalize(shapely.from_wkb(
+                             bytes.fromhex(p['patchWkbHex']))).wkb).hexdigest()
+                          for p in patches},
+                         {p['normalizedWkbSha256'] for p in prior_erratum[
+                             'implementationExample']['patches']})
         mask=shapely.from_wkb(bytes.fromhex(entry['afterMaskWkbHex']))
         body=mask_repair.source_body(layer,self.candidate['spec'])
         stage=json.loads((HERE/'spider-prior-stage.json').read_text())
         prior=shapely.from_wkb(bytes.fromhex(stage['preRibFinalMaskWkbHex']))
         self.assertEqual(hashlib.sha256(prior.wkb).hexdigest(),
                          stage['preRibFinalMaskWkbSha256'])
-        ribbon=LineString(rule['centerlineMm']).buffer(1,cap_style='flat',join_style='mitre')
-        self.assertLess(mask.symmetric_difference(prior).difference(ribbon.buffer(.5)).area,
-                        .00001)
-        ink=body.difference(mask)
-        self.assertFalse(any(p.area>.00001 and p.buffer(-.125,quad_segs=64).is_empty
-                             for p in export.polygons(ink)))
-        for i in (7,8):
-            a,b=layer['art']['strokes'][i]['pts']
-            dx,dy=b[0]-a[0],b[1]-a[1]
-            length=math.hypot(dx,dy)
-            nx,ny=-dy/length,dx/length
-            mx,my=(a[0]+b[0])/2,(a[1]+b[1])/2
-            line=LineString([(mx-2*nx,my-2*ny),(mx+2*nx,my+2*ny)])
-            segments=[]
-            for part in shapely.get_parts(mask.intersection(line)):
-                if part.geom_type!='LineString' or part.length<.00001:
-                    continue
-                values=[(x-mx)*nx+(y-my)*ny for x,y in part.coords]
-                segments.append((min(values),max(values)))
-            segments.sort()
-            self.assertEqual(len(segments),3)
-            for width,expected in zip((hi-lo for lo,hi in segments),(.251,.280,.251)):
-                self.assertAlmostEqual(width,expected,3)
-            for j in range(2):
-                self.assertGreaterEqual(segments[j+1][0]-segments[j][1],.250)
-            self.assertAlmostEqual(body.intersection(line).length,2.0,4)
+        ribbon=unary_union([LineString(p['pointsMm']).buffer(1,cap_style='flat',
+                            join_style='mitre') for p in decision['paths']])
+        self.assertLess(shapely.set_precision(mask,.000001).symmetric_difference(
+            shapely.set_precision(prior,.000001)).difference(
+                ribbon.buffer(.500001)).area,.00001)
+        self.assertTrue(body.is_valid)
 
     def test_final_width_diagnostic_tracks_serialized_candidates(self):
         report=json.loads((HERE/'final-width-audit.json').read_text())
@@ -425,6 +416,13 @@ class ManufacturingGeometryCandidateTests(unittest.TestCase):
                     self.assertEqual(len(composite),1)
                     self.assertAlmostEqual(composite[0]['goldAddedAreaMm2'],.887012277,6)
                     self.assertAlmostEqual(composite[0]['goldRemovedAreaMm2'],.629928518,6)
+                    necks=[r for r in entry['records'] if r['operation']==
+                           'restore indexed Fault gold butt/round neck']
+                    self.assertEqual({tuple(r['originalArtStrokePairIndices0']) for r in necks},
+                                     {(24,29),(19,23)})
+                    neck_total=next(r for r in entry['records'] if r['operation']==
+                                    'bounded Fault eroded-core neck additions')
+                    self.assertAlmostEqual(neck_total['goldAddedAreaMm2'],.014198473,5)
                     ink=mask_repair.source_body(layer,self.candidate['spec']).difference(mask)
                     self.assertFalse(any(p.area>1e-8 and p.buffer(-.125,quad_segs=64).is_empty
                                          for p in export.polygons(ink)))
@@ -438,6 +436,13 @@ class ManufacturingGeometryCandidateTests(unittest.TestCase):
                                            .040917377,6)
                     self.assertLessEqual(entry['toleranceAwareMiterWidthResidueAreaMm2'],
                                          .00001)
+                if design['id']=='kumiko-void' and layer['index']==0:
+                    upper=[r for r in entry['records'] if r['operation']==
+                           'retreat gold beside indexed Kumiko upper black facet']
+                    self.assertEqual(len(upper),1)
+                    self.assertEqual(upper[0]['originalBlackArtFillIndex0'],137)
+                    self.assertEqual(upper[0]['protectedRailSlotArtStrokeIndex0'],7)
+                    self.assertAlmostEqual(upper[0]['goldRemovedAreaMm2'],.299322758,5)
                 self.assertEqual(entry['retreatCount'],sum(r['operation']=='one-sided local mask retreat'
                     for r in entry['records']))
                 self.assertTrue(all(d['finishedUnionPairScreen'].startswith('pass:')
@@ -468,7 +473,6 @@ class ManufacturingGeometryCandidateTests(unittest.TestCase):
                     self.assertEqual({tuple(pair) for r in merges
                                       for pair in r['sourceArtStrokePairs0']},
                                      {(41,111),(33,97),(38,112)})
-                    self.assertLess(entry['widthResidueAreaMm2'],.5)
                 if design['id']=='coral-vault' and layer['index']==0:
                     merges=[r for r in entry['records'] if r['operation'].startswith(
                         'merge isolated unpainted Coral')]

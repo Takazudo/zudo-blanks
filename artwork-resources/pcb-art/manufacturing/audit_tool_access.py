@@ -17,6 +17,10 @@ def run():
     candidate_path=HERE/'manufacturing-geometry.json'
     ledger_path=HERE/'indexed-deltas.json'
     source=json.loads(source_path.read_text())
+    policy=json.loads((HERE/'policy.json').read_text())
+    network_rule=next(rule for rule in policy['errata'] if rule['id']==
+                      'spider-l01-complete-network-2026-09-25')
+    network_indices=set(network_rule['affectedOriginalGeometryHoleIndices0'])
     candidate=json.loads(candidate_path.read_text())
     ledger=json.loads(ledger_path.read_text())
     indexed={(c['board'],c['geometryHoleIndex0']):c for c in ledger['changes']}
@@ -34,8 +38,8 @@ def run():
                 original=Polygon(points)
                 if any(original.covers(Point(d['x'],d['y'])) for d in drills):
                     continue
-                rib_affected=board=='spider-nest-L01' and index in (1,6,16)
-                aperture=corrected_cutouts.intersection(original) if rib_affected else original
+                network_affected=board=='spider-nest-L01' and index in network_indices
+                aperture=corrected_cutouts.intersection(original) if network_affected else original
                 center=aperture.buffer(-.5,quad_segs=64)
                 change=indexed.get((board,index))
                 if center.is_empty:
@@ -93,7 +97,7 @@ def run():
                     raise ValueError(f'{board} H{index}: indexed center count changed')
                 records.append({'board':board,'originalHoleIndex0':index,
                                 'status':'admissible component plunge domains',
-                                'ribCorrectedAperture':rib_affected,
+                    'networkCorrectedAperture':network_affected,
                                 'components':components})
     split=[r for r in records if len(r['components'])>1]
     if {(r['board'],r['originalHoleIndex0']) for r in split}!={

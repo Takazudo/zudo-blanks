@@ -47,17 +47,17 @@ removes indexed isolated gold fragments that cannot contain a 0.25 mm disk,
 and applies indexed local one-sided retreats to clear distinct-component mask
 gaps. Three measured Spider guide-to-web slivers instead use exactly four
 indexed closing patches with no original black paint; the patches add
-29.892211 mm² of gold and retain the web. The bounded Spider rib amendment
-adds 6.07430225 mm² of material along the exact 2.0 mm flat-cap ribbon plus
-0.190851826 mm² of cutter cleanup on original holes 1/6/16. Only guide portions
-98/101/103 move; source central strokes 7/8 and all four earlier channel
-patches remain intact. Both straight rib midsections have three gold strands
-of 0.251/0.280/0.251 mm and two 0.251 mm black channels. The two previously
-isolated no-disk black channels receive two source-indexed rounded terminal
-caps, adding 0.215575 mm² of gold inside the rib/guide envelope. The open
-channel continuing beside stroke 6 and other Spider web channels still fail
-the black-width rule; transition widths still need the full boundary-run
-proof. It preserves the nine protected top
+29.892211 mm² of gold and retain the web. The complete Spider network
+decision supersedes the earlier single rib: one exact union from the captured
+pre-rib body adds 73.921152 mm², then the indexed cutter cleanup adds
+2.208271 mm² across 15 original apertures. Fifty evidence-indexed guide
+portions move, with the source central strokes and four earlier channel patches
+retained. The serialized holes are valid and the finite cutter ledger still
+covers all 754 original aperture records. The present network artwork remains
+diagnostic: seven black components have no 0.25 mm disk, including three long
+channels beside source strokes 12/20/22 omitted by the bounded decision survey.
+These need a further design decision; the candidate does not pass black width
+or transition checks. It preserves the nine protected top
 rim cores and stays within each 30% gold-loss budget. Coral L01 has five
 source-indexed neck-centerline relocations, 19 indexed unpainted rim-island
 merges and a 0.251 mm local gold corridor bound to strokes 527/524. That
@@ -69,13 +69,18 @@ pocket counts. Three indexed Fault black pockets between source strokes
 16/52, 20/52 and 16/57 are locally widened with compensating gold restoration
 and caps; the composite adds 0.887012277 mm², removes 0.629928518 mm², keeps
 six gold components and all rim cores, and leaves no no-disk ink component.
+Two source-pair-indexed Fault butt/round joins at 24/29 and 19/23 add
+0.014198 mm² gold and reconnect two eroded-core branches near the top cliff.
+One Kumiko top black facet beside fill 137 and rail rim 7 receives an indexed
+0.299323 mm² gold retreat; its lower 116/117 facet remains open.
 Eight source-indexed unpainted Woven L01 terminal ink tips along strokes
 8–11 receive 0.040917 mm² of bounded gold caps. Its serialized negative-mask
 miter residue falls below 0.000001 mm² while retaining twelve gold paths,
 their twelve openings, and all thirteen black components.
-Other Coral width candidates, Spider transition widths, Fault/Kumiko remaining
-black-mask necks, and copper within-component width remain open. Direct erosion of Fault's
-artwork splits its main gold component, so it remains only a diagnostic.
+Other Coral width candidates, Spider network/transition widths, Fault/Kumiko
+remaining black-mask necks, and copper within-component width remain open.
+Direct erosion of Fault's artwork still splits one main gold core after the
+indexed neck additions.
 
 `generate_native.py` writes all 43 selected `.kicad_pcb` files and per-board
 `.kicad_pro` configurations into the five panel homes. It checks every

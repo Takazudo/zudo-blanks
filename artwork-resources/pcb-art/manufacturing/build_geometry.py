@@ -15,7 +15,7 @@ from pathlib import Path
 
 import shapely
 from shapely.geometry import LineString, Point, Polygon, box
-from shapely.ops import nearest_points, unary_union
+from shapely.ops import nearest_points, substring, unary_union
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
@@ -36,9 +36,118 @@ def ring_hash(points) -> str:
     return digest(json.dumps(points, separators=(',', ':')).encode())
 
 
-def manufacturing_ring(ring):
-    points = [[round(x, 9), round(y, 9)] for x, y in ring.coords]
+def manufacturing_ring(ring,digits=9):
+    points = [[round(x, digits), round(y, digits)] for x, y in ring.coords]
     return points[:-1] if points[-1] == points[0] else points
+
+
+def relocate_spider_network_guides(layer,original_layer,decision,network,source_hash):
+    """Insert only the evidence-indexed straight guide portions and short joins."""
+    by_stroke={}
+    for portion in decision['guidePortions']:
+        by_stroke.setdefault(portion['guideStrokeIndex0'],[]).append(portion)
+    changes=[]
+    for stroke_index,portions in sorted(by_stroke.items()):
+        stroke=layer['art']['strokes'][stroke_index]
+        source=original_layer['art']['strokes'][stroke_index]
+        before=copy.deepcopy(stroke['pts'])
+        original=source['pts']
+        if stroke['w']!=.251:
+            raise ValueError(f'Spider guide {stroke_index} width changed')
+        source_line=LineString(original)
+        generic_line=LineString(before)
+        source_edge_starts=[0.0]
+        for a,b in zip(original,original[1:]):
+            source_edge_starts.append(source_edge_starts[-1]+math.dist(a,b))
+        edge_distances={}
+        def generic_edge_distance(vertex_index):
+            guess=(source_edge_starts[vertex_index]/source_line.length*
+                   generic_line.length)
+            low=max(0.0,guess-2.0)
+            high=min(generic_line.length,guess+2.0)
+            local=substring(generic_line,low,high)
+            distance=low+local.project(Point(original[vertex_index]))
+            if generic_line.interpolate(distance).distance(
+                    Point(original[vertex_index]))>.15:
+                raise ValueError(f'Spider guide {stroke_index} edge-local mapping drift')
+            return distance
+        intervals=[]
+        for p in portions:
+            if p['originalGuideContourSha256']!=ring_hash(original):
+                raise ValueError(f'Spider guide {stroke_index} source hash changed')
+            j=p['originalGuideEdgeIndex0']
+            a,b=original[j:j+2]
+            if p['originalEdgeMm']!=[a,b]:
+                raise ValueError(f'Spider guide {stroke_index} edge {j} changed')
+            dx,dy=b[0]-a[0],b[1]-a[1]
+            length2=dx*dx+dy*dy
+            original_ends=p['originalPortionMm']
+            nominal_ends=p['nominalRelocatedPortionMm']
+            t=[((pt[0]-a[0])*dx+(pt[1]-a[1])*dy)/length2
+               for pt in original_ends]
+            if t[0]>t[1]:
+                t.reverse()
+                original_ends=list(reversed(original_ends))
+                nominal_ends=list(reversed(nominal_ends))
+            if t[0]<-.000001 or t[1]>1.000001:
+                raise ValueError('Spider guide portion leaves its original edge')
+            for old,new in zip(original_ends,nominal_ends):
+                if math.dist(old,new)>.5:
+                    raise ValueError('Spider guide nominal displacement exceeded .5 mm')
+            if j not in edge_distances:
+                edge_distances[j]=(generic_edge_distance(j),generic_edge_distance(j+1))
+            edge_start,edge_end=edge_distances[j]
+            d0=edge_start+max(0,t[0])*(edge_end-edge_start)
+            d1=edge_start+min(1,t[1])*(edge_end-edge_start)
+            for at,original_point in ((d0,original_ends[0]),(d1,original_ends[1])):
+                if generic_line.interpolate(at).distance(Point(original_point))>.15:
+                    raise ValueError('Spider guide portion leaves source-edge-local mapping')
+            intervals.append((d0,d1,nominal_ends,p,j))
+        revised=[before[0]]
+        previous=0.0
+        for d0,d1,(start,end),p,j in sorted(intervals,key=lambda row:row[0]):
+            if d0<previous-.000001:
+                raise ValueError(f'Spider guide {stroke_index} portions overlap')
+            if d0>previous+.000001:
+                retained=substring(generic_line,previous,d0)
+                revised.extend([list(coord) for coord in retained.coords])
+            revised.extend([[round(v,9) for v in start],
+                            [round(v,9) for v in end]])
+            previous=d1
+            changes.append({
+                    'board':'spider-nest-L01',
+                    'artStrokeIndex0':stroke_index,
+                    'originalGuideEdgeIndex0':j,
+                    'centralStrokeIndex0':p['centralStrokeIndex0'],
+                    'sourceGeometrySha256':source_hash,
+                    'sourceContourSha256':ring_hash(original),
+                    'originalPortionMm':p['originalPortionMm'],
+                    'nominalRelocatedPortionMm':p['nominalRelocatedPortionMm'],
+                    'maximumNominalDisplacementMm':p['maximumNominalDisplacementMm'],
+                    'operation':'relocate exact Spider network guide portion with bounded endpoint join',
+            })
+        if previous<generic_line.length-.000001:
+            retained=substring(generic_line,previous,generic_line.length)
+            revised.extend([list(coord) for coord in retained.coords])
+        compact=[]
+        for point in revised:
+            if not compact or math.dist(point,compact[-1])>1e-7:
+                compact.append(point)
+        if math.dist(compact[0],compact[-1])<1e-7:
+            compact[-1]=compact[0]
+        line=LineString(compact)
+        if LineString(original).hausdorff_distance(line)>.5:
+            raise ValueError(f'Spider guide {stroke_index} exceeds .5 mm source reach')
+        if line.difference(network.buffer(.5)).difference(
+                LineString(before).buffer(.5)).length>.00001:
+            raise ValueError(f'Spider guide {stroke_index} leaves network/end envelope')
+        stroke['pts']=compact
+        for change in changes:
+            if change['artStrokeIndex0']==stroke_index:
+                change['afterContourSha256']=ring_hash(compact)
+    if len(changes)!=50:
+        raise ValueError(f'Spider network expected 50 indexed portions, found {len(changes)}')
+    return changes
 
 
 def run() -> None:
@@ -52,20 +161,48 @@ def run() -> None:
     stroke_width_changes = []
     art_guide_changes = []
     art_neck_changes = []
-    spider_rib_changes = []
-    spider_rib_guide_changes = []
+    spider_network_changes = []
+    spider_network_guide_changes = []
     art_fill_changes = []
     closed = set()
-    rib_rule=next(rule for rule in policy['errata']
-                  if rule['id']=='spider-l01-rib-width-2026-09-25')
-    rib_evidence=json.loads((HERE/rib_rule['evidence']).read_text())
-    assert digest((HERE/rib_rule['evidence']).read_bytes())==rib_rule['evidenceSha256']
-    rib=LineString(rib_rule['centerlineMm']).buffer(
-        rib_rule['ribbonWidthMm']/2,cap_style='flat',join_style='mitre')
+    network_rule=next(rule for rule in policy['errata']
+                      if rule['id']=='spider-l01-complete-network-2026-09-25')
+    if digest((HERE/network_rule['evidence']).read_bytes())!=network_rule['evidenceSha256']:
+        raise ValueError('Spider network decision evidence hash changed')
+    network_decision=json.loads((HERE/network_rule['evidence']).read_text())
+    if digest((HERE/network_rule['surveyInput']).read_bytes())!=network_rule[
+            'surveyInputSha256']:
+        raise ValueError('Spider network survey input changed')
+    network=unary_union([LineString(path['pointsMm']).buffer(
+        network_rule['ribbonWidthMm']/2,cap_style='flat',join_style='mitre')
+        for path in network_decision['paths']])
     captured_body=shapely.from_wkb(bytes.fromhex(json.loads(
         (HERE/'spider-channel-erratum.json').read_text())['candidateBodyWkbHex']))
-    assert digest(shapely.normalize(rib.difference(captured_body)).wkb)==rib_rule[
-        'initialAdditionNormalizedWkbSha256']
+    if digest(shapely.normalize(captured_body).wkb)!=network_rule[
+            'baseBodyNormalizedWkbSha256']:
+        raise ValueError('Spider pre-rib body changed')
+    network_initial=captured_body.union(network)
+    network_initial_delta=network_initial.difference(captured_body)
+    if digest(shapely.normalize(network_initial_delta).wkb)!=network_rule[
+            'initialAdditionNormalizedWkbSha256']:
+        raise ValueError('Spider exact initial network addition changed')
+    source_spider=next(d for d in data['designs'] if d['id']=='spider-nest')
+    original_decorative={i:Polygon(points) for i,points in enumerate(
+        source_spider['layers'][0]['holes']) if i in network_rule[
+        'affectedOriginalGeometryHoleIndices0']}
+    network_apertures={}
+    for interior in network_initial.interiors:
+        aperture=Polygon(interior)
+        matches=[i for i,original in original_decorative.items()
+                 if aperture.intersection(original).area>.01]
+        if matches:
+            index=max(matches,key=lambda i:aperture.intersection(original_decorative[i]).area)
+            if index in network_apertures:
+                raise ValueError(f'Spider network aperture {index} split')
+            network_apertures[index]=aperture
+    if set(network_apertures)!=set(original_decorative):
+        raise ValueError('Spider network aperture inventory changed')
+    network_tool={row['originalGeometryHoleIndex0']:row for row in network_decision['toolAccess']}
     for family in data['designs']:
         if family['id'] == 'kumiko-void':
             designs = [next(d for d in family['variants'] if d.get('variantId') == 'wide')]
@@ -92,27 +229,51 @@ def run() -> None:
                         if center.is_empty:
                             raise ValueError(f'{board}: unindexed aperture closure at {index}')
                         after = center.buffer(.5, quad_segs=64).intersection(hole)
-                        if board=='spider-nest-L01' and index in (1,6,16):
-                            initial=after.difference(rib)
+                        if board=='spider-nest-L01' and index in network_apertures:
+                            initial=network_apertures[index]
+                            proof=network_tool[index]
+                            if digest(shapely.normalize(initial).wkb)!=proof[
+                                    'initialApertureNormalizedWkbSha256']:
+                                raise ValueError(f'{board}: network aperture {index} hash changed')
                             routed_center=initial.buffer(-.5,quad_segs=64)
                             if routed_center.is_empty:
-                                raise ValueError(f'{board}: rib closed aperture {index}')
-                            routed=routed_center.buffer(.5,quad_segs=64).intersection(initial)
-                            spider_rib_changes.append({
+                                raise ValueError(f'{board}: network closed aperture {index}')
+                            swept=routed_center.buffer(.5,quad_segs=64).intersection(initial)
+                            cleanup=initial.difference(swept)
+                            routed=initial.difference(cleanup)
+                            if (digest(shapely.normalize(cleanup).wkb)!=proof[
+                                    'cleanupNormalizedWkbSha256'] or
+                                    digest(shapely.normalize(routed).wkb)!=proof[
+                                    'finalApertureNormalizedWkbSha256']):
+                                raise ValueError(f'{board}: network aperture {index} cleanup changed')
+                            emitted=shapely.set_precision(routed,1e-9)
+                            if (not emitted.is_valid or
+                                    routed.symmetric_difference(emitted).area>.00001 or
+                                    len([p for p in export.ordered(emitted) if p.area>1e-8])!=
+                                    len([p for p in export.ordered(routed) if p.area>1e-8])):
+                                raise ValueError(f'{board}: network aperture {index} grid changed topology')
+                            spider_network_changes.append({
                                 'board':board,'sourceGeometrySha256':digest(original_bytes),
                                 'originalGeometryHoleIndex0':index,
-                                'operation':'exact 2.0 mm flat-cap rib then all-center cutter sweep',
-                                'beforeRibAreaMm2':round(after.area,9),
+                                'operation':'exact once 2.0 mm network then all-center cutter sweep',
+                                'beforeNetworkAreaMm2':round(after.area,9),
                                 'initialRibbonMaterialAdditionMm2':round(after.difference(initial).area,9),
-                                'routingCleanupMaterialAdditionMm2':round(initial.difference(routed).area,9),
-                                'afterAreaMm2':round(routed.area,9),
-                                'deltaBoundsMm':[round(v,6) for v in after.difference(routed).bounds],
+                                'routingCleanupMaterialAdditionMm2':round(cleanup.area,9),
+                                'afterAreaMm2':round(emitted.area,9),
+                                'deltaBoundsMm':[round(v,6) for v in after.difference(emitted).bounds],
                                 'beforeContourSha256':digest(shapely.normalize(after).wkb),
-                                'afterContourSha256':digest(shapely.normalize(routed).wkb),
+                                'initialContourSha256':digest(shapely.normalize(initial).wkb),
+                                'cleanupContourSha256':digest(shapely.normalize(cleanup).wkb),
+                                'decisionFinalContourSha256':digest(shapely.normalize(routed).wkb),
+                                'afterContourSha256':digest(shapely.normalize(emitted).wkb),
+                                'gridAdjustmentAreaMm2':round(
+                                    routed.symmetric_difference(emitted).area,12),
                             })
-                            after=routed
+                            after=emitted
                         for part in export.ordered(after):
-                            corrected.append(manufacturing_ring(part.exterior))
+                            corrected.append(manufacturing_ring(part.exterior,
+                                12 if board=='spider-nest-L01' and index in network_apertures
+                                else 9))
                     delta = hole.symmetric_difference(after)
                     if delta.area > .00001:
                         changes.append({
@@ -127,7 +288,9 @@ def run() -> None:
                             'afterAreaMm2': round(after.area, 8),
                             'beforeContourSha256': ring_hash(points),
                             'afterContourSha256': digest(json.dumps(
-                                [manufacturing_ring(p.exterior) for p in export.ordered(after)],
+                                [manufacturing_ring(p.exterior,
+                                    12 if board=='spider-nest-L01' and index in network_apertures
+                                    else 9) for p in export.ordered(after)],
                                 separators=(',', ':')).encode()),
                             'toolCenterComponents': len(export.polygons(center)),
                         })
@@ -194,52 +357,8 @@ def run() -> None:
                                 'manufacturingContourSha256':ring_hash(fill['pts']),
                             })
                 if design['id']=='spider-nest' and layer['index']==0:
-                    central=[layer['art']['strokes'][i]['pts'] for i in (7,8)]
-                    def offset_at(point,segment_index,signed):
-                        a,b=central[segment_index]
-                        dx,dy=b[0]-a[0],b[1]-a[1]
-                        length=math.hypot(dx,dy)
-                        t=((point[0]-a[0])*dx+(point[1]-a[1])*dy)/(length*length)
-                        return [round(a[0]+t*dx-signed*dy/length,9),
-                                round(a[1]+t*dy+signed*dx/length,9)]
-                    negative_offset=LineString(rib_rule['centerlineMm']).offset_curve(
-                        -.5165,join_style='mitre')
-                    segments=list(negative_offset.geoms) if hasattr(negative_offset,'geoms') \
-                             else [negative_offset]
-                    junction=list(segments[0].coords)[-1]
-                    for guide_index,vertex_map in (
-                        (98,[(8,0),(9,0)]),
-                        (101,[(2,1),(3,0)]),
-                        (103,[(31,1),(32,1)]),
-                    ):
-                        stroke=layer['art']['strokes'][guide_index]
-                        before=copy.deepcopy(stroke['pts'])
-                        revised=copy.deepcopy(before)
-                        signed=-.5165 if guide_index==101 else .5165
-                        for vertex_index,segment_index in vertex_map:
-                            revised[vertex_index]=offset_at(before[vertex_index],
-                                                            segment_index,signed)
-                        if guide_index==101:
-                            revised.insert(3,[round(junction[0],9),round(junction[1],9)])
-                        source_line=LineString(original_layer['art']['strokes'][guide_index]['pts'])
-                        new_line=LineString(revised)
-                        reach=source_line.hausdorff_distance(new_line)
-                        if reach>.5:
-                            raise ValueError(f'{board}: Spider guide {guide_index} reach {reach}')
-                        stroke['pts']=revised
-                        spider_rib_guide_changes.append({
-                            'board':board,'artStrokeIndex0':guide_index,
-                            'sourceGeometrySha256':digest(original_bytes),
-                            'operation':'relocate named guide portion in widened 2.0 mm rib',
-                            'sourceContourSha256':ring_hash(
-                                original_layer['art']['strokes'][guide_index]['pts']),
-                            'beforeRibContourSha256':ring_hash(before),
-                            'afterContourSha256':ring_hash(revised),
-                            'changedGenericVertexIndices0':[i for i,_ in vertex_map],
-                            'insertedMiterPointIndex0':3 if guide_index==101 else None,
-                            'maximumDisplacementFromApprovedMm':round(reach,9),
-                            'guideWidthMm':stroke['w'],
-                        })
+                    spider_network_guide_changes.extend(relocate_spider_network_guides(
+                        layer,original_layer,network_decision,network,digest(original_bytes)))
                 if design['id']=='kumiko-void' and layer['index']==6:
                     # Two pointed L07 fill edges taper below the nominal gold
                     # width. Extend only their adjacent gold faces into retained
@@ -330,12 +449,17 @@ def run() -> None:
                                 'afterContourSha256':ring_hash(stroke['pts']),
                             })
     assert len(closed) == 56
-    assert [c['originalGeometryHoleIndex0'] for c in spider_rib_changes]==[1,6,16]
-    initial_area=sum(c['initialRibbonMaterialAdditionMm2'] for c in spider_rib_changes)
-    cleanup_area=sum(c['routingCleanupMaterialAdditionMm2'] for c in spider_rib_changes)
-    assert initial_area<=rib_rule['maximumInitialAdditionAreaMm2']
-    assert cleanup_area<=rib_rule['maximumAdditionalRoutingCleanupAreaMm2']
-    assert initial_area+cleanup_area<=rib_rule['maximumCombinedAdditionAreaMm2']
+    if [c['originalGeometryHoleIndex0'] for c in spider_network_changes]!=network_rule[
+            'affectedOriginalGeometryHoleIndices0']:
+        raise ValueError('Spider network indexed aperture set changed')
+    initial_area=sum(c['initialRibbonMaterialAdditionMm2'] for c in spider_network_changes)
+    cleanup_area=sum(c['routingCleanupMaterialAdditionMm2'] for c in spider_network_changes)
+    if (abs(initial_area-network_decision['initialAdditionAreaMm2'])>.00001 or
+            abs(cleanup_area-network_decision['routingCleanupAreaMm2'])>.00001 or
+            initial_area>network_rule['maximumInitialAdditionAreaMm2'] or
+            cleanup_area>network_rule['maximumAdditionalRoutingCleanupAreaMm2'] or
+            initial_area+cleanup_area>network_rule['maximumCombinedAdditionAreaMm2']):
+        raise ValueError('Spider network initial/cleanup area changed')
     result = {
         'schemaVersion': 1,
         'role': 'manufacturing geometry candidate; approved Rev5 source remains immutable',
@@ -347,8 +471,8 @@ def run() -> None:
         'strokeWidthChanges': stroke_width_changes,
         'artGuideChanges':art_guide_changes,
         'artNeckChanges':art_neck_changes,
-        'spiderRibChanges':spider_rib_changes,
-        'spiderRibGuideChanges':spider_rib_guide_changes,
+        'spiderNetworkChanges':spider_network_changes,
+        'spiderNetworkGuideChanges':spider_network_guide_changes,
         'artFillChanges':art_fill_changes,
         'closedIssueIds': sorted(closed),
         'unresolvedAlternativeIssueIds': policy['alternativeUnresolvedIssueIds'],
