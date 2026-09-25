@@ -1745,6 +1745,53 @@
         "allowedConnectivityCorrection": "rejoin only the captured candidate-created guide103/source31 ink pocket to its existing channel; retain the resulting channel when adding caps",
         "requiredProof": "full approach and round terminal union-of-0.25-mm-disks boundary proof on serialized final art, both-phase width/topology and 0.35 mm safe region; captured local experiment is not final artwork approval"
       }
+    },
+    {
+      "id": "process-classes-2026-09-25",
+      "approvedBy": "owner, 2026-09-25 (Claude Code handoff issue 20)",
+      "evidence": "process-class-decision.json",
+      "evidenceSha256": "770cad7815157949db068f7435c14f1494afc67dbb39aa8331bb31bac7a5acc6",
+      "sources": "process-class-sources.json",
+      "sourcesSha256": "9336b42dd284d45f5dc7e0ef6988bae1552c8e370227a683dd2557b063d08530",
+      "measuredCandidateFileSha256": {
+        "manufacturing-geometry.json": "b6156a70648c70e777b66ab4f97b4340d9c79f262319a947278195eee2eaa45c",
+        "mask-repair-candidate.json": "c2cfc13bf87e6608da8a1350c2d6ead8ab0ebc0ffce2a7a541a5d0c5ac4c1843",
+        "copper-repair-candidate.json": "757cdc43178127ee0a558466e0e5ca6912c786ee54fb1ec5fd4895402b599d3e"
+      },
+      "scope": "selected ENIG boards only; rulesMm stays the default for every feature not matched below",
+      "generalCopper": {
+        "minimumWidthMm": 0.1,
+        "minimumSeparateGapMm": 0.1,
+        "namedFullGoldPourBoardIds": [
+          "01-spider-nest-L03-gold-enig-fill",
+          "01-spider-nest-L05-gold-enig-fill",
+          "01-spider-nest-L07-gold-enig-fill",
+          "03-coral-vault-L04-gold-enig-fill"
+        ],
+        "isolatedConvexIslandRule": "connected finished copper component with no interior ring and convex-hull deficit <= numericAreaTolerance, re-evaluated on the final copper",
+        "gapBetweenClassesMm": "maximum of the two components' class widths"
+      },
+      "retainedSpecialCopper": {
+        "minimumWidthMm": 0.25,
+        "minimumSeparateGapMm": 0.25,
+        "sameConnectedComponentChannelMm": 0.25,
+        "appliesTo": "every other copper component, including unnetted decorative networks; a missing net label never exempts a connected return or slit"
+      },
+      "blackMaskWeb": {
+        "nonSpiderTopsMm": 0.13,
+        "spiderFamilyMm": 0.25,
+        "condition": "order with the submitted mask preserved unchanged (no automatic expansion, gang opening, dam removal or facet deletion); final CAM/process confirmation remains external and pending"
+      },
+      "minimumVisibleGoldWidthMm": 0.25,
+      "unchangedRulesMmKeys": [
+        "minimumCopperWidth",
+        "minimumSeparateCopperGap",
+        "minimumVisibleGoldWidth",
+        "minimumMaskWeb"
+      ],
+      "remainingFailureWitnessCount": 6,
+      "noWaiver": "reclassification clears no measured sub-threshold section; every witness in the evidence still needs an indexed local repair or explicit tolerance proof",
+      "productionApproval": false
     }
   ]
 }
