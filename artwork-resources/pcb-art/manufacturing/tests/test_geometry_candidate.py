@@ -62,7 +62,7 @@ class ManufacturingGeometryCandidateTests(unittest.TestCase):
         self.assertTrue(all(f['gapMm']<.25 for f in report['finishedUnionPairs']))
         self.assertEqual(len(report['necessaryWidthFailures']),289)
         copper_pairs=[f for f in report['finishedUnionPairs'] if f['feature']=='F.Cu island gap']
-        self.assertEqual(len(copper_pairs),175)
+        self.assertEqual(len(copper_pairs),176)
         self.assertEqual(sum(not f['straight025MmJoinFitsCopperSafeRegion'] for f in copper_pairs),8)
         self.assertEqual(len(self.ledger['strokeWidthChanges']),680)
         source_strokes=sum(1 for design in selected(self.original) for layer in design['layers']
@@ -70,6 +70,36 @@ class ManufacturingGeometryCandidateTests(unittest.TestCase):
                            and stroke.get('purpose')!='top-gold-border'
                            and 0<stroke.get('w',0)<.25)
         self.assertEqual(source_strokes,680)
+
+    def test_inherited_findings_have_final_union_cross_references(self):
+        report=json.loads((HERE/'art-resolution-ledger.json').read_text())
+        self.assertEqual(report['selectedFindingCount'],715)
+        self.assertEqual(len({f['key'] for f in report['findings']}),715)
+        self.assertEqual(report['maskCandidateSha256'],digest(HERE/'mask-repair-candidate.json'))
+        self.assertEqual(report['copperLedgerSha256'],digest(HERE/'copper-repair-ledger.json'))
+        self.assertTrue(all(f['finishedUnionDistinctGapScreen'].startswith('pass:')
+                            for f in report['findings']))
+        self.assertTrue(all(f['withinComponentWidthProof']=='pending'
+                            for f in report['findings']))
+        self.assertEqual(report['alternativeIssueIds'],
+                         self.policy['alternativeUnresolvedIssueIds'])
+
+    def test_actual_union_comparison_images_track_sources(self):
+        report=json.loads((HERE/'candidate-comparisons.json').read_text())
+        self.assertEqual(report['approvedGeometrySha256'],
+                         digest(ROOT/'preview-source/assets/geometry.json'))
+        self.assertEqual(report['manufacturingGeometrySha256'],
+                         digest(HERE/'manufacturing-geometry.json'))
+        self.assertEqual(report['maskCandidateSha256'],
+                         digest(HERE/'mask-repair-candidate.json'))
+        self.assertEqual(len(report['designs']),5)
+        self.assertEqual(sum(d['selectedEnigLayers'] for d in report['designs']),11)
+        for design in report['designs']:
+            self.assertEqual(design['imageSha256'],digest(HERE/design['image']))
+        self.assertEqual(sum(d['selectedLayers']
+                             for d in report['allSelectedLayerComparisons']),43)
+        for design in report['allSelectedLayerComparisons']+report['details']:
+            self.assertEqual(design['imageSha256'],digest(HERE/design['image']))
 
     def test_inventory_closures_and_explicit_indices(self):
         self.assertEqual(sum(len(d['layers']) for d in selected(self.candidate)), 43)
@@ -101,6 +131,10 @@ class ManufacturingGeometryCandidateTests(unittest.TestCase):
                         self.assertEqual(expected_art['strokes'][i]['w'],change['originalWidthMm'])
                         expected_art['strokes'][i]['w']=change['manufacturingWidthMm']
                     for change in self.ledger['artGuideChanges']:
+                        if change['board']==f'{key[0]}-L{key[1]:02d}':
+                            i=change['artStrokeIndex0']
+                            expected_art['strokes'][i]['pts']=after['art']['strokes'][i]['pts']
+                    for change in self.ledger['artNeckChanges']:
                         if change['board']==f'{key[0]}-L{key[1]:02d}':
                             i=change['artStrokeIndex0']
                             expected_art['strokes'][i]['pts']=after['art']['strokes'][i]['pts']
@@ -192,8 +226,24 @@ class ManufacturingGeometryCandidateTests(unittest.TestCase):
             if original['id']=='woven-maze':
                 self.assertEqual(len(paths),len(set(paths)))
 
+    def test_tool_center_plunge_domains_are_indexed(self):
+        report=json.loads((HERE/'tool-access-ledger.json').read_text())
+        self.assertEqual(report['sourceGeometrySha256'],
+                         digest(ROOT/'preview-source/assets/geometry.json'))
+        self.assertEqual(report['manufacturingGeometrySha256'],
+                         digest(HERE/'manufacturing-geometry.json'))
+        self.assertEqual(report['recordCount'],754)
+        self.assertEqual(sum(not r['components'] for r in report['records']),56)
+        split=[r for r in report['records'] if len(r['components'])>1]
+        self.assertEqual({(r['board'],r['originalHoleIndex0']) for r in split},
+                         {('kumiko-void-L05',14),('woven-maze-L04',0)})
+        self.assertTrue(all(component['plungeDiskContainedInOriginalHole']
+                            for r in report['records'] for component in r['components']))
+
     def test_indexed_guide_relocation(self):
         self.assertEqual(len(self.ledger['artGuideChanges']),22)
+        self.assertEqual({c['artStrokeIndex0'] for c in self.ledger['artNeckChanges']},
+                         {637,645,852,853,857})
         self.assertEqual(len(self.ledger['artFillChanges']),18)
         original={d['id']:d for d in selected(self.original)}
         corrected={d['id']:d for d in selected(self.candidate)}
@@ -301,6 +351,18 @@ class ManufacturingGeometryCandidateTests(unittest.TestCase):
                                       for pair in r['sourceArtStrokePairs0']},
                                      {(41,111),(33,97),(38,112)})
                     self.assertLess(entry['widthResidueAreaMm2'],.5)
+                if design['id']=='coral-vault' and layer['index']==0:
+                    merges=[r for r in entry['records'] if r['operation'].startswith(
+                        'merge isolated unpainted Coral')]
+                    self.assertEqual(len(merges),19)
+                    self.assertAlmostEqual(sum(r['islandAreaMm2'] for r in merges),
+                                           1.039835068,6)
+                    neck=[r for r in entry['records'] if r['operation'].startswith(
+                        'add indexed Coral 527/524')]
+                    self.assertEqual(len(neck),1)
+                    self.assertEqual(neck[0]['originalArtStrokeIndices0'],[527,524])
+                    self.assertAlmostEqual(neck[0]['patchAreaMm2'],.058779889,5)
+                    self.assertEqual(len(export.polygons(mask)),190)
                 if design['id']=='woven-maze' and layer['index']==0:
                     self.assertLess(entry['widthResidueAreaMm2'],.4)
 

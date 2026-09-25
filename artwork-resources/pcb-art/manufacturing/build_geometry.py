@@ -13,7 +13,7 @@ import json
 from pathlib import Path
 
 from shapely.geometry import LineString, Point, Polygon, box
-from shapely.ops import unary_union
+from shapely.ops import nearest_points, unary_union
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
@@ -49,6 +49,7 @@ def run() -> None:
     border_changes = []
     stroke_width_changes = []
     art_guide_changes = []
+    art_neck_changes = []
     art_fill_changes = []
     closed = set()
     for family in data['designs']:
@@ -187,6 +188,43 @@ def run() -> None:
                             'originalContourSha256':ring_hash(original_pts),
                             'manufacturingContourSha256':ring_hash(fill['pts']),
                         })
+                if design['id']=='coral-vault' and layer['index']==0:
+                    # Preserve these connected strokes while giving their
+                    # locally clipped necks a full-width centerline corridor.
+                    body=Polygon(layer['outer']).difference(unary_union(
+                        export.split_functional_holes(layer,drills))).difference(
+                        unary_union([export.drill_shape(d) for d in drills]))
+                    for stroke_index in (637,645,852,853,857):
+                        stroke=layer['art']['strokes'][stroke_index]
+                        original_pts=copy.deepcopy(stroke['pts'])
+                        if stroke_index in (852,853,857):
+                            minimum_x=.71+.251+stroke['w']/2
+                            revised=[[round(max(x,minimum_x),9),y] for x,y in original_pts]
+                            operation='move outer-frame neck centerline inward'
+                        else:
+                            center_safe=body.buffer(-(.35+stroke['w']/2+.001),quad_segs=64)
+                            revised=[]
+                            for x,y in original_pts:
+                                point=Point(x,y)
+                                if center_safe.covers(point):
+                                    revised.append([x,y])
+                                else:
+                                    _,nearest=nearest_points(point,center_safe)
+                                    revised.append([round(nearest.x,9),round(nearest.y,9)])
+                            operation='project clipped neck centerline into mask-safe core'
+                        displacement=max(Point(a).distance(Point(b))
+                                         for a,b in zip(original_pts,revised))
+                        if not 0<displacement<=.5:
+                            raise ValueError(f'{board}: Coral neck {stroke_index} reach {displacement}')
+                        stroke['pts']=revised
+                        art_neck_changes.append({
+                            'board':board,'artStrokeIndex0':stroke_index,
+                            'sourceGeometrySha256':digest(original_bytes),
+                            'operation':operation,
+                            'maximumCenterlineDisplacementMm':round(displacement,9),
+                            'originalContourSha256':ring_hash(original_pts),
+                            'manufacturingContourSha256':ring_hash(revised),
+                        })
                 if layer['index'] == 0:
                     for stroke in layer['art']['strokes']:
                         if stroke.get('purpose') != 'top-gold-border':
@@ -222,6 +260,7 @@ def run() -> None:
         'borderChanges': border_changes,
         'strokeWidthChanges': stroke_width_changes,
         'artGuideChanges':art_guide_changes,
+        'artNeckChanges':art_neck_changes,
         'artFillChanges':art_fill_changes,
         'closedIssueIds': sorted(closed),
         'unresolvedAlternativeIssueIds': policy['alternativeUnresolvedIssueIds'],

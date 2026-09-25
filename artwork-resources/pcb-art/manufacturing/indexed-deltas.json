@@ -24590,6 +24590,53 @@
       "manufacturingContourSha256": "3ddc816cce36674703af21dd52c5972dc76dfcac0193f39cd0e6e1f8699eb95e"
     }
   ],
+  "artNeckChanges": [
+    {
+      "board": "coral-vault-L01",
+      "artStrokeIndex0": 637,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "operation": "project clipped neck centerline into mask-safe core",
+      "maximumCenterlineDisplacementMm": 0.111049134,
+      "originalContourSha256": "ee46b337877a447f35d2223673ad1f0bed66f48e0e3de37d78f6833ad6728c88",
+      "manufacturingContourSha256": "de5de1e4afd6f8289f1faf319c91f1f29d0dd2f9450858b256608095bf54db2b"
+    },
+    {
+      "board": "coral-vault-L01",
+      "artStrokeIndex0": 645,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "operation": "project clipped neck centerline into mask-safe core",
+      "maximumCenterlineDisplacementMm": 0.123666347,
+      "originalContourSha256": "402c0de58705f286a4e07b703b0676c8bd21b38b18edef606c40e2a1299bd459",
+      "manufacturingContourSha256": "737e9a0f67af568c0029df5fc1e298bbe547963c83b6ebce867dad4f4ea36aa5"
+    },
+    {
+      "board": "coral-vault-L01",
+      "artStrokeIndex0": 852,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "operation": "move outer-frame neck centerline inward",
+      "maximumCenterlineDisplacementMm": 0.1985,
+      "originalContourSha256": "efa5b3d534db19c547aafc63f7d3d808fe3bf8523d69566e57acde55fbfd8dfc",
+      "manufacturingContourSha256": "d2460cad12eeebc1a99d517feaa24cc0c45298364443c6fa3114c430104d84e9"
+    },
+    {
+      "board": "coral-vault-L01",
+      "artStrokeIndex0": 853,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "operation": "move outer-frame neck centerline inward",
+      "maximumCenterlineDisplacementMm": 0.1958,
+      "originalContourSha256": "1faeee4cbd3e121122ac5d4bc44341d80ca51b8d25d52e5965f236a3f5f5478e",
+      "manufacturingContourSha256": "f76f99d233ddb22593693a7b8ca61916977cf06539e39fb77d10b0ad9b709f4c"
+    },
+    {
+      "board": "coral-vault-L01",
+      "artStrokeIndex0": 857,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "operation": "move outer-frame neck centerline inward",
+      "maximumCenterlineDisplacementMm": 0.1652,
+      "originalContourSha256": "a2d25763cd8c3972e6a790491e1c884c2ad1bba627042deb9a7ed06b13236c1e",
+      "manufacturingContourSha256": "641954a4fb520e5c7a0e5052f2af169e89c7136873d6553ef05ee06d732e6bb4"
+    }
+  ],
   "artFillChanges": [
     {
       "board": "kumiko-void-L07",
@@ -24818,5 +24865,5 @@
     "kumiko-void-standard-L04-H02",
     "kumiko-void-standard-L08-H01"
   ],
-  "manufacturingGeometrySha256": "180340f9262b759c678ebf2a953a51d38a0de4755aa3fb2a301acf60d28ee0eb"
+  "manufacturingGeometrySha256": "547a68278be78f55ab165bbe364bf39bd414eae850c9d78eebd28b71207b562c"
 }

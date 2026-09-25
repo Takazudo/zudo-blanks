@@ -11,7 +11,7 @@ import json
 from pathlib import Path
 
 import shapely
-from shapely.geometry import Point, Polygon
+from shapely.geometry import LineString, Point, Polygon
 from shapely.ops import nearest_points, unary_union
 from shapely.strtree import STRtree
 
@@ -213,6 +213,86 @@ def corrected_mask(design,layer,spec,original_layer,actions):
         raise ValueError(f'{board_id(design,layer)}: unresolved mask pairs')
     if any(part.buffer(-.125,quad_segs=64).is_empty for part in export.polygons(mask)):
         raise ValueError(f'{board_id(design,layer)}: mask component lacks a 0.25 mm disk')
+    if design['id']=='coral-vault' and layer['index']==0:
+        if any(item.get('color') for key in ('fills','strokes')
+               for item in original_layer['art'][key]):
+            raise ValueError('Coral rim island merge would cover explicit black paint')
+        mask=shapely.from_wkb(mask.wkb)
+        safe=safe_region(layer,body,'mask')
+        rim=unary_union([export.stroke_geometry(stroke,False)
+                         for stroke in layer['art']['strokes']
+                         if stroke.get('purpose')=='top-gold-border'
+                         and stroke.get('feature')=='perimeter'])
+        negative=body.difference(mask)
+        islands=[part for part in export.polygons(negative)
+                 if part.area>1e-8 and part.buffer(-.125,quad_segs=64).is_empty]
+        if len(islands)!=19 or abs(sum(p.area for p in islands)-1.039835068)>.00001:
+            raise ValueError('Coral indexed rim-ink island inventory changed')
+        if any(p.distance(rim)>.00001 or p.difference(safe).area>.00001 for p in islands):
+            raise ValueError('Coral rim-ink island exceeds bounded merge envelope')
+        source_strokes=[export.stroke_geometry(stroke,False)
+                        for stroke in original_layer['art']['strokes']]
+        source_tree=STRtree(source_strokes)
+        before_parts=len(export.polygons(mask))
+        for island in islands:
+            index=int(source_tree.nearest(island.representative_point()))
+            records.append({
+                'operation':'merge isolated unpainted Coral rim-to-motif ink island',
+                'originalArtStrokeIndex0':index,
+                'originalStrokeWkbSha256':digest(source_strokes[index].wkb),
+                'islandBoundsMm':[round(v,6) for v in island.bounds],
+                'islandAreaMm2':round(island.area,9),
+                'patchWkbSha256':digest(island.wkb),
+                'patchWkbHex':island.wkb_hex,
+            })
+        mask=shapely.from_wkb(rounded(mask.union(unary_union(islands))).wkb)
+        if len(export.polygons(mask))!=before_parts or list(pairs(mask)):
+            raise ValueError('Coral bounded rim merge changed gold connectivity or mask webs')
+        if mask.difference(safe.buffer(.001,quad_segs=64)).area>.00001:
+            raise ValueError('Coral bounded rim merge exceeded mask safe region')
+        # The remaining connecting neck is a clipped junction between source
+        # strokes 527 and 524. Add a local full-width corridor instead of
+        # erasing its .0297 mm² terminal wedge and splitting the motif.
+        neck_source_indices=[527,524]
+        neck_centerline=[
+            [25.3511,47.2707],[25.187917048,47.709979042],
+            [25.363853787,47.814617010],[25.474788655,47.880595266],
+            [25.499200911,47.895114399],[25.920567358,48.143364159],
+            [25.9875,48.1612],[26.5305,48.2218],
+        ]
+        center_safe=body.buffer(-.4765,quad_segs=64)
+        projected=[]
+        for x,y in neck_centerline:
+            point=Point(x,y)
+            if center_safe.covers(point):
+                projected.append([x,y])
+            else:
+                _,nearest=nearest_points(point,center_safe)
+                projected.append([round(nearest.x,9),round(nearest.y,9)])
+        corridor=LineString(projected).buffer(.1255,quad_segs=64)
+        patch=rounded(corridor.intersection(safe).difference(mask))
+        sources=unary_union([source_strokes[i] for i in neck_source_indices])
+        if (patch.difference(sources.buffer(.5,quad_segs=64)).area>.00001 or
+                abs(patch.area-.058779889)>.0001):
+            raise ValueError(f'Coral neck corridor exceeded indexed envelope: {patch.area}')
+        before_parts=len(export.polygons(mask))
+        mask=shapely.from_wkb(rounded(mask.union(patch)).wkb)
+        if len(export.polygons(mask))!=before_parts or list(pairs(mask)):
+            raise ValueError('Coral neck corridor changed gold connectivity or mask webs')
+        if protected.difference(mask).area>.00001:
+            raise ValueError('Coral neck corridor damaged top-rim core')
+        records.append({
+            'operation':'add indexed Coral 527/524 full-width gold neck corridor',
+            'originalArtStrokeIndices0':neck_source_indices,
+            'originalStrokeWkbSha256':[digest(source_strokes[i].wkb)
+                                       for i in neck_source_indices],
+            'centerlineMm':projected,
+            'nominalWidthMm':.251,
+            'patchBoundsMm':[round(v,6) for v in patch.bounds],
+            'patchAreaMm2':round(patch.area,9),
+            'patchWkbSha256':digest(patch.wkb),
+            'patchWkbHex':patch.wkb_hex,
+        })
     if design['id']=='fault-line' and layer['index']==0:
         mask=shapely.from_wkb(mask.wkb)
         source_strokes=[export.stroke_geometry(stroke,design.get('artStyle')=='angular')

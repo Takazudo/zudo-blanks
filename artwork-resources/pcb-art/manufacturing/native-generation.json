@@ -1,9 +1,9 @@
 {
   "status": "candidate; native KiCad load/DRC/CAM is issue 16, full art proof pending",
-  "manufacturingGeometrySha256": "180340f9262b759c678ebf2a953a51d38a0de4755aa3fb2a301acf60d28ee0eb",
-  "maskCandidateSha256": "30c279fef0388ab4ace044d3b3dcedb14c5f86fe782db5d661d3288ea3c83422",
-  "copperCandidateSha256": "5a95c18424c25ea1c9f7da4c4de61fc7afdc833f35804b5f712583af2f99d9c3",
-  "copperLedgerSha256": "a02b07111ff950856499ac3f18532642cd512e05f8d834790093e8f3ece10e3a",
+  "manufacturingGeometrySha256": "547a68278be78f55ab165bbe364bf39bd414eae850c9d78eebd28b71207b562c",
+  "maskCandidateSha256": "95a136bb409b449852dfc3a535ce7320420f748eda6b41a517b8096ded327a62",
+  "copperCandidateSha256": "7f387e4991b5ea6ab97edea590b4bd788368bd64e2cf15cafe69d4e8469ac5bc",
+  "copperLedgerSha256": "a70263b83aa6f3c864db8f9be2808b8ced45eba36ea26a1cc89358e62b649763",
   "generatorSha256": "fa342580663553e337e5e9c1ef339fbfdb4c526ad2e585d9247a750bb3871aa0",
   "selectedBoardCount": 43,
   "boards": [
@@ -122,16 +122,16 @@
     {
       "boardId": "03-coral-vault-L01-black-enig-art",
       "nativeBoard": "panels/art-coral-vault/03-coral-vault-L01-black-enig-art.kicad_pcb",
-      "sha256": "46f62452f5ffe3a39855ba7bdda1322b713b94108e7f94df8e78ffba0319e444",
+      "sha256": "4fd23d2502d947ad98cc105d5183d7bbd38f1d7ef6394ddf3400e6047a0c88e3",
       "project": "panels/art-coral-vault/03-coral-vault-L01-black-enig-art.kicad_pro",
       "projectSha256": "eedb524e5a198e5a59fbdbf5379d5c79eaa519cae0b04b4d7883fbe59d0f96c6",
       "edgeLoopCount": 11,
       "npthRoundCount": 4,
       "npthSlotCount": 4,
-      "nativeCopperPolygons": 1179,
-      "nativeMaskPolygons": 1255,
-      "copperSourceWkbSha256": "cdd40642f12208f94d3c4483664870b5d69e9b7b4b311b0040b337cfd97a0255",
-      "maskSourceWkbSha256": "7b9d438455aca8915ae284d02c4d7004c1de25ec891216d3d81975e916f3651b"
+      "nativeCopperPolygons": 984,
+      "nativeMaskPolygons": 984,
+      "copperSourceWkbSha256": "c6ff5ab8bf2773d4548b3b1a226defd9e315c10311a36a436dee5a41170256d5",
+      "maskSourceWkbSha256": "6254053e10254fe3221d18d7ff620ce7e8041a751fae5f83150609498e4ab1da"
     },
     {
       "boardId": "03-coral-vault-L02-green-mask-only",

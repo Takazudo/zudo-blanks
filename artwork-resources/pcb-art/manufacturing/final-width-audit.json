@@ -1,0 +1,7566 @@
+{
+  "status": "diagnostic; connected-component width and boundary-run proof still required",
+  "radiusMm": 0.124999,
+  "manufacturingGeometrySha256": "547a68278be78f55ab165bbe364bf39bd414eae850c9d78eebd28b71207b562c",
+  "maskCandidateSha256": "95a136bb409b449852dfc3a535ce7320420f748eda6b41a517b8096ded327a62",
+  "copperLedgerSha256": "a70263b83aa6f3c864db8f9be2808b8ced45eba36ea26a1cc89358e62b649763",
+  "boards": [
+    {
+      "boardId": "01-spider-nest-L01-black-enig-art",
+      "gold": {
+        "componentCount": 5,
+        "componentsWithout025MmDisk": 0,
+        "componentsWithout025MmDiskAreaMm2": 0,
+        "toleranceAwareMiterResidueAreaMm2": 0.005524681,
+        "largestResidues": [
+          {
+            "areaMm2": 0.002824931,
+            "boundsMm": [
+              98.716597,
+              19.989439,
+              100.029029,
+              33.751247
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 74,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.001212573,
+            "boundsMm": [
+              38.027842,
+              103.129456,
+              38.076734,
+              103.18334
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 37,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000768277,
+            "boundsMm": [
+              56.236355,
+              98.866764,
+              56.435446,
+              99.158083
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 35,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000642326,
+            "boundsMm": [
+              37.551109,
+              102.990278,
+              37.589526,
+              103.027663
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 108,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 3.4801e-05,
+            "boundsMm": [
+              100.91,
+              119.22474,
+              100.929752,
+              119.50406
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 92,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 2.238e-05,
+            "boundsMm": [
+              29.63229,
+              0.35,
+              29.814248,
+              0.39
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 48,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 1.199e-06,
+            "boundsMm": [
+              98.522573,
+              19.83408,
+              98.619812,
+              19.935424
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 54,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 8.41e-07,
+            "boundsMm": [
+              14.125715,
+              127.54,
+              14.139256,
+              127.542956
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 121,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 8.41e-07,
+            "boundsMm": [
+              6.180744,
+              123.737044,
+              6.194285,
+              123.74
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 121,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 8.41e-07,
+            "boundsMm": [
+              85.687044,
+              3.285715,
+              85.69,
+              3.299256
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 120,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 8.41e-07,
+            "boundsMm": [
+              96.57,
+              2.420744,
+              96.572956,
+              2.434285
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 120,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 8.41e-07,
+            "boundsMm": [
+              4.727044,
+              3.295715,
+              4.73,
+              3.309256
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 119,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 8.41e-07,
+            "boundsMm": [
+              4.717044,
+              126.065715,
+              4.72,
+              126.079256
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 121,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 8.41e-07,
+            "boundsMm": [
+              95.095715,
+              4.76,
+              95.109256,
+              4.762956
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 120,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 8.41e-07,
+            "boundsMm": [
+              6.190744,
+              0.967044,
+              6.204285,
+              0.97
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 119,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 8.41e-07,
+            "boundsMm": [
+              15.61,
+              2.430744,
+              15.612956,
+              2.444285
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 119,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 8.41e-07,
+            "boundsMm": [
+              14.135715,
+              4.77,
+              14.149256,
+              4.772956
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 119,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 8.41e-07,
+            "boundsMm": [
+              15.6,
+              125.200744,
+              15.602956,
+              125.214285
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 121,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 8.41e-07,
+            "boundsMm": [
+              87.150744,
+              0.957044,
+              87.164285,
+              0.96
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 120,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 8.41e-07,
+            "boundsMm": [
+              96.58,
+              125.210744,
+              96.582956,
+              125.224285
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 122,
+              "color": null
+            }
+          }
+        ]
+      },
+      "ink": {
+        "componentCount": 66,
+        "componentsWithout025MmDisk": 4,
+        "componentsWithout025MmDiskAreaMm2": 2.676241993,
+        "toleranceAwareMiterResidueAreaMm2": 80.182989006,
+        "largestResidues": [
+          {
+            "areaMm2": 6.068284359,
+            "boundsMm": [
+              28.148859,
+              37.499551,
+              56.26831,
+              107.538238
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 38,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 5.930167862,
+            "boundsMm": [
+              17.349401,
+              32.353066,
+              43.358161,
+              51.430995
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 3,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 5.547273792,
+            "boundsMm": [
+              14.948265,
+              48.230795,
+              34.103147,
+              74.084334
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 39,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 5.403056357,
+            "boundsMm": [
+              50.327932,
+              62.189492,
+              66.333763,
+              108.448946
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 16,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 5.387826967,
+            "boundsMm": [
+              50.824202,
+              75.110305,
+              67.856207,
+              98.225306
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 16,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 4.645632342,
+            "boundsMm": [
+              67.798684,
+              84.743373,
+              87.909658,
+              100.073978
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 13,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 4.476230937,
+            "boundsMm": [
+              37.477509,
+              33.051255,
+              55.496999,
+              47.540146
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 3,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 3.887185188,
+            "boundsMm": [
+              62.789485,
+              51.781858,
+              81.526248,
+              71.749599
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 10,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 3.497610448,
+            "boundsMm": [
+              78.514924,
+              71.431108,
+              98.439176,
+              80.22617
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 11,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 3.006869254,
+            "boundsMm": [
+              25.785446,
+              80.257498,
+              40.557649,
+              102.203557
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 18,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 2.749864081,
+            "boundsMm": [
+              56.130307,
+              19.393861,
+              58.436428,
+              37.431371
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 4,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 2.742437124,
+            "boundsMm": [
+              55.543245,
+              19.315519,
+              57.989133,
+              37.114155
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 4,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 2.621602589,
+            "boundsMm": [
+              1.573226,
+              73.825878,
+              17.751167,
+              77.303984
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 21,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 2.512162677,
+            "boundsMm": [
+              65.961353,
+              28.335978,
+              89.546246,
+              48.329509
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 6,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 2.413105771,
+            "boundsMm": [
+              33.581536,
+              19.550481,
+              36.548622,
+              32.244553
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 2,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 2.372757672,
+            "boundsMm": [
+              34.15022,
+              19.784178,
+              37.127497,
+              32.182515
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 2,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 1.984791583,
+            "boundsMm": [
+              11.999671,
+              90.508239,
+              25.782841,
+              101.0241
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 19,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 1.889256676,
+            "boundsMm": [
+              62.520551,
+              51.312309,
+              81.54261,
+              62.14392
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 10,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 1.794291462,
+            "boundsMm": [
+              3.60439,
+              45.927452,
+              14.304615,
+              48.173662
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 23,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 1.772831687,
+            "boundsMm": [
+              73.76244,
+              28.802093,
+              89.76639,
+              44.161122
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 6,
+              "color": null
+            }
+          }
+        ]
+      },
+      "copper": {
+        "componentCount": 5,
+        "componentsWithout025MmDisk": 0,
+        "componentsWithout025MmDiskAreaMm2": 0,
+        "toleranceAwareMiterResidueAreaMm2": 0.003246197,
+        "largestResidues": [
+          {
+            "areaMm2": 0.000183849,
+            "boundsMm": [
+              68.038286,
+              84.913867,
+              87.940857,
+              100.034906
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 13,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.00015833,
+            "boundsMm": [
+              50.95092,
+              77.729395,
+              56.072602,
+              98.237421
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 16,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000141995,
+            "boundsMm": [
+              17.348385,
+              39.807718,
+              32.898007,
+              51.285558
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 1,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.00013433,
+            "boundsMm": [
+              58.911843,
+              14.596285,
+              78.013567,
+              16.361482
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 72,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000127052,
+            "boundsMm": [
+              71.057315,
+              118.571829,
+              94.153823,
+              118.701545
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 92,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000123635,
+            "boundsMm": [
+              68.347647,
+              113.645946,
+              88.61986,
+              115.002191
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 85,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000121773,
+            "boundsMm": [
+              37.723157,
+              107.799084,
+              54.273688,
+              110.163431
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 103,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000109994,
+            "boundsMm": [
+              17.276248,
+              113.190204,
+              35.995047,
+              113.630658
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 87,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.00010985,
+            "boundsMm": [
+              14.958913,
+              7.452045,
+              31.047182,
+              10.160965
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 89,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000109266,
+            "boundsMm": [
+              70.604885,
+              19.10945,
+              84.825719,
+              20.734636
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 98,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000104176,
+            "boundsMm": [
+              70.60712,
+              19.468955,
+              84.771155,
+              21.087651
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 98,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000102612,
+            "boundsMm": [
+              3.708379,
+              74.041857,
+              17.616246,
+              76.751661
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 21,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000101704,
+            "boundsMm": [
+              97.640289,
+              80.989907,
+              98.670497,
+              94.897165
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 97,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 9.9936e-05,
+            "boundsMm": [
+              19.730749,
+              110.284552,
+              36.357452,
+              111.757673
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 79,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 9.9418e-05,
+            "boundsMm": [
+              55.936532,
+              99.280592,
+              62.869128,
+              108.413467
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 15,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 9.6221e-05,
+            "boundsMm": [
+              45.726146,
+              3.933816,
+              59.816065,
+              6.1429
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 90,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 9.5389e-05,
+            "boundsMm": [
+              40.612167,
+              18.837647,
+              55.88673,
+              20.335149
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 104,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 9.2317e-05,
+            "boundsMm": [
+              37.563711,
+              33.075462,
+              43.73866,
+              43.621081
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 3,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 9.1439e-05,
+            "boundsMm": [
+              49.513055,
+              37.790834,
+              55.937324,
+              47.783308
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 5,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 8.76e-05,
+            "boundsMm": [
+              85.3,
+              123.3,
+              96.981227,
+              123.300015
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 122,
+              "color": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "boardId": "01-spider-nest-L03-gold-enig-fill",
+      "gold": {
+        "componentCount": 1,
+        "componentsWithout025MmDisk": 0,
+        "componentsWithout025MmDiskAreaMm2": 0,
+        "toleranceAwareMiterResidueAreaMm2": 0.003795122,
+        "largestResidues": [
+          {
+            "areaMm2": 0.000317861,
+            "boundsMm": [
+              57.888139,
+              62.32134,
+              57.992509,
+              62.368539
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000313236,
+            "boundsMm": [
+              62.997725,
+              93.115642,
+              63.10966,
+              93.142486
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000299563,
+            "boundsMm": [
+              6.751525,
+              53.506518,
+              6.848598,
+              53.564263
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000289344,
+            "boundsMm": [
+              51.05951,
+              24.948354,
+              51.118346,
+              25.045535
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000262821,
+            "boundsMm": [
+              46.927377,
+              46.756652,
+              47.007649,
+              46.82858
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000257951,
+            "boundsMm": [
+              75.371796,
+              38.875091,
+              75.475016,
+              38.956849
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.00023186,
+            "boundsMm": [
+              54.304809,
+              70.88423,
+              54.352182,
+              70.97455
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000207074,
+            "boundsMm": [
+              47.486455,
+              47.60893,
+              47.575776,
+              47.650486
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000205692,
+            "boundsMm": [
+              31.018212,
+              64.285417,
+              31.132218,
+              64.310238
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000204531,
+            "boundsMm": [
+              33.068254,
+              32.539345,
+              33.12927,
+              32.656277
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000196634,
+            "boundsMm": [
+              37.577545,
+              47.399363,
+              37.650042,
+              47.463682
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000159812,
+            "boundsMm": [
+              72.920952,
+              82.749904,
+              73.012592,
+              82.828347
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000141562,
+            "boundsMm": [
+              50.529574,
+              77.67805,
+              50.617648,
+              77.751325
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000127549,
+            "boundsMm": [
+              33.033852,
+              72.845385,
+              33.099115,
+              72.932549
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000127162,
+            "boundsMm": [
+              10.224054,
+              77.827026,
+              10.324232,
+              77.876146
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000120883,
+            "boundsMm": [
+              58.209596,
+              63.318067,
+              58.289399,
+              63.323611
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000108258,
+            "boundsMm": [
+              22.542495,
+              82.849461,
+              22.613013,
+              82.930266
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 6.809e-05,
+            "boundsMm": [
+              30.307151,
+              43.446977,
+              30.381996,
+              43.50052
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 3.794e-05,
+            "boundsMm": [
+              75.098396,
+              55.892235,
+              75.179598,
+              55.920945
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 2.5771e-05,
+            "boundsMm": [
+              61.700434,
+              93.97766,
+              61.759703,
+              94.012457
+            ],
+            "nearestOriginalArtFeature": null
+          }
+        ]
+      },
+      "ink": {
+        "componentCount": 24,
+        "componentsWithout025MmDisk": 0,
+        "componentsWithout025MmDiskAreaMm2": 0,
+        "toleranceAwareMiterResidueAreaMm2": 0.002546287,
+        "largestResidues": [
+          {
+            "areaMm2": 0.000471755,
+            "boundsMm": [
+              10.011092,
+              77.4315,
+              10.04698,
+              77.53536
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000426762,
+            "boundsMm": [
+              33.349872,
+              72.585589,
+              33.4635,
+              72.604521
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000412762,
+            "boundsMm": [
+              72.686983,
+              83.177224,
+              72.792678,
+              83.2047
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000366642,
+            "boundsMm": [
+              22.829757,
+              83.204367,
+              22.927336,
+              83.2149
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000210606,
+            "boundsMm": [
+              30.615972,
+              43.122068,
+              30.63604,
+              43.20033
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000139702,
+            "boundsMm": [
+              75.074887,
+              55.4938,
+              75.139698,
+              55.525123
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 9.7382e-05,
+            "boundsMm": [
+              43.369979,
+              82.009575,
+              43.393459,
+              82.066633
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 9.4069e-05,
+            "boundsMm": [
+              23.24435,
+              35.00046,
+              23.340144,
+              35.02026
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 8.7168e-05,
+            "boundsMm": [
+              35.817511,
+              47.968563,
+              35.829362,
+              48.026967
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 6.2179e-05,
+            "boundsMm": [
+              63.503399,
+              51.699863,
+              63.5453,
+              51.731401
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 4.8909e-05,
+            "boundsMm": [
+              11.445192,
+              79.441041,
+              11.484793,
+              79.4692
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 4.3217e-05,
+            "boundsMm": [
+              26.088956,
+              56.469473,
+              26.0985,
+              56.514981
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 3.8646e-05,
+            "boundsMm": [
+              61.502935,
+              94.292389,
+              61.526696,
+              94.329322
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 2.2771e-05,
+            "boundsMm": [
+              62.4991,
+              55.08052,
+              62.510307,
+              55.13002
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 2.2138e-05,
+            "boundsMm": [
+              73.856158,
+              81.012196,
+              73.884638,
+              81.033839
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 9.81e-07,
+            "boundsMm": [
+              87.698844,
+              99.293358,
+              87.705933,
+              99.302891
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 5.99e-07,
+            "boundsMm": [
+              23.207825,
+              34.99725,
+              23.244325,
+              35.000453
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              75.801026,
+              39.218582,
+              75.8017,
+              39.2996
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              75.692186,
+              39.299605,
+              75.801113,
+              39.300508
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              50.2675,
+              77.3129,
+              50.312109,
+              77.319192
+            ],
+            "nearestOriginalArtFeature": null
+          }
+        ]
+      },
+      "copper": {
+        "componentCount": 1,
+        "componentsWithout025MmDisk": 0,
+        "componentsWithout025MmDiskAreaMm2": 0,
+        "toleranceAwareMiterResidueAreaMm2": 0.002500346,
+        "largestResidues": [
+          {
+            "areaMm2": 0.0007515,
+            "boundsMm": [
+              0.55,
+              17.6,
+              100.751227,
+              17.600015
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000121052,
+            "boundsMm": [
+              57.854615,
+              62.291292,
+              57.935429,
+              62.324026
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000111067,
+            "boundsMm": [
+              6.765499,
+              53.570196,
+              6.837947,
+              53.613307
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 9.8643e-05,
+            "boundsMm": [
+              51.010804,
+              24.963677,
+              51.054956,
+              25.036065
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 9.5401e-05,
+            "boundsMm": [
+              46.884277,
+              46.7462,
+              46.944042,
+              46.797297
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 7.8211e-05,
+            "boundsMm": [
+              75.502532,
+              38.906793,
+              75.518918,
+              38.978015
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 7.7023e-05,
+            "boundsMm": [
+              54.347724,
+              70.850071,
+              54.378851,
+              70.915756
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 7.3638e-05,
+            "boundsMm": [
+              84.321995,
+              99.460578,
+              87.958895,
+              108.552788
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 7.1825e-05,
+            "boundsMm": [
+              63.047154,
+              93.074999,
+              63.131849,
+              93.090296
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 6.996e-05,
+            "boundsMm": [
+              16.537757,
+              37.539166,
+              21.686912,
+              45.028125
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 6.5661e-05,
+            "boundsMm": [
+              75.408296,
+              38.99921,
+              75.477211,
+              39.004017
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 6.3325e-05,
+            "boundsMm": [
+              33.155761,
+              32.590337,
+              33.179169,
+              32.653934
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 6.3202e-05,
+            "boundsMm": [
+              47.497252,
+              47.671293,
+              47.558648,
+              47.699945
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 5.8256e-05,
+            "boundsMm": [
+              53.866095,
+              49.653115,
+              61.369093,
+              51.081345
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 5.7928e-05,
+            "boundsMm": [
+              37.641151,
+              47.388311,
+              37.691493,
+              47.430406
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 5.0348e-05,
+            "boundsMm": [
+              42.064346,
+              90.248977,
+              48.25743,
+              90.280123
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 4.6525e-05,
+            "boundsMm": [
+              58.200714,
+              63.369177,
+              58.26327,
+              63.37361
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 4.444e-05,
+            "boundsMm": [
+              33.121682,
+              32.51877,
+              33.169611,
+              32.557664
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 4.3437e-05,
+            "boundsMm": [
+              72.923623,
+              82.866994,
+              72.984551,
+              82.874937
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 3.494e-05,
+            "boundsMm": [
+              50.535996,
+              77.631534,
+              50.590174,
+              77.639174
+            ],
+            "nearestOriginalArtFeature": null
+          }
+        ]
+      }
+    },
+    {
+      "boardId": "01-spider-nest-L05-gold-enig-fill",
+      "gold": {
+        "componentCount": 1,
+        "componentsWithout025MmDisk": 0,
+        "componentsWithout025MmDiskAreaMm2": 0,
+        "toleranceAwareMiterResidueAreaMm2": 0.004758198,
+        "largestResidues": [
+          {
+            "areaMm2": 0.000938925,
+            "boundsMm": [
+              30.150234,
+              80.624499,
+              30.359235,
+              81.652103
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000420817,
+            "boundsMm": [
+              80.674186,
+              80.101906,
+              80.827973,
+              80.180268
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000340957,
+            "boundsMm": [
+              57.075296,
+              97.996527,
+              57.164179,
+              98.137079
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000333157,
+            "boundsMm": [
+              25.59533,
+              46.634173,
+              25.687391,
+              46.756467
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000298843,
+            "boundsMm": [
+              70.61045,
+              55.20726,
+              70.733335,
+              55.28538
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000287172,
+            "boundsMm": [
+              8.257202,
+              74.937544,
+              8.330494,
+              75.024312
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000271835,
+            "boundsMm": [
+              55.105012,
+              64.952039,
+              55.204662,
+              65.091935
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000226748,
+            "boundsMm": [
+              40.036715,
+              54.054767,
+              40.094695,
+              54.140805
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000221614,
+            "boundsMm": [
+              39.59186,
+              102.352957,
+              39.660367,
+              102.495999
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000203811,
+            "boundsMm": [
+              23.699294,
+              78.819438,
+              23.817173,
+              78.878579
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.00018831,
+            "boundsMm": [
+              33.784459,
+              60.761225,
+              33.868213,
+              60.805293
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000160066,
+            "boundsMm": [
+              54.332969,
+              85.164899,
+              54.450955,
+              85.207819
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000148432,
+            "boundsMm": [
+              38.756991,
+              83.504854,
+              38.796061,
+              83.583208
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000135585,
+            "boundsMm": [
+              63.694165,
+              82.886228,
+              63.751059,
+              82.986248
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000133851,
+            "boundsMm": [
+              65.041773,
+              48.752725,
+              65.125556,
+              48.825319
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000120287,
+            "boundsMm": [
+              38.198432,
+              33.647335,
+              38.270853,
+              33.776505
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000112916,
+            "boundsMm": [
+              19.734669,
+              53.343508,
+              19.830217,
+              53.414596
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 7.3944e-05,
+            "boundsMm": [
+              59.322083,
+              75.984858,
+              59.3528,
+              76.045618
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 6.4704e-05,
+            "boundsMm": [
+              73.184483,
+              93.993085,
+              73.212721,
+              94.050546
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 3.9404e-05,
+            "boundsMm": [
+              58.037653,
+              36.000362,
+              58.057627,
+              36.052085
+            ],
+            "nearestOriginalArtFeature": null
+          }
+        ]
+      },
+      "ink": {
+        "componentCount": 24,
+        "componentsWithout025MmDisk": 0,
+        "componentsWithout025MmDiskAreaMm2": 0,
+        "toleranceAwareMiterResidueAreaMm2": 0.002258551,
+        "largestResidues": [
+          {
+            "areaMm2": 0.000386406,
+            "boundsMm": [
+              64.024521,
+              82.644364,
+              64.1242,
+              82.666497
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000348575,
+            "boundsMm": [
+              37.7469,
+              33.715432,
+              37.809146,
+              33.798625
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000327337,
+            "boundsMm": [
+              58.8754,
+              75.964323,
+              58.945926,
+              76.032758
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000322048,
+            "boundsMm": [
+              19.4549,
+              53.647553,
+              19.464343,
+              53.74093
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000295734,
+            "boundsMm": [
+              73.469169,
+              93.665814,
+              73.48384,
+              93.755681
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.00029514,
+            "boundsMm": [
+              54.241491,
+              84.7082,
+              54.301,
+              84.800587
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000204343,
+            "boundsMm": [
+              58.420932,
+              35.998105,
+              58.4691,
+              36.065439
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 2.9301e-05,
+            "boundsMm": [
+              54.545496,
+              52.043869,
+              54.5517,
+              52.083496
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 2.4404e-05,
+            "boundsMm": [
+              28.4908,
+              60.367499,
+              28.520339,
+              60.390248
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 5.792e-06,
+            "boundsMm": [
+              6.911253,
+              75.477553,
+              6.922843,
+              75.495452
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 4.742e-06,
+            "boundsMm": [
+              15.4272,
+              96.88362,
+              15.434443,
+              96.955123
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 3.976e-06,
+            "boundsMm": [
+              57.384785,
+              57.5441,
+              57.3902,
+              57.561754
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 3.969e-06,
+            "boundsMm": [
+              23.9704,
+              47.655335,
+              23.973982,
+              47.673055
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 2.797e-06,
+            "boundsMm": [
+              55.693672,
+              57.585939,
+              55.699533,
+              57.600124
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 2.061e-06,
+            "boundsMm": [
+              59.876133,
+              77.394224,
+              59.887485,
+              77.401507
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 1.709e-06,
+            "boundsMm": [
+              55.114006,
+              63.656891,
+              55.120739,
+              63.669369
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 7.1e-08,
+            "boundsMm": [
+              81.041865,
+              78.216839,
+              81.044247,
+              78.219375
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 4.8e-08,
+            "boundsMm": [
+              30.349991,
+              81.624809,
+              30.359235,
+              81.627154
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 4.7e-08,
+            "boundsMm": [
+              57.035807,
+              57.498385,
+              57.038911,
+              57.510632
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 3.9e-08,
+            "boundsMm": [
+              38.198432,
+              33.70683,
+              38.201467,
+              33.715553
+            ],
+            "nearestOriginalArtFeature": null
+          }
+        ]
+      },
+      "copper": {
+        "componentCount": 1,
+        "componentsWithout025MmDisk": 0,
+        "componentsWithout025MmDiskAreaMm2": 0,
+        "toleranceAwareMiterResidueAreaMm2": 0.002603444,
+        "largestResidues": [
+          {
+            "areaMm2": 0.0007515,
+            "boundsMm": [
+              0.55,
+              17.6,
+              100.751227,
+              17.600015
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000121537,
+            "boundsMm": [
+              80.658568,
+              80.15947,
+              80.714991,
+              80.224272
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000117728,
+            "boundsMm": [
+              39.988056,
+              54.054765,
+              40.035055,
+              54.125116
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000110243,
+            "boundsMm": [
+              25.724439,
+              46.647765,
+              25.737388,
+              46.741824
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000101696,
+            "boundsMm": [
+              55.073345,
+              65.096886,
+              55.148888,
+              65.124186
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 9.871e-05,
+            "boundsMm": [
+              30.190182,
+              80.574499,
+              30.270789,
+              80.579818
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 9.7841e-05,
+            "boundsMm": [
+              8.29016,
+              74.895586,
+              8.343097,
+              74.96147
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 9.7308e-05,
+            "boundsMm": [
+              57.025323,
+              98.008884,
+              57.05391,
+              98.08344
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 8.167e-05,
+            "boundsMm": [
+              39.672173,
+              102.356678,
+              39.709307,
+              102.421218
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 7.358e-05,
+            "boundsMm": [
+              74.283729,
+              68.424576,
+              79.186094,
+              77.328369
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 7.0482e-05,
+            "boundsMm": [
+              70.642994,
+              55.157262,
+              70.715675,
+              55.173057
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 6.8991e-05,
+            "boundsMm": [
+              70.578659,
+              55.172997,
+              70.610464,
+              55.237584
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 6.7067e-05,
+            "boundsMm": [
+              23.75149,
+              78.903141,
+              23.816292,
+              78.928433
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 6.4314e-05,
+            "boundsMm": [
+              9.793265,
+              77.771249,
+              13.949991,
+              85.381435
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 6.3225e-05,
+            "boundsMm": [
+              38.707733,
+              83.516911,
+              38.73878,
+              83.57945
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 5.6398e-05,
+            "boundsMm": [
+              30.31654,
+              81.666369,
+              30.38703,
+              81.689031
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 5.4909e-05,
+            "boundsMm": [
+              33.832847,
+              60.729631,
+              33.90113,
+              60.762037
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 4.4215e-05,
+            "boundsMm": [
+              54.318628,
+              85.118953,
+              54.365768,
+              85.155729
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 4.1088e-05,
+            "boundsMm": [
+              23.67998,
+              78.873493,
+              23.718666,
+              78.919296
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 3.9404e-05,
+            "boundsMm": [
+              59.273275,
+              75.980935,
+              59.298932,
+              76.032009
+            ],
+            "nearestOriginalArtFeature": null
+          }
+        ]
+      }
+    },
+    {
+      "boardId": "01-spider-nest-L07-gold-enig-fill",
+      "gold": {
+        "componentCount": 1,
+        "componentsWithout025MmDisk": 0,
+        "componentsWithout025MmDiskAreaMm2": 0,
+        "toleranceAwareMiterResidueAreaMm2": 0.003357847,
+        "largestResidues": [
+          {
+            "areaMm2": 0.000431723,
+            "boundsMm": [
+              25.571758,
+              85.119009,
+              25.680779,
+              85.22816
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000326143,
+            "boundsMm": [
+              86.217903,
+              53.217868,
+              86.353276,
+              53.293469
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000294277,
+            "boundsMm": [
+              55.719741,
+              29.66556,
+              55.789208,
+              29.798544
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000282767,
+            "boundsMm": [
+              82.140265,
+              67.758807,
+              82.239478,
+              67.806813
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000247204,
+            "boundsMm": [
+              31.531199,
+              26.138036,
+              31.630734,
+              26.172364
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000238632,
+            "boundsMm": [
+              56.02751,
+              90.6991,
+              56.0947,
+              90.818592
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000237286,
+            "boundsMm": [
+              22.715703,
+              72.971442,
+              22.742583,
+              73.071268
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000208309,
+            "boundsMm": [
+              32.812557,
+              63.245801,
+              32.84355,
+              63.3381
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000184843,
+            "boundsMm": [
+              60.290547,
+              69.1591,
+              60.378883,
+              69.188261
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000162876,
+            "boundsMm": [
+              51.619268,
+              71.697226,
+              51.637565,
+              71.785069
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000161633,
+            "boundsMm": [
+              34.941735,
+              54.3858,
+              35.014292,
+              54.442504
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000151589,
+            "boundsMm": [
+              37.654465,
+              96.216994,
+              37.698718,
+              96.331189
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000122936,
+            "boundsMm": [
+              75.259658,
+              41.004214,
+              75.345749,
+              41.069458
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000102949,
+            "boundsMm": [
+              42.545202,
+              38.981494,
+              42.624243,
+              39.049294
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 8.7652e-05,
+            "boundsMm": [
+              17.421255,
+              34.88745,
+              17.491793,
+              34.899085
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 4.8e-05,
+            "boundsMm": [
+              67.48976,
+              58.331976,
+              67.517585,
+              58.409656
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 2.728e-05,
+            "boundsMm": [
+              59.967292,
+              49.609502,
+              59.98437,
+              49.652928
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 2.044e-05,
+            "boundsMm": [
+              44.091317,
+              77.357257,
+              44.106462,
+              77.396432
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 7.588e-06,
+            "boundsMm": [
+              81.586626,
+              69.296138,
+              81.639535,
+              69.311238
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 6.518e-06,
+            "boundsMm": [
+              33.314978,
+              42.077266,
+              33.340992,
+              42.084382
+            ],
+            "nearestOriginalArtFeature": null
+          }
+        ]
+      },
+      "ink": {
+        "componentCount": 24,
+        "componentsWithout025MmDisk": 0,
+        "componentsWithout025MmDiskAreaMm2": 0,
+        "toleranceAwareMiterResidueAreaMm2": 0.002295136,
+        "largestResidues": [
+          {
+            "areaMm2": 0.000542724,
+            "boundsMm": [
+              67.0678,
+              58.378817,
+              67.150095,
+              58.525857
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000410969,
+            "boundsMm": [
+              38.051407,
+              96.367652,
+              38.1397,
+              96.427288
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000403216,
+            "boundsMm": [
+              17.626946,
+              34.518,
+              17.727499,
+              34.542389
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000375235,
+            "boundsMm": [
+              75.033949,
+              40.6327,
+              75.132066,
+              40.657648
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000233216,
+            "boundsMm": [
+              42.903076,
+              38.687891,
+              42.911908,
+              38.77116
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000124206,
+            "boundsMm": [
+              59.67058,
+              49.856005,
+              59.679304,
+              49.922603
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 8.114e-05,
+            "boundsMm": [
+              44.397925,
+              77.577892,
+              44.407913,
+              77.634973
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 6.4306e-05,
+            "boundsMm": [
+              81.655792,
+              69.602778,
+              81.808271,
+              69.6677
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 3.9433e-05,
+            "boundsMm": [
+              33.317662,
+              41.702,
+              33.358492,
+              41.7206
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 1.2106e-05,
+            "boundsMm": [
+              66.832277,
+              64.143158,
+              66.848254,
+              64.166617
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 3.615e-06,
+            "boundsMm": [
+              33.13752,
+              24.977628,
+              33.148632,
+              24.998784
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 3.488e-06,
+            "boundsMm": [
+              67.65488,
+              65.626859,
+              67.671973,
+              65.627978
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 7.16e-07,
+            "boundsMm": [
+              87.698844,
+              99.293735,
+              87.704791,
+              99.302891
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 3.83e-07,
+            "boundsMm": [
+              36.496962,
+              76.22261,
+              36.503932,
+              76.226734
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 1.18e-07,
+            "boundsMm": [
+              36.416535,
+              77.920116,
+              36.423586,
+              77.9211
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 1.16e-07,
+            "boundsMm": [
+              85.698228,
+              51.391851,
+              85.704715,
+              51.3953
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 6.3e-08,
+            "boundsMm": [
+              32.831501,
+              25.149426,
+              32.835212,
+              25.158523
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 5.6e-08,
+            "boundsMm": [
+              67.48976,
+              58.360912,
+              67.493014,
+              58.373634
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 1.6e-08,
+            "boundsMm": [
+              36.30471,
+              76.515479,
+              36.311774,
+              76.520861
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 1.4e-08,
+            "boundsMm": [
+              55.778545,
+              29.751947,
+              55.789208,
+              29.758468
+            ],
+            "nearestOriginalArtFeature": null
+          }
+        ]
+      },
+      "copper": {
+        "componentCount": 1,
+        "componentsWithout025MmDisk": 0,
+        "componentsWithout025MmDiskAreaMm2": 0,
+        "toleranceAwareMiterResidueAreaMm2": 0.002175222,
+        "largestResidues": [
+          {
+            "areaMm2": 0.000699,
+            "boundsMm": [
+              0.5,
+              17.648773,
+              0.500015,
+              110.85
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000101981,
+            "boundsMm": [
+              82.156356,
+              67.709129,
+              82.230261,
+              67.74449
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.000100225,
+            "boundsMm": [
+              22.764756,
+              73.01563,
+              22.783244,
+              73.097772
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 9.2305e-05,
+            "boundsMm": [
+              86.323682,
+              53.274486,
+              86.371778,
+              53.335442
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 8.6451e-05,
+            "boundsMm": [
+              31.502666,
+              26.185901,
+              31.577414,
+              26.207927
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 7.5575e-05,
+            "boundsMm": [
+              55.989026,
+              90.810053,
+              56.049659,
+              90.848966
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 7.2549e-05,
+            "boundsMm": [
+              34.936441,
+              54.445008,
+              34.991901,
+              54.489145
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 6.7323e-05,
+            "boundsMm": [
+              84.322153,
+              99.449411,
+              87.96342,
+              108.552394
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 6.7213e-05,
+            "boundsMm": [
+              25.565067,
+              85.069009,
+              25.639681,
+              85.071635
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 6.6555e-05,
+            "boundsMm": [
+              86.223094,
+              53.312217,
+              86.289012,
+              53.3429
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 6.4665e-05,
+            "boundsMm": [
+              32.776581,
+              63.218846,
+              32.795271,
+              63.284494
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 6.3029e-05,
+            "boundsMm": [
+              17.102514,
+              53.289521,
+              20.389654,
+              60.718943
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 5.6535e-05,
+            "boundsMm": [
+              55.977511,
+              90.714035,
+              55.994978,
+              90.778887
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 5.1559e-05,
+            "boundsMm": [
+              60.264825,
+              69.207774,
+              60.325811,
+              69.224683
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 5.0682e-05,
+            "boundsMm": [
+              33.831587,
+              64.174471,
+              35.479361,
+              71.485974
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 4.103e-05,
+            "boundsMm": [
+              51.675899,
+              71.697306,
+              51.687564,
+              71.754077
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 3.6498e-05,
+            "boundsMm": [
+              79.241783,
+              48.188032,
+              83.08857,
+              50.967217
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 3.4932e-05,
+            "boundsMm": [
+              75.264231,
+              40.957633,
+              75.318447,
+              40.965171
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 3.3829e-05,
+            "boundsMm": [
+              37.724652,
+              96.215469,
+              37.747727,
+              96.266551
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 3.1458e-05,
+            "boundsMm": [
+              75.221698,
+              40.982425,
+              75.242021,
+              41.03094
+            ],
+            "nearestOriginalArtFeature": null
+          }
+        ]
+      }
+    },
+    {
+      "boardId": "03-coral-vault-L01-black-enig-art",
+      "gold": {
+        "componentCount": 190,
+        "componentsWithout025MmDisk": 0,
+        "componentsWithout025MmDiskAreaMm2": 0,
+        "toleranceAwareMiterResidueAreaMm2": 0.28588502,
+        "largestResidues": [
+          {
+            "areaMm2": 0.032955508,
+            "boundsMm": [
+              53.460912,
+              19.424207,
+              55.227464,
+              20.022554
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 321,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.032032731,
+            "boundsMm": [
+              31.164448,
+              59.406758,
+              32.519128,
+              60.4159
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 570,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.02659075,
+            "boundsMm": [
+              53.227989,
+              105.111212,
+              53.43897,
+              105.336339
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 873,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.023340967,
+            "boundsMm": [
+              50.229936,
+              18.543275,
+              50.851253,
+              18.762438
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 319,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.011870633,
+            "boundsMm": [
+              97.205668,
+              60.262448,
+              97.351971,
+              60.404863
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 657,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.010765487,
+            "boundsMm": [
+              0.35,
+              20.11793,
+              0.39,
+              20.398788
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 249,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.010609283,
+            "boundsMm": [
+              60.331111,
+              0.35,
+              60.602399,
+              0.39
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 48,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.009622758,
+            "boundsMm": [
+              3.904736,
+              126.366573,
+              4.208654,
+              126.46543
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 1202,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.008552152,
+            "boundsMm": [
+              80.912488,
+              20.534061,
+              81.902075,
+              20.95262
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 363,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.007310479,
+            "boundsMm": [
+              61.140955,
+              26.023949,
+              63.09846,
+              26.545448
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 432,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.005212166,
+            "boundsMm": [
+              9.196612,
+              107.995004,
+              9.755808,
+              108.18698
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 894,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.00483372,
+            "boundsMm": [
+              41.49273,
+              18.638864,
+              41.691195,
+              18.794666
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 308,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.004808391,
+            "boundsMm": [
+              94.344194,
+              79.199018,
+              94.64348,
+              79.440428
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 800,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.004658705,
+            "boundsMm": [
+              40.766794,
+              18.669596,
+              41.056969,
+              18.837951
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 307,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.004287776,
+            "boundsMm": [
+              4.316121,
+              46.396622,
+              4.619531,
+              46.433968
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 504,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.004266105,
+            "boundsMm": [
+              46.366753,
+              83.212371,
+              46.581515,
+              83.290329
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 767,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.003866181,
+            "boundsMm": [
+              22.142692,
+              20.475466,
+              22.373739,
+              20.711751
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 280,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.003818454,
+            "boundsMm": [
+              12.538704,
+              37.016781,
+              12.570309,
+              37.309209
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 453,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.003424573,
+            "boundsMm": [
+              93.659942,
+              66.858786,
+              94.386486,
+              67.097235
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 656,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.003357736,
+            "boundsMm": [
+              7.545,
+              82.16166,
+              7.979959,
+              82.278123
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 736,
+              "color": null
+            }
+          }
+        ]
+      },
+      "ink": {
+        "componentCount": 498,
+        "componentsWithout025MmDisk": 0,
+        "componentsWithout025MmDiskAreaMm2": 0,
+        "toleranceAwareMiterResidueAreaMm2": 3.000600688,
+        "largestResidues": [
+          {
+            "areaMm2": 0.124603392,
+            "boundsMm": [
+              49.039762,
+              127.515423,
+              50.02728,
+              127.79
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 1231,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.089437155,
+            "boundsMm": [
+              0.71,
+              14.018379,
+              1.064511,
+              14.478906
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 1269,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.084098371,
+            "boundsMm": [
+              100.287615,
+              116.74898,
+              100.59,
+              117.430706
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 1269,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.082968244,
+            "boundsMm": [
+              5.000788,
+              127.27309,
+              5.809291,
+              127.79
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 1276,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.074464786,
+            "boundsMm": [
+              0.71,
+              20.730977,
+              1.007774,
+              22.54443
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 255,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.073475657,
+            "boundsMm": [
+              100.377223,
+              65.098704,
+              100.59,
+              65.79938
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 649,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.05580706,
+            "boundsMm": [
+              0.71,
+              24.657615,
+              0.93534,
+              25.837442
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 402,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.047945348,
+            "boundsMm": [
+              63.61505,
+              0.71,
+              65.127119,
+              1.037697
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 49,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.046923422,
+            "boundsMm": [
+              5.196108,
+              0.71,
+              5.847205,
+              0.963285
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 1274,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.03664321,
+            "boundsMm": [
+              100.356222,
+              120.279815,
+              100.59,
+              120.927282
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 1184,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.016487275,
+            "boundsMm": [
+              37.877753,
+              6.856928,
+              38.252057,
+              7.224999
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 135,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.016433541,
+            "boundsMm": [
+              85.093595,
+              10.370664,
+              85.449791,
+              10.68732
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 222,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.015813618,
+            "boundsMm": [
+              44.060671,
+              1.155571,
+              44.466946,
+              1.710712
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 28,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.015690854,
+            "boundsMm": [
+              74.736947,
+              127.70058,
+              75.087893,
+              127.79
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 1269,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.015633893,
+            "boundsMm": [
+              98.384316,
+              25.822888,
+              98.942415,
+              26.094656
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 441,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.015545692,
+            "boundsMm": [
+              42.768369,
+              122.11243,
+              43.187451,
+              122.451031
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 1107,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.015397328,
+            "boundsMm": [
+              70.065302,
+              15.092127,
+              70.916842,
+              15.760965
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 345,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.015298025,
+            "boundsMm": [
+              32.364821,
+              10.533968,
+              32.715603,
+              11.024083
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 135,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.015264336,
+            "boundsMm": [
+              89.958287,
+              74.942979,
+              90.314363,
+              75.226346
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 712,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.015256345,
+            "boundsMm": [
+              64.038988,
+              11.609143,
+              64.448486,
+              11.995956
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 182,
+              "color": null
+            }
+          }
+        ]
+      },
+      "copper": {
+        "componentCount": 143,
+        "componentsWithout025MmDisk": 0,
+        "componentsWithout025MmDiskAreaMm2": 0,
+        "toleranceAwareMiterResidueAreaMm2": 0.039705018,
+        "largestResidues": [
+          {
+            "areaMm2": 0.002849623,
+            "boundsMm": [
+              50.104733,
+              107.704794,
+              50.411245,
+              108.550412
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 961,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.002832764,
+            "boundsMm": [
+              9.146615,
+              107.945546,
+              9.218988,
+              108.024663
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 894,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.001152825,
+            "boundsMm": [
+              41.015957,
+              18.668422,
+              41.101449,
+              18.783561
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 307,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000968364,
+            "boundsMm": [
+              4.060944,
+              126.316574,
+              4.204617,
+              126.348457
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 1202,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000930595,
+            "boundsMm": [
+              50.445907,
+              18.558211,
+              50.555725,
+              18.618072
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 318,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.00091119,
+            "boundsMm": [
+              62.963976,
+              26.40474,
+              63.13686,
+              26.473072
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 432,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000747273,
+            "boundsMm": [
+              46.143705,
+              83.022259,
+              46.187575,
+              83.126958
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 766,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000609507,
+            "boundsMm": [
+              23.374134,
+              46.567779,
+              23.406566,
+              46.673845
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 523,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000603044,
+            "boundsMm": [
+              97.182302,
+              60.31871,
+              97.292138,
+              60.452257
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 657,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000602517,
+            "boundsMm": [
+              5.299903,
+              82.530098,
+              5.336144,
+              82.612144
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 735,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000539136,
+            "boundsMm": [
+              7.211708,
+              99.739846,
+              7.312442,
+              99.808296
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 855,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000503744,
+            "boundsMm": [
+              59.245363,
+              38.86235,
+              59.288948,
+              38.943038
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 471,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000465062,
+            "boundsMm": [
+              17.769514,
+              109.508166,
+              17.787424,
+              109.595475
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 913,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000456518,
+            "boundsMm": [
+              63.860283,
+              19.288781,
+              64.001944,
+              19.318564
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 331,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000440187,
+            "boundsMm": [
+              4.645566,
+              46.208218,
+              4.683041,
+              46.297656
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 504,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000437648,
+            "boundsMm": [
+              73.98228,
+              44.607233,
+              74.053893,
+              44.697203
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 546,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000398484,
+            "boundsMm": [
+              54.41788,
+              85.53457,
+              54.722915,
+              85.588031
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 777,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000397116,
+            "boundsMm": [
+              4.139958,
+              3.101396,
+              4.152867,
+              3.224058
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 4,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000390531,
+            "boundsMm": [
+              50.576372,
+              18.590037,
+              50.674714,
+              18.611562
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 319,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.00037119,
+            "boundsMm": [
+              48.316088,
+              44.981315,
+              48.361091,
+              45.076002
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 540,
+              "color": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "boardId": "03-coral-vault-L04-gold-enig-fill",
+      "gold": {
+        "componentCount": 1,
+        "componentsWithout025MmDisk": 0,
+        "componentsWithout025MmDiskAreaMm2": 0,
+        "toleranceAwareMiterResidueAreaMm2": 2e-09,
+        "largestResidues": [
+          {
+            "areaMm2": 2e-09,
+            "boundsMm": [
+              74.90147,
+              22.925295,
+              74.926214,
+              22.930846
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              79.229731,
+              22.775927,
+              79.246897,
+              22.77858
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              82.933152,
+              62.802124,
+              82.977407,
+              62.936895
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              29.13503,
+              46.58648,
+              29.138826,
+              46.587969
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              95.021341,
+              64.23711,
+              95.022736,
+              64.238584
+            ],
+            "nearestOriginalArtFeature": null
+          }
+        ]
+      },
+      "ink": {
+        "componentCount": 13,
+        "componentsWithout025MmDisk": 0,
+        "componentsWithout025MmDiskAreaMm2": 0,
+        "toleranceAwareMiterResidueAreaMm2": 4.9e-08,
+        "largestResidues": [
+          {
+            "areaMm2": 3e-08,
+            "boundsMm": [
+              95.619146,
+              99.54362,
+              95.624875,
+              99.544623
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 1.8e-08,
+            "boundsMm": [
+              95.61826,
+              99.543465,
+              95.619146,
+              99.54362
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              23.541069,
+              71.341214,
+              23.549382,
+              71.35271
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              75.913829,
+              55.371606,
+              75.922941,
+              55.386498
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              92.250574,
+              64.3296,
+              92.2686,
+              64.332399
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              82.6634,
+              63.1025,
+              82.667479,
+              63.107829
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              24.9927,
+              68.137693,
+              24.996453,
+              68.146
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              66.771004,
+              78.424686,
+              66.77733,
+              78.425973
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              69.952658,
+              77.584877,
+              69.958608,
+              77.586498
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              88.9032,
+              23.988776,
+              88.903543,
+              23.994822
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              83.631,
+              67.056514,
+              83.631485,
+              67.062471
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              92.830062,
+              99.835239,
+              92.836462,
+              99.83751
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              67.399337,
+              104.760706,
+              67.405119,
+              104.7615
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              7.698801,
+              45.992197,
+              7.703493,
+              45.995731
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              79.238399,
+              23.131421,
+              79.244614,
+              23.1319
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              83.027144,
+              67.850628,
+              83.033126,
+              67.851353
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              76.01728,
+              76.297481,
+              76.032146,
+              76.298644
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              91.9506,
+              29.1792,
+              91.953445,
+              29.180438
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              62.982726,
+              79.645143,
+              62.988259,
+              79.647543
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              77.084026,
+              23.221683,
+              77.09015,
+              23.2224
+            ],
+            "nearestOriginalArtFeature": null
+          }
+        ]
+      },
+      "copper": {
+        "componentCount": 1,
+        "componentsWithout025MmDisk": 0,
+        "componentsWithout025MmDiskAreaMm2": 0,
+        "toleranceAwareMiterResidueAreaMm2": 0.000982222,
+        "largestResidues": [
+          {
+            "areaMm2": 0.000699,
+            "boundsMm": [
+              0.5,
+              17.648773,
+              0.500015,
+              110.85
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 3.106e-05,
+            "boundsMm": [
+              19.773704,
+              23.626645,
+              24.853925,
+              24.330189
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 2.703e-05,
+            "boundsMm": [
+              78.116064,
+              104.231964,
+              81.873763,
+              104.532367
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 2.4305e-05,
+            "boundsMm": [
+              31.3452,
+              105.649295,
+              34.639786,
+              105.771379
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 2.1475e-05,
+            "boundsMm": [
+              69.078522,
+              68.833775,
+              72.309022,
+              69.995437
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 1.8928e-05,
+            "boundsMm": [
+              18.069335,
+              86.713697,
+              21.032507,
+              88.124057
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 1.4995e-05,
+            "boundsMm": [
+              59.005972,
+              63.874841,
+              61.114056,
+              65.14634
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 1.499e-05,
+            "boundsMm": [
+              41.808999,
+              41.061301,
+              42.974887,
+              42.727088
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 1.3452e-05,
+            "boundsMm": [
+              24.85613,
+              23.177805,
+              27.017228,
+              23.62629
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 9.552e-06,
+            "boundsMm": [
+              89.73874,
+              101.778494,
+              90.43741,
+              102.845717
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 9.427e-06,
+            "boundsMm": [
+              90.443747,
+              100.922021,
+              91.319115,
+              101.771007
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 6.102e-06,
+            "boundsMm": [
+              91.438685,
+              28.480955,
+              92.090672,
+              28.912164
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 5.883e-06,
+            "boundsMm": [
+              77.661008,
+              75.395749,
+              78.316992,
+              75.708956
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 5.516e-06,
+            "boundsMm": [
+              63.503616,
+              79.487654,
+              64.250637,
+              79.8046
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 5.5e-06,
+            "boundsMm": [
+              90.505414,
+              27.596877,
+              91.04052,
+              28.104227
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 5e-06,
+            "boundsMm": [
+              22.444923,
+              50.644319,
+              23.175116,
+              51.155724
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 4.919e-06,
+            "boundsMm": [
+              23.394131,
+              71.543168,
+              23.775241,
+              72.134333
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 3.967e-06,
+            "boundsMm": [
+              93.325305,
+              29.449429,
+              93.873974,
+              29.55923
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 3.96e-06,
+            "boundsMm": [
+              25.969116,
+              65.628979,
+              26.084586,
+              66.106403
+            ],
+            "nearestOriginalArtFeature": null
+          },
+          {
+            "areaMm2": 3.634e-06,
+            "boundsMm": [
+              75.496177,
+              70.806458,
+              76.209826,
+              70.920935
+            ],
+            "nearestOriginalArtFeature": null
+          }
+        ]
+      }
+    },
+    {
+      "boardId": "13-fault-line-L01-black-enig-art",
+      "gold": {
+        "componentCount": 6,
+        "componentsWithout025MmDisk": 0,
+        "componentsWithout025MmDiskAreaMm2": 0,
+        "toleranceAwareMiterResidueAreaMm2": 3.353e-06,
+        "largestResidues": [
+          {
+            "areaMm2": 9.69e-07,
+            "boundsMm": [
+              89.414934,
+              96.115266,
+              91.107185,
+              98.935689
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 58,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 6.54e-07,
+            "boundsMm": [
+              1.944099,
+              58.111802,
+              6.019544,
+              60.149526
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 52,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 5.41e-07,
+            "boundsMm": [
+              78.03289,
+              38.55054,
+              80.123095,
+              39.120594
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 51,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 2.4e-07,
+            "boundsMm": [
+              15.028944,
+              114.007347,
+              18.114225,
+              120.949233
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 55,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 1.62e-07,
+            "boundsMm": [
+              21.383511,
+              6.960472,
+              21.881416,
+              8.454182
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 48,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 1.41e-07,
+            "boundsMm": [
+              1.960472,
+              71.118584,
+              2.712279,
+              71.369188
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 54,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 1.23e-07,
+            "boundsMm": [
+              39.680883,
+              21.637024,
+              40.069337,
+              21.895996
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 49,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 1.17e-07,
+            "boundsMm": [
+              79.345054,
+              23.114629,
+              79.854631,
+              23.478615
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 50,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 1.01e-07,
+            "boundsMm": [
+              85.526065,
+              6.911613,
+              85.911613,
+              7.297158
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 50,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 8.9e-08,
+            "boundsMm": [
+              27.525965,
+              53.890732,
+              27.939296,
+              54.120359
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 52,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 7.8e-08,
+            "boundsMm": [
+              80.912668,
+              125.735892,
+              81.088387,
+              125.911613
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 57,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 6.9e-08,
+            "boundsMm": [
+              12.663824,
+              68.886715,
+              12.941509,
+              68.942231
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 16,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 6.5e-08,
+            "boundsMm": [
+              68.939296,
+              106.109268,
+              69.3266,
+              106.324438
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 57,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 3e-09,
+            "boundsMm": [
+              13.141261,
+              78.749386,
+              13.141327,
+              78.749567
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 1,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 1e-09,
+            "boundsMm": [
+              13.048609,
+              68.850091,
+              13.124701,
+              68.865304
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 16,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              100.0,
+              52.881416,
+              100.039528,
+              53.0
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 53,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              77.409336,
+              128.110283,
+              77.409589,
+              128.110283
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 32,
+              "color": null
+            }
+          }
+        ]
+      },
+      "ink": {
+        "componentCount": 103,
+        "componentsWithout025MmDisk": 3,
+        "componentsWithout025MmDiskAreaMm2": 0.181357304,
+        "toleranceAwareMiterResidueAreaMm2": 0.672035856,
+        "largestResidues": [
+          {
+            "areaMm2": 0.175149401,
+            "boundsMm": [
+              76.913557,
+              110.931111,
+              77.816905,
+              112.305962
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 57,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.067002683,
+            "boundsMm": [
+              28.3421,
+              29.614463,
+              30.431971,
+              32.400855
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 0,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.048030826,
+            "boundsMm": [
+              0.71,
+              73.200826,
+              1.669788,
+              76.185957
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 20,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.036100845,
+            "boundsMm": [
+              72.836735,
+              116.743781,
+              73.743686,
+              118.013512
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 57,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.033730127,
+            "boundsMm": [
+              73.011317,
+              61.079623,
+              73.504795,
+              61.260067
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 4,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.033647703,
+            "boundsMm": [
+              23.883034,
+              91.992222,
+              24.648294,
+              92.921344
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 4,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.033505075,
+            "boundsMm": [
+              29.903959,
+              111.078922,
+              31.081791,
+              112.395079
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 16,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.027133638,
+            "boundsMm": [
+              34.341617,
+              15.738276,
+              35.43941,
+              17.259346
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 14,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.024478842,
+            "boundsMm": [
+              19.378207,
+              72.049349,
+              22.304161,
+              73.512326
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 54,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.019505253,
+            "boundsMm": [
+              1.944099,
+              58.111802,
+              6.019544,
+              60.149526
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 52,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.014860916,
+            "boundsMm": [
+              0.71,
+              81.885224,
+              0.797526,
+              82.2248
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 59,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.012884517,
+            "boundsMm": [
+              26.721458,
+              52.205106,
+              27.939296,
+              54.120359
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 6,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.011164354,
+            "boundsMm": [
+              23.82863,
+              22.407736,
+              25.107967,
+              23.383853
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 14,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.011156615,
+            "boundsMm": [
+              95.518623,
+              127.5626,
+              95.957944,
+              127.79
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 67,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.011156615,
+            "boundsMm": [
+              86.322056,
+              127.5626,
+              86.761377,
+              127.79
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 67,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.01055794,
+            "boundsMm": [
+              32.184306,
+              113.82059,
+              34.760362,
+              116.332245
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 16,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.008270856,
+            "boundsMm": [
+              13.397379,
+              34.881599,
+              14.657336,
+              36.393547
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 47,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.007393594,
+            "boundsMm": [
+              72.73549,
+              89.756042,
+              75.212067,
+              91.131891
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 4,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.007227137,
+            "boundsMm": [
+              4.2741,
+              30.204348,
+              4.946841,
+              31.705445
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 23,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.006153332,
+            "boundsMm": [
+              83.919337,
+              57.410416,
+              85.155038,
+              59.881818
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 53,
+              "color": null
+            }
+          }
+        ]
+      },
+      "copper": {
+        "componentCount": 5,
+        "componentsWithout025MmDisk": 0,
+        "componentsWithout025MmDiskAreaMm2": 0,
+        "toleranceAwareMiterResidueAreaMm2": 0.006073662,
+        "largestResidues": [
+          {
+            "areaMm2": 0.000187608,
+            "boundsMm": [
+              47.991282,
+              11.695,
+              73.006902,
+              11.695015
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 14,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000187587,
+            "boundsMm": [
+              47.992939,
+              15.3245,
+              73.00582,
+              15.324515
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 7,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000187587,
+            "boundsMm": [
+              47.992942,
+              13.9745,
+              73.005824,
+              13.974515
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 10,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000187587,
+            "boundsMm": [
+              47.992942,
+              8.9745,
+              73.005822,
+              8.974515
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 18,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000187587,
+            "boundsMm": [
+              47.992939,
+              16.9745,
+              73.005816,
+              16.974515
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 4,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000187587,
+            "boundsMm": [
+              47.992942,
+              1.9745,
+              73.00582,
+              1.974515
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 28,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000187587,
+            "boundsMm": [
+              47.992942,
+              5.7245,
+              73.00582,
+              5.724515
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 22,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000187543,
+            "boundsMm": [
+              48.0,
+              18.145,
+              73.006931,
+              18.145015
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 3,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 9.3276e-05,
+            "boundsMm": [
+              76.175914,
+              70.477674,
+              88.242606,
+              74.190518
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 3,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 8.3416e-05,
+            "boundsMm": [
+              77.813199,
+              69.695096,
+              88.605072,
+              73.015696
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 4,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 7.5262e-05,
+            "boundsMm": [
+              12.781709,
+              55.291701,
+              22.495361,
+              55.595283
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 12,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 7.1536e-05,
+            "boundsMm": [
+              80.010394,
+              68.644794,
+              89.090277,
+              71.438698
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 7,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 6.0906e-05,
+            "boundsMm": [
+              28.740714,
+              59.804249,
+              36.360109,
+              62.344132
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 1,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 6.0009e-05,
+            "boundsMm": [
+              69.390902,
+              89.361642,
+              76.403004,
+              93.257224
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 2,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 5.617e-05,
+            "boundsMm": [
+              71.123616,
+              47.330773,
+              77.411795,
+              51.260943
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 3,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 5.3487e-05,
+            "boundsMm": [
+              82.330179,
+              14.239235,
+              88.531023,
+              16.564543
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 18,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 5.266e-05,
+            "boundsMm": [
+              21.711054,
+              87.794068,
+              28.403022,
+              90.303624
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 2,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 5.2544e-05,
+            "boundsMm": [
+              84.124816,
+              54.135598,
+              87.127856,
+              60.141644
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 53,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 5.0679e-05,
+            "boundsMm": [
+              31.55101,
+              62.426519,
+              36.378494,
+              67.253982
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 1,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 4.7906e-05,
+            "boundsMm": [
+              84.311882,
+              66.232631,
+              90.139451,
+              68.025831
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 13,
+              "color": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "boardId": "17-kumiko-void-wide-L01-black-enig-art",
+      "gold": {
+        "componentCount": 220,
+        "componentsWithout025MmDisk": 0,
+        "componentsWithout025MmDiskAreaMm2": 0,
+        "toleranceAwareMiterResidueAreaMm2": 4.553e-06,
+        "largestResidues": [
+          {
+            "areaMm2": 1.286e-06,
+            "boundsMm": [
+              17.438678,
+              116.700317,
+              20.952851,
+              122.787154
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 807,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 4.51e-07,
+            "boundsMm": [
+              2.284421,
+              34.09871,
+              2.441454,
+              34.3464
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 630,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 4.51e-07,
+            "boundsMm": [
+              2.284421,
+              82.59611,
+              2.441454,
+              82.8438
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 647,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 1.88e-07,
+            "boundsMm": [
+              6.922422,
+              10.97497,
+              7.572612,
+              11.350353
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 684,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 7.8e-08,
+            "boundsMm": [
+              99.028192,
+              84.316752,
+              100.59,
+              85.218494
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1255,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 6.9e-08,
+            "boundsMm": [
+              99.028188,
+              35.819338,
+              100.59,
+              36.721007
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1240,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 6.6e-08,
+            "boundsMm": [
+              47.967981,
+              114.63275,
+              49.163795,
+              115.323156
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1635,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 5.6e-08,
+            "boundsMm": [
+              92.254723,
+              11.232478,
+              92.403202,
+              11.489651
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1145,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 4.9e-08,
+            "boundsMm": [
+              91.709567,
+              108.711203,
+              91.75189,
+              109.081409
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1416,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 4.9e-08,
+            "boundsMm": [
+              35.709567,
+              108.711203,
+              35.75189,
+              109.081409
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1359,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 4.9e-08,
+            "boundsMm": [
+              63.709567,
+              108.711203,
+              63.75189,
+              109.081409
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1426,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 4.6e-08,
+            "boundsMm": [
+              92.685023,
+              122.900581,
+              92.84634,
+              123.099
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1226,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 4e-08,
+            "boundsMm": [
+              4.175474,
+              18.363,
+              4.420262,
+              18.682743
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 673,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 3.8e-08,
+            "boundsMm": [
+              12.069542,
+              8.2133,
+              12.355999,
+              8.378687
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 696,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 3.8e-08,
+            "boundsMm": [
+              91.746446,
+              9.812523,
+              91.98,
+              10.222751
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1653,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 3.8e-08,
+            "boundsMm": [
+              77.746446,
+              17.895422,
+              77.98,
+              18.30565
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 455,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 3.8e-08,
+            "boundsMm": [
+              7.746446,
+              9.812522,
+              7.98,
+              10.22275
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 693,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 3.8e-08,
+            "boundsMm": [
+              21.746446,
+              17.895422,
+              21.98,
+              18.30565
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 167,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 3.8e-08,
+            "boundsMm": [
+              49.746446,
+              17.895422,
+              49.98,
+              18.30565
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 311,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 3.5e-08,
+            "boundsMm": [
+              77.74338,
+              114.884938,
+              77.98,
+              115.300551
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 482,
+              "color": "#15161a"
+            }
+          }
+        ]
+      },
+      "ink": {
+        "componentCount": 64,
+        "componentsWithout025MmDisk": 0,
+        "componentsWithout025MmDiskAreaMm2": 0,
+        "toleranceAwareMiterResidueAreaMm2": 4.144698752,
+        "largestResidues": [
+          {
+            "areaMm2": 0.234742341,
+            "boundsMm": [
+              16.0,
+              123.34,
+              16.610596,
+              124.658603
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 116,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.222448421,
+            "boundsMm": [
+              2.882386,
+              1.927292,
+              7.311815,
+              9.599291
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1478,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.189464837,
+            "boundsMm": [
+              96.97,
+              0.71,
+              97.774278,
+              2.102998
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1131,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.162892081,
+            "boundsMm": [
+              22.206989,
+              1.8511,
+              23.3099,
+              2.8247
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 159,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.162892081,
+            "boundsMm": [
+              50.206989,
+              1.8511,
+              51.3099,
+              2.8247
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 303,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.145553546,
+            "boundsMm": [
+              96.98,
+              125.789,
+              98.601902,
+              127.700487
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1680,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.135363324,
+            "boundsMm": [
+              16.0,
+              125.0191,
+              16.15,
+              126.181309
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 731,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.128600435,
+            "boundsMm": [
+              96.97,
+              3.341999,
+              98.265136,
+              6.379395
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1140,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.12581323,
+            "boundsMm": [
+              84.883679,
+              0.71,
+              85.29,
+              1.465606
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 6,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.109739807,
+            "boundsMm": [
+              1.243034,
+              125.281899,
+              4.32,
+              127.79
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1559,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.108180172,
+            "boundsMm": [
+              84.655893,
+              127.025498,
+              85.3,
+              127.79
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 490,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.086493437,
+            "boundsMm": [
+              76.846221,
+              0.71,
+              77.98,
+              2.427492
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1593,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.086493437,
+            "boundsMm": [
+              20.846221,
+              0.71,
+              21.98,
+              2.427492
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1496,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.086493437,
+            "boundsMm": [
+              48.846221,
+              0.71,
+              49.98,
+              2.427492
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1588,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.073791853,
+            "boundsMm": [
+              64.251016,
+              123.4407,
+              69.056104,
+              126.076383
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1630,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.073791853,
+            "boundsMm": [
+              36.251016,
+              123.4407,
+              41.056104,
+              126.076383
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1568,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.068031251,
+            "boundsMm": [
+              35.5288,
+              124.130509,
+              38.215892,
+              127.79
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 887,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.068031251,
+            "boundsMm": [
+              63.5288,
+              124.130509,
+              66.215892,
+              127.79
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1037,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.06768,
+            "boundsMm": [
+              4.17,
+              123.4407,
+              4.32,
+              123.8919
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 7,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.06768,
+            "boundsMm": [
+              96.1955,
+              5.16,
+              96.6467,
+              5.31
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 6,
+              "color": null
+            }
+          }
+        ]
+      },
+      "copper": {
+        "componentCount": 20,
+        "componentsWithout025MmDisk": 0,
+        "componentsWithout025MmDiskAreaMm2": 0,
+        "toleranceAwareMiterResidueAreaMm2": 0.089669922,
+        "largestResidues": [
+          {
+            "areaMm2": 0.019745747,
+            "boundsMm": [
+              77.23925,
+              115.424455,
+              77.635001,
+              115.62822
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1625,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.019745747,
+            "boundsMm": [
+              49.23925,
+              115.424455,
+              49.635001,
+              115.625905
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1635,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.019745353,
+            "boundsMm": [
+              21.239251,
+              115.424455,
+              21.635002,
+              115.625906
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1563,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.005341136,
+            "boundsMm": [
+              100.96,
+              48.56093,
+              101.0,
+              48.721728
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1247,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.005337136,
+            "boundsMm": [
+              100.96,
+              97.05843,
+              101.0,
+              97.219128
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1262,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.00018896,
+            "boundsMm": [
+              78.330395,
+              84.00965,
+              90.743911,
+              105.510587
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1417,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.000164613,
+            "boundsMm": [
+              10.642677,
+              84.051172,
+              21.71495,
+              103.227752
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1335,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.00011386,
+            "boundsMm": [
+              64.431034,
+              35.337051,
+              77.476223,
+              42.868699
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1411,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.00011386,
+            "boundsMm": [
+              8.431034,
+              35.337051,
+              21.476223,
+              42.868699
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1309,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.00011386,
+            "boundsMm": [
+              50.431034,
+              59.585751,
+              63.476223,
+              67.117399
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1401,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.00011386,
+            "boundsMm": [
+              36.431034,
+              83.834451,
+              49.476223,
+              91.366099
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1329,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.00011386,
+            "boundsMm": [
+              78.431034,
+              59.585751,
+              91.476223,
+              67.117399
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1394,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.00011386,
+            "boundsMm": [
+              64.431034,
+              83.834451,
+              77.476223,
+              91.366099
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1437,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.00011386,
+            "boundsMm": [
+              36.431034,
+              35.337051,
+              49.476223,
+              42.868699
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1302,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.00011386,
+            "boundsMm": [
+              8.431034,
+              83.834451,
+              21.476223,
+              91.366099
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1336,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.00011386,
+            "boundsMm": [
+              22.431034,
+              59.585751,
+              35.476223,
+              67.117399
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1346,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.000112968,
+            "boundsMm": [
+              92.029985,
+              59.870898,
+              92.03,
+              74.934122
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1469,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.000106178,
+            "boundsMm": [
+              50.401049,
+              99.929377,
+              62.746211,
+              107.056898
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1431,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.000106178,
+            "boundsMm": [
+              22.401049,
+              99.929377,
+              34.746211,
+              107.056898
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1333,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.000106097,
+            "boundsMm": [
+              36.401049,
+              27.183277,
+              48.736475,
+              34.305177
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 1323,
+              "color": "#15161a"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "boardId": "17-kumiko-void-wide-L04-black-enig-art",
+      "gold": {
+        "componentCount": 85,
+        "componentsWithout025MmDisk": 0,
+        "componentsWithout025MmDiskAreaMm2": 0,
+        "toleranceAwareMiterResidueAreaMm2": 2.07e-07,
+        "largestResidues": [
+          {
+            "areaMm2": 1.6e-08,
+            "boundsMm": [
+              2.5,
+              36.697144,
+              2.575003,
+              36.740447
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 38,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 1.5e-08,
+            "boundsMm": [
+              98.725008,
+              52.805148,
+              98.8,
+              52.848446
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 154,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 9e-09,
+            "boundsMm": [
+              41.968645,
+              19.0,
+              42.011947,
+              19.075001
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 20,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 8e-09,
+            "boundsMm": [
+              13.968645,
+              19.0,
+              14.011946,
+              19.074999
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 42,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 7e-09,
+            "boundsMm": [
+              96.464433,
+              54.00551,
+              96.497199,
+              54.005831
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 154,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 7e-09,
+            "boundsMm": [
+              98.299079,
+              75.709962,
+              98.328605,
+              75.710143
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 178,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 7e-09,
+            "boundsMm": [
+              65.798654,
+              108.999073,
+              65.798835,
+              109.028599
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 126,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 7e-09,
+            "boundsMm": [
+              85.483263,
+              19.471562,
+              85.483443,
+              19.50092
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 70,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 6e-09,
+            "boundsMm": [
+              6.981853,
+              58.445105,
+              6.982034,
+              58.474626
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 2,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 6e-09,
+            "boundsMm": [
+              29.483263,
+              19.471563,
+              29.483443,
+              19.50092
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 46,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 5e-09,
+            "boundsMm": [
+              65.000411,
+              103.431749,
+              65.025791,
+              103.446612
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 144,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 5e-09,
+            "boundsMm": [
+              37.000411,
+              54.934349,
+              37.025791,
+              54.949212
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 16,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 5e-09,
+            "boundsMm": [
+              51.000411,
+              79.183049,
+              51.025791,
+              79.197912
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 96,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 5e-09,
+            "boundsMm": [
+              79.000411,
+              34.899488,
+              79.02579,
+              34.914351
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 78,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 5e-09,
+            "boundsMm": [
+              98.724994,
+              85.136843,
+              98.8,
+              85.180147
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 170,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 5e-09,
+            "boundsMm": [
+              55.16737,
+              34.625238,
+              55.184053,
+              34.653485
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 110,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 5e-09,
+            "boundsMm": [
+              69.16737,
+              58.873938,
+              69.184053,
+              58.902185
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 82,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 5e-09,
+            "boundsMm": [
+              83.16737,
+              83.122638,
+              83.184053,
+              83.150885
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 174,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 5e-09,
+            "boundsMm": [
+              74.015947,
+              34.625238,
+              74.03263,
+              34.653485
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 112,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 5e-09,
+            "boundsMm": [
+              88.015947,
+              58.873938,
+              88.03263,
+              58.902185
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 84,
+              "color": null
+            }
+          }
+        ]
+      },
+      "ink": {
+        "componentCount": 1,
+        "componentsWithout025MmDisk": 0,
+        "componentsWithout025MmDiskAreaMm2": 0,
+        "toleranceAwareMiterResidueAreaMm2": 1.2136e-05,
+        "largestResidues": [
+          {
+            "areaMm2": 1.2136e-05,
+            "boundsMm": [
+              91.6,
+              22.25178,
+              91.613304,
+              22.276754
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 164,
+              "color": null
+            }
+          }
+        ]
+      },
+      "copper": {
+        "componentCount": 56,
+        "componentsWithout025MmDisk": 0,
+        "componentsWithout025MmDiskAreaMm2": 0,
+        "toleranceAwareMiterResidueAreaMm2": 0.010219405,
+        "largestResidues": [
+          {
+            "areaMm2": 0.000203808,
+            "boundsMm": [
+              36.885001,
+              57.4823,
+              50.367599,
+              80.834866
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 59,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.000203808,
+            "boundsMm": [
+              78.885001,
+              33.2336,
+              92.367599,
+              56.586166
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 79,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.000200877,
+            "boundsMm": [
+              50.884377,
+              57.5123,
+              64.367001,
+              80.864851
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 97,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.000197257,
+            "boundsMm": [
+              65.00617,
+              33.473526,
+              78.2458,
+              56.4052
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 115,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.000193661,
+            "boundsMm": [
+              51.689252,
+              32.175,
+              77.511991,
+              32.175015
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 72,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000192807,
+            "boundsMm": [
+              66.472066,
+              105.576084,
+              90.574192,
+              105.5761
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 121,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.000188391,
+            "boundsMm": [
+              38.039374,
+              57.078685,
+              63.159403,
+              57.0787
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 99,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.000188391,
+            "boundsMm": [
+              10.039374,
+              57.078685,
+              35.159403,
+              57.0787
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 19,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.000188391,
+            "boundsMm": [
+              24.039374,
+              32.829985,
+              49.159403,
+              32.83
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 23,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.000188391,
+            "boundsMm": [
+              38.039374,
+              105.576085,
+              63.159403,
+              105.5761
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 135,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.000188391,
+            "boundsMm": [
+              52.039374,
+              81.327385,
+              77.159403,
+              81.3274
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 77,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.000186831,
+            "boundsMm": [
+              10.6,
+              104.9211,
+              35.511991,
+              104.921115
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 56,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000180858,
+            "boundsMm": [
+              79.346301,
+              82.529996,
+              91.075705,
+              102.845977
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 119,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.00018085,
+            "boundsMm": [
+              9.345677,
+              34.062606,
+              21.905695,
+              55.817157
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 33,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.000140696,
+            "boundsMm": [
+              80.039374,
+              32.829985,
+              98.8,
+              32.83
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 159,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.000140696,
+            "boundsMm": [
+              80.039374,
+              81.327385,
+              98.8,
+              81.3274
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 177,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.000114355,
+            "boundsMm": [
+              79.062534,
+              57.333701,
+              92.1664,
+              64.899199
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 85,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.000114354,
+            "boundsMm": [
+              37.062534,
+              49.250801,
+              50.1664,
+              56.816299
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 103,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.000114354,
+            "boundsMm": [
+              37.062534,
+              97.748201,
+              50.1664,
+              105.313699
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 139,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.000114354,
+            "boundsMm": [
+              79.062534,
+              73.499501,
+              92.1664,
+              81.064999
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 181,
+              "color": "#15161a"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "boardId": "17-kumiko-void-wide-L07-black-enig-art",
+      "gold": {
+        "componentCount": 68,
+        "componentsWithout025MmDisk": 0,
+        "componentsWithout025MmDiskAreaMm2": 0,
+        "toleranceAwareMiterResidueAreaMm2": 1.51e-07,
+        "largestResidues": [
+          {
+            "areaMm2": 1.9e-08,
+            "boundsMm": [
+              94.259246,
+              19.0,
+              94.302546,
+              19.074996
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 124,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 1.7e-08,
+            "boundsMm": [
+              98.724995,
+              88.328543,
+              98.8,
+              88.371847
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 132,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 7e-09,
+            "boundsMm": [
+              98.299078,
+              80.51826,
+              98.328604,
+              80.518441
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 141,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 7e-09,
+            "boundsMm": [
+              19.581858,
+              35.374076,
+              19.582039,
+              35.403602
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 41,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 7e-09,
+            "boundsMm": [
+              30.392662,
+              19.471563,
+              30.392842,
+              19.500921
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 49,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 7e-09,
+            "boundsMm": [
+              58.392662,
+              19.471563,
+              58.392842,
+              19.500921
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 74,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 6e-09,
+            "boundsMm": [
+              86.39266,
+              19.471567,
+              86.39284,
+              19.500922
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 62,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 6e-09,
+            "boundsMm": [
+              5.581857,
+              62.445107,
+              5.582038,
+              62.474624
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 2,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 6e-09,
+            "boundsMm": [
+              98.299071,
+              32.020849,
+              98.328585,
+              32.02103
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 116,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 5e-09,
+            "boundsMm": [
+              63.600411,
+              107.431749,
+              63.625791,
+              107.446612
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 100,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 5e-09,
+            "boundsMm": [
+              35.600411,
+              58.934349,
+              35.625791,
+              58.949212
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 15,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 5e-09,
+            "boundsMm": [
+              81.76737,
+              87.122638,
+              81.784053,
+              87.150885
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 137,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 5e-09,
+            "boundsMm": [
+              16.615947,
+              38.625238,
+              16.63263,
+              38.653485
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 33,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 5e-09,
+            "boundsMm": [
+              49.141073,
+              85.846629,
+              49.149658,
+              85.861498
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 96,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 5e-09,
+            "boundsMm": [
+              77.141073,
+              85.846629,
+              77.149658,
+              85.861498
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 104,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 5e-09,
+            "boundsMm": [
+              91.141073,
+              61.597929,
+              91.149658,
+              61.612798
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 145,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 5e-09,
+            "boundsMm": [
+              49.141072,
+              36.2359,
+              49.149658,
+              36.250771
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 78,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 4e-09,
+            "boundsMm": [
+              3.302848,
+              58.005561,
+              3.335684,
+              58.005883
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 8,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 4e-09,
+            "boundsMm": [
+              23.02525,
+              32.215942,
+              23.053486,
+              32.232616
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 49,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 4e-09,
+            "boundsMm": [
+              51.02525,
+              32.215942,
+              51.053486,
+              32.232616
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 74,
+              "color": null
+            }
+          }
+        ]
+      },
+      "ink": {
+        "componentCount": 1,
+        "componentsWithout025MmDisk": 0,
+        "componentsWithout025MmDiskAreaMm2": 0,
+        "toleranceAwareMiterResidueAreaMm2": 0.0,
+        "largestResidues": []
+      },
+      "copper": {
+        "componentCount": 52,
+        "componentsWithout025MmDisk": 0,
+        "componentsWithout025MmDiskAreaMm2": 0,
+        "toleranceAwareMiterResidueAreaMm2": 0.009201527,
+        "largestResidues": [
+          {
+            "areaMm2": 0.000203808,
+            "boundsMm": [
+              35.485001,
+              61.4823,
+              48.967599,
+              84.834866
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 61,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.000203807,
+            "boundsMm": [
+              77.485001,
+              37.2336,
+              90.967599,
+              60.586166
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 87,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.00020223,
+            "boundsMm": [
+              49.716778,
+              85.327385,
+              76.682,
+              85.3274
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 85,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.000201826,
+            "boundsMm": [
+              7.743678,
+              109.549985,
+              34.6551,
+              109.55
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 59,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000200877,
+            "boundsMm": [
+              35.484377,
+              37.2636,
+              48.967001,
+              60.616151
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 16,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.000193661,
+            "boundsMm": [
+              50.289252,
+              84.6724,
+              76.111991,
+              84.672415
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 84,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000191993,
+            "boundsMm": [
+              8.512003,
+              108.9211,
+              34.111984,
+              108.921115
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 59,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000188391,
+            "boundsMm": [
+              50.639374,
+              36.829985,
+              75.759403,
+              36.83
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 65,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.000188391,
+            "boundsMm": [
+              22.639374,
+              36.829985,
+              47.759403,
+              36.83
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 22,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.000188391,
+            "boundsMm": [
+              8.639374,
+              61.078685,
+              33.759403,
+              61.0787
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 18,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.000187711,
+            "boundsMm": [
+              36.684677,
+              109.549985,
+              61.7141,
+              109.55
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 91,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000187711,
+            "boundsMm": [
+              64.684677,
+              109.549985,
+              89.7141,
+              109.55
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 90,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.00018085,
+            "boundsMm": [
+              7.945677,
+              38.062606,
+              20.505695,
+              59.817157
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 32,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.000151196,
+            "boundsMm": [
+              78.639374,
+              36.829985,
+              98.8,
+              36.83
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 115,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.000151196,
+            "boundsMm": [
+              78.639374,
+              85.327385,
+              98.8,
+              85.3274
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 140,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.000137561,
+            "boundsMm": [
+              49.945677,
+              19.025,
+              59.497001,
+              35.568452
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 75,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.000116433,
+            "boundsMm": [
+              40.567208,
+              85.92714,
+              48.114749,
+              98.999875
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 57,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000116433,
+            "boundsMm": [
+              82.567208,
+              61.67844,
+              90.114749,
+              74.751175
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 82,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000114355,
+            "boundsMm": [
+              77.662534,
+              77.499501,
+              90.7664,
+              85.064999
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 144,
+              "color": "#15161a"
+            }
+          },
+          {
+            "areaMm2": 0.000114355,
+            "boundsMm": [
+              63.662534,
+              101.748201,
+              76.7664,
+              109.313699
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "fill",
+              "originalIndex0": 103,
+              "color": "#15161a"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "boardId": "18-woven-maze-L01-black-enig-art",
+      "gold": {
+        "componentCount": 12,
+        "componentsWithout025MmDisk": 0,
+        "componentsWithout025MmDiskAreaMm2": 0,
+        "toleranceAwareMiterResidueAreaMm2": 0.0,
+        "largestResidues": []
+      },
+      "ink": {
+        "componentCount": 13,
+        "componentsWithout025MmDisk": 0,
+        "componentsWithout025MmDiskAreaMm2": 0,
+        "toleranceAwareMiterResidueAreaMm2": 0.040917377,
+        "largestResidues": [
+          {
+            "areaMm2": 0.009210216,
+            "boundsMm": [
+              95.518623,
+              127.562398,
+              95.957808,
+              127.79
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 11,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.009210216,
+            "boundsMm": [
+              86.322192,
+              127.562398,
+              86.761377,
+              127.79
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 11,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.00425954,
+            "boundsMm": [
+              14.492795,
+              0.71,
+              14.802671,
+              0.846424
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 8,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.00425954,
+            "boundsMm": [
+              5.537329,
+              0.71,
+              5.847205,
+              0.846424
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 8,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.003494466,
+            "boundsMm": [
+              14.510709,
+              127.663576,
+              14.792671,
+              127.79
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 10,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.003494466,
+            "boundsMm": [
+              5.527329,
+              127.663576,
+              5.809291,
+              127.79
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 10,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.003494466,
+            "boundsMm": [
+              86.497329,
+              0.71,
+              86.779291,
+              0.836424
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 9,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.003494466,
+            "boundsMm": [
+              95.480709,
+              0.71,
+              95.762671,
+              0.836424
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 9,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              92.179841,
+              101.4886,
+              92.1823,
+              101.490756
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 1,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              7.058036,
+              100.636586,
+              7.0613,
+              100.6368
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 2,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              90.536586,
+              24.158036,
+              90.5368,
+              24.1613
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 0,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              94.2387,
+              100.636586,
+              94.241964,
+              100.6368
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 1,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              90.536586,
+              104.3387,
+              90.5368,
+              104.341964
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 1,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              7.058036,
+              27.8632,
+              7.0613,
+              27.863414
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 0,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              10.7632,
+              24.158036,
+              10.763414,
+              24.1613
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 0,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              10.7632,
+              104.3387,
+              10.763414,
+              104.341964
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 2,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              94.2387,
+              27.8632,
+              94.241964,
+              27.863414
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 0,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              9.909244,
+              102.279841,
+              9.9114,
+              102.2823
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 2,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              9.909244,
+              26.2177,
+              9.9114,
+              26.220159
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 0,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              91.3886,
+              26.2177,
+              91.390756,
+              26.220159
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 0,
+              "color": null
+            }
+          }
+        ]
+      },
+      "copper": {
+        "componentCount": 12,
+        "componentsWithout025MmDisk": 0,
+        "componentsWithout025MmDiskAreaMm2": 0,
+        "toleranceAwareMiterResidueAreaMm2": 0.012391001,
+        "largestResidues": [
+          {
+            "areaMm2": 0.0009555,
+            "boundsMm": [
+              0.34,
+              0.548771,
+              0.340015,
+              127.95
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 3,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.0009555,
+            "boundsMm": [
+              100.959985,
+              0.55,
+              100.96,
+              127.951229
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 3,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.0007515,
+            "boundsMm": [
+              0.55,
+              0.34,
+              100.751229,
+              0.340015
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 3,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.0007515,
+            "boundsMm": [
+              0.548771,
+              128.159985,
+              100.75,
+              128.16
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 3,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000544266,
+            "boundsMm": [
+              10.313774,
+              110.160485,
+              82.8838,
+              110.1605
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 2,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000502182,
+            "boundsMm": [
+              99.460485,
+              34.1274,
+              99.4605,
+              101.086226
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 1,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.0004672,
+            "boundsMm": [
+              27.716974,
+              54.953885,
+              90.0116,
+              54.9539
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 1,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000414251,
+            "boundsMm": [
+              31.246974,
+              51.423885,
+              86.4816,
+              51.4239
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 0,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000355384,
+            "boundsMm": [
+              10.315,
+              18.3395,
+              57.700726,
+              18.339515
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 0,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000314296,
+            "boundsMm": [
+              12.126674,
+              102.329785,
+              54.034,
+              102.3298
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 2,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000310623,
+            "boundsMm": [
+              1.8395,
+              36.555674,
+              1.839515,
+              77.9733
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 1,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000269324,
+            "boundsMm": [
+              50.504,
+              71.7239,
+              86.415026,
+              71.723915
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 1,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000261346,
+            "boundsMm": [
+              15.656674,
+              98.799785,
+              50.504,
+              98.7998
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 1,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000259167,
+            "boundsMm": [
+              83.059285,
+              75.4294,
+              83.0593,
+              109.986226
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 2,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000223166,
+            "boundsMm": [
+              61.2295,
+              18.3395,
+              90.986226,
+              18.339515
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 0,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000217933,
+            "boundsMm": [
+              2.1905,
+              32.8514,
+              31.249426,
+              32.851415
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 0,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000217933,
+            "boundsMm": [
+              2.013774,
+              33.202385,
+              31.0727,
+              33.2024
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 0,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000216374,
+            "boundsMm": [
+              54.034,
+              75.2539,
+              82.885026,
+              75.253915
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 2,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.000199121,
+            "boundsMm": [
+              50.3285,
+              71.898174,
+              50.328515,
+              98.4488
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 1,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.00019912,
+            "boundsMm": [
+              50.679485,
+              72.0749,
+              50.6795,
+              98.625526
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 1,
+              "color": null
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
