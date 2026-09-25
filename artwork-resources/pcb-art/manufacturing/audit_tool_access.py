@@ -19,7 +19,7 @@ def run():
     source=json.loads(source_path.read_text())
     policy=json.loads((HERE/'policy.json').read_text())
     network_rule=next(rule for rule in policy['errata'] if rule['id']==
-                      'spider-l01-complete-network-2026-09-25')
+                      'spider-l01-unfiltered-network-2026-09-25')
     network_indices=set(network_rule['affectedOriginalGeometryHoleIndices0'])
     candidate=json.loads(candidate_path.read_text())
     ledger=json.loads(ledger_path.read_text())

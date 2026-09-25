@@ -220,8 +220,10 @@ class ManufacturingGeometryCandidateTests(unittest.TestCase):
                         swept=center.buffer(.5,quad_segs=64).intersection(p)
                         # Output holes may split where the admissible cutter
                         # center has multiple components. Compare the union.
-                        if board=='spider-nest-L01' and i in {0,1,2,3,5,6,7,11,12,13,
-                                                                14,15,16,17,18}:
+                        if board=='spider-nest-L01' and i in set(next(
+                                rule for rule in self.policy['errata'] if rule['id']==
+                                'spider-l01-unfiltered-network-2026-09-25')
+                                ['affectedOriginalGeometryHoleIndices0']):
                             rib=next(c for c in self.ledger['spiderNetworkChanges']
                                      if c['originalGeometryHoleIndex0']==i)
                             self.assertAlmostEqual(swept.difference(cutouts).area,
@@ -316,7 +318,7 @@ class ManufacturingGeometryCandidateTests(unittest.TestCase):
 
     def test_bounded_spider_network_and_indexed_guides(self):
         rule=next(r for r in self.policy['errata']
-                  if r['id']=='spider-l01-complete-network-2026-09-25')
+                  if r['id']=='spider-l01-unfiltered-network-2026-09-25')
         decision=json.loads((HERE/rule['evidence']).read_text())
         changes=self.ledger['spiderNetworkChanges']
         self.assertEqual([c['originalGeometryHoleIndex0'] for c in changes],
@@ -328,7 +330,9 @@ class ManufacturingGeometryCandidateTests(unittest.TestCase):
         self.assertLessEqual(cleanup,rule['maximumAdditionalRoutingCleanupAreaMm2'])
         self.assertLessEqual(initial+cleanup,rule['maximumCombinedAdditionAreaMm2'])
         guides=self.ledger['spiderNetworkGuideChanges']
-        self.assertEqual(len(guides),50)
+        self.assertEqual(len(guides),68)
+        self.assertEqual(len(self.ledger['spiderNetworkMiterChanges']),19)
+        self.assertEqual(len(self.ledger['spiderNetworkCurveChanges']),1)
         self.assertEqual({(c['artStrokeIndex0'],c['originalGuideEdgeIndex0'],
                            c['centralStrokeIndex0']) for c in guides},
                          {(p['guideStrokeIndex0'],p['originalGuideEdgeIndex0'],
@@ -374,7 +378,7 @@ class ManufacturingGeometryCandidateTests(unittest.TestCase):
                          digest(HERE/'copper-repair-ledger.json'))
         self.assertEqual(len(report['boards']),11)
         for board in report['boards']:
-            for name in ('gold','ink','copper'):
+            for name in ('gold','ink','copper','copperFreeAt010Mm','copperFreeAt025Mm'):
                 region=board[name]
                 self.assertEqual(region['erodedCoreSplitExcessCount'],
                                  max(0,region['erodedCoreComponentCount']-

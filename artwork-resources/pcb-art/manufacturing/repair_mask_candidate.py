@@ -85,7 +85,7 @@ def merge_spider_web_slivers(design,layer,body,mask,records):
     network_local=False
     if normalized_hash!=example['preMergeMaskNormalizedWkbSha256']:
         network_rule=next(item for item in policy['errata'] if item['id']==
-                          'spider-l01-complete-network-2026-09-25')
+                          'spider-l01-unfiltered-network-2026-09-25')
         if digest((HERE/network_rule['evidence']).read_bytes())!=network_rule['evidenceSha256']:
             raise ValueError('Spider network decision evidence hash changed')
         network_decision=json.loads((HERE/network_rule['evidence']).read_text())

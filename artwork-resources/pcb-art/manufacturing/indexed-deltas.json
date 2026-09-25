@@ -3,7 +3,7 @@
   "role": "manufacturing geometry candidate; approved Rev5 source remains immutable",
   "decisionId": "fabrication-2026-09-25",
   "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
-  "policySha256": "3504e658adde328d577ab431dc4cf3cc0874bba25c728ed4c987fbfacda5bc0d",
+  "policySha256": "ecf43e97f19e2517c8532d05e92908489e554d0baaa75767a80ef307817a53c4",
   "changes": [
     {
       "board": "spider-nest-L01",
@@ -96,9 +96,9 @@
         79.3258
       ],
       "beforeAreaMm2": 413.2689301,
-      "afterAreaMm2": 410.46919345,
+      "afterAreaMm2": 408.62735229,
       "beforeContourSha256": "125bc19828e6b33e5df55308809ea8cdbc2e6077e640e2197f848f2813db4df4",
-      "afterContourSha256": "75b000d2a396a680ad93c38917165c90c739f80153d52738fce16b4d50d24791",
+      "afterContourSha256": "21d67d2051dec413b7799af1a998bf0d3dcbf67da9d64e77370305a7d10379c7",
       "toolCenterComponents": 1
     },
     {
@@ -120,9 +120,9 @@
         98.9126
       ],
       "beforeAreaMm2": 531.74513627,
-      "afterAreaMm2": 531.6068621,
+      "afterAreaMm2": 525.9230178,
       "beforeContourSha256": "3c130532cce44dee4155661b8f2457e182a3f23c5f9fb27ff41c068e60d5cf09",
-      "afterContourSha256": "e5caa0713a9818d507c4867ab049dc5268916dc263c6644e57d05c9f7b99dec3",
+      "afterContourSha256": "0a6bd47dea5a5957d09fb634d7f57b2dd7fe43173f4aaadb8b01c283cf76b971",
       "toolCenterComponents": 1
     },
     {
@@ -144,9 +144,9 @@
         108.8
       ],
       "beforeAreaMm2": 423.99912763,
-      "afterAreaMm2": 422.41787121,
+      "afterAreaMm2": 420.85628588,
       "beforeContourSha256": "c3d243f6d823837eaab5c5d266e5b5be0d48f9046aec025327237139b3bd6ea3",
-      "afterContourSha256": "21654f38f02b7d5a7002f495346f23f8824721a1ab01b4e75119a123923bea4c",
+      "afterContourSha256": "e106dad29b6d4d16c2dd8e65a4375239d38e1e9e01d940d7de2b6d288ead3bba",
       "toolCenterComponents": 1
     },
     {
@@ -168,9 +168,9 @@
         109.5
       ],
       "beforeAreaMm2": 1369.02964826,
-      "afterAreaMm2": 1343.41415048,
+      "afterAreaMm2": 1339.15284713,
       "beforeContourSha256": "afae53dded8b4a9815882b2e735f06c521df021d2c2c4d89c268230e96b3d11c",
-      "afterContourSha256": "6519b12d4c7f5b9a46de05012aa2da0fb278f5970b1e36d75aa670dd59700654",
+      "afterContourSha256": "f8d5424fb54eba9ccedce8ba5441c3b3394782e8aec94d6efb1fc2bf44fecd7f",
       "toolCenterComponents": 1
     },
     {
@@ -192,9 +192,9 @@
         109.1
       ],
       "beforeAreaMm2": 278.23094962,
-      "afterAreaMm2": 277.36023053,
+      "afterAreaMm2": 275.15746038,
       "beforeContourSha256": "2431bc2e5800f79e217270de92e90d44eead6ce619ad8711c539ebc2ac888915",
-      "afterContourSha256": "1c4c291e73209bd3bd53fef3a55fb122cb81432a6dabd5497054407671bb4f8d",
+      "afterContourSha256": "3557a37bdba91140799b441fd1a4d3a4e022967a484f9a3f21939e45b38b14b0",
       "toolCenterComponents": 1
     },
     {
@@ -216,9 +216,9 @@
         99.7587
       ],
       "beforeAreaMm2": 475.03928738,
-      "afterAreaMm2": 474.80678744,
+      "afterAreaMm2": 467.36528003,
       "beforeContourSha256": "5754515b4012d4ce2a159df6af923020a0a1f9d6181341654d8b428e5c044f81",
-      "afterContourSha256": "51d07862c0a982d3c214a5ee9f0cc06528acf9011be50c949c3575b0a83b4da7",
+      "afterContourSha256": "e43d8e2432454e673c6e4da1efed6efaffd3ac81696bd10174c670d9fce9085c",
       "toolCenterComponents": 1
     },
     {
@@ -240,9 +240,9 @@
         76.0161
       ],
       "beforeAreaMm2": 343.6723788,
-      "afterAreaMm2": 343.45290166,
+      "afterAreaMm2": 341.75396663,
       "beforeContourSha256": "85d70400249c2dbb9a02af852f2c07417076b7aafd5b7a73c65b1d6879d4604d",
-      "afterContourSha256": "4e298f3bbc5b871fa295ff583fb77c7db598bb55ef97e55ced2b678ea5cdd4ab",
+      "afterContourSha256": "ce494d02d36d553431e7983fcaccd6b8e9b7e7ff4976001ea8c7a1a9b4e43bbd",
       "toolCenterComponents": 1
     },
     {
@@ -264,9 +264,9 @@
         55.9978
       ],
       "beforeAreaMm2": 234.23350938,
-      "afterAreaMm2": 233.7489665,
+      "afterAreaMm2": 226.68389077,
       "beforeContourSha256": "c0965ae1b0e44ba393459c8c30afebe73375f9886dfee840eaa16286046202d6",
-      "afterContourSha256": "5e2738637cc7b7a1dd508e77f133b19211623878b17138fb751136eba44a28f9",
+      "afterContourSha256": "3456f6afb072830391661f064117c5b31dcddb839483850a85e8aba4dbe3dc3f",
       "toolCenterComponents": 1
     },
     {
@@ -288,9 +288,9 @@
         38.5674
       ],
       "beforeAreaMm2": 352.4456534,
-      "afterAreaMm2": 351.60339028,
+      "afterAreaMm2": 350.20963074,
       "beforeContourSha256": "662a772d7c6a40b58f4de70830852d167f7cbee10396ed31759fdbda447ac49f",
-      "afterContourSha256": "8f73a59ef7af7ab532bac01ff44fe9fcafc2f8da674ee5db6d92f61ac65b0538",
+      "afterContourSha256": "d8fa115efc974f622d5631b39aca4d7ef4cdb877ce66d13ca2f0fc0b47eb53f8",
       "toolCenterComponents": 1
     },
     {
@@ -312,9 +312,9 @@
         101.079
       ],
       "beforeAreaMm2": 130.51947717,
-      "afterAreaMm2": 124.75112394,
+      "afterAreaMm2": 123.56715075,
       "beforeContourSha256": "ddc97ff225f92b71396c922506b74a4c46e5fb0be788e05106553749c8713f3d",
-      "afterContourSha256": "097930b23f2d3b916c15bc30cfb7db341a2d1245423c52987b9d2d4ef6e593b7",
+      "afterContourSha256": "fcad7c848decedc0ffc8a712b91dc0a3bada6c4e853312c1aa2b2d955db8a319",
       "toolCenterComponents": 1
     },
     {
@@ -336,9 +336,9 @@
         50.581
       ],
       "beforeAreaMm2": 203.18746063,
-      "afterAreaMm2": 199.9796538,
+      "afterAreaMm2": 197.83310969,
       "beforeContourSha256": "eacf6510feb429096d480a0037b3bdfb1ff74837e827a3578906069ec9f214f9",
-      "afterContourSha256": "9150a088fd3cd1c90f0d0ccd8fbc250e2e34d7b8c915af97c8f04a59dacc0150",
+      "afterContourSha256": "32b6295426c21c37a20f4a4565180f9135fcf748611e00a24e5d6ca813b723f3",
       "toolCenterComponents": 1
     },
     {
@@ -360,9 +360,9 @@
         73.104
       ],
       "beforeAreaMm2": 229.01333236,
-      "afterAreaMm2": 225.2577889,
+      "afterAreaMm2": 223.01671581,
       "beforeContourSha256": "60e847fd9c247a9560b2a845c1efa1430e3882cd42654dad46e83e7810962234",
-      "afterContourSha256": "10a7e2fd2a57b83a4cd298dae1c02aa92138ba6efeef64e022b146622ff2dfb4",
+      "afterContourSha256": "6bea95033a54e7e0ba3cf67adc615fbfbe6e78abf0b6cb4ec0b876adce734534",
       "toolCenterComponents": 1
     },
     {
@@ -432,9 +432,9 @@
         97.1148
       ],
       "beforeAreaMm2": 174.50667118,
-      "afterAreaMm2": 169.55833484,
+      "afterAreaMm2": 168.94642607,
       "beforeContourSha256": "d0a8b0e4d50a2714c2fe7bd52f0271d7979b092b664b7f37184585aa977fad5a",
-      "afterContourSha256": "3df16c40d3c7964b5422ced016f7110155aa40f3d00ef5bb5ed1e9cbce437b91",
+      "afterContourSha256": "7f6f0fcd9c831fc6dd8fcfdf1a0089e326afb4ff13f6a82f7aa3e3cea7901a6b",
       "toolCenterComponents": 1
     },
     {
@@ -456,9 +456,9 @@
         70.9754
       ],
       "beforeAreaMm2": 175.4908202,
-      "afterAreaMm2": 169.70222804,
+      "afterAreaMm2": 168.77564138,
       "beforeContourSha256": "1ccb989400f17e1469bb24e79c570a44a78d6a1efcaf27ffbdc6fbf219647384",
-      "afterContourSha256": "7ec8c47e0a6a633ce75ebe0820306204c539d40a3ef91187d87e0e9572460e6a",
+      "afterContourSha256": "87519864b9f37168384ade184cfc6bab2c79e75695bfcaa8483720d9ba4c00fc",
       "toolCenterComponents": 1
     },
     {
@@ -24710,9 +24710,9 @@
       "originalGeometryHoleIndex0": 3,
       "operation": "exact once 2.0 mm network then all-center cutter sweep",
       "beforeNetworkAreaMm2": 412.988847976,
-      "initialRibbonMaterialAdditionMm2": 2.443797135,
-      "routingCleanupMaterialAdditionMm2": 0.075857399,
-      "afterAreaMm2": 410.469193448,
+      "initialRibbonMaterialAdditionMm2": 4.202264702,
+      "routingCleanupMaterialAdditionMm2": 0.159230995,
+      "afterAreaMm2": 408.627352292,
       "deltaBoundsMm": [
         79.144714,
         49.988886,
@@ -24720,11 +24720,33 @@
         79.088762
       ],
       "beforeContourSha256": "05aa16db7961b578c2a582ee651928ef3a651ea8425d2b9be60f86625e36298a",
-      "initialContourSha256": "9666679344379e41a0f3e74cb18e25e0308e8bba516d12a1593378daae9a9c36",
-      "cleanupContourSha256": "804c5f2cfe55a8bd4bced2257c31e513c92bdee4caf0f3832db174c167c73b39",
-      "decisionFinalContourSha256": "1f18b088e24bbfa076422fa65e2c6926c57ade3ced64540e2aeb8bd3b86c58eb",
-      "afterContourSha256": "ac40299920aef26b1529f5a2e2e7bc9983bc8b078e45f5377796825acbf5cb93",
-      "gridAdjustmentAreaMm2": 1.1873e-08
+      "initialContourSha256": "80c11a1236de0bc6c82f55bfc2f0317ad0f8c3cd55dae62af5aebe8ee39ba27c",
+      "cleanupContourSha256": "bc99657f77d0936e210ffbdfbcce86d12d263808c3751d0dfe724d6cfb663b4d",
+      "decisionFinalContourSha256": "8f9290d2d3811460590ca58e4635ae73d471e2861a4bdccd5b1c0f67d4d78a9f",
+      "afterContourSha256": "7d3f85bb7c5d008bbb86c0d19c146611ef6f7ce834f12b13cc557fc1525392eb",
+      "gridAdjustmentAreaMm2": 1.2847e-08
+    },
+    {
+      "board": "spider-nest-L01",
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "originalGeometryHoleIndex0": 4,
+      "operation": "exact once 2.0 mm network then all-center cutter sweep",
+      "beforeNetworkAreaMm2": 531.606862097,
+      "initialRibbonMaterialAdditionMm2": 5.590107267,
+      "routingCleanupMaterialAdditionMm2": 0.093737047,
+      "afterAreaMm2": 525.9230178,
+      "deltaBoundsMm": [
+        64.302813,
+        72.718829,
+        97.963859,
+        98.825318
+      ],
+      "beforeContourSha256": "3b12b02f2d74342376ab630bdc81eebd7585933e84979754ad437978ec7a8e3f",
+      "initialContourSha256": "e4b4203ebc86200a7bc5332d5878dd190f42825b463d179b00158b77cc1a07d0",
+      "cleanupContourSha256": "ea5e8bb79fa35928dafc0d8925e86e56b51bc98506a6dc36cc31fc9143a1f342",
+      "decisionFinalContourSha256": "af7663226471316c400fb2704bc6c78115b19f60ebc1b12dcb76253ca0380275",
+      "afterContourSha256": "bdfa05ada4de403d9e3113be836a67c3c0f35549e30c9e233eac26dce0821bd3",
+      "gridAdjustmentAreaMm2": 1.9927e-08
     },
     {
       "board": "spider-nest-L01",
@@ -24732,9 +24754,9 @@
       "originalGeometryHoleIndex0": 5,
       "operation": "exact once 2.0 mm network then all-center cutter sweep",
       "beforeNetworkAreaMm2": 423.858809039,
-      "initialRibbonMaterialAdditionMm2": 1.415976856,
-      "routingCleanupMaterialAdditionMm2": 0.024960979,
-      "afterAreaMm2": 422.41787121,
+      "initialRibbonMaterialAdditionMm2": 2.940994903,
+      "routingCleanupMaterialAdditionMm2": 0.061528261,
+      "afterAreaMm2": 420.856285875,
       "deltaBoundsMm": [
         57.243406,
         85.811161,
@@ -24742,11 +24764,11 @@
         108.755673
       ],
       "beforeContourSha256": "42ded46ca980ab5202071c64de29a7e7eafc1a737602e87ff21b35d8f7935f72",
-      "initialContourSha256": "4e4b4e50d85913bfc726b618c48a8cc93a58af5ef51af7db945e0cfae586d46a",
-      "cleanupContourSha256": "67d4573733e6fbfe2796089a952a8d18abcb1c04dfe3cea17f2f499d0064c597",
-      "decisionFinalContourSha256": "30214e0cb7e336f75468688c18e8da78358507a47936113cb21f4d3c05149834",
-      "afterContourSha256": "5593d1e2f52a2cca5abf8deeaca1b8b36479c34df378c98f74b151520b205608",
-      "gridAdjustmentAreaMm2": 1.9479e-08
+      "initialContourSha256": "de7705aa516012ea5a8c93c489e3cce6aa7bae99fd53545a664a7fd70f215bce",
+      "cleanupContourSha256": "060894fd577d04c634440358256901eee7fa545abe81389a8476b431be017c44",
+      "decisionFinalContourSha256": "f6b52c05126001c81d6178fa328905ba5aff6db7d8be463776f49b80006f9a9c",
+      "afterContourSha256": "2ee456bf6c3452623810c1f4b10dc6ffe1a99b96fb05d31e50ba44cf5168c17c",
+      "gridAdjustmentAreaMm2": 1.7007e-08
     },
     {
       "board": "spider-nest-L01",
@@ -24754,9 +24776,9 @@
       "originalGeometryHoleIndex0": 6,
       "operation": "exact once 2.0 mm network then all-center cutter sweep",
       "beforeNetworkAreaMm2": 1368.342773117,
-      "initialRibbonMaterialAdditionMm2": 24.479612787,
-      "routingCleanupMaterialAdditionMm2": 0.449009859,
-      "afterAreaMm2": 1343.414150485,
+      "initialRibbonMaterialAdditionMm2": 28.71164077,
+      "routingCleanupMaterialAdditionMm2": 0.47828523,
+      "afterAreaMm2": 1339.152847129,
       "deltaBoundsMm": [
         28.912552,
         38.941916,
@@ -24764,11 +24786,11 @@
         109.494174
       ],
       "beforeContourSha256": "d399c0891097c1ced8379f5fbfc49677d189c92909b3016012089a19fc46faa2",
-      "initialContourSha256": "b1e77146df9e40668ded267c4f59c9f3c3756a3b0fd5137428230259dd811a19",
-      "cleanupContourSha256": "f3fdd1bca1f6816b327d57c3ef586f42b122d89e53d911595941088bbae8ac99",
-      "decisionFinalContourSha256": "7941fe9661029920bc30987e402181b50113daf632c72e21e603b1a0dc58b900",
-      "afterContourSha256": "70af4f50497ca00e3a9758fbdf61f459a6de8813993a902f7ed4bbe9ec689eef",
-      "gridAdjustmentAreaMm2": 4.0445e-08
+      "initialContourSha256": "cdb5d65f3ca5e6aecac6ca1e27ea14bc81f2fec6668f3edbb45b8f97f1e204b0",
+      "cleanupContourSha256": "e6a291f38aa5931cfaa0b2f502feaabe52f3265c64aed1415ffaae72f17e3d18",
+      "decisionFinalContourSha256": "0fdad7b433c1ba6f7e1fd8ec52863a0bfe469c9a3159fdbedc54ed9189492894",
+      "afterContourSha256": "c1b008a175ce03b501eedb2c12c7251230c2d4422387bb762ae8d364e0b45108",
+      "gridAdjustmentAreaMm2": 4.2806e-08
     },
     {
       "board": "spider-nest-L01",
@@ -24776,9 +24798,9 @@
       "originalGeometryHoleIndex0": 7,
       "operation": "exact once 2.0 mm network then all-center cutter sweep",
       "beforeNetworkAreaMm2": 278.094651666,
-      "initialRibbonMaterialAdditionMm2": 0.702627837,
-      "routingCleanupMaterialAdditionMm2": 0.031793298,
-      "afterAreaMm2": 277.360230531,
+      "initialRibbonMaterialAdditionMm2": 2.856465584,
+      "routingCleanupMaterialAdditionMm2": 0.080725701,
+      "afterAreaMm2": 275.157460378,
       "deltaBoundsMm": [
         12.820833,
         91.448649,
@@ -24786,11 +24808,77 @@
         109.073091
       ],
       "beforeContourSha256": "411a32ef59afc4b8fab0f2bfa882685a344712abef2ca7f98594b92c2f34c8ab",
-      "initialContourSha256": "c0348f305cde4db3c30e68c7aaf377a6939d0bdf4c1ed13071b4568f4ee970e9",
-      "cleanupContourSha256": "2f4de6e8a9f3273d07a6c61bb100c047ea4e8693d76e0f4f7a69d2731a863ee6",
-      "decisionFinalContourSha256": "d750ff6dbdf01cde0b96038b098c110d0a1d50e3d36d4c348b95b0a038a165b3",
-      "afterContourSha256": "f79d9f05439969fb30c4e0bd5f4046d74ddc371433247a4ce48abaa8fae44a4a",
-      "gridAdjustmentAreaMm2": 9.833e-09
+      "initialContourSha256": "652986ed29206496e274398e446e98005bcd5fd768ac02d73d3966ee577274d7",
+      "cleanupContourSha256": "36888485716cd5fbba19528c6da19e0c2eaa1e44f4ee2f05244f92fc61663a1d",
+      "decisionFinalContourSha256": "5552bd93f9827e3cebd6534af10897e5b338f92f31f0d4a9c3696f8139d51fce",
+      "afterContourSha256": "17d6f95eeee22dad067c9537a4ba036b248584498abbac4aa59ee9c7b94bab1a",
+      "gridAdjustmentAreaMm2": 1.2828e-08
+    },
+    {
+      "board": "spider-nest-L01",
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "originalGeometryHoleIndex0": 8,
+      "operation": "exact once 2.0 mm network then all-center cutter sweep",
+      "beforeNetworkAreaMm2": 474.806787435,
+      "initialRibbonMaterialAdditionMm2": 7.285679658,
+      "routingCleanupMaterialAdditionMm2": 0.155827754,
+      "afterAreaMm2": 467.365280027,
+      "deltaBoundsMm": [
+        3.237745,
+        72.66162,
+        30.773259,
+        99.513334
+      ],
+      "beforeContourSha256": "5e4a128c98c11779f1acc034273078bfc9788f67961b54ff208728cc14911f57",
+      "initialContourSha256": "6dba8f7037726851d9b58dd0d6f1bd0482dbb85d0f801381fde96a101e7f1270",
+      "cleanupContourSha256": "496a7923ba999519223086213dff40b004ea5b0c657a1afc65821c8df8de00af",
+      "decisionFinalContourSha256": "efa2d032e0bb761b59e30c7d91df297c78730f366f1ef7220f7cc032ead8bd87",
+      "afterContourSha256": "65ffd48d12194a3330cc52314645d1c4d9861175518f8cc5e178edbd5080ef98",
+      "gridAdjustmentAreaMm2": 1.007e-08
+    },
+    {
+      "board": "spider-nest-L01",
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "originalGeometryHoleIndex0": 9,
+      "operation": "exact once 2.0 mm network then all-center cutter sweep",
+      "beforeNetworkAreaMm2": 343.452901658,
+      "initialRibbonMaterialAdditionMm2": 1.60932429,
+      "routingCleanupMaterialAdditionMm2": 0.089610741,
+      "afterAreaMm2": 341.75396663,
+      "deltaBoundsMm": [
+        2.503931,
+        46.880618,
+        17.109791,
+        75.924476
+      ],
+      "beforeContourSha256": "cfa24f40a7a1f5021701bd7612b90969ed40ea998a3f7e490ff6d8506589cd75",
+      "initialContourSha256": "1d64da0cf6c9e6034c88f7a25d7a50e4d516568ae806e6a7cb65dffea55fd4e6",
+      "cleanupContourSha256": "879d0f653fbcdffdbe09c2175bb6ad00ed756055aa1e9a0471a3786d60a38f74",
+      "decisionFinalContourSha256": "91bc3ed1631f1a7210e0c27b3b5c86105eac477f337c3287b0aaa07761d6548f",
+      "afterContourSha256": "8d24a239a6445cce41299e2a9bba723859858872afd0a4b3894c8b9f07f65001",
+      "gridAdjustmentAreaMm2": 1.1492e-08
+    },
+    {
+      "board": "spider-nest-L01",
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "originalGeometryHoleIndex0": 10,
+      "operation": "exact once 2.0 mm network then all-center cutter sweep",
+      "beforeNetworkAreaMm2": 233.748966502,
+      "initialRibbonMaterialAdditionMm2": 6.695000606,
+      "routingCleanupMaterialAdditionMm2": 0.37007512,
+      "afterAreaMm2": 226.68389077,
+      "deltaBoundsMm": [
+        2.928569,
+        31.147375,
+        32.289258,
+        55.457395
+      ],
+      "beforeContourSha256": "f0128e95f729b2c9d4a35248aee03b500a6a9a6af8eacdae17c933bb2f098901",
+      "initialContourSha256": "80099fedecaf1aac926650dc02def09e0db7218637963e34d3b33cc8bf492c18",
+      "cleanupContourSha256": "bd4c114e4b45daea13c0ce5aad4bb0ab022eb798f8d5010d4745aab94640a49a",
+      "decisionFinalContourSha256": "8c0f2b3718945ed9da27594fd9914a81108d111adc2adf54b27eb515fac0df15",
+      "afterContourSha256": "bccd0bb6de592b3c0d89e9c8cafada2aa9e6ada2152232758d7b499293820973",
+      "gridAdjustmentAreaMm2": 1.6919e-08
     },
     {
       "board": "spider-nest-L01",
@@ -24798,9 +24886,9 @@
       "originalGeometryHoleIndex0": 11,
       "operation": "exact once 2.0 mm network then all-center cutter sweep",
       "beforeNetworkAreaMm2": 352.351159098,
-      "initialRibbonMaterialAdditionMm2": 0.721937063,
-      "routingCleanupMaterialAdditionMm2": 0.025831755,
-      "afterAreaMm2": 351.603390279,
+      "initialRibbonMaterialAdditionMm2": 2.098470225,
+      "routingCleanupMaterialAdditionMm2": 0.043058137,
+      "afterAreaMm2": 350.209630741,
       "deltaBoundsMm": [
         10.840229,
         19.00818,
@@ -24808,11 +24896,11 @@
         38.52095
       ],
       "beforeContourSha256": "df8be051b18dd9d564471625cb9f52f2e2a125de5650f09c7b266e0da012e58d",
-      "initialContourSha256": "c83cfcafabdc659cce014d9df3ebb52c564ef7f4210f979ca7b713d42803730d",
-      "cleanupContourSha256": "8718355dc8aa81bfe3a29e9dcb53fdbc4bd97e602a64da696ce780d25153cc31",
-      "decisionFinalContourSha256": "dfbc7a88bec496e23509c832fdd4eb1bf3f35cdf738b3ea836b17a7c370fa28e",
-      "afterContourSha256": "3f3e1057d2c29a8627d73de620601c31ae81bd1f66cf52ddb7ac2db9719373c2",
-      "gridAdjustmentAreaMm2": 1.1708e-08
+      "initialContourSha256": "c8472b33be0743db652cdda0f753892912d492d596ed6d0fccead2545e53405e",
+      "cleanupContourSha256": "d811a93e03254f587413ae3a85f5efda9d097277f10c6d0859d7c447765da449",
+      "decisionFinalContourSha256": "1ade71ce2c388ec2eae5f19ea00028ba17853f5765266a26f08be0a59d1996ba",
+      "afterContourSha256": "4abbffa702876028b23726c43ae7ad86554d639a207579c92d90d54688052a92",
+      "gridAdjustmentAreaMm2": 1.1553e-08
     },
     {
       "board": "spider-nest-L01",
@@ -24820,9 +24908,9 @@
       "originalGeometryHoleIndex0": 12,
       "operation": "exact once 2.0 mm network then all-center cutter sweep",
       "beforeNetworkAreaMm2": 129.950079386,
-      "initialRibbonMaterialAdditionMm2": 4.871404054,
-      "routingCleanupMaterialAdditionMm2": 0.327551395,
-      "afterAreaMm2": 124.751123938,
+      "initialRibbonMaterialAdditionMm2": 6.008132768,
+      "routingCleanupMaterialAdditionMm2": 0.374795867,
+      "afterAreaMm2": 123.567150753,
       "deltaBoundsMm": [
         26.962617,
         81.464528,
@@ -24830,11 +24918,11 @@
         100.244379
       ],
       "beforeContourSha256": "d1ab6ab74846363e35a2cd1278726dbc432ace5b8aafde67c85dc001f06a5f56",
-      "initialContourSha256": "0dc2856a6a54f3180247c9cee8b61e4f0faf71189bef36a19379d809b148469f",
-      "cleanupContourSha256": "c90a7f410eab6b650b4b6f2ae0b1ed9b94e0dfffc27ba3ab14edc7173201810f",
-      "decisionFinalContourSha256": "a0e0670948157ed1fa79f5b9a3c038b557baa8412769c0a7f040e6f6c76e9712",
-      "afterContourSha256": "92e7a224e4a9c2b94d461f9f2773893e03e0cf7e291e9e481e476bf2f0ec1d46",
-      "gridAdjustmentAreaMm2": 5.783e-09
+      "initialContourSha256": "107dda76859026ef2138d20bde09e4040735373d83270cb81bfc8df8bc738102",
+      "cleanupContourSha256": "ba3aa299a171943319e225e785e919792929986efa8653630ab283d339076f87",
+      "decisionFinalContourSha256": "43bffa841d2a4d2ad913b8c25cfd41e4ae966dbc232c427a789c81bffe2343f4",
+      "afterContourSha256": "36353197b2228dc6ecfea72a4d0e6efdc3243a848da8e7496ac410d035ec7283",
+      "gridAdjustmentAreaMm2": 6.151e-09
     },
     {
       "board": "spider-nest-L01",
@@ -24842,9 +24930,9 @@
       "originalGeometryHoleIndex0": 13,
       "operation": "exact once 2.0 mm network then all-center cutter sweep",
       "beforeNetworkAreaMm2": 202.817378184,
-      "initialRibbonMaterialAdditionMm2": 2.755717222,
-      "routingCleanupMaterialAdditionMm2": 0.082007166,
-      "afterAreaMm2": 199.979653802,
+      "initialRibbonMaterialAdditionMm2": 4.802144788,
+      "routingCleanupMaterialAdditionMm2": 0.182123714,
+      "afterAreaMm2": 197.833109686,
       "deltaBoundsMm": [
         19.163827,
         33.427059,
@@ -24852,11 +24940,11 @@
         50.480624
       ],
       "beforeContourSha256": "c1ec2937b193630ed49ab73d9c4adbd1fe50799efb060bd7440b61885f80d291",
-      "initialContourSha256": "2c9a69459c81bf329990602e36934202ad08c2953cfb898f52262b138815add5",
-      "cleanupContourSha256": "a818ce13b88e8e9e03b3c227407c09fa968d1f43521b0437bcfc6e4d5b907d6e",
-      "decisionFinalContourSha256": "955aef43584d892ce154ac862caa919e3987114564a65ab43460a24ad90a10e4",
-      "afterContourSha256": "3d290260765d1b80c8264c76066a0c50db7a48f58969adfce0d7c7b42f4f9705",
-      "gridAdjustmentAreaMm2": 1.1038e-08
+      "initialContourSha256": "8c0eba648d0f713f18c9cf7a5c2968f38b9b699c380ace17b544dbbd0b0104e4",
+      "cleanupContourSha256": "79caea05c2e8719c6fde3a0b0c56d23ccd1aa29306c85d7f0edd2cb1dba99323",
+      "decisionFinalContourSha256": "af577d21118044adc634616f92682b8e5f6565b08fbb9bc866a3bd9d53eee637",
+      "afterContourSha256": "c6221b47ea2a32727ddccae75eb1667994d4434c414a596d02fc5136d0070fdf",
+      "gridAdjustmentAreaMm2": 9.086e-09
     },
     {
       "board": "spider-nest-L01",
@@ -24864,9 +24952,9 @@
       "originalGeometryHoleIndex0": 14,
       "operation": "exact once 2.0 mm network then all-center cutter sweep",
       "beforeNetworkAreaMm2": 228.607133805,
-      "initialRibbonMaterialAdditionMm2": 3.292333253,
-      "routingCleanupMaterialAdditionMm2": 0.057011661,
-      "afterAreaMm2": 225.257788896,
+      "initialRibbonMaterialAdditionMm2": 5.425741773,
+      "routingCleanupMaterialAdditionMm2": 0.164676218,
+      "afterAreaMm2": 223.01671581,
       "deltaBoundsMm": [
         15.706908,
         49.72713,
@@ -24874,11 +24962,11 @@
         72.953403
       ],
       "beforeContourSha256": "2f58ca001a55f53bfeab9f924a726fa96d0010584e9f5670ef405f65d64e845b",
-      "initialContourSha256": "7db03d84dc623aa0be61fa01ed2212380667433a31350fc04f96371560243d1e",
-      "cleanupContourSha256": "f5e81767a6eebf8b4959e7ddbda5e67d45345337c5bc20e43639a42a58ef26ab",
-      "decisionFinalContourSha256": "a65a0f5cc69eaf1d9fa1f20abb2ba887416681886188dde88dafd036de60bf39",
-      "afterContourSha256": "be77ef1bba51d407eed8929d4d7c1b6ec8425b71b7c924225c6a367f07af159f",
-      "gridAdjustmentAreaMm2": 5.902e-09
+      "initialContourSha256": "35046c681023fb691c1e43e5ac8220a2e7fbdad35b0f85d4ae195ae7f4b1832d",
+      "cleanupContourSha256": "370be4bb5d6f317090606daa219367fca35e1c18c13a16453de9cc84ec2c2677",
+      "decisionFinalContourSha256": "2e4b2105ff6b9b7517d937f309b0a2a3ef6981ddf7d3a68ddfd0c094c0079942",
+      "afterContourSha256": "1ce0a649330c4ebaeed20eb15f75ef5477e589a586f1939859b89e90f38197ad",
+      "gridAdjustmentAreaMm2": 9.844e-09
     },
     {
       "board": "spider-nest-L01",
@@ -24930,9 +25018,9 @@
       "originalGeometryHoleIndex0": 17,
       "operation": "exact once 2.0 mm network then all-center cutter sweep",
       "beforeNetworkAreaMm2": 174.099041334,
-      "initialRibbonMaterialAdditionMm2": 4.349183391,
-      "routingCleanupMaterialAdditionMm2": 0.191523096,
-      "afterAreaMm2": 169.558334839,
+      "initialRibbonMaterialAdditionMm2": 4.945266293,
+      "routingCleanupMaterialAdditionMm2": 0.20734897,
+      "afterAreaMm2": 168.94642607,
       "deltaBoundsMm": [
         51.801924,
         75.904684,
@@ -24940,11 +25028,11 @@
         96.33377
       ],
       "beforeContourSha256": "3bd24baa8f4364153ecf293506348c6f3e095aec84baa8046e4579bbb55e1a2c",
-      "initialContourSha256": "769acd809a6e1852ac2aed3824eb435207fd085cd3fa0b9c1b9faf2cf5287593",
-      "cleanupContourSha256": "15408f4462254d171ca3f2b2662323c08e28a65dc3c9056010a77a7f3a16955b",
-      "decisionFinalContourSha256": "4b90c72d10e9f862880dbd7511f7bb7f43ad1c88767d7e2e0e4625c4293a7f37",
-      "afterContourSha256": "96d5e0431fdf8ec4b9a74f9f96e3939e978d00ee823b4c29f02e6f6c913516e9",
-      "gridAdjustmentAreaMm2": 9.003e-09
+      "initialContourSha256": "d829cf5df5545eaec7cfea58a0f1801a2ba9f2ed53eaa09828514147d3e1691b",
+      "cleanupContourSha256": "7091c4d8b965b68339c37074cd28d70f85a174d7bb41f3e1c9ac349c29e64824",
+      "decisionFinalContourSha256": "26a2e789c8daccb4f111358d3709e6333721808daff348ce35575360ba6c36c7",
+      "afterContourSha256": "9834150034342c44db3c402b720f77607f4ab98a72f9894fb46280b46fde9faa",
+      "gridAdjustmentAreaMm2": 1.0983e-08
     },
     {
       "board": "spider-nest-L01",
@@ -24952,9 +25040,9 @@
       "originalGeometryHoleIndex0": 18,
       "operation": "exact once 2.0 mm network then all-center cutter sweep",
       "beforeNetworkAreaMm2": 175.054146943,
-      "initialRibbonMaterialAdditionMm2": 5.155645436,
-      "routingCleanupMaterialAdditionMm2": 0.196273478,
-      "afterAreaMm2": 169.702228037,
+      "initialRibbonMaterialAdditionMm2": 6.056784644,
+      "routingCleanupMaterialAdditionMm2": 0.221720921,
+      "afterAreaMm2": 168.775641384,
       "deltaBoundsMm": [
         63.602537,
         53.473486,
@@ -24962,11 +25050,11 @@
         70.97324
       ],
       "beforeContourSha256": "23bdd9f8ec51bc34736ef9cf6c5ca8dd0b0931769725e3be5a68459e32cedb88",
-      "initialContourSha256": "b95e32c0d653a63f1496f48fa3159df23e1a4cbe531b6e5f2ac2ae2a2aceb60b",
-      "cleanupContourSha256": "05b58a9bc47974f7784102839c425484d7dc209bb1c99efeae63683df27a3648",
-      "decisionFinalContourSha256": "bc03af32a99c1127e2d68f8e777140f0d4e2d5073de6032ae6f999791ebcc267",
-      "afterContourSha256": "f2bacbac40022dcd41bcf6665de9bc50b3c686901479233a7c35ff303baa7568",
-      "gridAdjustmentAreaMm2": 1.165e-08
+      "initialContourSha256": "815e7fd05ab97e4d5d03e0d8928854e8ba7642068aa0133a088971bb5c0e89bb",
+      "cleanupContourSha256": "a826ea2573a24a6d88874b7f1eeb5adc1053490795f539d81cbc2f44aee09527",
+      "decisionFinalContourSha256": "620db9b03bbcc75722896406c27a0cc2408b83b46e496f4861c994083bd7af22",
+      "afterContourSha256": "d53ecb6800e6aff70abf02243ebdce823cfe548a545793321e250251a4624a8b",
+      "gridAdjustmentAreaMm2": 1.1698e-08
     }
   ],
   "spiderNetworkGuideChanges": [
@@ -25061,7 +25149,38 @@
       ],
       "maximumNominalDisplacementMm": 0.05975887417036858,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "67b15daff5c2b9d40f9945c5387ae904ad79ca93ab131fcf66ea412147f76578"
+      "afterContourSha256": "d1353ea4a849c70b66566a465cd3845be2281fa81d4d382b4c130d96edcac441"
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 96,
+      "originalGuideEdgeIndex0": 5,
+      "centralStrokeIndex0": 11,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "sourceContourSha256": "e1f8fe3d6b7eee25b10ceb73aaa6dd7bf93c6e2703ac666fb163c26da89cbc85",
+      "originalPortionMm": [
+        [
+          98.471,
+          79.886
+        ],
+        [
+          78.7457,
+          71.3842
+        ]
+      ],
+      "nominalRelocatedPortionMm": [
+        [
+          98.46479976791436,
+          79.90038539368031
+        ],
+        [
+          78.7394921362694,
+          71.39860310014927
+        ]
+      ],
+      "maximumNominalDisplacementMm": 0.015683968439378703,
+      "operation": "relocate exact Spider network guide portion with bounded endpoint join",
+      "afterContourSha256": "d1353ea4a849c70b66566a465cd3845be2281fa81d4d382b4c130d96edcac441"
     },
     {
       "board": "spider-nest-L01",
@@ -25159,6 +25278,37 @@
     {
       "board": "spider-nest-L01",
       "artStrokeIndex0": 99,
+      "originalGuideEdgeIndex0": 3,
+      "centralStrokeIndex0": 13,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "sourceContourSha256": "3e6bac27e02eb68a70ff0c351c259a9d1bcf0dc88605d17f9f705bcf05d752dd",
+      "originalPortionMm": [
+        [
+          87.7365,
+          100.2319
+        ],
+        [
+          67.9049,
+          85.1648
+        ]
+      ],
+      "nominalRelocatedPortionMm": [
+        [
+          87.76042827985441,
+          100.20040494778357
+        ],
+        [
+          67.92878199116763,
+          85.13336587421105
+        ]
+      ],
+      "maximumNominalDisplacementMm": 0.03955377214509557,
+      "operation": "relocate exact Spider network guide portion with bounded endpoint join",
+      "afterContourSha256": "7e80119a0d43d3fc82358dbdbd4ed809ca62376aae84df78d71d22fad6a0786e"
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 99,
       "originalGuideEdgeIndex0": 7,
       "centralStrokeIndex0": 15,
       "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
@@ -25185,7 +25335,7 @@
       ],
       "maximumNominalDisplacementMm": 0.026433772239986723,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "79246bf198805d5ce1708a2dd0114432f08c79f846dcbc09aead9428660edd06"
+      "afterContourSha256": "7e80119a0d43d3fc82358dbdbd4ed809ca62376aae84df78d71d22fad6a0786e"
     },
     {
       "board": "spider-nest-L01",
@@ -25216,7 +25366,7 @@
       ],
       "maximumNominalDisplacementMm": 0.13439119977953418,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "db00e6381d4ec5837067bc0994f80586b95c470bf72f79c0184e99ad44bfdf02"
+      "afterContourSha256": "5031c979b608d08deec366519862c0b64221073b6670baf19531eb13fb532c96"
     },
     {
       "board": "spider-nest-L01",
@@ -25247,7 +25397,7 @@
       ],
       "maximumNominalDisplacementMm": 0.13436345183616732,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "db00e6381d4ec5837067bc0994f80586b95c470bf72f79c0184e99ad44bfdf02"
+      "afterContourSha256": "5031c979b608d08deec366519862c0b64221073b6670baf19531eb13fb532c96"
     },
     {
       "board": "spider-nest-L01",
@@ -25278,7 +25428,38 @@
       ],
       "maximumNominalDisplacementMm": 0.059696377781352915,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "db00e6381d4ec5837067bc0994f80586b95c470bf72f79c0184e99ad44bfdf02"
+      "afterContourSha256": "5031c979b608d08deec366519862c0b64221073b6670baf19531eb13fb532c96"
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 100,
+      "originalGuideEdgeIndex0": 5,
+      "centralStrokeIndex0": 12,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "sourceContourSha256": "9731fdc7ccaab7dcfde4cd68f4feef6f3b706a2fa120ca150ed35984c5adb228",
+      "originalPortionMm": [
+        [
+          78.0289,
+          71.273
+        ],
+        [
+          66.6487,
+          71.357
+        ]
+      ],
+      "nominalRelocatedPortionMm": [
+        [
+          78.0290153791071,
+          71.2886188539239
+        ],
+        [
+          66.64881587738861,
+          71.37268630622357
+        ]
+      ],
+      "maximumNominalDisplacementMm": 0.015686734220635223,
+      "operation": "relocate exact Spider network guide portion with bounded endpoint join",
+      "afterContourSha256": "5031c979b608d08deec366519862c0b64221073b6670baf19531eb13fb532c96"
     },
     {
       "board": "spider-nest-L01",
@@ -25309,7 +25490,7 @@
       ],
       "maximumNominalDisplacementMm": 0.0659301149226767,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "d7f344c7148d9941a8ef29966e0de29d831dbc9a780987b95f7269b407716b6f"
+      "afterContourSha256": "f7ef6c96231386d1324e95a348cc8a8536268379aa6aa0e7067bfc04e03723ef"
     },
     {
       "board": "spider-nest-L01",
@@ -25340,7 +25521,7 @@
       ],
       "maximumNominalDisplacementMm": 0.06595969343033056,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "d7f344c7148d9941a8ef29966e0de29d831dbc9a780987b95f7269b407716b6f"
+      "afterContourSha256": "f7ef6c96231386d1324e95a348cc8a8536268379aa6aa0e7067bfc04e03723ef"
     },
     {
       "board": "spider-nest-L01",
@@ -25371,7 +25552,7 @@
       ],
       "maximumNominalDisplacementMm": 0.05966357916370614,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "d7f344c7148d9941a8ef29966e0de29d831dbc9a780987b95f7269b407716b6f"
+      "afterContourSha256": "f7ef6c96231386d1324e95a348cc8a8536268379aa6aa0e7067bfc04e03723ef"
     },
     {
       "board": "spider-nest-L01",
@@ -25402,7 +25583,7 @@
       ],
       "maximumNominalDisplacementMm": 0.02635785842560906,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "15a7fa38ae380d556eda599d8bbb6def09a07459a54535abacaedc7d989ffe6e"
+      "afterContourSha256": "10995afbd3c4b5957c4279235d7169d8cdb4c84b5874675cd4eed6604fae610d"
     },
     {
       "board": "spider-nest-L01",
@@ -25433,7 +25614,7 @@
       ],
       "maximumNominalDisplacementMm": 0.07790380117168495,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "15a7fa38ae380d556eda599d8bbb6def09a07459a54535abacaedc7d989ffe6e"
+      "afterContourSha256": "10995afbd3c4b5957c4279235d7169d8cdb4c84b5874675cd4eed6604fae610d"
     },
     {
       "board": "spider-nest-L01",
@@ -25464,7 +25645,38 @@
       ],
       "maximumNominalDisplacementMm": 0.07790435563089994,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "15a7fa38ae380d556eda599d8bbb6def09a07459a54535abacaedc7d989ffe6e"
+      "afterContourSha256": "10995afbd3c4b5957c4279235d7169d8cdb4c84b5874675cd4eed6604fae610d"
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 102,
+      "originalGuideEdgeIndex0": 4,
+      "centralStrokeIndex0": 14,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "sourceContourSha256": "cf2440756b00841606831390c94e849db2cf27d761d6b394646253d538d1b7f1",
+      "originalPortionMm": [
+        [
+          67.4346,
+          84.6191
+        ],
+        [
+          62.7568,
+          75.4505
+        ]
+      ],
+      "nominalRelocatedPortionMm": [
+        [
+          67.46983354305354,
+          84.60112419674319
+        ],
+        [
+          62.7920902478612,
+          75.43249526651427
+        ]
+      ],
+      "maximumNominalDisplacementMm": 0.039617824549030865,
+      "operation": "relocate exact Spider network guide portion with bounded endpoint join",
+      "afterContourSha256": "10995afbd3c4b5957c4279235d7169d8cdb4c84b5874675cd4eed6604fae610d"
     },
     {
       "board": "spider-nest-L01",
@@ -25495,7 +25707,7 @@
       ],
       "maximumNominalDisplacementMm": 0.1408853513085408,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "af3066e3a115c31193f2575eecea4970df3131fd1fcfccd4d5312cde6be8d08f"
+      "afterContourSha256": "c649f1f74ef5cc2af6ac75224f02cae6ed82fb713b301377a5d005c81b5866ff"
     },
     {
       "board": "spider-nest-L01",
@@ -25526,7 +25738,69 @@
       ],
       "maximumNominalDisplacementMm": 0.14087320031046746,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "af3066e3a115c31193f2575eecea4970df3131fd1fcfccd4d5312cde6be8d08f"
+      "afterContourSha256": "c649f1f74ef5cc2af6ac75224f02cae6ed82fb713b301377a5d005c81b5866ff"
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 103,
+      "originalGuideEdgeIndex0": 6,
+      "centralStrokeIndex0": 41,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "sourceContourSha256": "b86483375da0424344fe216272915980fe6695a0d32f42ca7c33e52e748b51e4",
+      "originalPortionMm": [
+        [
+          34.5059,
+          57.2515
+        ],
+        [
+          33.3319,
+          54.2612
+        ]
+      ],
+      "nominalRelocatedPortionMm": [
+        [
+          34.60950963791694,
+          57.21082163791773
+        ],
+        [
+          33.435486296138905,
+          54.220530802174245
+        ]
+      ],
+      "maximumNominalDisplacementMm": 0.111308967343053,
+      "operation": "relocate exact Spider network guide portion with bounded endpoint join",
+      "afterContourSha256": "c649f1f74ef5cc2af6ac75224f02cae6ed82fb713b301377a5d005c81b5866ff"
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 103,
+      "originalGuideEdgeIndex0": 7,
+      "centralStrokeIndex0": 41,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "sourceContourSha256": "b86483375da0424344fe216272915980fe6695a0d32f42ca7c33e52e748b51e4",
+      "originalPortionMm": [
+        [
+          33.3319,
+          54.2612
+        ],
+        [
+          33.3542,
+          52.0125
+        ]
+      ],
+      "nominalRelocatedPortionMm": [
+        [
+          33.4431597693944,
+          54.262309833274074
+        ],
+        [
+          33.46559088394229,
+          52.01361114116181
+        ]
+      ],
+      "maximumNominalDisplacementMm": 0.1113964257062434,
+      "operation": "relocate exact Spider network guide portion with bounded endpoint join",
+      "afterContourSha256": "c649f1f74ef5cc2af6ac75224f02cae6ed82fb713b301377a5d005c81b5866ff"
     },
     {
       "board": "spider-nest-L01",
@@ -25557,7 +25831,7 @@
       ],
       "maximumNominalDisplacementMm": 0.0765377027673785,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "af3066e3a115c31193f2575eecea4970df3131fd1fcfccd4d5312cde6be8d08f"
+      "afterContourSha256": "c649f1f74ef5cc2af6ac75224f02cae6ed82fb713b301377a5d005c81b5866ff"
     },
     {
       "board": "spider-nest-L01",
@@ -25588,7 +25862,7 @@
       ],
       "maximumNominalDisplacementMm": 0.07653722351532,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "af3066e3a115c31193f2575eecea4970df3131fd1fcfccd4d5312cde6be8d08f"
+      "afterContourSha256": "c649f1f74ef5cc2af6ac75224f02cae6ed82fb713b301377a5d005c81b5866ff"
     },
     {
       "board": "spider-nest-L01",
@@ -25619,7 +25893,7 @@
       ],
       "maximumNominalDisplacementMm": 0.092587512287434,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "af3066e3a115c31193f2575eecea4970df3131fd1fcfccd4d5312cde6be8d08f"
+      "afterContourSha256": "c649f1f74ef5cc2af6ac75224f02cae6ed82fb713b301377a5d005c81b5866ff"
     },
     {
       "board": "spider-nest-L01",
@@ -25650,7 +25924,7 @@
       ],
       "maximumNominalDisplacementMm": 0.09258506564284774,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "af3066e3a115c31193f2575eecea4970df3131fd1fcfccd4d5312cde6be8d08f"
+      "afterContourSha256": "c649f1f74ef5cc2af6ac75224f02cae6ed82fb713b301377a5d005c81b5866ff"
     },
     {
       "board": "spider-nest-L01",
@@ -25681,7 +25955,7 @@
       ],
       "maximumNominalDisplacementMm": 0.006941840379237404,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "af3066e3a115c31193f2575eecea4970df3131fd1fcfccd4d5312cde6be8d08f"
+      "afterContourSha256": "c649f1f74ef5cc2af6ac75224f02cae6ed82fb713b301377a5d005c81b5866ff"
     },
     {
       "board": "spider-nest-L01",
@@ -25712,7 +25986,7 @@
       ],
       "maximumNominalDisplacementMm": 0.06595903616623564,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "af3066e3a115c31193f2575eecea4970df3131fd1fcfccd4d5312cde6be8d08f"
+      "afterContourSha256": "c649f1f74ef5cc2af6ac75224f02cae6ed82fb713b301377a5d005c81b5866ff"
     },
     {
       "board": "spider-nest-L01",
@@ -25743,7 +26017,7 @@
       ],
       "maximumNominalDisplacementMm": 0.134426246461685,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "af3066e3a115c31193f2575eecea4970df3131fd1fcfccd4d5312cde6be8d08f"
+      "afterContourSha256": "c649f1f74ef5cc2af6ac75224f02cae6ed82fb713b301377a5d005c81b5866ff"
     },
     {
       "board": "spider-nest-L01",
@@ -25774,7 +26048,69 @@
       ],
       "maximumNominalDisplacementMm": 0.13439775569049686,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "af3066e3a115c31193f2575eecea4970df3131fd1fcfccd4d5312cde6be8d08f"
+      "afterContourSha256": "c649f1f74ef5cc2af6ac75224f02cae6ed82fb713b301377a5d005c81b5866ff"
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 103,
+      "originalGuideEdgeIndex0": 29,
+      "centralStrokeIndex0": 33,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "sourceContourSha256": "b86483375da0424344fe216272915980fe6695a0d32f42ca7c33e52e748b51e4",
+      "originalPortionMm": [
+        [
+          66.0064,
+          71.7733
+        ],
+        [
+          63.971830408551305,
+          73.47328403244774
+        ]
+      ],
+      "nominalRelocatedPortionMm": [
+        [
+          65.94122942073702,
+          71.69530779901612
+        ],
+        [
+          63.90671397517355,
+          73.39535662997893
+        ]
+      ],
+      "maximumNominalDisplacementMm": 0.10163654763805935,
+      "operation": "relocate exact Spider network guide portion with bounded endpoint join",
+      "afterContourSha256": "c649f1f74ef5cc2af6ac75224f02cae6ed82fb713b301377a5d005c81b5866ff"
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 103,
+      "originalGuideEdgeIndex0": 30,
+      "centralStrokeIndex0": 33,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "sourceContourSha256": "b86483375da0424344fe216272915980fe6695a0d32f42ca7c33e52e748b51e4",
+      "originalPortionMm": [
+        [
+          63.936981728406444,
+          73.50599785629814
+        ],
+        [
+          63.0502,
+          74.44
+        ]
+      ],
+      "nominalRelocatedPortionMm": [
+        [
+          63.863332011192576,
+          73.43607228488099
+        ],
+        [
+          62.976554495344395,
+          74.37007842813037
+        ]
+      ],
+      "maximumNominalDisplacementMm": 0.1015572074433761,
+      "operation": "relocate exact Spider network guide portion with bounded endpoint join",
+      "afterContourSha256": "c649f1f74ef5cc2af6ac75224f02cae6ed82fb713b301377a5d005c81b5866ff"
     },
     {
       "board": "spider-nest-L01",
@@ -25805,7 +26141,7 @@
       ],
       "maximumNominalDisplacementMm": 0.07793760986484044,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "af3066e3a115c31193f2575eecea4970df3131fd1fcfccd4d5312cde6be8d08f"
+      "afterContourSha256": "c649f1f74ef5cc2af6ac75224f02cae6ed82fb713b301377a5d005c81b5866ff"
     },
     {
       "board": "spider-nest-L01",
@@ -25836,7 +26172,7 @@
       ],
       "maximumNominalDisplacementMm": 0.07790378462416919,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "af3066e3a115c31193f2575eecea4970df3131fd1fcfccd4d5312cde6be8d08f"
+      "afterContourSha256": "c649f1f74ef5cc2af6ac75224f02cae6ed82fb713b301377a5d005c81b5866ff"
     },
     {
       "board": "spider-nest-L01",
@@ -25867,7 +26203,7 @@
       ],
       "maximumNominalDisplacementMm": 0.026356567558454603,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "af3066e3a115c31193f2575eecea4970df3131fd1fcfccd4d5312cde6be8d08f"
+      "afterContourSha256": "c649f1f74ef5cc2af6ac75224f02cae6ed82fb713b301377a5d005c81b5866ff"
     },
     {
       "board": "spider-nest-L01",
@@ -25898,7 +26234,7 @@
       ],
       "maximumNominalDisplacementMm": 0.026333923440623932,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "af3066e3a115c31193f2575eecea4970df3131fd1fcfccd4d5312cde6be8d08f"
+      "afterContourSha256": "c649f1f74ef5cc2af6ac75224f02cae6ed82fb713b301377a5d005c81b5866ff"
     },
     {
       "board": "spider-nest-L01",
@@ -25929,7 +26265,7 @@
       ],
       "maximumNominalDisplacementMm": 0.07646056953147536,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "af3066e3a115c31193f2575eecea4970df3131fd1fcfccd4d5312cde6be8d08f"
+      "afterContourSha256": "c649f1f74ef5cc2af6ac75224f02cae6ed82fb713b301377a5d005c81b5866ff"
     },
     {
       "board": "spider-nest-L01",
@@ -25960,7 +26296,7 @@
       ],
       "maximumNominalDisplacementMm": 0.07644565526045909,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "af3066e3a115c31193f2575eecea4970df3131fd1fcfccd4d5312cde6be8d08f"
+      "afterContourSha256": "c649f1f74ef5cc2af6ac75224f02cae6ed82fb713b301377a5d005c81b5866ff"
     },
     {
       "board": "spider-nest-L01",
@@ -25991,7 +26327,7 @@
       ],
       "maximumNominalDisplacementMm": 0.1166234232113446,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "af3066e3a115c31193f2575eecea4970df3131fd1fcfccd4d5312cde6be8d08f"
+      "afterContourSha256": "c649f1f74ef5cc2af6ac75224f02cae6ed82fb713b301377a5d005c81b5866ff"
     },
     {
       "board": "spider-nest-L01",
@@ -26022,7 +26358,69 @@
       ],
       "maximumNominalDisplacementMm": 0.11660433790820916,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "af3066e3a115c31193f2575eecea4970df3131fd1fcfccd4d5312cde6be8d08f"
+      "afterContourSha256": "c649f1f74ef5cc2af6ac75224f02cae6ed82fb713b301377a5d005c81b5866ff"
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 103,
+      "originalGuideEdgeIndex0": 54,
+      "centralStrokeIndex0": 38,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "sourceContourSha256": "b86483375da0424344fe216272915980fe6695a0d32f42ca7c33e52e748b51e4",
+      "originalPortionMm": [
+        [
+          31.9401,
+          81.9307
+        ],
+        [
+          30.666889983778198,
+          77.92691438855218
+        ]
+      ],
+      "nominalRelocatedPortionMm": [
+        [
+          32.07679498067805,
+          81.88722792210966
+        ],
+        [
+          30.80350881919662,
+          77.88346652656678
+        ]
+      ],
+      "maximumNominalDisplacementMm": 0.1434410655937719,
+      "operation": "relocate exact Spider network guide portion with bounded endpoint join",
+      "afterContourSha256": "c649f1f74ef5cc2af6ac75224f02cae6ed82fb713b301377a5d005c81b5866ff"
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 103,
+      "originalGuideEdgeIndex0": 55,
+      "centralStrokeIndex0": 38,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "sourceContourSha256": "b86483375da0424344fe216272915980fe6695a0d32f42ca7c33e52e748b51e4",
+      "originalPortionMm": [
+        [
+          30.663275441218836,
+          77.91613139002406
+        ],
+        [
+          28.4496,
+          71.626
+        ]
+      ],
+      "nominalRelocatedPortionMm": [
+        [
+          30.798509841222298,
+          77.86853915719284
+        ],
+        [
+          28.584858563472974,
+          71.57839926346361
+        ]
+      ],
+      "maximumNominalDisplacementMm": 0.14339005931925594,
+      "operation": "relocate exact Spider network guide portion with bounded endpoint join",
+      "afterContourSha256": "c649f1f74ef5cc2af6ac75224f02cae6ed82fb713b301377a5d005c81b5866ff"
     },
     {
       "board": "spider-nest-L01",
@@ -26115,7 +26513,7 @@
       ],
       "maximumNominalDisplacementMm": 0.042305407242682114,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "46c0f9ff9ba29be253a50cde6e3e344fc229946b0a4ea4c16931a3a466f4f646"
+      "afterContourSha256": "022f4648157f0ede5b50c98136d333af212b3ef6ce0e0b720b25199b90a7a88c"
     },
     {
       "board": "spider-nest-L01",
@@ -26146,7 +26544,7 @@
       ],
       "maximumNominalDisplacementMm": 0.006966590871029325,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "46c0f9ff9ba29be253a50cde6e3e344fc229946b0a4ea4c16931a3a466f4f646"
+      "afterContourSha256": "022f4648157f0ede5b50c98136d333af212b3ef6ce0e0b720b25199b90a7a88c"
     },
     {
       "board": "spider-nest-L01",
@@ -26177,7 +26575,7 @@
       ],
       "maximumNominalDisplacementMm": 0.09260298962183511,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "46c0f9ff9ba29be253a50cde6e3e344fc229946b0a4ea4c16931a3a466f4f646"
+      "afterContourSha256": "022f4648157f0ede5b50c98136d333af212b3ef6ce0e0b720b25199b90a7a88c"
     },
     {
       "board": "spider-nest-L01",
@@ -26208,7 +26606,7 @@
       ],
       "maximumNominalDisplacementMm": 0.09261724860466611,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "46c0f9ff9ba29be253a50cde6e3e344fc229946b0a4ea4c16931a3a466f4f646"
+      "afterContourSha256": "022f4648157f0ede5b50c98136d333af212b3ef6ce0e0b720b25199b90a7a88c"
     },
     {
       "board": "spider-nest-L01",
@@ -26239,7 +26637,38 @@
       ],
       "maximumNominalDisplacementMm": 0.07649001767942909,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "e9b5898bd1c58bce61da76c80522c65f1c4dbf53051722bfe3ce694773fa61da"
+      "afterContourSha256": "b31a6728ebf3e4fd5c2d74e40304f66846d1ed30e0c8a5d81d2f8ea8c14661c5"
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 106,
+      "originalGuideEdgeIndex0": 1,
+      "centralStrokeIndex0": 1,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "sourceContourSha256": "eba23d0c2eae34c7229236f581e700fdf2805e542d77602349fe9ae2bf5001ab",
+      "originalPortionMm": [
+        [
+          17.581,
+          39.6308
+        ],
+        [
+          33.034,
+          51.0373
+        ]
+      ],
+      "nominalRelocatedPortionMm": [
+        [
+          17.590739912563137,
+          39.61760465362674
+        ],
+        [
+          33.04380688568007,
+          51.02401392042252
+        ]
+      ],
+      "maximumNominalDisplacementMm": 0.0165134768380615,
+      "operation": "relocate exact Spider network guide portion with bounded endpoint join",
+      "afterContourSha256": "b31a6728ebf3e4fd5c2d74e40304f66846d1ed30e0c8a5d81d2f8ea8c14661c5"
     },
     {
       "board": "spider-nest-L01",
@@ -26270,7 +26699,7 @@
       ],
       "maximumNominalDisplacementMm": 0.0423491669193471,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "e9b5898bd1c58bce61da76c80522c65f1c4dbf53051722bfe3ce694773fa61da"
+      "afterContourSha256": "b31a6728ebf3e4fd5c2d74e40304f66846d1ed30e0c8a5d81d2f8ea8c14661c5"
     },
     {
       "board": "spider-nest-L01",
@@ -26301,7 +26730,7 @@
       ],
       "maximumNominalDisplacementMm": 0.0765083438522936,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "e9b5898bd1c58bce61da76c80522c65f1c4dbf53051722bfe3ce694773fa61da"
+      "afterContourSha256": "b31a6728ebf3e4fd5c2d74e40304f66846d1ed30e0c8a5d81d2f8ea8c14661c5"
     },
     {
       "board": "spider-nest-L01",
@@ -26332,7 +26761,7 @@
       ],
       "maximumNominalDisplacementMm": 0.1166088502408909,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "a97ed2eceb98c9b2e19f19ee4376c32e711d2bf7c32cf9885f35a5c491f79a63"
+      "afterContourSha256": "f1e2c328fa2cbf07e5cc712acad480444ed7c10d2352d8ff376cd6e47e6f07c2"
     },
     {
       "board": "spider-nest-L01",
@@ -26363,7 +26792,7 @@
       ],
       "maximumNominalDisplacementMm": 0.1166187031754893,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "a97ed2eceb98c9b2e19f19ee4376c32e711d2bf7c32cf9885f35a5c491f79a63"
+      "afterContourSha256": "f1e2c328fa2cbf07e5cc712acad480444ed7c10d2352d8ff376cd6e47e6f07c2"
     },
     {
       "board": "spider-nest-L01",
@@ -26394,7 +26823,69 @@
       ],
       "maximumNominalDisplacementMm": 0.0764760835926022,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "a97ed2eceb98c9b2e19f19ee4376c32e711d2bf7c32cf9885f35a5c491f79a63"
+      "afterContourSha256": "f1e2c328fa2cbf07e5cc712acad480444ed7c10d2352d8ff376cd6e47e6f07c2"
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 107,
+      "originalGuideEdgeIndex0": 6,
+      "centralStrokeIndex0": 20,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "sourceContourSha256": "d2cc86efbe1dd1dd311a8b2a8fd9897a055af93a76b97d1d79032076e0276dc3",
+      "originalPortionMm": [
+        [
+          26.2033,
+          90.3302
+        ],
+        [
+          31.9844,
+          82.8707
+        ]
+      ],
+      "nominalRelocatedPortionMm": [
+        [
+          26.227454988905823,
+          90.34892002468816
+        ],
+        [
+          32.008545103410384,
+          82.88941236346672
+        ]
+      ],
+      "maximumNominalDisplacementMm": 0.03055982351659515,
+      "operation": "relocate exact Spider network guide portion with bounded endpoint join",
+      "afterContourSha256": "f1e2c328fa2cbf07e5cc712acad480444ed7c10d2352d8ff376cd6e47e6f07c2"
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 108,
+      "originalGuideEdgeIndex0": 0,
+      "centralStrokeIndex0": 19,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "sourceContourSha256": "6675ef9aea8d6b619520b89c38b0d32ab14bced96390d946d4cb27fe7d5ff53e",
+      "originalPortionMm": [
+        [
+          12.1769,
+          101.1788
+        ],
+        [
+          25.7013,
+          90.8572
+        ]
+      ],
+      "nominalRelocatedPortionMm": [
+        [
+          12.195414433553607,
+          101.20305961951577
+        ],
+        [
+          25.719843928228453,
+          90.88149826663872
+        ]
+      ],
+      "maximumNominalDisplacementMm": 0.030566043836058387,
+      "operation": "relocate exact Spider network guide portion with bounded endpoint join",
+      "afterContourSha256": "916411d7df3d27d22fd60b02a5cb04493b5c58619432f567016bd2e19730ecef"
     },
     {
       "board": "spider-nest-L01",
@@ -26425,7 +26916,38 @@
       ],
       "maximumNominalDisplacementMm": 0.0764827014317863,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "03b39efd089749a5976ebeae12838941c2e734720cb98f6e4f25a75cceb4bc56"
+      "afterContourSha256": "916411d7df3d27d22fd60b02a5cb04493b5c58619432f567016bd2e19730ecef"
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 109,
+      "originalGuideEdgeIndex0": 1,
+      "centralStrokeIndex0": 0,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "sourceContourSha256": "5fa6ad2efa9130089e557dcaa31a58407058e6391e6a8111a4fd50050800076e",
+      "originalPortionMm": [
+        [
+          10.3695,
+          28.7839
+        ],
+        [
+          16.7973,
+          38.9492
+        ]
+      ],
+      "nominalRelocatedPortionMm": [
+        [
+          10.38342607608772,
+          28.77509418228126
+        ],
+        [
+          16.811213096838618,
+          38.940402389395814
+        ]
+      ],
+      "maximumNominalDisplacementMm": 0.016476590087046907,
+      "operation": "relocate exact Spider network guide portion with bounded endpoint join",
+      "afterContourSha256": "252797bcad15cb0920944c0f579985db195fd017659cf49b536aba3577b2fe81"
     },
     {
       "board": "spider-nest-L01",
@@ -26456,7 +26978,38 @@
       ],
       "maximumNominalDisplacementMm": 0.04228711064237631,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "14fc20b0d097af1dab8a7f1dbe6d36a522324f16585ceb930e9a5d6d9abedf37"
+      "afterContourSha256": "252797bcad15cb0920944c0f579985db195fd017659cf49b536aba3577b2fe81"
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 110,
+      "originalGuideEdgeIndex0": 1,
+      "centralStrokeIndex0": 24,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "sourceContourSha256": "97907ba4f19260bf94671c9eab8b45f1e6ad355c1b5ef8d49168716d62095f45",
+      "originalPortionMm": [
+        [
+          14.9154,
+          48.5852
+        ],
+        [
+          33.7133,
+          58.1217
+        ]
+      ],
+      "nominalRelocatedPortionMm": [
+        [
+          14.924087880382194,
+          48.56807488664834
+        ],
+        [
+          33.72198168025824,
+          58.104587108021214
+        ]
+      ],
+      "maximumNominalDisplacementMm": 0.019202832417186084,
+      "operation": "relocate exact Spider network guide portion with bounded endpoint join",
+      "afterContourSha256": "d7395bc8156a8488406ffa6967dd84392af8990c18af5f8c7feb45622bc86ada"
     },
     {
       "board": "spider-nest-L01",
@@ -26487,7 +27040,7 @@
       ],
       "maximumNominalDisplacementMm": 0.14092252547466222,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "91f0c8ac30e25fbc28c59d00065e1ccc153bff590f429845cc2a596da309d9dc"
+      "afterContourSha256": "d7395bc8156a8488406ffa6967dd84392af8990c18af5f8c7feb45622bc86ada"
     },
     {
       "board": "spider-nest-L01",
@@ -26518,7 +27071,567 @@
       ],
       "maximumNominalDisplacementMm": 0.14087179873796177,
       "operation": "relocate exact Spider network guide portion with bounded endpoint join",
-      "afterContourSha256": "91f0c8ac30e25fbc28c59d00065e1ccc153bff590f429845cc2a596da309d9dc"
+      "afterContourSha256": "d7395bc8156a8488406ffa6967dd84392af8990c18af5f8c7feb45622bc86ada"
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 110,
+      "originalGuideEdgeIndex0": 5,
+      "centralStrokeIndex0": 22,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "sourceContourSha256": "97907ba4f19260bf94671c9eab8b45f1e6ad355c1b5ef8d49168716d62095f45",
+      "originalPortionMm": [
+        [
+          18.231,
+          73.5984
+        ],
+        [
+          27.7471,
+          70.965
+        ]
+      ],
+      "nominalRelocatedPortionMm": [
+        [
+          18.241112839182126,
+          73.63494307947795
+        ],
+        [
+          27.75719705833809,
+          71.00148605487514
+        ]
+      ],
+      "maximumNominalDisplacementMm": 0.037916568595475146,
+      "operation": "relocate exact Spider network guide portion with bounded endpoint join",
+      "afterContourSha256": "d7395bc8156a8488406ffa6967dd84392af8990c18af5f8c7feb45622bc86ada"
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 113,
+      "originalGuideEdgeIndex0": 1,
+      "centralStrokeIndex0": 23,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "sourceContourSha256": "9c740b4f0b5867c1e7f891e4eb28c11fbc5c0a2e60f0aab7ee0130da5fcca171",
+      "originalPortionMm": [
+        [
+          3.6254,
+          46.3061
+        ],
+        [
+          13.968,
+          48.1681
+        ]
+      ],
+      "nominalRelocatedPortionMm": [
+        [
+          3.6287956259836953,
+          46.28723809379971
+        ],
+        [
+          13.971407348796081,
+          48.14917297632544
+        ]
+      ],
+      "maximumNominalDisplacementMm": 0.01923128313440551,
+      "operation": "relocate exact Spider network guide portion with bounded endpoint join",
+      "afterContourSha256": "f1ca6569d5602a70b70048a9fbc07b1b214f0ccf483393aa1cd590a09a832925"
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 113,
+      "originalGuideEdgeIndex0": 6,
+      "centralStrokeIndex0": 21,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "sourceContourSha256": "9c740b4f0b5867c1e7f891e4eb28c11fbc5c0a2e60f0aab7ee0130da5fcca171",
+      "originalPortionMm": [
+        [
+          3.7089,
+          76.4658
+        ],
+        [
+          17.5171,
+          73.7754
+        ]
+      ],
+      "nominalRelocatedPortionMm": [
+        [
+          3.7161276811434307,
+          76.50289681504071
+        ],
+        [
+          17.52434794326347,
+          73.81260081245074
+        ]
+      ],
+      "maximumNominalDisplacementMm": 0.03790030512469843,
+      "operation": "relocate exact Spider network guide portion with bounded endpoint join",
+      "afterContourSha256": "f1ca6569d5602a70b70048a9fbc07b1b214f0ccf483393aa1cd590a09a832925"
+    }
+  ],
+  "spiderNetworkMiterChanges": [
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 100,
+      "originalGuideEdgeIndices0": [
+        0,
+        1
+      ],
+      "centralStrokeIndices0": [
+        31,
+        31
+      ],
+      "originalSharedPointMm": [
+        64.2058,
+        67.0863
+      ],
+      "intersectionMm": [
+        64.33162290914778,
+        67.03576007794558
+      ],
+      "displacementMm": 0.1355938353601594,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "operation": "exact source-edge-local Spider guide miter"
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 100,
+      "originalGuideEdgeIndices0": [
+        1,
+        2
+      ],
+      "centralStrokeIndices0": [
+        31,
+        10
+      ],
+      "originalSharedPointMm": [
+        63.0875,
+        62.5908
+      ],
+      "intersectionMm": [
+        63.22376534478874,
+        62.581985558737486
+      ],
+      "displacementMm": 0.1365501320583925,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "operation": "exact source-edge-local Spider guide miter"
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 100,
+      "originalGuideEdgeIndices0": [
+        5,
+        0
+      ],
+      "centralStrokeIndices0": [
+        12,
+        31
+      ],
+      "originalSharedPointMm": [
+        66.6487,
+        71.357
+      ],
+      "intersectionMm": [
+        66.81181005596487,
+        71.37148224074734
+      ],
+      "displacementMm": 0.16375171954494142,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "operation": "exact source-edge-local Spider guide miter"
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 101,
+      "originalGuideEdgeIndices0": [
+        1,
+        1
+      ],
+      "centralStrokeIndices0": [
+        8,
+        7
+      ],
+      "originalSharedPointMm": [
+        66.32020090966003,
+        48.89456276556897
+      ],
+      "intersectionMm": [
+        66.35441213586074,
+        48.95092207762622
+      ],
+      "displacementMm": 0.06593011492271386,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "operation": "exact source-edge-local Spider guide miter"
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 102,
+      "originalGuideEdgeIndices0": [
+        1,
+        2
+      ],
+      "centralStrokeIndices0": [
+        16,
+        34
+      ],
+      "originalSharedPointMm": [
+        51.2359,
+        77.7129
+      ],
+      "intersectionMm": [
+        51.28031195963293,
+        77.78197977620985
+      ],
+      "displacementMm": 0.08212452520191321,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "operation": "exact source-edge-local Spider guide miter"
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 102,
+      "originalGuideEdgeIndices0": [
+        2,
+        3
+      ],
+      "centralStrokeIndices0": [
+        34,
+        34
+      ],
+      "originalSharedPointMm": [
+        57.265,
+        76.1792
+      ],
+      "intersectionMm": [
+        57.27977263658826,
+        76.25582698358565
+      ],
+      "displacementMm": 0.07803797412289136,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "operation": "exact source-edge-local Spider guide miter"
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 102,
+      "originalGuideEdgeIndices0": [
+        3,
+        4
+      ],
+      "centralStrokeIndices0": [
+        34,
+        14
+      ],
+      "originalSharedPointMm": [
+        62.7568,
+        75.4505
+      ],
+      "intersectionMm": [
+        62.8359960233723,
+        75.51855295248625
+      ],
+      "displacementMm": 0.10441845842609034,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "operation": "exact source-edge-local Spider guide miter"
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 103,
+      "originalGuideEdgeIndices0": [
+        1,
+        2
+      ],
+      "centralStrokeIndices0": [
+        39,
+        39
+      ],
+      "originalSharedPointMm": [
+        30.8281,
+        65.4331
+      ],
+      "intersectionMm": [
+        30.956464855625164,
+        65.4914743278728
+      ],
+      "displacementMm": 0.14101453228043673,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "operation": "exact source-edge-local Spider guide miter"
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 103,
+      "originalGuideEdgeIndices0": [
+        6,
+        7
+      ],
+      "centralStrokeIndices0": [
+        41,
+        41
+      ],
+      "originalSharedPointMm": [
+        33.3319,
+        54.2612
+      ],
+      "intersectionMm": [
+        33.4433760649481,
+        54.24062640208842
+      ],
+      "displacementMm": 0.11335866083956972,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "operation": "exact source-edge-local Spider guide miter"
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 103,
+      "originalGuideEdgeIndices0": [
+        11,
+        12
+      ],
+      "centralStrokeIndices0": [
+        25,
+        27
+      ],
+      "originalSharedPointMm": [
+        43.5977,
+        44.3562
+      ],
+      "intersectionMm": [
+        43.59283191597397,
+        44.460662944176896
+      ],
+      "displacementMm": 0.10457631160157434,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "operation": "exact source-edge-local Spider guide miter"
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 103,
+      "originalGuideEdgeIndices0": [
+        12,
+        13
+      ],
+      "centralStrokeIndices0": [
+        27,
+        27
+      ],
+      "originalSharedPointMm": [
+        46.5524,
+        46.0915
+      ],
+      "intersectionMm": [
+        46.49934261784734,
+        46.16771370303891
+      ],
+      "displacementMm": 0.09286341761854561,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "operation": "exact source-edge-local Spider guide miter"
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 103,
+      "originalGuideEdgeIndices0": [
+        28,
+        29
+      ],
+      "centralStrokeIndices0": [
+        31,
+        33
+      ],
+      "originalSharedPointMm": [
+        66.0064,
+        71.7733
+      ],
+      "intersectionMm": [
+        65.85039709305042,
+        71.7712076369033
+      ],
+      "displacementMm": 0.15601693805496938,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "operation": "exact source-edge-local Spider guide miter"
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 103,
+      "originalGuideEdgeIndices0": [
+        51,
+        52
+      ],
+      "centralStrokeIndices0": [
+        36,
+        36
+      ],
+      "originalSharedPointMm": [
+        37.2085,
+        80.8923
+      ],
+      "intersectionMm": [
+        37.17680978860171,
+        80.77979437143819
+      ],
+      "displacementMm": 0.1168836428100983,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "operation": "exact source-edge-local Spider guide miter"
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 105,
+      "originalGuideEdgeIndices0": [
+        5,
+        6
+      ],
+      "centralStrokeIndices0": [
+        5,
+        27
+      ],
+      "originalSharedPointMm": [
+        49.0699,
+        47.0554
+      ],
+      "intersectionMm": [
+        49.12573509509126,
+        46.98143518656616
+      ],
+      "displacementMm": 0.09267335900976541,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "operation": "exact source-edge-local Spider guide miter"
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 106,
+      "originalGuideEdgeIndices0": [
+        0,
+        1
+      ],
+      "centralStrokeIndices0": [
+        25,
+        1
+      ],
+      "originalSharedPointMm": [
+        33.034,
+        51.0373
+      ],
+      "intersectionMm": [
+        32.98270428091709,
+        50.97891210869762
+      ],
+      "displacementMm": 0.0777199887221512,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "operation": "exact source-edge-local Spider guide miter"
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 106,
+      "originalGuideEdgeIndices0": [
+        4,
+        5
+      ],
+      "centralStrokeIndices0": [
+        3,
+        25
+      ],
+      "originalSharedPointMm": [
+        42.8799,
+        43.8111
+      ],
+      "intersectionMm": [
+        42.87344765160326,
+        43.71627117091987
+      ],
+      "displacementMm": 0.09504809111466966,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "operation": "exact source-edge-local Spider guide miter"
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 106,
+      "originalGuideEdgeIndices0": [
+        5,
+        0
+      ],
+      "centralStrokeIndices0": [
+        25,
+        25
+      ],
+      "originalSharedPointMm": [
+        37.5651,
+        48.3164
+      ],
+      "intersectionMm": [
+        37.520373124075554,
+        48.25403688935297
+      ],
+      "displacementMm": 0.0767440616564895,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "operation": "exact source-edge-local Spider guide miter"
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 107,
+      "originalGuideEdgeIndices0": [
+        2,
+        3
+      ],
+      "centralStrokeIndices0": [
+        36,
+        18
+      ],
+      "originalSharedPointMm": [
+        40.2124,
+        80.6584
+      ],
+      "intersectionMm": [
+        40.11835277467729,
+        80.81632678230972
+      ],
+      "displacementMm": 0.18380900185138133,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "operation": "exact source-edge-local Spider guide miter"
+    },
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 110,
+      "originalGuideEdgeIndices0": [
+        1,
+        2
+      ],
+      "centralStrokeIndices0": [
+        24,
+        39
+      ],
+      "originalSharedPointMm": [
+        33.7133,
+        58.1217
+      ],
+      "intersectionMm": [
+        33.5963422641294,
+        58.040847955105754
+      ],
+      "displacementMm": 0.14218356143928026,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "operation": "exact source-edge-local Spider guide miter"
+    }
+  ],
+  "spiderNetworkCurveChanges": [
+    {
+      "board": "spider-nest-L01",
+      "artStrokeIndex0": 103,
+      "originalGuideEdgeIndex0": 27,
+      "controlPointsMm": [
+        [
+          62.181101247,
+          62.580686103
+        ],
+        [
+          62.17314271088659,
+          62.60961120806345
+        ],
+        [
+          62.197407280681276,
+          62.73523629369559
+        ],
+        [
+          62.204648978,
+          62.76434914
+        ]
+      ],
+      "segmentCount": 64,
+      "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+      "operation": "replace indexed reverse jog with bounded Spider cubic"
     }
   ],
   "artFillChanges": [
@@ -26749,5 +27862,5 @@
     "kumiko-void-standard-L04-H02",
     "kumiko-void-standard-L08-H01"
   ],
-  "manufacturingGeometrySha256": "af65154b789a43ecced82dab019b6822da418edb14233ac9f3eae446ad973aee"
+  "manufacturingGeometrySha256": "b6156a70648c70e777b66ab4f97b4340d9c79f262319a947278195eee2eaa45c"
 }
