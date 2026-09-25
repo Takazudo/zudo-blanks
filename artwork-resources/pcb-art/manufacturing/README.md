@@ -237,6 +237,24 @@ uv run --python 3.13 --with shapely==2.1.2 --with pillow python artwork-resource
 uv run --python 3.13 --with shapely==2.1.2 python -m unittest discover -s artwork-resources/pcb-art/manufacturing/tests -p 'test_spider_complete.py' -v
 ```
 
+## Process-class amendment — 2026-09-25
+
+Owner-approved correction to the universal 0.25 mm art target, recorded as policy erratum `process-classes-2026-09-25`. The published sources and the limits of each claim are in `process-class-sources.json`: JLCPCB general 1 oz copper is 0.10/0.10 mm. Uncovered coils, hatched grids and same-net spacing are 0.25 mm. The black/white mask bridge is 0.13 mm. `rulesMm` is unchanged and remains the default for every feature this amendment does not match.
+
+| Feature | Minimum |
+| --- | ---: |
+| Copper of the four full-gold lower pours (Spider L03/L05/L07, Coral L04) | 0.10 width / 0.10 gap |
+| Isolated convex copper island (no interior ring, convex-hull deficit ≤ area tolerance, re-evaluated on final copper) | 0.10 width / 0.10 gap |
+| Gap between components of different classes | larger of the two class widths |
+| All other copper, including unnetted decorative networks and channels inside one connected component | 0.25 |
+| Black mask web, Coral/Fault/Kumiko/Woven | 0.13 |
+| Black mask web, Spider (all layers) | 0.25 |
+| Visible gold window | 0.25 |
+
+The 0.13 mm black web holds only if the mask is ordered unchanged, with no automatic expansion, gang-opening conversion, dam removal or facet deletion. Final CAM/process confirmation remains external and pending. Spider's stronger repairs stay in force.
+
+`probe_process_classes.py` classifies a native candidate read-only and writes `process-class-decision.json` plus `process-class-comparison.png`. The measured candidate's file hashes are bound in the erratum. The snapshot classifies 44 general copper features and records six fixed cross-section witnesses that still fail their applicable class, including Kumiko L01 ink at 0.021 mm, Coral L01 visible gold at 0.087 mm and three copper-free gaps near 0.1 mm between retained-special components that need 0.25 mm. Both a 0.10 and a 0.25 mm negative-copper core screen are recorded; the witnesses are examples, not a complete failure list. Reclassification waives none of them; issue 15 must repair each one locally or prove it within the 0.001 mm tolerance. Re-measure from repository root with `PROCESS_CLASS_NATIVE_DIR=<native manufacturing dir> uv run --python 3.13 --with shapely==2.1.2 --with pillow python -m unittest discover -s artwork-resources/pcb-art/manufacturing/tests`. This amendment is not a production approval.
+
 ## Separate manufacturing artifacts and tests
 
 Never modify `preview-source/assets/geometry.json`, `reference-revision4.json`, `reference-revision3.json`, the historic tests, or imported evidence to make corrections pass. In particular, `preview-source/tests/rev5_gold.py` continues to compare the approved Rev5 and immutable Rev4 inputs, retaining exact physical/lower-art assertions. New manufacturing code must load the frozen input, apply explicit indexed deltas, and emit **a separately named manufacturing geometry artifact** with provenance. Do not repoint the reference test, preview, manifest or screenshots to corrected shapes without labeling the artifact's role. The production exporter must read that new artifact explicitly.

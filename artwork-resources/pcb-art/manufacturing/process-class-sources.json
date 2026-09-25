@@ -1,0 +1,59 @@
+{
+  "verifiedDate": "2026-09-25",
+  "sources": [
+    {
+      "id": "jlc-capabilities",
+      "url": "https://jlcpcb.com/capabilities/Capab",
+      "section": "Traces; Soldermask",
+      "facts": {
+        "general1ozTwoLayerCopperWidthMm": 0.1,
+        "general1ozTwoLayerCopperSpacingMm": 0.1,
+        "uncoveredCoilWidthMm": 0.25,
+        "uncoveredCoilSpacingMm": 0.25,
+        "hatchedGridWidthAndSpacingMm": 0.25,
+        "sameNetTrackSpacingMm": 0.25,
+        "blackWhite1ozBridgeMinimumPadSpacingMm": 0.13,
+        "maskToUnrelatedTraceClearanceMm": 0.09
+      },
+      "limit": "Same-net row concerns spacing. Black-mask figure is pad spacing for bridges. Neither publishes a generic decorative gold-window width."
+    },
+    {
+      "id": "jlc-mask",
+      "url": "https://jlcpcb.com/blog/basic-design-of-solder-mask",
+      "publishedDate": "2024-02-28",
+      "updatedDate": "2026-09-09",
+      "section": "Solder Mask Openings; Solder Mask Bridge Specifications; FAQ",
+      "facts": {
+        "standardTwoLayerMaskExpansionPerSideMm": 0.05,
+        "blackWhite1ozBridgeMinimumPadSpacingMm": 0.13
+      },
+      "limit": "Describes unchanged-mask ordering option and removal of inadequate dams. Its standard two-layer expansion differs from the capability table 1:1 statement; exact mask preservation requires CAM/process confirmation."
+    },
+    {
+      "id": "jlc-hatched-copper",
+      "url": "https://jlcpcb.com/blog/the-importance-of-copper-pour-in-empty-areas/",
+      "publishedDate": "2023-04-24",
+      "updatedDate": "2026-03-27",
+      "section": "Hatched and Solid copper pour",
+      "facts": {
+        "hatchedWidthAndSpacingMm": 0.25
+      },
+      "limit": "Hatched copper has physical dry-film risks. Unnetted graphics do not automatically escape this class; routed substrate shape alone does not prove an etched hatch."
+    },
+    {
+      "id": "jlc-grid-dfm",
+      "url": "https://jlcpcb.com/blog/how-to-avoid-pitfalls-in-pcb-design",
+      "publishedDate": "2023-09-11",
+      "updatedDate": "2026-04-07",
+      "section": "Hatched Copper Filling in Large Area Traces",
+      "facts": {
+        "gridWidthAndSpacingGuidanceMm": 0.254,
+        "sameNetSpacingGuidanceMm": 0.254
+      },
+      "limit": "Explains mask-coverage and inspection risks. Use .25 frozen project special-class target; exact route remains subject to CAM review."
+    }
+  ],
+  "interpretation": "General class is a bounded project interpretation of actual geometry, not factory acceptance. No generic .10 or .13 visible-gold-window claim is supported.",
+  "maskCondition": "Require submitted mask preserved without automatic expansion, gang-opening conversion, dam removal or facet deletion; record local .13 screen separately from pending final CAM/process confirmation.",
+  "numericalPolicy": "A tiny eroded-core area alone is not a waiver. Report all raw cores and geometry; distinguish floating-point remnants through source-boundary/serialization and reconstruction evidence. Keep finite necks and branches regardless of small area."
+}
