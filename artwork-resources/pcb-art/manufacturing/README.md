@@ -114,6 +114,8 @@ No production or factory acceptance is granted. Do not silently accept excess ar
 
 ## Spider L01 complete-network amendment — 2026-09-25
 
+Historical scope: superseded by the unfiltered-network correction below. Its survey excluded wide central gold intervals and missed remaining channels.
+
 This amendment **supersedes the material, affected-aperture and guide-portion scope of the earlier 7/8 rib erratum**. Retain its evidence as history. Apply the complete network once from the captured pre-rib body in `spider-channel-erratum.json`; do not add the old 6.35 mm² allowance to the new allowance. The four channel-merge patches, their exact envelopes and their <=30.0 mm² gold cap remain unchanged. No other board or process rule changes.
 
 The reproducible survey in `spider-network-decision.json` binds the immutable approved source and `spider-network-input.json`, a captured diagnostic candidate, not approved output. Normal sections at <=0.20 mm intervals locate **38 sustained runs below 0.13 mm** (369.509 channel-mm) and **46 interior runs below 0.25 mm** (483.324 channel-mm), across 12 and 14 connected black regions respectively. Each run records the source segment, adjacent guide, position, width range and connected-region hash. These are genuine long channels, not an inference from erosion component counts. Five outer-rim taper flags on 74/75/80/88/91 remain separate indexed terminal checks under the existing rim policy; this amendment permits no extra material there. The survey is not an exhaustive final-width certificate.
@@ -168,6 +170,72 @@ uv run --python 3.13 --with shapely==2.1.2 --with pillow python -m unittest disc
 ```
 
 No production or factory acceptance is granted. This amendment retains the conservative process targets; it is not a process-class relaxation and cannot pass any measured 0.08 mm channel.
+
+## Spider L01 unfiltered-network correction — 2026-09-25
+
+**This is the current material and guide scope.** Erratum `spider-l01-unfiltered-network-2026-09-25` supersedes the preceding complete-network amendment's incomplete 17-path addition, its affected-aperture list, 50-portion list and material totals. The earlier 7/8 ribbon remains included exactly once. Preserve all earlier evidence as history and all four original gold-merge patch geometries unchanged. Their <=30.0 mm² budget does not fund terminal changes. No other board or process rule changes.
+
+The preceding survey wrongly skipped a channel whenever its central gold interval exceeded 0.31 mm; an opposite-side gold merge can widen that interval without repairing the remaining black channel. The corrected survey checks **every approved source stroke 0–94 and both adjacent sides**, using the captured post-patch mask topology with no central-width exclusion. It records **64 sustained interior runs below 0.25 mm, including 48 below 0.13 mm**. This adds 18 / 10 runs respectively to the historical totals. Sections are at most 0.20 mm apart and a sustained run is at least 1 mm. The five rim flags on 74/75/80/88/91 remain mandatory separate terminal checks. This survey locates sustained defects; it does not certify unsampled boundaries, endpoints or final artwork.
+
+`spider-complete-decision.json` binds approved source SHA256 `00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e`, the original pre-rib body, historical survey input, original path coordinates/contour hashes, every material delta, and the local terminal input `spider-complete-input.json`. The last capture derives from mask candidate SHA256 `a27ad404f0e12b5291b0a31d9c7b02681fa5401e3fd20e7716d0bd910ac27225`; it is a diagnostic checkpoint, not an approved manufacturing file. The probe and exporter hashes are also frozen.
+
+### Corrected exact material and guide set
+
+Union **2.0 mm flat-cap/miter ribbons** along complete approved paths **0, 1, 2, 3, 4, 5, 6, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 27, 31, 33, 34, 36, 38, 39, 41**, plus the continuous **7/8** ribbon once: **34 source paths total**. Use exactly the evidence coordinates, without path extensions or material removal, from the pre-rib captured body. Initial material addition is **112.960935002 mm²**. All original decorative apertures **0–18** now change; the previous preservation requirement for apertures 4/8/9/10 is superseded by these exact changes.
+
+For each of those 19 post-ribbon apertures `A`, perform the existing one-pass, all-center-component cleanup: retain `A.intersection(A.buffer(-0.5, quad_segs=64).buffer(0.5, quad_segs=64))`. Its exact measured material addition is **3.429195687 mm²**, combined **116.390130688 mm²** versus the pre-rib body. Policy maxima allow only 0.00001 mm² arithmetic tolerance. Enforce the per-aperture cleanup/final hashes and the final body hash; neither an equal area nor repeated cleanup authorizes another shape. Cumulative aperture loss is **1.810398%** versus approved Rev5, below the unchanged **2%** limit.
+
+Keep the preceding table's guide sides and add only these missed sides (normal `(-dy,dx)/length`):
+
+| Source path | Side | Adjacent guide |
+| --- | ---: | ---: |
+| 0 | − | 109 |
+| 1 | − | 106 |
+| 11 | + | 96 |
+| 12 | + | 100 |
+| 13 | − | 99 |
+| 14 | − | 102 |
+| 19 | + | 108 |
+| 20 | + | 107 |
+| 21 | − | 113 |
+| 22 | − | 110 |
+| 23 | + | 113 |
+| 24 | + | 110 |
+| 33 | + | 103 |
+| 38 | + | 103 |
+| 41 | + | 103 |
+
+The resulting **68 original edge-indexed guide portions** and **215 material cross sections** are enumerated in the evidence. Preserve central radial artwork at 0.280 mm, use 0.251 mm guide gold at signed 0.5165 mm offsets, and retain nominal 0.251 mm ink and 0.358 mm outer clearance. These nominal budgets and all portions fitting the 0.35 mm safe region establish proposal feasibility, not final union-width proof.
+
+Map each portion using its **original edge index, local clipped interval and corresponding endpoints**. Join consecutive relocated edges at their actual line intersection. Never remap the whole closed guide by normalized contour arclength: changed lengths can connect a portion to the wrong source corner. The evidence lists **19 bounded miter joins**, including the 13 previously measured joins; maximum displacement is **0.183809 mm**. Guide100's source31/10 join is explicitly `(63.223765345,62.581985559)` mm, **0.136550 mm** from original vertex `(63.0875,62.5908)`. Shared guide101 edge1 must still be split at the 7/8 correspondence. Retain all unrelated guide portions.
+
+### Exact guide103/source31 rounded transition
+
+At original guide103 edge27 endpoint `(62.3351,62.7319)`, the straight extrapolated miter would move 0.874289 mm and is forbidden. Replace only the captured local reverse jog with this cubic, sampled into **64 segments**:
+
+| Point | x mm | y mm |
+| --- | ---: | ---: |
+| P0 | 62.181101247 | 62.580686103 |
+| C1 | 62.173142711 | 62.609611208 |
+| C2 | 62.197407281 | 62.735236294 |
+| P3 | 62.204648978 | 62.764349140 |
+
+Use full precision from the evidence. Maximum measured source-guide displacement is **0.148507 mm**, within 0.50 mm. The curved paint change is inside the old 0.50 mm endpoint neighborhood. It reconnects the captured candidate-created ink pocket to its existing channel (82→81 ink components in this local experiment), with no gold connection or strand deletion. This permits only that indexed connectivity correction, never deletion of an approved black facet or arbitrary trapped pocket.
+
+The curve alone leaves a pointed ink terminal that extends beyond the 0.50 mm endpoint neighborhood. Permit **only the three geometry-bound paint-cap polygons** in `terminal.caps` of the evidence, with their exact normalized WKB hashes and coordinates. Their combined area is **0.047654677 mm²**, including **0.000584674 mm²** outside the old 0.50 mm neighborhood; maximum endpoint distance is **0.542619 mm**. These polygons alone may occupy the **0.55 mm** endpoint neighborhood. This is not an interchangeable area budget or permission to enlarge other transitions. Guide displacement and every other transition envelope remain <=0.50 mm; the network ribbon-plus-0.50 mm bound and 0.35 mm mask-safe setback remain mandatory.
+
+The caps are derived once from the captured curved ink minus its union of radius-0.125 mm disks (64 segments per quadrant). Do not apply this opening globally or repeatedly. After 0.000001 mm-grid serialization, the local ink differs from that full-width disk-union reference by **0.000000346 mm²** and **0.000018096 mm** Hausdorff distance. The additional complete-terminal check extends that proof region over all three caps plus a 0.001 mm boundary neighborhood, covering their tails outside 0.50 mm as well as the full local approach. Check both the complete approach and terminal boundary; unrelated corners inside the 0.55 mm viewing circle are not additional authorized caps. A polygonal round cap can produce small re-opening residue, so use the explicit disk-union boundary comparison as well as both-phase connected-core and miter-residue screens. The local gold/ink screens measure **0.000000935 / 0.000000073 mm²**; gold remains five components with five eroded cores, and cap application retains all 81 curved-ink components. The probe preserves radial gold, nine rim cores, prior four patches and the safe region. These measurements prove this bounded terminal on the captured diagnostic artwork; they do not prove the complete final 68-portion mask or copper.
+
+### Retained implementation gates
+
+The full material probe retains all **19 decorative apertures**, eight functional holes/slots, exact dimensions, one component, full pre-drill radius-3.05 mm support disks, bridges, lower floor and backing. Every aperture retains a connected 1.0 mm cutter-center region and contained plunge disk. Recheck these invariants, finite cutter paths and swept coverage on actual serialized output. Keep source/history immutable, the approved radial motif, all nine rims, all four earlier patch geometries, 0.25 mm positive-gold/negative-mask/copper widths and 0.35 mm mask clearance. No generalized width or process-class relaxation is authorized.
+
+Issue 15 must account for all 68 relocated portions and every transition, verify complete final gold/ink/copper widths and topology, and supply full-board/enlarged material and actual finished-art comparisons. Regenerate native output and require issue 16's independent CAM checks. `spider-complete-comparison.png` compares the complete material proposal and this one local terminal; final-art and factory acceptance remain pending. A failed invariant or excessive transition remains a blocker. Reproduce this bounded evidence and its light tests with:
+
+```sh
+uv run --python 3.13 --with shapely==2.1.2 --with pillow python artwork-resources/pcb-art/manufacturing/probe_spider_complete.py
+uv run --python 3.13 --with shapely==2.1.2 python -m unittest discover -s artwork-resources/pcb-art/manufacturing/tests -p 'test_spider_complete.py' -v
+```
 
 ## Separate manufacturing artifacts and tests
 
