@@ -164,8 +164,8 @@ def run() -> None:
                     # width. Extend only their adjacent gold faces into retained
                     # material; the later black facets retain their paint order.
                     for fill_index, bounds in (
-                        (120,(90.625,21.9007,90.876,25.2993)),
-                        (134,(90.625,103.2007,90.876,106.5993)),
+                        (120,(90.625,21.7257,90.876,25.4743)),
+                        (134,(90.625,103.0257,90.876,106.7743)),
                     ):
                         fill=layer['art']['fills'][fill_index]
                         assert fill.get('color') is None

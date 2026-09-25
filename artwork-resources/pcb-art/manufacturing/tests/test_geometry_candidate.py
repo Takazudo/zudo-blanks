@@ -227,7 +227,7 @@ class ManufacturingGeometryCandidateTests(unittest.TestCase):
         new_body=mask_repair.source_body(new_layer,self.candidate['spec'])
         new_gold=export.paint_gold(new_layer,wide_after,new_body)
         added=new_gold.difference(old_gold)
-        self.assertAlmostEqual(added.area,1.1963052,6)
+        self.assertAlmostEqual(added.area,1.2575552,6)
         self.assertLess(added.difference(mask_repair.safe_region(new_layer,new_body,'mask')).area,
                         .00001)
 
@@ -265,6 +265,11 @@ class ManufacturingGeometryCandidateTests(unittest.TestCase):
                 if layer['index']>0:
                     self.assertGreaterEqual(mask.distance(Polygon(layer['outer']).exterior),.549)
                 self.assertLessEqual(entry['goldLossFractionFromApproved'],.30)
+                if entry['boardId'].startswith(('13-fault-line-L01','17-kumiko-void-wide-L01',
+                                        '17-kumiko-void-wide-L04','17-kumiko-void-wide-L07')):
+                    self.assertLessEqual(entry['toleranceAwareMiterWidthResidueAreaMm2'],
+                                         .00001)
+                    self.assertGreater(entry['indexedTerminalCaps'],0)
                 self.assertEqual(entry['retreatCount'],sum(r['operation']=='one-sided local mask retreat'
                     for r in entry['records']))
                 self.assertTrue(all(d['finishedUnionPairScreen'].startswith('pass:')

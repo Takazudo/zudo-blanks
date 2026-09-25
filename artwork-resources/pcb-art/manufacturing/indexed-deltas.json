@@ -24598,13 +24598,13 @@
       "operation": "locally widen tapered L07 gold fill within 0.50 mm reach",
       "additionBoundsMm": [
         90.7,
-        21.4217,
+        21.7257,
         91.18,
         25.7783
       ],
-      "addedAreaMm2": 0.5981526,
+      "addedAreaMm2": 0.6287776,
       "originalContourSha256": "201cc01d8296fbbc0766495e8ea6b97fefd04edd8bbeea2540b6b4fabf237213",
-      "manufacturingContourSha256": "9e0ff38c8c4ac6c638820d576e93fa8fd8765496a26cb0cd45e27a9f204859f5"
+      "manufacturingContourSha256": "5df954302df55e94c15d2c40f1e11a2c060530df26c6334653277fda7feacb7b"
     },
     {
       "board": "kumiko-void-L07",
@@ -24613,13 +24613,13 @@
       "operation": "locally widen tapered L07 gold fill within 0.50 mm reach",
       "additionBoundsMm": [
         90.7,
-        103.2007,
+        103.0257,
         90.876,
-        106.5993
+        106.7743
       ],
-      "addedAreaMm2": 0.5981526,
+      "addedAreaMm2": 0.6287776,
       "originalContourSha256": "c82ce7b492e096269f599ac1577ad519afbb1accb71649b7c8e6bb38fef6c9ed",
-      "manufacturingContourSha256": "fab0d159024e9803548bc76fc48a7e614e89029701bd1c94b9d405ab8179fe6d"
+      "manufacturingContourSha256": "171c188a1ab7f42e4c743f72ab1ab9b2806b07c4b453b94bcd3a97695def7a21"
     },
     {
       "board": "woven-maze-L01",
@@ -24818,5 +24818,5 @@
     "kumiko-void-standard-L04-H02",
     "kumiko-void-standard-L08-H01"
   ],
-  "manufacturingGeometrySha256": "842259adbd089878984469b868cf06c6013a3d99228f92f16d568961b67fc072"
+  "manufacturingGeometrySha256": "180340f9262b759c678ebf2a953a51d38a0de4755aa3fb2a301acf60d28ee0eb"
 }

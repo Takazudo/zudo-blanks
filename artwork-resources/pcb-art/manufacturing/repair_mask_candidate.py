@@ -213,6 +213,87 @@ def corrected_mask(design,layer,spec,original_layer,actions):
         raise ValueError(f'{board_id(design,layer)}: unresolved mask pairs')
     if any(part.buffer(-.125,quad_segs=64).is_empty for part in export.polygons(mask)):
         raise ValueError(f'{board_id(design,layer)}: mask component lacks a 0.25 mm disk')
+    if design['id']=='fault-line' and layer['index']==0:
+        mask=shapely.from_wkb(mask.wkb)
+        source_strokes=[export.stroke_geometry(stroke,design.get('artStyle')=='angular')
+                        for stroke in original_layer['art']['strokes']]
+        source_tree=STRtree(source_strokes)
+        original_parts=len(export.polygons(mask))
+        original_pockets=sum(len(p.interiors) for p in export.polygons(mask))
+        for iteration in range(3):
+            # A 1 nm inset avoids declaring the twelve exact-0.25 mm source
+            # strokes vanished solely because of GEOS threshold rounding.
+            radius=.124999
+            reconstructed=mask.buffer(-radius,join_style='mitre',quad_segs=64).buffer(
+                radius,join_style='mitre',quad_segs=64)
+            residue=mask.difference(reconstructed)
+            if residue.area<=.00001:
+                break
+            tips=[part for part in export.polygons(residue) if part.area>1e-8]
+            if not tips:
+                raise ValueError('Fault sub-width terminal residue has no indexable patches')
+            for tip in tips:
+                index=int(source_tree.nearest(tip.representative_point()))
+                records.append({
+                    'operation':'cap indexed Fault terminal gold wedge',
+                    'iteration':iteration,
+                    'originalArtStrokeIndex0':index,
+                    'originalStrokeWkbSha256':digest(source_strokes[index].wkb),
+                    'patchBoundsMm':[round(v,6) for v in tip.bounds],
+                    'patchAreaMm2':round(tip.area,9),
+                    'patchWkbSha256':digest(tip.wkb),
+                    'patchWkbHex':tip.wkb_hex,
+                })
+            mask=rounded(mask.difference(unary_union(tips)))
+            mask=shapely.from_wkb(mask.wkb)
+            now_parts=len(export.polygons(mask))
+            now_pockets=sum(len(p.interiors) for p in export.polygons(mask))
+            if now_parts!=original_parts or now_pockets!=original_pockets:
+                raise ValueError(f'Fault tip cap changed topology at {iteration}: '
+                                 f'{original_parts}/{original_pockets} -> '
+                                 f'{now_parts}/{now_pockets}')
+            if protected.difference(mask).area>.00001:
+                raise ValueError('Fault tip cap damaged a top-rim core')
+        else:
+            raise ValueError('Fault tip cap did not converge')
+    if design['id']=='kumiko-void' and layer['index'] in (0,3,6):
+        mask=shapely.from_wkb(mask.wkb)
+        fill_indices=[i for i,fill in enumerate(original_layer['art']['fills'])
+                      if fill.get('color') is None]
+        source_fills=[Polygon(original_layer['art']['fills'][i]['pts']) for i in fill_indices]
+        source_tree=STRtree(source_fills)
+        original_parts=len(export.polygons(mask))
+        original_pockets=sum(len(p.interiors) for p in export.polygons(mask))
+        radius=.124999
+        reconstructed=mask.buffer(-radius,join_style='mitre',quad_segs=64).buffer(
+            radius,join_style='mitre',quad_segs=64)
+        residue=mask.difference(reconstructed)
+        tips=[part for part in export.polygons(residue) if part.area>1e-8]
+        for tip in tips:
+            position=int(source_tree.nearest(tip.representative_point()))
+            source=source_fills[position]
+            if tip.difference(source.buffer(.5,join_style='mitre')).area>.00001:
+                raise ValueError('Kumiko tip cap exceeds indexed local-art reach')
+            records.append({
+                'operation':'cap indexed Kumiko terminal gold taper',
+                'originalArtFillIndex0':fill_indices[position],
+                'originalFillWkbSha256':digest(source.wkb),
+                'patchBoundsMm':[round(v,6) for v in tip.bounds],
+                'patchAreaMm2':round(tip.area,9),
+                'patchWkbSha256':digest(tip.wkb),
+                'patchWkbHex':tip.wkb_hex,
+            })
+        if tips:
+            mask=shapely.from_wkb(rounded(mask.difference(unary_union(tips))).wkb)
+        if (len(export.polygons(mask))!=original_parts or
+                sum(len(p.interiors) for p in export.polygons(mask))!=original_pockets):
+            raise ValueError('Kumiko tip caps changed gold component or black facet topology')
+        if protected.difference(mask).area>.00001:
+            raise ValueError('Kumiko tip caps damaged a top-rim core')
+        reconstructed=mask.buffer(-radius,join_style='mitre',quad_segs=64).buffer(
+            radius,join_style='mitre',quad_segs=64)
+        if mask.difference(reconstructed).area>.00001:
+            raise ValueError('Kumiko tip caps left a positive-width residue')
     return baseline,mask,records
 
 
@@ -265,6 +346,10 @@ def run():
             miter_reconstructed=after.buffer(-.125,join_style='mitre',quad_segs=64).buffer(
                 .125,join_style='mitre',quad_segs=64)
             miter_residue=after.difference(miter_reconstructed).area
+            tolerance_radius=.124999
+            tolerance_reconstructed=after.buffer(-tolerance_radius,join_style='mitre',
+                quad_segs=64).buffer(tolerance_radius,join_style='mitre',quad_segs=64)
+            tolerance_residue=after.difference(tolerance_reconstructed).area
             boards.append({
                 'boardId':board_id(design,layer),
                 'originalGoldAreaMm2':round(original_gold.area,6),
@@ -275,9 +360,11 @@ def run():
                 'goldLossFractionFromApproved':round(loss,9),
                 'widthResidueAreaMm2':round(width_residue,6),
                 'miterWidthResidueAreaMm2':round(miter_residue,6),
+                'toleranceAwareMiterWidthResidueAreaMm2':round(tolerance_residue,9),
                 'withinComponentGoldWidthProven':width_residue<=.00001,
                 'retreatCount':sum(r['operation']=='one-sided local mask retreat' for r in records),
                 'removedNoDiskComponents':sum(r['operation'].startswith('remove isolated') for r in records),
+                'indexedTerminalCaps':sum(r['operation'].startswith('cap indexed') for r in records),
                 'afterMaskWkbHex':after.wkb_hex,
                 'records':records,
                 'originalMaskFindingDispositions':dispositions,
