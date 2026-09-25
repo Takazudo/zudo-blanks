@@ -2,8 +2,8 @@
   "status": "diagnostic; connected-component width and boundary-run proof still required",
   "radiusMm": 0.124999,
   "manufacturingGeometrySha256": "598fa0279d4d6ea1fd4562aa21360c34ca8f43d18b64964b3e76f4e46f7adf33",
-  "maskCandidateSha256": "3d599846966dabaf1cade27002d93a22333a5611f58569ded61de2bec895b437",
-  "copperLedgerSha256": "71acb62b6f2e24a7687ec1c184194706c8ba201a56f3a1a7746e791c85a29758",
+  "maskCandidateSha256": "45af52eb555f79d479759405feb33cae81e223094ac8760692c581dab8cf6627",
+  "copperLedgerSha256": "a8e287ef53b93c2e1913820575156e55ea85534dcef71179fae2c4fd57a8c97c",
   "boards": [
     {
       "boardId": "01-spider-nest-L01-black-enig-art",
@@ -7095,40 +7095,26 @@
         "erodedCoreSplitExcessCount": 0,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
-        "toleranceAwareMiterResidueAreaMm2": 0.040917377,
+        "toleranceAwareMiterResidueAreaMm2": 7.5e-08,
         "largestResidues": [
           {
-            "areaMm2": 0.009210216,
+            "areaMm2": 1.3e-08,
             "boundsMm": [
-              95.518623,
-              127.562398,
-              95.957808,
-              127.79
+              5.537329,
+              0.71,
+              5.765089,
+              0.846424
             ],
             "nearestOriginalArtFeature": {
               "type": "stroke",
-              "originalIndex0": 11,
+              "originalIndex0": 8,
               "color": null
             }
           },
           {
-            "areaMm2": 0.009210216,
+            "areaMm2": 1.3e-08,
             "boundsMm": [
-              86.322192,
-              127.562398,
-              86.761377,
-              127.79
-            ],
-            "nearestOriginalArtFeature": {
-              "type": "stroke",
-              "originalIndex0": 11,
-              "color": null
-            }
-          },
-          {
-            "areaMm2": 0.00425954,
-            "boundsMm": [
-              14.492795,
+              14.574911,
               0.71,
               14.802671,
               0.846424
@@ -7140,23 +7126,9 @@
             }
           },
           {
-            "areaMm2": 0.00425954,
+            "areaMm2": 1.2e-08,
             "boundsMm": [
-              5.537329,
-              0.71,
-              5.847205,
-              0.846424
-            ],
-            "nearestOriginalArtFeature": {
-              "type": "stroke",
-              "originalIndex0": 8,
-              "color": null
-            }
-          },
-          {
-            "areaMm2": 0.003494466,
-            "boundsMm": [
-              14.510709,
+              14.581606,
               127.663576,
               14.792671,
               127.79
@@ -7168,11 +7140,11 @@
             }
           },
           {
-            "areaMm2": 0.003494466,
+            "areaMm2": 1.2e-08,
             "boundsMm": [
               5.527329,
               127.663576,
-              5.809291,
+              5.738394,
               127.79
             ],
             "nearestOriginalArtFeature": {
@@ -7182,12 +7154,12 @@
             }
           },
           {
-            "areaMm2": 0.003494466,
+            "areaMm2": 1.2e-08,
             "boundsMm": [
-              86.497329,
+              86.49733,
               0.71,
-              86.779291,
-              0.836424
+              86.708394,
+              0.836423
             ],
             "nearestOriginalArtFeature": {
               "type": "stroke",
@@ -7196,12 +7168,12 @@
             }
           },
           {
-            "areaMm2": 0.003494466,
+            "areaMm2": 1.2e-08,
             "boundsMm": [
-              95.480709,
+              95.551606,
               0.71,
-              95.762671,
-              0.836424
+              95.76267,
+              0.836423
             ],
             "nearestOriginalArtFeature": {
               "type": "stroke",
@@ -7376,6 +7348,34 @@
               "originalIndex0": 0,
               "color": null
             }
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              9.1177,
+              101.4886,
+              9.120159,
+              101.490756
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 2,
+              "color": null
+            }
+          },
+          {
+            "areaMm2": 0.0,
+            "boundsMm": [
+              92.179841,
+              27.009244,
+              92.1823,
+              27.0114
+            ],
+            "nearestOriginalArtFeature": {
+              "type": "stroke",
+              "originalIndex0": 0,
+              "color": null
+            }
           }
         ]
       },
@@ -7385,7 +7385,7 @@
         "erodedCoreSplitExcessCount": 4,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
-        "toleranceAwareMiterResidueAreaMm2": 0.012391001,
+        "toleranceAwareMiterResidueAreaMm2": 0.012390678,
         "largestResidues": [
           {
             "areaMm2": 0.0009555,

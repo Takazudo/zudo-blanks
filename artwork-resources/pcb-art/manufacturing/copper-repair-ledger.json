@@ -1,7 +1,7 @@
 {
   "status": "candidate; full copper/gold width and output proof pending",
   "sourceGeometrySha256": "598fa0279d4d6ea1fd4562aa21360c34ca8f43d18b64964b3e76f4e46f7adf33",
-  "maskCandidateSha256": "3d599846966dabaf1cade27002d93a22333a5611f58569ded61de2bec895b437",
+  "maskCandidateSha256": "45af52eb555f79d479759405feb33cae81e223094ac8760692c581dab8cf6627",
   "policySha256": "0f60b5ff35be5db3123ed8c14cb1147570f11c7e19d221fbb48391e15f78b797",
   "gridMm": 1e-06,
   "boards": [
@@ -11792,10 +11792,10 @@
     },
     {
       "boardId": "18-woven-maze-L01-black-enig-art",
-      "beforeCopperWkbSha256": "7999e768fc0a25c260f990b1e1b4cd5205c4ed8cfd08821793a19805ccf4aa00",
-      "afterCopperWkbSha256": "7999e768fc0a25c260f990b1e1b4cd5205c4ed8cfd08821793a19805ccf4aa00",
-      "beforeCopperAreaMm2": 915.874349,
-      "afterCopperAreaMm2": 915.874349,
+      "beforeCopperWkbSha256": "e550fd2033c8ad2996d0901f50eed18f5e328f70ade7fe706fcf00d12455e879",
+      "afterCopperWkbSha256": "e550fd2033c8ad2996d0901f50eed18f5e328f70ade7fe706fcf00d12455e879",
+      "beforeCopperAreaMm2": 915.880261,
+      "afterCopperAreaMm2": 915.880261,
       "joinCount": 0,
       "insetAnchorJoinCount": 0,
       "records": []

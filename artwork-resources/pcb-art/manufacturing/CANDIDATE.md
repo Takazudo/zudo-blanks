@@ -69,6 +69,10 @@ pocket counts. Three indexed Fault black pockets between source strokes
 16/52, 20/52 and 16/57 are locally widened with compensating gold restoration
 and caps; the composite adds 0.887012277 mm², removes 0.629928518 mm², keeps
 six gold components and all rim cores, and leaves no no-disk ink component.
+Eight source-indexed unpainted Woven L01 terminal ink tips along strokes
+8–11 receive 0.040917 mm² of bounded gold caps. Its serialized negative-mask
+miter residue falls below 0.000001 mm² while retaining twelve gold paths,
+their twelve openings, and all thirteen black components.
 Other Coral width candidates, Spider transition widths, Fault/Kumiko remaining
 black-mask necks, and copper within-component width remain open. Direct erosion of Fault's
 artwork splits its main gold component, so it remains only a diagnostic.

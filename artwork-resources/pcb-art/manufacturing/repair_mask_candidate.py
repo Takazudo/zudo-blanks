@@ -506,6 +506,51 @@ def corrected_mask(design,layer,spec,original_layer,actions):
             radius,join_style='mitre',quad_segs=64)
         if mask.difference(reconstructed).area>.00001:
             raise ValueError('Kumiko tip caps left a positive-width residue')
+    if design['id']=='woven-maze' and layer['index']==0:
+        if any(item.get('color') for key in ('fills','strokes')
+               for item in original_layer['art'][key]):
+            raise ValueError('Woven ink cap would cover explicitly painted black art')
+        radius=.124999
+        ink=body.difference(mask)
+        opened=ink.buffer(-radius,join_style='mitre',quad_segs=64).buffer(
+            radius,join_style='mitre',quad_segs=64)
+        source_strokes=[export.stroke_geometry(stroke,False)
+                        for stroke in original_layer['art']['strokes']]
+        source_tree=STRtree(source_strokes)
+        tips=[part for part in export.polygons(ink.difference(opened))
+              if part.area>1e-8]
+        if len(tips)!=8 or abs(sum(tip.area for tip in tips)-.040917377)>.00001:
+            raise ValueError('Woven indexed terminal ink-tip inventory changed')
+        safe=safe_region(layer,body,'mask')
+        for tip in tips:
+            index=int(source_tree.nearest(tip.representative_point()))
+            if index not in (8,9,10,11) or tip.difference(
+                    source_strokes[index].buffer(.5,quad_segs=64)).area>.00001:
+                raise ValueError('Woven ink tip exceeds indexed source stroke reach')
+            records.append({
+                'operation':'cap indexed unpainted Woven terminal ink tip',
+                'originalArtStrokeIndex0':index,
+                'originalStrokeWkbSha256':digest(source_strokes[index].wkb),
+                'patchBoundsMm':[round(v,6) for v in tip.bounds],
+                'patchAreaMm2':round(tip.area,9),
+                'patchWkbSha256':digest(tip.wkb),
+                'patchWkbHex':tip.wkb_hex,
+            })
+        before_gold=export.polygons(mask)
+        before_ink=export.polygons(ink)
+        repaired=rounded(mask.union(unary_union(tips).intersection(safe)))
+        after_gold=export.polygons(repaired)
+        after_ink=export.polygons(body.difference(repaired))
+        if (len(after_gold)!=len(before_gold) or
+                sum(len(p.interiors) for p in after_gold)!=
+                sum(len(p.interiors) for p in before_gold) or
+                len(after_ink)!=len(before_ink) or
+                sum(len(p.interiors) for p in after_ink)!=
+                sum(len(p.interiors) for p in before_ink) or
+                protected.difference(repaired).area>.00001 or
+                repaired.difference(safe).area>.00001 or list(pairs(repaired))):
+            raise ValueError('Woven indexed ink caps changed topology, rim or safe region')
+        mask=shapely.from_wkb(repaired.wkb)
     return baseline,mask,records
 
 

@@ -428,6 +428,16 @@ class ManufacturingGeometryCandidateTests(unittest.TestCase):
                     ink=mask_repair.source_body(layer,self.candidate['spec']).difference(mask)
                     self.assertFalse(any(p.area>1e-8 and p.buffer(-.125,quad_segs=64).is_empty
                                          for p in export.polygons(ink)))
+                if design['id']=='woven-maze' and layer['index']==0:
+                    caps=[r for r in entry['records'] if r['operation']==
+                          'cap indexed unpainted Woven terminal ink tip']
+                    self.assertEqual(len(caps),8)
+                    self.assertEqual({r['originalArtStrokeIndex0'] for r in caps},
+                                     {8,9,10,11})
+                    self.assertAlmostEqual(sum(r['patchAreaMm2'] for r in caps),
+                                           .040917377,6)
+                    self.assertLessEqual(entry['toleranceAwareMiterWidthResidueAreaMm2'],
+                                         .00001)
                 self.assertEqual(entry['retreatCount'],sum(r['operation']=='one-sided local mask retreat'
                     for r in entry['records']))
                 self.assertTrue(all(d['finishedUnionPairScreen'].startswith('pass:')
