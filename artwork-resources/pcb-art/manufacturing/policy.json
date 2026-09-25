@@ -1750,7 +1750,7 @@
       "id": "process-classes-2026-09-25",
       "approvedBy": "owner, 2026-09-25 (Claude Code handoff issue 20)",
       "evidence": "process-class-decision.json",
-      "evidenceSha256": "7b42c0493a7c9118015d8767b8b1061a1d4c5ed1611e0a4e9bf711a6c4991648",
+      "evidenceSha256": "770cad7815157949db068f7435c14f1494afc67dbb39aa8331bb31bac7a5acc6",
       "sources": "process-class-sources.json",
       "sourcesSha256": "9336b42dd284d45f5dc7e0ef6988bae1552c8e370227a683dd2557b063d08530",
       "measuredCandidateFileSha256": {

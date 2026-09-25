@@ -20,13 +20,14 @@ POURS = {'01-spider-nest-L03-gold-enig-fill', '01-spider-nest-L05-gold-enig-fill
          '01-spider-nest-L07-gold-enig-fill', '03-coral-vault-L04-gold-enig-fill'}
 # Fixed, measured local cross sections, not nearest-core midpoints interpreted
 # as physical neck locations. Kumiko locations use the critical-radius cores.
+# Copper-gap witnesses sit between retained-special components, so 0.25 applies.
 WITNESSES = [
     ('coral-vault','ink',.13,(94.81089471887478,121.35257751122303),(.5244363076564288,-.8514496809628221)),
-    ('coral-vault','copper-gap',.10,(61.71058399892604,125.06478598198142),(-.07248978304173623,-.9973691550045861)),
+    ('coral-vault','copper-gap',.25,(61.71058399892604,125.06478598198142),(-.07248978304173623,-.9973691550045861)),
     ('coral-vault','visible-gold',.25,(16.7323464197987,42.812091748774066),(.2693798750698178,-.9630339988325278)),
-    ('fault-line','copper-gap',.10,(89.98314777673505,123.250001),(0.,1.)),
+    ('fault-line','copper-gap',.25,(89.98314777673505,123.250001),(0.,1.)),
     ('kumiko-void','ink',.13,(2.3889627479120437,51.15635033664704),(0.,-1.)),
-    ('kumiko-void','copper-gap',.10,(2.3654152612283053,51.78076846830183),(-.4999888348166309,-.8660318499100986)),
+    ('kumiko-void','copper-gap',.25,(2.3654152612283053,51.78076846830183),(-.4999888348166309,-.8660318499100986)),
 ]
 
 
@@ -140,6 +141,7 @@ def measure(native_dir):
                            'maskProcessCondition':'unchanged submitted mask and required retained ink; local target only, final CAM/process confirmation pending',
                            'diagnostics':{'positiveCopper010':core_summary(copper,.10),
                                           'negativeCopper010':core_summary(negative_copper,.10),
+                                          'negativeCopper025':core_summary(negative_copper,.25),
                                           'blackInk013':core_summary(ink,.13)}})
             pictures.append((bid,body,parts,records))
             if layer['index']!=0:

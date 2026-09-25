@@ -126,6 +126,16 @@
           "noDiskAreaMm2": 0.17181672530199799,
           "meaning": "diagnostic counts, not complete width proof or automatic numerical-fragment waiver"
         },
+        "negativeCopper025": {
+          "widthMm": 0.25,
+          "rawExtraCores": 1,
+          "secondaryCoresAbove1e5Mm2": 1,
+          "maximumSecondaryCoreAreaMm2": 42.572764399258496,
+          "affectedInputRegions": 1,
+          "noDiskRegionCount": 65,
+          "noDiskAreaMm2": 82.49156106067646,
+          "meaning": "diagnostic counts, not complete width proof or automatic numerical-fragment waiver"
+        },
         "blackInk013": {
           "widthMm": 0.13,
           "rawExtraCores": 48,
@@ -180,6 +190,16 @@
         },
         "negativeCopper010": {
           "widthMm": 0.1,
+          "rawExtraCores": 0,
+          "secondaryCoresAbove1e5Mm2": 0,
+          "maximumSecondaryCoreAreaMm2": 0,
+          "affectedInputRegions": 0,
+          "noDiskRegionCount": 0,
+          "noDiskAreaMm2": 0,
+          "meaning": "diagnostic counts, not complete width proof or automatic numerical-fragment waiver"
+        },
+        "negativeCopper025": {
+          "widthMm": 0.25,
           "rawExtraCores": 0,
           "secondaryCoresAbove1e5Mm2": 0,
           "maximumSecondaryCoreAreaMm2": 0,
@@ -250,6 +270,16 @@
           "noDiskAreaMm2": 0,
           "meaning": "diagnostic counts, not complete width proof or automatic numerical-fragment waiver"
         },
+        "negativeCopper025": {
+          "widthMm": 0.25,
+          "rawExtraCores": 0,
+          "secondaryCoresAbove1e5Mm2": 0,
+          "maximumSecondaryCoreAreaMm2": 0,
+          "affectedInputRegions": 0,
+          "noDiskRegionCount": 0,
+          "noDiskAreaMm2": 0,
+          "meaning": "diagnostic counts, not complete width proof or automatic numerical-fragment waiver"
+        },
         "blackInk013": {
           "widthMm": 0.13,
           "rawExtraCores": 0,
@@ -304,6 +334,16 @@
         },
         "negativeCopper010": {
           "widthMm": 0.1,
+          "rawExtraCores": 0,
+          "secondaryCoresAbove1e5Mm2": 0,
+          "maximumSecondaryCoreAreaMm2": 0,
+          "affectedInputRegions": 0,
+          "noDiskRegionCount": 0,
+          "noDiskAreaMm2": 0,
+          "meaning": "diagnostic counts, not complete width proof or automatic numerical-fragment waiver"
+        },
+        "negativeCopper025": {
+          "widthMm": 0.25,
           "rawExtraCores": 0,
           "secondaryCoresAbove1e5Mm2": 0,
           "maximumSecondaryCoreAreaMm2": 0,
@@ -2649,6 +2689,16 @@
           "noDiskAreaMm2": 0,
           "meaning": "diagnostic counts, not complete width proof or automatic numerical-fragment waiver"
         },
+        "negativeCopper025": {
+          "widthMm": 0.25,
+          "rawExtraCores": 172,
+          "secondaryCoresAbove1e5Mm2": 172,
+          "maximumSecondaryCoreAreaMm2": 4.371178812053652,
+          "affectedInputRegions": 103,
+          "noDiskRegionCount": 6,
+          "noDiskAreaMm2": 0.5647251906835069,
+          "meaning": "diagnostic counts, not complete width proof or automatic numerical-fragment waiver"
+        },
         "blackInk013": {
           "widthMm": 0.13,
           "rawExtraCores": 126,
@@ -2703,6 +2753,16 @@
         },
         "negativeCopper010": {
           "widthMm": 0.1,
+          "rawExtraCores": 0,
+          "secondaryCoresAbove1e5Mm2": 0,
+          "maximumSecondaryCoreAreaMm2": 0,
+          "affectedInputRegions": 0,
+          "noDiskRegionCount": 0,
+          "noDiskAreaMm2": 0,
+          "meaning": "diagnostic counts, not complete width proof or automatic numerical-fragment waiver"
+        },
+        "negativeCopper025": {
+          "widthMm": 0.25,
           "rawExtraCores": 0,
           "secondaryCoresAbove1e5Mm2": 0,
           "maximumSecondaryCoreAreaMm2": 0,
@@ -2835,6 +2895,16 @@
           "affectedInputRegions": 5,
           "noDiskRegionCount": 0,
           "noDiskAreaMm2": 0,
+          "meaning": "diagnostic counts, not complete width proof or automatic numerical-fragment waiver"
+        },
+        "negativeCopper025": {
+          "widthMm": 0.25,
+          "rawExtraCores": 10,
+          "secondaryCoresAbove1e5Mm2": 10,
+          "maximumSecondaryCoreAreaMm2": 82.12864434417185,
+          "affectedInputRegions": 6,
+          "noDiskRegionCount": 2,
+          "noDiskAreaMm2": 0.07942136296449992,
           "meaning": "diagnostic counts, not complete width proof or automatic numerical-fragment waiver"
         },
         "blackInk013": {
@@ -3212,6 +3282,16 @@
           "affectedInputRegions": 6,
           "noDiskRegionCount": 3,
           "noDiskAreaMm2": 9.354999999976609e-07,
+          "meaning": "diagnostic counts, not complete width proof or automatic numerical-fragment waiver"
+        },
+        "negativeCopper025": {
+          "widthMm": 0.25,
+          "rawExtraCores": 88,
+          "secondaryCoresAbove1e5Mm2": 88,
+          "maximumSecondaryCoreAreaMm2": 33.96767566207012,
+          "affectedInputRegions": 38,
+          "noDiskRegionCount": 8,
+          "noDiskAreaMm2": 0.27440871229199937,
           "meaning": "diagnostic counts, not complete width proof or automatic numerical-fragment waiver"
         },
         "blackInk013": {
@@ -4167,6 +4247,16 @@
           "noDiskAreaMm2": 0,
           "meaning": "diagnostic counts, not complete width proof or automatic numerical-fragment waiver"
         },
+        "negativeCopper025": {
+          "widthMm": 0.25,
+          "rawExtraCores": 0,
+          "secondaryCoresAbove1e5Mm2": 0,
+          "maximumSecondaryCoreAreaMm2": 0,
+          "affectedInputRegions": 0,
+          "noDiskRegionCount": 0,
+          "noDiskAreaMm2": 0,
+          "meaning": "diagnostic counts, not complete width proof or automatic numerical-fragment waiver"
+        },
         "blackInk013": {
           "widthMm": 0.13,
           "rawExtraCores": 0,
@@ -5060,6 +5150,16 @@
           "noDiskAreaMm2": 0,
           "meaning": "diagnostic counts, not complete width proof or automatic numerical-fragment waiver"
         },
+        "negativeCopper025": {
+          "widthMm": 0.25,
+          "rawExtraCores": 0,
+          "secondaryCoresAbove1e5Mm2": 0,
+          "maximumSecondaryCoreAreaMm2": 0,
+          "affectedInputRegions": 0,
+          "noDiskRegionCount": 0,
+          "noDiskAreaMm2": 0,
+          "meaning": "diagnostic counts, not complete width proof or automatic numerical-fragment waiver"
+        },
         "blackInk013": {
           "widthMm": 0.13,
           "rawExtraCores": 0,
@@ -5298,6 +5398,16 @@
           "noDiskAreaMm2": 0,
           "meaning": "diagnostic counts, not complete width proof or automatic numerical-fragment waiver"
         },
+        "negativeCopper025": {
+          "widthMm": 0.25,
+          "rawExtraCores": 0,
+          "secondaryCoresAbove1e5Mm2": 0,
+          "maximumSecondaryCoreAreaMm2": 0,
+          "affectedInputRegions": 0,
+          "noDiskRegionCount": 0,
+          "noDiskAreaMm2": 0,
+          "meaning": "diagnostic counts, not complete width proof or automatic numerical-fragment waiver"
+        },
         "blackInk013": {
           "widthMm": 0.13,
           "rawExtraCores": 0,
@@ -5352,7 +5462,7 @@
     {
       "boardId": "03-coral-vault-L01-black-enig-art",
       "phase": "copper-gap",
-      "thresholdMm": 0.1,
+      "thresholdMm": 0.25,
       "measuredCrossSectionMm": 0.09921988579466749,
       "centerMm": [
         61.71058399892604,
@@ -5426,7 +5536,7 @@
     {
       "boardId": "13-fault-line-L01-black-enig-art",
       "phase": "copper-gap",
-      "thresholdMm": 0.1,
+      "thresholdMm": 0.25,
       "measuredCrossSectionMm": 0.09917099999999834,
       "centerMm": [
         89.98314777673505,
@@ -5500,7 +5610,7 @@
     {
       "boardId": "17-kumiko-void-wide-L01-black-enig-art",
       "phase": "copper-gap",
-      "thresholdMm": 0.1,
+      "thresholdMm": 0.25,
       "measuredCrossSectionMm": 0.037181481909433635,
       "centerMm": [
         2.3654152612283053,
@@ -5535,7 +5645,7 @@
       "status": "remaining real local section below screen; not waived by reclassification"
     }
   ],
-  "probeScriptSha256": "c9fc975d458ba05c75c1602092fd466ae442307a89c31234f2f15d680e03115f",
+  "probeScriptSha256": "9bb3ba8d13236914e7f9048a5c5cd445af0348397d8703cd197934a67b9361be",
   "exporterSha256": "e14102c902a1d213ff4f2f7da9e08eaccbb617e48d73d9dbcbbcce943a94a16c",
   "shapelyVersion": "2.1.2"
 }
