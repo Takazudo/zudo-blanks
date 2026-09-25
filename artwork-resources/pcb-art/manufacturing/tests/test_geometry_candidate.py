@@ -239,6 +239,9 @@ class ManufacturingGeometryCandidateTests(unittest.TestCase):
                          {('kumiko-void-L05',14),('woven-maze-L04',0)})
         self.assertTrue(all(component['plungeDiskContainedInOriginalHole']
                             for r in report['records'] for component in r['components']))
+        self.assertTrue(all(component['pathElementCount']>0 and
+                            component['pathSweepUncoveredAreaMm2']<=.00001
+                            for r in report['records'] for component in r['components']))
 
     def test_indexed_guide_relocation(self):
         self.assertEqual(len(self.ledger['artGuideChanges']),22)

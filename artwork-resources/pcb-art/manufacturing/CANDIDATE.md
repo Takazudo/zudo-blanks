@@ -70,8 +70,11 @@ the remaining art proof and issue 16's native/CAM verification.
 
 `audit_tool_access.py` records 754 original decorative hole domains: exactly
 56 indexed closures and two split center regions, each with separate valid
-plunge points (Kumiko wide L05 hole 14 and Woven L04 hole 0). The connected
-center-domain proof and cutter sweep do not emit actual CNC paths.
+plunge points (Kumiko wide L05 hole 14 and Woven L04 hole 0). Every surviving
+center component has a finite path made of its boundary loops and 0.50 mm
+scanlines; the script proves its 1.0 mm swept union covers the candidate cutout
+without leaving the original aperture. Actual machine CAM and cutter/plunge
+availability remain external checks.
 `audit_final_width.py` records positive gold, negative mask and copper
 reconstruction residues from serialized candidate polygons, with source-art
 indices for the largest findings; it is a diagnostic, not a pass. Five
