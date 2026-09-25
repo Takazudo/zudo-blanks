@@ -26,10 +26,11 @@ def source_features(layer,design):
 
 
 def width_screen(region,shapes,names):
-    reconstructed=region.buffer(-RADIUS,join_style='mitre',quad_segs=64).buffer(
-        RADIUS,join_style='mitre',quad_segs=64)
+    eroded=region.buffer(-RADIUS,join_style='mitre',quad_segs=64)
+    reconstructed=eroded.buffer(RADIUS,join_style='mitre',quad_segs=64)
     residue=region.difference(reconstructed)
     parts=export.polygons(region)
+    cores=export.polygons(eroded)
     no_disk=[part for part in parts if part.area>1e-8 and
              part.buffer(-RADIUS,quad_segs=64).is_empty]
     tree=STRtree(shapes) if shapes else None
@@ -43,6 +44,8 @@ def width_screen(region,shapes,names):
         })
     return {
         'componentCount':len(parts),
+        'erodedCoreComponentCount':len(cores),
+        'erodedCoreSplitExcessCount':max(0,len(cores)-len(parts)),
         'componentsWithout025MmDisk':len(no_disk),
         'componentsWithout025MmDiskAreaMm2':round(sum(p.area for p in no_disk),9),
         'toleranceAwareMiterResidueAreaMm2':round(residue.area,9),

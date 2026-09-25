@@ -9,6 +9,8 @@
       "boardId": "01-spider-nest-L01-black-enig-art",
       "gold": {
         "componentCount": 5,
+        "erodedCoreComponentCount": 8,
+        "erodedCoreSplitExcessCount": 3,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
         "toleranceAwareMiterResidueAreaMm2": 0.005524681,
@@ -297,6 +299,8 @@
       },
       "ink": {
         "componentCount": 66,
+        "erodedCoreComponentCount": 70,
+        "erodedCoreSplitExcessCount": 4,
         "componentsWithout025MmDisk": 2,
         "componentsWithout025MmDiskAreaMm2": 7.83e-06,
         "toleranceAwareMiterResidueAreaMm2": 76.822249158,
@@ -585,6 +589,8 @@
       },
       "copper": {
         "componentCount": 5,
+        "erodedCoreComponentCount": 5,
+        "erodedCoreSplitExcessCount": 0,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
         "toleranceAwareMiterResidueAreaMm2": 0.003269717,
@@ -876,6 +882,8 @@
       "boardId": "01-spider-nest-L03-gold-enig-fill",
       "gold": {
         "componentCount": 1,
+        "erodedCoreComponentCount": 1,
+        "erodedCoreSplitExcessCount": 0,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
         "toleranceAwareMiterResidueAreaMm2": 0.003795122,
@@ -1084,6 +1092,8 @@
       },
       "ink": {
         "componentCount": 24,
+        "erodedCoreComponentCount": 24,
+        "erodedCoreSplitExcessCount": 0,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
         "toleranceAwareMiterResidueAreaMm2": 0.002546287,
@@ -1292,6 +1302,8 @@
       },
       "copper": {
         "componentCount": 1,
+        "erodedCoreComponentCount": 1,
+        "erodedCoreSplitExcessCount": 0,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
         "toleranceAwareMiterResidueAreaMm2": 0.002500346,
@@ -1503,6 +1515,8 @@
       "boardId": "01-spider-nest-L05-gold-enig-fill",
       "gold": {
         "componentCount": 1,
+        "erodedCoreComponentCount": 1,
+        "erodedCoreSplitExcessCount": 0,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
         "toleranceAwareMiterResidueAreaMm2": 0.004758198,
@@ -1711,6 +1725,8 @@
       },
       "ink": {
         "componentCount": 24,
+        "erodedCoreComponentCount": 24,
+        "erodedCoreSplitExcessCount": 0,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
         "toleranceAwareMiterResidueAreaMm2": 0.002258551,
@@ -1919,6 +1935,8 @@
       },
       "copper": {
         "componentCount": 1,
+        "erodedCoreComponentCount": 1,
+        "erodedCoreSplitExcessCount": 0,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
         "toleranceAwareMiterResidueAreaMm2": 0.002603444,
@@ -2130,6 +2148,8 @@
       "boardId": "01-spider-nest-L07-gold-enig-fill",
       "gold": {
         "componentCount": 1,
+        "erodedCoreComponentCount": 1,
+        "erodedCoreSplitExcessCount": 0,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
         "toleranceAwareMiterResidueAreaMm2": 0.003357847,
@@ -2338,6 +2358,8 @@
       },
       "ink": {
         "componentCount": 24,
+        "erodedCoreComponentCount": 24,
+        "erodedCoreSplitExcessCount": 0,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
         "toleranceAwareMiterResidueAreaMm2": 0.002295136,
@@ -2546,6 +2568,8 @@
       },
       "copper": {
         "componentCount": 1,
+        "erodedCoreComponentCount": 1,
+        "erodedCoreSplitExcessCount": 0,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
         "toleranceAwareMiterResidueAreaMm2": 0.002175222,
@@ -2757,6 +2781,8 @@
       "boardId": "03-coral-vault-L01-black-enig-art",
       "gold": {
         "componentCount": 190,
+        "erodedCoreComponentCount": 224,
+        "erodedCoreSplitExcessCount": 34,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
         "toleranceAwareMiterResidueAreaMm2": 0.28588502,
@@ -3045,6 +3071,8 @@
       },
       "ink": {
         "componentCount": 498,
+        "erodedCoreComponentCount": 749,
+        "erodedCoreSplitExcessCount": 251,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
         "toleranceAwareMiterResidueAreaMm2": 3.000600688,
@@ -3333,6 +3361,8 @@
       },
       "copper": {
         "componentCount": 143,
+        "erodedCoreComponentCount": 238,
+        "erodedCoreSplitExcessCount": 95,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
         "toleranceAwareMiterResidueAreaMm2": 0.039705018,
@@ -3624,6 +3654,8 @@
       "boardId": "03-coral-vault-L04-gold-enig-fill",
       "gold": {
         "componentCount": 1,
+        "erodedCoreComponentCount": 1,
+        "erodedCoreSplitExcessCount": 0,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
         "toleranceAwareMiterResidueAreaMm2": 2e-09,
@@ -3682,6 +3714,8 @@
       },
       "ink": {
         "componentCount": 13,
+        "erodedCoreComponentCount": 13,
+        "erodedCoreSplitExcessCount": 0,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
         "toleranceAwareMiterResidueAreaMm2": 4.9e-08,
@@ -3890,6 +3924,8 @@
       },
       "copper": {
         "componentCount": 1,
+        "erodedCoreComponentCount": 1,
+        "erodedCoreSplitExcessCount": 0,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
         "toleranceAwareMiterResidueAreaMm2": 0.000982222,
@@ -4101,6 +4137,8 @@
       "boardId": "13-fault-line-L01-black-enig-art",
       "gold": {
         "componentCount": 6,
+        "erodedCoreComponentCount": 9,
+        "erodedCoreSplitExcessCount": 3,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
         "toleranceAwareMiterResidueAreaMm2": 3.67e-06,
@@ -4389,6 +4427,8 @@
       },
       "ink": {
         "componentCount": 103,
+        "erodedCoreComponentCount": 112,
+        "erodedCoreSplitExcessCount": 9,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
         "toleranceAwareMiterResidueAreaMm2": 0.490828902,
@@ -4677,6 +4717,8 @@
       },
       "copper": {
         "componentCount": 5,
+        "erodedCoreComponentCount": 9,
+        "erodedCoreSplitExcessCount": 4,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
         "toleranceAwareMiterResidueAreaMm2": 0.005910253,
@@ -4968,6 +5010,8 @@
       "boardId": "17-kumiko-void-wide-L01-black-enig-art",
       "gold": {
         "componentCount": 220,
+        "erodedCoreComponentCount": 331,
+        "erodedCoreSplitExcessCount": 111,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
         "toleranceAwareMiterResidueAreaMm2": 4.553e-06,
@@ -5256,6 +5300,8 @@
       },
       "ink": {
         "componentCount": 64,
+        "erodedCoreComponentCount": 269,
+        "erodedCoreSplitExcessCount": 205,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
         "toleranceAwareMiterResidueAreaMm2": 4.144698752,
@@ -5544,6 +5590,8 @@
       },
       "copper": {
         "componentCount": 20,
+        "erodedCoreComponentCount": 344,
+        "erodedCoreSplitExcessCount": 324,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
         "toleranceAwareMiterResidueAreaMm2": 0.089669922,
@@ -5835,6 +5883,8 @@
       "boardId": "17-kumiko-void-wide-L04-black-enig-art",
       "gold": {
         "componentCount": 85,
+        "erodedCoreComponentCount": 86,
+        "erodedCoreSplitExcessCount": 1,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
         "toleranceAwareMiterResidueAreaMm2": 2.07e-07,
@@ -6123,6 +6173,8 @@
       },
       "ink": {
         "componentCount": 1,
+        "erodedCoreComponentCount": 1,
+        "erodedCoreSplitExcessCount": 0,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
         "toleranceAwareMiterResidueAreaMm2": 1.2136e-05,
@@ -6145,6 +6197,8 @@
       },
       "copper": {
         "componentCount": 56,
+        "erodedCoreComponentCount": 100,
+        "erodedCoreSplitExcessCount": 44,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
         "toleranceAwareMiterResidueAreaMm2": 0.010219405,
@@ -6436,6 +6490,8 @@
       "boardId": "17-kumiko-void-wide-L07-black-enig-art",
       "gold": {
         "componentCount": 68,
+        "erodedCoreComponentCount": 68,
+        "erodedCoreSplitExcessCount": 0,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
         "toleranceAwareMiterResidueAreaMm2": 1.51e-07,
@@ -6724,6 +6780,8 @@
       },
       "ink": {
         "componentCount": 1,
+        "erodedCoreComponentCount": 1,
+        "erodedCoreSplitExcessCount": 0,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
         "toleranceAwareMiterResidueAreaMm2": 0.0,
@@ -6731,6 +6789,8 @@
       },
       "copper": {
         "componentCount": 52,
+        "erodedCoreComponentCount": 74,
+        "erodedCoreSplitExcessCount": 22,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
         "toleranceAwareMiterResidueAreaMm2": 0.009201527,
@@ -7022,6 +7082,8 @@
       "boardId": "18-woven-maze-L01-black-enig-art",
       "gold": {
         "componentCount": 12,
+        "erodedCoreComponentCount": 16,
+        "erodedCoreSplitExcessCount": 4,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
         "toleranceAwareMiterResidueAreaMm2": 0.0,
@@ -7029,6 +7091,8 @@
       },
       "ink": {
         "componentCount": 13,
+        "erodedCoreComponentCount": 13,
+        "erodedCoreSplitExcessCount": 0,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
         "toleranceAwareMiterResidueAreaMm2": 0.040917377,
@@ -7317,6 +7381,8 @@
       },
       "copper": {
         "componentCount": 12,
+        "erodedCoreComponentCount": 16,
+        "erodedCoreSplitExcessCount": 4,
         "componentsWithout025MmDisk": 0,
         "componentsWithout025MmDiskAreaMm2": 0,
         "toleranceAwareMiterResidueAreaMm2": 0.012391001,
