@@ -198,6 +198,12 @@ def merge_spider_web_slivers(design,layer,body,mask,records):
     return result
 
 
+def rim_cores(design,layer):
+    rim_strokes=[s for s in layer['art']['strokes'] if s.get('purpose')=='top-gold-border']
+    return unary_union([export.stroke_geometry(dict(s,w=.25),design.get('artStyle')=='angular')
+                        for s in rim_strokes]) if rim_strokes else Polygon()
+
+
 def corrected_mask(design,layer,spec,original_layer,actions):
     body=source_body(layer,spec)
     gold=export.paint_gold(layer,design,body)
@@ -210,9 +216,7 @@ def corrected_mask(design,layer,spec,original_layer,actions):
     if closed:
         mask=mask.difference(unary_union(closed))
     baseline=rounded(mask)
-    rim_strokes=[s for s in layer['art']['strokes'] if s.get('purpose')=='top-gold-border']
-    protected=unary_union([export.stroke_geometry(dict(s,w=.25),design.get('artStyle')=='angular')
-                           for s in rim_strokes]) if rim_strokes else Polygon()
+    protected=rim_cores(design,layer)
     records=[]
     mask=merge_spider_web_slivers(design,layer,body,baseline,records)
     for iteration in range(16):
@@ -710,13 +714,21 @@ def corrected_mask(design,layer,spec,original_layer,actions):
     return baseline,mask,records
 
 
+def _enforce_job(job):
+    from width_geometry import enforce_widths
+    mask,body,safe,protected,black,name=job
+    after,records,unresolved=enforce_widths(*(shapely.from_wkb(g) for g in (mask,body,safe,protected)),
+                                            black,name)
+    return after.wkb,records,unresolved
+
+
 def run():
     policy=json.loads((HERE/'policy.json').read_text())
     geometry_path=HERE/'manufacturing-geometry.json'
     data=json.loads(geometry_path.read_text())
     original=json.loads((ROOT/'preview-source/assets/geometry.json').read_text())
     review=json.loads((ROOT/'validation/export-art-review.json').read_text())
-    boards=[]
+    staged=[]
     for family,source_family in zip(data['designs'],original['designs']):
         design=(family['variants'][0] if family['id']=='kumiko-void' else family)
         source=(source_family['variants'][0] if family['id']=='kumiko-void' else source_family)
@@ -725,64 +737,83 @@ def run():
                 continue
             before,after,records=corrected_mask(design,layer,data['spec'],original_layer,
                                                  policy['selectedApertureActions'])
-            # Measure the serialized geometry that downstream consumers read.
-            # GEOS overlay objects can carry a different vertex traversal until
-            # round-tripped, which affects acute-tip buffer diagnostics.
-            after=shapely.from_wkb(after.wkb)
-            old_review=next(b for b in review['boards'] if b['boardId']==board_id(design,layer))
-            patch_shapes=[(index,shapely.from_wkb(bytes.fromhex(record['patchWkbHex'])))
-                          for index,record in enumerate(records) if 'patchWkbHex' in record]
-            removed_shapes=[(index,shapely.from_wkb(bytes.fromhex(record['removedComponentWkbHex'])))
-                            for index,record in enumerate(records) if 'removedComponentWkbHex' in record]
-            dispositions=[]
-            for issue in old_review['blackMaskGapsBelow013Mm']:
-                a,b=issue['closestPointsMm']
-                mid=Point((a[0]+b[0])/2,(a[1]+b[1])/2)
-                near_patches=[index for index,shape in patch_shapes if shape.distance(mid)<=.5]
-                near_removed=[index for index,shape in removed_shapes if shape.distance(mid)<=.5]
-                dispositions.append({
-                    'key':f'art:{old_review["sourceSha256"]}:{board_id(design,layer)}:F.Mask black gap:{issue["polygonIndices0"][0]}:{issue["polygonIndices0"][1]}',
-                    'sourceExportSha256':old_review['sourceSha256'],
-                    'originalPolygonIndices0':issue['polygonIndices0'],
-                    'originalClosestPointsMm':issue['closestPointsMm'],
-                    'originalGapMm':issue['gapMm'],
-                    'nearbyMaskPatchRecordIndices0':near_patches,
-                    'nearbyRemovedComponentRecordIndices0':near_removed,
-                    'finishedUnionPairScreen':'pass: no distinct mask component gap below 0.25 mm',
-                })
-            original_gold=export.paint_gold(original_layer,source,source_body(original_layer,data['spec']))
-            loss=original_gold.difference(after).area/original_gold.area if original_gold.area else 0
-            if loss>.30+1e-8:
-                raise ValueError(f'{board_id(design,layer)}: gold-loss budget exceeded: {loss}')
-            reconstructed=after.buffer(-.125,quad_segs=64).buffer(.125,quad_segs=64)
-            width_residue=after.difference(reconstructed).area
-            miter_reconstructed=after.buffer(-.125,join_style='mitre',quad_segs=64).buffer(
-                .125,join_style='mitre',quad_segs=64)
-            miter_residue=after.difference(miter_reconstructed).area
-            tolerance_radius=.124999
-            tolerance_reconstructed=after.buffer(-tolerance_radius,join_style='mitre',
-                quad_segs=64).buffer(tolerance_radius,join_style='mitre',quad_segs=64)
-            tolerance_residue=after.difference(tolerance_reconstructed).area
-            boards.append({
-                'boardId':board_id(design,layer),
-                'originalGoldAreaMm2':round(original_gold.area,6),
-                'beforeLocalRetreatAreaMm2':round(before.area,6),
-                'afterLocalRetreatAreaMm2':round(after.area,6),
-                'goldAddedFromApprovedMm2':round(after.difference(original_gold).area,6),
-                'goldRemovedFromApprovedMm2':round(original_gold.difference(after).area,6),
-                'goldLossFractionFromApproved':round(loss,9),
-                'widthResidueAreaMm2':round(width_residue,6),
-                'miterWidthResidueAreaMm2':round(miter_residue,6),
-                'toleranceAwareMiterWidthResidueAreaMm2':round(tolerance_residue,9),
-                'withinComponentGoldWidthProven':width_residue<=.00001,
-                'retreatCount':sum(r['operation']=='one-sided local mask retreat' for r in records),
-                'removedNoDiskComponents':sum(r['operation'].startswith('remove isolated') for r in records),
-                'indexedTerminalCaps':sum(r['operation'].startswith('cap indexed') for r in records),
-                'afterMaskWkbHex':after.wkb_hex,
-                'records':records,
-                'originalMaskFindingDispositions':dispositions,
+            staged.append((design,source,layer,original_layer,before,after,records))
+    # Width enforcement is independent per board and dominates run time.
+    jobs=[]
+    for design,_,layer,_,_,after,_ in staged:
+        body=source_body(layer,data['spec'])
+        jobs.append((after.wkb,body.wkb,safe_region(layer,body,'mask').wkb,
+                     rim_cores(design,layer).wkb,
+                     .25 if design['id']=='spider-nest' else .13,board_id(design,layer)))
+    from concurrent.futures import ProcessPoolExecutor
+    with ProcessPoolExecutor(max_workers=4) as pool:
+        enforced=list(pool.map(_enforce_job,jobs))
+    boards=[]
+    for (design,source,layer,original_layer,before,_,records),(after_wkb,width_records,unresolved) in zip(staged,enforced):
+        after=shapely.from_wkb(after_wkb)
+        black=.25 if design['id']=='spider-nest' else .13
+        records.extend(width_records)
+        # Measure the serialized geometry that downstream consumers read.
+        # GEOS overlay objects can carry a different vertex traversal until
+        # round-tripped, which affects acute-tip buffer diagnostics.
+        after=shapely.from_wkb(after.wkb)
+        old_review=next(b for b in review['boards'] if b['boardId']==board_id(design,layer))
+        patch_shapes=[(index,shapely.from_wkb(bytes.fromhex(record['patchWkbHex'])))
+                      for index,record in enumerate(records) if 'patchWkbHex' in record]
+        removed_shapes=[(index,shapely.from_wkb(bytes.fromhex(record['removedComponentWkbHex'])))
+                        for index,record in enumerate(records) if 'removedComponentWkbHex' in record]
+        dispositions=[]
+        for issue in old_review['blackMaskGapsBelow013Mm']:
+            a,b=issue['closestPointsMm']
+            mid=Point((a[0]+b[0])/2,(a[1]+b[1])/2)
+            near_patches=[index for index,shape in patch_shapes if shape.distance(mid)<=.5]
+            near_removed=[index for index,shape in removed_shapes if shape.distance(mid)<=.5]
+            dispositions.append({
+                'key':f'art:{old_review["sourceSha256"]}:{board_id(design,layer)}:F.Mask black gap:{issue["polygonIndices0"][0]}:{issue["polygonIndices0"][1]}',
+                'sourceExportSha256':old_review['sourceSha256'],
+                'originalPolygonIndices0':issue['polygonIndices0'],
+                'originalClosestPointsMm':issue['closestPointsMm'],
+                'originalGapMm':issue['gapMm'],
+                'nearbyMaskPatchRecordIndices0':near_patches,
+                'nearbyRemovedComponentRecordIndices0':near_removed,
+                'finishedUnionPairScreen':'pass: no distinct mask component gap below 0.25 mm',
             })
-            print(f'{board_id(design,layer)}: {len(records)} indexed edits, {loss:.3%} original-gold loss',flush=True)
+        original_gold=export.paint_gold(original_layer,source,source_body(original_layer,data['spec']))
+        loss=original_gold.difference(after).area/original_gold.area if original_gold.area else 0
+        if loss>.30+1e-8:
+            raise ValueError(f'{board_id(design,layer)}: gold-loss budget exceeded: {loss}')
+        reconstructed=after.buffer(-.125,quad_segs=64).buffer(.125,quad_segs=64)
+        width_residue=after.difference(reconstructed).area
+        miter_reconstructed=after.buffer(-.125,join_style='mitre',quad_segs=64).buffer(
+            .125,join_style='mitre',quad_segs=64)
+        miter_residue=after.difference(miter_reconstructed).area
+        tolerance_radius=.124999
+        tolerance_reconstructed=after.buffer(-tolerance_radius,join_style='mitre',
+            quad_segs=64).buffer(tolerance_radius,join_style='mitre',quad_segs=64)
+        tolerance_residue=after.difference(tolerance_reconstructed).area
+        boards.append({
+            'boardId':board_id(design,layer),
+            'originalGoldAreaMm2':round(original_gold.area,6),
+            'beforeLocalRetreatAreaMm2':round(before.area,6),
+            'afterLocalRetreatAreaMm2':round(after.area,6),
+            'goldAddedFromApprovedMm2':round(after.difference(original_gold).area,6),
+            'goldRemovedFromApprovedMm2':round(original_gold.difference(after).area,6),
+            'goldLossFractionFromApproved':round(loss,9),
+            'widthResidueAreaMm2':round(width_residue,6),
+            'miterWidthResidueAreaMm2':round(miter_residue,6),
+            'toleranceAwareMiterWidthResidueAreaMm2':round(tolerance_residue,9),
+            'withinComponentGoldWidthProven':width_residue<=.00001,
+            'retreatCount':sum(r['operation']=='one-sided local mask retreat' for r in records),
+            'removedNoDiskComponents':sum(r['operation'].startswith('remove isolated') for r in records),
+            'indexedTerminalCaps':sum(r['operation'].startswith('cap indexed') for r in records),
+            'blackWebWidthMm':black,
+            'widthEnforcementEdits':len(width_records),
+            'unresolvedWidthFailures':unresolved,
+            'afterMaskWkbHex':after.wkb_hex,
+            'records':records,
+            'originalMaskFindingDispositions':dispositions,
+        })
+        print(f'{board_id(design,layer)}: {len(records)} indexed edits, {loss:.3%} original-gold loss',flush=True)
     result={
         'status':'candidate; copper joins, full width proof, visual review and native output pending',
         'sourceGeometrySha256':digest(geometry_path.read_bytes()),

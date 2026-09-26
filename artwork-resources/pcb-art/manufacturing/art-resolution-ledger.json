@@ -1,9 +1,9 @@
 {
   "status": "distinct-component gap repairs cross-referenced; full width proof pending",
   "sourceReviewSha256": "565f1c397fa98a957db25dbf4d5a2d53f62be08705f7e919c7d90f7a8c29cc17",
-  "manufacturingGeometrySha256": "af65154b789a43ecced82dab019b6822da418edb14233ac9f3eae446ad973aee",
-  "maskCandidateSha256": "cf04ff39a89463751dff94b92b35af0066633f53bdd89d7a3de5c93d3127c068",
-  "copperLedgerSha256": "64892daa79a553e5250261508843c7b3f2456387b1fcfede1a0e7caae0571b5c",
+  "manufacturingGeometrySha256": "747a18644063c2b37d4eca5d3a7a6b394b539be1e4496c5c26069aa12d64c3e0",
+  "maskCandidateSha256": "e01b2d0b6aa356819ff6361b0e609553fe884a14d22e5edef8d9056d7783dc42",
+  "copperLedgerSha256": "a47060d60d2c254101ef09e105f694513daae7dcbfb6d88cafbf73fd08ab29fc",
   "selectedFindingCount": 715,
   "alternativeIssueIds": [
     "kumiko-void-standard-L01-H01",
@@ -490,7 +490,9 @@
       "originalGapMm": 0.009923634,
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
-      "nearbyCopperJoinRecordIndices0": []
+      "nearbyCopperJoinRecordIndices0": [
+        56
+      ]
     },
     {
       "key": "art:1d179261de6617872c95564fb350f8f84f7452c1e163c04d90a75922257cf72b:01-spider-nest-L01-black-enig-art:F.Cu island gap:0:11",
@@ -634,7 +636,9 @@
       "originalGapMm": 0.009959409,
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
-      "nearbyCopperJoinRecordIndices0": []
+      "nearbyCopperJoinRecordIndices0": [
+        68
+      ]
     },
     {
       "key": "art:1d179261de6617872c95564fb350f8f84f7452c1e163c04d90a75922257cf72b:01-spider-nest-L01-black-enig-art:F.Cu island gap:0:6",
@@ -730,7 +734,9 @@
       "originalGapMm": 0.010015295,
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
-      "nearbyCopperJoinRecordIndices0": []
+      "nearbyCopperJoinRecordIndices0": [
+        59
+      ]
     },
     {
       "key": "art:1d179261de6617872c95564fb350f8f84f7452c1e163c04d90a75922257cf72b:01-spider-nest-L01-black-enig-art:F.Cu island gap:0:14",
@@ -802,7 +808,9 @@
       "originalGapMm": 0.023073529,
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
-      "nearbyCopperJoinRecordIndices0": []
+      "nearbyCopperJoinRecordIndices0": [
+        13
+      ]
     },
     {
       "key": "art:1d179261de6617872c95564fb350f8f84f7452c1e163c04d90a75922257cf72b:01-spider-nest-L01-black-enig-art:F.Cu island gap:0:2",
@@ -1548,7 +1556,7 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        36
+        72
       ]
     },
     {
@@ -1574,7 +1582,7 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        10
+        18
       ]
     },
     {
@@ -1600,7 +1608,7 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        37
+        71
       ]
     },
     {
@@ -1626,7 +1634,7 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        43
+        81
       ]
     },
     {
@@ -1652,7 +1660,7 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        32
+        64
       ]
     },
     {
@@ -1678,7 +1686,7 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        24
+        50
       ]
     },
     {
@@ -1704,7 +1712,7 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        23
+        49
       ]
     },
     {
@@ -1730,7 +1738,7 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        18
+        41
       ]
     },
     {
@@ -1780,7 +1788,9 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        15
+        27,
+        28,
+        42
       ]
     },
     {
@@ -1806,7 +1816,7 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        7
+        13
       ]
     },
     {
@@ -1833,7 +1843,7 @@
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
         0,
-        48
+        91
       ]
     },
     {
@@ -1931,7 +1941,7 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        4
+        26
       ]
     },
     {
@@ -1957,7 +1967,7 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        16
+        30
       ]
     },
     {
@@ -1983,7 +1993,7 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        39
+        76
       ]
     },
     {
@@ -2009,7 +2019,7 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        28
+        59
       ]
     },
     {
@@ -2035,7 +2045,7 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        31
+        63
       ]
     },
     {
@@ -2061,7 +2071,7 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        46
+        87
       ]
     },
     {
@@ -15006,8 +15016,8 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        88,
-        90
+        91,
+        93
       ]
     },
     {
@@ -15033,8 +15043,8 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        159,
-        161
+        162,
+        164
       ]
     },
     {
@@ -15060,8 +15070,8 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        231,
-        233
+        234,
+        236
       ]
     },
     {
@@ -15087,8 +15097,8 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        26,
-        267
+        270,
+        272
       ]
     },
     {
@@ -15114,7 +15124,7 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        107
+        110
       ]
     },
     {
@@ -15140,7 +15150,7 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        250
+        253
       ]
     },
     {
@@ -15166,7 +15176,7 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        178
+        181
       ]
     },
     {
@@ -15192,8 +15202,8 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        36,
-        268
+        271,
+        273
       ]
     },
     {
@@ -15219,8 +15229,8 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        89,
-        91
+        92,
+        94
       ]
     },
     {
@@ -15246,8 +15256,8 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        160,
-        162
+        163,
+        165
       ]
     },
     {
@@ -15273,8 +15283,8 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        232,
-        234
+        235,
+        237
       ]
     },
     {
@@ -15300,7 +15310,7 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        126
+        129
       ]
     },
     {
@@ -15326,7 +15336,7 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        196
+        199
       ]
     },
     {
@@ -15352,8 +15362,8 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        261,
-        262
+        264,
+        265
       ]
     },
     {
@@ -15379,7 +15389,7 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        30
+        32
       ]
     },
     {
@@ -15405,7 +15415,7 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        34
+        37
       ]
     },
     {
@@ -15431,7 +15441,7 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        57
+        60
       ]
     },
     {
@@ -15457,7 +15467,7 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        127
+        130
       ]
     },
     {
@@ -15483,7 +15493,7 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        198
+        201
       ]
     },
     {
@@ -15509,7 +15519,7 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        263
+        266
       ]
     },
     {
@@ -15535,7 +15545,7 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        96
+        99
       ]
     },
     {
@@ -15561,7 +15571,7 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        167
+        170
       ]
     },
     {
@@ -15587,7 +15597,7 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        239
+        242
       ]
     },
     {
@@ -15613,7 +15623,7 @@
       "finishedUnionDistinctGapScreen": "pass: no separate copper or gold components closer than 0.25 mm",
       "withinComponentWidthProof": "pending",
       "nearbyCopperJoinRecordIndices0": [
-        56
+        59
       ]
     },
     {

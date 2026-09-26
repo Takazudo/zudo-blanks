@@ -1,0 +1,142 @@
+{
+  "status": "class-aware opening gate; a pass is a local geometric proof, not factory acceptance",
+  "toleranceMm": 0.001,
+  "policyErratum": "process-classes-2026-09-25",
+  "manufacturingGeometrySha256": "747a18644063c2b37d4eca5d3a7a6b394b539be1e4496c5c26069aa12d64c3e0",
+  "maskCandidateSha256": "e01b2d0b6aa356819ff6361b0e609553fe884a14d22e5edef8d9056d7783dc42",
+  "copperCandidateSha256": "895a6c4fbd551e1dd507920b32bfe488a6cce85bf63bce677c310948b30f7065",
+  "passed": false,
+  "boards": [
+    {
+      "boardId": "01-spider-nest-L01-black-enig-art",
+      "blackInkWidthMm": 0.25,
+      "generalCopperComponents": 0,
+      "specialCopperComponents": 5,
+      "failureCounts": {},
+      "passed": true,
+      "failures": []
+    },
+    {
+      "boardId": "01-spider-nest-L03-gold-enig-fill",
+      "blackInkWidthMm": 0.25,
+      "generalCopperComponents": 1,
+      "specialCopperComponents": 0,
+      "failureCounts": {},
+      "passed": true,
+      "failures": []
+    },
+    {
+      "boardId": "01-spider-nest-L05-gold-enig-fill",
+      "blackInkWidthMm": 0.25,
+      "generalCopperComponents": 1,
+      "specialCopperComponents": 0,
+      "failureCounts": {},
+      "passed": true,
+      "failures": []
+    },
+    {
+      "boardId": "01-spider-nest-L07-gold-enig-fill",
+      "blackInkWidthMm": 0.25,
+      "generalCopperComponents": 1,
+      "specialCopperComponents": 0,
+      "failureCounts": {},
+      "passed": true,
+      "failures": []
+    },
+    {
+      "boardId": "03-coral-vault-L01-black-enig-art",
+      "blackInkWidthMm": 0.13,
+      "generalCopperComponents": 3,
+      "specialCopperComponents": 140,
+      "failureCounts": {
+        "copper-free@0.1": 1
+      },
+      "passed": false,
+      "failures": [
+        {
+          "phase": "copper-free",
+          "widthMm": 0.1,
+          "minimumChordMm": 0.000796,
+          "chordMm": [
+            [
+              2.828458,
+              75.271097
+            ],
+            [
+              2.828149,
+              75.270363
+            ]
+          ],
+          "chordCount": 1,
+          "residueAreaMm2": 0.000159803,
+          "residueBoundsMm": [
+            2.799795,
+            75.200578,
+            2.827399,
+            75.268498
+          ],
+          "nearestSourceFeature": {
+            "type": "stroke",
+            "originalIndex0": 662,
+            "color": null
+          },
+          "nearestSourceDistanceMm": 0.132131
+        }
+      ]
+    },
+    {
+      "boardId": "03-coral-vault-L04-gold-enig-fill",
+      "blackInkWidthMm": 0.13,
+      "generalCopperComponents": 1,
+      "specialCopperComponents": 0,
+      "failureCounts": {},
+      "passed": true,
+      "failures": []
+    },
+    {
+      "boardId": "13-fault-line-L01-black-enig-art",
+      "blackInkWidthMm": 0.13,
+      "generalCopperComponents": 0,
+      "specialCopperComponents": 5,
+      "failureCounts": {},
+      "passed": true,
+      "failures": []
+    },
+    {
+      "boardId": "17-kumiko-void-wide-L01-black-enig-art",
+      "blackInkWidthMm": 0.13,
+      "generalCopperComponents": 11,
+      "specialCopperComponents": 9,
+      "failureCounts": {},
+      "passed": true,
+      "failures": []
+    },
+    {
+      "boardId": "17-kumiko-void-wide-L04-black-enig-art",
+      "blackInkWidthMm": 0.13,
+      "generalCopperComponents": 11,
+      "specialCopperComponents": 45,
+      "failureCounts": {},
+      "passed": true,
+      "failures": []
+    },
+    {
+      "boardId": "17-kumiko-void-wide-L07-black-enig-art",
+      "blackInkWidthMm": 0.13,
+      "generalCopperComponents": 15,
+      "specialCopperComponents": 37,
+      "failureCounts": {},
+      "passed": true,
+      "failures": []
+    },
+    {
+      "boardId": "18-woven-maze-L01-black-enig-art",
+      "blackInkWidthMm": 0.13,
+      "generalCopperComponents": 0,
+      "specialCopperComponents": 12,
+      "failureCounts": {},
+      "passed": true,
+      "failures": []
+    }
+  ]
+}

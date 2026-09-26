@@ -1,8 +1,8 @@
 {
   "status": "finite centerline path and plunge proof; machine CAM pending",
   "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
-  "manufacturingGeometrySha256": "af65154b789a43ecced82dab019b6822da418edb14233ac9f3eae446ad973aee",
-  "indexedDeltasSha256": "ea692f8465417072a98d8d91f7bb82f915ced139fc1e07c7d305fd928bbc8743",
+  "manufacturingGeometrySha256": "747a18644063c2b37d4eca5d3a7a6b394b539be1e4496c5c26069aa12d64c3e0",
+  "indexedDeltasSha256": "2a32b603be742c708bf8780980e38cca495374949a504599b4da15a427b0cbb7",
   "toolDiameterMm": 1.0,
   "recordCount": 754,
   "splitCenterRegionCount": 2,
@@ -84,17 +84,17 @@
       "components": [
         {
           "componentIndex0": 0,
-          "admissibleCenterAreaMm2": 369.080645954,
-          "centerDomainNormalizedWkbSha256": "1d288e8ad48f321cf5fbf51ee09ca1ae79f42cf5f79c8f72b8e56e555852759e",
+          "admissibleCenterAreaMm2": 367.331975089,
+          "centerDomainNormalizedWkbSha256": "23eaf053ec440e4b529c159244cf2ee1be3e602be687d2431495d43c16ad4a0f",
           "plungeCenterMm": [
-            88.140626625,
-            66.534544213
+            88.139063449,
+            66.488998552
           ],
           "plungeDiskContainedInOriginalHole": true,
           "pathStrategy": "admissible center-boundary loops and 0.50 mm horizontal scanline segments; each segment can plunge from above within this aperture",
           "pathElementCount": 57,
-          "pathLengthMm": 819.503267,
-          "orderedPathWkbSha256": "92421bc710de1e276ed505806f1540d95be8409970436a74f0342b112f568a1a",
+          "pathLengthMm": 815.718349,
+          "orderedPathWkbSha256": "3a3cde8a61a3434a0deafeef5c91cfb3ce00e614f26d971a3cb21a4687849847",
           "pathSweepUncoveredAreaMm2": 0.0
         }
       ]
@@ -103,21 +103,21 @@
       "board": "spider-nest-L01",
       "originalHoleIndex0": 4,
       "status": "admissible component plunge domains",
-      "networkCorrectedAperture": false,
+      "networkCorrectedAperture": true,
       "components": [
         {
           "componentIndex0": 0,
-          "admissibleCenterAreaMm2": 485.427060654,
-          "centerDomainNormalizedWkbSha256": "fef34d830c6e32a5a8f63cfd2ed76861662401e068f3f2ea58aa250a766c1a1c",
+          "admissibleCenterAreaMm2": 480.017083136,
+          "centerDomainNormalizedWkbSha256": "cc311a14c3cc9f6c6e89cf1e570a3204df9dfaa53bcfb859e78ce49a31c39445",
           "plungeCenterMm": [
-            86.659517018,
-            89.128694202
+            86.683608129,
+            89.082376762
           ],
           "plungeDiskContainedInOriginalHole": true,
           "pathStrategy": "admissible center-boundary loops and 0.50 mm horizontal scanline segments; each segment can plunge from above within this aperture",
-          "pathElementCount": 52,
-          "pathLengthMm": 1062.362276,
-          "orderedPathWkbSha256": "24003d85b6fd21da05886bed61ce21910e12fc17f284dc8ba6f6f6d14ead8d62",
+          "pathElementCount": 51,
+          "pathLengthMm": 1051.29709,
+          "orderedPathWkbSha256": "5421c171d8ba76edd2fbbb321326669df26473a06a37dc7a5baec21ba5ae29b9",
           "pathSweepUncoveredAreaMm2": 0.0
         }
       ]
@@ -130,17 +130,17 @@
       "components": [
         {
           "componentIndex0": 0,
-          "admissibleCenterAreaMm2": 382.437893287,
-          "centerDomainNormalizedWkbSha256": "6ed5903b2988cc6527e0eb076b2c52a435624a7b7d02f686daf8ed979e2f0614",
+          "admissibleCenterAreaMm2": 380.92761767,
+          "centerDomainNormalizedWkbSha256": "f6765bd5cd0f2aacf86be4e3bf3b3a41084eb22c20cc3cf331585b5ffc1fbbe1",
           "plungeCenterMm": [
-            69.826712809,
+            69.773681191,
             95.249811438
           ],
           "plungeDiskContainedInOriginalHole": true,
           "pathStrategy": "admissible center-boundary loops and 0.50 mm horizontal scanline segments; each segment can plunge from above within this aperture",
           "pathElementCount": 47,
-          "pathLengthMm": 843.779942,
-          "orderedPathWkbSha256": "4fb7d61a5825fcbf2a76a16abf5661b8fef64d83da33735bc5a274a0bc59634b",
+          "pathLengthMm": 840.438906,
+          "orderedPathWkbSha256": "562eb59cb48a3a9ccb60b1bb896df525e748b9217ed81c3d5b0a39ad677931ea",
           "pathSweepUncoveredAreaMm2": 0.0
         }
       ]
@@ -153,17 +153,17 @@
       "components": [
         {
           "componentIndex0": 0,
-          "admissibleCenterAreaMm2": 1234.25981951,
-          "centerDomainNormalizedWkbSha256": "bb47b4c2185f926030e5575eb05ae28fd63a2197818b23e91607854054429b5a",
+          "admissibleCenterAreaMm2": 1230.355207272,
+          "centerDomainNormalizedWkbSha256": "c79807d34ae3976181b30a0e91e787c521e44ef999a566a4cd9a69d24a14a695",
           "plungeCenterMm": [
-            44.875891955,
+            45.006775614,
             73.918617927
           ],
           "plungeDiskContainedInOriginalHole": true,
           "pathStrategy": "admissible center-boundary loops and 0.50 mm horizontal scanline segments; each segment can plunge from above within this aperture",
           "pathElementCount": 152,
-          "pathLengthMm": 2685.828399,
-          "orderedPathWkbSha256": "61be5c5dbc6f790d0ba7d90888c1d7b51d6ed286378293aab327fdfe48e64f42",
+          "pathLengthMm": 2677.197013,
+          "orderedPathWkbSha256": "f19f566a3e7c90a62ed552504645289481d050c6703cf2412763c1f4a4414d36",
           "pathSweepUncoveredAreaMm2": 0.0
         }
       ]
@@ -176,17 +176,17 @@
       "components": [
         {
           "componentIndex0": 0,
-          "admissibleCenterAreaMm2": 245.493465791,
-          "centerDomainNormalizedWkbSha256": "cff74a7ba6c39245970a4f1eb85089e1e83be1802c78c2bc553cf3e0210bb768",
+          "admissibleCenterAreaMm2": 243.398292493,
+          "centerDomainNormalizedWkbSha256": "37a52c6d63f8567e20a4d69333f238b674f28823484566c8435abb6a918f3f36",
           "plungeCenterMm": [
-            25.306427588,
-            98.146093096
+            25.242874356,
+            98.748876349
           ],
           "plungeDiskContainedInOriginalHole": true,
           "pathStrategy": "admissible center-boundary loops and 0.50 mm horizontal scanline segments; each segment can plunge from above within this aperture",
           "pathElementCount": 34,
-          "pathLengthMm": 552.978375,
-          "orderedPathWkbSha256": "0dfdb984c0af64a0a21230b85966a9d748032899a426eae8826dd3f9f0b96b9a",
+          "pathLengthMm": 548.920796,
+          "orderedPathWkbSha256": "320dde7e2f0a6a851ece687f3311f8aa3ccf188ece47a554db13f09bcad8e47d",
           "pathSweepUncoveredAreaMm2": 0.0
         }
       ]
@@ -195,21 +195,21 @@
       "board": "spider-nest-L01",
       "originalHoleIndex0": 8,
       "status": "admissible component plunge domains",
-      "networkCorrectedAperture": false,
+      "networkCorrectedAperture": true,
       "components": [
         {
           "componentIndex0": 0,
-          "admissibleCenterAreaMm2": 432.002342715,
-          "centerDomainNormalizedWkbSha256": "1d8cbbbd5cfa06258687cf940ffd9f65f489ecf36863e645d11568c8cf7c8780",
+          "admissibleCenterAreaMm2": 425.009952131,
+          "centerDomainNormalizedWkbSha256": "d9fdd885fab4c2b2b3352ea5e6aec2ee5cd3541b989d13d3eb7bfb15626a1a03",
           "plungeCenterMm": [
-            16.132600446,
-            85.54696916
+            16.024510043,
+            85.599802994
           ],
           "plungeDiskContainedInOriginalHole": true,
           "pathStrategy": "admissible center-boundary loops and 0.50 mm horizontal scanline segments; each segment can plunge from above within this aperture",
-          "pathElementCount": 54,
-          "pathLengthMm": 948.071669,
-          "orderedPathWkbSha256": "8aff6cc421d14fb512a25fa544ccf7006d8230334687521e5e7d25daecc67c5f",
+          "pathElementCount": 52,
+          "pathLengthMm": 933.731999,
+          "orderedPathWkbSha256": "50869ec4b6b6f9f38dc1a0374438fbe0c1d2e5431a2b98f618404bd44e56a061",
           "pathSweepUncoveredAreaMm2": 0.0
         }
       ]
@@ -218,21 +218,21 @@
       "board": "spider-nest-L01",
       "originalHoleIndex0": 9,
       "status": "admissible component plunge domains",
-      "networkCorrectedAperture": false,
+      "networkCorrectedAperture": true,
       "components": [
         {
           "componentIndex0": 0,
-          "admissibleCenterAreaMm2": 305.707202705,
-          "centerDomainNormalizedWkbSha256": "714c244c61b025f9dfa57d587c5f321cd6d731fd1c99b2394209ec47ec513535",
+          "admissibleCenterAreaMm2": 304.150312461,
+          "centerDomainNormalizedWkbSha256": "f465d107f8c2b5ae66f63beaec8bdf8e7356550e28aa3517e545a3bb77b544e2",
           "plungeCenterMm": [
-            9.739493703,
-            62.955625005
+            9.756604935,
+            62.498114557
           ],
           "plungeDiskContainedInOriginalHole": true,
           "pathStrategy": "admissible center-boundary loops and 0.50 mm horizontal scanline segments; each segment can plunge from above within this aperture",
           "pathElementCount": 57,
-          "pathLengthMm": 685.533397,
-          "orderedPathWkbSha256": "ceea3586606ce0ddf59a619587de33ea4a4c35dfb417bbd417efd4a3d0fcf5e8",
+          "pathLengthMm": 681.918256,
+          "orderedPathWkbSha256": "b461f9da2dc89444f0a0a30804e02872cfce23b8eaeb13a5232e7a975cd63a0c",
           "pathSweepUncoveredAreaMm2": 0.0
         }
       ]
@@ -241,21 +241,21 @@
       "board": "spider-nest-L01",
       "originalHoleIndex0": 10,
       "status": "admissible component plunge domains",
-      "networkCorrectedAperture": false,
+      "networkCorrectedAperture": true,
       "components": [
         {
           "componentIndex0": 0,
-          "admissibleCenterAreaMm2": 193.181767853,
-          "centerDomainNormalizedWkbSha256": "f4751bc2c47c5698cd0d4145ff83ba227d76f83b12b1064d068bdc68f6797243",
+          "admissibleCenterAreaMm2": 186.716550768,
+          "centerDomainNormalizedWkbSha256": "cf2c8838bd2d64d269ba7246d72b53fd4b6278fedea47e69efe299cedaabbdcb",
           "plungeCenterMm": [
-            11.35838908,
-            42.716591071
+            11.223342489,
+            42.671425263
           ],
           "plungeDiskContainedInOriginalHole": true,
           "pathStrategy": "admissible center-boundary loops and 0.50 mm horizontal scanline segments; each segment can plunge from above within this aperture",
           "pathElementCount": 48,
-          "pathLengthMm": 465.902159,
-          "orderedPathWkbSha256": "4d4c5a01a773d1c887ee04533d413bd9618a69562c4e74ef852a0ee01fc653e8",
+          "pathLengthMm": 452.017008,
+          "orderedPathWkbSha256": "2b72123ca01ccb142361a8a3b0ee66db5b6e16d31d85936011d38382e3d5ebe6",
           "pathSweepUncoveredAreaMm2": 0.0
         }
       ]
@@ -268,17 +268,17 @@
       "components": [
         {
           "componentIndex0": 0,
-          "admissibleCenterAreaMm2": 316.969326303,
-          "centerDomainNormalizedWkbSha256": "0bf8ec893a9f4f11776f6f29dd309785a6724003c59bb6a9af2bab40d63af204",
+          "admissibleCenterAreaMm2": 315.635892775,
+          "centerDomainNormalizedWkbSha256": "89f23a7f0464a19dfa5429edf9d3e626317c2adc94173ae095f86497bb2f827c",
           "plungeCenterMm": [
-            23.096501159,
-            29.203846588
+            23.546044638,
+            30.090941319
           ],
           "plungeDiskContainedInOriginalHole": true,
           "pathStrategy": "admissible center-boundary loops and 0.50 mm horizontal scanline segments; each segment can plunge from above within this aperture",
           "pathElementCount": 38,
-          "pathLengthMm": 701.855504,
-          "orderedPathWkbSha256": "56944508420a2b0142a23a5df05eac07a2e44add1befd71ed3255ed6fe89c162",
+          "pathLengthMm": 699.037845,
+          "orderedPathWkbSha256": "72ce24bc7ecca1b0baca8f1ff388fe013a97061e7b7af706651073d09454609c",
           "pathSweepUncoveredAreaMm2": 0.0
         }
       ]
@@ -291,17 +291,17 @@
       "components": [
         {
           "componentIndex0": 0,
-          "admissibleCenterAreaMm2": 101.0783836,
-          "centerDomainNormalizedWkbSha256": "ee78732bfd086771f118567dc61c616346169055d832ab1916e83c9643943cdf",
+          "admissibleCenterAreaMm2": 99.990507148,
+          "centerDomainNormalizedWkbSha256": "39352f5cc15e5ec4fc97e01c0e2463b7a1099fc476c0b2a9693a8860054c27ae",
           "plungeCenterMm": [
-            34.105368672,
-            92.152071091
+            34.145969461,
+            92.21412194
           ],
           "plungeDiskContainedInOriginalHole": true,
           "pathStrategy": "admissible center-boundary loops and 0.50 mm horizontal scanline segments; each segment can plunge from above within this aperture",
           "pathElementCount": 36,
-          "pathLengthMm": 247.919661,
-          "orderedPathWkbSha256": "cba540cfa7c6250e989af31516c1da750b1024dc97529e9833444de71547b36f",
+          "pathLengthMm": 245.505905,
+          "orderedPathWkbSha256": "7434226f56e6e45be675c1a5256e3cd6e5fe1a2b5a434946321852d785924564",
           "pathSweepUncoveredAreaMm2": 0.0
         }
       ]
@@ -314,17 +314,17 @@
       "components": [
         {
           "componentIndex0": 0,
-          "admissibleCenterAreaMm2": 171.203699154,
-          "centerDomainNormalizedWkbSha256": "9b44c4381a4229d3d13b972195ea51870dc643320c1c3026d9d6379dadc49c7e",
+          "admissibleCenterAreaMm2": 169.229260406,
+          "centerDomainNormalizedWkbSha256": "226072d2d5e9b1cec9cf6afb2f51fce80b6947a1d19fc792101eaa516831932c",
           "plungeCenterMm": [
-            31.299673203,
-            41.792883344
+            31.377379232,
+            41.768888879
           ],
           "plungeDiskContainedInOriginalHole": true,
           "pathStrategy": "admissible center-boundary loops and 0.50 mm horizontal scanline segments; each segment can plunge from above within this aperture",
           "pathElementCount": 33,
-          "pathLengthMm": 398.319948,
-          "orderedPathWkbSha256": "14c50b895acb2b370e6b292a4c15ee20c612ad3dd92cb1ccb696d6540d5e195a",
+          "pathLengthMm": 393.935592,
+          "orderedPathWkbSha256": "cb6cb616218a5671db7df681b95cb97d78e0de1e0b3ecd19e3fa83237e96d870",
           "pathSweepUncoveredAreaMm2": 0.0
         }
       ]
@@ -337,8 +337,8 @@
       "components": [
         {
           "componentIndex0": 0,
-          "admissibleCenterAreaMm2": 193.594190121,
-          "centerDomainNormalizedWkbSha256": "6ad0ed112ba5036048b4a2bbfae9f2152647bbb79956a4995ec4ea9d1530b0f9",
+          "admissibleCenterAreaMm2": 191.543747674,
+          "centerDomainNormalizedWkbSha256": "6a13a0a9953f302a6aa576baeaf4889a9360073ed9e9f0d230358d2d524e068c",
           "plungeCenterMm": [
             24.494249958,
             62.353763833
@@ -346,8 +346,8 @@
           "plungeDiskContainedInOriginalHole": true,
           "pathStrategy": "admissible center-boundary loops and 0.50 mm horizontal scanline segments; each segment can plunge from above within this aperture",
           "pathElementCount": 45,
-          "pathLengthMm": 448.835334,
-          "orderedPathWkbSha256": "537f0afad5267e32f248f8d2b7f6a08b67468ff08120bc34b3d4622b660f64a6",
+          "pathLengthMm": 444.531807,
+          "orderedPathWkbSha256": "41f3cfe176ca7fd02582f372e7ae129154e461d294f97c1e7cb063d0f2a60fcf",
           "pathSweepUncoveredAreaMm2": 0.0
         }
       ]
@@ -406,17 +406,17 @@
       "components": [
         {
           "componentIndex0": 0,
-          "admissibleCenterAreaMm2": 143.013408125,
-          "centerDomainNormalizedWkbSha256": "d5af409bcef9e25b336ccbc8b5c8aa0e504f2a7d109e7b4b8e2231f4125635f8",
+          "admissibleCenterAreaMm2": 142.448382527,
+          "centerDomainNormalizedWkbSha256": "792cd38f94d30e10fd52e80dd31d0b7c9096d35ee6adecef3c70decdbd1b2991",
           "plungeCenterMm": [
-            59.19545879,
-            86.707109868
+            59.186481338,
+            86.728580207
           ],
           "plungeDiskContainedInOriginalHole": true,
           "pathStrategy": "admissible center-boundary loops and 0.50 mm horizontal scanline segments; each segment can plunge from above within this aperture",
           "pathElementCount": 39,
-          "pathLengthMm": 337.677643,
-          "orderedPathWkbSha256": "f597ae27aa425237362e57bff0f23b4484dad26dce50f6de3cfc765bf16def7a",
+          "pathLengthMm": 336.437718,
+          "orderedPathWkbSha256": "bd0acaed9c566f3d7b9df5d586f136ef05fb253673eaffa74a3c8e94698e641f",
           "pathSweepUncoveredAreaMm2": 0.0
         }
       ]
@@ -429,17 +429,17 @@
       "components": [
         {
           "componentIndex0": 0,
-          "admissibleCenterAreaMm2": 142.733873353,
-          "centerDomainNormalizedWkbSha256": "12b3c75575d4e27b1bcfc16046639bbf9800294a0c704c2bf23884fa3c2ff17e",
+          "admissibleCenterAreaMm2": 141.875163305,
+          "centerDomainNormalizedWkbSha256": "194afed9344073b4f7d646dbd8aa98ede5555d8c7371aa82a90f46a74590dce0",
           "plungeCenterMm": [
             71.413005608,
             62.480466899
           ],
           "plungeDiskContainedInOriginalHole": true,
           "pathStrategy": "admissible center-boundary loops and 0.50 mm horizontal scanline segments; each segment can plunge from above within this aperture",
-          "pathElementCount": 34,
-          "pathLengthMm": 335.644371,
-          "orderedPathWkbSha256": "2d635c78a046695bab5c774e1bdaee10e1ee2684150246524ae914eca4e05a4c",
+          "pathElementCount": 33,
+          "pathLengthMm": 333.18338,
+          "orderedPathWkbSha256": "ce6d8b8c29ff15e8b60d49679c3593d68f902dea54db654a2af52efe4723a703",
           "pathSweepUncoveredAreaMm2": 0.0
         }
       ]

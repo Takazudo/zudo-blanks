@@ -3,7 +3,7 @@
   "role": "manufacturing geometry candidate; approved Rev5 source remains immutable",
   "decisionId": "fabrication-2026-09-25",
   "sourceGeometrySha256": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
-  "policySha256": "ecf43e97f19e2517c8532d05e92908489e554d0baaa75767a80ef307817a53c4",
+  "policySha256": "e6f9295c0a24e1d22f9176f8d9e4259726130df50bd3f5e41c80c3254d2c9ba6",
   "changes": [
     {
       "board": "spider-nest-L01",
@@ -27862,5 +27862,5 @@
     "kumiko-void-standard-L04-H02",
     "kumiko-void-standard-L08-H01"
   ],
-  "manufacturingGeometrySha256": "b6156a70648c70e777b66ab4f97b4340d9c79f262319a947278195eee2eaa45c"
+  "manufacturingGeometrySha256": "747a18644063c2b37d4eca5d3a7a6b394b539be1e4496c5c26069aa12d64c3e0"
 }
