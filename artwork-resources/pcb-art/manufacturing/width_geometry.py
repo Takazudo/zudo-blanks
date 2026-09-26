@@ -20,6 +20,30 @@ MITRE_RATIO=5.0
 SAMPLE_STEP=.002
 
 
+def _overlay(op,a,b):
+    """Overlay that retries on validated inputs with 1 nm snap-rounding.
+
+    Long enforcement runs on dense art occasionally hit GEOS topology errors
+    (non-noded intersections, free holes) on near-coincident edges.
+    """
+    try:
+        return op(a,b)
+    except shapely.errors.GEOSException:
+        return op(shapely.make_valid(a),shapely.make_valid(b),grid_size=1e-6)
+
+
+def sub(a,b):
+    return _overlay(shapely.difference,a,b)
+
+
+def add(a,b):
+    return _overlay(shapely.union,a,b)
+
+
+def inter(a,b):
+    return _overlay(shapely.intersection,a,b)
+
+
 def clean(geom):
     """Valid polygonal part on the 1 nm grid.
 
@@ -32,7 +56,7 @@ def clean(geom):
 def opening_residue(region,width):
     radius=width/2-.000001
     core=region.buffer(-radius,join_style='mitre',quad_segs=64)
-    return region.difference(core.buffer(radius,join_style='mitre',quad_segs=64))
+    return sub(region,core.buffer(radius,join_style='mitre',quad_segs=64))
 
 
 def thick(residue):
@@ -41,7 +65,7 @@ def thick(residue):
 
 def plane_complement(body,region):
     # Mask beside a routed edge is governed by edge clearance, not web width.
-    return box(*body.bounds).buffer(1,join_style='mitre').difference(region)
+    return sub(box(*body.bounds).buffer(1,join_style='mitre'),region)
 
 
 class RingIndex:
@@ -182,7 +206,7 @@ def violations(region,width,within=None):
         chords=[c for c in keep(violating_chords(region,zone,width,index))
                 if not any(np.hypot(*(c['mid']-d['mid']))<width/2 for _,known in found for d in known)]
         if chords:
-            found.append((disks(chords,width/2).intersection(region),chords))
+            found.append((inter(disks(chords,width/2),region),chords))
     return found
 
 
@@ -231,34 +255,34 @@ def enforce_widths(mask,body,safe,protected,black_width,label,max_iterations=24)
             break
         before=mask
         for piece,chords in ink:
-            cut=capsules(chords,black_width/2+TOLERANCE).intersection(mask).difference(protected)
+            cut=sub(inter(capsules(chords,black_width/2+TOLERANCE),mask),protected)
             if cut.area>0:
                 records.append({'operation':'retreat gold to open indexed sub-width black web',
                                 'iteration':iteration,**chord_row('black-ink',black_width,piece,chords),
                                 'goldRemovedAreaMm2':round(cut.area,9),'goldRemovedWkbSha256':_sha(cut),
                                 'editWkbHex':cut.wkb_hex})
-                mask=clean(mask.difference(cut))
+                mask=clean(sub(mask,cut))
         for piece,chords in gold:
-            add=disks(chords,.125+TOLERANCE).intersection(safe).difference(mask)
-            widened=clean(mask).union(add)
+            grow=sub(inter(disks(chords,.125+TOLERANCE),safe),mask)
+            widened=add(clean(mask),grow)
             zone=piece.buffer(.5)
-            new_ink=[v for v in violations(plane_complement(body,widened).intersection(zone.buffer(.3)),black_width)
+            new_ink=[v for v in violations(inter(plane_complement(body,widened),zone.buffer(.3)),black_width)
                      if v[0].intersects(zone)]
-            local=[v for v in violations(widened.intersection(zone.buffer(.3)),.25) if v[0].intersects(piece)]
-            if add.area>0 and not new_ink and not local:
+            local=[v for v in violations(inter(widened,zone.buffer(.3)),.25) if v[0].intersects(piece)]
+            if grow.area>0 and not new_ink and not local:
                 records.append({'operation':'widen indexed sub-width gold inside mask-safe region',
                                 'iteration':iteration,**chord_row('visible-gold',.25,piece,chords),
-                                'goldAddedAreaMm2':round(add.area,9),'goldAddedWkbSha256':_sha(add),
-                                'editWkbHex':add.wkb_hex})
+                                'goldAddedAreaMm2':round(grow.area,9),'goldAddedWkbSha256':_sha(grow),
+                                'editWkbHex':grow.wkb_hex})
                 mask=clean(widened)
             else:
                 # Cap at the failing chords; they can lie beside the residue piece.
-                cut=disks(chords,.125+TOLERANCE).intersection(mask).difference(protected)
+                cut=sub(inter(disks(chords,.125+TOLERANCE),mask),protected)
                 records.append({'operation':'cap indexed sub-width gold where widening would narrow black',
                                 'iteration':iteration,**chord_row('visible-gold',.25,piece,chords),
                                 'goldRemovedAreaMm2':round(cut.area,9),'goldRemovedWkbSha256':_sha(cut),
                                 'editWkbHex':cut.wkb_hex})
-                mask=clean(mask.difference(cut))
+                mask=clean(sub(mask,cut))
         mask=clean(shapely.from_wkb(rounded(mask).wkb))
         changed=clean(mask.symmetric_difference(before))
         if changed.is_empty:
@@ -292,29 +316,29 @@ def enforce_copper(copper,required,safe,body,label,max_iterations=12):
             break
         before=copper
         for piece,chords in free:
-            add=capsules(chords,.125+TOLERANCE).intersection(safe).difference(copper)
-            if add.area>0:
+            grow=sub(inter(capsules(chords,.125+TOLERANCE),safe),copper)
+            if grow.area>0:
                 records.append({'operation':'fill sub-0.25 mm copper-free gap beneath retained mask',
                                 'iteration':iteration,**chord_row('copper-free',.25,piece,chords),
-                                'copperAddedAreaMm2':round(add.area,9)})
-                copper=clean(copper.union(add))
+                                'copperAddedAreaMm2':round(grow.area,9)})
+                copper=clean(add(copper,grow))
         for piece,chords in thin:
             # Full-width disks: the safe-region clip can remove half of each.
-            add=disks(chords,.25+TOLERANCE).intersection(safe).difference(copper)
-            widened=copper.union(add)
-            if add.area>0 and not [v for v in violations(widened.intersection(piece.buffer(.6)),.25)
+            grow=sub(inter(disks(chords,.25+TOLERANCE),safe),copper)
+            widened=add(copper,grow)
+            if grow.area>0 and not [v for v in violations(inter(widened,piece.buffer(.6)),.25)
                                    if v[0].intersects(piece)]:
                 records.append({'operation':'widen thin hidden copper inside safe region',
                                 'iteration':iteration,**chord_row('copper',.25,piece,chords),
-                                'copperAddedAreaMm2':round(add.area,9)})
+                                'copperAddedAreaMm2':round(grow.area,9)})
                 copper=clean(widened)
                 continue
-            cut=disks(chords,.125+TOLERANCE).intersection(copper).difference(required)
+            cut=sub(inter(disks(chords,.125+TOLERANCE),copper),required)
             if cut.area>0:
                 records.append({'operation':'trim thin hidden copper not backing a gold opening',
                                 'iteration':iteration,**chord_row('copper',.25,piece,chords),
                                 'copperRemovedAreaMm2':round(cut.area,9)})
-                copper=clean(copper.difference(cut))
+                copper=clean(sub(copper,cut))
         copper=shapely.from_wkb(rounded(unary_union(
             [p for p in export.polygons(copper) if p.intersects(required)])).wkb)
         changed=clean(copper.symmetric_difference(before))
