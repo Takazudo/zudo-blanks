@@ -209,6 +209,16 @@ def disks(chords,radius):
     return shapely.union_all(shapes)
 
 
+def capsules(chords,radius):
+    """Disks joined along each chord, so every point left is radius from it.
+
+    A disk at the midpoint alone lets two sharp corners reappear on its rim
+    a little closer than the diameter, so the gap creeps up without closing.
+    """
+    return shapely.union_all([disks(chords,radius)]+[
+        LineString([c['a'],c['b']]).buffer(radius,quad_segs=32) for c in chords])
+
+
 def enforce_widths(mask,body,safe,protected,black_width,label,max_iterations=24):
     """Retreat gold at failing black webs; widen or cap failing gold. Records every edit."""
     records=[]
@@ -221,7 +231,7 @@ def enforce_widths(mask,body,safe,protected,black_width,label,max_iterations=24)
             break
         before=mask
         for piece,chords in ink:
-            cut=disks(chords,black_width/2+TOLERANCE).intersection(mask).difference(protected)
+            cut=capsules(chords,black_width/2+TOLERANCE).intersection(mask).difference(protected)
             if cut.area>0:
                 records.append({'operation':'retreat gold to open indexed sub-width black web',
                                 'iteration':iteration,**chord_row('black-ink',black_width,piece,chords),
@@ -254,6 +264,8 @@ def enforce_widths(mask,body,safe,protected,black_width,label,max_iterations=24)
         if changed.is_empty:
             break
         dirty=changed.buffer(.5,quad_segs=8)
+    # Judge what downstream stages read: the WKB-serialized geometry.
+    mask=shapely.from_wkb(mask.wkb)
     remaining=[chord_row('black-ink',black_width,p,c) for p,c in violations(plane_complement(body,mask),black_width)]
     remaining+=[chord_row('visible-gold',.25,p,c) for p,c in violations(mask,.25)]
     print(f'{label}: width enforcement stopped with {len(remaining)} unresolved',flush=True)
@@ -280,7 +292,7 @@ def enforce_copper(copper,required,safe,body,label,max_iterations=12):
             break
         before=copper
         for piece,chords in free:
-            add=disks(chords,.125+TOLERANCE).intersection(safe).difference(copper)
+            add=capsules(chords,.125+TOLERANCE).intersection(safe).difference(copper)
             if add.area>0:
                 records.append({'operation':'fill sub-0.25 mm copper-free gap beneath retained mask',
                                 'iteration':iteration,**chord_row('copper-free',.25,piece,chords),
@@ -309,6 +321,7 @@ def enforce_copper(copper,required,safe,body,label,max_iterations=12):
         if changed.is_empty:
             break
         dirty=changed.buffer(.5,quad_segs=8)
+    copper=shapely.from_wkb(copper.wkb)
     remaining=[chord_row('copper-free',.25,p,c) for p,c in violations(plane_complement(body,copper),.25)]
     remaining+=[chord_row('copper',.25,p,c) for p,c in violations(copper,.25)]
     print(f'{label}: copper enforcement stopped with {len(remaining)} unresolved',flush=True)

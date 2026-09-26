@@ -138,7 +138,7 @@ def run():
             jobs.append((board_id(design,layer),masks[board_id(design,layer)]['afterMaskWkbHex'],
                          layer,data['spec']))
     from concurrent.futures import ProcessPoolExecutor
-    with ProcessPoolExecutor(max_workers=4) as pool:
+    with ProcessPoolExecutor(max_workers=3) as pool:
         boards=list(pool.map(_board,jobs))
     result={
         'status':'candidate; full copper/gold width and output proof pending',

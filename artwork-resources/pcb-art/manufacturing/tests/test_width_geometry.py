@@ -54,6 +54,15 @@ class WidthGeometryTests(unittest.TestCase):
         self.assertLess(repaired.difference(gold).area,1e-9)
         self.assertEqual(violations(body.difference(repaired),.13),[])
 
+    def test_enforcement_separates_facing_sharp_corners(self):
+        # Two gold squares meeting corner to corner 0.1 mm apart diagonally.
+        body=box(0,0,10,10)
+        gold=box(2,2,4.9,4.9).union(box(4.9707,4.9707,8,8))
+        repaired,records,remaining=enforce_widths(gold,body,body.buffer(-.35),Polygon(),.13,'corners')
+        self.assertEqual(remaining,[])
+        self.assertLess(repaired.difference(gold).area,1e-9)
+        self.assertEqual(violations(body.difference(repaired),.13),[])
+
 
 if __name__=='__main__':
     unittest.main()

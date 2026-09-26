@@ -715,11 +715,30 @@ def corrected_mask(design,layer,spec,original_layer,actions):
 
 
 def _enforce_job(job):
+    """Width-enforce one board; optionally cached so an interrupted run resumes.
+
+    WIDTH_CACHE_DIR (unset by default) keys results by the inputs and the
+    width_geometry.py source, so any code or geometry change recomputes.
+    """
+    import os
+    import pickle
     from width_geometry import enforce_widths
     mask,body,safe,protected,black,name=job
+    cache=os.environ.get('WIDTH_CACHE_DIR')
+    path=None
+    if cache:
+        key=hashlib.sha256(pickle.dumps(job)+(HERE/'width_geometry.py').read_bytes()).hexdigest()
+        path=Path(cache)/f'mask-{name}-{key}.pickle'
+        if path.exists():
+            print(f'{name}: width enforcement reused from cache',flush=True)
+            return pickle.loads(path.read_bytes())
     after,records,unresolved=enforce_widths(*(shapely.from_wkb(g) for g in (mask,body,safe,protected)),
                                             black,name)
-    return after.wkb,records,unresolved
+    result=(after.wkb,records,unresolved)
+    if path:
+        path.parent.mkdir(parents=True,exist_ok=True)
+        path.write_bytes(pickle.dumps(result))
+    return result
 
 
 def run():
@@ -746,7 +765,7 @@ def run():
                      rim_cores(design,layer).wkb,
                      .25 if design['id']=='spider-nest' else .13,board_id(design,layer)))
     from concurrent.futures import ProcessPoolExecutor
-    with ProcessPoolExecutor(max_workers=4) as pool:
+    with ProcessPoolExecutor(max_workers=3) as pool:
         enforced=list(pool.map(_enforce_job,jobs))
     boards=[]
     for (design,source,layer,original_layer,before,_,records),(after_wkb,width_records,unresolved) in zip(staged,enforced):
