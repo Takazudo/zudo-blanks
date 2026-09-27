@@ -1,0 +1,511 @@
+{
+  "schemaVersion": 1,
+  "policySha256": "e6f9295c0a24e1d22f9176f8d9e4259726130df50bd3f5e41c80c3254d2c9ba6",
+  "nativeGenerationSha256": "67094bb0795c0d073772306999ae9a6acbf08c965718d5cd7a3e045b2e379e8f",
+  "sourceManifestSha256": "95b25b4b7bf775ea4006bfcfef532af4db6cfa01f1396f6567280ebb7b04d221",
+  "panels": [
+    {
+      "id": "lower-panel-white-hasl",
+      "groupId": "white-hasl",
+      "nativeBoard": "panels/art-grouped-lowers/lower-panel-white-hasl/lower-panel-white-hasl.kicad_pcb",
+      "nativeBoardSha256": "c36b1526a72bb2fab8709cd7bc29872da8c772fbd9185460ac8921b003e3da26",
+      "projectSha256": "25b2bc3c778b536b59c40c6fb8dfbe21f2a2936597f04e7f94372753d7e7797c",
+      "fabricationInstructionsSha256": "2008a27ad672637a968cce922980a344e95afda3d83e25a69e02b374960c9830",
+      "placements": [
+        {
+          "id": "01-spider-nest-L02-white-mask-only",
+          "column": 0,
+          "row": 0,
+          "translationMm": [
+            5.0,
+            -12.1
+          ],
+          "sourceSha256": "15735b8ef6f982f46ffa4f04cbce090b7036f31e96552fbd34987a494f4dd7de"
+        },
+        {
+          "id": "01-spider-nest-L04-white-mask-only",
+          "column": 1,
+          "row": 0,
+          "translationMm": [
+            106.3,
+            -12.1
+          ],
+          "sourceSha256": "aedaf74567c3a7be565c765e33994365e1fe70c06aef555cbf71a7b11412a215"
+        },
+        {
+          "id": "01-spider-nest-L06-white-mask-only",
+          "column": 0,
+          "row": 1,
+          "translationMm": [
+            5.0,
+            82.2
+          ],
+          "sourceSha256": "4aa07e20610dab934390286cc95564b82122a5833e49ca94da5a560c14f63ed5"
+        },
+        {
+          "id": "18-woven-maze-L02-white-mask-only",
+          "column": 1,
+          "row": 1,
+          "translationMm": [
+            106.3,
+            82.2
+          ],
+          "sourceSha256": "95bfb1b3fa7f651d9348008e4f3e90d0ce471b30459b141daa5aeedf1d04ca01"
+        },
+        {
+          "id": "18-woven-maze-L04-white-mask-only",
+          "column": 0,
+          "row": 2,
+          "translationMm": [
+            5.0,
+            176.5
+          ],
+          "sourceSha256": "93321b4464973c5c8e9b4099c23d114978311d3875937d697c0f8f2af531ee6a"
+        },
+        {
+          "id": "18-woven-maze-L06-white-mask-only",
+          "column": 1,
+          "row": 2,
+          "translationMm": [
+            106.3,
+            176.5
+          ],
+          "sourceSha256": "6b96a2f67d48d22e65169c0cdb9d5829d69be025bebad6a22b816784287a4b7f"
+        },
+        {
+          "id": "18-woven-maze-L08-white-mask-only",
+          "column": 0,
+          "row": 3,
+          "translationMm": [
+            5.0,
+            270.8
+          ],
+          "sourceSha256": "91165b09dde7e4cda954243ad161fc612cd86f271231628eaa7a77935f7cd670"
+        }
+      ],
+      "scoreXMm": [
+        5.0,
+        106.3,
+        207.6
+      ],
+      "scoreYMm": [
+        5.0,
+        99.3,
+        193.6,
+        287.9,
+        382.2
+      ],
+      "minimumScoreClearanceMm": {
+        "apertureMm": 1.9,
+        "supportDiskMm": 3.45,
+        "copperMm": null,
+        "visibleGoldMm": null
+      },
+      "widthMm": 212.6,
+      "heightMm": 387.2,
+      "unusedCells": 1
+    },
+    {
+      "id": "lower-panel-black-enig",
+      "groupId": "black-enig",
+      "nativeBoard": "panels/art-grouped-lowers/lower-panel-black-enig/lower-panel-black-enig.kicad_pcb",
+      "nativeBoardSha256": "00b9397644e2b6d181b9503e513314cabbef7e0b345a5fac06947ffe48599f82",
+      "projectSha256": "f27d7a13de389c5f4f5f0d7c218d81a8e5ad6b0d50d9a944f5e04346adac1c49",
+      "fabricationInstructionsSha256": "081740c523bfe7414d2c9732a377927e8b63d622e1bb95d8b478d626dec0eefd",
+      "placements": [
+        {
+          "id": "01-spider-nest-L03-gold-enig-fill",
+          "column": 0,
+          "row": 0,
+          "translationMm": [
+            5.0,
+            -12.1
+          ],
+          "sourceSha256": "a86bf3aa467add382fe324830c577e47562e0b46dc35469a6bd5c563b88a9967"
+        },
+        {
+          "id": "01-spider-nest-L05-gold-enig-fill",
+          "column": 1,
+          "row": 0,
+          "translationMm": [
+            106.3,
+            -12.1
+          ],
+          "sourceSha256": "09059c06e75e2cec64ece3a5fad44992603e540582c106e098355fa8a49df55d"
+        },
+        {
+          "id": "01-spider-nest-L07-gold-enig-fill",
+          "column": 2,
+          "row": 0,
+          "translationMm": [
+            207.6,
+            -12.1
+          ],
+          "sourceSha256": "ce88d9f53dc12090a9bc5ee0b8718e6e218a8317aac165b82aab14d53b0e16f8"
+        },
+        {
+          "id": "03-coral-vault-L04-gold-enig-fill",
+          "column": 0,
+          "row": 1,
+          "translationMm": [
+            5.0,
+            82.2
+          ],
+          "sourceSha256": "672b4874a5acd1ce8836a5c425769fc9c1c8f8679cdf710d638ca4c9b332c5cd"
+        },
+        {
+          "id": "17-kumiko-void-wide-L04-black-enig-art",
+          "column": 1,
+          "row": 1,
+          "translationMm": [
+            106.3,
+            82.2
+          ],
+          "sourceSha256": "e31f914f66c1d58434d28d3ae145fcdab1ef8bdbae99d845e4dc9560c647b25d"
+        },
+        {
+          "id": "17-kumiko-void-wide-L07-black-enig-art",
+          "column": 2,
+          "row": 1,
+          "translationMm": [
+            207.6,
+            82.2
+          ],
+          "sourceSha256": "145130d8185fa247498d5ed1bf961fe91f6f6811d4aa96f89875ea175c46e871"
+        }
+      ],
+      "scoreXMm": [
+        5.0,
+        106.3,
+        207.6,
+        308.9
+      ],
+      "scoreYMm": [
+        5.0,
+        99.3,
+        193.6
+      ],
+      "minimumScoreClearanceMm": {
+        "apertureMm": 1.9,
+        "supportDiskMm": 3.45,
+        "copperMm": 0.5,
+        "visibleGoldMm": 0.55
+      },
+      "widthMm": 313.9,
+      "heightMm": 198.6,
+      "unusedCells": 0
+    },
+    {
+      "id": "lower-panel-red-hasl",
+      "groupId": "red-hasl",
+      "nativeBoard": "panels/art-grouped-lowers/lower-panel-red-hasl/lower-panel-red-hasl.kicad_pcb",
+      "nativeBoardSha256": "c5dd1c702b31ee5801a1498fded6cf3b809ef223b6d15878793aa0d1010f0ed5",
+      "projectSha256": "5176b0b79409d0b4fbdcd9a7f703ebcd59946d6bb7107990d32c753506e5118a",
+      "fabricationInstructionsSha256": "154ad608abf5e550f8f8cb16e0a61b77ebc444e19c71a711e2eb4974c70396e4",
+      "placements": [
+        {
+          "id": "01-spider-nest-L08-red-mask-only",
+          "column": 0,
+          "row": 0,
+          "translationMm": [
+            5.0,
+            -12.1
+          ],
+          "sourceSha256": "44cf9e6a84bd2dcf50438de7d2ed0c991e09c19876b15a9519a6e6b754b37344"
+        },
+        {
+          "id": "03-coral-vault-L05-red-mask-only",
+          "column": 1,
+          "row": 0,
+          "translationMm": [
+            106.3,
+            -12.1
+          ],
+          "sourceSha256": "6a6454d961cc95e130c6a2dc7a0510298cf492eb27552123fd3535d4f05f10a8"
+        },
+        {
+          "id": "03-coral-vault-L07-red-mask-only",
+          "column": 2,
+          "row": 0,
+          "translationMm": [
+            207.6,
+            -12.1
+          ],
+          "sourceSha256": "ff0ef4aafa33b73257333c6cdbc38db5e791daeb8ce56515618522920057bd27"
+        },
+        {
+          "id": "13-fault-line-L02-red-mask-only",
+          "column": 0,
+          "row": 1,
+          "translationMm": [
+            5.0,
+            82.2
+          ],
+          "sourceSha256": "ecfbce2b27588109e1dc8da0f04e9051dfbe942e90cbde5748be39a9dd04d009"
+        },
+        {
+          "id": "13-fault-line-L04-red-mask-only",
+          "column": 1,
+          "row": 1,
+          "translationMm": [
+            106.3,
+            82.2
+          ],
+          "sourceSha256": "d10312d884fce8e4b551293ebfcad0496e7a5b749bba9b9775ace33f23a58b35"
+        },
+        {
+          "id": "13-fault-line-L06-red-mask-only",
+          "column": 2,
+          "row": 1,
+          "translationMm": [
+            207.6,
+            82.2
+          ],
+          "sourceSha256": "81bfb4fc9a348748ec21fca97e1baa35923d0ee9de3d187d1c5018798aae6d95"
+        },
+        {
+          "id": "13-fault-line-L08-red-mask-only",
+          "column": 0,
+          "row": 2,
+          "translationMm": [
+            5.0,
+            176.5
+          ],
+          "sourceSha256": "c728cc2c55440a0f207da079e2b522724bdd8e15e6470037867d3cb2cf40940d"
+        },
+        {
+          "id": "17-kumiko-void-wide-L02-red-mask-only",
+          "column": 1,
+          "row": 2,
+          "translationMm": [
+            106.3,
+            176.5
+          ],
+          "sourceSha256": "c64c75cef1f139bb05353c952784ebba4d090df12cd58156fcc2c7002332758d"
+        },
+        {
+          "id": "17-kumiko-void-wide-L05-red-mask-only",
+          "column": 2,
+          "row": 2,
+          "translationMm": [
+            207.6,
+            176.5
+          ],
+          "sourceSha256": "16a0b3b961144aa7471ade7e4ead4a5bdec3f3de6bcd82d83a49663644890735"
+        },
+        {
+          "id": "17-kumiko-void-wide-L08-red-mask-only",
+          "column": 0,
+          "row": 3,
+          "translationMm": [
+            5.0,
+            270.8
+          ],
+          "sourceSha256": "612b1253d37bdebb782306660f0238ee8c9ac8a40375d5b31e18e5be9bfa8b99"
+        }
+      ],
+      "scoreXMm": [
+        5.0,
+        106.3,
+        207.6,
+        308.9
+      ],
+      "scoreYMm": [
+        5.0,
+        99.3,
+        193.6,
+        287.9,
+        382.2
+      ],
+      "minimumScoreClearanceMm": {
+        "apertureMm": 1.9,
+        "supportDiskMm": 3.45,
+        "copperMm": null,
+        "visibleGoldMm": null
+      },
+      "widthMm": 313.9,
+      "heightMm": 387.2,
+      "unusedCells": 2
+    },
+    {
+      "id": "lower-panel-green-hasl",
+      "groupId": "green-hasl",
+      "nativeBoard": "panels/art-grouped-lowers/lower-panel-green-hasl/lower-panel-green-hasl.kicad_pcb",
+      "nativeBoardSha256": "1f52ff5e844ef0c6b1a2ef81d94b0b22754f991c02ebd4c9b6e8ab5ad6ffaa51",
+      "projectSha256": "c4ddc0b6b3f7001f834b8540ec9e45603f8484da7f2c733a61851456c51bc66a",
+      "fabricationInstructionsSha256": "3a40f0791c7b896ae52e4416ea139f227745b1103587aabf2c9b75025ccfc3c0",
+      "placements": [
+        {
+          "id": "03-coral-vault-L02-green-mask-only",
+          "column": 0,
+          "row": 0,
+          "translationMm": [
+            5.0,
+            -12.1
+          ],
+          "sourceSha256": "2516f7cd235b19989394079811366275fc18dcc590f554fc5924258597e80eca"
+        },
+        {
+          "id": "17-kumiko-void-wide-L03-green-mask-only",
+          "column": 1,
+          "row": 0,
+          "translationMm": [
+            106.3,
+            -12.1
+          ],
+          "sourceSha256": "889783087ccf8983da77abf77bf0a2e7b4eb1222ebf9da1152a9483d1b1256f6"
+        },
+        {
+          "id": "17-kumiko-void-wide-L06-green-mask-only",
+          "column": 0,
+          "row": 1,
+          "translationMm": [
+            5.0,
+            82.2
+          ],
+          "sourceSha256": "3704ba5d96e16b3263edf4c23f8802ad3e15a583f7041ee6b1c8fc874d6bf8d9"
+        },
+        {
+          "id": "17-kumiko-void-wide-L09-green-mask-only",
+          "column": 1,
+          "row": 1,
+          "translationMm": [
+            106.3,
+            82.2
+          ],
+          "sourceSha256": "51fd616c6d622e5eb844a5f865a4b4842a704e9a369e3c6c6da7adb1814829f2"
+        }
+      ],
+      "scoreXMm": [
+        5.0,
+        106.3,
+        207.6
+      ],
+      "scoreYMm": [
+        5.0,
+        99.3,
+        193.6
+      ],
+      "minimumScoreClearanceMm": {
+        "apertureMm": 1.9,
+        "supportDiskMm": 3.45,
+        "copperMm": null,
+        "visibleGoldMm": null
+      },
+      "widthMm": 212.6,
+      "heightMm": 198.6,
+      "unusedCells": 0
+    },
+    {
+      "id": "lower-panel-black-hasl",
+      "groupId": "black-hasl",
+      "nativeBoard": "panels/art-grouped-lowers/lower-panel-black-hasl/lower-panel-black-hasl.kicad_pcb",
+      "nativeBoardSha256": "8ce37a5a50890c5381838e55562c2c283ad1d6a1d2884c4d229b6c8120547e70",
+      "projectSha256": "a9260295ae292083ab5344257e2def3112052d8d8d603e3dce57336095c28a80",
+      "fabricationInstructionsSha256": "f67ab22a19503910a0ba6d09333d893e04c7b2101a66a4ec0d7b2796307dedaf",
+      "placements": [
+        {
+          "id": "13-fault-line-L03-black-mask-only",
+          "column": 0,
+          "row": 0,
+          "translationMm": [
+            5.0,
+            -12.1
+          ],
+          "sourceSha256": "bc14462a4861871672b5b3fda9f1edb32b7e2fa3a57d810c391bf0295a514d53"
+        },
+        {
+          "id": "13-fault-line-L05-black-mask-only",
+          "column": 1,
+          "row": 0,
+          "translationMm": [
+            106.3,
+            -12.1
+          ],
+          "sourceSha256": "0596888f9a0650e88532ae4139cf5f7a3875f084b2d41e5556bacc0b1110754b"
+        },
+        {
+          "id": "13-fault-line-L07-black-mask-only",
+          "column": 0,
+          "row": 1,
+          "translationMm": [
+            5.0,
+            82.2
+          ],
+          "sourceSha256": "4f0c1546c187155d1d04606e9d191b7bbf3d3e4d420538e694cda6f1ab8d0434"
+        },
+        {
+          "id": "13-fault-line-L09-black-mask-only",
+          "column": 1,
+          "row": 1,
+          "translationMm": [
+            106.3,
+            82.2
+          ],
+          "sourceSha256": "f4adca85902c2085bf738e04dd2745b7a0433447ab1fbeb84cd7b3c3d760bd23"
+        },
+        {
+          "id": "18-woven-maze-L03-black-mask-only",
+          "column": 0,
+          "row": 2,
+          "translationMm": [
+            5.0,
+            176.5
+          ],
+          "sourceSha256": "1856bf4d095153446eb35a40dbe2ef7fdc24ca3d6988ca89e68c118a63d7ec11"
+        },
+        {
+          "id": "18-woven-maze-L05-black-mask-only",
+          "column": 1,
+          "row": 2,
+          "translationMm": [
+            106.3,
+            176.5
+          ],
+          "sourceSha256": "dcdf71af640901d0d8247f9becbefb4cdf4e3d13acd737edceea21fbed8ef1ab"
+        },
+        {
+          "id": "18-woven-maze-L07-black-mask-only",
+          "column": 0,
+          "row": 3,
+          "translationMm": [
+            5.0,
+            270.8
+          ],
+          "sourceSha256": "a878119ff9ea214b3513be3b1cdb0429724c2e732d45f9e2d62c766b92ac990a"
+        },
+        {
+          "id": "18-woven-maze-L09-black-mask-only",
+          "column": 1,
+          "row": 3,
+          "translationMm": [
+            106.3,
+            270.8
+          ],
+          "sourceSha256": "767f4567fdd41d7145e92472164c09f123cd55b8ef44a12d038316412c62b1ed"
+        }
+      ],
+      "scoreXMm": [
+        5.0,
+        106.3,
+        207.6
+      ],
+      "scoreYMm": [
+        5.0,
+        99.3,
+        193.6,
+        287.9,
+        382.2
+      ],
+      "minimumScoreClearanceMm": {
+        "apertureMm": 1.9,
+        "supportDiskMm": 3.45,
+        "copperMm": null,
+        "visibleGoldMm": null
+      },
+      "widthMm": 212.6,
+      "heightMm": 387.2,
+      "unusedCells": 0
+    }
+  ]
+}

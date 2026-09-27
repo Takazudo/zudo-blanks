@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "scope": "Static MDX/resource consistency, not a zudo-doc compile",
+  "documents": 28,
+  "localLinks": 62,
+  "categories": [
+    "assembly",
+    "designs",
+    "engineering",
+    "handoff",
+    "manufacturing",
+    "overview"
+  ],
+  "assetsChecked": true,
+  "errors": [],
+  "revision": 5,
+  "checkedDate": "2026-09-24",
+  "zudoDocBuildRun": false
+}

@@ -1,0 +1,20 @@
+{
+  "name": "zudo-pcb-art-previews",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Offline three-dimensional layered PCB art previews",
+  "dependencies": {
+    "three": "0.169.0"
+  },
+  "devDependencies": {
+    "@sparticuz/chromium": "^153.0.0",
+    "esbuild": "^0.25.10",
+    "playwright": "^1.55.0"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check:geometry": ".venv/bin/python scripts/build_geometry.py",
+    "test:browser": "node tests/browser.mjs"
+  }
+}

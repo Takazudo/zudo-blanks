@@ -1,0 +1,14 @@
+boardId,feature,polygonA0,polygonB0,gapMm,pointAxMm,pointAyMm,pointBxMm,pointByMm,screenThresholdMm
+17-kumiko-void-standard-L01-black-enig-art,F.Cu island gap,0,40,0.03033513,40.72297094031123,17.694241656968146,40.6967,17.679074,0.1
+17-kumiko-void-standard-L01-black-enig-art,F.Mask black gap,0,210,0.00219545,30.8602,1.8511,30.8621,1.85,0.13
+17-kumiko-void-standard-L04-black-enig-art,F.Mask black gap,18,23,0.003361547,35.3807,56.3428,35.379,56.3457,0.13
+17-kumiko-void-standard-L07-black-enig-art,F.Mask black gap,18,23,0.003361547,33.9807,60.3428,33.979,60.3457,0.13
+01-spider-nest-L01-black-enig-art,F.Cu island gap,0,15,0.00990744,61.25757686356518,91.05473278873067,61.264288,91.062021,0.1
+01-spider-nest-L01-black-enig-art,F.Mask black gap,0,15,0.109907874,61.22887322868255,91.01319445469693,61.303323,91.094046,0.13
+03-coral-vault-L01-black-enig-art,F.Cu island gap,97,106,0.000828743,58.464784792198124,98.81019046202708,58.46544,98.809683,0.1
+03-coral-vault-L01-black-enig-art,F.Mask black gap,21,35,0.013383651,12.594044,36.992439,12.584478625144275,36.983078138351324,0.13
+17-kumiko-void-wide-L01-black-enig-art,F.Cu island gap,0,43,0.009865821,99.1,105.854933,99.091456,105.85,0.1
+17-kumiko-void-wide-L01-black-enig-art,F.Mask black gap,0,3,0.00219545,2.8602,1.8511,2.8621,1.85,0.13
+17-kumiko-void-wide-L04-black-enig-art,F.Mask black gap,3,11,0.003361547,7.8941,55.8294,7.897,55.8277,0.13
+17-kumiko-void-wide-L07-black-enig-art,F.Cu island gap,7,8,0.016468879,6.172946506275559,108.9618116073412,6.184423,108.95,0.1
+17-kumiko-void-wide-L07-black-enig-art,F.Mask black gap,3,10,0.003361547,6.4941,59.8294,6.497,59.8277,0.13

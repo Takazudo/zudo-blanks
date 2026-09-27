@@ -1,0 +1,31 @@
+---
+title: "Project Purpose and Status"
+description: "Five layered 20HP blank panels with sculpted depth."
+sidebar_position: 1
+---
+
+## What this project contains
+
+Multiple PCBs are separated by 3 mm spacers. Cutouts, mask color, and selective ENIG create depth without electrical circuitry. These are 20HP decorative blank panels derived from the dimensions and stacking approach of [Strip Mine](https://github.com/Takazudo/zudo-blanks/tree/main/panels/art-strip-mine).
+
+![Five stacked art panels](/assets/pcb-art/images/pcb-art-previews-overview.png)
+
+[Open the combined 3D preview](/assets/pcb-art/previews/index.html)
+
+| Design | Boards | Main visual |
+| --- | ---: | --- |
+| Spider Nest | 8 | An irregular web extending toward the edge, over a red bottom layer |
+| Coral Vault | 8 | Flowing cavities that narrow unevenly with depth |
+| Fault Line | 9 | A large asymmetric collapse with alternating rounded and angular cliffs |
+| Kumiko Void | 9 | Asanoha lattice with flat gold and black facets |
+| Woven Maze | 9 | Distinct maze paths across the lower layers |
+
+Kumiko has standard and wide variants. The selected set contains the wide variant: 43 boards across all five designs. The nine standard boards form one complete replacement option, not an extra stack. See [the design decisions](./decisions.mdx) and [the file inventory](../handoff/resources.mdx).
+
+## Revision 5
+
+Revision 5 adds a flat gold border around the outer edge, four stack holes, and four rail slots on every top board, including both Kumiko variants. The Revision 4 openings, colors, lower-layer art, and ENIG layer choices are retained. Lower mask-only boards do not receive gold artwork.
+
+## Before manufacturing
+
+Native PCB files are included, but this handoff has no KiCad application parser, DRC, or Gerber execution result. It flags [64 small Kumiko openings and a narrow ligament](../manufacturing/kumiko-routing.mdx), along with [gold-area changes and narrow copper or mask gaps](../manufacturing/copper-review.mdx). Resolve those against the chosen process and review the resulting CAM before ordering.

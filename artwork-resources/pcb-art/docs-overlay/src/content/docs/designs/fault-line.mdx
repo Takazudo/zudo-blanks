@@ -1,0 +1,29 @@
+---
+title: "13 Fault Line"
+description: "Design intent, layer sequence, and review points."
+sidebar_position: 3
+---
+
+[Open the 3D preview](/assets/pcb-art/previews/13-fault-line.html)
+
+Fault Line is a tall, asymmetric canyon. Its side ledges reach different heights; black layers have angular cliffs while red layers have worn, rounded cliffs. Retreat varies locally. The top opening grew about 38.1% from Revision 3 to Revision 4. Top copper adds terrain lines and narrow fractures, with a Revision 5 frame and hole rims. The lower eight boards are mask-only.
+
+## Keep each layer connected
+
+The left and right portions of every layer must remain connected through its upper and lower bridges. Splitting a layer into separate boards held together by screws would violate the one-PCB-per-layer design.
+
+Opening area decreases with depth and remains nested, but the geometry is not a uniform offset. Keep local changes irregular and check that deep openings do not create floating PCB fragments.
+
+## Front-to-back layers
+
+| Layer | Color | Finish |
+| ---: | --- | --- |
+| 1 | Black | ENIG artwork |
+| 2 | Red | Mask-only |
+| 3 | Black | Mask-only |
+| 4 | Red | Mask-only |
+| 5 | Black | Mask-only |
+| 6 | Red | Mask-only |
+| 7 | Black | Mask-only |
+| 8 | Red | Mask-only |
+| 9 | Black | Mask-only bottom |

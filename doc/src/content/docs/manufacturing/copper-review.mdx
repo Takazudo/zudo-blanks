@@ -1,0 +1,16 @@
+---
+title: Copper, Mask and Gold Changes
+sidebar_position: 2
+---
+
+The design viewer shows the approved Revision 5 gold concept. The manufacturing candidate retains its motif while locally retreating gold from routed edges, drills, and tight mask webs. Hidden copper joins preserve electrical continuity without making new visible gold; selected narrow tips were capped or locally repaired. The outer top frame and eight hole/slot rims remain closed on each selected top.
+
+![Design art and original export candidate before local repair](/assets/pcb-art/images/pcb-art-cad-gold-comparison.png)
+
+The image above is a **before/after screen from the initial export**, not the final CAM rendering. Compare [indexed repair records](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/manufacturing/art-resolution-ledger.json), [candidate comparisons](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/manufacturing/candidate-comparisons.json), and [native CAM manifest](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/manufacturing/native-kicad-cam-manifest.json) for the locally checked result.
+
+![Representative native KiCad CAM layers](/assets/pcb-art/cam-comparisons/native-cam-representative.png)
+
+The five [candidate before/after comparisons](./comparisons.mdx) show local geometry changes against the frozen design source. The representative CAM image above is a plotted layer check; supplier CAM inspection is still pending.
+
+The [policy](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/manufacturing/policy.json) and [process-class amendment](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/manufacturing/process-class-decision.json) set a 0.35 mm visible-gold clearance from route/drill edges, 0.30 mm copper clearance, and 0.05 mm copper margin under openings. Finished visible gold and special copper/channel widths use the 0.25 mm class. Black mask webs use 0.13 mm on Coral, Fault, Kumiko and Woven tops when retaining their source mask, and 0.25 mm on Spider. Four full-gold lower pours and isolated convex copper islands use the 0.10 mm general copper class. These are locally chosen process rules, not supplier approval. The exhaustive width certificate is an opt-in check and has not passed.

@@ -1,26 +1,21 @@
-# doc/ - Docusaurus Documentation Site
+# doc/ - zudo-doc Documentation Site
 
-## Sidebar Structure
+This is a static zudo-doc project. Node.js 22 or newer and pnpm 10 are required. Published content is English.
 
-The documentation uses 4 sidebar sections defined in `/doc/sidebars.js`:
+## Content and navigation
 
-- **overviewSidebar** - Project overview
-- **howToSidebar** - How-to guides
-- **miscSidebar** - Miscellaneous
-- **inboxSidebar** - INBOX (temporary workspace)
+Write pages under `src/content/docs/`. Each directory has an `index.mdx` for its category. Add top-level sections to `headerNav` in `zfb.config.ts`. Preserve old URLs or add a redirect in the Netlify staging step and the route map in root `README.md`. Use relative links between MDX pages; root-relative MDX links bypass the configured base path.
 
-## Adding New Documentation Pages
+Claude resource pages are generated during build from the repository root `CLAUDE.md` files and project `.claude/skills` via `claudeResources` in `zfb.config.ts`. Do not edit generated `claude-*` pages. Do not publish machine-global skills.
 
-1. Create `.md` or `.mdx` file in appropriate `/doc/docs/` subdirectory
-2. Add the doc ID to the corresponding sidebar array in `/doc/sidebars.js`
-3. If creating a new category, add corresponding entry in sidebar config
-
-## Development Commands
+## Commands
 
 ```bash
 cd doc
-pnpm install          # Install dependencies
-pnpm start            # Dev server (port 43621, zblanks.localhost)
-pnpm run check        # Run typecheck + lint + format check
-pnpm run build        # Production build
+pnpm install --frozen-lockfile
+pnpm dev             # http://localhost:4321/pj/zblanks/
+pnpm check           # zfb checks
+pnpm check:links -- --strict-absolute --strict-anchors
+pnpm build           # static output in dist/
+pnpm preview         # preview built site
 ```

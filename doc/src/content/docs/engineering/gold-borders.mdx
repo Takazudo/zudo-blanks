@@ -1,0 +1,27 @@
+---
+title: "Top Gold Borders"
+description: "Revision 5 border geometry and its manufacturing meaning."
+sidebar_position: 3
+---
+
+## Shared border on six top boards
+
+All five designs and both Kumiko variants have one outer frame, four stack-hole rims, and four rail-slot rims. These nine closed strokes are flat top-side copper and mask artwork. They are not applied to lower boards.
+
+![Gold frames on all top boards](/assets/pcb-art/images/pcb-art-top-gold-borders.png)
+
+| Feature | Shape and dimensions |
+| --- | --- |
+| Outer frame | Centerline 0.55 mm inside the board edge; 0.32 mm line width |
+| Stack-hole rim | 2.70 mm centerline radius; 0.40 mm line width |
+| Rail-slot rim | 2.10 mm offset from slot axis; 0.40 mm line width |
+| Spider and Kumiko | Octagonal stack rims and rectangular slot rims |
+| Other designs | Circular stack rims and capsule-shaped slot rims |
+
+The slot rims join the outer frame where they meet. These graphics do not specify plated holes or plated board edges.
+
+## Viewer art and export candidate
+
+The dimensions describe the Revision 5 viewer art. The native-board export applies a 0.35 mm mask-opening clearance from cut edges and drills, so artwork near those boundaries is clipped. Review the result in the [gold-area comparison](../manufacturing/copper-review.mdx).
+
+Fastener heads and washers may cover part of a rim. Confirm that against actual hardware. The source confirms the border geometry is present in all six top variants; it does not decide hardware or supplier rules.

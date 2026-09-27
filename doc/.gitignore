@@ -1,0 +1,30 @@
+# Build output
+node_modules
+dist
+.zfb
+.zfb-build/
+.zudo-doc/
+
+# macOS
+.DS_Store
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Cloudflare Wrangler
+.wrangler/
+
+# Generated Claude resource mirrors
+src/content/docs/claude/
+src/content/docs/claude-md/
+src/content/docs/claude-skills/
+src/content/docs/claude-agents/
+src/content/docs/claude-commands/

@@ -1,0 +1,24 @@
+---
+title: "Review Scope and Evidence"
+description: "Separate geometry checks from KiCad, CAM, and physical review."
+sidebar_position: 3
+---
+
+## Evidence completed in the handoff
+
+Geometry generation checks each board's connected material, mounting supports, rail restrictions, and opening bounds. A 0.5 mm inward-offset check screens for some narrow necks. It does not prove minimum cut width, mechanical strength, toolpath quality, or tolerance.
+
+The Revision 5 viewer was checked for offline rendering and geometry presentation. Its colors approximate finishes on screen; use physical samples for color decisions. A separate S-expression audit compares all 52 board outlines, holes, copper, and mask shapes against the source geometry. The retained report states that KiCad itself was not run.
+
+## Evidence locations
+
+| Item | Source |
+| --- | --- |
+| Canonical geometry | artwork-resources/pcb-art/preview-source/assets/geometry.json |
+| Generator checks | artwork-resources/pcb-art/preview-source/assets/validation.json |
+| Native board metadata | artwork-resources/pcb-art/pcb/manifest.json |
+| Independent native data audit | artwork-resources/pcb-art/reports/native-independent-audit.json |
+| Fabrication screening | artwork-resources/pcb-art/validation/fabrication-review.json |
+| Exported copper and mask screening | artwork-resources/pcb-art/validation/export-art-review.json |
+
+Historical Revision 3 and Revision 4 outputs are comparisons only. Record the KiCad version, DRC settings, CAM image, tool output hashes, and actual results when those checks are performed. Do not describe unrun checks as passed.

@@ -1,0 +1,712 @@
+[
+  {
+    "directory": "alumi-3u-to-1u-v1",
+    "category": "Plain blanks and adapters",
+    "label": "Alumi 3U To 1U V1",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/alumi-3u-to-1u-v1/3u-to-1u-v1.kicad_pcb"
+    ],
+    "preview": "assets/panels/alumi-3u-to-1u-v1.png"
+  },
+  {
+    "directory": "alumi-blanks-v1-1U-10hp",
+    "category": "Plain blanks and adapters",
+    "label": "Plain 1U \u00b7 10 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/alumi-blanks-v1-1U-10hp/10hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/alumi-blanks-v1-1U-10hp.png"
+  },
+  {
+    "directory": "alumi-blanks-v1-1U-1hp",
+    "category": "Plain blanks and adapters",
+    "label": "Plain 1U \u00b7 1 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/alumi-blanks-v1-1U-1hp/1hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/alumi-blanks-v1-1U-1hp.png"
+  },
+  {
+    "directory": "alumi-blanks-v1-1U-2hp",
+    "category": "Plain blanks and adapters",
+    "label": "Plain 1U \u00b7 2 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/alumi-blanks-v1-1U-2hp/2hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/alumi-blanks-v1-1U-2hp.png"
+  },
+  {
+    "directory": "alumi-blanks-v1-1U-3hp",
+    "category": "Plain blanks and adapters",
+    "label": "Plain 1U \u00b7 3 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/alumi-blanks-v1-1U-3hp/3hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/alumi-blanks-v1-1U-3hp.png"
+  },
+  {
+    "directory": "alumi-blanks-v1-1U-4hp",
+    "category": "Plain blanks and adapters",
+    "label": "Plain 1U \u00b7 4 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/alumi-blanks-v1-1U-4hp/4hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/alumi-blanks-v1-1U-4hp.png"
+  },
+  {
+    "directory": "alumi-blanks-v1-1U-5hp",
+    "category": "Plain blanks and adapters",
+    "label": "Plain 1U \u00b7 5 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/alumi-blanks-v1-1U-5hp/5hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/alumi-blanks-v1-1U-5hp.png"
+  },
+  {
+    "directory": "alumi-blanks-v1-1U-6hp",
+    "category": "Plain blanks and adapters",
+    "label": "Plain 1U \u00b7 6 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/alumi-blanks-v1-1U-6hp/6hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/alumi-blanks-v1-1U-6hp.png"
+  },
+  {
+    "directory": "alumi-blanks-v1-1U-8hp",
+    "category": "Plain blanks and adapters",
+    "label": "Plain 1U \u00b7 8 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/alumi-blanks-v1-1U-8hp/8hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/alumi-blanks-v1-1U-8hp.png"
+  },
+  {
+    "directory": "alumi-blanks-v1-3U-10hp",
+    "category": "Plain blanks and adapters",
+    "label": "Plain 3U \u00b7 10 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/alumi-blanks-v1-3U-10hp/10hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/alumi-blanks-v1-3U-10hp.png"
+  },
+  {
+    "directory": "alumi-blanks-v1-3U-12hp",
+    "category": "Plain blanks and adapters",
+    "label": "Plain 3U \u00b7 12 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/alumi-blanks-v1-3U-12hp/12hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/alumi-blanks-v1-3U-12hp.png"
+  },
+  {
+    "directory": "alumi-blanks-v1-3U-14hp",
+    "category": "Plain blanks and adapters",
+    "label": "Plain 3U \u00b7 14 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/alumi-blanks-v1-3U-14hp/14hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/alumi-blanks-v1-3U-14hp.png"
+  },
+  {
+    "directory": "alumi-blanks-v1-3U-16hp",
+    "category": "Plain blanks and adapters",
+    "label": "Plain 3U \u00b7 16 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/alumi-blanks-v1-3U-16hp/16hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/alumi-blanks-v1-3U-16hp.png"
+  },
+  {
+    "directory": "alumi-blanks-v1-3U-1hp",
+    "category": "Plain blanks and adapters",
+    "label": "Plain 3U \u00b7 1 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/alumi-blanks-v1-3U-1hp/1hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/alumi-blanks-v1-3U-1hp.png"
+  },
+  {
+    "directory": "alumi-blanks-v1-3U-2hp",
+    "category": "Plain blanks and adapters",
+    "label": "Plain 3U \u00b7 2 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/alumi-blanks-v1-3U-2hp/2hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/alumi-blanks-v1-3U-2hp.png"
+  },
+  {
+    "directory": "alumi-blanks-v1-3U-3hp",
+    "category": "Plain blanks and adapters",
+    "label": "Plain 3U \u00b7 3 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/alumi-blanks-v1-3U-3hp/3hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/alumi-blanks-v1-3U-3hp.png"
+  },
+  {
+    "directory": "alumi-blanks-v1-3U-4hp",
+    "category": "Plain blanks and adapters",
+    "label": "Plain 3U \u00b7 4 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/alumi-blanks-v1-3U-4hp/4hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/alumi-blanks-v1-3U-4hp.png"
+  },
+  {
+    "directory": "alumi-blanks-v1-3U-5hp",
+    "category": "Plain blanks and adapters",
+    "label": "Plain 3U \u00b7 5 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/alumi-blanks-v1-3U-5hp/5hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/alumi-blanks-v1-3U-5hp.png"
+  },
+  {
+    "directory": "alumi-blanks-v1-3U-6hp",
+    "category": "Plain blanks and adapters",
+    "label": "Plain 3U \u00b7 6 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/alumi-blanks-v1-3U-6hp/6hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/alumi-blanks-v1-3U-6hp.png"
+  },
+  {
+    "directory": "alumi-blanks-v1-3U-8hp",
+    "category": "Plain blanks and adapters",
+    "label": "Plain 3U \u00b7 8 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/alumi-blanks-v1-3U-8hp/8hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/alumi-blanks-v1-3U-8hp.png"
+  },
+  {
+    "directory": "art-10hp-takazudo-modular",
+    "category": "Artwork and layered designs",
+    "label": "10Hp Takazudo Modular",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/art-10hp-takazudo-modular/10hp-z-gold.kicad_pcb"
+    ],
+    "preview": "assets/panels/art-10hp-takazudo-modular.png"
+  },
+  {
+    "directory": "art-12hp-sun",
+    "category": "Artwork and layered designs",
+    "label": "12Hp Sun",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/art-12hp-sun/12hp-sun.kicad_pcb"
+    ],
+    "preview": "assets/panels/art-12hp-sun.png"
+  },
+  {
+    "directory": "art-coral-vault",
+    "category": "Artwork and layered designs",
+    "label": "Coral Vault",
+    "status": "8 selected layers \u00b7 local native DRC/CAM checked \u00b7 factory review pending",
+    "boards": [
+      "panels/art-coral-vault/03-coral-vault-L01-black-enig-art.kicad_pcb",
+      "panels/art-coral-vault/03-coral-vault-L02-green-mask-only.kicad_pcb",
+      "panels/art-coral-vault/03-coral-vault-L03-purple-mask-only.kicad_pcb",
+      "panels/art-coral-vault/03-coral-vault-L04-gold-enig-fill.kicad_pcb",
+      "panels/art-coral-vault/03-coral-vault-L05-red-mask-only.kicad_pcb",
+      "panels/art-coral-vault/03-coral-vault-L06-yellow-mask-only.kicad_pcb",
+      "panels/art-coral-vault/03-coral-vault-L07-red-mask-only.kicad_pcb",
+      "panels/art-coral-vault/03-coral-vault-L08-blue-mask-only.kicad_pcb"
+    ],
+    "preview": "assets/panels/art-coral-vault.png"
+  },
+  {
+    "directory": "art-fault-line",
+    "category": "Artwork and layered designs",
+    "label": "Fault Line",
+    "status": "9 selected layers \u00b7 local native DRC/CAM checked \u00b7 factory review pending",
+    "boards": [
+      "panels/art-fault-line/13-fault-line-L01-black-enig-art.kicad_pcb",
+      "panels/art-fault-line/13-fault-line-L02-red-mask-only.kicad_pcb",
+      "panels/art-fault-line/13-fault-line-L03-black-mask-only.kicad_pcb",
+      "panels/art-fault-line/13-fault-line-L04-red-mask-only.kicad_pcb",
+      "panels/art-fault-line/13-fault-line-L05-black-mask-only.kicad_pcb",
+      "panels/art-fault-line/13-fault-line-L06-red-mask-only.kicad_pcb",
+      "panels/art-fault-line/13-fault-line-L07-black-mask-only.kicad_pcb",
+      "panels/art-fault-line/13-fault-line-L08-red-mask-only.kicad_pcb",
+      "panels/art-fault-line/13-fault-line-L09-black-mask-only.kicad_pcb"
+    ],
+    "preview": "assets/panels/art-fault-line.png"
+  },
+  {
+    "directory": "art-grouped-lowers",
+    "category": "Artwork and layered designs",
+    "label": "Grouped Lowers",
+    "status": "5 grouped sheets \u00b7 local native DRC/CAM checked \u00b7 factory review pending",
+    "boards": [
+      "panels/art-grouped-lowers/lower-panel-black-enig/lower-panel-black-enig.kicad_pcb",
+      "panels/art-grouped-lowers/lower-panel-black-hasl/lower-panel-black-hasl.kicad_pcb",
+      "panels/art-grouped-lowers/lower-panel-green-hasl/lower-panel-green-hasl.kicad_pcb",
+      "panels/art-grouped-lowers/lower-panel-red-hasl/lower-panel-red-hasl.kicad_pcb",
+      "panels/art-grouped-lowers/lower-panel-white-hasl/lower-panel-white-hasl.kicad_pcb"
+    ],
+    "preview": "assets/panels/art-grouped-lowers.png"
+  },
+  {
+    "directory": "art-kumiko-void",
+    "category": "Artwork and layered designs",
+    "label": "Kumiko Void",
+    "status": "9 selected layers \u00b7 local native DRC/CAM checked \u00b7 factory review pending",
+    "boards": [
+      "panels/art-kumiko-void/17-kumiko-void-wide-L01-black-enig-art.kicad_pcb",
+      "panels/art-kumiko-void/17-kumiko-void-wide-L02-red-mask-only.kicad_pcb",
+      "panels/art-kumiko-void/17-kumiko-void-wide-L03-green-mask-only.kicad_pcb",
+      "panels/art-kumiko-void/17-kumiko-void-wide-L04-black-enig-art.kicad_pcb",
+      "panels/art-kumiko-void/17-kumiko-void-wide-L05-red-mask-only.kicad_pcb",
+      "panels/art-kumiko-void/17-kumiko-void-wide-L06-green-mask-only.kicad_pcb",
+      "panels/art-kumiko-void/17-kumiko-void-wide-L07-black-enig-art.kicad_pcb",
+      "panels/art-kumiko-void/17-kumiko-void-wide-L08-red-mask-only.kicad_pcb",
+      "panels/art-kumiko-void/17-kumiko-void-wide-L09-green-mask-only.kicad_pcb"
+    ],
+    "preview": "assets/panels/art-kumiko-void.png"
+  },
+  {
+    "directory": "art-spider-nest",
+    "category": "Artwork and layered designs",
+    "label": "Spider Nest",
+    "status": "8 selected layers \u00b7 local native DRC/CAM checked \u00b7 factory review pending",
+    "boards": [
+      "panels/art-spider-nest/01-spider-nest-L01-black-enig-art.kicad_pcb",
+      "panels/art-spider-nest/01-spider-nest-L02-white-mask-only.kicad_pcb",
+      "panels/art-spider-nest/01-spider-nest-L03-gold-enig-fill.kicad_pcb",
+      "panels/art-spider-nest/01-spider-nest-L04-white-mask-only.kicad_pcb",
+      "panels/art-spider-nest/01-spider-nest-L05-gold-enig-fill.kicad_pcb",
+      "panels/art-spider-nest/01-spider-nest-L06-white-mask-only.kicad_pcb",
+      "panels/art-spider-nest/01-spider-nest-L07-gold-enig-fill.kicad_pcb",
+      "panels/art-spider-nest/01-spider-nest-L08-red-mask-only.kicad_pcb"
+    ],
+    "preview": "assets/panels/art-spider-nest.png"
+  },
+  {
+    "directory": "art-strip-mine",
+    "category": "Artwork and layered designs",
+    "label": "Strip Mine",
+    "status": "9 layered source boards \u00b7 historical project status",
+    "boards": [
+      "panels/art-strip-mine/pcb-01-black/strip-mine-01.kicad_pcb",
+      "panels/art-strip-mine/pcb-02-red/strip-mine-02.kicad_pcb",
+      "panels/art-strip-mine/pcb-03-black/strip-mine-03.kicad_pcb",
+      "panels/art-strip-mine/pcb-04-red/strip-mine-04.kicad_pcb",
+      "panels/art-strip-mine/pcb-05-black/strip-mine-05.kicad_pcb",
+      "panels/art-strip-mine/pcb-06-red/strip-mine-06.kicad_pcb",
+      "panels/art-strip-mine/pcb-07-black/strip-mine-07.kicad_pcb",
+      "panels/art-strip-mine/pcb-08-red/strip-mine-08.kicad_pcb",
+      "panels/art-strip-mine/pcb-09-blue/strip-mine-09.kicad_pcb"
+    ],
+    "preview": "assets/panels/art-strip-mine.png"
+  },
+  {
+    "directory": "art-ufo",
+    "category": "Artwork and layered designs",
+    "label": "Ufo",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/art-ufo/ufo-panel.kicad_pcb"
+    ],
+    "preview": "assets/panels/art-ufo.png"
+  },
+  {
+    "directory": "art-ufo-v2",
+    "category": "Artwork and layered designs",
+    "label": "Ufo V2",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/art-ufo-v2/ufo-panel.kicad_pcb"
+    ],
+    "preview": "assets/panels/art-ufo-v2.png"
+  },
+  {
+    "directory": "art-woven-maze",
+    "category": "Artwork and layered designs",
+    "label": "Woven Maze",
+    "status": "9 selected layers \u00b7 local native DRC/CAM checked \u00b7 factory review pending",
+    "boards": [
+      "panels/art-woven-maze/18-woven-maze-L01-black-enig-art.kicad_pcb",
+      "panels/art-woven-maze/18-woven-maze-L02-white-mask-only.kicad_pcb",
+      "panels/art-woven-maze/18-woven-maze-L03-black-mask-only.kicad_pcb",
+      "panels/art-woven-maze/18-woven-maze-L04-white-mask-only.kicad_pcb",
+      "panels/art-woven-maze/18-woven-maze-L05-black-mask-only.kicad_pcb",
+      "panels/art-woven-maze/18-woven-maze-L06-white-mask-only.kicad_pcb",
+      "panels/art-woven-maze/18-woven-maze-L07-black-mask-only.kicad_pcb",
+      "panels/art-woven-maze/18-woven-maze-L08-white-mask-only.kicad_pcb",
+      "panels/art-woven-maze/18-woven-maze-L09-black-mask-only.kicad_pcb"
+    ],
+    "preview": "assets/panels/art-woven-maze.png"
+  },
+  {
+    "directory": "saucer1-slow-wave-12hp",
+    "category": "Saucer series",
+    "label": "Saucer 1 \u00b7 Slow Wave \u00b7 12 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/saucer1-slow-wave-12hp/12hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/saucer1-slow-wave-12hp.png"
+  },
+  {
+    "directory": "saucer1-slow-wave-1hp",
+    "category": "Saucer series",
+    "label": "Saucer 1 \u00b7 Slow Wave \u00b7 1 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/saucer1-slow-wave-1hp/1hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/saucer1-slow-wave-1hp.png"
+  },
+  {
+    "directory": "saucer1-slow-wave-2hp",
+    "category": "Saucer series",
+    "label": "Saucer 1 \u00b7 Slow Wave \u00b7 2 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/saucer1-slow-wave-2hp/2hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/saucer1-slow-wave-2hp.png"
+  },
+  {
+    "directory": "saucer1-slow-wave-3hp",
+    "category": "Saucer series",
+    "label": "Saucer 1 \u00b7 Slow Wave \u00b7 3 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/saucer1-slow-wave-3hp/3hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/saucer1-slow-wave-3hp.png"
+  },
+  {
+    "directory": "saucer1-slow-wave-4hp",
+    "category": "Saucer series",
+    "label": "Saucer 1 \u00b7 Slow Wave \u00b7 4 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/saucer1-slow-wave-4hp/4hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/saucer1-slow-wave-4hp.png"
+  },
+  {
+    "directory": "saucer2-crystal-flow-12hp",
+    "category": "Saucer series",
+    "label": "Saucer 2 \u00b7 Crystal Flow \u00b7 12 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/saucer2-crystal-flow-12hp/12hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/saucer2-crystal-flow-12hp.png"
+  },
+  {
+    "directory": "saucer2-crystal-flow-1hp",
+    "category": "Saucer series",
+    "label": "Saucer 2 \u00b7 Crystal Flow \u00b7 1 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/saucer2-crystal-flow-1hp/1hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/saucer2-crystal-flow-1hp.png"
+  },
+  {
+    "directory": "saucer2-crystal-flow-2hp",
+    "category": "Saucer series",
+    "label": "Saucer 2 \u00b7 Crystal Flow \u00b7 2 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/saucer2-crystal-flow-2hp/2hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/saucer2-crystal-flow-2hp.png"
+  },
+  {
+    "directory": "saucer2-crystal-flow-3hp",
+    "category": "Saucer series",
+    "label": "Saucer 2 \u00b7 Crystal Flow \u00b7 3 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/saucer2-crystal-flow-3hp/3hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/saucer2-crystal-flow-3hp.png"
+  },
+  {
+    "directory": "saucer2-crystal-flow-4hp",
+    "category": "Saucer series",
+    "label": "Saucer 2 \u00b7 Crystal Flow \u00b7 4 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/saucer2-crystal-flow-4hp/4hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/saucer2-crystal-flow-4hp.png"
+  },
+  {
+    "directory": "saucer3-grid-play-12hp",
+    "category": "Saucer series",
+    "label": "Saucer 3 \u00b7 Grid Play \u00b7 12 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/saucer3-grid-play-12hp/12hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/saucer3-grid-play-12hp.png"
+  },
+  {
+    "directory": "saucer3-grid-play-1hp",
+    "category": "Saucer series",
+    "label": "Saucer 3 \u00b7 Grid Play \u00b7 1 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/saucer3-grid-play-1hp/1hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/saucer3-grid-play-1hp.png"
+  },
+  {
+    "directory": "saucer3-grid-play-2hp",
+    "category": "Saucer series",
+    "label": "Saucer 3 \u00b7 Grid Play \u00b7 2 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/saucer3-grid-play-2hp/2hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/saucer3-grid-play-2hp.png"
+  },
+  {
+    "directory": "saucer3-grid-play-3hp",
+    "category": "Saucer series",
+    "label": "Saucer 3 \u00b7 Grid Play \u00b7 3 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/saucer3-grid-play-3hp/3hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/saucer3-grid-play-3hp.png"
+  },
+  {
+    "directory": "saucer3-grid-play-4hp",
+    "category": "Saucer series",
+    "label": "Saucer 3 \u00b7 Grid Play \u00b7 4 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/saucer3-grid-play-4hp/4hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/saucer3-grid-play-4hp.png"
+  },
+  {
+    "directory": "saucer4-streamlines-12hp",
+    "category": "Saucer series",
+    "label": "Saucer 4 \u00b7 Streamlines \u00b7 12 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/saucer4-streamlines-12hp/12hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/saucer4-streamlines-12hp.png"
+  },
+  {
+    "directory": "saucer4-streamlines-1hp",
+    "category": "Saucer series",
+    "label": "Saucer 4 \u00b7 Streamlines \u00b7 1 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/saucer4-streamlines-1hp/1hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/saucer4-streamlines-1hp.png"
+  },
+  {
+    "directory": "saucer4-streamlines-2hp",
+    "category": "Saucer series",
+    "label": "Saucer 4 \u00b7 Streamlines \u00b7 2 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/saucer4-streamlines-2hp/2hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/saucer4-streamlines-2hp.png"
+  },
+  {
+    "directory": "saucer4-streamlines-3hp",
+    "category": "Saucer series",
+    "label": "Saucer 4 \u00b7 Streamlines \u00b7 3 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/saucer4-streamlines-3hp/3hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/saucer4-streamlines-3hp.png"
+  },
+  {
+    "directory": "saucer4-streamlines-4hp",
+    "category": "Saucer series",
+    "label": "Saucer 4 \u00b7 Streamlines \u00b7 4 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/saucer4-streamlines-4hp/4hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/saucer4-streamlines-4hp.png"
+  },
+  {
+    "directory": "saucer5-rhythm-wave-12hp",
+    "category": "Saucer series",
+    "label": "Saucer 5 \u00b7 Rhythm Wave \u00b7 12 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/saucer5-rhythm-wave-12hp/12hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/saucer5-rhythm-wave-12hp.png"
+  },
+  {
+    "directory": "saucer5-rhythm-wave-1hp",
+    "category": "Saucer series",
+    "label": "Saucer 5 \u00b7 Rhythm Wave \u00b7 1 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/saucer5-rhythm-wave-1hp/1hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/saucer5-rhythm-wave-1hp.png"
+  },
+  {
+    "directory": "saucer5-rhythm-wave-2hp",
+    "category": "Saucer series",
+    "label": "Saucer 5 \u00b7 Rhythm Wave \u00b7 2 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/saucer5-rhythm-wave-2hp/2hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/saucer5-rhythm-wave-2hp.png"
+  },
+  {
+    "directory": "saucer5-rhythm-wave-3hp",
+    "category": "Saucer series",
+    "label": "Saucer 5 \u00b7 Rhythm Wave \u00b7 3 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/saucer5-rhythm-wave-3hp/3hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/saucer5-rhythm-wave-3hp.png"
+  },
+  {
+    "directory": "saucer5-rhythm-wave-4hp",
+    "category": "Saucer series",
+    "label": "Saucer 5 \u00b7 Rhythm Wave \u00b7 4 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/saucer5-rhythm-wave-4hp/4hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/saucer5-rhythm-wave-4hp.png"
+  },
+  {
+    "directory": "saucer6-grainscape-12hp",
+    "category": "Saucer series",
+    "label": "Saucer 6 \u00b7 Grainscape \u00b7 12 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/saucer6-grainscape-12hp/12hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/saucer6-grainscape-12hp.png"
+  },
+  {
+    "directory": "saucer6-grainscape-1hp",
+    "category": "Saucer series",
+    "label": "Saucer 6 \u00b7 Grainscape \u00b7 1 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/saucer6-grainscape-1hp/1hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/saucer6-grainscape-1hp.png"
+  },
+  {
+    "directory": "saucer6-grainscape-2hp",
+    "category": "Saucer series",
+    "label": "Saucer 6 \u00b7 Grainscape \u00b7 2 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/saucer6-grainscape-2hp/2hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/saucer6-grainscape-2hp.png"
+  },
+  {
+    "directory": "saucer6-grainscape-3hp",
+    "category": "Saucer series",
+    "label": "Saucer 6 \u00b7 Grainscape \u00b7 3 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/saucer6-grainscape-3hp/3hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/saucer6-grainscape-3hp.png"
+  },
+  {
+    "directory": "saucer6-grainscape-4hp",
+    "category": "Saucer series",
+    "label": "Saucer 6 \u00b7 Grainscape \u00b7 4 HP",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/saucer6-grainscape-4hp/4hp.kicad_pcb"
+    ],
+    "preview": "assets/panels/saucer6-grainscape-4hp.png"
+  },
+  {
+    "directory": "zb-side-frame-1u",
+    "category": "Side frames",
+    "label": "Zb Side Frame 1U",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/zb-side-frame-1u/zb-side-frame-1u.kicad_pcb"
+    ],
+    "preview": "assets/panels/zb-side-frame-1u.png"
+  },
+  {
+    "directory": "zb-side-frame-3u",
+    "category": "Side frames",
+    "label": "Zb Side Frame 3U",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/zb-side-frame-3u/zd-side-frame-3u.kicad_pcb"
+    ],
+    "preview": "assets/panels/zb-side-frame-3u.png"
+  },
+  {
+    "directory": "zb-side-frame-7u",
+    "category": "Side frames",
+    "label": "Zb Side Frame 7U",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/zb-side-frame-7u/zd-side-frame-7u.kicad_pcb"
+    ],
+    "preview": "assets/panels/zb-side-frame-7u.png"
+  },
+  {
+    "directory": "zb-side-frame-pad-1u",
+    "category": "Side frames",
+    "label": "Zb Side Frame Pad 1U",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/zb-side-frame-pad-1u/1u-padder.kicad_pcb"
+    ],
+    "preview": "assets/panels/zb-side-frame-pad-1u.png"
+  },
+  {
+    "directory": "zb-side-frame-pad-3u",
+    "category": "Side frames",
+    "label": "Zb Side Frame Pad 3U",
+    "status": "Repository design \u00b7 manufacturing status not established",
+    "boards": [
+      "panels/zb-side-frame-pad-3u/3u-padder.kicad_pcb"
+    ],
+    "preview": "assets/panels/zb-side-frame-pad-3u.png"
+  }
+]

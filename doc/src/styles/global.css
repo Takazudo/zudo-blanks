@@ -1,0 +1,74 @@
+/* Cascade layers: preflight → flow → (unlayered utilities). Tokens/base rules
+   ship from @takazudo/zudo-doc/theme.css.
+   NOTE: the `@takazudo/zdtp/styles.css` import is intentionally NOT here —
+   it is inserted right after the @layer line above, ONLY when
+   designTokenPanel is selected (see features/design-token-panel.ts). It
+   can't ship unconditionally because it pulls in zdtp's own bytes. */
+@layer zd-preflight, zd-flow;
+@import "tailwindcss/preflight" layer(zd-preflight);
+@import "tailwindcss/utilities";
+
+/* Package-shipped tokens, safelist, content typography, and feature CSS.
+   Order is load-bearing — theme.css MUST precede features.css. Do not reorder. */
+@import "@takazudo/zudo-doc/theme.css";
+@import "@takazudo/zudo-doc/safelist.css";
+@import "@takazudo/zudo-doc/content.css";
+@import "@takazudo/zudo-doc/page-loading.css";
+@import "@takazudo/zudo-doc/features.css";
+
+/* Scan this project's own source for Tailwind utility classes. */
+@source "src/content/**/*.{mdx,md}";
+@source "src/components/**/*.{tsx,ts,jsx,js}";
+@source "pages/**/*.{tsx,ts,jsx,js}";
+
+/* ── Your token overrides ──────────────────────────────────────────────
+   Override any default @theme token from @takazudo/zudo-doc/theme.css here. */
+@theme {
+  /* e.g. --color-accent: oklch(0.6 0.2 250); */
+}
+
+/* The catalog keeps source proportions visible at narrow and wide widths. */
+.panel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(16rem, 100%), 1fr));
+  gap: 1rem;
+  margin-block: 1.5rem 2rem;
+}
+
+.panel-card {
+  min-width: 0;
+  padding: 0.75rem;
+  border: 1px solid var(--color-border, #d5d9dd);
+  border-radius: 0.5rem;
+  background: var(--color-surface, #fff);
+}
+
+.panel-card img {
+  display: block;
+  width: 100%;
+  height: 13rem;
+  object-fit: contain;
+  background: #f4f3ef;
+}
+
+.panel-card h3 {
+  margin-block: 0.75rem 0.25rem;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+.panel-card p {
+  margin-block: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.panel-card small {
+  overflow-wrap: anywhere;
+}
+
+.design-preview {
+  display: block;
+  width: min(100%, 48rem);
+  height: auto;
+  margin-block: 1rem;
+}
