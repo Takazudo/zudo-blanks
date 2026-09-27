@@ -138,6 +138,7 @@ def load_inventory(boards_root: Path = REPO) -> tuple[list[dict[str, Any]], dict
         "policySha256": sha256_file(POLICY),
         "generatorSha256": sha256_file(GENERATOR),
         "verifierSha256": sha256_file(Path(__file__).resolve()),
+        "evidenceBuilderSha256": sha256_file(Path(__file__).resolve()),
         "requirementsSha256": sha256_file(PCB_ART / "preview-source" / "requirements.txt"),
         "pythonVersion": sys.version.split()[0],
         "shapelyVersion": shapely.__version__,
@@ -1371,6 +1372,7 @@ def _report_board(record: dict[str, Any]) -> dict[str, Any]:
     return {
         "id": record["id"], "category": record["category"],
         "nativeBoard": record["nativeBoard"], "nativeSha256": record["nativeSha256"],
+        "layerNumber": record.get("layerNumber"),
         "projectSha256": record.get("projectSha256"),
         "ruleContract": record.get("ruleContract"),
         "auditedRuleSeverities": {key: severity_map[key] for key in audited_rules if key in severity_map},
@@ -1413,6 +1415,8 @@ def _drc_violation_summary(drc: dict[str, Any], selected: bool,
         unexplained = []
         if drc["violationCount"]:
             unexplained.append("DRC violations are not covered by a board-specific approved exception")
+        if drc["unconnectedItemCount"]:
+            unexplained.append("KiCad reports unconnected items on the selected board")
         if drc["unclassifiedIgnoredChecks"]:
             unexplained.append("KiCad ignored checks lack a documented board-only disposition")
         if rule_error:
@@ -1458,6 +1462,8 @@ def _make_compact_evidence(run_record: dict[str, Any], board_records: list[dict[
         "cliHelpSha256": run_record["cliHelpSha256"],
         "inputs": run_record["inputs"],
         "commands": run_record["commands"],
+        "evidenceRecomputedFrom": run_record.get("evidenceRecomputedFrom"),
+        "evidenceRecomputedUtc": run_record.get("evidenceRecomputedUtc"),
         "nativeLoads": {
             "boardCount": len(board_records), "reportsCreated": sum(bool(b.get("drc", {}).get("nativeLoadReportCreated")) for b in board_records),
             "selectedBoardCount": len(selected), "selectedCleanDrcCount": len(selected_clean),
@@ -1504,6 +1510,8 @@ def _make_compact_evidence(run_record: dict[str, Any], board_records: list[dict[
         "kicadVersion": run_record["kicadVersion"],
         "kicadCli": run_record["kicadCli"],
         "inputHashes": run_record["inputs"],
+        "evidenceRecomputedFrom": run_record.get("evidenceRecomputedFrom"),
+        "evidenceRecomputedUtc": run_record.get("evidenceRecomputedUtc"),
         "boards": [],
     }
     for board in board_records:
@@ -1595,6 +1603,7 @@ def run_pipeline(args: argparse.Namespace) -> int:
         record = {
             "id": board["id"], "category": board["category"],
             "nativeBoard": board["nativeBoard"], "nativeSha256": board["nativeSha256"],
+            "layerNumber": board["layerNumber"],
             "expectedNativeSha256": board["expectedNativeSha256"],
             "projectPath": board.get("projectPath"), "projectSha256": board.get("projectSha256"),
             "drcReportPath": str((target / "drc.json").relative_to(output)),
@@ -1693,6 +1702,177 @@ def run_pipeline(args: argparse.Namespace) -> int:
     return 0 if run_record["status"] == "pass_local_native_and_cam_checks" else 1
 
 
+def _verify_recorded_cam_outputs(board: dict[str, Any], cam: dict[str, Any], output: Path) -> None:
+    board_output = output / "cam" / board["id"]
+    cam_dir = board_output / "cam"
+    recorded_files = cam.get("files", [])
+    recorded_names = sorted(item["name"] for item in recorded_files)
+    actual_paths = sorted(path for path in cam_dir.iterdir() if path.is_file()) if cam_dir.is_dir() else []
+    actual_names = [path.name for path in actual_paths]
+    if actual_names != recorded_names:
+        raise ValueError(f"{board['id']}: existing CAM file set changed since verification")
+    for item, path in zip(sorted(recorded_files, key=lambda row: row["name"]), actual_paths):
+        if (path.stat().st_size != item["sizeBytes"] or
+                sha256_file(path) != item["sha256"]):
+            raise ValueError(f"{board['id']}: recorded CAM hash changed: {path.name}")
+
+    package = cam.get("packageZip")
+    if not package:
+        raise ValueError(f"{board['id']}: existing CAM verification lacks a package ZIP record")
+    zip_path = output / "packages" / package["name"]
+    if (not zip_path.is_file() or zip_path.stat().st_size != package["sizeBytes"] or
+            sha256_file(zip_path) != package["sha256"]):
+        raise ValueError(f"{board['id']}: recorded package ZIP hash changed")
+    manifest_path = board_output / "package-manifest.json"
+    if (not manifest_path.is_file() or
+            sha256_file(manifest_path) != package["packageManifestSha256"]):
+        raise ValueError(f"{board['id']}: recorded package manifest hash changed")
+    expected_members = {item["name"] for item in package.get("camFiles", [])}
+    expected_members.add("package-manifest.json")
+    with zipfile.ZipFile(zip_path) as archive:
+        if set(archive.namelist()) != expected_members:
+            raise ValueError(f"{board['id']}: package ZIP member list changed")
+
+
+def rebuild_evidence_from_existing_run(args: argparse.Namespace) -> int:
+    run_path = args.rebuild_evidence_from.resolve()
+    if not run_path.is_file():
+        raise RuntimeError(f"Existing verifier run record not found: {run_path}")
+    run_record = json.loads(run_path.read_text())
+    output = Path(run_record["rawOutputRoot"]).resolve()
+    if not output.is_dir():
+        raise RuntimeError(f"Existing verifier raw output directory not found: {output}")
+
+    archived_run_path = output / "native-cam-run.execution.json"
+    if archived_run_path.is_file():
+        execution_run_sha256 = sha256_file(archived_run_path)
+    else:
+        execution_run_sha256 = sha256_file(run_path)
+        shutil.copy2(run_path, archived_run_path)
+
+    inventory, evidence = load_inventory(args.boards_root.resolve())
+    prior_inputs = run_record.get("inputs", {})
+    stable_inputs = (
+        "manifestSha256", "nativeGenerationSha256", "policySha256", "generatorSha256",
+        "requirementsSha256", "pythonVersion", "shapelyVersion", "pillowVersion",
+        "selectedCount", "alternativeCount",
+    )
+    changed_inputs = {key: (prior_inputs.get(key), evidence.get(key))
+                      for key in stable_inputs if prior_inputs.get(key) != evidence.get(key)}
+    if changed_inputs:
+        raise RuntimeError(f"Current verification inputs differ from the existing run: {changed_inputs}")
+    execution_verifier_sha256 = prior_inputs.get("verifierSha256")
+    if not execution_verifier_sha256:
+        raise RuntimeError("Existing run record does not bind the verifier used for DRC/CAM execution")
+
+    previous_boards = run_record.get("boards", [])
+    previous_by_id = {board["id"]: board for board in previous_boards}
+    inventory_by_id = {board["id"]: board for board in inventory}
+    if len(previous_by_id) != len(previous_boards) or set(previous_by_id) != set(inventory_by_id):
+        raise RuntimeError("Existing run does not contain exactly the current 52-board inventory")
+
+    board_records: list[dict[str, Any]] = []
+    thumbnails: list[tuple[dict[str, Any], Path | None]] = []
+    for board in inventory:
+        prior = previous_by_id[board["id"]]
+        if (prior.get("nativeSha256") != board["nativeSha256"] or
+                prior.get("projectSha256") != board.get("projectSha256")):
+            raise RuntimeError(f"{board['id']}: native source/project hash differs from the executed run")
+        if not prior.get("sourceUnchanged") or not current_source_status(board):
+            raise RuntimeError(f"{board['id']}: source board or project changed after the executed run")
+
+        target = output / "native" / board["id"]
+        drc_path = target / "drc.json"
+        old_drc = prior.get("nativeLoad") or {}
+        command_exit = old_drc.get("commandExitCode")
+        if command_exit not in (0, 5) or not drc_path.is_file():
+            raise RuntimeError(f"{board['id']}: existing DRC report is missing or the command did not complete")
+        drc_sha256 = sha256_file(drc_path)
+        if (drc_sha256 != old_drc.get("reportSha256") or
+                drc_path.stat().st_size != old_drc.get("reportSizeBytes")):
+            raise RuntimeError(f"{board['id']}: existing DRC report hash/size changed")
+        drc = summarize_drc(drc_path, command_exit)
+        for key in ("violationCount", "violationsBySeverity", "violationsByType",
+                    "unconnectedItemCount", "ignoredChecks", "unclassifiedIgnoredChecks"):
+            if drc.get(key) != old_drc.get(key):
+                raise RuntimeError(f"{board['id']}: DRC summary no longer matches raw report ({key})")
+        drc["reportSha256"] = drc_sha256
+        drc["reportSizeBytes"] = drc_path.stat().st_size
+
+        rule_error = None
+        try:
+            contract = parse_rule_contract(board, evidence["policy"])
+        except Exception as exc:
+            contract = None
+            rule_error = str(exc)
+        record: dict[str, Any] = {
+            "id": board["id"], "category": board["category"],
+            "nativeBoard": board["nativeBoard"],
+            "nativeSha256": board["nativeSha256"],
+            "expectedNativeSha256": board["expectedNativeSha256"],
+            "layerNumber": board["layerNumber"],
+            "projectPath": board.get("projectPath"),
+            "projectSha256": board.get("projectSha256"),
+            "drcReportPath": str(drc_path.relative_to(output)),
+            "ruleContract": ({key: value for key, value in contract.items()
+                              if key != "ruleSeverities"} if contract else None),
+            "ruleSeverities": contract.get("ruleSeverities") if contract else None,
+            "drc": _drc_violation_summary(drc, board["category"] == "selected", rule_error),
+            "commandFailure": False,
+            "sourceUnchanged": True,
+        }
+        if rule_error:
+            record["ruleContractError"] = rule_error
+
+        if board["category"] == "selected":
+            prior_cam = prior.get("cam") or {}
+            if prior_cam.get("status") != "pass" or prior_cam.get("commandFailure"):
+                raise RuntimeError(f"{board['id']}: existing CAM run was not a verified pass")
+            _verify_recorded_cam_outputs(board, prior_cam, output)
+            record["cam"] = prior_cam
+            if board["layerNumber"] == 1:
+                thumb = output / "cam-review" / f"{board['id']}.png"
+                thumbnails.append((board, thumb if thumb.is_file() else None))
+
+        board_records.append(record)
+
+    run_record["inputs"]["executionVerifierSha256"] = execution_verifier_sha256
+    run_record["inputs"]["evidenceBuilderSha256"] = evidence["verifierSha256"]
+    run_record["evidenceRecomputedFrom"] = {
+        "path": archived_run_path.name,
+        "sha256": execution_run_sha256,
+        "method": "reused verified DRC/CAM summaries after rechecking raw report, source, file and ZIP hashes",
+        "kicadCommandsReexecuted": False,
+        "camGeometryReparsed": False,
+    }
+    run_record["evidenceRecomputedUtc"] = utc_now()
+    selected_records = [record for record in board_records if record["category"] == "selected"]
+    native_ok = all(record["drc"].get("nativeLoadReportCreated") and not record["commandFailure"]
+                    for record in board_records)
+    selected_ok = all(selected_drc_is_clean(record) for record in selected_records)
+    cam_ok = all(record.get("cam", {}).get("status") == "pass" for record in selected_records)
+    sources_ok = all(record.get("sourceUnchanged") for record in board_records)
+    run_record["status"] = ("pass_local_native_and_cam_checks"
+                             if native_ok and selected_ok and cam_ok and sources_ok
+                             else "blocked_by_local_findings")
+    run_record["boards"] = [_report_board(record) for record in board_records]
+    write_json(output / "native-cam-run.json", run_record)
+
+    report_path, manifest_path, image_path = _make_compact_evidence(
+        run_record, board_records, output, args.evidence_dir.resolve(), thumbnails)
+    print(json.dumps({
+        "status": run_record["status"],
+        "executionVerifierSha256": execution_verifier_sha256,
+        "evidenceBuilderSha256": evidence["verifierSha256"],
+        "nativeReports": len(board_records),
+        "selectedCleanDrc": sum(selected_drc_is_clean(record) for record in selected_records),
+        "camVerified": sum(record.get("cam", {}).get("status") == "pass" for record in selected_records),
+        "report": str(report_path), "manifest": str(manifest_path),
+        "appearance": str(image_path), "rawOutput": str(output),
+    }, indent=2))
+    return 0 if run_record["status"] == "pass_local_native_and_cam_checks" else 1
+
+
 def verify_existing(args: argparse.Namespace) -> int:
     inventory, _ = load_inventory(args.boards_root.resolve())
     boards = [board for board in inventory if board["id"] == args.board_id]
@@ -1714,6 +1894,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--execute", action="store_true", help="Run KiCad DRC on all 52 boards")
     parser.add_argument("--export-selected", action="store_true", help="Also export and verify CAM for the 43 selected boards")
     parser.add_argument("--verify-existing", action="store_true", help="Read-only CAM smoke against an existing one-board output folder")
+    parser.add_argument("--rebuild-evidence-from", type=Path,
+                        help="Rebuild compact evidence from a completed raw run without invoking KiCad")
     parser.add_argument("--board-id", help="Manifest board id used with --verify-existing")
     parser.add_argument("--cam-dir", type=Path, help="Existing Gerber directory used with --verify-existing")
     parser.add_argument("--drill-dir", type=Path, help="Optional existing Excellon directory if split from Gerbers")
@@ -1729,6 +1911,10 @@ def build_parser() -> argparse.ArgumentParser:
 def main() -> int:
     parser = build_parser()
     args = parser.parse_args()
+    if args.rebuild_evidence_from:
+        if args.execute or args.export_selected or args.verify_existing or args.output:
+            parser.error("--rebuild-evidence-from reuses an existing run; do not combine it with KiCad run flags")
+        return rebuild_evidence_from_existing_run(args)
     if args.verify_existing:
         if args.execute or args.export_selected or args.output:
             parser.error("--verify-existing is read-only; do not combine it with run/output flags")

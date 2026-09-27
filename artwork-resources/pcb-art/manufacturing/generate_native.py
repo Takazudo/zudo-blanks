@@ -9,10 +9,11 @@ from __future__ import annotations
 import copy
 import hashlib
 import json
+import math
 from pathlib import Path
 
 import shapely
-from shapely.geometry import Polygon
+from shapely.geometry import LinearRing, Polygon
 
 from repair_mask_candidate import HERE, ROOT, board_id, digest, export
 
@@ -20,6 +21,18 @@ REPO=ROOT.parents[1]
 OUTPUT=HERE/'native-generation.json'
 TEMPLATE=REPO/'panels/art-strip-mine/pcb-01-black/strip-mine-01.kicad_pro'
 SERIALIZED_ART_MAX_DELTA_MM2=.02  # Existing export_kicad.py output-level limit.
+EDGE_MIN_SEGMENT_MM=.001  # Preserve previously clean contours' segmentation.
+EDGE_DRC_CONTOUR_REPAIR_MM=.003001
+EDGE_COLLINEAR_SEGMENT_MM=.0044
+EDGE_DRC_CONTOUR_REPAIR_BOARDS={
+    '01-spider-nest-L03-gold-enig-fill',
+    '13-fault-line-L02-red-mask-only',
+    '13-fault-line-L07-black-mask-only',
+    '13-fault-line-L08-red-mask-only',
+    '18-woven-maze-L07-black-mask-only',
+}
+EDGE_MAX_DEVIATION_MM=.001
+EDGE_MAX_AREA_DELTA_MM2=.02
 
 
 def home_path(design, layer):
@@ -34,9 +47,93 @@ def project_content(stem):
     rules['min_copper_edge_clearance']=.30
     rules['min_hole_clearance']=.30
     rules['solder_mask_to_copper_clearance']=0.0
+    severities=data['board']['design_settings']['rule_severities']
+    # The Strip Mine template ignores these fabrication checks. Native art
+    # boards must run them; board-only NPTH/library checks remain documented
+    # separately in the independent DRC report.
+    for name in ('copper_edge_clearance','solder_mask_bridge','shorting_items'):
+        severities[name]='error'
     data['meta']['filename']=stem+'.kicad_pro'
     data['schematic']['top_level_sheets']=[]
     return json.dumps(data,indent=2)+'\n'
+
+
+def _collinear_between(a,b,c):
+    """Exact test on KiCad's serialized 1 nm coordinate grid."""
+    ax,ay=(round(v*1_000_000) for v in a)
+    bx,by=(round(v*1_000_000) for v in b)
+    cx,cy=(round(v*1_000_000) for v in c)
+    return ((bx-ax)*(cy-ay)==(by-ay)*(cx-ax)
+            and min(ax,cx)<=bx<=max(ax,cx)
+            and min(ay,cy)<=by<=max(ay,cy))
+
+
+def native_edge_rings(rings, min_segment_mm=EDGE_MIN_SEGMENT_MM,
+                      ring_thresholds=None, collinear_rings=None):
+    """Remove short serialized Edge.Cuts segments rejected by KiCad DRC.
+
+    Copper/mask artwork and the source geometry are unchanged. Both contour
+    displacement and area change are bounded against the 1 nm input rings.
+    """
+    result=[]
+    removed=0
+    max_deviation=0.0
+    area_delta=0.0
+    for ring_index,ring in enumerate(rings):
+        before=export.ring_points(ring)
+        points=before.copy()
+        if len(points)<3 or not Polygon(points).is_valid:
+            raise ValueError('Source Edge.Cuts ring is invalid at 1 nm precision')
+        # A few apertures split straight runs into micrometre stubs.
+        # Removing only redundant points preserves the exact path.
+        # Other rings keep their original segmentation: KiCad's polygonizer
+        # can be sensitive to a changed starting vertex even with no
+        # geometric displacement.
+        if ring_index in (collinear_rings or ()):
+            while True:
+                redundant=next((i for i in range(len(points))
+                                if math.dist(points[i],points[(i+1)%len(points)])
+                                <EDGE_COLLINEAR_SEGMENT_MM
+                                and _collinear_between(points[i-1],points[i],
+                                                       points[(i+1)%len(points)])),None)
+                if redundant is None:
+                    redundant=next((i for i in range(len(points))
+                                    if math.dist(points[i],points[(i+1)%len(points)])
+                                    <EDGE_COLLINEAR_SEGMENT_MM
+                                    and _collinear_between(points[i],
+                                                           points[(i+1)%len(points)],
+                                                           points[(i+2)%len(points)])),None)
+                    if redundant is not None:
+                        redundant=(redundant+1)%len(points)
+                if redundant is None:
+                    break
+                del points[redundant]
+                removed+=1
+                if len(points)<3:
+                    raise ValueError('Edge.Cuts collinear repair collapsed a loop')
+        threshold=(ring_thresholds or {}).get(ring_index,min_segment_mm)
+        while True:
+            short=next((i for i in range(len(points))
+                        if math.dist(points[i-1],points[i])<threshold),None)
+            if short is None:
+                break
+            del points[short]
+            removed+=1
+            if len(points)<3:
+                raise ValueError('Edge.Cuts short-segment repair collapsed a loop')
+        after=Polygon(points)
+        if not after.is_valid:
+            raise ValueError('Edge.Cuts short-segment repair invalidated a loop')
+        original=LinearRing(before)
+        repaired=LinearRing(points)
+        max_deviation=max(max_deviation,original.hausdorff_distance(repaired))
+        area_delta+=Polygon(before).symmetric_difference(after).area
+        result.append(repaired)
+    if max_deviation>EDGE_MAX_DEVIATION_MM+1e-9 or area_delta>EDGE_MAX_AREA_DELTA_MM2:
+        raise ValueError('Edge.Cuts short-segment repair exceeds native tolerance')
+    return result,{'removedShortSegments':removed,
+                   'maxDeviationMm':round(max_deviation,9),
+                   'areaDeltaMm2':round(area_delta,9)}
 
 
 def native_parts_with_precision_repair(geom):
@@ -141,7 +238,22 @@ def run():
         drills=export.drill_specs(layer,data['spec'])
         decorative=export.split_functional_holes(layer,drills)
         outline=Polygon(layer['outer'])
-        edge_rings=[outline.exterior]+[p.exterior for p in decorative]
+        edge_rings,edge_precision=native_edge_rings(
+            [outline.exterior]+[p.exterior for p in decorative],
+            (EDGE_DRC_CONTOUR_REPAIR_MM if name in EDGE_DRC_CONTOUR_REPAIR_BOARDS
+             else EDGE_MIN_SEGMENT_MM),
+            ({3:.0031} if name=='01-spider-nest-L03-gold-enig-fill' else None),
+            ({1} if name in ('13-fault-line-L08-red-mask-only',
+                             '18-woven-maze-L07-black-mask-only') else None))
+        edge_precision['rotatedStartVertexRingIndices']=[]
+        if name=='18-woven-maze-L08-white-mask-only':
+            # KiCad 10's outline polygonizer reports a false intersection at
+            # this aperture's original near-tangent starting vertex. Rotate
+            # the closed contour seam to a smooth point. Every segment and
+            # the routed geometry remain identical.
+            points=export.ring_points(edge_rings[4])
+            edge_rings[4]=LinearRing(points[50:]+points[:50])
+            edge_precision['rotatedStartVertexRingIndices']=[4]
         if layer['finish']=='mask-only':
             copper=Polygon();mask=Polygon()
         else:
@@ -164,6 +276,7 @@ def run():
             'project':str(project.relative_to(REPO)),
             'projectSha256':digest(project_text.encode()),
             'edgeLoopCount':len(edge_rings),
+            'edgePrecisionRepair':edge_precision,
             'npthRoundCount':sum(d['shape']=='circle' for d in drills),
             'npthSlotCount':sum(d['shape']=='oval' for d in drills),
             'nativeCopperPolygons':len(cu_parts),

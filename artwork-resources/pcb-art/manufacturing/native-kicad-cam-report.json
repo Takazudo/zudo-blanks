@@ -1,0 +1,176 @@
+{
+  "schemaVersion": 1,
+  "status": "pass_local_native_and_cam_checks",
+  "releaseStatus": "candidate only; factory acceptance is not claimed",
+  "startedUtc": "2026-09-27T07:33:03.646429+00:00",
+  "finishedUtc": "2026-09-27T07:46:08.914834+00:00",
+  "kicadVersion": "10.0.0",
+  "kicadCli": "/Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli",
+  "cliHelpSha256": "320753d670b5e2a0728af58a0fd678845335d084e9cf835ee409b753ae103194",
+  "inputs": {
+    "manifestSha256": "95b25b4b7bf775ea4006bfcfef532af4db6cfa01f1396f6567280ebb7b04d221",
+    "nativeGenerationSha256": "67094bb0795c0d073772306999ae9a6acbf08c965718d5cd7a3e045b2e379e8f",
+    "policySha256": "e6f9295c0a24e1d22f9176f8d9e4259726130df50bd3f5e41c80c3254d2c9ba6",
+    "generatorSha256": "50886a80d047046fc02c49b5cf4beaaad5641169f00ad0345d9c974a831ee946",
+    "verifierSha256": "de156c11c084fd304dbddf3be300cbcf0f32cfd94b0c13cbf6d82016a0fec3c8",
+    "requirementsSha256": "ab90dff940bcbe3540ae3f2cb62b57ba8b053d3bc6b53ac1588a2e49edc2c57f",
+    "pythonVersion": "3.13.15",
+    "shapelyVersion": "2.1.2",
+    "pillowVersion": "12.3.0",
+    "selectedCount": 43,
+    "alternativeCount": 9,
+    "executionVerifierSha256": "de156c11c084fd304dbddf3be300cbcf0f32cfd94b0c13cbf6d82016a0fec3c8",
+    "evidenceBuilderSha256": "e0037aa2d0564aaea4fd922328f04b991ca44ad98f4c84ac640189904c801a04"
+  },
+  "commands": {
+    "drc": [
+      "pcb",
+      "drc",
+      "--format",
+      "json",
+      "--units",
+      "mm",
+      "--severity-all",
+      "--severity-exclusions",
+      "--exit-code-violations",
+      "--output",
+      "<board-output>/drc.json",
+      "<board.kicad_pcb>"
+    ],
+    "gerbers": [
+      "pcb",
+      "export",
+      "gerbers",
+      "--layers",
+      "F.Cu,B.Cu,F.Mask,B.Mask,Edge.Cuts",
+      "--precision",
+      "6",
+      "--output",
+      "<board-cam-directory>/",
+      "<board.kicad_pcb>"
+    ],
+    "drills": [
+      "pcb",
+      "export",
+      "drill",
+      "--format",
+      "excellon",
+      "--drill-origin",
+      "absolute",
+      "--excellon-units",
+      "mm",
+      "--excellon-zeros-format",
+      "decimal",
+      "--excellon-oval-format",
+      "route",
+      "--excellon-separate-th",
+      "--generate-map",
+      "--map-format",
+      "svg",
+      "--generate-report",
+      "--report-path",
+      "<board-cam-directory>/drill.rpt",
+      "--output",
+      "<board-cam-directory>/",
+      "<board.kicad_pcb>"
+    ],
+    "localRuleContract": {
+      "minimumCopperGapMm": 0.25,
+      "copperToEdgeOrDrillMm": 0.3,
+      "minimumCopperUnderMaskMm": 0.05,
+      "numericDistanceToleranceMm": 0.001,
+      "numericAreaToleranceMm2": 1e-05
+    }
+  },
+  "evidenceRecomputedFrom": {
+    "path": "native-cam-run.execution.json",
+    "sha256": "01402c9c4afc41186e7b9b7a082cba6deb4a0d9ad0d2f28a35502a77620f357e",
+    "method": "reused verified DRC/CAM summaries after rechecking raw report, source, file and ZIP hashes",
+    "kicadCommandsReexecuted": false,
+    "camGeometryReparsed": false
+  },
+  "evidenceRecomputedUtc": "2026-09-27T07:54:02.212344+00:00",
+  "nativeLoads": {
+    "boardCount": 52,
+    "reportsCreated": 52,
+    "selectedBoardCount": 43,
+    "selectedCleanDrcCount": 43,
+    "selectedCommandFailureIds": [],
+    "commandFailureIds": [],
+    "referenceAlternativeCount": 9,
+    "referenceFindingsByType": {
+      "17-kumiko-void-standard-L01-black-enig-art": {
+        "copper_edge_clearance": 199,
+        "lib_footprint_issues": 8
+      },
+      "17-kumiko-void-standard-L02-red-mask-only": {
+        "lib_footprint_issues": 4
+      },
+      "17-kumiko-void-standard-L03-green-mask-only": {
+        "lib_footprint_issues": 4
+      },
+      "17-kumiko-void-standard-L04-black-enig-art": {
+        "copper_edge_clearance": 33,
+        "copper_sliver": 20,
+        "lib_footprint_issues": 4
+      },
+      "17-kumiko-void-standard-L05-red-mask-only": {
+        "lib_footprint_issues": 4
+      },
+      "17-kumiko-void-standard-L06-green-mask-only": {
+        "lib_footprint_issues": 4
+      },
+      "17-kumiko-void-standard-L07-black-enig-art": {
+        "copper_edge_clearance": 29,
+        "copper_sliver": 15,
+        "lib_footprint_issues": 4
+      },
+      "17-kumiko-void-standard-L08-red-mask-only": {
+        "lib_footprint_issues": 4
+      },
+      "17-kumiko-void-standard-L09-green-mask-only": {
+        "lib_footprint_issues": 4
+      }
+    },
+    "unclassifiedIgnoredCheckIds": {},
+    "projectRuleErrors": {}
+  },
+  "cam": {
+    "selectedBoardCount": 43,
+    "verifiedBoardCount": 43,
+    "commandFailureIds": [],
+    "packageCount": 43,
+    "perBoardZipDirectory": "local/ignored run output only",
+    "checks": [
+      "native Edge.Cuts segment identity and closed loops",
+      "F.Cu/F.Mask positive-region contour identity",
+      "NPTH-only front/back mask flashes and empty back copper art",
+      "four Ø3.2 NPTH mounts and top-only 10.28 × 3.2 NPTH routes",
+      "finish/color metadata, file hashes, and representative CAM rendering"
+    ]
+  },
+  "representativeAppearance": {
+    "status": "complete",
+    "expectedTopBoardCount": 5,
+    "renderedTopBoardIds": [
+      "01-spider-nest-L01-black-enig-art",
+      "03-coral-vault-L01-black-enig-art",
+      "13-fault-line-L01-black-enig-art",
+      "17-kumiko-void-wide-L01-black-enig-art",
+      "18-woven-maze-L01-black-enig-art"
+    ],
+    "missingTopBoardIds": [],
+    "image": "native-cam-representative.png"
+  },
+  "sourceFilesUnchanged": true,
+  "pendingExternalChecks": [
+    "factory CAM acceptance",
+    "quote/order",
+    "physical fit"
+  ],
+  "optInDiagnostics": [
+    "exhaustive all-boundary width certificate",
+    "broad full-union width reconstruction"
+  ],
+  "rawOutput": "generated locally at the caller-specified output path; not committed"
+}

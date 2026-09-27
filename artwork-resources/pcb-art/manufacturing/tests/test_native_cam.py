@@ -79,6 +79,38 @@ M30
         self.assertTrue(cam.selected_drc_is_clean(passing))
         self.assertFalse(cam.selected_drc_is_clean(blocked))
 
+    def test_run_record_projection_preserves_board_layer_number(self):
+        record = {
+            "id": "top-board", "category": "selected",
+            "nativeBoard": "panels/top-board.kicad_pcb",
+            "nativeSha256": "a" * 64, "projectSha256": "b" * 64,
+            "layerNumber": 1, "ruleContract": {}, "ruleSeverities": {},
+            "drc": {"selectedAcceptance": "pass"}, "cam": {"status": "pass"},
+            "sourceUnchanged": True,
+        }
+        self.assertEqual(cam._report_board(record)["layerNumber"], 1)
+
+    def test_selected_drc_blocks_unconnected_items_even_without_violations(self):
+        summary = {
+            "status": "clean",
+            "commandExitCode": 0,
+            "nativeLoadReportCreated": True,
+            "kicadVersionInReport": "KiCad 10",
+            "violationCount": 0,
+            "violationsBySeverity": {},
+            "violationsByType": {},
+            "unconnectedItemCount": 1,
+            "ignoredChecks": [],
+            "unclassifiedIgnoredChecks": [],
+            "sampleViolations": [],
+            "allViolationsRecordedInRawReport": True,
+        }
+        selected = cam._drc_violation_summary(summary, selected=True, rule_error=None)
+        reference = cam._drc_violation_summary(summary, selected=False, rule_error=None)
+        self.assertEqual(selected["selectedAcceptance"], "blocker")
+        self.assertIn("KiCad reports unconnected items on the selected board", selected["unexplainedFindings"])
+        self.assertEqual(reference["selectedAcceptance"], "reference-only; findings retained separately")
+
     def test_source_status_binds_both_native_board_and_project(self):
         with tempfile.TemporaryDirectory() as directory:
             native = Path(directory) / "board.kicad_pcb"
