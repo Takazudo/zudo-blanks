@@ -1,0 +1,494 @@
+{
+  "schemaVersion": 1,
+  "status": "local_native_and_cam_pass; factory_CAM_quote_and_fit_pending",
+  "policyDecisionId": "fabrication-2026-09-25",
+  "packageCount": 13,
+  "orderedSheetsAndStandaloneUnits": 325,
+  "usefulBoardCount": 1075,
+  "usefulYieldByBoardId": {
+    "01-spider-nest-L01-black-enig-art": 25,
+    "01-spider-nest-L02-white-mask-only": 25,
+    "01-spider-nest-L03-gold-enig-fill": 25,
+    "01-spider-nest-L04-white-mask-only": 25,
+    "01-spider-nest-L05-gold-enig-fill": 25,
+    "01-spider-nest-L06-white-mask-only": 25,
+    "01-spider-nest-L07-gold-enig-fill": 25,
+    "01-spider-nest-L08-red-mask-only": 25,
+    "03-coral-vault-L01-black-enig-art": 25,
+    "03-coral-vault-L02-green-mask-only": 25,
+    "03-coral-vault-L03-purple-mask-only": 25,
+    "03-coral-vault-L04-gold-enig-fill": 25,
+    "03-coral-vault-L05-red-mask-only": 25,
+    "03-coral-vault-L06-yellow-mask-only": 25,
+    "03-coral-vault-L07-red-mask-only": 25,
+    "03-coral-vault-L08-blue-mask-only": 25,
+    "13-fault-line-L01-black-enig-art": 25,
+    "13-fault-line-L02-red-mask-only": 25,
+    "13-fault-line-L03-black-mask-only": 25,
+    "13-fault-line-L04-red-mask-only": 25,
+    "13-fault-line-L05-black-mask-only": 25,
+    "13-fault-line-L06-red-mask-only": 25,
+    "13-fault-line-L07-black-mask-only": 25,
+    "13-fault-line-L08-red-mask-only": 25,
+    "13-fault-line-L09-black-mask-only": 25,
+    "17-kumiko-void-wide-L01-black-enig-art": 25,
+    "17-kumiko-void-wide-L02-red-mask-only": 25,
+    "17-kumiko-void-wide-L03-green-mask-only": 25,
+    "17-kumiko-void-wide-L04-black-enig-art": 25,
+    "17-kumiko-void-wide-L05-red-mask-only": 25,
+    "17-kumiko-void-wide-L06-green-mask-only": 25,
+    "17-kumiko-void-wide-L07-black-enig-art": 25,
+    "17-kumiko-void-wide-L08-red-mask-only": 25,
+    "17-kumiko-void-wide-L09-green-mask-only": 25,
+    "18-woven-maze-L01-black-enig-art": 25,
+    "18-woven-maze-L02-white-mask-only": 25,
+    "18-woven-maze-L03-black-mask-only": 25,
+    "18-woven-maze-L04-white-mask-only": 25,
+    "18-woven-maze-L05-black-mask-only": 25,
+    "18-woven-maze-L06-white-mask-only": 25,
+    "18-woven-maze-L07-black-mask-only": 25,
+    "18-woven-maze-L08-white-mask-only": 25,
+    "18-woven-maze-L09-black-mask-only": 25
+  },
+  "wasteCells": 75,
+  "unavoidableSurplusFinishedBoards": 0,
+  "selectedBoardCount": 43,
+  "designs": {
+    "coral-vault": {
+      "boardIds": 8,
+      "completeStacks": 25,
+      "boardsPerStack": 8,
+      "nominalDepthMm": 33.8
+    },
+    "fault-line": {
+      "boardIds": 9,
+      "completeStacks": 25,
+      "boardsPerStack": 9,
+      "nominalDepthMm": 38.4
+    },
+    "kumiko-void": {
+      "boardIds": 9,
+      "completeStacks": 25,
+      "boardsPerStack": 9,
+      "nominalDepthMm": 38.4
+    },
+    "spider-nest": {
+      "boardIds": 8,
+      "completeStacks": 25,
+      "boardsPerStack": 8,
+      "nominalDepthMm": 33.8
+    },
+    "woven-maze": {
+      "boardIds": 9,
+      "completeStacks": 25,
+      "boardsPerStack": 9,
+      "nominalDepthMm": 38.4
+    }
+  },
+  "hardware": {
+    "screws": 500,
+    "spacers": 3800,
+    "nuts": 500,
+    "washerCount": "pending hardware selection",
+    "screwUsableLength": "pending physical fit",
+    "nutAndWasherTolerances": "pending physical fit"
+  },
+  "packages": [
+    {
+      "id": "lower-panel-white-hasl",
+      "kind": "scored_lower_grid",
+      "memberIds": [
+        "01-spider-nest-L02-white-mask-only",
+        "01-spider-nest-L04-white-mask-only",
+        "01-spider-nest-L06-white-mask-only",
+        "18-woven-maze-L02-white-mask-only",
+        "18-woven-maze-L04-white-mask-only",
+        "18-woven-maze-L06-white-mask-only",
+        "18-woven-maze-L08-white-mask-only"
+      ],
+      "quantity": 25,
+      "usefulYieldPerUnit": {
+        "01-spider-nest-L02-white-mask-only": 1,
+        "01-spider-nest-L04-white-mask-only": 1,
+        "01-spider-nest-L06-white-mask-only": 1,
+        "18-woven-maze-L02-white-mask-only": 1,
+        "18-woven-maze-L04-white-mask-only": 1,
+        "18-woven-maze-L06-white-mask-only": 1,
+        "18-woven-maze-L08-white-mask-only": 1
+      },
+      "unusedCellsPerUnit": 1,
+      "color": "white",
+      "finish": "lead-free HASL",
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "widthMm": 212.6,
+      "heightMm": 387.2,
+      "zip": {
+        "path": "/tmp/zudo-blanks-issue17-panel-cam-release/lower-panel-white-hasl.zip",
+        "sha256": "447121c0f316bafecf7eb744b115e5d17de66738ce4ac241385af01a81fd0716",
+        "sizeBytes": 343376
+      }
+    },
+    {
+      "id": "lower-panel-black-enig",
+      "kind": "scored_lower_grid",
+      "memberIds": [
+        "01-spider-nest-L03-gold-enig-fill",
+        "01-spider-nest-L05-gold-enig-fill",
+        "01-spider-nest-L07-gold-enig-fill",
+        "03-coral-vault-L04-gold-enig-fill",
+        "17-kumiko-void-wide-L04-black-enig-art",
+        "17-kumiko-void-wide-L07-black-enig-art"
+      ],
+      "quantity": 25,
+      "usefulYieldPerUnit": {
+        "01-spider-nest-L03-gold-enig-fill": 1,
+        "01-spider-nest-L05-gold-enig-fill": 1,
+        "01-spider-nest-L07-gold-enig-fill": 1,
+        "03-coral-vault-L04-gold-enig-fill": 1,
+        "17-kumiko-void-wide-L04-black-enig-art": 1,
+        "17-kumiko-void-wide-L07-black-enig-art": 1
+      },
+      "unusedCellsPerUnit": 0,
+      "color": "black",
+      "finish": "ENIG",
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "widthMm": 313.9,
+      "heightMm": 198.6,
+      "zip": {
+        "path": "/tmp/zudo-blanks-issue17-panel-cam-release/lower-panel-black-enig.zip",
+        "sha256": "7e335959fe05f0780d42d37d07f5ad7e2e3f8a2f874b2f15f075698718854793",
+        "sizeBytes": 5465372
+      }
+    },
+    {
+      "id": "lower-panel-red-hasl",
+      "kind": "scored_lower_grid",
+      "memberIds": [
+        "01-spider-nest-L08-red-mask-only",
+        "03-coral-vault-L05-red-mask-only",
+        "03-coral-vault-L07-red-mask-only",
+        "13-fault-line-L02-red-mask-only",
+        "13-fault-line-L04-red-mask-only",
+        "13-fault-line-L06-red-mask-only",
+        "13-fault-line-L08-red-mask-only",
+        "17-kumiko-void-wide-L02-red-mask-only",
+        "17-kumiko-void-wide-L05-red-mask-only",
+        "17-kumiko-void-wide-L08-red-mask-only"
+      ],
+      "quantity": 25,
+      "usefulYieldPerUnit": {
+        "01-spider-nest-L08-red-mask-only": 1,
+        "03-coral-vault-L05-red-mask-only": 1,
+        "03-coral-vault-L07-red-mask-only": 1,
+        "13-fault-line-L02-red-mask-only": 1,
+        "13-fault-line-L04-red-mask-only": 1,
+        "13-fault-line-L06-red-mask-only": 1,
+        "13-fault-line-L08-red-mask-only": 1,
+        "17-kumiko-void-wide-L02-red-mask-only": 1,
+        "17-kumiko-void-wide-L05-red-mask-only": 1,
+        "17-kumiko-void-wide-L08-red-mask-only": 1
+      },
+      "unusedCellsPerUnit": 2,
+      "color": "red",
+      "finish": "lead-free HASL",
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "widthMm": 313.9,
+      "heightMm": 387.2,
+      "zip": {
+        "path": "/tmp/zudo-blanks-issue17-panel-cam-release/lower-panel-red-hasl.zip",
+        "sha256": "c2a2c4d48baf6f93647c9384cf906cc42a00e28c8a9dd8d8f38c0630977866b0",
+        "sizeBytes": 742977
+      }
+    },
+    {
+      "id": "lower-panel-green-hasl",
+      "kind": "scored_lower_grid",
+      "memberIds": [
+        "03-coral-vault-L02-green-mask-only",
+        "17-kumiko-void-wide-L03-green-mask-only",
+        "17-kumiko-void-wide-L06-green-mask-only",
+        "17-kumiko-void-wide-L09-green-mask-only"
+      ],
+      "quantity": 25,
+      "usefulYieldPerUnit": {
+        "03-coral-vault-L02-green-mask-only": 1,
+        "17-kumiko-void-wide-L03-green-mask-only": 1,
+        "17-kumiko-void-wide-L06-green-mask-only": 1,
+        "17-kumiko-void-wide-L09-green-mask-only": 1
+      },
+      "unusedCellsPerUnit": 0,
+      "color": "green",
+      "finish": "lead-free HASL",
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "widthMm": 212.6,
+      "heightMm": 198.6,
+      "zip": {
+        "path": "/tmp/zudo-blanks-issue17-panel-cam-release/lower-panel-green-hasl.zip",
+        "sha256": "1c1a64423d02f3b1037f4b2a82ee6785503a9ab00edb4d8154d0df4f02a06c80",
+        "sizeBytes": 418868
+      }
+    },
+    {
+      "id": "03-coral-vault-L03-purple-mask-only",
+      "kind": "routed_lower_singleton",
+      "memberIds": [
+        "03-coral-vault-L03-purple-mask-only"
+      ],
+      "quantity": 25,
+      "usefulYieldPerUnit": {
+        "03-coral-vault-L03-purple-mask-only": 1
+      },
+      "unusedCellsPerUnit": 0,
+      "color": "purple",
+      "finish": "lead-free HASL",
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "widthMm": 101.3,
+      "heightMm": 94.3,
+      "zip": {
+        "path": "/tmp/zudo-blanks-issue16-native-cam-release/packages/03-coral-vault-L03-purple-mask-only.zip",
+        "sha256": "dc81b98939b40ad41a76ae8027e0deb1dd7dbbc3fc0919981c56dedce64d359e",
+        "sizeBytes": 79141
+      }
+    },
+    {
+      "id": "03-coral-vault-L06-yellow-mask-only",
+      "kind": "routed_lower_singleton",
+      "memberIds": [
+        "03-coral-vault-L06-yellow-mask-only"
+      ],
+      "quantity": 25,
+      "usefulYieldPerUnit": {
+        "03-coral-vault-L06-yellow-mask-only": 1
+      },
+      "unusedCellsPerUnit": 0,
+      "color": "yellow",
+      "finish": "lead-free HASL",
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "widthMm": 101.3,
+      "heightMm": 94.3,
+      "zip": {
+        "path": "/tmp/zudo-blanks-issue16-native-cam-release/packages/03-coral-vault-L06-yellow-mask-only.zip",
+        "sha256": "724f968b22e5fc3cb68555be044af0aa9b135fb5a328a07d76b000a7d61a9664",
+        "sizeBytes": 49182
+      }
+    },
+    {
+      "id": "03-coral-vault-L08-blue-mask-only",
+      "kind": "routed_lower_singleton",
+      "memberIds": [
+        "03-coral-vault-L08-blue-mask-only"
+      ],
+      "quantity": 25,
+      "usefulYieldPerUnit": {
+        "03-coral-vault-L08-blue-mask-only": 1
+      },
+      "unusedCellsPerUnit": 0,
+      "color": "blue",
+      "finish": "lead-free HASL",
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "widthMm": 101.3,
+      "heightMm": 94.3,
+      "zip": {
+        "path": "/tmp/zudo-blanks-issue16-native-cam-release/packages/03-coral-vault-L08-blue-mask-only.zip",
+        "sha256": "63a513c0bc3f26f726bcc0ea49819e18487cbdb24c0c955b7e8e57b36c6709f8",
+        "sizeBytes": 4748
+      }
+    },
+    {
+      "id": "lower-panel-black-hasl",
+      "kind": "scored_lower_grid",
+      "memberIds": [
+        "13-fault-line-L03-black-mask-only",
+        "13-fault-line-L05-black-mask-only",
+        "13-fault-line-L07-black-mask-only",
+        "13-fault-line-L09-black-mask-only",
+        "18-woven-maze-L03-black-mask-only",
+        "18-woven-maze-L05-black-mask-only",
+        "18-woven-maze-L07-black-mask-only",
+        "18-woven-maze-L09-black-mask-only"
+      ],
+      "quantity": 25,
+      "usefulYieldPerUnit": {
+        "13-fault-line-L03-black-mask-only": 1,
+        "13-fault-line-L05-black-mask-only": 1,
+        "13-fault-line-L07-black-mask-only": 1,
+        "13-fault-line-L09-black-mask-only": 1,
+        "18-woven-maze-L03-black-mask-only": 1,
+        "18-woven-maze-L05-black-mask-only": 1,
+        "18-woven-maze-L07-black-mask-only": 1,
+        "18-woven-maze-L09-black-mask-only": 1
+      },
+      "unusedCellsPerUnit": 0,
+      "color": "black",
+      "finish": "lead-free HASL",
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "widthMm": 212.6,
+      "heightMm": 387.2,
+      "zip": {
+        "path": "/tmp/zudo-blanks-issue17-panel-cam-release/lower-panel-black-hasl.zip",
+        "sha256": "ee7d2bd5d0680e1cfc3ef7e3b790c1ae244a726d4059ff481a993175ba6ad923",
+        "sizeBytes": 209719
+      }
+    },
+    {
+      "id": "01-spider-nest-L01-black-enig-art",
+      "kind": "routed_standalone_top",
+      "memberIds": [
+        "01-spider-nest-L01-black-enig-art"
+      ],
+      "quantity": 25,
+      "usefulYieldPerUnit": {
+        "01-spider-nest-L01-black-enig-art": 1
+      },
+      "unusedCellsPerUnit": 0,
+      "color": "black",
+      "finish": "ENIG",
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "widthMm": 101.3,
+      "heightMm": 128.5,
+      "zip": {
+        "path": "/tmp/zudo-blanks-issue16-native-cam-release/packages/01-spider-nest-L01-black-enig-art.zip",
+        "sha256": "c70750232b3f85381d03c4f0a5c5a1f96e7fb94b6ea3038ff7c29a66a0eb6cbe",
+        "sizeBytes": 2348215
+      }
+    },
+    {
+      "id": "03-coral-vault-L01-black-enig-art",
+      "kind": "routed_standalone_top",
+      "memberIds": [
+        "03-coral-vault-L01-black-enig-art"
+      ],
+      "quantity": 25,
+      "usefulYieldPerUnit": {
+        "03-coral-vault-L01-black-enig-art": 1
+      },
+      "unusedCellsPerUnit": 0,
+      "color": "black",
+      "finish": "ENIG",
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "widthMm": 101.3,
+      "heightMm": 128.5,
+      "zip": {
+        "path": "/tmp/zudo-blanks-issue16-native-cam-release/packages/03-coral-vault-L01-black-enig-art.zip",
+        "sha256": "5cd75285d1c59b9f9c12fec5067b09e9b7664f4eaed51b9060d4b1b635cbbbed",
+        "sizeBytes": 13566206
+      }
+    },
+    {
+      "id": "13-fault-line-L01-black-enig-art",
+      "kind": "routed_standalone_top",
+      "memberIds": [
+        "13-fault-line-L01-black-enig-art"
+      ],
+      "quantity": 25,
+      "usefulYieldPerUnit": {
+        "13-fault-line-L01-black-enig-art": 1
+      },
+      "unusedCellsPerUnit": 0,
+      "color": "black",
+      "finish": "ENIG",
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "widthMm": 101.3,
+      "heightMm": 128.5,
+      "zip": {
+        "path": "/tmp/zudo-blanks-issue16-native-cam-release/packages/13-fault-line-L01-black-enig-art.zip",
+        "sha256": "0f28c1fc14840cfdd8add6520778864ff2ec0b596c3e88999d0e1779109bbbc0",
+        "sizeBytes": 1985644
+      }
+    },
+    {
+      "id": "17-kumiko-void-wide-L01-black-enig-art",
+      "kind": "routed_standalone_top",
+      "memberIds": [
+        "17-kumiko-void-wide-L01-black-enig-art"
+      ],
+      "quantity": 25,
+      "usefulYieldPerUnit": {
+        "17-kumiko-void-wide-L01-black-enig-art": 1
+      },
+      "unusedCellsPerUnit": 0,
+      "color": "black",
+      "finish": "ENIG",
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "widthMm": 101.3,
+      "heightMm": 128.5,
+      "zip": {
+        "path": "/tmp/zudo-blanks-issue16-native-cam-release/packages/17-kumiko-void-wide-L01-black-enig-art.zip",
+        "sha256": "c4f1b409eefaa8bb6c7294020c1be278a2a7c1f7dcc879904de64c09334bdda3",
+        "sizeBytes": 6301965
+      }
+    },
+    {
+      "id": "18-woven-maze-L01-black-enig-art",
+      "kind": "routed_standalone_top",
+      "memberIds": [
+        "18-woven-maze-L01-black-enig-art"
+      ],
+      "quantity": 25,
+      "usefulYieldPerUnit": {
+        "18-woven-maze-L01-black-enig-art": 1
+      },
+      "unusedCellsPerUnit": 0,
+      "color": "black",
+      "finish": "ENIG",
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "widthMm": 101.3,
+      "heightMm": 128.5,
+      "zip": {
+        "path": "/tmp/zudo-blanks-issue16-native-cam-release/packages/18-woven-maze-L01-black-enig-art.zip",
+        "sha256": "8734543bcae1c290f71f9775259edf1ca0ee7badfe45f8b15a6d6930e02c2a62",
+        "sizeBytes": 682623
+      }
+    }
+  ],
+  "fabricationInstructions": [
+    "Use the separate Dwgs.User Gerber for full-length V-scores; never route it as Edge.Cuts.",
+    "Route decorative apertures and outer sheet boundary from Edge.Cuts.",
+    "Drill only the separate NPTH Excellon hits. Keep colors and ENIG/HASL packages separate.",
+    "Scored individual outer edges have published +/-0.4 mm tolerance, not precision route tolerance."
+  ],
+  "pendingExternal": [
+    "manufacturer CAM and score web-depth/handling signoff",
+    "quote, material/finish/color availability and charges",
+    "physical stack/fastener fit, washer and nut tolerances"
+  ]
+}

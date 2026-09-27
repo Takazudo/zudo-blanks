@@ -1,0 +1,294 @@
+{
+  "schemaVersion": 1,
+  "status": "pass_local",
+  "kicadVersion": "10.0.0",
+  "nativeRecordSha256": "0a1075957a0010f5839d40307d7c4c1d188dc31621cbefb7589638a49a838ebf",
+  "policySha256": "e6f9295c0a24e1d22f9176f8d9e4259726130df50bd3f5e41c80c3254d2c9ba6",
+  "panels": [
+    {
+      "id": "lower-panel-white-hasl",
+      "status": "pass_local_native_drc_cam",
+      "nativePartition": {
+        "edgeSegments": 30941,
+        "apertureLoops": 76,
+        "sheetMaterialConnected": true,
+        "frontCopperPolygons": 0,
+        "frontMaskPolygons": 0,
+        "npthMounts": 28
+      },
+      "drcReportSha256": "0f19f50193ac805069ab4dffca60832fb6899dd8126b52234c870539731b2750",
+      "nativeBoardSha256": "c36b1526a72bb2fab8709cd7bc29872da8c772fbd9185460ac8921b003e3da26",
+      "drcReused": true,
+      "drcOriginalPath": "/tmp/zudo-blanks-issue17-panel-cam/lower-panel-white-hasl/drc.json",
+      "camFiles": [
+        {
+          "name": "lower-panel-white-hasl-B_Cu.gbl",
+          "sha256": "52cb1814fb38df2971aaa4bc1022ed62ff5e0399a98bc3d2ac1917d0f5fb098e"
+        },
+        {
+          "name": "lower-panel-white-hasl-B_Mask.gbs",
+          "sha256": "5fdfe0c123ae3cc366cbfdd13765638d88facd3bb2ad11bff8e60052b58c8937"
+        },
+        {
+          "name": "lower-panel-white-hasl-Edge_Cuts.gm1",
+          "sha256": "7491bfb9ab5172de7bd1aca38e6444f431496ecbbc9f995d57db7459f4f96760"
+        },
+        {
+          "name": "lower-panel-white-hasl-F_Cu.gtl",
+          "sha256": "c45c861f62432fc05ad450fbb90ac0c9d4023a3d37348d21bd33cfcf998ceace"
+        },
+        {
+          "name": "lower-panel-white-hasl-F_Mask.gts",
+          "sha256": "fc6a4c07d7b025d9cd6d8dfd40ea6d7a94fdd1b4cad6c48bf80edc2c8fb3d505"
+        },
+        {
+          "name": "lower-panel-white-hasl-NPTH.drl",
+          "sha256": "942e1833bccf106eebf2bbc5a6fa794601d4daf338cf43cffc76fca3100423c0"
+        },
+        {
+          "name": "lower-panel-white-hasl-PTH.drl",
+          "sha256": "e855399ac3870ca3a4a7cf22e30b8de279d92c7432036f20fa41e2bc0d29f034"
+        },
+        {
+          "name": "lower-panel-white-hasl-User_Drawings.gbr",
+          "sha256": "67372649b3fedfdaa5428b74dff238506bef1da402624f4dce94b93b62016fcb"
+        }
+      ],
+      "zip": {
+        "path": "/tmp/zudo-blanks-issue17-panel-cam-release/lower-panel-white-hasl.zip",
+        "sha256": "447121c0f316bafecf7eb744b115e5d17de66738ce4ac241385af01a81fd0716",
+        "sizeBytes": 343376
+      },
+      "scoreGerber": "lower-panel-white-hasl-User_Drawings.gbr",
+      "scoreCount": 8
+    },
+    {
+      "id": "lower-panel-black-enig",
+      "status": "pass_local_native_drc_cam",
+      "nativePartition": {
+        "edgeSegments": 55436,
+        "apertureLoops": 174,
+        "sheetMaterialConnected": true,
+        "frontCopperPolygons": 211,
+        "frontMaskPolygons": 257,
+        "npthMounts": 24
+      },
+      "drcReportSha256": "f0c52002338fed85ac8e0deade8b8c6cca67a0190357e2700c9034eb3e1f1f26",
+      "nativeBoardSha256": "00b9397644e2b6d181b9503e513314cabbef7e0b345a5fac06947ffe48599f82",
+      "drcReused": true,
+      "drcOriginalPath": "/tmp/zudo-blanks-issue17-panel-cam/lower-panel-black-enig/drc.json",
+      "camFiles": [
+        {
+          "name": "lower-panel-black-enig-B_Cu.gbl",
+          "sha256": "66c60fe0956f36c5f1b3a709aa6a511ea3b24dc16edc9158af29262ac9932409"
+        },
+        {
+          "name": "lower-panel-black-enig-B_Mask.gbs",
+          "sha256": "97ff953cdd33e615a820c811f61521a1b24e145597b0b9a2651fc6bcad1f6a8d"
+        },
+        {
+          "name": "lower-panel-black-enig-Edge_Cuts.gm1",
+          "sha256": "431ff2db8dc29f61579ca422b05b8c34b9489727813dbe33cab0a2e9e9d57135"
+        },
+        {
+          "name": "lower-panel-black-enig-F_Cu.gtl",
+          "sha256": "5a5d04d0b39732d1ce2e2e1bd5f27ab784061842a1bee0920bdd3e8e8be47039"
+        },
+        {
+          "name": "lower-panel-black-enig-F_Mask.gts",
+          "sha256": "1038f1c74858468cac24f5bb4915fa62a334d363ae230d59743f0f18b0711d10"
+        },
+        {
+          "name": "lower-panel-black-enig-NPTH.drl",
+          "sha256": "401dde03e24b8e70fc4501cd29ff0c8289e1a215ed7f75f2d31f75fad7f94484"
+        },
+        {
+          "name": "lower-panel-black-enig-PTH.drl",
+          "sha256": "c4a989c19bd59722cc593489e500c835896a6fe29aa448127497cc67c437a793"
+        },
+        {
+          "name": "lower-panel-black-enig-User_Drawings.gbr",
+          "sha256": "daede64e114445ece8af0d8409bcaeb08d74b408625b1831bbd819003ae49662"
+        }
+      ],
+      "zip": {
+        "path": "/tmp/zudo-blanks-issue17-panel-cam-release/lower-panel-black-enig.zip",
+        "sha256": "7e335959fe05f0780d42d37d07f5ad7e2e3f8a2f874b2f15f075698718854793",
+        "sizeBytes": 5465372
+      },
+      "scoreGerber": "lower-panel-black-enig-User_Drawings.gbr",
+      "scoreCount": 7
+    },
+    {
+      "id": "lower-panel-red-hasl",
+      "status": "pass_local_native_drc_cam",
+      "nativePartition": {
+        "edgeSegments": 66724,
+        "apertureLoops": 170,
+        "sheetMaterialConnected": true,
+        "frontCopperPolygons": 0,
+        "frontMaskPolygons": 0,
+        "npthMounts": 40
+      },
+      "drcReportSha256": "ba42662f7c5fe4e7c02850d5279d770549fe41d21dec7d2104c9db8b5aff32ec",
+      "nativeBoardSha256": "c5dd1c702b31ee5801a1498fded6cf3b809ef223b6d15878793aa0d1010f0ed5",
+      "drcReused": true,
+      "drcOriginalPath": "/tmp/zudo-blanks-issue17-red-drc.json",
+      "camFiles": [
+        {
+          "name": "lower-panel-red-hasl-B_Cu.gbl",
+          "sha256": "082cc08a62a07ef5d497de0b63df38de4ebe207b57c41b91d410cdba48ae54d7"
+        },
+        {
+          "name": "lower-panel-red-hasl-B_Mask.gbs",
+          "sha256": "ffae3ec39ead69ce9847234b631e2c220c9b1aa40b7b6125ebc961021fdf12ce"
+        },
+        {
+          "name": "lower-panel-red-hasl-Edge_Cuts.gm1",
+          "sha256": "e18b3252a60b510a3da1e1dfdbae70f5075985070d51bd11fb514ee337dfdfbc"
+        },
+        {
+          "name": "lower-panel-red-hasl-F_Cu.gtl",
+          "sha256": "735e039332166a1f5d36a9178377bd5bf1dc369db54232287170f9ed09290f50"
+        },
+        {
+          "name": "lower-panel-red-hasl-F_Mask.gts",
+          "sha256": "ef786c3339cfeb8346c78fa98b3b0ba989a5e7441704a1ab2499676f2310d5b9"
+        },
+        {
+          "name": "lower-panel-red-hasl-NPTH.drl",
+          "sha256": "6fa2a511e9d6f0ee738f00d76729584d27ce17af22cb07f64374a77f82c34ff6"
+        },
+        {
+          "name": "lower-panel-red-hasl-PTH.drl",
+          "sha256": "f8c013f7575cfbe52b1bc9fa6e2904d19ef113da79fcbd96e3fcd4bfa0b22277"
+        },
+        {
+          "name": "lower-panel-red-hasl-User_Drawings.gbr",
+          "sha256": "d85c38bf72e9f29d7fd8291e2af7395247f64130873105e1d014413d9999d393"
+        }
+      ],
+      "zip": {
+        "path": "/tmp/zudo-blanks-issue17-panel-cam-release/lower-panel-red-hasl.zip",
+        "sha256": "c2a2c4d48baf6f93647c9384cf906cc42a00e28c8a9dd8d8f38c0630977866b0",
+        "sizeBytes": 742977
+      },
+      "scoreGerber": "lower-panel-red-hasl-User_Drawings.gbr",
+      "scoreCount": 9
+    },
+    {
+      "id": "lower-panel-green-hasl",
+      "status": "pass_local_native_drc_cam",
+      "nativePartition": {
+        "edgeSegments": 37592,
+        "apertureLoops": 119,
+        "sheetMaterialConnected": true,
+        "frontCopperPolygons": 0,
+        "frontMaskPolygons": 0,
+        "npthMounts": 16
+      },
+      "drcReportSha256": "633e1747a2f2aba8f7a6f282dfc01da7040e9fcacf915a7590c6c26558562879",
+      "nativeBoardSha256": "1f52ff5e844ef0c6b1a2ef81d94b0b22754f991c02ebd4c9b6e8ab5ad6ffaa51",
+      "drcReused": true,
+      "drcOriginalPath": "/tmp/zudo-issue17-lower-panel-green-hasl-preflight.json",
+      "camFiles": [
+        {
+          "name": "lower-panel-green-hasl-B_Cu.gbl",
+          "sha256": "9417f834ddfe584a24e632efd4393fe3958dd59969ec491d704a345cf7cae05e"
+        },
+        {
+          "name": "lower-panel-green-hasl-B_Mask.gbs",
+          "sha256": "aa750febd71a0bb4249d82df38ea4d004a7ec425dc9fd0ff18fd682fe7a7d375"
+        },
+        {
+          "name": "lower-panel-green-hasl-Edge_Cuts.gm1",
+          "sha256": "1c69c2f1b13b4e51550e9ff0a425696b6c32d603725f73f604bef5265e854cef"
+        },
+        {
+          "name": "lower-panel-green-hasl-F_Cu.gtl",
+          "sha256": "4115e1af346d3f06f1bd7699327ba48d1c21a80a0d7abd8ef44ddf7279f389c4"
+        },
+        {
+          "name": "lower-panel-green-hasl-F_Mask.gts",
+          "sha256": "ec2ea4bb021cc59102a72479a4e38d8470182893f56d5b7ccd60ca3399a337d2"
+        },
+        {
+          "name": "lower-panel-green-hasl-NPTH.drl",
+          "sha256": "d30a2df3aa14d1c3ae12ff16761c852d244637c67c6f1e83d1c79a8ca71a6d6f"
+        },
+        {
+          "name": "lower-panel-green-hasl-PTH.drl",
+          "sha256": "8ed1baa59952aeb1b2df0260ceeacdcea9c56d74a1829ec0d77955051dbb0657"
+        },
+        {
+          "name": "lower-panel-green-hasl-User_Drawings.gbr",
+          "sha256": "3e7f5504db807de3393f823bcf51f70e47f5a6af3169fae71e090c4f96d5b0f3"
+        }
+      ],
+      "zip": {
+        "path": "/tmp/zudo-blanks-issue17-panel-cam-release/lower-panel-green-hasl.zip",
+        "sha256": "1c1a64423d02f3b1037f4b2a82ee6785503a9ab00edb4d8154d0df4f02a06c80",
+        "sizeBytes": 418868
+      },
+      "scoreGerber": "lower-panel-green-hasl-User_Drawings.gbr",
+      "scoreCount": 6
+    },
+    {
+      "id": "lower-panel-black-hasl",
+      "status": "pass_local_native_drc_cam",
+      "nativePartition": {
+        "edgeSegments": 19071,
+        "apertureLoops": 17,
+        "sheetMaterialConnected": true,
+        "frontCopperPolygons": 0,
+        "frontMaskPolygons": 0,
+        "npthMounts": 32
+      },
+      "drcReportSha256": "67b174142dc88b872a3a082b961e7f9f4a8a860e925662a042824e30e47ca44e",
+      "nativeBoardSha256": "8ce37a5a50890c5381838e55562c2c283ad1d6a1d2884c4d229b6c8120547e70",
+      "drcReused": true,
+      "drcOriginalPath": "/tmp/zudo-issue17-lower-panel-black-hasl-preflight.json",
+      "camFiles": [
+        {
+          "name": "lower-panel-black-hasl-B_Cu.gbl",
+          "sha256": "13915cb791ae58d11dd19a93e0135790720e0c2dae1560432e285871b85e3581"
+        },
+        {
+          "name": "lower-panel-black-hasl-B_Mask.gbs",
+          "sha256": "79779667a47de618dfba74f2414f6c15e46747b877ccaf83ca380fa64a478ee2"
+        },
+        {
+          "name": "lower-panel-black-hasl-Edge_Cuts.gm1",
+          "sha256": "27c25531a9a4aa471e7005d33f01bd1073dd820b66fcb14bb97fd2853ef3ed9c"
+        },
+        {
+          "name": "lower-panel-black-hasl-F_Cu.gtl",
+          "sha256": "e394cbfb11e5431a45c436bb6ef9cbca0cacc9fc530b98a7d7f8a121f1fd3d99"
+        },
+        {
+          "name": "lower-panel-black-hasl-F_Mask.gts",
+          "sha256": "ebbd0d4fcfb5612dd8fa112415cd4fefcb14d4daf6ba1af28684157be71f13de"
+        },
+        {
+          "name": "lower-panel-black-hasl-NPTH.drl",
+          "sha256": "7f20bfbdc99ebe656aaba20060f1d9c897c6bc45b00774a3aed4f83baf37f32a"
+        },
+        {
+          "name": "lower-panel-black-hasl-PTH.drl",
+          "sha256": "c62b93cfb3fb3d29742dfc67f6eb01553897b70056995e24bf397ecd3383031a"
+        },
+        {
+          "name": "lower-panel-black-hasl-User_Drawings.gbr",
+          "sha256": "6c32f70312dc5fe10cd92feb5b5799e165d1aaf7028fc2f4ae6df07614817a4c"
+        }
+      ],
+      "zip": {
+        "path": "/tmp/zudo-blanks-issue17-panel-cam-release/lower-panel-black-hasl.zip",
+        "sha256": "ee7d2bd5d0680e1cfc3ef7e3b790c1ae244a726d4059ff481a993175ba6ad923",
+        "sizeBytes": 209719
+      },
+      "scoreGerber": "lower-panel-black-hasl-User_Drawings.gbr",
+      "scoreCount": 8
+    }
+  ]
+}
