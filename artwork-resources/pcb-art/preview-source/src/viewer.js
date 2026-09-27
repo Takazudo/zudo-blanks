@@ -86,7 +86,7 @@ function layerFinish(layer) {
 
 function finishLabel(layer) {
   if (layer.finishLabel) return layer.finishLabel;
-  return { 'enig-art': 'ENIG装飾', 'enig-fill': '全面ENIG', 'mask-only': '露出銅箔なし' }[layerFinish(layer)];
+  return { 'enig-art': 'ENIG art', 'enig-fill': 'Full ENIG', 'mask-only': 'No exposed copper' }[layerFinish(layer)];
 }
 
 function finishSummary() {
@@ -439,7 +439,7 @@ function requestRender() {
 }
 
 function layerDisplayName(layer) {
-  if (layerFinish(layer) === 'enig-fill') return '金 / 黒基板';
+  if (layerFinish(layer) === 'enig-fill') return 'Gold / black board';
   return layer.nameJa || layer.name;
 }
 
@@ -489,9 +489,9 @@ function populateDesignUI() {
   $('badge-depth').textContent = fmt(design.stackDepth);
   const finishes = finishSummary();
   $('finish-summary').replaceChildren(
-    el('span', 'finish-summary-enig', `ENIG ${finishes.enigCount}枚`),
+    el('span', 'finish-summary-enig', `ENIG ${finishes.enigCount} boards`),
     el('span', 'finish-summary-divider', ' / '),
-    el('span', '', `露出銅箔なし ${finishes.maskOnlyCount}枚`),
+    el('span', '', `No exposed copper ${finishes.maskOnlyCount} boards`),
   );
   $('finish-summary').dataset.enigCount = finishes.enigCount;
   $('finish-summary').dataset.maskOnlyCount = finishes.maskOnlyCount;
@@ -510,7 +510,7 @@ function populateDesignUI() {
     button.dataset.layer = index;
     button.dataset.finish = layerFinish(layer);
     button.setAttribute('aria-pressed', 'false');
-    button.title = `${index + 1}層目：${layerDisplayName(layer)} / ${finishLabel(layer)}を単独表示`;
+    button.title = `${index + 1} layer: ${layerDisplayName(layer)} / ${finishLabel(layer)} — show alone`;
     button.setAttribute('aria-label', button.title);
     const swatch = el('span', 'layer-swatch');
     swatch.style.background = swatchBackground(layer);
@@ -526,15 +526,15 @@ function populateDesignUI() {
   }
   $('design-notes').replaceChildren(...(design.notes || []).map((note) => el('li', '', note)));
   const dimensions = [
-    ['パネル幅 × 高さ', `${fmt(spec.width)} × ${fmt(spec.height)} mm`],
-    ['下層PCBの高さ', `${fmt(spec.height - 2 * spec.keepout)} mm`],
-    ['PCBの板厚 / 層間', `${fmt(spec.thickness)} / ${fmt(spec.gap)} mm`],
-    ['PCB積層厚（組立時）', `${fmt(design.stackDepth)} mm`],
-    ['積層厚の内訳', `${design.layers.length} × ${spec.thickness} + ${design.layers.length - 1} × ${spec.gap}`],
-    ['下層の上下レール避け', `${fmt(spec.keepout)} mm`],
-    ['固定穴 / スペーサー外径', `Ø${fmt(spec.screwDiameter)} / Ø${fmt(spec.spacerOD)} mm`],
-    ['ENIGを使う層', finishes.enigLayers.length ? `${finishes.enigLayers.join('・')}層（${finishes.enigCount}枚）` : 'なし'],
-    ['露出銅箔なしの層', finishes.maskOnlyLayers.length ? `${finishes.maskOnlyLayers.join('・')}層（${finishes.maskOnlyCount}枚）` : 'なし'],
+    ['Panel width × height', `${fmt(spec.width)} × ${fmt(spec.height)} mm`],
+    ['Lower board height', `${fmt(spec.height - 2 * spec.keepout)} mm`],
+    ['Board thickness / layer gap', `${fmt(spec.thickness)} / ${fmt(spec.gap)} mm`],
+    ['Assembled stack depth', `${fmt(design.stackDepth)} mm`],
+    ['Stack depth calculation', `${design.layers.length} × ${spec.thickness} + ${design.layers.length - 1} × ${spec.gap}`],
+    ['Lower board rail clearance', `${fmt(spec.keepout)} mm`],
+    ['Mount hole / spacer outside diameter', `Ø${fmt(spec.screwDiameter)} / Ø${fmt(spec.spacerOD)} mm`],
+    ['ENIG layers', finishes.enigLayers.length ? `${finishes.enigLayers.join(', ')} layers (${finishes.enigCount} boards)` : 'none'],
+    ['Layers without exposed copper', finishes.maskOnlyLayers.length ? `${finishes.maskOnlyLayers.join(', ')} layers (${finishes.maskOnlyCount} boards)` : 'none'],
   ];
   $('dimensions').replaceChildren(...dimensions.map(([label, value]) => {
     const tr = el('tr');
@@ -577,7 +577,7 @@ function updateStateUI() {
   $('explode-output').textContent = `+${Number.isInteger(state.explode) ? state.explode : fmt(state.explode)} mm`;
   $('visible-layers').value = state.visibleCount;
   $('visible-layers').style.setProperty('--progress', `${(state.visibleCount - 1) / Math.max(1, n - 1) * 100}%`);
-  $('visible-output').textContent = state.isolatedLayer === null ? `${state.visibleCount} / ${n} 層` : `${state.isolatedLayer + 1}層目のみ`;
+  $('visible-output').textContent = state.isolatedLayer === null ? `${state.visibleCount} / ${n} layers` : `${state.isolatedLayer + 1} only`;
   for (const key of ['artwork', 'hardware', 'rails', 'section']) $(key).checked = state[key];
   const indices = displayedIndices();
   document.querySelectorAll('.layer-button').forEach((button) => {
@@ -594,19 +594,19 @@ function updateStateUI() {
   status.classList.toggle('is-exploded', state.explode > 0 && state.isolatedLayer === null);
   status.classList.toggle('is-isolated', state.isolatedLayer !== null);
   let statusText = state.isolatedLayer !== null
-    ? `${state.isolatedLayer + 1}層目 / 単層表示`
-    : state.explode > 0 ? `分解表示 +${state.explode} mm` : '組立表示';
-  if (state.isolatedLayer === null && state.visibleCount < n) statusText += ` · ${state.visibleCount}層`;
-  if (state.section) statusText += ' · 断面';
+    ? `${state.isolatedLayer + 1} layer / isolated`
+    : state.explode > 0 ? `Exploded view +${state.explode} mm` : 'Assembled';
+  if (state.isolatedLayer === null && state.visibleCount < n) statusText += ` · ${state.visibleCount} layers`;
+  if (state.section) statusText += ' · section';
   status.querySelector('span').textContent = statusText;
   $('rail-note').hidden = !state.rails;
   if (state.isolatedLayer !== null) {
     const layer = design.layers[state.isolatedLayer];
-    const position = state.isolatedLayer === 0 ? 'トップパネル' : layer.solid ? '最奥の底板' : `${state.isolatedLayer + 1}層目`;
+    const position = state.isolatedLayer === 0 ? 'Top panel' : layer.solid ? 'Back floor board' : `Layer ${state.isolatedLayer + 1}`;
     const finishNote = layerFinish(layer) === 'mask-only'
-      ? '露出銅箔のない層です。'
-      : layerFinish(layer) === 'enig-fill' ? '黒いPCBの表面をENIGで広く覆います。' : 'ENIG装飾を使う層です。';
-    $('layer-note').textContent = `${position}：${finishNote}${layer.note ? ` ${layer.note}` : ''}`;
+      ? 'This layer has no exposed copper.'
+      : layerFinish(layer) === 'enig-fill' ? 'ENIG covers much of this black board.' : 'This layer uses ENIG art.';
+    $('layer-note').textContent = `${position}: ${finishNote}${layer.note ? ` ${layer.note}` : ''}`;
     $('layer-note').hidden = false;
   } else $('layer-note').hidden = true;
   updateViewUI();
@@ -715,9 +715,9 @@ async function downloadPNG() {
     link.click();
     link.remove();
     setTimeout(() => URL.revokeObjectURL(url), 10000);
-    showToast('現在の表示をPNGで保存しました');
+    showToast('Saved the current view as PNG');
   } catch (error) {
-    showToast('PNGを保存できませんでした。もう一度お試しください。');
+    showToast('Could not save the PNG. Please try again.');
     console.error(error);
     renderer.setClearColor(0x141619, 0);
     requestRender();
@@ -811,7 +811,7 @@ function setupScene() {
     event.preventDefault();
     state.ready = false;
     $('error-panel').hidden = false;
-    $('error-message').textContent = '3D表示が中断されました。ページを開き直すと再開できます。';
+    $('error-message').textContent = 'The 3D view stopped. Reload this page to restart it.';
   });
 }
 
@@ -878,13 +878,15 @@ globalThis.__PCB_PREVIEW__ = {
 };
 
 try {
-  if (!spec || !data.designs.length) throw new Error('プレビューの形状データが見つかりません。');
+  if (!spec || !data.designs.length) throw new Error('Preview geometry is missing.');
   setupUI();
   setupScene();
   let hashId = '', hashVariant;
   try { [hashId, hashVariant] = decodeURIComponent(location.hash.slice(1)).split(':'); } catch { /* Ignore an invalid optional hash. */ }
-  const initialId = designMap.has(hashId) ? hashId : designMap.has(globalThis.PCB_INITIAL_DESIGN) ? globalThis.PCB_INITIAL_DESIGN : data.designs[0].id;
-  const initialVariant = hashVariant || (globalThis.PCB_INITIAL_DESIGN === initialId ? globalThis.PCB_INITIAL_VARIANT : undefined);
+  const query = new URLSearchParams(location.search);
+  const queryId = query.get('design');
+  const initialId = designMap.has(hashId) ? hashId : designMap.has(queryId) ? queryId : designMap.has(globalThis.PCB_INITIAL_DESIGN) ? globalThis.PCB_INITIAL_DESIGN : data.designs[0].id;
+  const initialVariant = hashVariant || (queryId === initialId ? query.get('variant') : undefined) || (globalThis.PCB_INITIAL_DESIGN === initialId ? globalThis.PCB_INITIAL_VARIANT : undefined);
   selectDesign(initialId, false, initialVariant);
   requestRender();
 } catch (error) {
@@ -893,7 +895,7 @@ try {
   $('loading').hidden = true;
   $('error-panel').hidden = false;
   console.error('PCB preview could not start:', error);
-  if (String(error.message).includes('形状データ')) $('error-message').textContent = error.message;
+  if (String(error.message).includes('geometry')) $('error-message').textContent = error.message;
 }
 
 window.addEventListener('pagehide', (event) => {

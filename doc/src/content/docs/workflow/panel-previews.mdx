@@ -1,0 +1,24 @@
+---
+title: Panel Preview Maintenance
+sidebar_position: 2
+---
+
+The catalog is derived from every top-level directory under `panels/`. A single native `.kicad_pcb` gets an individual KiCad layer image. A layered art project or grouped sheet directory gets a contact sheet of its actual member boards; it must not look like one fabricated monolithic panel. The image is an illustrative KiCad layer rendering with preserved proportions, not a final CAM plot.
+
+From the repository root, regenerate the inventory and compact PNGs with:
+
+```sh
+python3 doc/scripts/generate_panel_catalog.py
+```
+
+Use `--only panel-directory` while updating a single project, then run the full command and catalog coverage check before publication. KiCad CLI, macOS `sips`, and Pillow are required. The script writes `doc/data/panel-inventory.json`, the catalog page and `doc/public/assets/panels/*.png`. Never enter panel names or counts by hand in the catalog page; the inventory determines them.
+
+The five-design 3D viewer uses a **frozen** geometry JSON. Build its offline HTML from the source directory with `npm ci && npm run build`; the build verifies the frozen SHA256 and does not regenerate geometry. The separate `scripts/build_geometry.py` is an intentional design-source operation and requires manufacturing review before replacing the frozen input. Then run:
+
+```sh
+python3 doc/scripts/stage_pcb_art_assets.py
+```
+
+Only one canonical offline viewer is published at `assets/pcb-art/previews/index.html`; `?design=<id>` and `?design=kumiko-void&variant=wide` / `variant=standard` select the scene. The viewer also supports URL hashes when used standalone. Published MDX links use literal HTML anchors so the asset viewer does not route them to file-details pages. Other output HTML files are ignored local intermediates. The staging script also copies comparison images, review images and five top Edge.Cuts inspection vectors from committed sources. Full revision-5 SVG/DXF vectors can be regenerated with the [source exporter](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/tools/export_kicad.py); use adjusted native boards for fabrication.
+
+[Project Claude Code skill](https://github.com/Takazudo/zudo-blanks/blob/main/.claude/skills/panel-preview/SKILL.md) · [Source and status rules](../engineering/source-of-truth.mdx) · [Manufacturing records](../manufacturing/)

@@ -1,8 +1,8 @@
 import { defineConfig } from "zfb/config";
 import { zudoDoc } from "@takazudo/zudo-doc/config";
 
-export default defineConfig(
-  zudoDoc({
+export default defineConfig({
+  ...zudoDoc({
     siteName: "zudo-blanks",
     favicon: "/img/favicon.ico",
     siteDescription: "Blank panel PCB designs for modular synthesizers",
@@ -46,4 +46,7 @@ export default defineConfig(
       },
     ],
   }),
-);
+  // Netlify copies dist/ into /pj/zblanks/. Keep public files flat in dist/
+  // so deployed URLs have one base prefix and the built-image checker resolves them.
+  copyPublicWithBase: false,
+});
