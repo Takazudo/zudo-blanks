@@ -304,6 +304,46 @@ Check a ±1.0 mm score corridor against every decorative aperture and full suppo
 
 The above grids are the default minimum package count by compatibility. **Permitted splits only:** if a panel fails an exact dimension, whole-line score corridor, handling/support or depanelization test, split that same color+finish group into smaller full rectangular grids along complete rows/columns; use 5 mm rails again, preserve each ID exactly once, and order 25 of each result. A one-board remainder becomes a routed singleton. Record failed measurement and resulting membership. Keep the ten-member cap, 475 mm limit and same board orientation. Do not create more panels merely to avoid declared multi-design fees. Do not mix finish/color, duplicate IDs to fill blanks, change board dimensions, score through apertures, use mouse bites on decorative edges, or introduce hand cutting as the default. A factory-specific refusal is pending external evidence, not a reason to silently replace this plan.
 
+## Native KiCad, DRC and CAM verification — issue 16
+
+`verify_native_cam.py` is the issue 16 gate. It verifies the exact native board hashes from `native-generation.json` for the 43 selected boards and the approved `pcb/manifest.json` hashes for the nine Kumiko standard reference alternatives. KiCad DRC opens all 52 native files. The alternatives have separate reports and remain non-orderable references; they are never mixed into the selected CAM result.
+
+Run from the repository root with KiCad 10 available:
+
+```sh
+uv run --with-requirements artwork-resources/pcb-art/preview-source/requirements.txt \
+  python3 artwork-resources/pcb-art/manufacturing/verify_native_cam.py \
+  --execute \
+  --output /tmp/zudo-blanks-issue16-native-cam \
+  --export-selected \
+  --evidence-dir artwork-resources/pcb-art/manufacturing
+```
+
+The runner records its installed CLI help and KiCad version, then runs `pcb drc --format json --units mm --severity-all --severity-exclusions --exit-code-violations` on every board. Selected projects are checked against the frozen 0.25 mm copper gap, 0.30 mm copper-to-route/drill clearance, and zero global mask expansion. There are no project-level DRC exclusions. The manufacturing-relevant `copper_edge_clearance`, `solder_mask_bridge`, and `shorting_items` rules are errors. The remaining ignored checks are limited to board-only NPTH footprints, absent courtyards/libraries, unused track/via checks and unused tuning profiles; the DRC JSON lists them for each board, and the separate CAM checks verify the physical geometry those inapplicable electrical rules cannot cover.
+
+The initial full DRC run exposed KiCad outline errors on five selected native boards: sub-micron Edge.Cuts segments and self-intersections at short contour stubs. The native candidate generator removes segments below its serialized minimum; the five affected boards use scoped thresholds. It removes redundant collinear vertices only in the offending rings of Woven Maze L07 and Fault Line L08. The default and targeted thresholds are defined in `generate_native.py`; `native-generation.json` records the removed-segment count, maximum displacement and area change for each board. Every repaired ring must remain valid, with maximum contour displacement at or below 0.001 mm and total area change at or below 0.02 mm². This repair changes Edge.Cuts serialization only; decorative F.Cu/F.Mask geometry is unchanged.
+
+KiCad 10 also reported an order-dependent self-intersection on Woven Maze L08 even though its source rings are valid. Rotating the start point of the affected Edge.Cuts ring to a smooth vertex changes only serialized line order; it preserves the exact contour and is recorded as a KiCad contour-seam workaround, not a geometry change.
+
+The selected CAM command writes individual Gerber and separated Excellon output for all 43 selected boards, including the lower reference packages and all five standalone tops. The verifier parses the output coordinates and layer attributes directly. It checks the closed Edge.Cuts line loops against the native contours, the continuous rectangular outer route and absence of extra breakaway geometry, positive F.Cu/F.Mask region contours, copper support beneath every decorative mask opening, and the empty back copper layer. Back-mask output may contain only the mechanical NPTH mask apertures represented by the board's exact four round drills and, on tops, four oval slots; those flashes are checked separately from back artwork. NPTH hits and routed slots are parsed from the actual Excellon file and compared with the native pad geometry. Each top profile has no duplicate drill contours on Edge.Cuts.
+
+The verifier checks native finish and mask-color metadata, hashes every exported CAM file, creates a local ZIP per selected board, and raster-renders a five-top appearance sheet from the parsed Gerber polygons and Excellon drills. A read-only parser smoke for an already-exported board can be run with `--verify-existing --board-id <manifest-id> --cam-dir <gerber-dir> [--drill-dir <excellon-dir>]`.
+
+If all DRC and CAM checks complete but compact evidence needs to be regenerated, reuse the completed raw run without invoking KiCad or re-parsing CAM geometry:
+
+```sh
+uv run --with-requirements artwork-resources/pcb-art/preview-source/requirements.txt \
+  python3 artwork-resources/pcb-art/manufacturing/verify_native_cam.py \
+  --rebuild-evidence-from /tmp/zudo-blanks-issue16-native-cam-release/native-cam-run.json \
+  --evidence-dir artwork-resources/pcb-art/manufacturing
+```
+
+This mode rechecks the raw DRC report contents and hashes, current native board/project hashes, CAM file hashes, package ZIPs and package manifests. It reuses the recorded CAM geometry checks, archives the original run record, and records the original execution verifier hash separately from the current evidence-builder hash.
+
+Raw DRC reports, CAM folders, drill maps and per-board ZIPs stay at the local output path. The compact tracked outputs are `native-kicad-cam-report.json`, `native-kicad-cam-manifest.json`, and `native-cam-representative.png`. They bind results to the input manifest, selected native-generation record, policy, generator, execution verifier and evidence builder, pinned Python requirement file, Python/Shapely/Pillow versions, individual native board/project hashes, CLI version, raw DRC report hashes, and every selected CAM file/ZIP hash. A selected DRC violation, nonzero unconnected-item count, or selected output geometry mismatch blocks the local gate. Reference-alternative findings are retained separately.
+
+These local reports do not approve factory CAM, quotes, orders or physical fit. The exhaustive all-boundary width certificate remains an opt-in diagnostic under the 2026-09-27 scope amendment.
+
 ## Readiness and remaining confirmation
 
 This issue completes a local design decision and scoped comparisons. #15 implements and proves corrected geometry; #16 independently verifies native/output geometry; #17 verifies actual combined sheets and the order manifest. Buying, payment, vendor contact and manufacturing approval are outside this workflow.
