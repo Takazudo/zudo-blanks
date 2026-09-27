@@ -1,0 +1,18 @@
+---
+title: Native Boards and CAM
+sidebar_position: 1
+---
+
+The five [design pages](../designs/) link each selected `.kicad_pcb` directly. The [native CAM manifest](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/manufacturing/native-kicad-cam-manifest.json) records the KiCad 10 version, board hashes, clean DRC reports, Gerber and Excellon checks. The [grouped lower README](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-grouped-lowers/README.md) describes five scored grids and their separate local verifier. Large CAM ZIPs stay local and ignored; regeneration commands and hashes are in the repository records.
+
+| KiCad feature | Meaning |
+| --- | --- |
+| `Edge.Cuts` | Routed outer shape and decorative apertures on individual boards; grouped sheets route only their outer profile and decorative apertures |
+| `Dwgs.User` on grouped sheets | Full-length V-score reference lines for fabricator review |
+| NPTH pads | Mechanical stack holes and the top rail slots; exported separately from PTH |
+| `F.Cu` and `F.Mask` | Positive copper and exposed-gold opening geometry on ENIG boards |
+| Mask-only lower boards | No decorative copper or gold openings |
+
+The five downloadable [top Edge.Cuts inspection vectors](/assets/pcb-art/vector/spider-nest-top-edge-cuts.svg) are generated from native boards. Other top vectors: [Coral](/assets/pcb-art/vector/coral-vault-top-edge-cuts.svg), [Fault](/assets/pcb-art/vector/fault-line-top-edge-cuts.svg), [Kumiko wide](/assets/pcb-art/vector/kumiko-void-top-edge-cuts.svg), [Woven](/assets/pcb-art/vector/woven-maze-top-edge-cuts.svg). These SVGs aid inspection at source aspect ratio; use the native PCB and verified CAM records for fabrication. The complete layer-specific SVG/DXF vector tree can be regenerated locally with [the source exporter](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/tools/export_kicad.py), but those Revision 5 vectors represent the design source before manufacturing adjustments.
+
+Factory CAM approval, finished board review and physical fit remain external steps.

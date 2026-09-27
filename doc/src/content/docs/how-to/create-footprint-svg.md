@@ -76,7 +76,7 @@ python3 scripts/clean-svg-refs.py images/
 ```bash
 cd footprints
 
-# Copy cleaned SVGs to documentation fragments
+# Stage cleaned SVGs for the documentation site
 cp images/*.svg ../doc/public/footprints/
 ```
 
@@ -94,10 +94,9 @@ project/
 │   └── scripts/
 │       └── clean-svg-refs.py        # Cleanup script
 └── doc/
-    └── docs/
-        └── _fragments/
-            └── footprints/
-                └── *.svg            # Final SVGs for documentation
+    └── public/
+        └── footprints/
+            └── *.svg                # Browser-facing SVGs
 ```
 
 ## Cleanup Script Details

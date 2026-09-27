@@ -1,0 +1,49 @@
+---
+title: "01 Spider Nest"
+description: "Design intent, layer sequence, and review points."
+sidebar_position: 1
+---
+
+<a href="/assets/pcb-art/previews/index.html?design=spider-nest">Open the interactive Revision 5 design preview</a>
+
+The irregular web extends close to the perimeter. Twelve main radial strands reach outward, four of them connected to mounting supports. Cross strands shift between layers, leaving a deep view toward the red bottom. The top copper follows the web outward rather than adding a uniform tiled pattern. Revision 5 adds the shared top frame and hole rims.
+
+The top opening grew about 29.5% from Revision 3 to Revision 4; Revision 5 preserves that physical opening. White layers and the red bottom are mask-only. Layers 3, 5, and 7 show gold using black mask and exposed ENIG.
+
+## Review points
+
+Check thin strand connections, sharp interior corners, support necks, and visibility of the red bottom. A process adaptation should not sever strands or flatten the web by filling openings.
+
+## Front-to-back layers
+
+| Layer | Color | Finish |
+| ---: | --- | --- |
+| 1 | Black | ENIG artwork |
+| 2 | White | Mask-only |
+| 3 | Black with gold | Full ENIG |
+| 4 | White | Mask-only |
+| 5 | Black with gold | Full ENIG |
+| 6 | White | Mask-only |
+| 7 | Black with gold | Full ENIG |
+| 8 | Red | Mask-only bottom |
+
+## Native boards and evidence
+
+The image below shows all selected layers from **manufacturing-adjusted native KiCad files**. The linked 3D viewer above shows Revision 5 **visual design geometry**. Small local routing and mask corrections mean the two representations are not identical.
+
+<img className="design-preview" src="/assets/panels/art-spider-nest.png" alt="All selected native KiCad layers for spider nest" />
+
+| Layer | Native KiCad board |
+| ---: | --- |
+| 1 | [01-spider-nest-L01-black-enig-art](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-spider-nest/01-spider-nest-L01-black-enig-art.kicad_pcb) |
+| 2 | [01-spider-nest-L02-white-mask-only](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-spider-nest/01-spider-nest-L02-white-mask-only.kicad_pcb) |
+| 3 | [01-spider-nest-L03-gold-enig-fill](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-spider-nest/01-spider-nest-L03-gold-enig-fill.kicad_pcb) |
+| 4 | [01-spider-nest-L04-white-mask-only](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-spider-nest/01-spider-nest-L04-white-mask-only.kicad_pcb) |
+| 5 | [01-spider-nest-L05-gold-enig-fill](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-spider-nest/01-spider-nest-L05-gold-enig-fill.kicad_pcb) |
+| 6 | [01-spider-nest-L06-white-mask-only](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-spider-nest/01-spider-nest-L06-white-mask-only.kicad_pcb) |
+| 7 | [01-spider-nest-L07-gold-enig-fill](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-spider-nest/01-spider-nest-L07-gold-enig-fill.kicad_pcb) |
+| 8 | [01-spider-nest-L08-red-mask-only](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-spider-nest/01-spider-nest-L08-red-mask-only.kicad_pcb) |
+
+[Project directory](https://github.com/Takazudo/zudo-blanks/tree/main/panels/art-spider-nest) · [Selected package/order manifest](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/manufacturing/lower-panels-order-manifest.json) · [Local native/CAM evidence](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/manufacturing/native-kicad-cam-manifest.json)
+
+Factory CAM review, finish/color availability, quote and physical fit are pending external checks. No purchase or factory acceptance is recorded.

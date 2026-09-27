@@ -26,13 +26,14 @@ def main():
         parser.error('Missing required handoff resources: ' + ', '.join(missing))
     copies = []
     for source, subdir, patterns in [
-        (handoff/'preview-source/dist', 'previews', ['*.html']),
+        (handoff/'preview-source/dist', 'previews', ['index.html']),
         (handoff/'resources/images', 'images', ['*.png','*.svg']),
         (handoff/'resources/manufacturing-review', 'manufacturing-review', ['*.png','*.svg','*.csv']),
+        (handoff/'resources/vector', 'vector', ['**/*.svg','**/*.dxf']),
     ]:
         for pattern in patterns:
             for p in sorted(source.glob(pattern)):
-                target = dest/subdir/p.name
+                target = dest/subdir/p.relative_to(source)
                 target.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copy2(p,target)
                 copies.append(str(target.relative_to(site)))

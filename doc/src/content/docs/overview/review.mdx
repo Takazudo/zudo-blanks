@@ -1,0 +1,16 @@
+---
+title: Review Evidence and Limits
+sidebar_position: 4
+---
+
+The frozen Revision 5 source includes geometry and native-export screens. Later local work adapted the 43 selected boards for the chosen router and copper/mask rules, ran targeted geometry checks, and checked native KiCad 10 DRC and CAM outputs. Five grouped lower sheets received separate local native/CAM checks. The nine standard Kumiko boards remain unchanged reference designs.
+
+| Evidence | Record |
+| --- | --- |
+| Visual design geometry and source tests | [Frozen Revision 5 geometry](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/preview-source/assets/geometry.json) and [validation JSON](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/preview-source/assets/validation.json) |
+| Chosen local adaptation and indexed deltas | [Policy](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/manufacturing/policy.json) and [candidate ledger](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/manufacturing/indexed-deltas.json) |
+| Individual selected native board checks | [KiCad 10 CAM manifest](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/manufacturing/native-kicad-cam-manifest.json) |
+| Grouped sheet checks and planned quantities | [Grouped sheet record](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/manufacturing/lower-panels-order-manifest.json) |
+| Representative visual comparison | [Before and after views](../manufacturing/comparisons.mdx) |
+
+An erosion screen or a clean KiCad DRC does not prove material strength, supplier process compatibility or physical fit. The exhaustive width certificate remains opt-in and has not passed. Factory CAM, quote, finish availability and physical assembly are pending.

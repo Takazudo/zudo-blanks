@@ -1,0 +1,23 @@
+---
+title: Source of Truth and Regeneration
+sidebar_position: 4
+---
+
+## Which file answers which question?
+
+| Question | Source |
+| --- | --- |
+| Revision 5 visual intent and 3D viewer | [Frozen geometry JSON](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/preview-source/assets/geometry.json) and the editable design modules |
+| Chosen fabrication rules and indexed local changes | [Manufacturing policy](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/manufacturing/policy.json), [candidate record](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/manufacturing/CANDIDATE.md) and indexed ledgers |
+| Fabrication-oriented geometry | [Selected native KiCad boards](https://github.com/Takazudo/zudo-blanks/tree/main/panels), with [local DRC/CAM manifest](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/manufacturing/native-kicad-cam-manifest.json) |
+| Grouped lower packages and quantities | [Five native sheets](https://github.com/Takazudo/zudo-blanks/tree/main/panels/art-grouped-lowers) and [order manifest](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/manufacturing/lower-panels-order-manifest.json) |
+
+The design viewer is not a Gerber or drill preview. Local corrections to routable apertures, copper, and mask make it differ slightly from fabrication-oriented native boards. The catalog contact sheets derive from those native boards but are directory illustrations, not validated CAM plots.
+
+## Regenerate with purpose
+
+`preview-source/scripts/build.mjs` builds the viewer from **frozen** `assets/geometry.json` and verifies its SHA256. It does not rewrite that geometry. `preview-source/scripts/build_geometry.py` is a separate design-source regeneration tool; changes to frozen geometry require an explicit design and manufacturing review before replacing the approved input.
+
+To generate a future native project, follow the source and validation commands in the [manufacturing README](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/manufacturing/README.md). The old Revision 5 vector exporter remains useful for visual comparison and interchange, but its outputs predate local manufacturing adaptations. Never substitute `front.svg` for `Edge.Cuts`, F.Cu, F.Mask, or NPTH data.
+
+The [project panel-preview skill](https://github.com/Takazudo/zudo-blanks/blob/main/.claude/skills/panel-preview/SKILL.md) and [preview maintenance guide](../workflow/panel-previews.mdx) cover catalog updates for future panels.

@@ -1,0 +1,18 @@
+---
+title: Package and Order Planning
+sidebar_position: 4
+---
+
+The selected package plan groups lower boards by mask color and finish into five scored sheets. Three uncommon-color lower boards and five black ENIG top boards remain standalone. The plan is [machine-readable](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/manufacturing/lower-panels-order-manifest.json), with [native sheet sources](https://github.com/Takazudo/zudo-blanks/tree/main/panels/art-grouped-lowers) and [package instructions](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-grouped-lowers/README.md).
+
+| Grouped lower sheet | Grid | Member boards | Blank cells |
+| --- | ---: | ---: | ---: |
+| White lead-free HASL | 2 × 4 | 7 | 1 |
+| Black ENIG | 3 × 2 | 6 | 0 |
+| Red lead-free HASL | 3 × 4 | 10 | 2 |
+| Green lead-free HASL | 2 × 2 | 4 | 0 |
+| Black lead-free HASL | 2 × 4 | 8 | 0 |
+
+The manifest plans 25 complete stacks of each design, 13 packages and 325 sheets or standalone units. It accounts for 1,075 useful boards and 75 empty cells across those units. Hardware planning totals 500 screws, 3,800 spacers and 500 nuts. The [original handoff quantities](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/resources/order/order-plan.csv) are reference inputs, while the newer manifest describes the current grouping.
+
+Factory scoring and CAM strategy, quote, finish colors, mask-only boards, hardware fit, and shipping/handling strength require external confirmation. No purchase has been made.

@@ -3,77 +3,14 @@ title: Project Overview
 sidebar_position: 2
 ---
 
-# Project Overview
+This repository holds KiCad PCB panels for modular synthesizers. Its [catalog](../catalog/) covers every current project directory: plain blanks and adapters, side frames, Saucer designs, earlier artwork and five newer layered art stacks. The panels are decorative or structural; they contain no active electronic circuit.
 
-Blank panel PCB designs for modular synthesizers. These panels have no electronic components - they are simple PCBs used to fill empty spaces in Eurorack cases.
+The plain and older art directories have varied board geometry, finishes and order histories. Read each native board and any local README before using it; a directory name's HP value is a nominal module width, not a promise that the routed edge measures exactly `HP × 5.08 mm`. The catalog does not assert a common finish or approval state for those historical projects.
 
-## Design Goals
+## Five layered art designs
 
-### Panel Specifications
+The selected set comprises 43 boards: [Spider Nest](../designs/spider-nest.mdx), [Coral Vault](../designs/coral-vault.mdx), [Fault Line](../designs/fault-line.mdx), [Kumiko Void wide](../designs/kumiko-void.mdx) and [Woven Maze](../designs/woven-maze.mdx). Each top is nominally 101.3 × 128.5 mm, and lower boards are shorter to clear the rail regions. The stack has 1.6 mm boards separated by 3.0 mm spacers. Exact slot and support coordinates are in the [engineering dimensions](../engineering/dimensions.mdx).
 
-- **Format**: Eurorack (3U height, 128.5mm)
-- **Material**: FR-4 PCB, 1.6mm thickness
-- **Mounting**: Standard Eurorack M3 mounting holes
-- **Surface**: Optional silkscreen artwork
+The 3D viewer shows Revision 5 visual design intent. The selected native boards incorporate local router, copper and mask adjustments. Native KiCad DRC/CAM and grouped sheet checks passed locally; factory CAM, quotes, finish availability and physical fit remain pending. No purchase or manufacturer acceptance is recorded.
 
-### Manufacturing
-
-- **Manufacturer**: JLCPCB
-- **Minimum order**: 5 pieces
-- **Surface finish**: HASL (lead-free)
-
-## Panel Sizes
-
-Eurorack panels are measured in HP (Horizontal Pitch), where 1 HP = 5.08mm.
-
-| HP  | Width (mm) | Common Use        |
-| --- | ---------- | ----------------- |
-| 2   | 10.16      | Narrow gap filler |
-| 4   | 20.32      | Small gap filler  |
-| 6   | 30.48      | Standard blank    |
-| 8   | 40.64      | Standard blank    |
-| 10  | 50.80      | Medium blank      |
-| 12  | 60.96      | Medium blank      |
-| 16  | 81.28      | Large blank       |
-| 20  | 101.60     | Large blank       |
-
-## Design Elements
-
-### Edge.Cuts
-
-The board outline defines the panel dimensions. All panels use:
-
-- **Height**: 128.5mm (3U standard)
-- **Width**: HP x 5.08mm
-- **Corner radius**: Optional rounded corners
-
-### Mounting Holes
-
-Standard Eurorack mounting holes:
-
-- **Diameter**: 3.2mm (for M3 screws)
-- **Position**: 3mm from top/bottom edges, 7.5mm from side edges
-- **Spacing**: One pair at top, one pair at bottom
-
-### Silkscreen
-
-Optional decorative elements on F.Silkscreen and B.Silkscreen layers:
-
-- Project name or logo
-- Decorative patterns
-- Version markings
-
-## Workflow
-
-1. **Design** panel in KiCad PCB editor
-2. **Define** Edge.Cuts outline for desired HP width
-3. **Place** mounting holes
-4. **Add** silkscreen artwork (optional)
-5. **Export** Gerber files
-6. **Order** from JLCPCB
-
-## Next Steps
-
-1. Design panels in various HP widths
-2. Add custom silkscreen artwork
-3. Export Gerber files and order from JLCPCB
+<a href="/assets/pcb-art/previews/index.html">Interactive design viewer</a> · [Manufacturing status](../manufacturing/) · [Package plan](../manufacturing/order.mdx)

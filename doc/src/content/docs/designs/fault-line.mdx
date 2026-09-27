@@ -1,0 +1,51 @@
+---
+title: "13 Fault Line"
+description: "Design intent, layer sequence, and review points."
+sidebar_position: 3
+---
+
+<a href="/assets/pcb-art/previews/index.html?design=fault-line">Open the interactive Revision 5 design preview</a>
+
+Fault Line is a tall, asymmetric canyon. Its side ledges reach different heights; black layers have angular cliffs while red layers have worn, rounded cliffs. Retreat varies locally. The top opening grew about 38.1% from Revision 3 to Revision 4. Top copper adds terrain lines and narrow fractures, with a Revision 5 frame and hole rims. The lower eight boards are mask-only.
+
+## Keep each layer connected
+
+The left and right portions of every layer must remain connected through its upper and lower bridges. Splitting a layer into separate boards held together by screws would violate the one-PCB-per-layer design.
+
+Opening area decreases with depth and remains nested, but the geometry is not a uniform offset. Keep local changes irregular and check that deep openings do not create floating PCB fragments.
+
+## Front-to-back layers
+
+| Layer | Color | Finish |
+| ---: | --- | --- |
+| 1 | Black | ENIG artwork |
+| 2 | Red | Mask-only |
+| 3 | Black | Mask-only |
+| 4 | Red | Mask-only |
+| 5 | Black | Mask-only |
+| 6 | Red | Mask-only |
+| 7 | Black | Mask-only |
+| 8 | Red | Mask-only |
+| 9 | Black | Mask-only bottom |
+
+## Native boards and evidence
+
+The image below shows all selected layers from **manufacturing-adjusted native KiCad files**. The linked 3D viewer above shows Revision 5 **visual design geometry**. Small local routing and mask corrections mean the two representations are not identical.
+
+<img className="design-preview" src="/assets/panels/art-fault-line.png" alt="All selected native KiCad layers for fault line" />
+
+| Layer | Native KiCad board |
+| ---: | --- |
+| 1 | [13-fault-line-L01-black-enig-art](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-fault-line/13-fault-line-L01-black-enig-art.kicad_pcb) |
+| 2 | [13-fault-line-L02-red-mask-only](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-fault-line/13-fault-line-L02-red-mask-only.kicad_pcb) |
+| 3 | [13-fault-line-L03-black-mask-only](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-fault-line/13-fault-line-L03-black-mask-only.kicad_pcb) |
+| 4 | [13-fault-line-L04-red-mask-only](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-fault-line/13-fault-line-L04-red-mask-only.kicad_pcb) |
+| 5 | [13-fault-line-L05-black-mask-only](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-fault-line/13-fault-line-L05-black-mask-only.kicad_pcb) |
+| 6 | [13-fault-line-L06-red-mask-only](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-fault-line/13-fault-line-L06-red-mask-only.kicad_pcb) |
+| 7 | [13-fault-line-L07-black-mask-only](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-fault-line/13-fault-line-L07-black-mask-only.kicad_pcb) |
+| 8 | [13-fault-line-L08-red-mask-only](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-fault-line/13-fault-line-L08-red-mask-only.kicad_pcb) |
+| 9 | [13-fault-line-L09-black-mask-only](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-fault-line/13-fault-line-L09-black-mask-only.kicad_pcb) |
+
+[Project directory](https://github.com/Takazudo/zudo-blanks/tree/main/panels/art-fault-line) · [Selected package/order manifest](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/manufacturing/lower-panels-order-manifest.json) · [Local native/CAM evidence](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/manufacturing/native-kicad-cam-manifest.json)
+
+Factory CAM review, finish/color availability, quote and physical fit are pending external checks. No purchase or factory acceptance is recorded.

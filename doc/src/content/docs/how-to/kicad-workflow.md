@@ -8,7 +8,7 @@ Workflow for designing blank panels in KiCad, from PCB layout to manufacturing f
 
 ## Prerequisites
 
-**CRITICAL:** Each panel is a standalone KiCad project under `panels/`:
+This example uses one older, single-board project under `panels/`. The five newer art stacks and grouped lower packages contain multiple native boards; see the [panel catalog](../catalog/) and [manufacturing records](../manufacturing/) for those projects.
 
 ```
 zudo-blanks/
@@ -26,7 +26,7 @@ Blank panels are simple PCB designs that skip most of the traditional KiCad work
 
 1. **PCB Editor** - Design the panel (outline, mounting holes, silkscreen)
 2. **Manufacturing Output** - Generate Gerber files
-3. **Order** - Upload to JLCPCB
+3. **Review supplier output** - Check fabrication files and supplier requirements before any order
 
 ## Stage 1: PCB Layout
 
@@ -36,7 +36,7 @@ Blank panels are simple PCB designs that skip most of the traditional KiCad work
 2. Select **Edge.Cuts** layer
 3. Draw board outline:
    - **Height**: 128.5mm (Eurorack 3U standard)
-   - **Width**: HP x 5.08mm (e.g., 8HP = 40.64mm)
+   - **Width**: choose the actual board outline for this project. HP × 5.08 mm is a nominal module pitch (8 HP = 40.64 mm), not a universal routed-width rule.
 
 **Using the drawing tools:**
 
@@ -113,7 +113,7 @@ Before generating output:
    - Silkscreen readable (not over holes)
    - Layers aligned correctly
 
-## Stage 3: Order from JLCPCB
+## Stage 3: Prepare for Supplier Review
 
 ### 3.1 Prepare Files
 
@@ -135,16 +135,12 @@ gerbers.zip
 └── drill.drl
 ```
 
-### 3.2 Upload and Configure
+### 3.2 Check Supplier Configuration
 
-1. Go to [jlcpcb.com](https://jlcpcb.com)
-2. Upload gerbers.zip
-3. Configure:
-   - PCB quantity: 5 (minimum)
-   - PCB thickness: 1.6mm (standard)
-   - Surface finish: HASL (lead-free)
-   - PCB color: Choose solder mask color (green, black, white, etc.)
-   - No assembly needed (blank panels have no components)
+1. Check the current supplier capabilities and quote conditions.
+2. Upload the project's Gerbers and separate plated/nonplated drill data for CAM review.
+3. Configure thickness, color, quantity and finish from that board's design and its project records. The newer art stacks mix ENIG and lead-free HASL and use several mask colors; do not apply one finish to every board.
+4. Resolve supplier CAM questions and physical-fit requirements before placing an order.
 
 ## Workflow Summary
 
@@ -161,7 +157,7 @@ gerbers.zip
    ↓
 6. Verify in GerbView
    ↓
-7. Order from JLCPCB
+7. Confirm supplier CAM, quote and physical fit before ordering
 ```
 
 ## Troubleshooting

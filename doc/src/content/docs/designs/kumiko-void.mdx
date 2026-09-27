@@ -1,0 +1,59 @@
+---
+title: "17 Kumiko Void"
+description: "Selected wide design, standard alternative, and layer sequence."
+sidebar_position: 4
+---
+
+<a href="/assets/pcb-art/previews/index.html?design=kumiko-void&amp;variant=wide">Open the interactive Revision 5 design preview</a>
+
+Kumiko combines an asanoha lattice with black, red, and green layers. On black layers 1, 4, and 7, the flat gold and black surfaces create the visual shadow; no raised metal parts are specified. The standard option preserves the earlier opening. The selected wide option extends the same lattice toward the perimeter and increases top opening area by about 43.8% relative to standard.
+
+![Standard and wide opening comparison](/assets/pcb-art/images/kumiko-void-variants.png)
+
+<a href="/assets/pcb-art/previews/index.html?design=kumiko-void&amp;variant=standard">Standard (reference only)</a> · <a href="/assets/pcb-art/previews/index.html?design=kumiko-void&amp;variant=wide">Wide (selected)</a>
+
+## Treat the variants as whole sets
+
+The selected set uses wide Kumiko. Its nine standard boards are retained under panels/art-kumiko-void/alternatives/standard. Replace all nine layers together if choosing standard; do not mix layers from the two variants. Revision 5 borders are present on both tops.
+
+## Selected wide and reference standard
+
+The wide nine-board set was locally adapted for the chosen 1.0 mm cutter and checked in native KiCad and CAM. The standard nine-board alternative remains reference-only and was not part of the selected release checks. Do not mix variants within one stack. [Read the policy and indexed corrections](../manufacturing/kumiko-routing.mdx).
+
+## Front-to-back layers
+
+| Layer | Color | Finish |
+| ---: | --- | --- |
+| 1 | Black | ENIG artwork |
+| 2 | Red | Mask-only |
+| 3 | Green | Mask-only |
+| 4 | Black | ENIG artwork |
+| 5 | Red | Mask-only |
+| 6 | Green | Mask-only |
+| 7 | Black | ENIG artwork |
+| 8 | Red | Mask-only |
+| 9 | Green | Mask-only bottom |
+
+## Native boards and evidence
+
+The image below shows all selected layers from **manufacturing-adjusted native KiCad files**. The linked 3D viewer above shows Revision 5 **visual design geometry**. Small local routing and mask corrections mean the two representations are not identical.
+
+<img className="design-preview" src="/assets/panels/art-kumiko-void.png" alt="All selected native KiCad layers for kumiko void" />
+
+| Layer | Native KiCad board |
+| ---: | --- |
+| 1 | [17-kumiko-void-wide-L01-black-enig-art](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-kumiko-void/17-kumiko-void-wide-L01-black-enig-art.kicad_pcb) |
+| 2 | [17-kumiko-void-wide-L02-red-mask-only](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-kumiko-void/17-kumiko-void-wide-L02-red-mask-only.kicad_pcb) |
+| 3 | [17-kumiko-void-wide-L03-green-mask-only](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-kumiko-void/17-kumiko-void-wide-L03-green-mask-only.kicad_pcb) |
+| 4 | [17-kumiko-void-wide-L04-black-enig-art](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-kumiko-void/17-kumiko-void-wide-L04-black-enig-art.kicad_pcb) |
+| 5 | [17-kumiko-void-wide-L05-red-mask-only](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-kumiko-void/17-kumiko-void-wide-L05-red-mask-only.kicad_pcb) |
+| 6 | [17-kumiko-void-wide-L06-green-mask-only](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-kumiko-void/17-kumiko-void-wide-L06-green-mask-only.kicad_pcb) |
+| 7 | [17-kumiko-void-wide-L07-black-enig-art](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-kumiko-void/17-kumiko-void-wide-L07-black-enig-art.kicad_pcb) |
+| 8 | [17-kumiko-void-wide-L08-red-mask-only](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-kumiko-void/17-kumiko-void-wide-L08-red-mask-only.kicad_pcb) |
+| 9 | [17-kumiko-void-wide-L09-green-mask-only](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-kumiko-void/17-kumiko-void-wide-L09-green-mask-only.kicad_pcb) |
+
+[Project directory](https://github.com/Takazudo/zudo-blanks/tree/main/panels/art-kumiko-void) · [Selected package/order manifest](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/manufacturing/lower-panels-order-manifest.json) · [Local native/CAM evidence](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/manufacturing/native-kicad-cam-manifest.json)
+
+Factory CAM review, finish/color availability, quote and physical fit are pending external checks. No purchase or factory acceptance is recorded.
+
+[Standard nine-board alternative directory — reference only](https://github.com/Takazudo/zudo-blanks/tree/main/panels/art-kumiko-void/alternatives/standard)
