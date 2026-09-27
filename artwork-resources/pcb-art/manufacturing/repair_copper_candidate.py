@@ -40,8 +40,20 @@ def _board(job):
             a,b=nearest_points(lhs,rhs)
             bridge=LineString([a,b]).buffer(.1255,quad_segs=64)
             route='inset anchors'
-        if a.distance(b)>.60 or bridge.difference(safe).area>.00001:
+        if a.distance(b)>.60:
             raise ValueError(f'{name}: copper join exceeds reach or safe region at {i},{j}')
+        outside=bridge.difference(safe).area
+        if outside>.00001:
+            # A buffered centerline can graze a routed edge even with both
+            # inset anchors legal. Clip only a small fringe, and retain a
+            # single connected, pair-specific patch. Final copper width is
+            # checked again on the complete serialized union.
+            if outside>.002 or outside/bridge.area>.02:
+                raise ValueError(f'{name}: copper join exceeds reach or safe region at {i},{j}')
+            bridge=rounded(bridge.intersection(safe))
+            if len(export.polygons(bridge))!=1:
+                raise ValueError(f'{name}: clipped copper join is disconnected at {i},{j}')
+            route='safe-clipped inset anchors'
         if not bridge.intersects(parts[i]) or not bridge.intersects(parts[j]):
             raise ValueError(f'{name}: copper join does not reach both components at {i},{j}')
         patches.append(bridge)
@@ -51,6 +63,7 @@ def _board(job):
             'beforeComponentWkbSha256':[digest(parts[i].wkb),digest(parts[j].wkb)],
             'beforeGapMm':round(direct_gap,9),
             'route':route,
+            'safetyClipAreaMm2':round(outside,9),
             'centerlineMm':[[round(a.x,9),round(a.y,9)],
                             [round(b.x,9),round(b.y,9)]],
             'centerlineLengthMm':round(a.distance(b),9),
@@ -111,12 +124,12 @@ def _board(job):
         'hiddenChannelFill':channel_fill,
         'copperWidthEdits':width_records,
         'unresolvedCopperWidthFailures':copper_unresolved,
-        'insetAnchorJoinCount':sum(r['route']=='inset anchors' for r in records),
+        'insetAnchorJoinCount':sum(r['route']!='direct' for r in records),
         'records':records,
         'afterCopperWkbHex':copper.wkb_hex,
     }
     print(f'{name}: {len(records)} hidden joins, '
-          f'{sum(r["route"]=="inset anchors" for r in records)} inset',flush=True)
+          f'{sum(r["route"]!="direct" for r in records)} inset',flush=True)
     return board
 
 

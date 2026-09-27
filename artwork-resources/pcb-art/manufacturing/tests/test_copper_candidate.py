@@ -32,10 +32,10 @@ class CopperCandidateTests(unittest.TestCase):
                            for b in self.report['boards']]}
         self.assertEqual(compact,self.ledger)
         self.assertEqual(len(self.report['boards']),11)
-        self.assertEqual(sum(b['joinCount'] for b in self.report['boards']),365)
-        self.assertEqual(sum(b['insetAnchorJoinCount'] for b in self.report['boards']),9)
+        self.assertEqual(sum(b['joinCount'] for b in self.report['boards']),533)
+        self.assertEqual(sum(b['insetAnchorJoinCount'] for b in self.report['boards']),20)
         self.assertEqual([b['joinCount'] for b in self.report['boards']],
-                         [0,0,0,0,49,0,1,269,30,16,0])
+                         [88,0,0,0,113,0,1,282,31,16,2])
 
     def test_final_unions_and_local_reach(self):
         masks={b['boardId']:b for b in self.masks['boards']}
@@ -56,8 +56,14 @@ class CopperCandidateTests(unittest.TestCase):
                 self.assertTrue(all(r['centerlineLengthMm']<=.60 for r in board['records']))
                 self.assertTrue(all(r['nominalWidthMm']>=.25 for r in board['records']))
                 self.assertTrue(all(r['centerlineLengthMm']>0 for r in board['records']))
-                self.assertTrue(all(r['route'] in ('direct','inset anchors')
+                self.assertTrue(all(r['route'] in ('direct','inset anchors',
+                                                   'safe-clipped inset anchors')
                                     for r in board['records']))
+                clipped=[r for r in board['records']
+                         if r['route']=='safe-clipped inset anchors']
+                self.assertTrue(all(0<r['safetyClipAreaMm2']<=.002 for r in clipped))
+                self.assertEqual(board['insetAnchorJoinCount'],
+                                 sum(r['route']!='direct' for r in board['records']))
 
 
 if __name__=='__main__':

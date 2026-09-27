@@ -76,8 +76,11 @@ panels/art-strip-mine/**/gerber/
 /artwork-resources/pcb-art/preview-source/dist/
 /artwork-resources/pcb-art/preview-source/node_modules/
 /artwork-resources/pcb-art/preview-source/.venv/
+/artwork-resources/pcb-art/preview-source/tests/output/
 /artwork-resources/pcb-art/resources/vector/
 /artwork-resources/pcb-art/manufacturing/copper-repair-candidate.json
+/artwork-resources/pcb-art/manufacturing/width-proof.json
+/artwork-resources/pcb-art/manufacturing/final-width-audit.json
 panels/art-*/gerber/
 panels/art-*/**/gerber/
 panels/art-*/cam/

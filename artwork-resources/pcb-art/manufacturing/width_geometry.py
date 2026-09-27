@@ -18,6 +18,8 @@ from repair_mask_candidate import export, rounded
 TOLERANCE=.001
 MITRE_RATIO=5.0
 SAMPLE_STEP=.002
+SEGMENT_QUERY_BATCH=64
+SEGMENT_PAIR_BATCH=4096
 
 
 def _overlay(op,a,b):
@@ -165,28 +167,38 @@ def gap_zones(region,width,within=None):
     if not len(index):
         return []
     tree=STRtree(segments)
-    left,right=tree.query(segments[index],predicate='dwithin',distance=width-TOLERANCE)
-    left=index[left]
-    # A chord inside the region joins rings of one polygon; pairs across
-    # separate polygons are the other phase's gap and are tested there.
-    keep=(left<right)&(Q[left]==Q[right])
-    left,right=left[keep],right[keep]
-    lines=shapely.shortest_line(segments[left],segments[right])
-    ends_xy=shapely.get_coordinates(lines).reshape(-1,2,2)
-    distance=shapely.length(lines)
-    # Ring path between the two closest points (segment start plus offset).
-    at_l=S[left]+np.hypot(*(ends_xy[:,0]-A[left]).T)
-    at_r=S[right]+np.hypot(*(ends_xy[:,1]-A[right]).T)
-    gap=np.abs(at_l-at_r)
-    around=np.minimum(gap,L[left]-gap)
-    far=(K[left]!=K[right])|(around>MITRE_RATIO*np.maximum(distance,1e-9))
-    left,right=left[far],right[far]
-    if not len(left):
-        return []
-    lines=lines[far]
-    mids=shapely.get_coordinates(shapely.line_interpolate_point(lines,.5,normalized=True))
-    cells=np.unique(np.floor(mids/(width/2)).astype(np.int64),axis=0,return_index=True)[1]
-    return [Point(mids[i]).buffer(width/2,quad_segs=16) for i in cells]
+    # Do not materialize every nearby segment pair at once. Dense native
+    # polygons can produce millions of pairs and exhaust memory in GEOSLength.
+    cells={}
+    for start in range(0,len(index),SEGMENT_QUERY_BATCH):
+        query=index[start:start+SEGMENT_QUERY_BATCH]
+        local,right=tree.query(segments[query],predicate='dwithin',
+                               distance=width-TOLERANCE)
+        left=query[local]
+        # A chord inside the region joins rings of one polygon; pairs across
+        # separate polygons are the other phase's gap and are tested there.
+        keep=(left<right)&(Q[left]==Q[right])
+        left,right=left[keep],right[keep]
+        for offset in range(0,len(left),SEGMENT_PAIR_BATCH):
+            li=left[offset:offset+SEGMENT_PAIR_BATCH]
+            ri=right[offset:offset+SEGMENT_PAIR_BATCH]
+            lines=shapely.shortest_line(segments[li],segments[ri])
+            ends_xy=shapely.get_coordinates(lines).reshape(-1,2,2)
+            distance=shapely.length(lines)
+            # Ring path between the two closest points.
+            at_l=S[li]+np.hypot(*(ends_xy[:,0]-A[li]).T)
+            at_r=S[ri]+np.hypot(*(ends_xy[:,1]-A[ri]).T)
+            gap=np.abs(at_l-at_r)
+            around=np.minimum(gap,L[li]-gap)
+            far=(K[li]!=K[ri])|(around>MITRE_RATIO*np.maximum(distance,1e-9))
+            if not np.any(far):
+                continue
+            mids=shapely.get_coordinates(
+                shapely.line_interpolate_point(lines[far],.5,normalized=True))
+            for mid in mids:
+                cell=tuple(np.floor(mid/(width/2)).astype(np.int64))
+                cells.setdefault(cell,mid)
+    return [Point(cells[cell]).buffer(width/2,quad_segs=16) for cell in sorted(cells)]
 
 
 def violations(region,width,within=None):
@@ -301,7 +313,8 @@ def _sha(geom):
     return hashlib.sha256(shapely.normalize(geom).wkb).hexdigest()
 
 
-def enforce_copper(copper,required,safe,body,label,max_iterations=12):
+def enforce_copper(copper,required,safe,body,label,max_iterations=12,
+                   free_batch_size=32,thin_batch_size=32):
     """Hidden copper: fill sub-0.25 copper-free gaps, widen or trim thin copper.
 
     required (gold plus its 0.05 mm margin) is never removed; nothing leaves safe.
@@ -315,30 +328,60 @@ def enforce_copper(copper,required,safe,body,label,max_iterations=12):
         if not free and not thin:
             break
         before=copper
+        pending=shapely.Polygon()
+        pending_count=0
         for piece,chords in free:
-            grow=sub(inter(capsules(chords,.125+TOLERANCE),safe),copper)
+            # Every free violation was measured on the pre-phase copper.
+            # Keep each actual delta disjoint from earlier queued additions,
+            # then rebuild the full copper union only once per bounded batch.
+            grow=clean(sub(sub(inter(capsules(chords,.125+TOLERANCE),safe),copper),pending))
             if grow.area>0:
                 records.append({'operation':'fill sub-0.25 mm copper-free gap beneath retained mask',
                                 'iteration':iteration,**chord_row('copper-free',.25,piece,chords),
-                                'copperAddedAreaMm2':round(grow.area,9)})
-                copper=clean(add(copper,grow))
+                                'copperAddedAreaMm2':round(grow.area,9),
+                                'copperAddedWkbSha256':_sha(grow)})
+                pending=add(pending,grow)
+                pending_count+=1
+                if pending_count>=free_batch_size:
+                    copper=clean(add(copper,pending))
+                    pending=shapely.Polygon()
+                    pending_count=0
+        if pending_count:
+            copper=clean(add(copper,pending))
+        pending=shapely.Polygon()
+        pending_count=0
         for piece,chords in thin:
             # Full-width disks: the safe-region clip can remove half of each.
-            grow=sub(inter(disks(chords,.25+TOLERANCE),safe),copper)
-            widened=add(copper,grow)
-            if grow.area>0 and not [v for v in violations(inter(widened,piece.buffer(.6)),.25)
+            grow=clean(sub(sub(inter(disks(chords,.25+TOLERANCE),safe),copper),pending))
+            zone=piece.buffer(.6)
+            local=add(inter(copper,zone),inter(pending,zone))
+            widened_local=add(local,inter(grow,zone))
+            if grow.area>0 and not [v for v in violations(inter(widened_local,zone),.25)
                                    if v[0].intersects(piece)]:
                 records.append({'operation':'widen thin hidden copper inside safe region',
                                 'iteration':iteration,**chord_row('copper',.25,piece,chords),
-                                'copperAddedAreaMm2':round(grow.area,9)})
-                copper=clean(widened)
+                                'copperAddedAreaMm2':round(grow.area,9),
+                                'copperAddedWkbSha256':_sha(grow)})
+                pending=add(pending,grow)
+                pending_count+=1
+                if pending_count>=thin_batch_size:
+                    copper=clean(add(copper,pending))
+                    pending=shapely.Polygon()
+                    pending_count=0
                 continue
+            if pending_count:
+                copper=clean(add(copper,pending))
+                pending=shapely.Polygon()
+                pending_count=0
             cut=sub(inter(disks(chords,.125+TOLERANCE),copper),required)
             if cut.area>0:
                 records.append({'operation':'trim thin hidden copper not backing a gold opening',
                                 'iteration':iteration,**chord_row('copper',.25,piece,chords),
-                                'copperRemovedAreaMm2':round(cut.area,9)})
+                                'copperRemovedAreaMm2':round(cut.area,9),
+                                'copperRemovedWkbSha256':_sha(cut)})
                 copper=clean(sub(copper,cut))
+        if pending_count:
+            copper=clean(add(copper,pending))
         copper=shapely.from_wkb(rounded(unary_union(
             [p for p in export.polygons(copper) if p.intersects(required)])).wkb)
         changed=clean(copper.symmetric_difference(before))

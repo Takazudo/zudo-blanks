@@ -1,25 +1,33 @@
 {
-  "status": "candidate; native KiCad load/DRC/CAM is issue 16, full art proof pending",
-  "manufacturingGeometrySha256": "598fa0279d4d6ea1fd4562aa21360c34ca8f43d18b64964b3e76f4e46f7adf33",
-  "maskCandidateSha256": "3d599846966dabaf1cade27002d93a22333a5611f58569ded61de2bec895b437",
-  "copperCandidateSha256": "13331d44013133c106ab8162d236f9f8c3647f61bfb4ee2a6d14779e87289e5c",
-  "copperLedgerSha256": "71acb62b6f2e24a7687ec1c184194706c8ba201a56f3a1a7746e791c85a29758",
-  "generatorSha256": "fa342580663553e337e5e9c1ef339fbfdb4c526ad2e585d9247a750bb3871aa0",
+  "status": "candidate; independent KiCad DRC/CAM and factory acceptance pending; exhaustive width certificate opt-in",
+  "manufacturingGeometrySha256": "747a18644063c2b37d4eca5d3a7a6b394b539be1e4496c5c26069aa12d64c3e0",
+  "maskCandidateSha256": "abc95a8df4c5b83cdd727136260e8321cb04a4f71ab7ae7883d9c4cd75c61689",
+  "copperCandidateSha256": "305d17738e6c6a9183308153f3ffc1b2cb0776a74cd1ad22a79dc8df194b0540",
+  "copperLedgerSha256": "1ccc8dea9519ceead121fe71da4ccfd975b32ba38bd83ae5d5d7bf90646d0c25",
+  "generatorSha256": "64656da95a9d602c1e9bc4340a031a5a45e76035e6638f88e5b08063d2a34c5b",
   "selectedBoardCount": 43,
   "boards": [
     {
       "boardId": "01-spider-nest-L01-black-enig-art",
       "nativeBoard": "panels/art-spider-nest/01-spider-nest-L01-black-enig-art.kicad_pcb",
-      "sha256": "7e8d51e54cb53166148ed14d47e94f27bf500c79317273b3e84f443f80be44b0",
+      "sha256": "0571049d5173dab413db763c2540774c3d4ea5b0d95e0ef1aa1508ddb4ab0f8a",
       "project": "panels/art-spider-nest/01-spider-nest-L01-black-enig-art.kicad_pro",
       "projectSha256": "de95e993d9fcc4f99b36663924afbcb1b6faa1704918c46490344d7b5f4d1152",
       "edgeLoopCount": 20,
       "npthRoundCount": 4,
       "npthSlotCount": 4,
-      "nativeCopperPolygons": 164,
-      "nativeMaskPolygons": 124,
-      "copperSourceWkbSha256": "caec4b99f1d1ae1e0aa4cb131b7914fddf272a109e94118e36e577fafc7f41d5",
-      "maskSourceWkbSha256": "f795019323fcd3648b2ea316531b71d9af9f6245916c563562e17e4172420618"
+      "nativeCopperPolygons": 147,
+      "nativeMaskPolygons": 134,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "271f8a5b6601a2886dabee3d1c3f9cde39eb3237256dda533b002b4fd9815f00",
+      "maskSourceWkbSha256": "6602d3ab38ba931e310b858eb1f985b4430949c427e1597230ffc9b04d1416bd"
     },
     {
       "boardId": "01-spider-nest-L02-white-mask-only",
@@ -32,22 +40,38 @@
       "npthSlotCount": 0,
       "nativeCopperPolygons": 0,
       "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
       "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
       "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
     },
     {
       "boardId": "01-spider-nest-L03-gold-enig-fill",
       "nativeBoard": "panels/art-spider-nest/01-spider-nest-L03-gold-enig-fill.kicad_pcb",
-      "sha256": "3aee104345b036cc1417ccb3eb8f0d7e73748b00bd2d93700cbfa5e5f27d7392",
+      "sha256": "8ee4a640b5d5176fd2521076725493973b281c7c49a8c697d26f947c9a02f56f",
       "project": "panels/art-spider-nest/01-spider-nest-L03-gold-enig-fill.kicad_pro",
       "projectSha256": "c0f0c14571965df2717219b506a3737ad2b04c5b4410cee1657dc9b5ff4ff2af",
       "edgeLoopCount": 20,
       "npthRoundCount": 4,
       "npthSlotCount": 0,
-      "nativeCopperPolygons": 22,
+      "nativeCopperPolygons": 24,
       "nativeMaskPolygons": 29,
-      "copperSourceWkbSha256": "ec782c8c0b7981e2d935fb0e82a643ea8b6072b25a825514dfb4b993729278e5",
-      "maskSourceWkbSha256": "b5f1b04b6a6ae2a9e22faab4ff6081977b16df64ea19858b720b6d011b98f31b"
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "2cc54c1a10a521b4360df31d12d219b02cc48f27f4dea58a7e018703260f0232",
+      "maskSourceWkbSha256": "0fea21176efff38fd96b07e80b68cb6ab54e4b0df54740c3349bf66d9c705f5d"
     },
     {
       "boardId": "01-spider-nest-L04-white-mask-only",
@@ -60,22 +84,38 @@
       "npthSlotCount": 0,
       "nativeCopperPolygons": 0,
       "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
       "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
       "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
     },
     {
       "boardId": "01-spider-nest-L05-gold-enig-fill",
       "nativeBoard": "panels/art-spider-nest/01-spider-nest-L05-gold-enig-fill.kicad_pcb",
-      "sha256": "7243dc038f119f779df66427d8137125c46a2e1b27cdee731c374fe602aeb450",
+      "sha256": "8657590cd6afe05a81cbef77d659cbaa54ff2a50c32dbbf9bfff780b59891639",
       "project": "panels/art-spider-nest/01-spider-nest-L05-gold-enig-fill.kicad_pro",
       "projectSha256": "94242668cd3dfb7551c02fdfec18f4d4e389ad35b90f2e532a0d4f3c33f56555",
       "edgeLoopCount": 20,
       "npthRoundCount": 4,
       "npthSlotCount": 0,
-      "nativeCopperPolygons": 32,
+      "nativeCopperPolygons": 33,
       "nativeMaskPolygons": 32,
-      "copperSourceWkbSha256": "332377fe80df120f280bb3b30137fbe84f1374e715f8d4314f869294197c99f0",
-      "maskSourceWkbSha256": "17c9f75d95f0296fb6216b9a2c20f43221b4432da24d13351843bceeb56ce478"
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "48d81aaa602e58b5d2643306c4ce9626d45231058faaccaeb707c786b3eb6c8a",
+      "maskSourceWkbSha256": "48e97edbb474f03a11888c0746c45853381f5a7f16468b43fa80538ee5f81272"
     },
     {
       "boardId": "01-spider-nest-L06-white-mask-only",
@@ -88,22 +128,38 @@
       "npthSlotCount": 0,
       "nativeCopperPolygons": 0,
       "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
       "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
       "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
     },
     {
       "boardId": "01-spider-nest-L07-gold-enig-fill",
       "nativeBoard": "panels/art-spider-nest/01-spider-nest-L07-gold-enig-fill.kicad_pcb",
-      "sha256": "edbec7b620c91d31e5bb457372b778b5b8f0d0fd4d61ee387c92d15597d4e6e0",
+      "sha256": "bca6cec2ea93e861042fb2b60dca838a4ccf164f383e111c0bbfb6cf20e15147",
       "project": "panels/art-spider-nest/01-spider-nest-L07-gold-enig-fill.kicad_pro",
       "projectSha256": "1d83e60be113a2e8fd121c184fbaf835f697dc334645fdd548bfc4021ccf94b5",
       "edgeLoopCount": 20,
       "npthRoundCount": 4,
       "npthSlotCount": 0,
-      "nativeCopperPolygons": 27,
+      "nativeCopperPolygons": 28,
       "nativeMaskPolygons": 27,
-      "copperSourceWkbSha256": "c008a4ce6156d88b35f913a778931236108b53604d2f6a7b7ca48c50af653508",
-      "maskSourceWkbSha256": "276f6e4f4394941476b02122a965af2caa639650813d919db6ab9f6da6de8e92"
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "a3a41bb35a98aef7e81ee7945bee56047e5f924f1d0226ad2f78723d5142b11d",
+      "maskSourceWkbSha256": "00c312f11bbb55a699a445386665c8e92504eaf560a87f24434e16dc7ef6c404"
     },
     {
       "boardId": "01-spider-nest-L08-red-mask-only",
@@ -116,22 +172,38 @@
       "npthSlotCount": 0,
       "nativeCopperPolygons": 0,
       "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
       "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
       "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
     },
     {
       "boardId": "03-coral-vault-L01-black-enig-art",
       "nativeBoard": "panels/art-coral-vault/03-coral-vault-L01-black-enig-art.kicad_pcb",
-      "sha256": "4fd23d2502d947ad98cc105d5183d7bbd38f1d7ef6394ddf3400e6047a0c88e3",
+      "sha256": "c0ff3c7494c51e1b2e23e9579eeadc60c049160bb2cc595204960d778a3bd3cd",
       "project": "panels/art-coral-vault/03-coral-vault-L01-black-enig-art.kicad_pro",
       "projectSha256": "eedb524e5a198e5a59fbdbf5379d5c79eaa519cae0b04b4d7883fbe59d0f96c6",
       "edgeLoopCount": 11,
       "npthRoundCount": 4,
       "npthSlotCount": 4,
-      "nativeCopperPolygons": 984,
-      "nativeMaskPolygons": 984,
-      "copperSourceWkbSha256": "c6ff5ab8bf2773d4548b3b1a226defd9e315c10311a36a436dee5a41170256d5",
-      "maskSourceWkbSha256": "6254053e10254fe3221d18d7ff620ce7e8041a751fae5f83150609498e4ab1da"
+      "nativeCopperPolygons": 1152,
+      "nativeMaskPolygons": 803,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 2,
+        "serializedSymmetricDifferenceMm2": 0.000266718
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "e982ae6e1eebc04d4554ec563564dec15531d562422f05e180d22d935a4426cc",
+      "maskSourceWkbSha256": "85001a0a0592cbd3a1b81a4981baf51cfcba61519e333f6f2389eab816d7019d"
     },
     {
       "boardId": "03-coral-vault-L02-green-mask-only",
@@ -144,6 +216,14 @@
       "npthSlotCount": 0,
       "nativeCopperPolygons": 0,
       "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
       "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
       "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
     },
@@ -158,13 +238,21 @@
       "npthSlotCount": 0,
       "nativeCopperPolygons": 0,
       "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
       "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
       "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
     },
     {
       "boardId": "03-coral-vault-L04-gold-enig-fill",
       "nativeBoard": "panels/art-coral-vault/03-coral-vault-L04-gold-enig-fill.kicad_pcb",
-      "sha256": "b66d49abf4f99417e1b1c8fe5dc28b69e897083d00e24b82874a61ed2b241235",
+      "sha256": "4ee22f39859f2cf911fd54ef28d863efb590fdf76dc981ca265dbd14db8e3a80",
       "project": "panels/art-coral-vault/03-coral-vault-L04-gold-enig-fill.kicad_pro",
       "projectSha256": "cbb23f8d3649c1b7088a23a4f9e71149d5510de0d4136593bb6d8e6d8898af90",
       "edgeLoopCount": 9,
@@ -172,8 +260,16 @@
       "npthSlotCount": 0,
       "nativeCopperPolygons": 15,
       "nativeMaskPolygons": 15,
-      "copperSourceWkbSha256": "55385a0456f21000db7e44d51e99cdf52c7c08e6f389dde14216b7a668304f30",
-      "maskSourceWkbSha256": "a1988499084e03a744f97c768863cc41a167d2119e49e6a095208c0584a7a6b2"
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "7f9b4aec87762b2e6b1613afa7687fcefe56deb880d5a321e0b8c6604d8bd859",
+      "maskSourceWkbSha256": "65bec5714e7090d1c116bb2db58a1b2cb4f70815374276a388362d943bc601d7"
     },
     {
       "boardId": "03-coral-vault-L05-red-mask-only",
@@ -186,6 +282,14 @@
       "npthSlotCount": 0,
       "nativeCopperPolygons": 0,
       "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
       "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
       "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
     },
@@ -200,6 +304,14 @@
       "npthSlotCount": 0,
       "nativeCopperPolygons": 0,
       "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
       "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
       "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
     },
@@ -214,6 +326,14 @@
       "npthSlotCount": 0,
       "nativeCopperPolygons": 0,
       "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
       "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
       "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
     },
@@ -228,22 +348,38 @@
       "npthSlotCount": 0,
       "nativeCopperPolygons": 0,
       "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
       "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
       "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
     },
     {
       "boardId": "13-fault-line-L01-black-enig-art",
       "nativeBoard": "panels/art-fault-line/13-fault-line-L01-black-enig-art.kicad_pcb",
-      "sha256": "0b5253a7c1a10d4b1a29211739b614b5cd058a9fe0f712ff24d451f84eb13bf3",
+      "sha256": "8702696831e34e6d91f0c3c3e81264b2ffaf2917930980a52e07682371e3bbb8",
       "project": "panels/art-fault-line/13-fault-line-L01-black-enig-art.kicad_pro",
       "projectSha256": "6b5c52269e27f0f8bce9ec840b9545e1de8ec0572423eefbb6a1a047bb6a959c",
       "edgeLoopCount": 2,
       "npthRoundCount": 4,
       "npthSlotCount": 4,
-      "nativeCopperPolygons": 219,
-      "nativeMaskPolygons": 210,
-      "copperSourceWkbSha256": "9c7e25cdc6d2437e775a321e334f401c6d933a588c19df2872780f87d242f22d",
-      "maskSourceWkbSha256": "7640f442edc45d392e34d47d8ebc8bd928c1cd5b6abc421e788dab563cbdeec7"
+      "nativeCopperPolygons": 205,
+      "nativeMaskPolygons": 212,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "206b99dc59a4953778b0ebf478fdb3026b88e9d21fd6c61eb3d041d87a5830f3",
+      "maskSourceWkbSha256": "07e64db4759ec01a52dc37cd28a0cbc8018eb37c7f444b7c004822ed1d1b2d31"
     },
     {
       "boardId": "13-fault-line-L02-red-mask-only",
@@ -256,6 +392,14 @@
       "npthSlotCount": 0,
       "nativeCopperPolygons": 0,
       "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
       "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
       "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
     },
@@ -270,6 +414,14 @@
       "npthSlotCount": 0,
       "nativeCopperPolygons": 0,
       "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
       "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
       "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
     },
@@ -284,6 +436,14 @@
       "npthSlotCount": 0,
       "nativeCopperPolygons": 0,
       "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
       "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
       "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
     },
@@ -298,6 +458,14 @@
       "npthSlotCount": 0,
       "nativeCopperPolygons": 0,
       "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
       "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
       "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
     },
@@ -312,6 +480,14 @@
       "npthSlotCount": 0,
       "nativeCopperPolygons": 0,
       "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
       "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
       "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
     },
@@ -326,6 +502,14 @@
       "npthSlotCount": 0,
       "nativeCopperPolygons": 0,
       "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
       "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
       "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
     },
@@ -340,6 +524,14 @@
       "npthSlotCount": 0,
       "nativeCopperPolygons": 0,
       "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
       "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
       "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
     },
@@ -354,22 +546,38 @@
       "npthSlotCount": 0,
       "nativeCopperPolygons": 0,
       "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
       "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
       "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
     },
     {
       "boardId": "17-kumiko-void-wide-L01-black-enig-art",
       "nativeBoard": "panels/art-kumiko-void/17-kumiko-void-wide-L01-black-enig-art.kicad_pcb",
-      "sha256": "0728960c2ca8762571ea5a5a380f4912df68a3740c3ba1fca92e6df4708b8296",
+      "sha256": "a678561a0d9b7cbdc4a6b9ae68bdd7a552a2fea8a49a31f1d01d9dae40fb6325",
       "project": "panels/art-kumiko-void/17-kumiko-void-wide-L01-black-enig-art.kicad_pro",
       "projectSha256": "67f8078cca3137296f8328a8a0a4220a5130bf28b9b7a99400ff70e512cfecf4",
       "edgeLoopCount": 92,
       "npthRoundCount": 4,
       "npthSlotCount": 4,
-      "nativeCopperPolygons": 483,
-      "nativeMaskPolygons": 450,
-      "copperSourceWkbSha256": "a946796c9f73d6f7d62e84af9adbe9b5d7f8d23353dc298aea1d6b086c44d195",
-      "maskSourceWkbSha256": "5a60c426fbabd44971b3a335758c9cd5874a6fe02f8c4d945bc627446f81c490"
+      "nativeCopperPolygons": 643,
+      "nativeMaskPolygons": 451,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "f3dddb886e730d6ee11052bfb72113daebb47656057873b93cdb3468aa8d1961",
+      "maskSourceWkbSha256": "4baa24b15342f50b847b13ab34e6e0a3d18438b18a3c1ec87c1b1fb6f923847f"
     },
     {
       "boardId": "17-kumiko-void-wide-L02-red-mask-only",
@@ -382,6 +590,14 @@
       "npthSlotCount": 0,
       "nativeCopperPolygons": 0,
       "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
       "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
       "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
     },
@@ -396,22 +612,38 @@
       "npthSlotCount": 0,
       "nativeCopperPolygons": 0,
       "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
       "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
       "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
     },
     {
       "boardId": "17-kumiko-void-wide-L04-black-enig-art",
       "nativeBoard": "panels/art-kumiko-void/17-kumiko-void-wide-L04-black-enig-art.kicad_pcb",
-      "sha256": "e68a40ae5e5ca3117e784217296460f6f2845e58ce4edfca21f8eb842f6a9d19",
+      "sha256": "351c6fed047b99f509ce2558da25962e0837e4be31e52c4f08f9fe6ee57f9273",
       "project": "panels/art-kumiko-void/17-kumiko-void-wide-L04-black-enig-art.kicad_pro",
       "projectSha256": "d8e296a9f945a72402e514698819bdb3146bc362110f4d0a152f0d97d621a6b2",
       "edgeLoopCount": 62,
       "npthRoundCount": 4,
       "npthSlotCount": 0,
       "nativeCopperPolygons": 59,
-      "nativeMaskPolygons": 85,
-      "copperSourceWkbSha256": "5b64c835856de22739122be0481ff1a392032dd1a26647f737f0d5cb69efb024",
-      "maskSourceWkbSha256": "97ccf55d3be2b9b10986b26da55370f853b27611bb01124dd20a185564bf8b48"
+      "nativeMaskPolygons": 86,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "7ec1cad7730ff8038afc5909be564344af624aedd73fcc633346b68ad160fcfd",
+      "maskSourceWkbSha256": "4f21fabdeab11468948e617d391df41ffa8cb3ac43fe42120916bcf44f079b8f"
     },
     {
       "boardId": "17-kumiko-void-wide-L05-red-mask-only",
@@ -424,6 +656,14 @@
       "npthSlotCount": 0,
       "nativeCopperPolygons": 0,
       "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
       "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
       "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
     },
@@ -438,13 +678,21 @@
       "npthSlotCount": 0,
       "nativeCopperPolygons": 0,
       "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
       "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
       "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
     },
     {
       "boardId": "17-kumiko-void-wide-L07-black-enig-art",
       "nativeBoard": "panels/art-kumiko-void/17-kumiko-void-wide-L07-black-enig-art.kicad_pcb",
-      "sha256": "c06715c1b6c152f45b23242dea12716b51e97ea63f2a78044fa5f556547b4046",
+      "sha256": "145130d8185fa247498d5ed1bf961fe91f6f6811d4aa96f89875ea175c46e871",
       "project": "panels/art-kumiko-void/17-kumiko-void-wide-L07-black-enig-art.kicad_pro",
       "projectSha256": "4004320584a62eeda492ca2dea428fb8416e26d707d8bf2058e3de3fb7d56d77",
       "edgeLoopCount": 49,
@@ -452,8 +700,16 @@
       "npthSlotCount": 0,
       "nativeCopperPolygons": 52,
       "nativeMaskPolygons": 68,
-      "copperSourceWkbSha256": "98da7267d08547ee787e0e9a194c10b339aeba90f8c4369bc5519e115642307b",
-      "maskSourceWkbSha256": "4093345a4acee3dac9cd809896e8036ca2527672ff61a96833c2b1363329268f"
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "a20d04fe82afa0b2556f7ccbf3b73b6b7f0d7fa59ad414b6d9d8d61438bc63cd",
+      "maskSourceWkbSha256": "fd3025f4b4315b17c534177e183e68ee45a1fffee7d6c3e6e111faedaa2954fe"
     },
     {
       "boardId": "17-kumiko-void-wide-L08-red-mask-only",
@@ -466,6 +722,14 @@
       "npthSlotCount": 0,
       "nativeCopperPolygons": 0,
       "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
       "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
       "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
     },
@@ -480,22 +744,38 @@
       "npthSlotCount": 0,
       "nativeCopperPolygons": 0,
       "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
       "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
       "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
     },
     {
       "boardId": "18-woven-maze-L01-black-enig-art",
       "nativeBoard": "panels/art-woven-maze/18-woven-maze-L01-black-enig-art.kicad_pcb",
-      "sha256": "66baf5ae5ae71bd4d031ef1e5978eb1be82aff09accce006db165a1f0fb151ed",
+      "sha256": "da4e5e80cf89c7e09244fce9d3f55b5b6c6e20581dc4755e5c480334b7f60538",
       "project": "panels/art-woven-maze/18-woven-maze-L01-black-enig-art.kicad_pro",
       "projectSha256": "af400af65765be1d731ef07aab66e191304d3ddf881c146c187139e06af22f3b",
       "edgeLoopCount": 4,
       "npthRoundCount": 4,
       "npthSlotCount": 4,
       "nativeCopperPolygons": 24,
-      "nativeMaskPolygons": 24,
-      "copperSourceWkbSha256": "7999e768fc0a25c260f990b1e1b4cd5205c4ed8cfd08821793a19805ccf4aa00",
-      "maskSourceWkbSha256": "b20f648876249a3696681a78806c39aae4eda51ee0421b64467f29080c58db77"
+      "nativeMaskPolygons": 26,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "83a81036633da3b61d8539baf858b6fa66609d0721258b397164b3f5428a0010",
+      "maskSourceWkbSha256": "ab092da7f111ac908c93a5564db8ab8cc11acdf59ffa60903f5e8c9cdcf98562"
     },
     {
       "boardId": "18-woven-maze-L02-white-mask-only",
@@ -508,6 +788,14 @@
       "npthSlotCount": 0,
       "nativeCopperPolygons": 0,
       "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
       "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
       "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
     },
@@ -522,6 +810,14 @@
       "npthSlotCount": 0,
       "nativeCopperPolygons": 0,
       "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
       "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
       "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
     },
@@ -536,6 +832,14 @@
       "npthSlotCount": 0,
       "nativeCopperPolygons": 0,
       "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
       "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
       "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
     },
@@ -550,6 +854,14 @@
       "npthSlotCount": 0,
       "nativeCopperPolygons": 0,
       "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
       "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
       "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
     },
@@ -564,6 +876,14 @@
       "npthSlotCount": 0,
       "nativeCopperPolygons": 0,
       "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
       "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
       "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
     },
@@ -578,6 +898,14 @@
       "npthSlotCount": 0,
       "nativeCopperPolygons": 0,
       "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
       "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
       "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
     },
@@ -592,6 +920,14 @@
       "npthSlotCount": 0,
       "nativeCopperPolygons": 0,
       "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
       "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
       "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
     },
@@ -606,6 +942,14 @@
       "npthSlotCount": 0,
       "nativeCopperPolygons": 0,
       "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
       "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
       "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
     }

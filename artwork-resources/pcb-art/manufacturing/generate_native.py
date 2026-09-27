@@ -19,6 +19,7 @@ from repair_mask_candidate import HERE, ROOT, board_id, digest, export
 REPO=ROOT.parents[1]
 OUTPUT=HERE/'native-generation.json'
 TEMPLATE=REPO/'panels/art-strip-mine/pcb-01-black/strip-mine-01.kicad_pro'
+SERIALIZED_ART_MAX_DELTA_MM2=.02  # Existing export_kicad.py output-level limit.
 
 
 def home_path(design, layer):
@@ -36,6 +37,54 @@ def project_content(stem):
     data['meta']['filename']=stem+'.kicad_pro'
     data['schematic']['top_level_sheets']=[]
     return json.dumps(data,indent=2)+'\n'
+
+
+def native_parts_with_precision_repair(geom):
+    """Repair only partition contours made invalid by 1 nm serialization.
+
+    The source union is never altered. A hole-splitting cut can introduce
+    off-grid vertices; snap and repartition only the affected split piece,
+    then check the complete serialized union against the existing exporter
+    area limit. Unknown failures still stop generation.
+    """
+    try:
+        parts,fragments=export.native_parts(geom)
+        return parts,fragments,{'repairedSplitPieceCount':0,
+                                'serializedSymmetricDifferenceMm2':None}
+    except ValueError as exc:
+        if str(exc)!='Artwork polygon became invalid at 1 nm precision':
+            raise
+    parts=[]
+    collapsed=0
+    collapsed_area=0.0
+    repaired=0
+    for piece in export.without_holes(geom):
+        points=export.ring_points(piece.exterior)
+        if len(points)<3 or Polygon(points).area==0:
+            collapsed+=1
+            collapsed_area+=piece.area
+            continue
+        ring=Polygon(points)
+        if ring.is_valid:
+            parts.append(ring)
+            continue
+        repaired+=1
+        snapped=shapely.set_precision(piece,.000001)
+        for subpiece in export.without_holes(snapped):
+            points=export.ring_points(subpiece.exterior)
+            ring=Polygon(points)
+            if len(points)<3 or ring.area==0 or not ring.is_valid:
+                raise ValueError('Precision repair did not yield a valid native contour')
+            parts.append(ring)
+    if collapsed_area>.000001:
+        raise ValueError('Quantization would discard a meaningful artwork area')
+    delta=shapely.union_all(parts).symmetric_difference(geom).area
+    if delta>SERIALIZED_ART_MAX_DELTA_MM2:
+        raise ValueError(f'Precision repair changed artwork by {delta} mm²')
+    return parts,{'count':collapsed,'areaMm2':collapsed_area},{
+        'repairedSplitPieceCount':repaired,
+        'serializedSymmetricDifferenceMm2':round(delta,9),
+    }
 
 
 def run():
@@ -98,8 +147,8 @@ def run():
         else:
             mask=shapely.from_wkb(bytes.fromhex(by_mask[name]['afterMaskWkbHex']))
             copper=shapely.from_wkb(bytes.fromhex(by_copper[name]['afterCopperWkbHex']))
-        cu_parts,cu_fragments=export.native_parts(copper)
-        mask_parts,mask_fragments=export.native_parts(mask)
+        cu_parts,cu_fragments,cu_precision=native_parts_with_precision_repair(copper)
+        mask_parts,mask_fragments,mask_precision=native_parts_with_precision_repair(mask)
         if cu_fragments['areaMm2']>.00001 or mask_fragments['areaMm2']>.00001:
             raise ValueError(f'{name}: native polygon partition dropped non-grid art')
         native=export.native_board(name,layer,data['spec'],edge_rings,drills,cu_parts,mask_parts)
@@ -119,13 +168,15 @@ def run():
             'npthSlotCount':sum(d['shape']=='oval' for d in drills),
             'nativeCopperPolygons':len(cu_parts),
             'nativeMaskPolygons':len(mask_parts),
+            'copperPrecisionRepair':cu_precision,
+            'maskPrecisionRepair':mask_precision,
             'copperSourceWkbSha256':digest(copper.wkb),
             'maskSourceWkbSha256':digest(mask.wkb),
         })
         print(name,records[-1]['nativeCopperPolygons'],
               records[-1]['nativeMaskPolygons'],flush=True)
     report={
-        'status':'candidate; native KiCad load/DRC/CAM is issue 16, full art proof pending',
+        'status':'candidate; independent KiCad DRC/CAM and factory acceptance pending; exhaustive width certificate opt-in',
         'manufacturingGeometrySha256':digest(geom_path.read_bytes()),
         'maskCandidateSha256':digest(mask_path.read_bytes()),
         'copperCandidateSha256':digest(copper_path.read_bytes()),

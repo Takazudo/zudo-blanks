@@ -38,8 +38,9 @@ def run():
                     'originalPolygonIndices0':[i,j],
                     'originalClosestPointsMm':original_points,
                     'originalGapMm':issue['gapMm'],
-                    'finishedUnionDistinctGapScreen':'pass: no separate copper or gold '
-                                                      'components closer than 0.25 mm',
+                    'finishedUnionDistinctGapScreen':'diagnostic: inherited gap '
+                        'cross-referenced to indexed candidate repairs; final black web '
+                        'uses its board process class',
                     'withinComponentWidthProof':'pending',
                 }
                 if feature=='F.Mask black gap':
@@ -57,7 +58,7 @@ def run():
         raise ValueError('Original selected art finding inventory changed')
     policy=json.loads((HERE/'policy.json').read_text())
     report={
-        'status':'distinct-component gap repairs cross-referenced; full width proof pending',
+        'status':'inherited art findings cross-referenced; class-aware candidate checks apply; exhaustive proof opt-in',
         'sourceReviewSha256':digest(review_path.read_bytes()),
         'manufacturingGeometrySha256':digest((HERE/'manufacturing-geometry.json').read_bytes()),
         'maskCandidateSha256':digest(mask_path.read_bytes()),
