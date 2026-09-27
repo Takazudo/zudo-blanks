@@ -259,6 +259,17 @@ The 0.13 mm black web holds only if the mask is ordered unchanged, with no autom
 
 Never modify `preview-source/assets/geometry.json`, `reference-revision4.json`, `reference-revision3.json`, the historic tests, or imported evidence to make corrections pass. In particular, `preview-source/tests/rev5_gold.py` continues to compare the approved Rev5 and immutable Rev4 inputs, retaining exact physical/lower-art assertions. New manufacturing code must load the frozen input, apply explicit indexed deltas, and emit **a separately named manufacturing geometry artifact** with provenance. Do not repoint the reference test, preview, manifest or screenshots to corrected shapes without labeling the artifact's role. The production exporter must read that new artifact explicitly.
 
+`mask-repair-candidate.json` is a large generated intermediate. It is ignored by Git and rebuilt from the tracked manufacturing geometry, frozen policy, indexed validation/erratum records, `repair_mask_candidate.py` and `tools/export_kicad.py`. Before native-board generation or candidate-dependent checks on a clean checkout, run:
+
+```sh
+bash "$HOME/.codex/scripts/heavy-guard.sh" -- \
+  uv run --python 3.13 --with shapely==2.1.2 --with pillow \
+  python artwork-resources/pcb-art/manufacturing/repair_mask_candidate.py
+shasum -a 256 artwork-resources/pcb-art/manufacturing/mask-repair-candidate.json
+```
+
+The candidate must match `maskCandidateSha256` in `native-generation.json` (`abc95a8df4c5b83cdd727136260e8321cb04a4f71ab7ae7883d9c4cd75c61689` for the recorded native-board release). Stop if the hash differs; do not update the native record just to accept different generated geometry. The native board files remain the editable, committed fabrication sources.
+
 Named downstream gates (equivalent test-file naming is acceptable; the assertions are mandatory):
 
 | Gate | Owner and required assertions |
