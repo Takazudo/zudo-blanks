@@ -22,7 +22,7 @@
       (layer "dielectric 1" (type "core") (thickness 1.53) (material "FR4") (epsilon_r 4.5) (loss_tangent 0.02))
       (layer "B.Cu" (type "copper") (thickness 0.035))
       (layer "B.Mask" (type "Bottom Solder Mask") (color "Blue"))
-      (copper_finish "No exposed copper; quote non-ENIG finish separately") (dielectric_constraints no)
+      (copper_finish "Lead-free HASL") (dielectric_constraints no)
     )
   )
   (net 0 "")
