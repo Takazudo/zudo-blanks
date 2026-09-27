@@ -22,6 +22,8 @@ from pathlib import Path
 from typing import Any
 import zipfile
 
+import PIL
+import shapely
 from PIL import Image, ImageChops, ImageDraw, ImageFont
 from shapely import unary_union
 from shapely.geometry import GeometryCollection, LineString, Point, Polygon, box
@@ -99,6 +101,9 @@ def load_inventory(boards_root: Path = REPO) -> tuple[list[dict[str, Any]], dict
     inventory: list[dict[str, Any]] = []
     if len(manifest["boards"]) != 52 or len(selected) != 43:
         raise ValueError("Expected the exact 52-board manifest and 43-board selected generation record")
+    expected_selected = {b["nativeBoard"] for b in manifest["boards"] if b["category"] == "selected"}
+    if set(selected) != expected_selected:
+        raise ValueError("native-generation.json board membership differs from the selected manifest split")
     for board in manifest["boards"]:
         rel = board["nativeBoard"]
         path = (boards_root / rel).resolve()
@@ -133,6 +138,10 @@ def load_inventory(boards_root: Path = REPO) -> tuple[list[dict[str, Any]], dict
         "policySha256": sha256_file(POLICY),
         "generatorSha256": sha256_file(GENERATOR),
         "verifierSha256": sha256_file(Path(__file__).resolve()),
+        "requirementsSha256": sha256_file(PCB_ART / "preview-source" / "requirements.txt"),
+        "pythonVersion": sys.version.split()[0],
+        "shapelyVersion": shapely.__version__,
+        "pillowVersion": PIL.__version__,
         "selectedCount": selected_count,
         "alternativeCount": alternatives_count,
         "policy": policy,
@@ -1070,6 +1079,7 @@ def verify_cam_board(board: dict[str, Any], result_dir: Path,
     actual_edge_segments = [(tuple(line.coords[0]), tuple(line.coords[-1]))
                             for _, line, _ in actual_edge.strokes]
     actual_loops = component_loops(actual_edge_segments)
+    actual_loop_polygons = loop_polygons(actual_edge_segments)
     expected_loop_count = board.get("generation", {}).get("edgeLoopCount")
     if len(actual_loops) != len(expected_loops) or (expected_loop_count and len(actual_loops) != expected_loop_count):
         raise ValueError(f"{board['id']}: CAM contour loop count differs: {len(actual_loops)} != {expected_loop_count or len(expected_loops)}")
@@ -1080,7 +1090,6 @@ def verify_cam_board(board: dict[str, Any], result_dir: Path,
     if any(abs(a-b) > NUMERIC_DISTANCE_TOLERANCE_MM
            for a, b in zip(board["boardBoundsMm"], contract_bounds)):
         raise ValueError(f"{board['id']}: manifest bounds differ from the frozen panel bounds")
-    actual_loop_polygons = [Polygon(loop) for loop in actual_loops]
     outer_loop = max(actual_loop_polygons, key=lambda polygon: polygon.area)
     outer_check = compare_geometries(box(*contract_bounds), outer_loop,
                                      f"{board['id']} continuous outer routed perimeter")
@@ -1346,7 +1355,13 @@ def summarize_drc(drc_path: Path, command_exit_code: int) -> dict[str, Any]:
 
 
 def current_source_status(board: dict[str, Any]) -> bool:
-    return sha256_file(Path(board["nativePath"])) == board["nativeSha256"]
+    if sha256_file(Path(board["nativePath"])) != board["nativeSha256"]:
+        return False
+    project_path = board.get("projectPath")
+    if project_path:
+        project = Path(project_path)
+        return project.is_file() and sha256_file(project) == board.get("projectSha256")
+    return True
 
 
 def _report_board(record: dict[str, Any]) -> dict[str, Any]:
@@ -1360,7 +1375,7 @@ def _report_board(record: dict[str, Any]) -> dict[str, Any]:
         "ruleContract": record.get("ruleContract"),
         "auditedRuleSeverities": {key: severity_map[key] for key in audited_rules if key in severity_map},
         "nativeLoad": record.get("drc"),
-        "selectedDrcDisposition": record.get("selectedDrcDisposition"),
+        "selectedDrcDisposition": record.get("drc", {}).get("selectedAcceptance"),
         "cam": record.get("cam"),
         "sourceUnchanged": record.get("sourceUnchanged"),
     }
@@ -1369,6 +1384,10 @@ def _report_board(record: dict[str, Any]) -> dict[str, Any]:
 def _save_progress(output: Path, run_record: dict[str, Any], board_records: list[dict[str, Any]]) -> None:
     run_record["boards"] = [_report_board(board) for board in board_records]
     write_json(output / "native-cam-run.json", run_record)
+
+
+def selected_drc_is_clean(record: dict[str, Any]) -> bool:
+    return record.get("drc", {}).get("selectedAcceptance") == "pass"
 
 
 def _cli_info(cli: str, export_cam: bool) -> tuple[str, dict[str, str]]:
@@ -1407,16 +1426,17 @@ def _drc_violation_summary(drc: dict[str, Any], selected: bool,
 
 
 def _make_compact_evidence(run_record: dict[str, Any], board_records: list[dict[str, Any]],
-                           output: Path, evidence_dir: Path, thumbnails: list[tuple[dict[str, Any], Path]]) -> tuple[Path, Path, Path]:
+                           output: Path, evidence_dir: Path,
+                           thumbnails: list[tuple[dict[str, Any], Path | None]]) -> tuple[Path, Path, Path]:
     selected = [b for b in board_records if b["category"] == "selected"]
     alternatives = [b for b in board_records if b["category"] == "alternatives"]
-    selected_clean = [b for b in selected if b.get("selectedDrcDisposition", {}).get("selectedAcceptance") == "pass"]
+    selected_clean = [b for b in selected if selected_drc_is_clean(b)]
     selected_cam_pass = [b for b in selected if b.get("cam", {}).get("status") == "pass"]
     native_command_failures = [b["id"] for b in board_records if b.get("commandFailure")]
     native_loads_ok = all(b.get("drc", {}).get("nativeLoadReportCreated") and not b.get("commandFailure")
                           for b in board_records)
     sources_unchanged = all(b.get("sourceUnchanged") for b in board_records)
-    selected_command_failures = [b["id"] for b in selected if b.get("drc", {}).get("commandFailure")]
+    selected_command_failures = [b["id"] for b in selected if b.get("commandFailure")]
     cam_command_failures = [b["id"] for b in selected
                             if b.get("cam", {}).get("commandFailure")]
     local_pass = (len(selected_clean) == 43 and len(selected_cam_pass) == 43 and
@@ -1655,7 +1675,7 @@ def run_pipeline(args: argparse.Namespace) -> int:
     selected_records = [b for b in board_records if b["category"] == "selected"]
     native_ok = all(b.get("drc", {}).get("nativeLoadReportCreated") and not b.get("commandFailure")
                     for b in board_records)
-    selected_ok = all(b.get("drc", {}).get("selectedAcceptance") == "pass" for b in selected_records)
+    selected_ok = all(selected_drc_is_clean(b) for b in selected_records)
     cam_ok = all(b.get("cam", {}).get("status") == "pass" for b in selected_records) if args.export_selected else False
     sources_ok = all(b.get("sourceUnchanged") for b in board_records)
     run_record["status"] = "pass_local_native_and_cam_checks" if (native_ok and selected_ok and cam_ok and sources_ok) else "blocked_by_local_findings"

@@ -1,5 +1,6 @@
 """Focused regressions for the independent Gerber and Excellon parsers."""
 
+import json
 from pathlib import Path
 import sys
 import tempfile
@@ -71,6 +72,94 @@ M30
         clockwise = [(0, 0), (1, 0), (1, 1), (0, 1), (0, 0)]
         reverse = [(1, 1), (1, 0), (0, 0), (0, 1), (1, 1)]
         self.assertEqual(cam.contour_signature(clockwise), cam.contour_signature(reverse))
+
+    def test_selected_drc_disposition_is_read_from_stored_drc_summary(self):
+        passing = {"drc": {"selectedAcceptance": "pass"}}
+        blocked = {"drc": {"selectedAcceptance": "blocker"}}
+        self.assertTrue(cam.selected_drc_is_clean(passing))
+        self.assertFalse(cam.selected_drc_is_clean(blocked))
+
+    def test_source_status_binds_both_native_board_and_project(self):
+        with tempfile.TemporaryDirectory() as directory:
+            native = Path(directory) / "board.kicad_pcb"
+            project = Path(directory) / "board.kicad_pro"
+            native.write_text("native")
+            project.write_text("project")
+            record = {"nativePath": str(native), "nativeSha256": cam.sha256_file(native),
+                      "projectPath": str(project), "projectSha256": cam.sha256_file(project)}
+            self.assertTrue(cam.current_source_status(record))
+            project.write_text("edited project")
+            self.assertFalse(cam.current_source_status(record))
+
+    def test_compact_evidence_reports_clean_selection_and_command_failures(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            thumbnails_dir = root / "thumbs"
+            thumbnails_dir.mkdir()
+            thumbnails = []
+            boards = []
+            for index in range(52):
+                selected = index < 43
+                board_id = f"board-{index:02d}"
+                layer_number = 1 if selected and index < 5 else 2
+                board = {
+                    "id": board_id,
+                    "category": "selected" if selected else "alternatives",
+                    "nativeBoard": f"panels/{board_id}.kicad_pcb",
+                    "nativeSha256": "a" * 64,
+                    "projectSha256": "b" * 64,
+                    "ruleContract": {},
+                    "ruleSeverities": {},
+                    "layerNumber": layer_number,
+                    "drc": {
+                        "nativeLoadReportCreated": True,
+                        "selectedAcceptance": "pass" if selected else "reference-only",
+                        "violationCount": 0,
+                        "violationsByType": {},
+                        "unclassifiedIgnoredChecks": [],
+                    },
+                    "sourceUnchanged": True,
+                }
+                if selected:
+                    board["cam"] = {
+                        "status": "pass", "finish": "ENIG", "maskColor": "black",
+                        "checks": {}, "files": [], "packageZip": {"sha256": "c" * 64},
+                    }
+                boards.append(board)
+                if layer_number == 1:
+                    thumb_path = thumbnails_dir / f"{board_id}.png"
+                    Image.new("RGB", (303, 368), (220, 220, 220)).save(thumb_path)
+                    thumbnails.append((board, thumb_path))
+
+            run = {
+                "startedUtc": "2026-09-27T00:00:00+00:00",
+                "finishedUtc": "2026-09-27T00:01:00+00:00",
+                "kicadVersion": "KiCad 10",
+                "kicadCli": "kicad-cli",
+                "cliHelpSha256": "d" * 64,
+                "inputs": {},
+                "commands": {},
+            }
+            output = root / "raw"
+            evidence = root / "evidence"
+            report_path, _, _ = cam._make_compact_evidence(run, boards, output, evidence, thumbnails)
+            report = json.loads(report_path.read_text())
+            self.assertEqual(report["status"], "pass_local_native_and_cam_checks")
+            self.assertEqual(report["nativeLoads"]["selectedCleanDrcCount"], 43)
+
+            boards[0]["commandFailure"] = True
+            report_path, _, _ = cam._make_compact_evidence(run, boards, output, evidence, thumbnails)
+            report = json.loads(report_path.read_text())
+            self.assertEqual(report["status"], "blocked_by_local_findings")
+            self.assertEqual(report["nativeLoads"]["commandFailureIds"], ["board-00"])
+            self.assertEqual(report["nativeLoads"]["selectedCommandFailureIds"], ["board-00"])
+
+    def test_edge_loop_validation_rejects_self_intersection(self):
+        points = [(0, 0), (1, 1), (0, 1), (1, 0)]
+        segments = [(points[index], points[(index + 1) % len(points)])
+                    for index in range(len(points))]
+        with self.assertRaisesRegex(ValueError, "valid positive-area contour"):
+            cam.loop_polygons(segments)
 
     def test_appearance_sheet_keeps_slots_when_a_top_cam_render_is_missing(self):
         with tempfile.TemporaryDirectory() as directory:
