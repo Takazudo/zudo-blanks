@@ -23,7 +23,7 @@ ART_ORDER_PYTHON=/tmp/art-order-venv/bin/python \
 
 Use a fresh empty output directory under `/tmp` or the checkout. `all` produces
 `individual`, `grouped` and `split-red`; each can also be requested alone. The
-wrapper checks the pinned Python/dependencies and immutable Linux KiCad 10.0.0 image. KiCad 10.0.6 reported an invalid-outline finding on the unchanged Spider L07 source in the initial Linux run; no DRC rule or source geometry was relaxed.
+wrapper checks the pinned Python/dependencies and immutable Linux KiCad 10.0.0 image. Linux KiCad 10.0.0 and 10.0.6 reported an invalid-outline finding on the unchanged Spider L07 source. Its DRC-only copy cyclically rotates the serialized segments of each closed contour: every complete primitive line, UUID and coordinate is preserved. The native sources and CAM inputs remain byte-identical to the committed boards. The bundle includes the separate DRC input and its hash; download verification recomputes this exact transformation and checks the unchanged project. No DRC rule, geometry or tolerance is relaxed.
 Allow sufficient Docker disk space. It does not use installed KiCad 9, old ZIPs,
 or regenerate artwork. Run heavy local batches under your machine's normal heavy
 job guard. The CI job has a 60-minute budget, with a 48-minute generation deadline
@@ -34,7 +34,9 @@ The individual builder and existing lower builder/verifiers are reused. The
 profile builder accepts `--profile`, `--variant`, `--output` and `--evidence-path`;
 legacy invocations still use their historical inputs and output paths. The
 order entry point scopes individual native DRC/CAM to the 34 selected IDs, then
-verifies each grouped native sheet and actual Gerber/Excellon export. Source
+verifies each grouped native sheet and actual Gerber/Excellon export. Identical
+sheets across alternatives reuse only the same run's clean DRC report, bound to
+both native and project hashes; CAM is freshly exported for each alternative. Source
 board/project hashes, inverse-translated contours/art/mask/drills, score lines,
 closed connected sheets and finish groups are checked. The expensive all-boundary
 artwork-width certificate remains opt-in and is not a claim of this workflow.

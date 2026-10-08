@@ -4,12 +4,37 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
+from collections import Counter
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
-from order_packages import checksum_manifest, verify_bundle, safe_path, check_drc
+from order_packages import checksum_manifest, verify_bundle, safe_path, check_drc, write_order_table, drc_input_text, ROOT
+from order_profiles import load_profile, order_manifest, VARIANTS
 
 
 class BundleIntegrityTests(unittest.TestCase):
+    def test_drc_seam_copy_preserves_every_native_primitive(self):
+        source=ROOT/'panels/art-spider-nest/01-spider-nest-L07-gold-enig-fill.kicad_pcb'
+        original=source.read_text()
+        normalized=drc_input_text(source)
+        self.assertNotEqual(original,normalized)
+        self.assertEqual(Counter(original.splitlines()),Counter(normalized.splitlines()))
+        top=ROOT/'panels/art-spider-nest/01-spider-nest-L01-black-enig-art.kicad_pcb'
+        self.assertEqual(top.read_text(),drc_input_text(top))
+
+    def test_readable_orders_include_all_source_members(self):
+        profile,boards=load_profile()
+        with tempfile.TemporaryDirectory() as tmp:
+            for variant in VARIANTS:
+                order=order_manifest(profile,variant,boards)
+                for item in order['packages']:
+                    item['zip']={'path':'packages/'+item['id']+'.zip'}
+                path=Path(tmp)/(variant+'.md')
+                write_order_table(order,path)
+                text=path.read_text()
+                self.assertTrue(all(board_id in text for board_id in boards))
+                self.assertIn('Choose ONE alternative',text)
+                self.assertIn('unknown',text)
+
     def test_missing_changed_and_extra_files_fail_checksums(self):
         for mutation in ('missing','changed','extra'):
             with self.subTest(mutation=mutation), tempfile.TemporaryDirectory() as tmp:

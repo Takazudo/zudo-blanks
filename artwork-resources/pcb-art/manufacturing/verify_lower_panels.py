@@ -20,7 +20,7 @@ from shapely.ops import unary_union
 from verify_native_cam import (
     REPO, HERE, parse_native_board, parse_gerber, parse_excellon,
     component_loops, contour_signature, compare_region_contours,
-    _gerber_layer_from_file, CAM_LAYERS,
+    _gerber_layer_from_file, CAM_LAYERS, expected_npth_mask_geometry, compare_geometries,
 )
 
 NATIVE_RECORD = HERE / "lower-panels-native.json"
@@ -227,6 +227,10 @@ def export_and_verify(record, boards, cli, output, reused_drc=None, *, native_ro
         raise ValueError(f"{record['id']}: back copper is nonempty")
     if any(len(parsed[layer].flashes)!=len(native["npthPads"]) for layer in ("F.Mask","B.Mask")):
         raise ValueError(f"{record['id']}: NPTH mask flash count differs")
+    for layer in ("F.Mask", "B.Mask"):
+        flashes=unary_union([shape for polarity,shape in parsed[layer].flashes if polarity=="dark"])
+        compare_geometries(expected_npth_mask_geometry(native), flashes,
+                           f"{record['id']} {layer} NPTH mask apertures")
     drill=parse_excellon(npth[0])
     expected_holes=Counter((round(p["x"],6),round(p["y"],6),round(p["drillWidth"],6))
                            for p in native["npthPads"])

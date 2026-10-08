@@ -7,6 +7,7 @@ from collections import Counter
 import hashlib
 import json
 import os
+import re
 from pathlib import Path
 import shutil
 import subprocess
@@ -66,11 +67,54 @@ def check_drc(path, board_name):
         raise ValueError(f'Unclassified ignored DRC checks: {unknown}')
 
 
+DRC_CONTOUR_SEAM_BOARDS = {'01-spider-nest-L07-gold-enig-fill'}
+
+
+def drc_input_text(source):
+    """Rotate serialized contour seams; never change any native primitive.
+
+    Linux KiCad 10.0.0/10.0.6 reports a false self-intersection for Spider L07.
+    The same exact segments pass with each closed contour's seed moved halfway.
+    CAM always consumes the unmodified committed source, not this DRC copy.
+    """
+    text=source.read_text()
+    if source.stem not in DRC_CONTOUR_SEAM_BOARDS:
+        return text
+    lines=text.splitlines(keepends=True)
+    for loop in native.component_loops(native.parse_native_board(source)['edgeSegments']):
+        vertices=set(loop)
+        indices=[]
+        for i,line in enumerate(lines):
+            if '(gr_line' not in line or '(layer "Edge.Cuts")' not in line:
+                continue
+            coords=[tuple(map(float,p)) for p in re.findall(r'\((?:start|end) ([\d.-]+) ([\d.-]+)\)',line)]
+            if len(coords)==2 and all(p in vertices for p in coords):
+                indices.append(i)
+        if len(indices)!=len(loop) or indices!=list(range(indices[0],indices[-1]+1)):
+            raise ValueError('DRC contour seam requires contiguous exact segments')
+        chunks=[lines[i] for i in indices]
+        pivot=len(chunks)//2
+        for i,line in zip(indices,chunks[pivot:]+chunks[:pivot]):
+            lines[i]=line
+    result=''.join(lines)
+    if Counter(result.splitlines(keepends=True))!=Counter(text.splitlines(keepends=True)):
+        raise ValueError('DRC seam rotation changed a native primitive')
+    return result
+
+
 def export_individual(board, cli, output):
     target = output / 'individual-cam' / board['id']
     (target / 'cam').mkdir(parents=True)
     contract = native.parse_rule_contract(board, json.loads(native.POLICY.read_text()))
+    source=Path(board['nativePath'])
+    drc_source=source
+    if board['id'] in DRC_CONTOUR_SEAM_BOARDS:
+        drc_source=target/'drc-input'/source.name
+        drc_source.parent.mkdir()
+        drc_source.write_text(drc_input_text(source))
+        shutil.copyfile(source.with_suffix('.kicad_pro'),drc_source.with_suffix('.kicad_pro'))
     for name, argv in native.kicad_commands(cli, board, target, True):
+        if name=='drc':argv[-1]=str(drc_source)
         print(f'{name}: {board["id"]}', flush=True)
         lower.run_cli(argv[0], argv[1:], target / (name+'.log'))
     check_drc(target / 'drc.json', Path(board['nativePath']).name)
@@ -84,6 +128,8 @@ def export_individual(board, cli, output):
     return {'id':board['id'], 'nativeBoard': 'sources/'+board['nativeBoard'],
             'nativeSha256':board['nativeSha256'], 'projectSha256':board['projectSha256'],
             'drc':relative(target/'drc.json', output), 'checks':checks, 'ruleContract':contract,
+            'drcInput':relative(drc_source,output), 'drcInputSha256':sha(drc_source),
+            'drcContourSeamOnly':drc_source!=source,
             'preview':relative(thumb, output),
             'zip':{'path':'packages/'+package['name'], 'sha256':package['sha256']}}
 
@@ -138,6 +184,9 @@ def write_order_table(order, path):
             '| --- | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |']
     for p in order['packages']:
         rows.append(f"| {p['id']} | {p['kind']} | {p['color']} / {p['finish']} | {p['widthMm']} × {p['heightMm']} | {p['distinctDesigns']} | {p['quantity']} | {p['producedPieces']} | {p['unusedCells']*p['quantity']} | {sum(p['surplusByBoardId'].values())} | [{p['id']}.zip](../../{p['zip']['path']}) |")
+    rows += ['', '| Package | Source member IDs | Copies of each member per sheet |',
+             '| --- | --- | ---: |']
+    rows.extend(f"| {p['id']} | {', '.join(p['memberIds'])} | 1 |" for p in order['packages'])
     rows += ['', f"Requested: {order['requestedCompleteStacks']} stacks / {order['usefulBoardCount']} useful pieces. Complete-set supply: {order['completeStackYield']}. Surplus: {order['surplusFinishedBoards']}. Blank cells exclude rails and routed cutouts.",
              '', 'All packages: FR-4, 1.6 mm, 2 copper layers, 1 oz; no silkscreen, solder paste or plated holes. Each member occurs once per sheet. Exact member IDs, per-ID surplus, source/config and verification references are in order.json.',
              '', 'Prices, engineering/design fees, routing/scoring, ENIG/area effects, shipping and tax: **unknown**. No dated quote. Factory CAM/scoring, sheet handling and physical fit are pending. Fewer sheets do not prove savings.']
@@ -189,6 +238,11 @@ def verify_bundle(output, expected_source=None, expected_run_id=None):
         if sha(pcb)!=record['nativeSha256'] or sha(pcb.with_suffix('.kicad_pro'))!=record['projectSha256']:
             raise ValueError('Source/project evidence mismatch')
         check_drc(safe_path(output,record['drc']),pcb.name)
+        drc_input=safe_path(output,record['drcInput'])
+        if (sha(drc_input)!=record['drcInputSha256'] or drc_input.read_text()!=drc_input_text(pcb)
+                or sha(drc_input.with_suffix('.kicad_pro'))!=record['projectSha256']
+                or record['drcContourSeamOnly']!=(record['id'] in DRC_CONTOUR_SEAM_BOARDS)):
+            raise ValueError('DRC input differs from exact source/contour-seam contract')
         safe_path(output,record['preview']).read_bytes()
     orders=[]
     variants=receipt['variants']
@@ -323,6 +377,7 @@ def run(args):
             write(output/'logs/progress.json',receipt)
         write(output/'individual-verification.json',individual)
         by_id={b['id']:b for b in individual}
+        drc_cache={}
         for variant in variants:
             target=output/'variants'/variant
             target.mkdir(parents=True)
@@ -331,8 +386,13 @@ def run(args):
             results={}
             for panel in record['panels']:
                 print(f'{variant}: {panel["id"]}',flush=True)
-                result=lower.export_and_verify(panel,selected,args.kicad_cli,target/'cam',
+                # Identical sheets across alternatives share only this run's hash-bound DRC.
+                key=(panel['nativeBoardSha256'],panel['projectSha256'])
+                result=lower.export_and_verify(panel,selected,args.kicad_cli,target/'cam',drc_cache.get(key),
                     native_root=target/'native',source_root=output/'sources')
+                drc_cache[key]={'nativeBoardSha256':panel['nativeBoardSha256'],
+                    'reportPath':str(target/'cam'/panel['id']/'drc.json'),
+                    'reportSha256':result['drcReportSha256']}
                 check_drc(target/'cam'/panel['id']/'drc.json',panel['id']+'.kicad_pcb')
                 result['zip']['path']=relative(result['zip']['path'],output)
                 result['drcOriginalPath']=relative(result['drcOriginalPath'],output)
