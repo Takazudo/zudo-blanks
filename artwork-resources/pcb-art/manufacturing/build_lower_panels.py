@@ -109,14 +109,22 @@ def rotate_drc_witness_loops(items, native, board_id):
     return items
 
 
-def build(output=OUT):
+def build(output=OUT, *, profile=None, variant="grouped", evidence_path=None):
     policy = json.loads(POLICY.read_text())
     manifest = json.loads(PCB_MANIFEST.read_text())
     generation = json.loads(GENERATION.read_text())
     selected = {b["id"]: b for b in manifest["boards"] if b["category"] == "selected"}
     native_hashes = {Path(b["nativeBoard"]).stem: b["sha256"] for b in generation["boards"]}
+    if profile is not None:
+        from order_profiles import load_profile, groups_for
+        order_profile, selected = load_profile(profile)
+        groups = groups_for(order_profile, variant, selected)
+        if evidence_path is None:
+            raise ValueError("Profile builds require an explicit evidence path")
+    else:
+        groups = policy["panelGroups"]
     rows = []
-    for group in policy["panelGroups"]:
+    for group in groups:
         members = group["memberIds"]
         assert members == sorted(members), group["id"]
         if group["columns"] * group["rows"] == 1:
@@ -175,8 +183,8 @@ def build(output=OUT):
             raise ValueError(f"{stem}: out of panel bounds")
         outer = [(0,0),(w,0),(w,h),(0,h)]
         items.extend(line(outer[k], outer[(k+1)%4], "Edge.Cuts", f"{stem}:outer:{k}") for k in range(4))
-        x_scores = [5+i*101.3 for i in range(group["columns"]+1)]
-        y_scores = [5+i*94.3 for i in range(group["rows"]+1)]
+        x_scores = [group["railMm"]+i*101.3 for i in range(group["columns"]+1)]
+        y_scores = [group["railMm"]+i*94.3 for i in range(group["rows"]+1)]
         for axis, values in (("x", x_scores), ("y", y_scores)):
             if len(values) > 25 or min(b-a for a,b in zip(values,values[1:])) < 3:
                 raise ValueError(f"{stem}: score count/spacing")
@@ -191,19 +199,22 @@ def build(output=OUT):
         project.write_text(json.dumps(pro, indent=2) + "\n")
         fab = target_dir / "FABRICATION.txt"
         fab.write_text(f"{stem}: {fmt(w)} x {fmt(h)} mm. 2 layer FR-4, 1.6 mm, 1 oz, {group['color']} mask, {group['finish']}.\n"
-                       f"Customer panel, {len(members)} distinct lower-board designs; order 25 sheets.\n"
+                       f"Customer panel, {len(members)} distinct lower-board designs; order {group['quantity']} sheets.\n"
                        "V-score every full-length line from the separate Dwgs.User drawing. Scores are not Edge.Cuts or silk.\n"
                        "Route the outside and decorative apertures from Edge.Cuts; drill all NPTH mounts from Excellon.\n"
                        "Blank cells are waste. Preserve sorted row-major placement and finished 101.3 x 94.3 mm lower cells.\n"
                        "Scored outline tolerance is +/-0.4 mm. Web depth, handling, mask/finish and physical fit await factory CAM/quote review.\n")
-        rows.append({"id": stem, "groupId":group["id"], "nativeBoard":str(pcb.relative_to(ROOT)),
+        rows.append({"id": stem, "groupId":group["id"], "nativeBoard":str(pcb.relative_to(output)) if profile is not None else str(pcb.relative_to(ROOT)),
                      "nativeBoardSha256":digest(pcb), "projectSha256":digest(project),
                      "fabricationInstructionsSha256":digest(fab), "placements":placements,
                      "scoreXMm":x_scores,"scoreYMm":y_scores,"minimumScoreClearanceMm":{k:(round(v,6) if v!=float("inf") else None) for k,v in nearest.items()},
                      "widthMm":w,"heightMm":h,"unusedCells":group["unusedCells"]})
     result = {"schemaVersion":1,"policySha256":digest(POLICY),"nativeGenerationSha256":digest(GENERATION),
               "sourceManifestSha256":digest(PCB_MANIFEST),"panels":rows}
-    path=HERE/"lower-panels-native.json"
+    if profile is not None:
+        result.update(profileSha256=digest(Path(profile)), variant=variant)
+    path=Path(evidence_path) if evidence_path is not None else HERE/"lower-panels-native.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(result,indent=2,allow_nan=False)+"\n")
     return result
 
@@ -211,5 +222,8 @@ def build(output=OUT):
 if __name__ == "__main__":
     parser=argparse.ArgumentParser()
     parser.add_argument("--output",type=Path,default=OUT)
+    parser.add_argument("--profile",type=Path)
+    parser.add_argument("--variant",choices=("individual","grouped","split-red"),default="grouped")
+    parser.add_argument("--evidence-path",type=Path)
     args=parser.parse_args()
-    print(json.dumps(build(args.output),indent=2))
+    print(json.dumps(build(args.output, profile=args.profile, variant=args.variant, evidence_path=args.evidence_path),indent=2))

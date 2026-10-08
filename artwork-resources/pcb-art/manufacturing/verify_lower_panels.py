@@ -7,6 +7,7 @@ from collections import Counter
 import hashlib
 import json
 import math
+import re
 from pathlib import Path
 import shutil
 import subprocess
@@ -40,9 +41,34 @@ def segkey(a, b):
     return tuple(sorted((tuple(round(v, 6) for v in a), tuple(round(v, 6) for v in b))))
 
 
-def native_partition(panel, record, boards):
+def validate_scores(native, record):
+    # Fixed 5 mm rails and cell pitch are the issue 23/frozen policy contract.
+    from verify_native_cam import GR_LINE_RE
+    w, h = record["widthMm"], record["heightMm"]
+    columns, rows = round((w-10)/101.3), round((h-10)/94.3)
+    if not (70 <= w <= 475 and 70 <= h <= 475 and columns > 0 and rows > 0
+            and abs(w-(10+columns*101.3)) < 1e-6 and abs(h-(10+rows*94.3)) < 1e-6):
+        raise ValueError("Invalid scored panel dimensions")
+    xs=[5+i*101.3 for i in range(columns+1)]
+    ys=[5+i*94.3 for i in range(rows+1)]
+    if (record["scoreXMm"] != xs or record["scoreYMm"] != ys
+            or max(len(xs),len(ys)) > 25):
+        raise ValueError("Invalid score coordinate record")
+    expected=Counter(segkey((x,0),(x,h)) for x in xs)
+    expected.update(segkey((0,y),(w,y)) for y in ys)
+    actual=Counter()
+    for match in GR_LINE_RE.finditer(native["text"]):
+        if match.group(5)=="Dwgs.User":
+            a,b,c,d=map(float,match.groups()[:4])
+            actual[segkey((a,b),(c,d))]+=1
+    if actual != expected or native["polygonContours"].get("Dwgs.User"):
+        raise ValueError("Native scores differ from full-span grid")
+
+
+def native_partition(panel, record, boards, source_root=REPO):
     """Compare every member's apertures, art polygons and NPTH after translation."""
     actual = parse_native_board(panel)
+    validate_scores(actual, record)
     expected_edges = Counter()
     expected_polys = {"F.Cu": Counter(), "F.Mask": Counter()}
     expected_pads = Counter()
@@ -52,7 +78,7 @@ def native_partition(panel, record, boards):
     cells=[]
     for placement in record["placements"]:
         board=boards[placement["id"]]
-        source=REPO / board["nativeBoard"]
+        source=source_root / board["nativeBoard"]
         if sha(source)!=placement["sourceSha256"]:
             raise ValueError(f"Source hash changed: {placement['id']}")
         native=parse_native_board(source)
@@ -128,13 +154,13 @@ def checked_reused_drc(record, panel, entry):
     return path,report
 
 
-def export_and_verify(record, boards, cli, output, reused_drc=None):
-    panel=REPO/record["nativeBoard"]
+def export_and_verify(record, boards, cli, output, reused_drc=None, *, native_root=REPO, source_root=REPO):
+    panel=native_root/record["nativeBoard"]
     if sha(panel)!=record["nativeBoardSha256"]:
         raise ValueError(f"Native panel hash changed: {record['id']}")
     if sha(panel.with_suffix(".kicad_pro"))!=record["projectSha256"]:
         raise ValueError(f"Native project hash changed: {record['id']}")
-    native,partition=native_partition(panel,record,boards)
+    native,partition=native_partition(panel,record,boards,source_root)
     directory=output/record["id"]
     cam=directory/"cam"
     cam.mkdir(parents=True,exist_ok=True)
@@ -151,6 +177,8 @@ def export_and_verify(record, boards, cli, output, reused_drc=None):
             shutil.copyfile(drc_source,drc)
     if report.get("violations") or report.get("unconnected_items"):
         raise ValueError(f"{record['id']}: nonclean DRC: {drc}")
+    checked_reused_drc(record, panel, {"nativeBoardSha256":sha(panel),
+                       "reportPath":str(drc), "reportSha256":sha(drc)})
     layers=','.join((*CAM_LAYERS,"Dwgs.User"))
     run_cli(cli,["pcb","export","gerbers","--layers",layers,"--precision","6",
                  "--output",str(cam)+"/",str(panel)],directory/"gerbers.log")

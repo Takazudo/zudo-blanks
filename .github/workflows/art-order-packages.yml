@@ -1,0 +1,108 @@
+name: Art order packages
+run-name: Art order packages (${{ inputs.variant || 'all' }})
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'artwork-resources/pcb-art/manufacturing/**'
+      - 'artwork-resources/pcb-art/pcb/manifest.json'
+      - 'panels/art-coral-vault/**'
+      - 'panels/art-fault-line/**'
+      - 'panels/art-kumiko-void/**'
+      - 'panels/art-spider-nest/**'
+      - 'scripts/art-order/**'
+      - '.github/workflows/art-order-packages.yml'
+  workflow_dispatch:
+    inputs:
+      profile:
+        description: Committed order profile
+        type: choice
+        required: true
+        default: four-art-series
+        options: [four-art-series]
+      variant:
+        description: Package alternative
+        type: choice
+        required: true
+        default: all
+        options: [all, individual, grouped, split-red]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: art-order-${{ github.event_name == 'pull_request' && github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  packages:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      PROFILE: ${{ inputs.profile || 'four-art-series' }}
+      VARIANT: ${{ inputs.variant || 'all' }}
+      ART_ORDER_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+      ART_ORDER_BASE_SHA: ${{ github.event.pull_request.base.sha || '' }}
+      # /tmp is intentionally shared at the same path with the native CLI.
+      PACKAGE_OUTPUT: /tmp/art-order-${{ github.run_id }}-${{ github.run_attempt }}
+    steps:
+      - name: Check out tested source (PR merge commit)
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          lfs: false
+      - name: Initialize diagnostics
+        run: |
+          mkdir -p "$RUNNER_TEMP/art-order-logs"
+          {
+            git rev-parse HEAD
+            printf 'head=%s\nbase=%s\nrun=%s\nattempt=%s\n' "$ART_ORDER_HEAD_SHA" "$ART_ORDER_BASE_SHA" "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT"
+          } > "$RUNNER_TEMP/art-order-logs/source.txt"
+      - name: Set up pinned Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.13.7'
+      - name: Install pinned dependencies
+        run: python -m pip install -r scripts/art-order/requirements.txt 2>&1 | tee "$RUNNER_TEMP/art-order-logs/dependencies.log"
+      - name: Focused manufacturing regression checks
+        run: |
+          set -o pipefail
+          for suite in test_lower_panels.py test_native_cam.py test_order_profiles.py; do
+            python -m unittest discover -s artwork-resources/pcb-art/manufacturing/tests -p "$suite" -v
+          done 2>&1 | tee "$RUNNER_TEMP/art-order-logs/tests.log"
+      - name: Build and verify actual native and CAM packages
+        id: packages
+        run: |
+          set -o pipefail
+          [[ $PROFILE == four-art-series ]] || exit 2
+          case "$VARIANT" in all|individual|grouped|split-red) ;; *) exit 2 ;; esac
+          timeout --signal=TERM --kill-after=1m 48m \
+            bash scripts/art-order/run.sh \
+              --profile "artwork-resources/pcb-art/manufacturing/order-profiles/$PROFILE.json" \
+              --variant "$VARIANT" --output "$PACKAGE_OUTPUT" \
+            2>&1 | tee "$RUNNER_TEMP/art-order-logs/build.log"
+          timeout --signal=TERM --kill-after=30s 1m \
+            bash scripts/art-order/run.sh --verify-bundle "$PACKAGE_OUTPUT" \
+              --expected-source "$GITHUB_SHA" --expected-run-id "$GITHUB_RUN_ID" \
+            2>&1 | tee "$RUNNER_TEMP/art-order-logs/verify-bundle.log"
+      - name: Upload complete verified package
+        if: success() && steps.packages.outcome == 'success'
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: art-order-${{ env.PROFILE }}-${{ env.VARIANT }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ env.PACKAGE_OUTPUT }}/
+          if-no-files-found: error
+          retention-days: 30
+      - name: Upload diagnostics even on failure
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: art-order-diagnostics-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/art-order-logs/
+            ${{ env.PACKAGE_OUTPUT }}/**/*.log
+            ${{ env.PACKAGE_OUTPUT }}/**/drc.json
+            ${{ env.PACKAGE_OUTPUT }}/logs/
+          if-no-files-found: warn
+          retention-days: 30
