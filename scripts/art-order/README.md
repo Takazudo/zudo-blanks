@@ -1,0 +1,143 @@
+# Four-series JLCPCB order candidates
+
+The `four-art-series` profile selects exactly 34 committed native boards: Coral
+Vault L01–L08, Fault Line L01–L09, Kumiko Void **wide** L01–L09, and Spider Nest
+L01–L08. Each L01 remains a byte-identical, individually routed top. Strip Mine
+(already ordered), Woven Maze, standard Kumiko and unrelated designs are excluded.
+Historical policy, native boards and order records remain unchanged.
+
+## Build fresh files
+
+Install Python 3.13.7 and Docker, then install `scripts/art-order/requirements.txt`
+in an isolated Python environment. The same entry point runs locally and on
+GitHub Actions:
+
+```sh
+python3.13 -m venv /tmp/art-order-venv
+/tmp/art-order-venv/bin/python -m pip install -r scripts/art-order/requirements.txt
+ART_ORDER_PYTHON=/tmp/art-order-venv/bin/python \
+  bash scripts/art-order/run.sh \
+  --profile artwork-resources/pcb-art/manufacturing/order-profiles/four-art-series.json \
+  --variant all --output /tmp/four-art-series-run
+```
+
+Use a fresh empty output directory under `/tmp` or the checkout. `all` produces
+`individual`, `grouped` and `split-red`; each can also be requested alone. The
+wrapper checks the pinned Python/dependencies and immutable Linux KiCad 10.0.0 image. KiCad 10.0.6 reported an invalid-outline finding on the unchanged Spider L07 source in the initial Linux run; no DRC rule or source geometry was relaxed.
+Allow sufficient Docker disk space. It does not use installed KiCad 9, old ZIPs,
+or regenerate artwork. Run heavy local batches under your machine's normal heavy
+job guard. The CI job has a 60-minute budget, with a 48-minute generation deadline
+and five minutes for bundle verification. Failures retain available diagnostics;
+a timeout, malformed report or failed check cannot produce a successful bundle.
+
+The individual builder and existing lower builder/verifiers are reused. The
+profile builder accepts `--profile`, `--variant`, `--output` and `--evidence-path`;
+legacy invocations still use their historical inputs and output paths. The
+order entry point scopes individual native DRC/CAM to the 34 selected IDs, then
+verifies each grouped native sheet and actual Gerber/Excellon export. Source
+board/project hashes, inverse-translated contours/art/mask/drills, score lines,
+closed connected sheets and finish groups are checked. The expensive all-boundary
+artwork-width certificate remains opt-in and is not a claim of this workflow.
+
+## Choose one alternative
+
+At 25 complete stacks per series:
+
+| Alternative | Order lines | Sheets / standalone units | Useful pieces | Blank cells |
+| --- | ---: | ---: | ---: | ---: |
+| Individual | 34 | 850 | 850 | 0 |
+| Grouped | 12 | 300 | 850 | 50 |
+| Split-red | 13 | 325 | 850 | 0 |
+
+Each supplies 100 complete stacks: 100 top pieces and 750 lower pieces. Hardware
+for the requested stacks is 400 screws, 3,000 spacers and 400 nuts. Existing
+fastener size and fit assumptions remain subject to physical confirmation.
+
+| Lower group | Grid, columns × rows | Sheet dimensions, mm | Members |
+| --- | --- | --- | ---: |
+| White HASL | 1 × 3 | 111.3 × 292.9 | 3 |
+| Black ENIG | 3 × 2 | 313.9 × 198.6 | 6 |
+| Green HASL | 2 × 2 | 212.6 × 198.6 | 4 |
+| Black HASL | 2 × 2 | 212.6 × 198.6 | 4 |
+| Red, grouped | 3 × 4 | 313.9 × 387.2 | 10, plus 2 blank cells |
+| Red, split six | 2 × 3 | 212.6 × 292.9 | 6 |
+| Red, split Fault Line | 2 × 2 | 212.6 × 198.6 | 4 |
+
+Purple, yellow and blue remain standalone 101.3 × 94.3 mm lower boards. HASL
+means lead-free HASL. Black HASL and black ENIG remain separate. The red six-member
+sheet contains Spider L08, Coral L05/L07 and Kumiko wide L02/L05/L08; the four-member
+sheet contains Fault L02/L04/L06/L08. The split is the preferred compact candidate
+for quotation; no lower price is established. Its combined gross area is
+1,044.9290 cm² versus 1,215.4208 cm² for the ten-member sheet. Blank-cell counts
+exclude sacrificial rails and routed cutout material.
+
+Change `series.<name>.stacks` in the profile to recalculate supply. For each sheet,
+the smallest configured `supplierQuantities` value covering the highest member
+demand is chosen. Each member occurs once per sheet. The same rounding applies to
+standalone boards. The configured quantity choices are planning inputs; confirm
+them in the dated supplier quote. Unsupported demand fails rather than guessing.
+Every order manifest lists per-ID demand, supply and surplus, per-series complete
+stack yield, requested hardware and each package's copies/design count. This is a
+deterministic calculation, not an optimizer.
+
+## Inspect and download
+
+A successful bundle contains:
+
+- `variants/<variant>/ORDER.md` and `order.json`: the **only** purchase list for
+  that alternative, including relative ZIP references, dimensions and settings.
+- `sources/`: unchanged source boards/projects; `variants/*/native/`: editable
+  grouped boards/projects, fabrication instructions. Placement records are in `variants/*/native-panels.json`.
+- `individual-cam/`, `variants/*/cam/`: fresh native DRC reports, CLI logs and CAM.
+- `previews/` and variant PNGs: actual CAM front views and scores; nominal side
+  elevations show layer order/spacing and are not physical-fit or finish evidence.
+- `QUOTE-COMPARISON.md`, `receipt.json`, `inputs/`, `logs/`, `SHA256SUMS`.
+
+**Never buy every ZIP in a multi-variant bundle.** Individual lower exports are
+baseline/reference files when choosing either grouped alternative.
+
+PR checks run on the checked-out merge commit and record `source_commit`, head
+and base SHAs separately. Manual dispatch becomes available once the workflow is
+on the default branch; it selects the checked-in profile and alternative. Runs
+never deploy, push source changes or place orders. Manual requests have unique
+concurrency groups; newer PR revisions may cancel superseded checks.
+
+Use the exact successful run ID and artifact name displayed on that run; do not
+select an unspecified latest artifact. Artifacts are retained for 30 days:
+
+```sh
+gh run view RUN_ID --repo Takazudo/zudo-blanks
+mkdir /tmp/four-art-series-downloaded
+gh run download RUN_ID --repo Takazudo/zudo-blanks \
+  --name art-order-four-art-series-all-RUN_ID-ATTEMPT \
+  --dir /tmp/four-art-series-downloaded
+ART_ORDER_PYTHON=/tmp/art-order-venv/bin/python \
+  bash scripts/art-order/run.sh --verify-bundle /tmp/four-art-series-downloaded \
+  --expected-source SOURCE_MERGE_SHA --expected-run-id RUN_ID
+```
+
+The download verifier requires the pinned Python dependencies but not Docker. It
+checks the complete checksum inventory, bundled source/project/profile hashes,
+relative paths, raw DRC identity, panel geometry/placements, package ZIP bytes and
+recomputed order accounting. Keep the bundle intact; later relevant source or
+profile edits require a fresh build. Use the PR's documented tested merge SHA as
+`SOURCE_MERGE_SHA`, not the head SHA.
+
+## Fabrication and external checks
+
+All boards retain FR-4, 1.6 mm, two copper layers, 1 oz and their original mask and
+finish, with no silkscreen, plated holes or back copper. Groups use 5 mm rails and
+translation only. Decorative apertures are routed `Edge.Cuts`; full-span scores
+are exclusively `Dwgs.User`/`User_Drawings` Gerbers, never silk or routed cuts.
+The policy keeps at least 0.50 mm copper, 0.55 mm visible-gold and 1.0 mm
+aperture/support-disk score clearance, with existing numerical tolerances.
+Scored edges carry the recorded ±0.4 mm tolerance; separately drilled mounts
+provide stack registration. Top perimeters, rail slots and cosmetic edges remain
+routed, never scored or tabbed.
+
+Actual dated prices are **unknown**, including engineering/design, routing/scoring,
+ENIG, panel-area, shipping and tax charges. Compare the same requested quantity
+with constant top cost. Fewer order lines/sheets do not prove savings. Factory
+CAM/scoring and residual web approval, depanelization support of perforated
+sheets, side-edge appearance, color/finish availability and physical fastener/stack
+fit remain pending. Local native/CAM verification is not factory approval.

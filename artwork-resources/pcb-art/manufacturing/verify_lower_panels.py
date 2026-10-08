@@ -76,7 +76,12 @@ def native_partition(panel, record, boards, source_root=REPO):
              (record["widthMm"], record["heightMm"]), (0, record["heightMm"])]
     expected_edges.update(segkey(outer[k], outer[(k+1)%4]) for k in range(4))
     cells=[]
-    for placement in record["placements"]:
+    columns=round((record["widthMm"]-10)/101.3)
+    for index, placement in enumerate(record["placements"]):
+        expected_translation=[round(5+(index%columns)*101.3,6), round(5+(index//columns)*94.3-17.1,6)]
+        if (placement["translationMm"]!=expected_translation or placement["column"]!=index%columns
+                or placement["row"]!=index//columns):
+            raise ValueError("Placement differs from the fixed rail and row-major grid")
         board=boards[placement["id"]]
         source=source_root / board["nativeBoard"]
         if sha(source)!=placement["sourceSha256"]:

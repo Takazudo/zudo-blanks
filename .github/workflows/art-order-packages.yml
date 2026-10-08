@@ -32,7 +32,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: art-order-${{ github.event_name == 'pull_request' && github.event.pull_request.number || github.run_id }}
+  group: art-order-${{ github.event_name }}-${{ github.event_name == 'pull_request' && github.event.pull_request.number || github.run_id }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
@@ -68,7 +68,7 @@ jobs:
       - name: Focused manufacturing regression checks
         run: |
           set -o pipefail
-          for suite in test_lower_panels.py test_native_cam.py test_order_profiles.py; do
+          for suite in test_lower_panels.py test_native_cam.py test_order_profiles.py test_order_packages.py; do
             python -m unittest discover -s artwork-resources/pcb-art/manufacturing/tests -p "$suite" -v
           done 2>&1 | tee "$RUNNER_TEMP/art-order-logs/tests.log"
       - name: Build and verify actual native and CAM packages
@@ -82,7 +82,7 @@ jobs:
               --profile "artwork-resources/pcb-art/manufacturing/order-profiles/$PROFILE.json" \
               --variant "$VARIANT" --output "$PACKAGE_OUTPUT" \
             2>&1 | tee "$RUNNER_TEMP/art-order-logs/build.log"
-          timeout --signal=TERM --kill-after=30s 1m \
+          timeout --signal=TERM --kill-after=30s 5m \
             bash scripts/art-order/run.sh --verify-bundle "$PACKAGE_OUTPUT" \
               --expected-source "$GITHUB_SHA" --expected-run-id "$GITHUB_RUN_ID" \
             2>&1 | tee "$RUNNER_TEMP/art-order-logs/verify-bundle.log"

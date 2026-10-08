@@ -152,5 +152,69 @@ class FourSeriesProfileTests(unittest.TestCase):
             order_manifest(self.profile, 'bogus', self.boards)
 
 
+class NativePanelMutationTests(unittest.TestCase):
+    """Regenerate from committed sources, then reject plausible native damage."""
+
+    @classmethod
+    def setUpClass(cls):
+        from build_lower_panels import build
+        from order_profiles import DEFAULT_PROFILE
+        cls.directory = tempfile.TemporaryDirectory()
+        cls.addClassCleanup(cls.directory.cleanup)
+        cls.output = Path(cls.directory.name)
+        result = build(cls.output, profile=DEFAULT_PROFILE, variant='split-red',
+                       evidence_path=cls.output / 'evidence.json')
+        cls.records = result['panels']
+        _, cls.boards = load_profile()
+        cls.record = next(r for r in cls.records if r['groupId'] == 'red-hasl-fault')
+        cls.panel = cls.output / cls.record['nativeBoard']
+        cls.original = cls.panel.read_text()
+
+    def assert_native_rejected(self, text, message):
+        from verify_lower_panels import native_partition
+        path = self.output / 'mutated.kicad_pcb'
+        path.write_text(text)
+        with self.assertRaisesRegex(ValueError, message):
+            native_partition(path, self.record, self.boards)
+
+    def test_fresh_translation_only_panels_pass(self):
+        from verify_lower_panels import native_partition
+        self.assertEqual(len(self.records), 6)
+        for record in self.records:
+            with self.subTest(panel=record['id']):
+                _, evidence = native_partition(self.output / record['nativeBoard'], record, self.boards)
+                self.assertTrue(evidence['sheetMaterialConnected'])
+                self.assertEqual(evidence['npthMounts'], len(record['placements']) * 4)
+
+    def test_routed_contour_edit_rejected(self):
+        from verify_native_cam import GR_LINE_RE
+        line = next(m for m in GR_LINE_RE.finditer(self.original) if m.group(5) == 'Edge.Cuts')
+        start, end = line.span(1)
+        changed = self.original[:start] + str(float(line.group(1)) + .1) + self.original[end:]
+        self.assert_native_rejected(changed, 'native routed contours changed')
+
+    def test_drill_size_edit_rejected(self):
+        from verify_native_cam import NPTH_PAD_RE
+        pad = NPTH_PAD_RE.search(self.original)
+        self.assertIsNotNone(pad)
+        start, end = pad.span(7)
+        changed = self.original[:start] + str(float(pad.group(7)) + .1) + self.original[end:]
+        self.assert_native_rejected(changed, 'translated NPTH pads changed')
+
+    def test_score_coordinate_edit_rejected(self):
+        from verify_native_cam import GR_LINE_RE
+        score = next(m for m in GR_LINE_RE.finditer(self.original) if m.group(5) == 'Dwgs.User')
+        start, end = score.span(2)
+        changed = self.original[:start] + str(float(score.group(2)) + .1) + self.original[end:]
+        self.assert_native_rejected(changed, 'Native scores differ')
+
+    def test_score_evidence_edit_rejected(self):
+        from verify_lower_panels import native_partition
+        record = copy.deepcopy(self.record)
+        record['scoreYMm'][0] += .1
+        with self.assertRaisesRegex(ValueError, 'Invalid score coordinate record'):
+            native_partition(self.panel, record, self.boards)
+
+
 if __name__ == '__main__':
     unittest.main()

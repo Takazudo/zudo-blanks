@@ -53,7 +53,7 @@ for ((i=0; i<${#args[@]}; i++)); do
 done
 docker image inspect "$KICAD_IMAGE" >/dev/null 2>&1 || docker pull "$KICAD_IMAGE"
 version=$(bash "$script_dir/run.sh" --kicad-adapter version)
-[[ $version == "$KICAD_VERSION_PREFIX"* ]] || { echo "Unexpected KiCad version: $version" >&2; exit 1; }
+[[ $version == "$KICAD_VERSION_PREFIX" ]] || { echo "Unexpected KiCad version: $version" >&2; exit 1; }
 export ART_ORDER_KICAD_VERSION="$version"
 adapter=$(mktemp /tmp/art-order-kicad.XXXXXX)
 trap 'rm -f -- "$adapter"' EXIT

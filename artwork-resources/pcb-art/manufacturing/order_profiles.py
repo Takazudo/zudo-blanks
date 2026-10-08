@@ -1,6 +1,7 @@
 """Explicit order selection and bounded, deterministic sheet supply accounting."""
 from collections import Counter
 import json
+import re
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -13,9 +14,9 @@ def finish(board):
     return 'ENIG' if board['finish'].startswith('enig') else 'lead-free HASL'
 
 
-def load_profile(path=DEFAULT_PROFILE):
+def load_profile(path=DEFAULT_PROFILE, *, manifest_path=None):
     profile = json.loads(Path(path).read_text())
-    inventory = json.loads((HERE.parent / 'pcb/manifest.json').read_text())['boards']
+    inventory = json.loads(Path(manifest_path or HERE.parent / 'pcb/manifest.json').read_text())['boards']
     expected = {b['id']: b for b in inventory
                 if b['category'] == 'selected' and b['designId'] in SERIES}
     if len(expected) != 34 or any('kumiko' in i and '-wide-' not in i for i in expected):
@@ -53,6 +54,8 @@ def load_profile(path=DEFAULT_PROFILE):
             ids = group['memberIds']
             if not ids or ids != sorted(set(ids)):
                 raise ValueError('Group members must be unique sorted IDs')
+            if not re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*', group['id']):
+                raise ValueError('Invalid group ID')
             group_ids.append(group['id'])
             members.extend(ids)
             if any(i not in expected or expected[i]['layerNumber'] == 1 for i in ids):

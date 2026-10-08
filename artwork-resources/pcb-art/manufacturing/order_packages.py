@@ -52,8 +52,10 @@ def check_drc(path, board_name):
     report = json.loads(path.read_text())
     required = {'source', 'coordinate_units', 'included_severities', 'kicad_version',
                 'violations', 'unconnected_items'}
-    if not required.issubset(report):
+    if not isinstance(report,dict) or not required.issubset(report):
         raise ValueError(f'Malformed DRC report: {path}')
+    if any(not isinstance(report.get(key,[]),list) for key in ('violations','unconnected_items','included_severities','ignored_checks')):
+        raise ValueError(f'Malformed DRC arrays: {path}')
     if (report['source'] != board_name or report['coordinate_units'] != 'mm'
             or not str(report['kicad_version']).startswith('10.0.')
             or not {'error','warning','exclusion'}.issubset(report['included_severities'])
@@ -123,7 +125,7 @@ def stack_previews(profile, boards, output):
             b=boards[board_id]
             top=index==0
             yy=y+25+index*23
-            draw.rectangle((x+(0 if top else 35),yy,x+405-(0 if top else 35),yy+8),
+            draw.rectangle((x+(0 if top else 17.1*3.1),yy,x+(128.5 if top else 111.4)*3.1,yy+8),
                            fill=native.MASK_RGB[b['maskColor']],outline='black')
             draw.text((x+410,yy), f'L{index+1:02d}',fill='black')
     image.save(output / 'previews/nominal-stack-sides.png')
@@ -166,24 +168,68 @@ def verify_bundle(output, expected_source=None, expected_run_id=None):
         raise ValueError('Source commit mismatch or dirty tracked inputs')
     if expected_run_id and receipt['run_id']!=str(expected_run_id):
         raise ValueError('Run identity mismatch')
-    profile, boards=load_profile(output/'inputs/profile.json')
-    expected_ids=set(boards)
+    if sha(output/'inputs/profile.json') != receipt['profileSha256']:
+        raise ValueError('Profile receipt hash mismatch')
+    for rel, digest in receipt['inputHashes'].items():
+        if sha(safe_path(output,rel))!=digest:
+            raise ValueError('Tool/input receipt hash mismatch')
+    inputs=output/'inputs/artwork-resources/pcb-art'
+    profile, boards=load_profile(output/'inputs/profile.json', manifest_path=inputs/'pcb/manifest.json')
     individual=json.loads((output/'individual-verification.json').read_text())
-    if Counter(b['id'] for b in individual)!=Counter(expected_ids):
+    if Counter(b['id'] for b in individual)!=Counter(boards.keys()):
         raise ValueError('Individual evidence membership mismatch')
+    generated=json.loads((inputs/'manufacturing/native-generation.json').read_text())
+    generation={b['nativeBoard']:b for b in generated['boards']}
+    by_id={b['id']:b for b in individual}
     for record in individual:
+        source=generation[boards[record['id']]['nativeBoard']]
+        if record['nativeSha256']!=source['sha256'] or record['projectSha256']!=source['projectSha256']:
+            raise ValueError('Source no longer matches committed generation hashes')
         pcb=safe_path(output,record['nativeBoard'])
         if sha(pcb)!=record['nativeSha256'] or sha(pcb.with_suffix('.kicad_pro'))!=record['projectSha256']:
             raise ValueError('Source/project evidence mismatch')
         check_drc(safe_path(output,record['drc']),pcb.name)
+        safe_path(output,record['preview']).read_bytes()
     orders=[]
-    for variant in receipt['variants']:
-        order=json.loads((output/'variants'/variant/'order.json').read_text())
+    variants=receipt['variants']
+    if not variants or len(set(variants))!=len(variants) or set(variants)-set(VARIANTS):
+        raise ValueError('Invalid variant receipt')
+    for variant in variants:
+        target=output/'variants'/variant
+        order=json.loads((target/'order.json').read_text())
+        if order['status']!='pass_local_native_cam; factory_quote_CAM_fit_pending':
+            raise ValueError('Order variant is unverified')
+        record=json.loads((target/'native-panels.json').read_text())
+        if record.get('profileSha256')!=receipt['profileSha256'] or record.get('variant')!=variant:
+            raise ValueError('Native panel profile binding mismatch')
+        results_path=target/'panel-verification.json'
+        results=json.loads(results_path.read_text()) if results_path.exists() else []
+        results_by={r['id']:r for r in results}
+        wanted_groups={g['id']:g for g in profile['variants'][variant]['groups'] if len(g['memberIds'])>1}
+        if (Counter(p['groupId'] for p in record['panels'])!=Counter(wanted_groups.keys())
+                or Counter(r['id'] for r in results)!=Counter(p['id'] for p in record['panels'])):
+            raise ValueError('Panel evidence membership differs from profile')
+        for panel in record['panels']:
+            group=wanted_groups[panel['groupId']]
+            if [p['id'] for p in panel['placements']]!=group['memberIds']:
+                raise ValueError('Panel placement membership differs')
+            if panel['widthMm']!=round(group['columns']*101.3+10,6) or panel['heightMm']!=round(group['rows']*94.3+10,6):
+                raise ValueError('Panel grid dimensions differ')
+            pcb=safe_path(target/'native',panel['nativeBoard'])
+            if sha(pcb)!=panel['nativeBoardSha256'] or sha(pcb.with_suffix('.kicad_pro'))!=panel['projectSha256']:
+                raise ValueError('Panel source/project mismatch')
+            lower.native_partition(pcb,panel,boards,output/'sources')
+            result=results_by[panel['id']]
+            if result['status']!='pass_local_native_drc_cam':
+                raise ValueError('Panel CAM did not pass')
+            drc=target/'cam'/panel['id']/'drc.json'
+            check_drc(drc,pcb.name)
+            if sha(drc)!=result['drcReportSha256']:
+                raise ValueError('Panel DRC binding mismatch')
+            safe_path(output,result['preview']).read_bytes()
         expected=order_manifest(profile,variant,boards)
         for key in expected:
-            if key in ('status','packages'):
-                continue
-            if order[key]!=expected[key]:
+            if key not in ('status','packages') and order[key]!=expected[key]:
                 raise ValueError(f'{variant}: stale order accounting: {key}')
         if len(order['packages'])!=len(expected['packages']):
             raise ValueError('Order package count differs')
@@ -193,18 +239,40 @@ def verify_bundle(output, expected_source=None, expected_run_id=None):
             package=safe_path(output,p['zip']['path'])
             if sha(package)!=p['zip']['sha256']:
                 raise ValueError('Order ZIP hash mismatch')
+            if p['kind']=='scored_lower_grid':
+                result=results_by[p['id']]
+                if p['zip']!=result['zip']:
+                    raise ValueError('Panel package reference mismatch')
+                raw=target/'cam'/p['id']/'cam'
+                files={entry['name']:raw/entry['name'] for entry in result['camFiles']}
+                for entry in result['camFiles']:
+                    if sha(safe_path(raw,entry['name']))!=entry['sha256']:
+                        raise ValueError('Stale panel CAM file binding')
+                files['FABRICATION.txt']=target/'native'/p['id']/'FABRICATION.txt'
+            else:
+                if p['zip']!=by_id[p['id']]['zip']:
+                    raise ValueError('Individual package reference mismatch')
+                raw=output/'individual-cam'/p['id']
+                manifest=json.loads((raw/'package-manifest.json').read_text())
+                if manifest['boardId']!=p['id'] or manifest['sourceNativeBoardSha256']!=by_id[p['id']]['nativeSha256']:
+                    raise ValueError('Individual package source mismatch')
+                files={entry['name']:raw/'cam'/entry['name'] for entry in manifest['camFiles']}
+                for entry in manifest['camFiles']:
+                    if sha(safe_path(raw/'cam',entry['name']))!=entry['sha256']:
+                        raise ValueError('Stale individual CAM binding')
+                files['package-manifest.json']=raw/'package-manifest.json'
             with zipfile.ZipFile(package) as archive:
                 names=archive.namelist()
-                if archive.testzip() or len(set(names))!=len(names):
-                    raise ValueError('Invalid package ZIP')
+                if archive.testzip() or len(set(names))!=len(names) or set(names)!=set(files):
+                    raise ValueError('Invalid or incomplete package ZIP')
                 for name in names:
-                    if Path(name).name!=name:
-                        raise ValueError('ZIP must contain flat relative file names')
+                    if Path(name).name!=name or archive.read(name)!=files[name].read_bytes():
+                        raise ValueError('ZIP data differs from verified export')
                 if not any(n.endswith('.drl') for n in names) or len([n for n in names if n.endswith(('.gbr','.gm1','.gtl','.gbl','.gts','.gbs'))])<5:
                     raise ValueError('Incomplete CAM ZIP')
         orders.append(order)
     return {'status':'pass', 'source_commit':receipt['source_commit'], 'run_id':receipt['run_id'],
-            'variants':receipt['variants'], 'files':len(sums), 'orderLines':[o['packageCount'] for o in orders]}
+            'variants':variants, 'files':len(sums), 'orderLines':[o['packageCount'] for o in orders]}
 
 
 def run(args):
@@ -282,6 +350,14 @@ def run(args):
             write(target/'order.json',order)
             write_order_table(order,target/'ORDER.md')
         stack_previews(profile,selected,output)
+        comparison=['# Quote comparison', '', 'Select one alternative. Top-board cost is held constant across alternatives.', '',
+                    '| Alternative | Lines | Sheets / units | Useful pieces | Blank cells | Surplus | Price / fees / shipping / tax |',
+                    '| --- | ---: | ---: | ---: | ---: | ---: | --- |']
+        for variant in variants:
+            o=json.loads((output/'variants'/variant/'order.json').read_text())
+            comparison.append(f"| {variant} | {o['packageCount']} | {o['orderedSheetsAndStandaloneUnits']} | {o['usefulBoardCount']} | {o['wasteCells']} | {o['surplusFinishedBoards']} | unknown |")
+        comparison += ['', 'Quote each alternative for the same requested output. Each scored sheet contains multiple distinct designs; quantities mean sheets. Ask for engineering/design, routing/scoring, ENIG, panel-area, shipping and tax amounts and currency/date. Unknown amounts are not zero. Blank cells omit rails/cutout waste. No savings or factory acceptance is established.']
+        (output/'QUOTE-COMPARISON.md').write_text('\n'.join(comparison)+'\n')
         receipt.update(status='pass_local_native_cam',finishedUtc=native.utc_now())
         write(output/'logs/progress.json',receipt)
         write(output/'receipt.json',receipt)
