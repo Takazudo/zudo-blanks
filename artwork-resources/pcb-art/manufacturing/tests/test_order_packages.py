@@ -13,11 +13,13 @@ from order_profiles import load_profile, order_manifest, VARIANTS
 
 class BundleIntegrityTests(unittest.TestCase):
     def test_drc_seam_copy_preserves_every_native_primitive(self):
-        source=ROOT/'panels/art-spider-nest/01-spider-nest-L07-gold-enig-fill.kicad_pcb'
-        original=source.read_text()
-        normalized=drc_input_text(source)
-        self.assertNotEqual(original,normalized)
-        self.assertEqual(Counter(original.splitlines()),Counter(normalized.splitlines()))
+        for relative in ('panels/art-spider-nest/01-spider-nest-L07-gold-enig-fill.kicad_pcb',
+                         'panels/art-coral-vault/03-coral-vault-L03-purple-mask-only.kicad_pcb'):
+            source=ROOT/relative
+            original=source.read_text()
+            normalized=drc_input_text(source)
+            self.assertNotEqual(original,normalized)
+            self.assertEqual(Counter(original.splitlines()),Counter(normalized.splitlines()))
         top=ROOT/'panels/art-spider-nest/01-spider-nest-L01-black-enig-art.kicad_pcb'
         self.assertEqual(top.read_text(),drc_input_text(top))
 

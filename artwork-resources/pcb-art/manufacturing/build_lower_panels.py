@@ -171,10 +171,12 @@ def build(output=OUT, *, profile=None, variant="grouped", evidence_path=None):
                 for p in native["polygons"].get("F.Mask", []):
                     nearest["visibleGoldMm"] = min(nearest["visibleGoldMm"], seam.distance(p))
             _, source_items = chunks(source.read_text())
-            # Linux KiCad's compact Fault red grid needs a different contour seed.
-            # Scope this exact-segment reorder to the new split; legacy bytes stay unchanged.
+            # Linux KiCad's new-profile Fault red placements need different contour seeds.
+            # Scope these exact-segment reorders to new variants; legacy bytes stay unchanged.
             extra=((37.393315,46.330334),) if (profile is not None and variant=="split-red"
                 and board_id=="13-fault-line-L08-red-mask-only") else ()
+            if profile is not None and variant=="grouped" and board_id=="13-fault-line-L06-red-mask-only":
+                extra=((57.501813,60.718187),)
             source_items=rotate_drc_witness_loops(source_items,native,board_id,extra)
             items.extend(move(item, dx, dy, f"{stem}:{board_id}").rstrip()+"\n"
                          for item in source_items if not outer_line(item))
