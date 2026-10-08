@@ -367,7 +367,7 @@ def run(args):
                 target=output/'sources'/source.relative_to(ROOT)
                 target.parent.mkdir(parents=True,exist_ok=True)
                 shutil.copyfile(source,target)
-            # DRC and CAM consume the bundled byte-identical source copies.
+            # CAM consumes byte-identical source copies; the documented DRC seam copy is separate.
             board['nativePath']=str(output/'sources'/board['nativeBoard'])
             board['projectPath']=str(Path(board['nativePath']).with_suffix('.kicad_pro'))
         individual=[]

@@ -81,7 +81,7 @@ PANEL_DRC_ORDER_WITNESSES = {
 }
 
 
-def rotate_drc_witness_loops(items, native, board_id):
+def rotate_drc_witness_loops(items, native, board_id, extra_witnesses=()):
     """Change KiCad's seed edge for origin-sensitive aperture loops.
 
     At their translated panel coordinates KiCad 10 reports invalid outlines
@@ -89,7 +89,7 @@ def rotate_drc_witness_loops(items, native, board_id):
     serialized primitive run retains every edge and all routed geometry.
     """
     loops=component_loops(native["edgeSegments"])
-    for witness in PANEL_DRC_ORDER_WITNESSES.get(board_id, []):
+    for witness in [*PANEL_DRC_ORDER_WITNESSES.get(board_id, []), *extra_witnesses]:
         loop=next((points for points in loops if witness in points),None)
         if loop is None:
             raise ValueError(f"{board_id}: DRC witness loop changed")
@@ -171,7 +171,11 @@ def build(output=OUT, *, profile=None, variant="grouped", evidence_path=None):
                 for p in native["polygons"].get("F.Mask", []):
                     nearest["visibleGoldMm"] = min(nearest["visibleGoldMm"], seam.distance(p))
             _, source_items = chunks(source.read_text())
-            source_items=rotate_drc_witness_loops(source_items,native,board_id)
+            # Linux KiCad's compact Fault red grid needs a different contour seed.
+            # Scope this exact-segment reorder to the new split; legacy bytes stay unchanged.
+            extra=((37.393315,46.330334),) if (profile is not None and variant=="split-red"
+                and board_id=="13-fault-line-L08-red-mask-only") else ()
+            source_items=rotate_drc_witness_loops(source_items,native,board_id,extra)
             items.extend(move(item, dx, dy, f"{stem}:{board_id}").rstrip()+"\n"
                          for item in source_items if not outer_line(item))
         if nearest["apertureMm"] < .999 or nearest["supportDiskMm"] < .999:
