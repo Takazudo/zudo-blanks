@@ -1,0 +1,10 @@
+COMMAND /tmp/art-order-kicad.pF1J2o pcb export drill --format excellon --drill-origin absolute --excellon-units mm --excellon-zeros-format decimal --excellon-oval-format route --excellon-separate-th --generate-map --map-format svg --generate-report --report-path /tmp/art-order-37833323671-1/individual-cam/13-fault-line-L04-red-mask-only/cam/drill.rpt --output /tmp/art-order-37833323671-1/individual-cam/13-fault-line-L04-red-mask-only/cam/ /tmp/art-order-37833323671-1/sources/panels/art-fault-line/13-fault-line-L04-red-mask-only.kicad_pcb
+EXIT 0
+STDOUT
+Created file '/tmp/art-order-37833323671-1/individual-cam/13-fault-line-L04-red-mask-only/cam/13-fault-line-L04-red-mask-only-PTH.drl'
+Created file '/tmp/art-order-37833323671-1/individual-cam/13-fault-line-L04-red-mask-only/cam/13-fault-line-L04-red-mask-only-NPTH.drl'
+Created file '/tmp/art-order-37833323671-1/individual-cam/13-fault-line-L04-red-mask-only/cam/13-fault-line-L04-red-mask-only-PTH-drl_map.svg'.
+Created file '/tmp/art-order-37833323671-1/individual-cam/13-fault-line-L04-red-mask-only/cam/13-fault-line-L04-red-mask-only-NPTH-drl_map.svg'.
+Done.
+
+STDERR

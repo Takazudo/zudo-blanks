@@ -1,0 +1,46 @@
+{
+  "boardId": "13-fault-line-L01-black-enig-art",
+  "category": "selected",
+  "sourceNativeBoardSha256": "8702696831e34e6d91f0c3c3e81264b2ffaf2917930980a52e07682371e3bbb8",
+  "finish": "ENIG",
+  "maskColor": "black",
+  "camFiles": [
+    {
+      "name": "13-fault-line-L01-black-enig-art-B_Cu.gbl",
+      "sha256": "729f9f48ff991b561ae573e96e7f2f3733a167a07a7357f8b72dd9045558cf00",
+      "sizeBytes": 478
+    },
+    {
+      "name": "13-fault-line-L01-black-enig-art-B_Mask.gbs",
+      "sha256": "88a8a979dee1a1bd42095b2f40dd6a7576f3ad490bdbe84b6738ab726bb387a9",
+      "sizeBytes": 849
+    },
+    {
+      "name": "13-fault-line-L01-black-enig-art-Edge_Cuts.gm1",
+      "sha256": "10c1906a4bc9d5f99191156e1d7e764ccef0c4b1d1d82868e5b9176656af92e3",
+      "sizeBytes": 85670
+    },
+    {
+      "name": "13-fault-line-L01-black-enig-art-F_Cu.gtl",
+      "sha256": "54054bff1e9080087e14f0253150cb68f3cc86de2f499268beaa265a58d64e6b",
+      "sizeBytes": 7232121
+    },
+    {
+      "name": "13-fault-line-L01-black-enig-art-F_Mask.gts",
+      "sha256": "14a66d1361032c6543c77560f3a5a8c49b3350e374a07ba5c7f5011f772e1bea",
+      "sizeBytes": 342812
+    },
+    {
+      "name": "13-fault-line-L01-black-enig-art-NPTH.drl",
+      "sha256": "31b9c39d757e59e6dbbe6cbb69916aa2b28d3382711985afdb1d1fe959af4d2a",
+      "sizeBytes": 559
+    },
+    {
+      "name": "13-fault-line-L01-black-enig-art-job.gbrjob",
+      "sha256": "4df3541ff866de95bd0c8cc8d5adbe9d0344b32c1948dd892da8b6db6bda9291",
+      "sizeBytes": 2120
+    }
+  ],
+  "pthDrillFile": "empty; not included in release package",
+  "status": "local CAM review candidate; factory acceptance pending"
+}

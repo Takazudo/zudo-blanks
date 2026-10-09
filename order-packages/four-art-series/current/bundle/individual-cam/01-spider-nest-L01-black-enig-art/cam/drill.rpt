@@ -1,0 +1,22 @@
+Drill report for 01-spider-nest-L01-black-enig-art.kicad_pcb
+Created on 2026-10-08T19:40:23
+
+Copper Layer Stackup:
+    =============================================================
+    L1 :  F.Cu                      front
+    L2 :  B.Cu                      back
+
+
+Drill file '01-spider-nest-L01-black-enig-art-PTH.drl' contains
+    plated through holes:
+    =============================================================
+
+    Total plated holes count 0
+
+
+Drill file '01-spider-nest-L01-black-enig-art-NPTH.drl' contains
+    unplated through holes:
+    =============================================================
+    T1  3.200mm  0.1260"  (8 holes)  (with 4 slots)
+
+    Total unplated holes count 8

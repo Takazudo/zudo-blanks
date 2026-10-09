@@ -1,0 +1,11 @@
+COMMAND /tmp/art-order-kicad.pF1J2o pcb export gerbers --layers F.Cu,B.Cu,F.Mask,B.Mask,Edge.Cuts,Dwgs.User --precision 6 --output /tmp/art-order-37833323671-1/variants/split-red/cam/lower-panel-red-hasl-six/cam/ /tmp/art-order-37833323671-1/variants/split-red/native/lower-panel-red-hasl-six/lower-panel-red-hasl-six.kicad_pcb
+EXIT 0
+STDOUT
+Plotted to '/tmp/art-order-37833323671-1/variants/split-red/cam/lower-panel-red-hasl-six/cam/lower-panel-red-hasl-six-F_Cu.gtl'.
+Plotted to '/tmp/art-order-37833323671-1/variants/split-red/cam/lower-panel-red-hasl-six/cam/lower-panel-red-hasl-six-B_Cu.gbl'.
+Plotted to '/tmp/art-order-37833323671-1/variants/split-red/cam/lower-panel-red-hasl-six/cam/lower-panel-red-hasl-six-F_Mask.gts'.
+Plotted to '/tmp/art-order-37833323671-1/variants/split-red/cam/lower-panel-red-hasl-six/cam/lower-panel-red-hasl-six-B_Mask.gbs'.
+Plotted to '/tmp/art-order-37833323671-1/variants/split-red/cam/lower-panel-red-hasl-six/cam/lower-panel-red-hasl-six-User_Drawings.gbr'.
+Plotted to '/tmp/art-order-37833323671-1/variants/split-red/cam/lower-panel-red-hasl-six/cam/lower-panel-red-hasl-six-Edge_Cuts.gm1'.
+
+STDERR

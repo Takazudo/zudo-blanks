@@ -1,0 +1,46 @@
+{
+  "boardId": "03-coral-vault-L04-gold-enig-fill",
+  "category": "selected",
+  "sourceNativeBoardSha256": "672b4874a5acd1ce8836a5c425769fc9c1c8f8679cdf710d638ca4c9b332c5cd",
+  "finish": "ENIG",
+  "maskColor": "black",
+  "camFiles": [
+    {
+      "name": "03-coral-vault-L04-gold-enig-fill-B_Cu.gbl",
+      "sha256": "5b1518b856995b8ec39f46ec055a445fa00220b7f1b704e4a0dfd17d9aed83d7",
+      "sizeBytes": 479
+    },
+    {
+      "name": "03-coral-vault-L04-gold-enig-fill-B_Mask.gbs",
+      "sha256": "09317dbe4a82e44bd7aff4202d9b79210e32e62a29a87cb1c4733fb7e8fc76cf",
+      "sizeBytes": 660
+    },
+    {
+      "name": "03-coral-vault-L04-gold-enig-fill-Edge_Cuts.gm1",
+      "sha256": "31f91b65e2b440ea016112df9f9b815665ae4e338e90383eae3d8e861f6a7abd",
+      "sizeBytes": 216523
+    },
+    {
+      "name": "03-coral-vault-L04-gold-enig-fill-F_Cu.gtl",
+      "sha256": "d26eb986b8bd505f4c4e64ae910d06afd2df655f42d5edc1dc9857beae6e1acc",
+      "sizeBytes": 2180683
+    },
+    {
+      "name": "03-coral-vault-L04-gold-enig-fill-F_Mask.gts",
+      "sha256": "0eac97366de7b0d278a3734b1cfb4101c45f3de3de6681f46629b434cb3ea0a2",
+      "sizeBytes": 291424
+    },
+    {
+      "name": "03-coral-vault-L04-gold-enig-fill-NPTH.drl",
+      "sha256": "43f3f09ffe99ebcbd484ac6bbab537cd1665a8a4c1c76b3ea0c8406a6977dd91",
+      "sizeBytes": 376
+    },
+    {
+      "name": "03-coral-vault-L04-gold-enig-fill-job.gbrjob",
+      "sha256": "2eeb8748e06a353e4ae4a98e3472a870e9599b078343e714907610cad1b9f1ce",
+      "sizeBytes": 2125
+    }
+  ],
+  "pthDrillFile": "empty; not included in release package",
+  "status": "local CAM review candidate; factory acceptance pending"
+}

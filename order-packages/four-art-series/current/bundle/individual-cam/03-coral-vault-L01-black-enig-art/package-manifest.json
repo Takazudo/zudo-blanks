@@ -1,0 +1,46 @@
+{
+  "boardId": "03-coral-vault-L01-black-enig-art",
+  "category": "selected",
+  "sourceNativeBoardSha256": "f77bf5c1e682ae1ccf791a8fe8c2430e967059e8b45a4836289e8638b60a815c",
+  "finish": "ENIG",
+  "maskColor": "black",
+  "camFiles": [
+    {
+      "name": "03-coral-vault-L01-black-enig-art-B_Cu.gbl",
+      "sha256": "0532499ad739249285d6c8cafa3b8cc236e4de6451f0dd0e9cd66daccfbf6aa2",
+      "sizeBytes": 479
+    },
+    {
+      "name": "03-coral-vault-L01-black-enig-art-B_Mask.gbs",
+      "sha256": "e9e9e8a982b400cefa7ac69051fc7ade4ca7be23a741b39a832e2b59b8c18f7c",
+      "sizeBytes": 850
+    },
+    {
+      "name": "03-coral-vault-L01-black-enig-art-Edge_Cuts.gm1",
+      "sha256": "fb959ad631b2d0b815635e3f67927772c83b6f461e887133b97375a3c6351b91",
+      "sizeBytes": 243973
+    },
+    {
+      "name": "03-coral-vault-L01-black-enig-art-F_Cu.gtl",
+      "sha256": "4c675ccc738ec82a515c7ee91bff41a39e65634753bf1679e2a806f894cc1586",
+      "sizeBytes": 44000818
+    },
+    {
+      "name": "03-coral-vault-L01-black-enig-art-F_Mask.gts",
+      "sha256": "aaf2e5043ca9d38ee2daee5a348f7dadacf382d70165aa00685b0ae2fbde1d3c",
+      "sizeBytes": 6188669
+    },
+    {
+      "name": "03-coral-vault-L01-black-enig-art-NPTH.drl",
+      "sha256": "c0a0ac8af80a8db3c3e97617a305997867cd3f3e46a7de41988e139a8033133a",
+      "sizeBytes": 559
+    },
+    {
+      "name": "03-coral-vault-L01-black-enig-art-job.gbrjob",
+      "sha256": "98b1216f09615d0ee3195190ba21f13045876acb054ae4e9b4e83c3edf98ff4b",
+      "sizeBytes": 2126
+    }
+  ],
+  "pthDrillFile": "empty; not included in release package",
+  "status": "local CAM review candidate; factory acceptance pending"
+}

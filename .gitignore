@@ -86,3 +86,7 @@ panels/art-*/gerber/
 panels/art-*/**/gerber/
 panels/art-*/cam/
 panels/art-*/**/cam/
+
+# Reviewed order-packages/four-art-series/current is intentionally tracked,
+# including its per-order ZIPs. Stage full generated bundles only under the
+# ignored artwork-resources/pcb-art/generated/ tree; never commit the outer ZIP.

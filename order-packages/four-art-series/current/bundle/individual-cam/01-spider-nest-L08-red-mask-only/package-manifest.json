@@ -1,0 +1,46 @@
+{
+  "boardId": "01-spider-nest-L08-red-mask-only",
+  "category": "selected",
+  "sourceNativeBoardSha256": "44cf9e6a84bd2dcf50438de7d2ed0c991e09c19876b15a9519a6e6b754b37344",
+  "finish": "Lead-free HASL",
+  "maskColor": "red",
+  "camFiles": [
+    {
+      "name": "01-spider-nest-L08-red-mask-only-B_Cu.gbl",
+      "sha256": "2b5ae6ce60a954a4068d6561e8eeecee24192a4dd869686c48a554f721457438",
+      "sizeBytes": 478
+    },
+    {
+      "name": "01-spider-nest-L08-red-mask-only-B_Mask.gbs",
+      "sha256": "5ca058a2d92a2aa62516d0dda8fb69d96a9f57531672c3433e9c6b9e93e31892",
+      "sizeBytes": 659
+    },
+    {
+      "name": "01-spider-nest-L08-red-mask-only-Edge_Cuts.gm1",
+      "sha256": "4153772c7c1f0a3f65565552c28771a5ca0a2a68e7eb5c1ac655481c582f1c12",
+      "sizeBytes": 676
+    },
+    {
+      "name": "01-spider-nest-L08-red-mask-only-F_Cu.gtl",
+      "sha256": "30feebfc8bd696acf8b9e72a75551d1cbc72027f5c7bf3bf51b5fb6bf20ae875",
+      "sizeBytes": 478
+    },
+    {
+      "name": "01-spider-nest-L08-red-mask-only-F_Mask.gts",
+      "sha256": "48e3d4d18f0d779f914b1df230671f7881aef128742ba5b5414905b479b9fc35",
+      "sizeBytes": 659
+    },
+    {
+      "name": "01-spider-nest-L08-red-mask-only-NPTH.drl",
+      "sha256": "19e2a9da7da8833b86da2ce67de7a7dbf60e207710ed4353ba7b6df0280f3e06",
+      "sizeBytes": 376
+    },
+    {
+      "name": "01-spider-nest-L08-red-mask-only-job.gbrjob",
+      "sha256": "9ca77143b4fadde1987e904f21a55104d262b44bf7b7cddef9efff66e15d523a",
+      "sizeBytes": 2129
+    }
+  ],
+  "pthDrillFile": "empty; not included in release package",
+  "status": "local CAM review candidate; factory acceptance pending"
+}

@@ -1,0 +1,1229 @@
+{
+  "schemaVersion": 1,
+  "profileId": "four-art-series",
+  "variant": "individual",
+  "status": "pass_local_native_cam; factory_quote_CAM_fit_pending",
+  "selectedBoardCount": 34,
+  "packageCount": 34,
+  "orderedSheetsAndStandaloneUnits": 850,
+  "usefulBoardCount": 850,
+  "producedBoardCount": 850,
+  "demandByBoardId": {
+    "01-spider-nest-L01-black-enig-art": 25,
+    "01-spider-nest-L02-white-mask-only": 25,
+    "01-spider-nest-L03-gold-enig-fill": 25,
+    "01-spider-nest-L04-white-mask-only": 25,
+    "01-spider-nest-L05-gold-enig-fill": 25,
+    "01-spider-nest-L06-white-mask-only": 25,
+    "01-spider-nest-L07-gold-enig-fill": 25,
+    "01-spider-nest-L08-red-mask-only": 25,
+    "03-coral-vault-L01-black-enig-art": 25,
+    "03-coral-vault-L02-green-mask-only": 25,
+    "03-coral-vault-L03-purple-mask-only": 25,
+    "03-coral-vault-L04-gold-enig-fill": 25,
+    "03-coral-vault-L05-red-mask-only": 25,
+    "03-coral-vault-L06-yellow-mask-only": 25,
+    "03-coral-vault-L07-red-mask-only": 25,
+    "03-coral-vault-L08-blue-mask-only": 25,
+    "13-fault-line-L01-black-enig-art": 25,
+    "13-fault-line-L02-red-mask-only": 25,
+    "13-fault-line-L03-black-mask-only": 25,
+    "13-fault-line-L04-red-mask-only": 25,
+    "13-fault-line-L05-black-mask-only": 25,
+    "13-fault-line-L06-red-mask-only": 25,
+    "13-fault-line-L07-black-mask-only": 25,
+    "13-fault-line-L08-red-mask-only": 25,
+    "13-fault-line-L09-black-mask-only": 25,
+    "17-kumiko-void-wide-L01-black-enig-art": 25,
+    "17-kumiko-void-wide-L02-red-mask-only": 25,
+    "17-kumiko-void-wide-L03-green-mask-only": 25,
+    "17-kumiko-void-wide-L04-black-enig-art": 25,
+    "17-kumiko-void-wide-L05-red-mask-only": 25,
+    "17-kumiko-void-wide-L06-green-mask-only": 25,
+    "17-kumiko-void-wide-L07-black-enig-art": 25,
+    "17-kumiko-void-wide-L08-red-mask-only": 25,
+    "17-kumiko-void-wide-L09-green-mask-only": 25
+  },
+  "supplyByBoardId": {
+    "01-spider-nest-L01-black-enig-art": 25,
+    "01-spider-nest-L02-white-mask-only": 25,
+    "01-spider-nest-L03-gold-enig-fill": 25,
+    "01-spider-nest-L04-white-mask-only": 25,
+    "01-spider-nest-L05-gold-enig-fill": 25,
+    "01-spider-nest-L06-white-mask-only": 25,
+    "01-spider-nest-L07-gold-enig-fill": 25,
+    "01-spider-nest-L08-red-mask-only": 25,
+    "03-coral-vault-L01-black-enig-art": 25,
+    "03-coral-vault-L02-green-mask-only": 25,
+    "03-coral-vault-L03-purple-mask-only": 25,
+    "03-coral-vault-L04-gold-enig-fill": 25,
+    "03-coral-vault-L05-red-mask-only": 25,
+    "03-coral-vault-L06-yellow-mask-only": 25,
+    "03-coral-vault-L07-red-mask-only": 25,
+    "03-coral-vault-L08-blue-mask-only": 25,
+    "13-fault-line-L01-black-enig-art": 25,
+    "13-fault-line-L02-red-mask-only": 25,
+    "13-fault-line-L03-black-mask-only": 25,
+    "13-fault-line-L04-red-mask-only": 25,
+    "13-fault-line-L05-black-mask-only": 25,
+    "13-fault-line-L06-red-mask-only": 25,
+    "13-fault-line-L07-black-mask-only": 25,
+    "13-fault-line-L08-red-mask-only": 25,
+    "13-fault-line-L09-black-mask-only": 25,
+    "17-kumiko-void-wide-L01-black-enig-art": 25,
+    "17-kumiko-void-wide-L02-red-mask-only": 25,
+    "17-kumiko-void-wide-L03-green-mask-only": 25,
+    "17-kumiko-void-wide-L04-black-enig-art": 25,
+    "17-kumiko-void-wide-L05-red-mask-only": 25,
+    "17-kumiko-void-wide-L06-green-mask-only": 25,
+    "17-kumiko-void-wide-L07-black-enig-art": 25,
+    "17-kumiko-void-wide-L08-red-mask-only": 25,
+    "17-kumiko-void-wide-L09-green-mask-only": 25
+  },
+  "surplusByBoardId": {
+    "01-spider-nest-L01-black-enig-art": 0,
+    "01-spider-nest-L02-white-mask-only": 0,
+    "01-spider-nest-L03-gold-enig-fill": 0,
+    "01-spider-nest-L04-white-mask-only": 0,
+    "01-spider-nest-L05-gold-enig-fill": 0,
+    "01-spider-nest-L06-white-mask-only": 0,
+    "01-spider-nest-L07-gold-enig-fill": 0,
+    "01-spider-nest-L08-red-mask-only": 0,
+    "03-coral-vault-L01-black-enig-art": 0,
+    "03-coral-vault-L02-green-mask-only": 0,
+    "03-coral-vault-L03-purple-mask-only": 0,
+    "03-coral-vault-L04-gold-enig-fill": 0,
+    "03-coral-vault-L05-red-mask-only": 0,
+    "03-coral-vault-L06-yellow-mask-only": 0,
+    "03-coral-vault-L07-red-mask-only": 0,
+    "03-coral-vault-L08-blue-mask-only": 0,
+    "13-fault-line-L01-black-enig-art": 0,
+    "13-fault-line-L02-red-mask-only": 0,
+    "13-fault-line-L03-black-mask-only": 0,
+    "13-fault-line-L04-red-mask-only": 0,
+    "13-fault-line-L05-black-mask-only": 0,
+    "13-fault-line-L06-red-mask-only": 0,
+    "13-fault-line-L07-black-mask-only": 0,
+    "13-fault-line-L08-red-mask-only": 0,
+    "13-fault-line-L09-black-mask-only": 0,
+    "17-kumiko-void-wide-L01-black-enig-art": 0,
+    "17-kumiko-void-wide-L02-red-mask-only": 0,
+    "17-kumiko-void-wide-L03-green-mask-only": 0,
+    "17-kumiko-void-wide-L04-black-enig-art": 0,
+    "17-kumiko-void-wide-L05-red-mask-only": 0,
+    "17-kumiko-void-wide-L06-green-mask-only": 0,
+    "17-kumiko-void-wide-L07-black-enig-art": 0,
+    "17-kumiko-void-wide-L08-red-mask-only": 0,
+    "17-kumiko-void-wide-L09-green-mask-only": 0
+  },
+  "surplusFinishedBoards": 0,
+  "wasteCells": 0,
+  "requestedCompleteStacks": 100,
+  "completeStackYield": 100,
+  "designs": {
+    "coral-vault": {
+      "requestedStacks": 25,
+      "completeStacks": 25,
+      "boardsPerStack": 8,
+      "nominalDepthMm": 33.8
+    },
+    "fault-line": {
+      "requestedStacks": 25,
+      "completeStacks": 25,
+      "boardsPerStack": 9,
+      "nominalDepthMm": 38.4
+    },
+    "kumiko-void": {
+      "requestedStacks": 25,
+      "completeStacks": 25,
+      "boardsPerStack": 9,
+      "nominalDepthMm": 38.4
+    },
+    "spider-nest": {
+      "requestedStacks": 25,
+      "completeStacks": 25,
+      "boardsPerStack": 8,
+      "nominalDepthMm": 33.8
+    }
+  },
+  "hardwareForRequestedStacks": {
+    "screws": 400,
+    "nuts": 400,
+    "spacers": 3000
+  },
+  "packages": [
+    {
+      "id": "01-spider-nest-L01-black-enig-art",
+      "kind": "routed_standalone_top",
+      "memberIds": [
+        "01-spider-nest-L01-black-enig-art"
+      ],
+      "quantity": 25,
+      "unusedCells": 0,
+      "color": "black",
+      "finish": "ENIG",
+      "widthMm": 101.3,
+      "heightMm": 128.5,
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "silkscreen": false,
+      "distinctDesigns": 1,
+      "copiesPerSheet": {
+        "01-spider-nest-L01-black-enig-art": 1
+      },
+      "producedPieces": 25,
+      "grossAreaCm2": 130.1705,
+      "surplusByBoardId": {
+        "01-spider-nest-L01-black-enig-art": 0
+      },
+      "zip": {
+        "path": "packages/01-spider-nest-L01-black-enig-art.zip",
+        "sha256": "69faaff501ca0a2abb8691fe88550031cf10b0b6fc3d931f4b6efe02db18026d"
+      }
+    },
+    {
+      "id": "01-spider-nest-L02-white-mask-only",
+      "kind": "routed_lower_singleton",
+      "memberIds": [
+        "01-spider-nest-L02-white-mask-only"
+      ],
+      "quantity": 25,
+      "unusedCells": 0,
+      "color": "white",
+      "finish": "lead-free HASL",
+      "widthMm": 101.3,
+      "heightMm": 94.3,
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "silkscreen": false,
+      "distinctDesigns": 1,
+      "copiesPerSheet": {
+        "01-spider-nest-L02-white-mask-only": 1
+      },
+      "producedPieces": 25,
+      "grossAreaCm2": 95.5259,
+      "surplusByBoardId": {
+        "01-spider-nest-L02-white-mask-only": 0
+      },
+      "zip": {
+        "path": "packages/01-spider-nest-L02-white-mask-only.zip",
+        "sha256": "e228a2a9687dfc6d1806d4bc60582a165149ee9dfd1b59417364ec2892d93928"
+      }
+    },
+    {
+      "id": "01-spider-nest-L03-gold-enig-fill",
+      "kind": "routed_lower_singleton",
+      "memberIds": [
+        "01-spider-nest-L03-gold-enig-fill"
+      ],
+      "quantity": 25,
+      "unusedCells": 0,
+      "color": "black",
+      "finish": "ENIG",
+      "widthMm": 101.3,
+      "heightMm": 94.3,
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "silkscreen": false,
+      "distinctDesigns": 1,
+      "copiesPerSheet": {
+        "01-spider-nest-L03-gold-enig-fill": 1
+      },
+      "producedPieces": 25,
+      "grossAreaCm2": 95.5259,
+      "surplusByBoardId": {
+        "01-spider-nest-L03-gold-enig-fill": 0
+      },
+      "zip": {
+        "path": "packages/01-spider-nest-L03-gold-enig-fill.zip",
+        "sha256": "4573377315d4e45d94dd880e9409f0eeb36e7fd308ea61c5fba3e09ea59ef7f7"
+      }
+    },
+    {
+      "id": "01-spider-nest-L04-white-mask-only",
+      "kind": "routed_lower_singleton",
+      "memberIds": [
+        "01-spider-nest-L04-white-mask-only"
+      ],
+      "quantity": 25,
+      "unusedCells": 0,
+      "color": "white",
+      "finish": "lead-free HASL",
+      "widthMm": 101.3,
+      "heightMm": 94.3,
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "silkscreen": false,
+      "distinctDesigns": 1,
+      "copiesPerSheet": {
+        "01-spider-nest-L04-white-mask-only": 1
+      },
+      "producedPieces": 25,
+      "grossAreaCm2": 95.5259,
+      "surplusByBoardId": {
+        "01-spider-nest-L04-white-mask-only": 0
+      },
+      "zip": {
+        "path": "packages/01-spider-nest-L04-white-mask-only.zip",
+        "sha256": "0746f8c24f746636f8cd6e7ed4dfc374b902ab1d7b55b7e53d20669cb15fc544"
+      }
+    },
+    {
+      "id": "01-spider-nest-L05-gold-enig-fill",
+      "kind": "routed_lower_singleton",
+      "memberIds": [
+        "01-spider-nest-L05-gold-enig-fill"
+      ],
+      "quantity": 25,
+      "unusedCells": 0,
+      "color": "black",
+      "finish": "ENIG",
+      "widthMm": 101.3,
+      "heightMm": 94.3,
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "silkscreen": false,
+      "distinctDesigns": 1,
+      "copiesPerSheet": {
+        "01-spider-nest-L05-gold-enig-fill": 1
+      },
+      "producedPieces": 25,
+      "grossAreaCm2": 95.5259,
+      "surplusByBoardId": {
+        "01-spider-nest-L05-gold-enig-fill": 0
+      },
+      "zip": {
+        "path": "packages/01-spider-nest-L05-gold-enig-fill.zip",
+        "sha256": "fb8bb0c6b2daaa6bde03c2da9c0cb02b0fb115eebb861c888694729958a74ecf"
+      }
+    },
+    {
+      "id": "01-spider-nest-L06-white-mask-only",
+      "kind": "routed_lower_singleton",
+      "memberIds": [
+        "01-spider-nest-L06-white-mask-only"
+      ],
+      "quantity": 25,
+      "unusedCells": 0,
+      "color": "white",
+      "finish": "lead-free HASL",
+      "widthMm": 101.3,
+      "heightMm": 94.3,
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "silkscreen": false,
+      "distinctDesigns": 1,
+      "copiesPerSheet": {
+        "01-spider-nest-L06-white-mask-only": 1
+      },
+      "producedPieces": 25,
+      "grossAreaCm2": 95.5259,
+      "surplusByBoardId": {
+        "01-spider-nest-L06-white-mask-only": 0
+      },
+      "zip": {
+        "path": "packages/01-spider-nest-L06-white-mask-only.zip",
+        "sha256": "9a3320722cc4ff703f2129a9fced24a113b532716e009988b889789d5d812bfc"
+      }
+    },
+    {
+      "id": "01-spider-nest-L07-gold-enig-fill",
+      "kind": "routed_lower_singleton",
+      "memberIds": [
+        "01-spider-nest-L07-gold-enig-fill"
+      ],
+      "quantity": 25,
+      "unusedCells": 0,
+      "color": "black",
+      "finish": "ENIG",
+      "widthMm": 101.3,
+      "heightMm": 94.3,
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "silkscreen": false,
+      "distinctDesigns": 1,
+      "copiesPerSheet": {
+        "01-spider-nest-L07-gold-enig-fill": 1
+      },
+      "producedPieces": 25,
+      "grossAreaCm2": 95.5259,
+      "surplusByBoardId": {
+        "01-spider-nest-L07-gold-enig-fill": 0
+      },
+      "zip": {
+        "path": "packages/01-spider-nest-L07-gold-enig-fill.zip",
+        "sha256": "4a032c6e58d4ba226b253bd6b56e19bb6f1ed0ce6b4bf461edfd345f7224a9f6"
+      }
+    },
+    {
+      "id": "01-spider-nest-L08-red-mask-only",
+      "kind": "routed_lower_singleton",
+      "memberIds": [
+        "01-spider-nest-L08-red-mask-only"
+      ],
+      "quantity": 25,
+      "unusedCells": 0,
+      "color": "red",
+      "finish": "lead-free HASL",
+      "widthMm": 101.3,
+      "heightMm": 94.3,
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "silkscreen": false,
+      "distinctDesigns": 1,
+      "copiesPerSheet": {
+        "01-spider-nest-L08-red-mask-only": 1
+      },
+      "producedPieces": 25,
+      "grossAreaCm2": 95.5259,
+      "surplusByBoardId": {
+        "01-spider-nest-L08-red-mask-only": 0
+      },
+      "zip": {
+        "path": "packages/01-spider-nest-L08-red-mask-only.zip",
+        "sha256": "8a2a8446c5a81bcb4c59f587b61f86ff3f8dca8b3548bbeafcbaafb48ce34a67"
+      }
+    },
+    {
+      "id": "03-coral-vault-L01-black-enig-art",
+      "kind": "routed_standalone_top",
+      "memberIds": [
+        "03-coral-vault-L01-black-enig-art"
+      ],
+      "quantity": 25,
+      "unusedCells": 0,
+      "color": "black",
+      "finish": "ENIG",
+      "widthMm": 101.3,
+      "heightMm": 128.5,
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "silkscreen": false,
+      "distinctDesigns": 1,
+      "copiesPerSheet": {
+        "03-coral-vault-L01-black-enig-art": 1
+      },
+      "producedPieces": 25,
+      "grossAreaCm2": 130.1705,
+      "surplusByBoardId": {
+        "03-coral-vault-L01-black-enig-art": 0
+      },
+      "zip": {
+        "path": "packages/03-coral-vault-L01-black-enig-art.zip",
+        "sha256": "6f936116ff478d05319f47b4dd12f654c4de4bfe9e642ee70474c1fc69b589fd"
+      }
+    },
+    {
+      "id": "03-coral-vault-L02-green-mask-only",
+      "kind": "routed_lower_singleton",
+      "memberIds": [
+        "03-coral-vault-L02-green-mask-only"
+      ],
+      "quantity": 25,
+      "unusedCells": 0,
+      "color": "green",
+      "finish": "lead-free HASL",
+      "widthMm": 101.3,
+      "heightMm": 94.3,
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "silkscreen": false,
+      "distinctDesigns": 1,
+      "copiesPerSheet": {
+        "03-coral-vault-L02-green-mask-only": 1
+      },
+      "producedPieces": 25,
+      "grossAreaCm2": 95.5259,
+      "surplusByBoardId": {
+        "03-coral-vault-L02-green-mask-only": 0
+      },
+      "zip": {
+        "path": "packages/03-coral-vault-L02-green-mask-only.zip",
+        "sha256": "aa98c99308b26334af72df41e3ec2dd2f9769cc9a49f068332ebf54ae5a589ea"
+      }
+    },
+    {
+      "id": "03-coral-vault-L03-purple-mask-only",
+      "kind": "routed_lower_singleton",
+      "memberIds": [
+        "03-coral-vault-L03-purple-mask-only"
+      ],
+      "quantity": 25,
+      "unusedCells": 0,
+      "color": "purple",
+      "finish": "lead-free HASL",
+      "widthMm": 101.3,
+      "heightMm": 94.3,
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "silkscreen": false,
+      "distinctDesigns": 1,
+      "copiesPerSheet": {
+        "03-coral-vault-L03-purple-mask-only": 1
+      },
+      "producedPieces": 25,
+      "grossAreaCm2": 95.5259,
+      "surplusByBoardId": {
+        "03-coral-vault-L03-purple-mask-only": 0
+      },
+      "zip": {
+        "path": "packages/03-coral-vault-L03-purple-mask-only.zip",
+        "sha256": "c7183b8ab52c8ccacf0cdb91d6ec731fa59625c67af916058957da6a8f4fbea0"
+      }
+    },
+    {
+      "id": "03-coral-vault-L04-gold-enig-fill",
+      "kind": "routed_lower_singleton",
+      "memberIds": [
+        "03-coral-vault-L04-gold-enig-fill"
+      ],
+      "quantity": 25,
+      "unusedCells": 0,
+      "color": "black",
+      "finish": "ENIG",
+      "widthMm": 101.3,
+      "heightMm": 94.3,
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "silkscreen": false,
+      "distinctDesigns": 1,
+      "copiesPerSheet": {
+        "03-coral-vault-L04-gold-enig-fill": 1
+      },
+      "producedPieces": 25,
+      "grossAreaCm2": 95.5259,
+      "surplusByBoardId": {
+        "03-coral-vault-L04-gold-enig-fill": 0
+      },
+      "zip": {
+        "path": "packages/03-coral-vault-L04-gold-enig-fill.zip",
+        "sha256": "08b60e44fa402a5826f0eeee8b939c3d6ddeddbc676dffc6086071202a49ec7b"
+      }
+    },
+    {
+      "id": "03-coral-vault-L05-red-mask-only",
+      "kind": "routed_lower_singleton",
+      "memberIds": [
+        "03-coral-vault-L05-red-mask-only"
+      ],
+      "quantity": 25,
+      "unusedCells": 0,
+      "color": "red",
+      "finish": "lead-free HASL",
+      "widthMm": 101.3,
+      "heightMm": 94.3,
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "silkscreen": false,
+      "distinctDesigns": 1,
+      "copiesPerSheet": {
+        "03-coral-vault-L05-red-mask-only": 1
+      },
+      "producedPieces": 25,
+      "grossAreaCm2": 95.5259,
+      "surplusByBoardId": {
+        "03-coral-vault-L05-red-mask-only": 0
+      },
+      "zip": {
+        "path": "packages/03-coral-vault-L05-red-mask-only.zip",
+        "sha256": "55219fa9aefe96feefdff39bcbf9c219cccb4d2a45a72a8c2d2eb942e1c29fe7"
+      }
+    },
+    {
+      "id": "03-coral-vault-L06-yellow-mask-only",
+      "kind": "routed_lower_singleton",
+      "memberIds": [
+        "03-coral-vault-L06-yellow-mask-only"
+      ],
+      "quantity": 25,
+      "unusedCells": 0,
+      "color": "yellow",
+      "finish": "lead-free HASL",
+      "widthMm": 101.3,
+      "heightMm": 94.3,
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "silkscreen": false,
+      "distinctDesigns": 1,
+      "copiesPerSheet": {
+        "03-coral-vault-L06-yellow-mask-only": 1
+      },
+      "producedPieces": 25,
+      "grossAreaCm2": 95.5259,
+      "surplusByBoardId": {
+        "03-coral-vault-L06-yellow-mask-only": 0
+      },
+      "zip": {
+        "path": "packages/03-coral-vault-L06-yellow-mask-only.zip",
+        "sha256": "5418e8f51f80ad59904af98058e12a0adb7b67b6c881bcd345207cd2c3afac32"
+      }
+    },
+    {
+      "id": "03-coral-vault-L07-red-mask-only",
+      "kind": "routed_lower_singleton",
+      "memberIds": [
+        "03-coral-vault-L07-red-mask-only"
+      ],
+      "quantity": 25,
+      "unusedCells": 0,
+      "color": "red",
+      "finish": "lead-free HASL",
+      "widthMm": 101.3,
+      "heightMm": 94.3,
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "silkscreen": false,
+      "distinctDesigns": 1,
+      "copiesPerSheet": {
+        "03-coral-vault-L07-red-mask-only": 1
+      },
+      "producedPieces": 25,
+      "grossAreaCm2": 95.5259,
+      "surplusByBoardId": {
+        "03-coral-vault-L07-red-mask-only": 0
+      },
+      "zip": {
+        "path": "packages/03-coral-vault-L07-red-mask-only.zip",
+        "sha256": "f4c82f6f2cddf0a90fb441cf1066d34177a65242df6d2c32da855da546fcc8ae"
+      }
+    },
+    {
+      "id": "03-coral-vault-L08-blue-mask-only",
+      "kind": "routed_lower_singleton",
+      "memberIds": [
+        "03-coral-vault-L08-blue-mask-only"
+      ],
+      "quantity": 25,
+      "unusedCells": 0,
+      "color": "blue",
+      "finish": "lead-free HASL",
+      "widthMm": 101.3,
+      "heightMm": 94.3,
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "silkscreen": false,
+      "distinctDesigns": 1,
+      "copiesPerSheet": {
+        "03-coral-vault-L08-blue-mask-only": 1
+      },
+      "producedPieces": 25,
+      "grossAreaCm2": 95.5259,
+      "surplusByBoardId": {
+        "03-coral-vault-L08-blue-mask-only": 0
+      },
+      "zip": {
+        "path": "packages/03-coral-vault-L08-blue-mask-only.zip",
+        "sha256": "1dc65217a233e4aed5ee564b57f6171036a46b38dbdbef5f8f2c1b1e5c639d7c"
+      }
+    },
+    {
+      "id": "13-fault-line-L01-black-enig-art",
+      "kind": "routed_standalone_top",
+      "memberIds": [
+        "13-fault-line-L01-black-enig-art"
+      ],
+      "quantity": 25,
+      "unusedCells": 0,
+      "color": "black",
+      "finish": "ENIG",
+      "widthMm": 101.3,
+      "heightMm": 128.5,
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "silkscreen": false,
+      "distinctDesigns": 1,
+      "copiesPerSheet": {
+        "13-fault-line-L01-black-enig-art": 1
+      },
+      "producedPieces": 25,
+      "grossAreaCm2": 130.1705,
+      "surplusByBoardId": {
+        "13-fault-line-L01-black-enig-art": 0
+      },
+      "zip": {
+        "path": "packages/13-fault-line-L01-black-enig-art.zip",
+        "sha256": "7ca7f2555f6fd94b247a50303511213cf3bf76870f7ef4466e802fd1bd3e88df"
+      }
+    },
+    {
+      "id": "13-fault-line-L02-red-mask-only",
+      "kind": "routed_lower_singleton",
+      "memberIds": [
+        "13-fault-line-L02-red-mask-only"
+      ],
+      "quantity": 25,
+      "unusedCells": 0,
+      "color": "red",
+      "finish": "lead-free HASL",
+      "widthMm": 101.3,
+      "heightMm": 94.3,
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "silkscreen": false,
+      "distinctDesigns": 1,
+      "copiesPerSheet": {
+        "13-fault-line-L02-red-mask-only": 1
+      },
+      "producedPieces": 25,
+      "grossAreaCm2": 95.5259,
+      "surplusByBoardId": {
+        "13-fault-line-L02-red-mask-only": 0
+      },
+      "zip": {
+        "path": "packages/13-fault-line-L02-red-mask-only.zip",
+        "sha256": "255a275989406e88be6d0c65b4585c2c888eb21cded29cf6ab878b38c5de3107"
+      }
+    },
+    {
+      "id": "13-fault-line-L03-black-mask-only",
+      "kind": "routed_lower_singleton",
+      "memberIds": [
+        "13-fault-line-L03-black-mask-only"
+      ],
+      "quantity": 25,
+      "unusedCells": 0,
+      "color": "black",
+      "finish": "lead-free HASL",
+      "widthMm": 101.3,
+      "heightMm": 94.3,
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "silkscreen": false,
+      "distinctDesigns": 1,
+      "copiesPerSheet": {
+        "13-fault-line-L03-black-mask-only": 1
+      },
+      "producedPieces": 25,
+      "grossAreaCm2": 95.5259,
+      "surplusByBoardId": {
+        "13-fault-line-L03-black-mask-only": 0
+      },
+      "zip": {
+        "path": "packages/13-fault-line-L03-black-mask-only.zip",
+        "sha256": "fb631c350c14c705cd0e0ef42e8d2beb7ed77a446fd612122ac82b17c102e188"
+      }
+    },
+    {
+      "id": "13-fault-line-L04-red-mask-only",
+      "kind": "routed_lower_singleton",
+      "memberIds": [
+        "13-fault-line-L04-red-mask-only"
+      ],
+      "quantity": 25,
+      "unusedCells": 0,
+      "color": "red",
+      "finish": "lead-free HASL",
+      "widthMm": 101.3,
+      "heightMm": 94.3,
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "silkscreen": false,
+      "distinctDesigns": 1,
+      "copiesPerSheet": {
+        "13-fault-line-L04-red-mask-only": 1
+      },
+      "producedPieces": 25,
+      "grossAreaCm2": 95.5259,
+      "surplusByBoardId": {
+        "13-fault-line-L04-red-mask-only": 0
+      },
+      "zip": {
+        "path": "packages/13-fault-line-L04-red-mask-only.zip",
+        "sha256": "c090054eb38a87a06a2c506b0249fbd63e3b0a3a72c15ea769885ec9b99f33eb"
+      }
+    },
+    {
+      "id": "13-fault-line-L05-black-mask-only",
+      "kind": "routed_lower_singleton",
+      "memberIds": [
+        "13-fault-line-L05-black-mask-only"
+      ],
+      "quantity": 25,
+      "unusedCells": 0,
+      "color": "black",
+      "finish": "lead-free HASL",
+      "widthMm": 101.3,
+      "heightMm": 94.3,
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "silkscreen": false,
+      "distinctDesigns": 1,
+      "copiesPerSheet": {
+        "13-fault-line-L05-black-mask-only": 1
+      },
+      "producedPieces": 25,
+      "grossAreaCm2": 95.5259,
+      "surplusByBoardId": {
+        "13-fault-line-L05-black-mask-only": 0
+      },
+      "zip": {
+        "path": "packages/13-fault-line-L05-black-mask-only.zip",
+        "sha256": "1aee704e63be80c148546ee281c787e56e02512f39de76bb41665235517a7b7f"
+      }
+    },
+    {
+      "id": "13-fault-line-L06-red-mask-only",
+      "kind": "routed_lower_singleton",
+      "memberIds": [
+        "13-fault-line-L06-red-mask-only"
+      ],
+      "quantity": 25,
+      "unusedCells": 0,
+      "color": "red",
+      "finish": "lead-free HASL",
+      "widthMm": 101.3,
+      "heightMm": 94.3,
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "silkscreen": false,
+      "distinctDesigns": 1,
+      "copiesPerSheet": {
+        "13-fault-line-L06-red-mask-only": 1
+      },
+      "producedPieces": 25,
+      "grossAreaCm2": 95.5259,
+      "surplusByBoardId": {
+        "13-fault-line-L06-red-mask-only": 0
+      },
+      "zip": {
+        "path": "packages/13-fault-line-L06-red-mask-only.zip",
+        "sha256": "120dbc28667223c0fb09680d6d827d67389c8be012be4bc2171a4ef97634cf3a"
+      }
+    },
+    {
+      "id": "13-fault-line-L07-black-mask-only",
+      "kind": "routed_lower_singleton",
+      "memberIds": [
+        "13-fault-line-L07-black-mask-only"
+      ],
+      "quantity": 25,
+      "unusedCells": 0,
+      "color": "black",
+      "finish": "lead-free HASL",
+      "widthMm": 101.3,
+      "heightMm": 94.3,
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "silkscreen": false,
+      "distinctDesigns": 1,
+      "copiesPerSheet": {
+        "13-fault-line-L07-black-mask-only": 1
+      },
+      "producedPieces": 25,
+      "grossAreaCm2": 95.5259,
+      "surplusByBoardId": {
+        "13-fault-line-L07-black-mask-only": 0
+      },
+      "zip": {
+        "path": "packages/13-fault-line-L07-black-mask-only.zip",
+        "sha256": "740f0f68826d35c6028f774421daf42f2c75717ecc2c3fc00b801ad3adfbb9ad"
+      }
+    },
+    {
+      "id": "13-fault-line-L08-red-mask-only",
+      "kind": "routed_lower_singleton",
+      "memberIds": [
+        "13-fault-line-L08-red-mask-only"
+      ],
+      "quantity": 25,
+      "unusedCells": 0,
+      "color": "red",
+      "finish": "lead-free HASL",
+      "widthMm": 101.3,
+      "heightMm": 94.3,
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "silkscreen": false,
+      "distinctDesigns": 1,
+      "copiesPerSheet": {
+        "13-fault-line-L08-red-mask-only": 1
+      },
+      "producedPieces": 25,
+      "grossAreaCm2": 95.5259,
+      "surplusByBoardId": {
+        "13-fault-line-L08-red-mask-only": 0
+      },
+      "zip": {
+        "path": "packages/13-fault-line-L08-red-mask-only.zip",
+        "sha256": "708a45e674173593eb83e21ac5d2407ed5de9a4b51bd456da4a7496e83304ae2"
+      }
+    },
+    {
+      "id": "13-fault-line-L09-black-mask-only",
+      "kind": "routed_lower_singleton",
+      "memberIds": [
+        "13-fault-line-L09-black-mask-only"
+      ],
+      "quantity": 25,
+      "unusedCells": 0,
+      "color": "black",
+      "finish": "lead-free HASL",
+      "widthMm": 101.3,
+      "heightMm": 94.3,
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "silkscreen": false,
+      "distinctDesigns": 1,
+      "copiesPerSheet": {
+        "13-fault-line-L09-black-mask-only": 1
+      },
+      "producedPieces": 25,
+      "grossAreaCm2": 95.5259,
+      "surplusByBoardId": {
+        "13-fault-line-L09-black-mask-only": 0
+      },
+      "zip": {
+        "path": "packages/13-fault-line-L09-black-mask-only.zip",
+        "sha256": "ec7bcc1e8d34b4f47a1e640e77fd3cd69cdccbef552db7622a76730bb0b41857"
+      }
+    },
+    {
+      "id": "17-kumiko-void-wide-L01-black-enig-art",
+      "kind": "routed_standalone_top",
+      "memberIds": [
+        "17-kumiko-void-wide-L01-black-enig-art"
+      ],
+      "quantity": 25,
+      "unusedCells": 0,
+      "color": "black",
+      "finish": "ENIG",
+      "widthMm": 101.3,
+      "heightMm": 128.5,
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "silkscreen": false,
+      "distinctDesigns": 1,
+      "copiesPerSheet": {
+        "17-kumiko-void-wide-L01-black-enig-art": 1
+      },
+      "producedPieces": 25,
+      "grossAreaCm2": 130.1705,
+      "surplusByBoardId": {
+        "17-kumiko-void-wide-L01-black-enig-art": 0
+      },
+      "zip": {
+        "path": "packages/17-kumiko-void-wide-L01-black-enig-art.zip",
+        "sha256": "dbad05872e9ebeb60039b93d3f471ea3d386c31a9753ce8739ddb06237cbce62"
+      }
+    },
+    {
+      "id": "17-kumiko-void-wide-L02-red-mask-only",
+      "kind": "routed_lower_singleton",
+      "memberIds": [
+        "17-kumiko-void-wide-L02-red-mask-only"
+      ],
+      "quantity": 25,
+      "unusedCells": 0,
+      "color": "red",
+      "finish": "lead-free HASL",
+      "widthMm": 101.3,
+      "heightMm": 94.3,
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "silkscreen": false,
+      "distinctDesigns": 1,
+      "copiesPerSheet": {
+        "17-kumiko-void-wide-L02-red-mask-only": 1
+      },
+      "producedPieces": 25,
+      "grossAreaCm2": 95.5259,
+      "surplusByBoardId": {
+        "17-kumiko-void-wide-L02-red-mask-only": 0
+      },
+      "zip": {
+        "path": "packages/17-kumiko-void-wide-L02-red-mask-only.zip",
+        "sha256": "1f2603657be390fd6e6e527013b5502f552d4acf62704aebf3dd8368021afd7c"
+      }
+    },
+    {
+      "id": "17-kumiko-void-wide-L03-green-mask-only",
+      "kind": "routed_lower_singleton",
+      "memberIds": [
+        "17-kumiko-void-wide-L03-green-mask-only"
+      ],
+      "quantity": 25,
+      "unusedCells": 0,
+      "color": "green",
+      "finish": "lead-free HASL",
+      "widthMm": 101.3,
+      "heightMm": 94.3,
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "silkscreen": false,
+      "distinctDesigns": 1,
+      "copiesPerSheet": {
+        "17-kumiko-void-wide-L03-green-mask-only": 1
+      },
+      "producedPieces": 25,
+      "grossAreaCm2": 95.5259,
+      "surplusByBoardId": {
+        "17-kumiko-void-wide-L03-green-mask-only": 0
+      },
+      "zip": {
+        "path": "packages/17-kumiko-void-wide-L03-green-mask-only.zip",
+        "sha256": "713eaeb837609d9b40cadf0241e7ddf2a2a2752ee43efb0a4a480ab0e3e85425"
+      }
+    },
+    {
+      "id": "17-kumiko-void-wide-L04-black-enig-art",
+      "kind": "routed_lower_singleton",
+      "memberIds": [
+        "17-kumiko-void-wide-L04-black-enig-art"
+      ],
+      "quantity": 25,
+      "unusedCells": 0,
+      "color": "black",
+      "finish": "ENIG",
+      "widthMm": 101.3,
+      "heightMm": 94.3,
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "silkscreen": false,
+      "distinctDesigns": 1,
+      "copiesPerSheet": {
+        "17-kumiko-void-wide-L04-black-enig-art": 1
+      },
+      "producedPieces": 25,
+      "grossAreaCm2": 95.5259,
+      "surplusByBoardId": {
+        "17-kumiko-void-wide-L04-black-enig-art": 0
+      },
+      "zip": {
+        "path": "packages/17-kumiko-void-wide-L04-black-enig-art.zip",
+        "sha256": "d2157bccc6073022ef1ecc3a5996163a065179543d14b716a01320b045c6902e"
+      }
+    },
+    {
+      "id": "17-kumiko-void-wide-L05-red-mask-only",
+      "kind": "routed_lower_singleton",
+      "memberIds": [
+        "17-kumiko-void-wide-L05-red-mask-only"
+      ],
+      "quantity": 25,
+      "unusedCells": 0,
+      "color": "red",
+      "finish": "lead-free HASL",
+      "widthMm": 101.3,
+      "heightMm": 94.3,
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "silkscreen": false,
+      "distinctDesigns": 1,
+      "copiesPerSheet": {
+        "17-kumiko-void-wide-L05-red-mask-only": 1
+      },
+      "producedPieces": 25,
+      "grossAreaCm2": 95.5259,
+      "surplusByBoardId": {
+        "17-kumiko-void-wide-L05-red-mask-only": 0
+      },
+      "zip": {
+        "path": "packages/17-kumiko-void-wide-L05-red-mask-only.zip",
+        "sha256": "9580fe0265acdb4cf0f6dee2c7b6a18794bae3064c69030741db99a69f5d5cc0"
+      }
+    },
+    {
+      "id": "17-kumiko-void-wide-L06-green-mask-only",
+      "kind": "routed_lower_singleton",
+      "memberIds": [
+        "17-kumiko-void-wide-L06-green-mask-only"
+      ],
+      "quantity": 25,
+      "unusedCells": 0,
+      "color": "green",
+      "finish": "lead-free HASL",
+      "widthMm": 101.3,
+      "heightMm": 94.3,
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "silkscreen": false,
+      "distinctDesigns": 1,
+      "copiesPerSheet": {
+        "17-kumiko-void-wide-L06-green-mask-only": 1
+      },
+      "producedPieces": 25,
+      "grossAreaCm2": 95.5259,
+      "surplusByBoardId": {
+        "17-kumiko-void-wide-L06-green-mask-only": 0
+      },
+      "zip": {
+        "path": "packages/17-kumiko-void-wide-L06-green-mask-only.zip",
+        "sha256": "bc93526e0fc29163891f1b37a7d41fc3b8a9cc7cf0e7a4f5dc6c051212235e18"
+      }
+    },
+    {
+      "id": "17-kumiko-void-wide-L07-black-enig-art",
+      "kind": "routed_lower_singleton",
+      "memberIds": [
+        "17-kumiko-void-wide-L07-black-enig-art"
+      ],
+      "quantity": 25,
+      "unusedCells": 0,
+      "color": "black",
+      "finish": "ENIG",
+      "widthMm": 101.3,
+      "heightMm": 94.3,
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "silkscreen": false,
+      "distinctDesigns": 1,
+      "copiesPerSheet": {
+        "17-kumiko-void-wide-L07-black-enig-art": 1
+      },
+      "producedPieces": 25,
+      "grossAreaCm2": 95.5259,
+      "surplusByBoardId": {
+        "17-kumiko-void-wide-L07-black-enig-art": 0
+      },
+      "zip": {
+        "path": "packages/17-kumiko-void-wide-L07-black-enig-art.zip",
+        "sha256": "18632f21f3041f8136bb3f3bee9427b8c91ce7912aeb7d5b675f77ce1e88cda8"
+      }
+    },
+    {
+      "id": "17-kumiko-void-wide-L08-red-mask-only",
+      "kind": "routed_lower_singleton",
+      "memberIds": [
+        "17-kumiko-void-wide-L08-red-mask-only"
+      ],
+      "quantity": 25,
+      "unusedCells": 0,
+      "color": "red",
+      "finish": "lead-free HASL",
+      "widthMm": 101.3,
+      "heightMm": 94.3,
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "silkscreen": false,
+      "distinctDesigns": 1,
+      "copiesPerSheet": {
+        "17-kumiko-void-wide-L08-red-mask-only": 1
+      },
+      "producedPieces": 25,
+      "grossAreaCm2": 95.5259,
+      "surplusByBoardId": {
+        "17-kumiko-void-wide-L08-red-mask-only": 0
+      },
+      "zip": {
+        "path": "packages/17-kumiko-void-wide-L08-red-mask-only.zip",
+        "sha256": "65b24c3c4d17e6d12ab96c95b2ca5ce1e8006c9e8d679d4f2cc834c0276a65d6"
+      }
+    },
+    {
+      "id": "17-kumiko-void-wide-L09-green-mask-only",
+      "kind": "routed_lower_singleton",
+      "memberIds": [
+        "17-kumiko-void-wide-L09-green-mask-only"
+      ],
+      "quantity": 25,
+      "unusedCells": 0,
+      "color": "green",
+      "finish": "lead-free HASL",
+      "widthMm": 101.3,
+      "heightMm": 94.3,
+      "material": "FR-4",
+      "thicknessMm": 1.6,
+      "copperLayers": 2,
+      "copperOz": 1,
+      "silkscreen": false,
+      "distinctDesigns": 1,
+      "copiesPerSheet": {
+        "17-kumiko-void-wide-L09-green-mask-only": 1
+      },
+      "producedPieces": 25,
+      "grossAreaCm2": 95.5259,
+      "surplusByBoardId": {
+        "17-kumiko-void-wide-L09-green-mask-only": 0
+      },
+      "zip": {
+        "path": "packages/17-kumiko-void-wide-L09-green-mask-only.zip",
+        "sha256": "fca1c98cfa936b3d6dd794bd276d2276ef9efa306aa26eb747be6e86ffcde8e6"
+      }
+    }
+  ],
+  "quote": {
+    "quotedOn": null,
+    "currency": null,
+    "pcbPrice": null,
+    "engineeringFees": null,
+    "designFees": null,
+    "routingScoring": null,
+    "enigEffects": null,
+    "panelAreaEffects": null,
+    "shipping": null,
+    "tax": null,
+    "total": null
+  },
+  "pendingExternal": [
+    "dated quote and offered quantities",
+    "factory CAM/scoring and residual web approval",
+    "perforated-sheet handling and scored-edge appearance",
+    "physical stack and fastener fit"
+  ]
+}

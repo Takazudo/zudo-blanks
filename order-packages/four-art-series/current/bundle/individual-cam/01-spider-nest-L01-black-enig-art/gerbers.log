@@ -1,0 +1,10 @@
+COMMAND /tmp/art-order-kicad.pF1J2o pcb export gerbers --layers F.Cu,B.Cu,F.Mask,B.Mask,Edge.Cuts --precision 6 --output /tmp/art-order-37833323671-1/individual-cam/01-spider-nest-L01-black-enig-art/cam/ /tmp/art-order-37833323671-1/sources/panels/art-spider-nest/01-spider-nest-L01-black-enig-art.kicad_pcb
+EXIT 0
+STDOUT
+Plotted to '/tmp/art-order-37833323671-1/individual-cam/01-spider-nest-L01-black-enig-art/cam/01-spider-nest-L01-black-enig-art-F_Cu.gtl'.
+Plotted to '/tmp/art-order-37833323671-1/individual-cam/01-spider-nest-L01-black-enig-art/cam/01-spider-nest-L01-black-enig-art-B_Cu.gbl'.
+Plotted to '/tmp/art-order-37833323671-1/individual-cam/01-spider-nest-L01-black-enig-art/cam/01-spider-nest-L01-black-enig-art-F_Mask.gts'.
+Plotted to '/tmp/art-order-37833323671-1/individual-cam/01-spider-nest-L01-black-enig-art/cam/01-spider-nest-L01-black-enig-art-B_Mask.gbs'.
+Plotted to '/tmp/art-order-37833323671-1/individual-cam/01-spider-nest-L01-black-enig-art/cam/01-spider-nest-L01-black-enig-art-Edge_Cuts.gm1'.
+
+STDERR

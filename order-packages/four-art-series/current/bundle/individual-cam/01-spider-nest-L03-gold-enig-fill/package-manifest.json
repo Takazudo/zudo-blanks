@@ -1,0 +1,46 @@
+{
+  "boardId": "01-spider-nest-L03-gold-enig-fill",
+  "category": "selected",
+  "sourceNativeBoardSha256": "a86bf3aa467add382fe324830c577e47562e0b46dc35469a6bd5c563b88a9967",
+  "finish": "ENIG",
+  "maskColor": "black",
+  "camFiles": [
+    {
+      "name": "01-spider-nest-L03-gold-enig-fill-B_Cu.gbl",
+      "sha256": "593726c3b9b59436d7779af468dbed55ced075d92adbffd3aa64801d9cd0d496",
+      "sizeBytes": 479
+    },
+    {
+      "name": "01-spider-nest-L03-gold-enig-fill-B_Mask.gbs",
+      "sha256": "abbdcb5b0185e08780d482964cd1ab8a5d9f8580ad42567d469a4906d137c5b9",
+      "sizeBytes": 660
+    },
+    {
+      "name": "01-spider-nest-L03-gold-enig-fill-Edge_Cuts.gm1",
+      "sha256": "a993bc81b5e4ad03f8d89c8dc229efceaada9c9fcdccf53538dc92da7602b2e2",
+      "sizeBytes": 345819
+    },
+    {
+      "name": "01-spider-nest-L03-gold-enig-fill-F_Cu.gtl",
+      "sha256": "dbe9ff646dbc24490241827e1131dcf64dd1f0952520ce122d1f83f6d1b30974",
+      "sizeBytes": 3259194
+    },
+    {
+      "name": "01-spider-nest-L03-gold-enig-fill-F_Mask.gts",
+      "sha256": "ac6ef3d97a9e0d07e3802bc375fcc87d6d938074cd31dfe858dfcba891afac95",
+      "sizeBytes": 429851
+    },
+    {
+      "name": "01-spider-nest-L03-gold-enig-fill-NPTH.drl",
+      "sha256": "11d96e9f742669a26a18b0b96c9b8726e227201bbe23196783b8b7edc3b22793",
+      "sizeBytes": 376
+    },
+    {
+      "name": "01-spider-nest-L03-gold-enig-fill-job.gbrjob",
+      "sha256": "543ccc1b6c833e55d2400f50a29363bcf97b58ba64f3ac8faea36e9c583ed5c5",
+      "sizeBytes": 2125
+    }
+  ],
+  "pthDrillFile": "empty; not included in release package",
+  "status": "local CAM review candidate; factory acceptance pending"
+}

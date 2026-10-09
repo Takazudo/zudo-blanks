@@ -105,7 +105,9 @@ never deploy, push source changes or place orders. Manual requests have unique
 concurrency groups; newer PR revisions may cancel superseded checks.
 
 Use the exact successful run ID and artifact name displayed on that run; do not
-select an unspecified latest artifact. Artifacts are retained for 30 days:
+select an unspecified latest artifact. Full bundles are uploaded only by manual dispatch with `upload_bundle` enabled,
+and expire after 3 days. PR runs still build and verify but do not upload complete
+bundles. Failure diagnostics expire after 3 days:
 
 ```sh
 gh run view RUN_ID --repo Takazudo/zudo-blanks
@@ -143,3 +145,52 @@ with constant top cost. Fewer order lines/sheets do not prove savings. Factory
 CAM/scoring and residual web approval, depanelization support of perforated
 sheets, side-edge appearance, color/finish availability and physical fastener/stack
 fit remain pending. Local native/CAM verification is not factory approval.
+
+## Ordinary Git storage
+
+The [current saved snapshot](../../order-packages/four-art-series/current/README.md)
+contains all three alternatives, directly openable PCB/project files, actual CAM
+previews, individual order ZIPs and purchase lists. It is ordinary Git, not LFS.
+`panels/art-grouped-lowers` remains the historical five-series set.
+
+Raw CAM duplicated inside order ZIPs is omitted from the physical snapshot.
+`retention.json` maps each omitted CAM file to an unchanged ZIP entry. Original
+KiCad local window settings are encoded in the mapping; newly created local editor
+settings, locks and backups are ignored during retained-snapshot verification. All other
+original evidence and `SHA256SUMS` are retained. Verification restores the complete
+original bundle into a temporary directory, checks every original byte, then runs
+the existing native partition, membership, quantity, DRC, package and provenance
+verification. It needs the pinned Python environment above, but no Docker or
+network. Temporary reconstructed files are removed automatically.
+
+From the repository root:
+
+```sh
+/tmp/art-order-venv/bin/python artwork-resources/pcb-art/manufacturing/retain_order_bundle.py \
+  --verify-saved order-packages/four-art-series/current \
+  --expected-source 27481603195bb1318a0086d119294a5725dd36a0 \
+  --expected-run-id 37833323671
+```
+
+To update, first generate a fresh `--variant all` bundle into
+`artwork-resources/pcb-art/generated/four-art-series-RUN_ID` (ignored), or download
+an explicitly selected successful manual run into a fresh temporary directory.
+Verify it against its tested source commit and run ID. Then retain it into a new,
+empty staging directory; never mix runs or overwrite a snapshot in place:
+
+```sh
+/tmp/art-order-venv/bin/python artwork-resources/pcb-art/manufacturing/retain_order_bundle.py \
+  --retain /tmp/four-art-series-downloaded \
+  --output artwork-resources/pcb-art/generated/retention-candidate \
+  --expected-source TESTED_SOURCE_SHA --expected-run-id RUN_ID
+```
+
+Review the generated OPEN tables, all variants, provenance and sizes. The tool
+rejects a retained file at or above 95 MiB before it can be committed. After review,
+replace `order-packages/four-art-series/current` as one complete set on a feature
+branch, update the expected source/run in this document and the dedicated workflow,
+rerun saved verification, and commit the change through a PR. Git history preserves
+prior snapshots; do not add another timestamped copy or rewrite history. Do not
+commit the outer Actions archive or the ignored staging/full bundle. No automated
+job writes or pushes these files. Temporary Actions storage is optional transport,
+not the authoritative saved copy; no existing artifact is deleted by this change.

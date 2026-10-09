@@ -1,0 +1,46 @@
+{
+  "boardId": "01-spider-nest-L02-white-mask-only",
+  "category": "selected",
+  "sourceNativeBoardSha256": "15735b8ef6f982f46ffa4f04cbce090b7036f31e96552fbd34987a494f4dd7de",
+  "finish": "Lead-free HASL",
+  "maskColor": "white",
+  "camFiles": [
+    {
+      "name": "01-spider-nest-L02-white-mask-only-B_Cu.gbl",
+      "sha256": "c65cd705cb82074ae1d6b4d2512ee0b5daf05c1af900acaa50f871e1a516ed2a",
+      "sizeBytes": 480
+    },
+    {
+      "name": "01-spider-nest-L02-white-mask-only-B_Mask.gbs",
+      "sha256": "27183409e4106a2ce619344dd04956b42ecccfeb230de2863712383f3cdee1a1",
+      "sizeBytes": 661
+    },
+    {
+      "name": "01-spider-nest-L02-white-mask-only-Edge_Cuts.gm1",
+      "sha256": "56a6a363d4d2512d235673eea280e74fa3076c60f92ae443bac9ab98c8d77a42",
+      "sizeBytes": 343684
+    },
+    {
+      "name": "01-spider-nest-L02-white-mask-only-F_Cu.gtl",
+      "sha256": "5e58870aab12e60a920df9f6c22b881d4574cf019feff3901aa6fd593f9d6f97",
+      "sizeBytes": 480
+    },
+    {
+      "name": "01-spider-nest-L02-white-mask-only-F_Mask.gts",
+      "sha256": "8dfe9a076be02ffca34e2aa12cdd5dff0505b98d6de71690f317ce75383b6c70",
+      "sizeBytes": 661
+    },
+    {
+      "name": "01-spider-nest-L02-white-mask-only-NPTH.drl",
+      "sha256": "844bc1b4d01affe58739826a7f27cee71adf5c2574f7cddd202f36c49f8def02",
+      "sizeBytes": 376
+    },
+    {
+      "name": "01-spider-nest-L02-white-mask-only-job.gbrjob",
+      "sha256": "382ba4d7d014f0408b30fc6952b3b13060f7434f95d57c9634cd42e84f60d58f",
+      "sizeBytes": 2141
+    }
+  ],
+  "pthDrillFile": "empty; not included in release package",
+  "status": "local CAM review candidate; factory acceptance pending"
+}
