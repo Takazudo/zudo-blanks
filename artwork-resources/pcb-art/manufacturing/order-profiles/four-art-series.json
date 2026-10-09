@@ -1,0 +1,307 @@
+{
+  "schemaVersion": 1,
+  "id": "four-art-series",
+  "railMm": 5,
+  "supplierQuantities": [
+    5,
+    10,
+    15,
+    20,
+    25,
+    30,
+    50,
+    75,
+    100,
+    125,
+    150,
+    200,
+    250,
+    300,
+    400,
+    500,
+    1000
+  ],
+  "quantityBasis": "Planning choices; confirm offered quantities and price in the dated factory quote.",
+  "series": {
+    "coral-vault": {
+      "stacks": 25,
+      "boardIds": [
+        "03-coral-vault-L01-black-enig-art",
+        "03-coral-vault-L02-green-mask-only",
+        "03-coral-vault-L03-purple-mask-only",
+        "03-coral-vault-L04-gold-enig-fill",
+        "03-coral-vault-L05-red-mask-only",
+        "03-coral-vault-L06-yellow-mask-only",
+        "03-coral-vault-L07-red-mask-only",
+        "03-coral-vault-L08-blue-mask-only"
+      ]
+    },
+    "fault-line": {
+      "stacks": 25,
+      "boardIds": [
+        "13-fault-line-L01-black-enig-art",
+        "13-fault-line-L02-red-mask-only",
+        "13-fault-line-L03-black-mask-only",
+        "13-fault-line-L04-red-mask-only",
+        "13-fault-line-L05-black-mask-only",
+        "13-fault-line-L06-red-mask-only",
+        "13-fault-line-L07-black-mask-only",
+        "13-fault-line-L08-red-mask-only",
+        "13-fault-line-L09-black-mask-only"
+      ]
+    },
+    "kumiko-void": {
+      "stacks": 25,
+      "boardIds": [
+        "17-kumiko-void-wide-L01-black-enig-art",
+        "17-kumiko-void-wide-L02-red-mask-only",
+        "17-kumiko-void-wide-L03-green-mask-only",
+        "17-kumiko-void-wide-L04-black-enig-art",
+        "17-kumiko-void-wide-L05-red-mask-only",
+        "17-kumiko-void-wide-L06-green-mask-only",
+        "17-kumiko-void-wide-L07-black-enig-art",
+        "17-kumiko-void-wide-L08-red-mask-only",
+        "17-kumiko-void-wide-L09-green-mask-only"
+      ]
+    },
+    "spider-nest": {
+      "stacks": 25,
+      "boardIds": [
+        "01-spider-nest-L01-black-enig-art",
+        "01-spider-nest-L02-white-mask-only",
+        "01-spider-nest-L03-gold-enig-fill",
+        "01-spider-nest-L04-white-mask-only",
+        "01-spider-nest-L05-gold-enig-fill",
+        "01-spider-nest-L06-white-mask-only",
+        "01-spider-nest-L07-gold-enig-fill",
+        "01-spider-nest-L08-red-mask-only"
+      ]
+    }
+  },
+  "variants": {
+    "individual": {
+      "groups": []
+    },
+    "grouped": {
+      "groups": [
+        {
+          "id": "white-hasl",
+          "color": "white",
+          "finish": "lead-free HASL",
+          "columns": 1,
+          "rows": 3,
+          "memberIds": [
+            "01-spider-nest-L02-white-mask-only",
+            "01-spider-nest-L04-white-mask-only",
+            "01-spider-nest-L06-white-mask-only"
+          ]
+        },
+        {
+          "id": "black-enig",
+          "color": "black",
+          "finish": "ENIG",
+          "columns": 3,
+          "rows": 2,
+          "memberIds": [
+            "01-spider-nest-L03-gold-enig-fill",
+            "01-spider-nest-L05-gold-enig-fill",
+            "01-spider-nest-L07-gold-enig-fill",
+            "03-coral-vault-L04-gold-enig-fill",
+            "17-kumiko-void-wide-L04-black-enig-art",
+            "17-kumiko-void-wide-L07-black-enig-art"
+          ]
+        },
+        {
+          "id": "red-hasl",
+          "color": "red",
+          "finish": "lead-free HASL",
+          "columns": 3,
+          "rows": 4,
+          "memberIds": [
+            "01-spider-nest-L08-red-mask-only",
+            "03-coral-vault-L05-red-mask-only",
+            "03-coral-vault-L07-red-mask-only",
+            "13-fault-line-L02-red-mask-only",
+            "13-fault-line-L04-red-mask-only",
+            "13-fault-line-L06-red-mask-only",
+            "13-fault-line-L08-red-mask-only",
+            "17-kumiko-void-wide-L02-red-mask-only",
+            "17-kumiko-void-wide-L05-red-mask-only",
+            "17-kumiko-void-wide-L08-red-mask-only"
+          ]
+        },
+        {
+          "id": "green-hasl",
+          "color": "green",
+          "finish": "lead-free HASL",
+          "columns": 2,
+          "rows": 2,
+          "memberIds": [
+            "03-coral-vault-L02-green-mask-only",
+            "17-kumiko-void-wide-L03-green-mask-only",
+            "17-kumiko-void-wide-L06-green-mask-only",
+            "17-kumiko-void-wide-L09-green-mask-only"
+          ]
+        },
+        {
+          "id": "purple-hasl",
+          "color": "purple",
+          "finish": "lead-free HASL",
+          "columns": 1,
+          "rows": 1,
+          "memberIds": [
+            "03-coral-vault-L03-purple-mask-only"
+          ]
+        },
+        {
+          "id": "yellow-hasl",
+          "color": "yellow",
+          "finish": "lead-free HASL",
+          "columns": 1,
+          "rows": 1,
+          "memberIds": [
+            "03-coral-vault-L06-yellow-mask-only"
+          ]
+        },
+        {
+          "id": "blue-hasl",
+          "color": "blue",
+          "finish": "lead-free HASL",
+          "columns": 1,
+          "rows": 1,
+          "memberIds": [
+            "03-coral-vault-L08-blue-mask-only"
+          ]
+        },
+        {
+          "id": "black-hasl",
+          "color": "black",
+          "finish": "lead-free HASL",
+          "columns": 2,
+          "rows": 2,
+          "memberIds": [
+            "13-fault-line-L03-black-mask-only",
+            "13-fault-line-L05-black-mask-only",
+            "13-fault-line-L07-black-mask-only",
+            "13-fault-line-L09-black-mask-only"
+          ]
+        }
+      ]
+    },
+    "split-red": {
+      "groups": [
+        {
+          "id": "white-hasl",
+          "color": "white",
+          "finish": "lead-free HASL",
+          "columns": 1,
+          "rows": 3,
+          "memberIds": [
+            "01-spider-nest-L02-white-mask-only",
+            "01-spider-nest-L04-white-mask-only",
+            "01-spider-nest-L06-white-mask-only"
+          ]
+        },
+        {
+          "id": "black-enig",
+          "color": "black",
+          "finish": "ENIG",
+          "columns": 3,
+          "rows": 2,
+          "memberIds": [
+            "01-spider-nest-L03-gold-enig-fill",
+            "01-spider-nest-L05-gold-enig-fill",
+            "01-spider-nest-L07-gold-enig-fill",
+            "03-coral-vault-L04-gold-enig-fill",
+            "17-kumiko-void-wide-L04-black-enig-art",
+            "17-kumiko-void-wide-L07-black-enig-art"
+          ]
+        },
+        {
+          "id": "green-hasl",
+          "color": "green",
+          "finish": "lead-free HASL",
+          "columns": 2,
+          "rows": 2,
+          "memberIds": [
+            "03-coral-vault-L02-green-mask-only",
+            "17-kumiko-void-wide-L03-green-mask-only",
+            "17-kumiko-void-wide-L06-green-mask-only",
+            "17-kumiko-void-wide-L09-green-mask-only"
+          ]
+        },
+        {
+          "id": "purple-hasl",
+          "color": "purple",
+          "finish": "lead-free HASL",
+          "columns": 1,
+          "rows": 1,
+          "memberIds": [
+            "03-coral-vault-L03-purple-mask-only"
+          ]
+        },
+        {
+          "id": "yellow-hasl",
+          "color": "yellow",
+          "finish": "lead-free HASL",
+          "columns": 1,
+          "rows": 1,
+          "memberIds": [
+            "03-coral-vault-L06-yellow-mask-only"
+          ]
+        },
+        {
+          "id": "blue-hasl",
+          "color": "blue",
+          "finish": "lead-free HASL",
+          "columns": 1,
+          "rows": 1,
+          "memberIds": [
+            "03-coral-vault-L08-blue-mask-only"
+          ]
+        },
+        {
+          "id": "black-hasl",
+          "color": "black",
+          "finish": "lead-free HASL",
+          "columns": 2,
+          "rows": 2,
+          "memberIds": [
+            "13-fault-line-L03-black-mask-only",
+            "13-fault-line-L05-black-mask-only",
+            "13-fault-line-L07-black-mask-only",
+            "13-fault-line-L09-black-mask-only"
+          ]
+        },
+        {
+          "id": "red-hasl-six",
+          "color": "red",
+          "finish": "lead-free HASL",
+          "columns": 2,
+          "rows": 3,
+          "memberIds": [
+            "01-spider-nest-L08-red-mask-only",
+            "03-coral-vault-L05-red-mask-only",
+            "03-coral-vault-L07-red-mask-only",
+            "17-kumiko-void-wide-L02-red-mask-only",
+            "17-kumiko-void-wide-L05-red-mask-only",
+            "17-kumiko-void-wide-L08-red-mask-only"
+          ]
+        },
+        {
+          "id": "red-hasl-fault",
+          "color": "red",
+          "finish": "lead-free HASL",
+          "columns": 2,
+          "rows": 2,
+          "memberIds": [
+            "13-fault-line-L02-red-mask-only",
+            "13-fault-line-L04-red-mask-only",
+            "13-fault-line-L06-red-mask-only",
+            "13-fault-line-L08-red-mask-only"
+          ]
+        }
+      ]
+    }
+  }
+}

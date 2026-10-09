@@ -93,7 +93,7 @@ def norm_layer(value: str) -> str:
     return value.replace("_", ".").replace("-", ".").lower()
 
 
-def load_inventory(boards_root: Path = REPO) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+def load_inventory(boards_root: Path = REPO, selected_ids: set[str] | None = None) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     manifest = json.loads(MANIFEST.read_text())
     generation = json.loads(NATIVE_GENERATION.read_text())
     policy = json.loads(POLICY.read_text())
@@ -104,7 +104,11 @@ def load_inventory(boards_root: Path = REPO) -> tuple[list[dict[str, Any]], dict
     expected_selected = {b["nativeBoard"] for b in manifest["boards"] if b["category"] == "selected"}
     if set(selected) != expected_selected:
         raise ValueError("native-generation.json board membership differs from the selected manifest split")
+    if selected_ids is not None and not selected_ids.issubset({b["id"] for b in manifest["boards"] if b["category"] == "selected"}):
+        raise ValueError("Order profile includes unknown or alternative source IDs")
     for board in manifest["boards"]:
+        if selected_ids is not None and board["id"] not in selected_ids:
+            continue
         rel = board["nativeBoard"]
         path = (boards_root / rel).resolve()
         if not path.is_file():
@@ -130,7 +134,7 @@ def load_inventory(boards_root: Path = REPO) -> tuple[list[dict[str, Any]], dict
         })
     selected_count = sum(b["category"] == "selected" for b in inventory)
     alternatives_count = sum(b["category"] == "alternatives" for b in inventory)
-    if (selected_count, alternatives_count) != (43, 9):
+    if (selected_count, alternatives_count) != ((43, 9) if selected_ids is None else (len(selected_ids), 0)):
         raise ValueError(f"Unexpected selection split: selected={selected_count}, alternatives={alternatives_count}")
     evidence = {
         "manifestSha256": sha256_file(MANIFEST),

@@ -1,4 +1,6 @@
-# Combined lower-board fabrication packages
+# Historical five-series lower-board fabrication packages
+
+For the current four-series order alternatives, use the [fresh package workflow](../../scripts/art-order/README.md). This directory and its records retain the historical five-series selection, including Woven Maze.
 
 These native KiCad projects reproduce the five multi-board lower grids in the
 frozen [fabrication policy](../../artwork-resources/pcb-art/manufacturing/policy.json).
