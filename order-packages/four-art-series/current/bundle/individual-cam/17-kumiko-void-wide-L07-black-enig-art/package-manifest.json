@@ -1,0 +1,46 @@
+{
+  "boardId": "17-kumiko-void-wide-L07-black-enig-art",
+  "category": "selected",
+  "sourceNativeBoardSha256": "145130d8185fa247498d5ed1bf961fe91f6f6811d4aa96f89875ea175c46e871",
+  "finish": "ENIG",
+  "maskColor": "black",
+  "camFiles": [
+    {
+      "name": "17-kumiko-void-wide-L07-black-enig-art-B_Cu.gbl",
+      "sha256": "5ed6164111a1791e5ab8f08d18cf08b89c38df5ba7b173503394ba44a7d9de12",
+      "sizeBytes": 484
+    },
+    {
+      "name": "17-kumiko-void-wide-L07-black-enig-art-B_Mask.gbs",
+      "sha256": "cc358b7757775bb61124e9033cb14329887ba2dad7b3ba752e3ae6e6aef45d06",
+      "sizeBytes": 665
+    },
+    {
+      "name": "17-kumiko-void-wide-L07-black-enig-art-Edge_Cuts.gm1",
+      "sha256": "8e74aae6731527d17deac7a67125d17e9ac170d821ad5ec3a8c56e8b039b2607",
+      "sizeBytes": 631222
+    },
+    {
+      "name": "17-kumiko-void-wide-L07-black-enig-art-F_Cu.gtl",
+      "sha256": "240fa5e13e1254b6eb5f6facb52193831ba989237727887396271c0c88bcb468",
+      "sizeBytes": 2494462
+    },
+    {
+      "name": "17-kumiko-void-wide-L07-black-enig-art-F_Mask.gts",
+      "sha256": "b8276f7f0e8677b88c753be4486ce206b9a1de6845e4999a25f665b500b0ccb2",
+      "sizeBytes": 97288
+    },
+    {
+      "name": "17-kumiko-void-wide-L07-black-enig-art-NPTH.drl",
+      "sha256": "e9fc12dab073da97e5ed927c47c8c11eab15b6ab92777c0743710febce711d84",
+      "sizeBytes": 376
+    },
+    {
+      "name": "17-kumiko-void-wide-L07-black-enig-art-job.gbrjob",
+      "sha256": "87333fe4ed4d45576b176cb553d783d73059cb2f4954bf5226c8ba8d85bc561a",
+      "sizeBytes": 2155
+    }
+  ],
+  "pthDrillFile": "empty; not included in release package",
+  "status": "local CAM review candidate; factory acceptance pending"
+}

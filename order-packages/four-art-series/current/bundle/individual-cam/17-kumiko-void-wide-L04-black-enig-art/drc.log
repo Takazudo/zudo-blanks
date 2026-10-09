@@ -1,0 +1,8 @@
+COMMAND /tmp/art-order-kicad.pF1J2o pcb drc --format json --units mm --severity-all --severity-exclusions --exit-code-violations --output /tmp/art-order-37833323671-1/individual-cam/17-kumiko-void-wide-L04-black-enig-art/drc.json /tmp/art-order-37833323671-1/sources/panels/art-kumiko-void/17-kumiko-void-wide-L04-black-enig-art.kicad_pcb
+EXIT 0
+STDOUT
+Found 0 violations
+Found 0 unconnected items
+Saved DRC Report to /tmp/art-order-37833323671-1/individual-cam/17-kumiko-void-wide-L04-black-enig-art/drc.json
+
+STDERR

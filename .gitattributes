@@ -1,0 +1,5 @@
+# Frozen manufacturing evidence must retain its original checksummed bytes.
+# Whitespace emitted by KiCad is part of those bytes, not hand-authored style.
+/order-packages/four-art-series/current/bundle/** -text -whitespace linguist-generated=true
+/order-packages/four-art-series/current/bundle/**/*.kicad_pcb -diff
+/order-packages/four-art-series/current/bundle/**/*.svg -diff

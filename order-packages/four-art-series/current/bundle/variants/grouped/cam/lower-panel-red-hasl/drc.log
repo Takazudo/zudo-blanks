@@ -1,0 +1,8 @@
+COMMAND /tmp/art-order-kicad.pF1J2o pcb drc --format json --units mm --severity-all --severity-exclusions --exit-code-violations --output /tmp/art-order-37833323671-1/variants/grouped/cam/lower-panel-red-hasl/drc.json /tmp/art-order-37833323671-1/variants/grouped/native/lower-panel-red-hasl/lower-panel-red-hasl.kicad_pcb
+EXIT 0
+STDOUT
+Found 0 violations
+Found 0 unconnected items
+Saved DRC Report to /tmp/art-order-37833323671-1/variants/grouped/cam/lower-panel-red-hasl/drc.json
+
+STDERR

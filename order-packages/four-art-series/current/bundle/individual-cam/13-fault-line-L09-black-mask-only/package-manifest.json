@@ -1,0 +1,46 @@
+{
+  "boardId": "13-fault-line-L09-black-mask-only",
+  "category": "selected",
+  "sourceNativeBoardSha256": "f4adca85902c2085bf738e04dd2745b7a0433447ab1fbeb84cd7b3c3d760bd23",
+  "finish": "Lead-free HASL",
+  "maskColor": "black",
+  "camFiles": [
+    {
+      "name": "13-fault-line-L09-black-mask-only-B_Cu.gbl",
+      "sha256": "ddb4ab837ce231135c9ec3fae60bc2343f40482af3f90f1015ab4a3796058b6b",
+      "sizeBytes": 479
+    },
+    {
+      "name": "13-fault-line-L09-black-mask-only-B_Mask.gbs",
+      "sha256": "65b43725505f472e247304c611c42a7ab1f5d69da67cf132740de43fe4075da7",
+      "sizeBytes": 660
+    },
+    {
+      "name": "13-fault-line-L09-black-mask-only-Edge_Cuts.gm1",
+      "sha256": "8d80b01c31db2d561d48a129532cff652e974d56fe09f823db4e37c06c1ca86a",
+      "sizeBytes": 677
+    },
+    {
+      "name": "13-fault-line-L09-black-mask-only-F_Cu.gtl",
+      "sha256": "4ea88f89e0a5f99856d0265ae2fe3a3242b481f827e97de49cdd311452a470bf",
+      "sizeBytes": 479
+    },
+    {
+      "name": "13-fault-line-L09-black-mask-only-F_Mask.gts",
+      "sha256": "61c0701c9eb11738d148316045e2744a13951a554e1a1d56c98088c0415cbabf",
+      "sizeBytes": 660
+    },
+    {
+      "name": "13-fault-line-L09-black-mask-only-NPTH.drl",
+      "sha256": "af9a7afb5f47bdc9dd50374ad09cbe799e22bc367c223e0d680e60d44febf425",
+      "sizeBytes": 376
+    },
+    {
+      "name": "13-fault-line-L09-black-mask-only-job.gbrjob",
+      "sha256": "5cba22850b3836359d1950ae29d8078a381b658c8f6c8278b8cec88d21e67c3c",
+      "sizeBytes": 2135
+    }
+  ],
+  "pthDrillFile": "empty; not included in release package",
+  "status": "local CAM review candidate; factory acceptance pending"
+}

@@ -1,0 +1,1217 @@
+{
+  "status": "candidate; independent KiCad DRC/CAM and factory acceptance pending; exhaustive width certificate opt-in",
+  "manufacturingGeometrySha256": "747a18644063c2b37d4eca5d3a7a6b394b539be1e4496c5c26069aa12d64c3e0",
+  "maskCandidateSha256": "abc95a8df4c5b83cdd727136260e8321cb04a4f71ab7ae7883d9c4cd75c61689",
+  "copperCandidateSha256": "305d17738e6c6a9183308153f3ffc1b2cb0776a74cd1ad22a79dc8df194b0540",
+  "copperLedgerSha256": "1ccc8dea9519ceead121fe71da4ccfd975b32ba38bd83ae5d5d7bf90646d0c25",
+  "generatorSha256": "50886a80d047046fc02c49b5cf4beaaad5641169f00ad0345d9c974a831ee946",
+  "selectedBoardCount": 43,
+  "boards": [
+    {
+      "boardId": "01-spider-nest-L01-black-enig-art",
+      "nativeBoard": "panels/art-spider-nest/01-spider-nest-L01-black-enig-art.kicad_pcb",
+      "sha256": "b2a61a01119911ab580c2a1fe1f5f062a59fa63b60b5e5754c7a07845552451d",
+      "project": "panels/art-spider-nest/01-spider-nest-L01-black-enig-art.kicad_pro",
+      "projectSha256": "b3ec5e98de6954eccbe8f6e5886a7871545b471624c69b738c711758b6fbc661",
+      "edgeLoopCount": 20,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 458,
+        "maxDeviationMm": 0.000699685,
+        "areaDeltaMm2": 0.000395668,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 4,
+      "nativeCopperPolygons": 147,
+      "nativeMaskPolygons": 134,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "271f8a5b6601a2886dabee3d1c3f9cde39eb3237256dda533b002b4fd9815f00",
+      "maskSourceWkbSha256": "6602d3ab38ba931e310b858eb1f985b4430949c427e1597230ffc9b04d1416bd"
+    },
+    {
+      "boardId": "01-spider-nest-L02-white-mask-only",
+      "nativeBoard": "panels/art-spider-nest/01-spider-nest-L02-white-mask-only.kicad_pcb",
+      "sha256": "15735b8ef6f982f46ffa4f04cbce090b7036f31e96552fbd34987a494f4dd7de",
+      "project": "panels/art-spider-nest/01-spider-nest-L02-white-mask-only.kicad_pro",
+      "projectSha256": "9a0012807237cb1b232b9d9e8edeba30841679145e97582e48db141ec0f11ff0",
+      "edgeLoopCount": 20,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 12,
+        "maxDeviationMm": 0.000602037,
+        "areaDeltaMm2": 7.555e-06,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 0,
+      "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
+      "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
+    },
+    {
+      "boardId": "01-spider-nest-L03-gold-enig-fill",
+      "nativeBoard": "panels/art-spider-nest/01-spider-nest-L03-gold-enig-fill.kicad_pcb",
+      "sha256": "a86bf3aa467add382fe324830c577e47562e0b46dc35469a6bd5c563b88a9967",
+      "project": "panels/art-spider-nest/01-spider-nest-L03-gold-enig-fill.kicad_pro",
+      "projectSha256": "7896a75697a9e33d262dcf2e8928fb93840fe959a5b68202969f961f47670e77",
+      "edgeLoopCount": 20,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 29,
+        "maxDeviationMm": 0.000997882,
+        "areaDeltaMm2": 2.0824e-05,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 24,
+      "nativeMaskPolygons": 29,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "2cc54c1a10a521b4360df31d12d219b02cc48f27f4dea58a7e018703260f0232",
+      "maskSourceWkbSha256": "0fea21176efff38fd96b07e80b68cb6ab54e4b0df54740c3349bf66d9c705f5d"
+    },
+    {
+      "boardId": "01-spider-nest-L04-white-mask-only",
+      "nativeBoard": "panels/art-spider-nest/01-spider-nest-L04-white-mask-only.kicad_pcb",
+      "sha256": "aedaf74567c3a7be565c765e33994365e1fe70c06aef555cbf71a7b11412a215",
+      "project": "panels/art-spider-nest/01-spider-nest-L04-white-mask-only.kicad_pro",
+      "projectSha256": "86bbef5dd20f01b426566d237a5ace445a3dda69267585e89976384223015358",
+      "edgeLoopCount": 19,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 14,
+        "maxDeviationMm": 0.000761124,
+        "areaDeltaMm2": 1.7894e-05,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 0,
+      "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
+      "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
+    },
+    {
+      "boardId": "01-spider-nest-L05-gold-enig-fill",
+      "nativeBoard": "panels/art-spider-nest/01-spider-nest-L05-gold-enig-fill.kicad_pcb",
+      "sha256": "09059c06e75e2cec64ece3a5fad44992603e540582c106e098355fa8a49df55d",
+      "project": "panels/art-spider-nest/01-spider-nest-L05-gold-enig-fill.kicad_pro",
+      "projectSha256": "f4a03c53571a7f0234d0f5726f922b3da445221c8348e639773e8310ab636d97",
+      "edgeLoopCount": 20,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 15,
+        "maxDeviationMm": 0.00022994,
+        "areaDeltaMm2": 1.059e-06,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 33,
+      "nativeMaskPolygons": 32,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "48d81aaa602e58b5d2643306c4ce9626d45231058faaccaeb707c786b3eb6c8a",
+      "maskSourceWkbSha256": "48e97edbb474f03a11888c0746c45853381f5a7f16468b43fa80538ee5f81272"
+    },
+    {
+      "boardId": "01-spider-nest-L06-white-mask-only",
+      "nativeBoard": "panels/art-spider-nest/01-spider-nest-L06-white-mask-only.kicad_pcb",
+      "sha256": "4aa07e20610dab934390286cc95564b82122a5833e49ca94da5a560c14f63ed5",
+      "project": "panels/art-spider-nest/01-spider-nest-L06-white-mask-only.kicad_pro",
+      "projectSha256": "1f49baefe82b278a83e055abc54837a54601bd8c71dcf663d88e47a02913d5ce",
+      "edgeLoopCount": 19,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 16,
+        "maxDeviationMm": 0.000181417,
+        "areaDeltaMm2": 1.879e-06,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 0,
+      "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
+      "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
+    },
+    {
+      "boardId": "01-spider-nest-L07-gold-enig-fill",
+      "nativeBoard": "panels/art-spider-nest/01-spider-nest-L07-gold-enig-fill.kicad_pcb",
+      "sha256": "ce88d9f53dc12090a9bc5ee0b8718e6e218a8317aac165b82aab14d53b0e16f8",
+      "project": "panels/art-spider-nest/01-spider-nest-L07-gold-enig-fill.kicad_pro",
+      "projectSha256": "4e561bbc36531e8055f4e1f9a2dad2f542cd5d5ef165bdbfab2dc10d887889da",
+      "edgeLoopCount": 20,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 17,
+        "maxDeviationMm": 0.000123774,
+        "areaDeltaMm2": 8.233e-06,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 28,
+      "nativeMaskPolygons": 27,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "a3a41bb35a98aef7e81ee7945bee56047e5f924f1d0226ad2f78723d5142b11d",
+      "maskSourceWkbSha256": "00c312f11bbb55a699a445386665c8e92504eaf560a87f24434e16dc7ef6c404"
+    },
+    {
+      "boardId": "01-spider-nest-L08-red-mask-only",
+      "nativeBoard": "panels/art-spider-nest/01-spider-nest-L08-red-mask-only.kicad_pcb",
+      "sha256": "44cf9e6a84bd2dcf50438de7d2ed0c991e09c19876b15a9519a6e6b754b37344",
+      "project": "panels/art-spider-nest/01-spider-nest-L08-red-mask-only.kicad_pro",
+      "projectSha256": "07168eb3311376ef522bfa917293cc38d59c6b5e75b869bbcf8582f702504ad9",
+      "edgeLoopCount": 1,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 0,
+        "maxDeviationMm": 0.0,
+        "areaDeltaMm2": 0.0,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 0,
+      "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
+      "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
+    },
+    {
+      "boardId": "03-coral-vault-L01-black-enig-art",
+      "nativeBoard": "panels/art-coral-vault/03-coral-vault-L01-black-enig-art.kicad_pcb",
+      "sha256": "f77bf5c1e682ae1ccf791a8fe8c2430e967059e8b45a4836289e8638b60a815c",
+      "project": "panels/art-coral-vault/03-coral-vault-L01-black-enig-art.kicad_pro",
+      "projectSha256": "5ab5b41974b09807dfb00570a4f7b6eab4c2da863262d8970b92769fd72251d3",
+      "edgeLoopCount": 11,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 52,
+        "maxDeviationMm": 3.769e-06,
+        "areaDeltaMm2": 8.627e-06,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 4,
+      "nativeCopperPolygons": 1152,
+      "nativeMaskPolygons": 803,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 2,
+        "serializedSymmetricDifferenceMm2": 0.000266718
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "e982ae6e1eebc04d4554ec563564dec15531d562422f05e180d22d935a4426cc",
+      "maskSourceWkbSha256": "85001a0a0592cbd3a1b81a4981baf51cfcba61519e333f6f2389eab816d7019d"
+    },
+    {
+      "boardId": "03-coral-vault-L02-green-mask-only",
+      "nativeBoard": "panels/art-coral-vault/03-coral-vault-L02-green-mask-only.kicad_pcb",
+      "sha256": "2516f7cd235b19989394079811366275fc18dcc590f554fc5924258597e80eca",
+      "project": "panels/art-coral-vault/03-coral-vault-L02-green-mask-only.kicad_pro",
+      "projectSha256": "7cb64c4d7b39f3ed73affae7f959244b1f168d7d96f5195581608a3c9cd4ea9f",
+      "edgeLoopCount": 11,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 1,
+        "maxDeviationMm": 3.3456e-05,
+        "areaDeltaMm2": 5.5e-08,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 0,
+      "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
+      "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
+    },
+    {
+      "boardId": "03-coral-vault-L03-purple-mask-only",
+      "nativeBoard": "panels/art-coral-vault/03-coral-vault-L03-purple-mask-only.kicad_pcb",
+      "sha256": "f6621ae0e7369ebc6887136bd40a8c9d0d0bbc8bad497a35eaf4516c6e7f2c11",
+      "project": "panels/art-coral-vault/03-coral-vault-L03-purple-mask-only.kicad_pro",
+      "projectSha256": "237f4780c5a3f564928c7fa876796ce3edbf6e9b81213840f869a665634d0508",
+      "edgeLoopCount": 12,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 48,
+        "maxDeviationMm": 3.483e-05,
+        "areaDeltaMm2": 2.4256e-05,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 0,
+      "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
+      "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
+    },
+    {
+      "boardId": "03-coral-vault-L04-gold-enig-fill",
+      "nativeBoard": "panels/art-coral-vault/03-coral-vault-L04-gold-enig-fill.kicad_pcb",
+      "sha256": "672b4874a5acd1ce8836a5c425769fc9c1c8f8679cdf710d638ca4c9b332c5cd",
+      "project": "panels/art-coral-vault/03-coral-vault-L04-gold-enig-fill.kicad_pro",
+      "projectSha256": "bbf8ea925e74854b92221033faa519f5fb75411b9b612c58971d483a233d9638",
+      "edgeLoopCount": 9,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 3,
+        "maxDeviationMm": 3.8665e-05,
+        "areaDeltaMm2": 3.19e-07,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 15,
+      "nativeMaskPolygons": 15,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "7f9b4aec87762b2e6b1613afa7687fcefe56deb880d5a321e0b8c6604d8bd859",
+      "maskSourceWkbSha256": "65bec5714e7090d1c116bb2db58a1b2cb4f70815374276a388362d943bc601d7"
+    },
+    {
+      "boardId": "03-coral-vault-L05-red-mask-only",
+      "nativeBoard": "panels/art-coral-vault/03-coral-vault-L05-red-mask-only.kicad_pcb",
+      "sha256": "6a6454d961cc95e130c6a2dc7a0510298cf492eb27552123fd3535d4f05f10a8",
+      "project": "panels/art-coral-vault/03-coral-vault-L05-red-mask-only.kicad_pro",
+      "projectSha256": "7e009a74ff8d121a8e530a2fb519b334ef9a897b480745476d851fccc312ad1e",
+      "edgeLoopCount": 10,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 47,
+        "maxDeviationMm": 1.5733e-05,
+        "areaDeltaMm2": 4.1e-06,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 0,
+      "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
+      "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
+    },
+    {
+      "boardId": "03-coral-vault-L06-yellow-mask-only",
+      "nativeBoard": "panels/art-coral-vault/03-coral-vault-L06-yellow-mask-only.kicad_pcb",
+      "sha256": "556756b455f7146467b9d3c3a61b16a5ff03e4845b084034ece9cc330d8d0cce",
+      "project": "panels/art-coral-vault/03-coral-vault-L06-yellow-mask-only.kicad_pro",
+      "projectSha256": "c80b637c676afe42802a2f3a97032e85f9ec97d66fef32e4d47d9ef466ceadc6",
+      "edgeLoopCount": 9,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 1,
+        "maxDeviationMm": 1.0604e-05,
+        "areaDeltaMm2": 7.1e-08,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 0,
+      "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
+      "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
+    },
+    {
+      "boardId": "03-coral-vault-L07-red-mask-only",
+      "nativeBoard": "panels/art-coral-vault/03-coral-vault-L07-red-mask-only.kicad_pcb",
+      "sha256": "ff0ef4aafa33b73257333c6cdbc38db5e791daeb8ce56515618522920057bd27",
+      "project": "panels/art-coral-vault/03-coral-vault-L07-red-mask-only.kicad_pro",
+      "projectSha256": "f35d620ac3aa505c34977019d60354caef2ebb1608280152d37b2a43ae43aedf",
+      "edgeLoopCount": 9,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 1,
+        "maxDeviationMm": 1.684e-06,
+        "areaDeltaMm2": 1.1e-08,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 0,
+      "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
+      "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
+    },
+    {
+      "boardId": "03-coral-vault-L08-blue-mask-only",
+      "nativeBoard": "panels/art-coral-vault/03-coral-vault-L08-blue-mask-only.kicad_pcb",
+      "sha256": "77abd3322473fc4a70ba4b1ec1ccb3f2a3d0f0cf26efdb26cd57ed98f4c30dd2",
+      "project": "panels/art-coral-vault/03-coral-vault-L08-blue-mask-only.kicad_pro",
+      "projectSha256": "f37fdec8085e897e3a51860746a5697f308ba8a8d40ba1e82b1310b5d13b95bd",
+      "edgeLoopCount": 1,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 0,
+        "maxDeviationMm": 0.0,
+        "areaDeltaMm2": 0.0,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 0,
+      "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
+      "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
+    },
+    {
+      "boardId": "13-fault-line-L01-black-enig-art",
+      "nativeBoard": "panels/art-fault-line/13-fault-line-L01-black-enig-art.kicad_pcb",
+      "sha256": "8702696831e34e6d91f0c3c3e81264b2ffaf2917930980a52e07682371e3bbb8",
+      "project": "panels/art-fault-line/13-fault-line-L01-black-enig-art.kicad_pro",
+      "projectSha256": "3bcfd7ee8ea8a7a7bf4bbc5fbe35d56a6d91f0180992fd3a0aab1415dc315605",
+      "edgeLoopCount": 2,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 0,
+        "maxDeviationMm": 0.0,
+        "areaDeltaMm2": 0.0,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 4,
+      "nativeCopperPolygons": 205,
+      "nativeMaskPolygons": 212,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "206b99dc59a4953778b0ebf478fdb3026b88e9d21fd6c61eb3d041d87a5830f3",
+      "maskSourceWkbSha256": "07e64db4759ec01a52dc37cd28a0cbc8018eb37c7f444b7c004822ed1d1b2d31"
+    },
+    {
+      "boardId": "13-fault-line-L02-red-mask-only",
+      "nativeBoard": "panels/art-fault-line/13-fault-line-L02-red-mask-only.kicad_pcb",
+      "sha256": "ecfbce2b27588109e1dc8da0f04e9051dfbe942e90cbde5748be39a9dd04d009",
+      "project": "panels/art-fault-line/13-fault-line-L02-red-mask-only.kicad_pro",
+      "projectSha256": "665f590f0f2048299bd8c3d25fee3795ac5741eb0777e04aae88b6941a98763b",
+      "edgeLoopCount": 2,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 335,
+        "maxDeviationMm": 0.000426755,
+        "areaDeltaMm2": 0.000141894,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 0,
+      "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
+      "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
+    },
+    {
+      "boardId": "13-fault-line-L03-black-mask-only",
+      "nativeBoard": "panels/art-fault-line/13-fault-line-L03-black-mask-only.kicad_pcb",
+      "sha256": "bc14462a4861871672b5b3fda9f1edb32b7e2fa3a57d810c391bf0295a514d53",
+      "project": "panels/art-fault-line/13-fault-line-L03-black-mask-only.kicad_pro",
+      "projectSha256": "62396ef8c3fd021755821ae89892a039c9846b4b4df384dca15fc5c3ca9f8850",
+      "edgeLoopCount": 2,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 274,
+        "maxDeviationMm": 3.966e-06,
+        "areaDeltaMm2": 1.2675e-05,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 0,
+      "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
+      "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
+    },
+    {
+      "boardId": "13-fault-line-L04-red-mask-only",
+      "nativeBoard": "panels/art-fault-line/13-fault-line-L04-red-mask-only.kicad_pcb",
+      "sha256": "d10312d884fce8e4b551293ebfcad0496e7a5b749bba9b9775ace33f23a58b35",
+      "project": "panels/art-fault-line/13-fault-line-L04-red-mask-only.kicad_pro",
+      "projectSha256": "9ddac433968ff2b95d1b8dd0fa6e03cc73fa0f903e9caef4855c73bd99fbf44f",
+      "edgeLoopCount": 2,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 91,
+        "maxDeviationMm": 7.2802e-05,
+        "areaDeltaMm2": 3.296e-06,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 0,
+      "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
+      "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
+    },
+    {
+      "boardId": "13-fault-line-L05-black-mask-only",
+      "nativeBoard": "panels/art-fault-line/13-fault-line-L05-black-mask-only.kicad_pcb",
+      "sha256": "0596888f9a0650e88532ae4139cf5f7a3875f084b2d41e5556bacc0b1110754b",
+      "project": "panels/art-fault-line/13-fault-line-L05-black-mask-only.kicad_pro",
+      "projectSha256": "5eb41fa061a1f0d4a7ae8cd2ce70ad682f20543e9467f46ddef048394dbed384",
+      "edgeLoopCount": 2,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 372,
+        "maxDeviationMm": 3.7141e-05,
+        "areaDeltaMm2": 1.9237e-05,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 0,
+      "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
+      "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
+    },
+    {
+      "boardId": "13-fault-line-L06-red-mask-only",
+      "nativeBoard": "panels/art-fault-line/13-fault-line-L06-red-mask-only.kicad_pcb",
+      "sha256": "81bfb4fc9a348748ec21fca97e1baa35923d0ee9de3d187d1c5018798aae6d95",
+      "project": "panels/art-fault-line/13-fault-line-L06-red-mask-only.kicad_pro",
+      "projectSha256": "34709b5a652fdbc12c7add84b95c1ff6320d95d9d788fc9cfc55767120c958d4",
+      "edgeLoopCount": 2,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 153,
+        "maxDeviationMm": 7.4864e-05,
+        "areaDeltaMm2": 7.373e-06,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 0,
+      "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
+      "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
+    },
+    {
+      "boardId": "13-fault-line-L07-black-mask-only",
+      "nativeBoard": "panels/art-fault-line/13-fault-line-L07-black-mask-only.kicad_pcb",
+      "sha256": "4f0c1546c187155d1d04606e9d191b7bbf3d3e4d420538e694cda6f1ab8d0434",
+      "project": "panels/art-fault-line/13-fault-line-L07-black-mask-only.kicad_pro",
+      "projectSha256": "a261481c787ea54b2022c738b27e3e2bc549fa11c1403822662bc74d619dac3b",
+      "edgeLoopCount": 2,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 1225,
+        "maxDeviationMm": 0.000204857,
+        "areaDeltaMm2": 0.000137722,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 0,
+      "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
+      "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
+    },
+    {
+      "boardId": "13-fault-line-L08-red-mask-only",
+      "nativeBoard": "panels/art-fault-line/13-fault-line-L08-red-mask-only.kicad_pcb",
+      "sha256": "c728cc2c55440a0f207da079e2b522724bdd8e15e6470037867d3cb2cf40940d",
+      "project": "panels/art-fault-line/13-fault-line-L08-red-mask-only.kicad_pro",
+      "projectSha256": "5bed858c5a2497f0690f04a23521d198a32de46195f9e4a08db7076b193fc593",
+      "edgeLoopCount": 4,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 1385,
+        "maxDeviationMm": 0.000637556,
+        "areaDeltaMm2": 0.000150135,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 0,
+      "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
+      "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
+    },
+    {
+      "boardId": "13-fault-line-L09-black-mask-only",
+      "nativeBoard": "panels/art-fault-line/13-fault-line-L09-black-mask-only.kicad_pcb",
+      "sha256": "f4adca85902c2085bf738e04dd2745b7a0433447ab1fbeb84cd7b3c3d760bd23",
+      "project": "panels/art-fault-line/13-fault-line-L09-black-mask-only.kicad_pro",
+      "projectSha256": "23342bf3a3c2729dd91a465a3b0f20845fcedb21eff0c212d93d36d32df2fa1a",
+      "edgeLoopCount": 1,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 0,
+        "maxDeviationMm": 0.0,
+        "areaDeltaMm2": 0.0,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 0,
+      "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
+      "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
+    },
+    {
+      "boardId": "17-kumiko-void-wide-L01-black-enig-art",
+      "nativeBoard": "panels/art-kumiko-void/17-kumiko-void-wide-L01-black-enig-art.kicad_pcb",
+      "sha256": "66a9bfa4b323669e46989b0a879e73ca9c4b3b9f892d43b7873955ef1b37e431",
+      "project": "panels/art-kumiko-void/17-kumiko-void-wide-L01-black-enig-art.kicad_pro",
+      "projectSha256": "1e02f836230bf556b656b4a6c90a68870cfce12826133df94ae41ef1566ac36f",
+      "edgeLoopCount": 92,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 3,
+        "maxDeviationMm": 5.4172e-05,
+        "areaDeltaMm2": 1.78e-07,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 4,
+      "nativeCopperPolygons": 643,
+      "nativeMaskPolygons": 451,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "f3dddb886e730d6ee11052bfb72113daebb47656057873b93cdb3468aa8d1961",
+      "maskSourceWkbSha256": "4baa24b15342f50b847b13ab34e6e0a3d18438b18a3c1ec87c1b1fb6f923847f"
+    },
+    {
+      "boardId": "17-kumiko-void-wide-L02-red-mask-only",
+      "nativeBoard": "panels/art-kumiko-void/17-kumiko-void-wide-L02-red-mask-only.kicad_pcb",
+      "sha256": "c64c75cef1f139bb05353c952784ebba4d090df12cd58156fcc2c7002332758d",
+      "project": "panels/art-kumiko-void/17-kumiko-void-wide-L02-red-mask-only.kicad_pro",
+      "projectSha256": "d3fa9454e72e901fc29c950ce75839b5af4084b7092d90d76c7fda99456c4beb",
+      "edgeLoopCount": 60,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 0,
+        "maxDeviationMm": 0.0,
+        "areaDeltaMm2": 0.0,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 0,
+      "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
+      "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
+    },
+    {
+      "boardId": "17-kumiko-void-wide-L03-green-mask-only",
+      "nativeBoard": "panels/art-kumiko-void/17-kumiko-void-wide-L03-green-mask-only.kicad_pcb",
+      "sha256": "889783087ccf8983da77abf77bf0a2e7b4eb1222ebf9da1152a9483d1b1256f6",
+      "project": "panels/art-kumiko-void/17-kumiko-void-wide-L03-green-mask-only.kicad_pro",
+      "projectSha256": "daffaf594b8a8176d7e68976b66a2f96798bd06840efce15d9ef96f1888a561e",
+      "edgeLoopCount": 62,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 0,
+        "maxDeviationMm": 0.0,
+        "areaDeltaMm2": 0.0,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 0,
+      "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
+      "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
+    },
+    {
+      "boardId": "17-kumiko-void-wide-L04-black-enig-art",
+      "nativeBoard": "panels/art-kumiko-void/17-kumiko-void-wide-L04-black-enig-art.kicad_pcb",
+      "sha256": "e31f914f66c1d58434d28d3ae145fcdab1ef8bdbae99d845e4dc9560c647b25d",
+      "project": "panels/art-kumiko-void/17-kumiko-void-wide-L04-black-enig-art.kicad_pro",
+      "projectSha256": "2b8f9962518cbbe9151083b6d5afb4dde9ab492c25bb4da1209dd2f1314395bb",
+      "edgeLoopCount": 62,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 1,
+        "maxDeviationMm": 2.8706e-05,
+        "areaDeltaMm2": 1.8e-08,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 59,
+      "nativeMaskPolygons": 86,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "7ec1cad7730ff8038afc5909be564344af624aedd73fcc633346b68ad160fcfd",
+      "maskSourceWkbSha256": "4f21fabdeab11468948e617d391df41ffa8cb3ac43fe42120916bcf44f079b8f"
+    },
+    {
+      "boardId": "17-kumiko-void-wide-L05-red-mask-only",
+      "nativeBoard": "panels/art-kumiko-void/17-kumiko-void-wide-L05-red-mask-only.kicad_pcb",
+      "sha256": "16a0b3b961144aa7471ade7e4ead4a5bdec3f3de6bcd82d83a49663644890735",
+      "project": "panels/art-kumiko-void/17-kumiko-void-wide-L05-red-mask-only.kicad_pro",
+      "projectSha256": "887fea5013a15fe302eeb3aef10193088c9538bbaacab8ae92f269dc60a9679d",
+      "edgeLoopCount": 42,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 1,
+        "maxDeviationMm": 3.7083e-05,
+        "areaDeltaMm2": 7.5e-08,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 0,
+      "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
+      "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
+    },
+    {
+      "boardId": "17-kumiko-void-wide-L06-green-mask-only",
+      "nativeBoard": "panels/art-kumiko-void/17-kumiko-void-wide-L06-green-mask-only.kicad_pcb",
+      "sha256": "3704ba5d96e16b3263edf4c23f8802ad3e15a583f7041ee6b1c8fc874d6bf8d9",
+      "project": "panels/art-kumiko-void/17-kumiko-void-wide-L06-green-mask-only.kicad_pro",
+      "projectSha256": "cbc88f576fb3ffe8dd62de9a2a71d6d0ac2b1c6781d4c6e7aa96c724a0e47c41",
+      "edgeLoopCount": 49,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 0,
+        "maxDeviationMm": 0.0,
+        "areaDeltaMm2": 0.0,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 0,
+      "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
+      "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
+    },
+    {
+      "boardId": "17-kumiko-void-wide-L07-black-enig-art",
+      "nativeBoard": "panels/art-kumiko-void/17-kumiko-void-wide-L07-black-enig-art.kicad_pcb",
+      "sha256": "145130d8185fa247498d5ed1bf961fe91f6f6811d4aa96f89875ea175c46e871",
+      "project": "panels/art-kumiko-void/17-kumiko-void-wide-L07-black-enig-art.kicad_pro",
+      "projectSha256": "3b4f703c1c62d10a512bc80d64f28069948e9301072798c8e0c2b13d56a567db",
+      "edgeLoopCount": 49,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 0,
+        "maxDeviationMm": 0.0,
+        "areaDeltaMm2": 0.0,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 52,
+      "nativeMaskPolygons": 68,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "a20d04fe82afa0b2556f7ccbf3b73b6b7f0d7fa59ad414b6d9d8d61438bc63cd",
+      "maskSourceWkbSha256": "fd3025f4b4315b17c534177e183e68ee45a1fffee7d6c3e6e111faedaa2954fe"
+    },
+    {
+      "boardId": "17-kumiko-void-wide-L08-red-mask-only",
+      "nativeBoard": "panels/art-kumiko-void/17-kumiko-void-wide-L08-red-mask-only.kicad_pcb",
+      "sha256": "612b1253d37bdebb782306660f0238ee8c9ac8a40375d5b31e18e5be9bfa8b99",
+      "project": "panels/art-kumiko-void/17-kumiko-void-wide-L08-red-mask-only.kicad_pro",
+      "projectSha256": "63ec9f57e10dcff5fde587c887db767b0bc9e89980aad1907f6da5a4d67860a2",
+      "edgeLoopCount": 48,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 0,
+        "maxDeviationMm": 0.0,
+        "areaDeltaMm2": 0.0,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 0,
+      "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
+      "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
+    },
+    {
+      "boardId": "17-kumiko-void-wide-L09-green-mask-only",
+      "nativeBoard": "panels/art-kumiko-void/17-kumiko-void-wide-L09-green-mask-only.kicad_pcb",
+      "sha256": "51fd616c6d622e5eb844a5f865a4b4842a704e9a369e3c6c6da7adb1814829f2",
+      "project": "panels/art-kumiko-void/17-kumiko-void-wide-L09-green-mask-only.kicad_pro",
+      "projectSha256": "9bf459ba87df60ffec11905a4ae390cd8942dda42486bbfc74676fdcf6493a8b",
+      "edgeLoopCount": 1,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 0,
+        "maxDeviationMm": 0.0,
+        "areaDeltaMm2": 0.0,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 0,
+      "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
+      "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
+    },
+    {
+      "boardId": "18-woven-maze-L01-black-enig-art",
+      "nativeBoard": "panels/art-woven-maze/18-woven-maze-L01-black-enig-art.kicad_pcb",
+      "sha256": "da4e5e80cf89c7e09244fce9d3f55b5b6c6e20581dc4755e5c480334b7f60538",
+      "project": "panels/art-woven-maze/18-woven-maze-L01-black-enig-art.kicad_pro",
+      "projectSha256": "c1c76bb1d73aeb5f54cb8aa9781232da75da865f67e494843d34121e87ba6129",
+      "edgeLoopCount": 4,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 0,
+        "maxDeviationMm": 0.0,
+        "areaDeltaMm2": 0.0,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 4,
+      "nativeCopperPolygons": 24,
+      "nativeMaskPolygons": 26,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "83a81036633da3b61d8539baf858b6fa66609d0721258b397164b3f5428a0010",
+      "maskSourceWkbSha256": "ab092da7f111ac908c93a5564db8ab8cc11acdf59ffa60903f5e8c9cdcf98562"
+    },
+    {
+      "boardId": "18-woven-maze-L02-white-mask-only",
+      "nativeBoard": "panels/art-woven-maze/18-woven-maze-L02-white-mask-only.kicad_pcb",
+      "sha256": "95bfb1b3fa7f651d9348008e4f3e90d0ce471b30459b141daa5aeedf1d04ca01",
+      "project": "panels/art-woven-maze/18-woven-maze-L02-white-mask-only.kicad_pro",
+      "projectSha256": "3f57572fe1654751d6bee5a30356c2f208198e8a08b19c9a9af9b27245670720",
+      "edgeLoopCount": 5,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 0,
+        "maxDeviationMm": 0.0,
+        "areaDeltaMm2": 0.0,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 0,
+      "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
+      "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
+    },
+    {
+      "boardId": "18-woven-maze-L03-black-mask-only",
+      "nativeBoard": "panels/art-woven-maze/18-woven-maze-L03-black-mask-only.kicad_pcb",
+      "sha256": "1856bf4d095153446eb35a40dbe2ef7fdc24ca3d6988ca89e68c118a63d7ec11",
+      "project": "panels/art-woven-maze/18-woven-maze-L03-black-mask-only.kicad_pro",
+      "projectSha256": "81dad5365a5f6d257c93b0243a297953a3f97e67fc6aac3cfa3fd9e13f22cc63",
+      "edgeLoopCount": 6,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 0,
+        "maxDeviationMm": 0.0,
+        "areaDeltaMm2": 0.0,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 0,
+      "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
+      "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
+    },
+    {
+      "boardId": "18-woven-maze-L04-white-mask-only",
+      "nativeBoard": "panels/art-woven-maze/18-woven-maze-L04-white-mask-only.kicad_pcb",
+      "sha256": "93321b4464973c5c8e9b4099c23d114978311d3875937d697c0f8f2af531ee6a",
+      "project": "panels/art-woven-maze/18-woven-maze-L04-white-mask-only.kicad_pro",
+      "projectSha256": "7707989434a63b180e3185d1f92bff28afd0026a753d2d9dd8812daf9f1243ca",
+      "edgeLoopCount": 6,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 1,
+        "maxDeviationMm": 3.5418e-05,
+        "areaDeltaMm2": 4.4e-08,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 0,
+      "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
+      "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
+    },
+    {
+      "boardId": "18-woven-maze-L05-black-mask-only",
+      "nativeBoard": "panels/art-woven-maze/18-woven-maze-L05-black-mask-only.kicad_pcb",
+      "sha256": "dcdf71af640901d0d8247f9becbefb4cdf4e3d13acd737edceea21fbed8ef1ab",
+      "project": "panels/art-woven-maze/18-woven-maze-L05-black-mask-only.kicad_pro",
+      "projectSha256": "5233f29d891ca272ecd87334c3236957c6b3ce4acfcf3f5185504ce23718be12",
+      "edgeLoopCount": 4,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 0,
+        "maxDeviationMm": 0.0,
+        "areaDeltaMm2": 0.0,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 0,
+      "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
+      "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
+    },
+    {
+      "boardId": "18-woven-maze-L06-white-mask-only",
+      "nativeBoard": "panels/art-woven-maze/18-woven-maze-L06-white-mask-only.kicad_pcb",
+      "sha256": "6b96a2f67d48d22e65169c0cdb9d5829d69be025bebad6a22b816784287a4b7f",
+      "project": "panels/art-woven-maze/18-woven-maze-L06-white-mask-only.kicad_pro",
+      "projectSha256": "01c50cc6458c8321faa053361bdf081ed5d13bb341f2353698faa0e7ac18b59c",
+      "edgeLoopCount": 7,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 0,
+        "maxDeviationMm": 0.0,
+        "areaDeltaMm2": 0.0,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 0,
+      "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
+      "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
+    },
+    {
+      "boardId": "18-woven-maze-L07-black-mask-only",
+      "nativeBoard": "panels/art-woven-maze/18-woven-maze-L07-black-mask-only.kicad_pcb",
+      "sha256": "a878119ff9ea214b3513be3b1cdb0429724c2e732d45f9e2d62c766b92ac990a",
+      "project": "panels/art-woven-maze/18-woven-maze-L07-black-mask-only.kicad_pro",
+      "projectSha256": "8e513fc7c7ad951761bd638b5e3fc1ae531703774949e42fcbf5a2efe03fcc7c",
+      "edgeLoopCount": 7,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 19,
+        "maxDeviationMm": 8.905e-05,
+        "areaDeltaMm2": 1.7e-06,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 0,
+      "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
+      "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
+    },
+    {
+      "boardId": "18-woven-maze-L08-white-mask-only",
+      "nativeBoard": "panels/art-woven-maze/18-woven-maze-L08-white-mask-only.kicad_pcb",
+      "sha256": "91165b09dde7e4cda954243ad161fc612cd86f271231628eaa7a77935f7cd670",
+      "project": "panels/art-woven-maze/18-woven-maze-L08-white-mask-only.kicad_pro",
+      "projectSha256": "098d33fc83343b04c1b2008a2782cad07f364d81d48c3bce0eecd6bc6254271e",
+      "edgeLoopCount": 7,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 3,
+        "maxDeviationMm": 4.2499e-05,
+        "areaDeltaMm2": 1.71e-07,
+        "rotatedStartVertexRingIndices": [
+          4
+        ]
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 0,
+      "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
+      "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
+    },
+    {
+      "boardId": "18-woven-maze-L09-black-mask-only",
+      "nativeBoard": "panels/art-woven-maze/18-woven-maze-L09-black-mask-only.kicad_pcb",
+      "sha256": "767f4567fdd41d7145e92472164c09f123cd55b8ef44a12d038316412c62b1ed",
+      "project": "panels/art-woven-maze/18-woven-maze-L09-black-mask-only.kicad_pro",
+      "projectSha256": "cf85bf0132b2485e12befea03ed7f11467ab5774e7278b1f2e3e64e6cbabf592",
+      "edgeLoopCount": 1,
+      "edgePrecisionRepair": {
+        "removedShortSegments": 0,
+        "maxDeviationMm": 0.0,
+        "areaDeltaMm2": 0.0,
+        "rotatedStartVertexRingIndices": []
+      },
+      "npthRoundCount": 4,
+      "npthSlotCount": 0,
+      "nativeCopperPolygons": 0,
+      "nativeMaskPolygons": 0,
+      "copperPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "maskPrecisionRepair": {
+        "repairedSplitPieceCount": 0,
+        "serializedSymmetricDifferenceMm2": null
+      },
+      "copperSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572",
+      "maskSourceWkbSha256": "e60dcba9c652b544bf3cedaec7717c107cced114bab8dddb58e6d5a0bae36572"
+    }
+  ]
+}

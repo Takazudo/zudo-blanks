@@ -1,0 +1,350 @@
+[
+  {
+    "id": "lower-panel-white-hasl",
+    "status": "pass_local_native_drc_cam",
+    "nativePartition": {
+      "edgeSegments": 20894,
+      "apertureLoops": 55,
+      "sheetMaterialConnected": true,
+      "frontCopperPolygons": 0,
+      "frontMaskPolygons": 0,
+      "npthMounts": 12
+    },
+    "drcReportSha256": "7619385e8934e75aac744da3975d8bd3dfabf764f51d59cd09660335b765aea5",
+    "nativeBoardSha256": "c725dbd79cc362be1e16020a2833b262fb62e677f7013ba1059d3fd089895981",
+    "drcReused": true,
+    "drcOriginalPath": "variants/grouped/cam/lower-panel-white-hasl/drc.json",
+    "camFiles": [
+      {
+        "name": "lower-panel-white-hasl-B_Cu.gbl",
+        "sha256": "252cff768c437176c0ef28f723fc7173f4a46e9c1434f343941f8a9a456d1184"
+      },
+      {
+        "name": "lower-panel-white-hasl-B_Mask.gbs",
+        "sha256": "a656b392fb11f0decbc3a1e16f928e401d124fe660f00f39d6d86922be6bdae4"
+      },
+      {
+        "name": "lower-panel-white-hasl-Edge_Cuts.gm1",
+        "sha256": "a357b4b7a16069f3bda4cc62c68fae42f0630457319a5956014007a46ef6272a"
+      },
+      {
+        "name": "lower-panel-white-hasl-F_Cu.gtl",
+        "sha256": "6fe4a7879deb0df086061805ec0db32de2c346b4a3ef4b243d4e96c2c22d33cc"
+      },
+      {
+        "name": "lower-panel-white-hasl-F_Mask.gts",
+        "sha256": "0aedea7e1180c4d343e536780b70e501db7504b830d5678cf86b3ee120aa1049"
+      },
+      {
+        "name": "lower-panel-white-hasl-NPTH.drl",
+        "sha256": "29d529f1f59373f30d1c63c197f922700c6d567a8eee7c7ef8414f23ddee3e85"
+      },
+      {
+        "name": "lower-panel-white-hasl-PTH.drl",
+        "sha256": "69922d2bb8749ead134859d2d7cc190eccd63084d1f5e655326ca7ddec2325c9"
+      },
+      {
+        "name": "lower-panel-white-hasl-User_Drawings.gbr",
+        "sha256": "4a1882cbdcd2ffbe002017f2a56edd298bb12118549d02bcffdab7c154587f12"
+      }
+    ],
+    "zip": {
+      "path": "variants/split-red/cam/lower-panel-white-hasl.zip",
+      "sha256": "ac27018ef60cd6d8eac8d7790ba7f12ee7dc2a1e5f6e7b356139dbc94d7f9d1c",
+      "sizeBytes": 246151
+    },
+    "scoreGerber": "lower-panel-white-hasl-User_Drawings.gbr",
+    "scoreCount": 6,
+    "preview": "variants/split-red/lower-panel-white-hasl.png"
+  },
+  {
+    "id": "lower-panel-black-enig",
+    "status": "pass_local_native_drc_cam",
+    "nativePartition": {
+      "edgeSegments": 55436,
+      "apertureLoops": 174,
+      "sheetMaterialConnected": true,
+      "frontCopperPolygons": 211,
+      "frontMaskPolygons": 257,
+      "npthMounts": 24
+    },
+    "drcReportSha256": "708ed6bfb95c07e8331af906daab476284ade8654393ddd64a280d864030393a",
+    "nativeBoardSha256": "00b9397644e2b6d181b9503e513314cabbef7e0b345a5fac06947ffe48599f82",
+    "drcReused": true,
+    "drcOriginalPath": "variants/grouped/cam/lower-panel-black-enig/drc.json",
+    "camFiles": [
+      {
+        "name": "lower-panel-black-enig-B_Cu.gbl",
+        "sha256": "2fa5750a0542f01ae7a463b9d3f356dc1eccad46761f34e332bb3545487ace3b"
+      },
+      {
+        "name": "lower-panel-black-enig-B_Mask.gbs",
+        "sha256": "46368eee235e3cf979b1967e2f01d7234960faf88c084bc3d5c24fde080fc3ab"
+      },
+      {
+        "name": "lower-panel-black-enig-Edge_Cuts.gm1",
+        "sha256": "e118cd6b160864034b138a3b9ce615884e467f89db4875df468eb9880feeb59c"
+      },
+      {
+        "name": "lower-panel-black-enig-F_Cu.gtl",
+        "sha256": "d91efcb538b9b93789e9dce8a0139c70b18124d6c501d84ce15ea0184c604fe3"
+      },
+      {
+        "name": "lower-panel-black-enig-F_Mask.gts",
+        "sha256": "4c79364d833d77b2aac660cc0825dff8bc3ebd7dc15a968a32bd1cbbff2f0831"
+      },
+      {
+        "name": "lower-panel-black-enig-NPTH.drl",
+        "sha256": "b8ebbbc311289e5e7429ca6cde7f3f3731e26c97766edc45a728b1bde5edb099"
+      },
+      {
+        "name": "lower-panel-black-enig-PTH.drl",
+        "sha256": "9bd0d12a3fb77f3d516f7f43a22265b1080ce0c5c18d69c15839d93055bb13d7"
+      },
+      {
+        "name": "lower-panel-black-enig-User_Drawings.gbr",
+        "sha256": "bb408e955c2d473f10137bb2fb755734f3775ffbd9545fea644bb3de1c57f11c"
+      }
+    ],
+    "zip": {
+      "path": "variants/split-red/cam/lower-panel-black-enig.zip",
+      "sha256": "04ffc4ceb58f5a15ff0eee2e1a6457416b94baf86417fb1b980c19d2cd4cff41",
+      "sizeBytes": 5465371
+    },
+    "scoreGerber": "lower-panel-black-enig-User_Drawings.gbr",
+    "scoreCount": 7,
+    "preview": "variants/split-red/lower-panel-black-enig.png"
+  },
+  {
+    "id": "lower-panel-green-hasl",
+    "status": "pass_local_native_drc_cam",
+    "nativePartition": {
+      "edgeSegments": 37592,
+      "apertureLoops": 119,
+      "sheetMaterialConnected": true,
+      "frontCopperPolygons": 0,
+      "frontMaskPolygons": 0,
+      "npthMounts": 16
+    },
+    "drcReportSha256": "ef97860ab6981a3bb4f8c86abac97085ff35af5658f86293f34288837a5c8bd5",
+    "nativeBoardSha256": "1f52ff5e844ef0c6b1a2ef81d94b0b22754f991c02ebd4c9b6e8ab5ad6ffaa51",
+    "drcReused": true,
+    "drcOriginalPath": "variants/grouped/cam/lower-panel-green-hasl/drc.json",
+    "camFiles": [
+      {
+        "name": "lower-panel-green-hasl-B_Cu.gbl",
+        "sha256": "dc8768a81ab84216f65728ee00759c9bfb78d660035a0c8ac19f44e5c2a74fb6"
+      },
+      {
+        "name": "lower-panel-green-hasl-B_Mask.gbs",
+        "sha256": "0cab5435f76f38dbc29c6572deef256ab8080d54adf2e737f0ee5d477480aa9c"
+      },
+      {
+        "name": "lower-panel-green-hasl-Edge_Cuts.gm1",
+        "sha256": "4ba9f945c7883c244ec3ac60941c95b22dca8d875acc654f7dbff7796e08497d"
+      },
+      {
+        "name": "lower-panel-green-hasl-F_Cu.gtl",
+        "sha256": "6d116f73aa77c110ac6a288e31fafd82fd476202a5ad5cba8604116de519c7f7"
+      },
+      {
+        "name": "lower-panel-green-hasl-F_Mask.gts",
+        "sha256": "c4a17946ca94e5bafeff1386e06ea9e320b4f9af7c6776450f2f36c85fb58088"
+      },
+      {
+        "name": "lower-panel-green-hasl-NPTH.drl",
+        "sha256": "f26f65030bb994ce018c090f1bb375830689263c201079ea65261ef557ae1ef4"
+      },
+      {
+        "name": "lower-panel-green-hasl-PTH.drl",
+        "sha256": "4e282dc65c2f491ea975d9bd8993b60b2e592bea8036e69696a27688531ffb12"
+      },
+      {
+        "name": "lower-panel-green-hasl-User_Drawings.gbr",
+        "sha256": "6ca742ab4d46e572652c1df8f8572ce5d612fc9e3abaf1da34c030f355239c50"
+      }
+    ],
+    "zip": {
+      "path": "variants/split-red/cam/lower-panel-green-hasl.zip",
+      "sha256": "5da05be77f481085cb960fcbc73bebb4e07418cdfc5cda88d7aad4a70e3aa67b",
+      "sizeBytes": 418861
+    },
+    "scoreGerber": "lower-panel-green-hasl-User_Drawings.gbr",
+    "scoreCount": 6,
+    "preview": "variants/split-red/lower-panel-green-hasl.png"
+  },
+  {
+    "id": "lower-panel-black-hasl",
+    "status": "pass_local_native_drc_cam",
+    "nativePartition": {
+      "edgeSegments": 12422,
+      "apertureLoops": 3,
+      "sheetMaterialConnected": true,
+      "frontCopperPolygons": 0,
+      "frontMaskPolygons": 0,
+      "npthMounts": 16
+    },
+    "drcReportSha256": "3b898dd2163c5259de6c843a3bd36d9f77f5e1619738b35987eeffa609990633",
+    "nativeBoardSha256": "7d74818d49dbdc0da0cd6a47b37d853dd8a0c071d0d1c0b53f2f4d940c0135fd",
+    "drcReused": true,
+    "drcOriginalPath": "variants/grouped/cam/lower-panel-black-hasl/drc.json",
+    "camFiles": [
+      {
+        "name": "lower-panel-black-hasl-B_Cu.gbl",
+        "sha256": "08869ebb16e6a99813d4066d1f5fa7c84516c5332a8679f39d40a7c540055bf0"
+      },
+      {
+        "name": "lower-panel-black-hasl-B_Mask.gbs",
+        "sha256": "de0280c52dbaee36cef20cfef1e90799a7c8dc0b002b2f874256cc4e5cc29052"
+      },
+      {
+        "name": "lower-panel-black-hasl-Edge_Cuts.gm1",
+        "sha256": "4c13935ce08bb27480f0c16b7ec49af3c54f6713bb5489cfc284a35558228191"
+      },
+      {
+        "name": "lower-panel-black-hasl-F_Cu.gtl",
+        "sha256": "62920ac8cc9e960d11ff07df5da10bcdfbc3ad9a1dc260d1a7453cde539a3fbb"
+      },
+      {
+        "name": "lower-panel-black-hasl-F_Mask.gts",
+        "sha256": "8ef05527808f0f59a5851a05eb39cfaed45d1f1a0b61a5b3e29fe707ba4c7bca"
+      },
+      {
+        "name": "lower-panel-black-hasl-NPTH.drl",
+        "sha256": "b86657a5695a697c1176607f0a5c510b0cf8b996bbbabd39ea8cef8f4aa80671"
+      },
+      {
+        "name": "lower-panel-black-hasl-PTH.drl",
+        "sha256": "5c677019c8c125d77c96af6b8f5c0e3beb308f0a68e4bb61010c1bac9dfdb4d1"
+      },
+      {
+        "name": "lower-panel-black-hasl-User_Drawings.gbr",
+        "sha256": "5457fdc4e351be7a6de5b0720da4ad2d6c100eed3267ba3501c7047013f6f330"
+      }
+    ],
+    "zip": {
+      "path": "variants/split-red/cam/lower-panel-black-hasl.zip",
+      "sha256": "f2fa2d04ed35ba3995de378076eab9c5999189fcde2cd635fc6bb34d69295783",
+      "sizeBytes": 148235
+    },
+    "scoreGerber": "lower-panel-black-hasl-User_Drawings.gbr",
+    "scoreCount": 6,
+    "preview": "variants/split-red/lower-panel-black-hasl.png"
+  },
+  {
+    "id": "lower-panel-red-hasl-six",
+    "status": "pass_local_native_drc_cam",
+    "nativePartition": {
+      "edgeSegments": 47813,
+      "apertureLoops": 164,
+      "sheetMaterialConnected": true,
+      "frontCopperPolygons": 0,
+      "frontMaskPolygons": 0,
+      "npthMounts": 24
+    },
+    "drcReportSha256": "01e3c2a7d179c7ac6543ffa7fca7d55fb9b361f4c55e51bccc4a620a04344e34",
+    "nativeBoardSha256": "6881032bb2889cac631895292c8bd92b7b388eda26ac8c529189ea2245e2199f",
+    "drcReused": false,
+    "drcOriginalPath": "variants/split-red/cam/lower-panel-red-hasl-six/drc.json",
+    "camFiles": [
+      {
+        "name": "lower-panel-red-hasl-six-B_Cu.gbl",
+        "sha256": "a96caef6783dcf7d6913d5f20424c4e255971f18d9c59082c14fbeda9a30af20"
+      },
+      {
+        "name": "lower-panel-red-hasl-six-B_Mask.gbs",
+        "sha256": "e2f0359079f8357143d86b4baf9fb818438fe6cac69cf6045ab34470edc64182"
+      },
+      {
+        "name": "lower-panel-red-hasl-six-Edge_Cuts.gm1",
+        "sha256": "fe64dae2956163d6dd2dd6f48d612639d5a580f0992fb984bc6bf9291baa0840"
+      },
+      {
+        "name": "lower-panel-red-hasl-six-F_Cu.gtl",
+        "sha256": "70a79d114693197cc760dff26ef1c13509ca390fb0528b369843b9a0f89a8955"
+      },
+      {
+        "name": "lower-panel-red-hasl-six-F_Mask.gts",
+        "sha256": "8aae7a8017605bc473e34f3924328c94a17367f0712894ab79e6ac34f413ad97"
+      },
+      {
+        "name": "lower-panel-red-hasl-six-NPTH.drl",
+        "sha256": "6e39f4acfd4482bd6babdff4f1cd5d41afcb709ace274d13d7efd6f809187d0f"
+      },
+      {
+        "name": "lower-panel-red-hasl-six-PTH.drl",
+        "sha256": "0f2231cca1453b131ccf114718d713e0ef6422628f35c754478e8406431dce9a"
+      },
+      {
+        "name": "lower-panel-red-hasl-six-User_Drawings.gbr",
+        "sha256": "ee25c193b43d99c4ec3641443e2153ed90e9c09dc3c4d1ac5266024a00567537"
+      }
+    ],
+    "zip": {
+      "path": "variants/split-red/cam/lower-panel-red-hasl-six.zip",
+      "sha256": "55aed0625783b40b204cb0c7317c1b81000a152986f2aa3fa9dabbc691004e64",
+      "sizeBytes": 526932
+    },
+    "scoreGerber": "lower-panel-red-hasl-six-User_Drawings.gbr",
+    "scoreCount": 7,
+    "preview": "variants/split-red/lower-panel-red-hasl-six.png"
+  },
+  {
+    "id": "lower-panel-red-hasl-fault",
+    "status": "pass_local_native_drc_cam",
+    "nativePartition": {
+      "edgeSegments": 18915,
+      "apertureLoops": 6,
+      "sheetMaterialConnected": true,
+      "frontCopperPolygons": 0,
+      "frontMaskPolygons": 0,
+      "npthMounts": 16
+    },
+    "drcReportSha256": "4c6afa42598f4411d9ecc56bcab0ebec58f34b05e9c068f58cb6bc19d7ceb6a0",
+    "nativeBoardSha256": "835be8aefd55454e49a75c17d02cee4442a5832621f79b446f1cfb74fbdcb921",
+    "drcReused": false,
+    "drcOriginalPath": "variants/split-red/cam/lower-panel-red-hasl-fault/drc.json",
+    "camFiles": [
+      {
+        "name": "lower-panel-red-hasl-fault-B_Cu.gbl",
+        "sha256": "f1ec128f6f60751a86c34e23bb4f78515e5c6e7f5f79843a16862b5fa3e8fb28"
+      },
+      {
+        "name": "lower-panel-red-hasl-fault-B_Mask.gbs",
+        "sha256": "5604dfe5dcfb988ff9b5f76ab3591dbb58796719ecf5bd26c29cb72f96416919"
+      },
+      {
+        "name": "lower-panel-red-hasl-fault-Edge_Cuts.gm1",
+        "sha256": "3ee8ce2016e2f798d1a9bb4357eb5916a950526ac43b6128f6eb57227dbab4b4"
+      },
+      {
+        "name": "lower-panel-red-hasl-fault-F_Cu.gtl",
+        "sha256": "0f99e3f7a9530582baca8bc8cad25f006bf9397895d6ba0abb411cd2620dff00"
+      },
+      {
+        "name": "lower-panel-red-hasl-fault-F_Mask.gts",
+        "sha256": "7808c02dfa2a34f4c427de08a699993b3c8440ab15369a9f35c3639577b2aad8"
+      },
+      {
+        "name": "lower-panel-red-hasl-fault-NPTH.drl",
+        "sha256": "985469b4644ad594d48401c3d150d7c6baedece536ff7c91546737712158ba53"
+      },
+      {
+        "name": "lower-panel-red-hasl-fault-PTH.drl",
+        "sha256": "b9c8e5cb823bc2095071a7f6cd2d48f1b4353fd3fbb25e9aeb3b9136bc3932c4"
+      },
+      {
+        "name": "lower-panel-red-hasl-fault-User_Drawings.gbr",
+        "sha256": "64d08249b74515b780d7955f6e590e74f4bd704c66c6c08edaed349b2f495d9b"
+      }
+    ],
+    "zip": {
+      "path": "variants/split-red/cam/lower-panel-red-hasl-fault.zip",
+      "sha256": "52ac8fbfaa10e1281a494f20d123a166ec9fcc6f876507507ec0ed84aad68948",
+      "sizeBytes": 221575
+    },
+    "scoreGerber": "lower-panel-red-hasl-fault-User_Drawings.gbr",
+    "scoreCount": 6,
+    "preview": "variants/split-red/lower-panel-red-hasl-fault.png"
+  }
+]

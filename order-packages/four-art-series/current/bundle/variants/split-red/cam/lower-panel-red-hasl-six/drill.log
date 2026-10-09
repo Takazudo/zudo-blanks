@@ -1,0 +1,8 @@
+COMMAND /tmp/art-order-kicad.pF1J2o pcb export drill --format excellon --drill-origin absolute --excellon-units mm --excellon-zeros-format decimal --excellon-oval-format route --excellon-separate-th --output /tmp/art-order-37833323671-1/variants/split-red/cam/lower-panel-red-hasl-six/cam/ /tmp/art-order-37833323671-1/variants/split-red/native/lower-panel-red-hasl-six/lower-panel-red-hasl-six.kicad_pcb
+EXIT 0
+STDOUT
+Created file '/tmp/art-order-37833323671-1/variants/split-red/cam/lower-panel-red-hasl-six/cam/lower-panel-red-hasl-six-PTH.drl'
+Created file '/tmp/art-order-37833323671-1/variants/split-red/cam/lower-panel-red-hasl-six/cam/lower-panel-red-hasl-six-NPTH.drl'
+Done.
+
+STDERR

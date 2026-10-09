@@ -12,6 +12,7 @@ on:
       - 'panels/art-kumiko-void/**'
       - 'panels/art-spider-nest/**'
       - 'scripts/art-order/**'
+      - 'order-packages/four-art-series/**'
       - '.github/workflows/art-order-packages.yml'
   workflow_dispatch:
     inputs:
@@ -21,6 +22,10 @@ on:
         required: true
         default: four-art-series
         options: [four-art-series]
+      upload_bundle:
+        description: Temporarily upload a verified bundle for explicit Git retention
+        type: boolean
+        default: false
       variant:
         description: Package alternative
         type: choice
@@ -68,9 +73,15 @@ jobs:
       - name: Focused manufacturing regression checks
         run: |
           set -o pipefail
-          for suite in test_lower_panels.py test_native_cam.py test_order_profiles.py test_order_packages.py; do
+          for suite in test_lower_panels.py test_native_cam.py test_order_profiles.py test_order_packages.py test_retained_order_bundle.py; do
             python -m unittest discover -s artwork-resources/pcb-art/manufacturing/tests -p "$suite" -v
           done 2>&1 | tee "$RUNNER_TEMP/art-order-logs/tests.log"
+      - name: Verify the order snapshot retained in Git
+        run: |
+          python artwork-resources/pcb-art/manufacturing/retain_order_bundle.py \
+            --verify-saved order-packages/four-art-series/current \
+            --expected-source 27481603195bb1318a0086d119294a5725dd36a0 \
+            --expected-run-id 37833323671
       - name: Build and verify actual native and CAM packages
         id: packages
         run: |
@@ -87,15 +98,15 @@ jobs:
               --expected-source "$GITHUB_SHA" --expected-run-id "$GITHUB_RUN_ID" \
             2>&1 | tee "$RUNNER_TEMP/art-order-logs/verify-bundle.log"
       - name: Upload complete verified package
-        if: success() && steps.packages.outcome == 'success'
+        if: success() && steps.packages.outcome == 'success' && github.event_name == 'workflow_dispatch' && inputs.upload_bundle
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: art-order-${{ env.PROFILE }}-${{ env.VARIANT }}-${{ github.run_id }}-${{ github.run_attempt }}
           path: ${{ env.PACKAGE_OUTPUT }}/
           if-no-files-found: error
-          retention-days: 30
-      - name: Upload diagnostics even on failure
-        if: always()
+          retention-days: 3
+      - name: Upload diagnostics on failure
+        if: failure()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: art-order-diagnostics-${{ github.run_id }}-${{ github.run_attempt }}
@@ -105,4 +116,4 @@ jobs:
             ${{ env.PACKAGE_OUTPUT }}/**/drc.json
             ${{ env.PACKAGE_OUTPUT }}/logs/
           if-no-files-found: warn
-          retention-days: 30
+          retention-days: 3

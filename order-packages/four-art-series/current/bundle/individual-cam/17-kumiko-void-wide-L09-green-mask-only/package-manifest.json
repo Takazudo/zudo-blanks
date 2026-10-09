@@ -1,0 +1,46 @@
+{
+  "boardId": "17-kumiko-void-wide-L09-green-mask-only",
+  "category": "selected",
+  "sourceNativeBoardSha256": "51fd616c6d622e5eb844a5f865a4b4842a704e9a369e3c6c6da7adb1814829f2",
+  "finish": "Lead-free HASL",
+  "maskColor": "green",
+  "camFiles": [
+    {
+      "name": "17-kumiko-void-wide-L09-green-mask-only-B_Cu.gbl",
+      "sha256": "ec79ab5fd79113fc147569813a298f86672f8d94bacd37eaf6f7ec4cc6d2c89d",
+      "sizeBytes": 485
+    },
+    {
+      "name": "17-kumiko-void-wide-L09-green-mask-only-B_Mask.gbs",
+      "sha256": "4a61ecbc28ea0827d31319948a5abdac1fdd94b6da9246b3aa93d2e36807c588",
+      "sizeBytes": 666
+    },
+    {
+      "name": "17-kumiko-void-wide-L09-green-mask-only-Edge_Cuts.gm1",
+      "sha256": "f20c4dbd131d9ca03a0ff166c690c20ef19195eb6286c451b802db9a51c27646",
+      "sizeBytes": 683
+    },
+    {
+      "name": "17-kumiko-void-wide-L09-green-mask-only-F_Cu.gtl",
+      "sha256": "a3123e7f28db448361d09fb52ee6782279da6f7504ec5d1aed708395e1e1e6db",
+      "sizeBytes": 485
+    },
+    {
+      "name": "17-kumiko-void-wide-L09-green-mask-only-F_Mask.gts",
+      "sha256": "747d4013453abba50fdc0bf945fe373ea306827c57ae4d4d648f674c6a2b6e44",
+      "sizeBytes": 666
+    },
+    {
+      "name": "17-kumiko-void-wide-L09-green-mask-only-NPTH.drl",
+      "sha256": "487926fa97a66684209ee21566dbbd6a0d78a2c56e6d905b2ce8625f01fc9fba",
+      "sizeBytes": 376
+    },
+    {
+      "name": "17-kumiko-void-wide-L09-green-mask-only-job.gbrjob",
+      "sha256": "c7d1473ed69a6fe2b0d7e966b0b67ed0626e841503758fb5fcde717d19a28dde",
+      "sizeBytes": 2171
+    }
+  ],
+  "pthDrillFile": "empty; not included in release package",
+  "status": "local CAM review candidate; factory acceptance pending"
+}

@@ -46,3 +46,7 @@ The migration used `create-zudo-doc@5.26.5` (`pnpm create zudo-doc /tmp/zblanks-
 | `/` at the Netlify site root | `/pj/zblanks/` | Netlify 301 redirect |
 
 The catalog, manufacturing, workflow, and Claude sections are new. The final catalog content is maintained with the corresponding panel work.
+
+## Saved PCB art order candidates
+
+[Open the four-series PCB files, previews and order ZIPs](order-packages/four-art-series/current/README.md). The saved ordinary-Git snapshot includes individual, grouped red-ten and split-red six-plus-four alternatives for Coral Vault, Fault Line, Kumiko Void wide and Spider Nest. Choose one order list; prices and factory approval remain pending.
