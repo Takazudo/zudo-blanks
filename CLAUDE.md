@@ -29,6 +29,7 @@ For the full file structure documentation, see `/doc/src/content/docs/overview/f
 - `/symbols/` - **Shared KiCad symbol library** (minimal)
 - `/artwork-resources/` - **Source artwork files** (AI, SVG)
 - `/jlcpcb-order-snapshots/` - **JLCPCB order history** (`{date}-{panel}/`)
+- `/order-packages/four-art-series/ordered/` - Frozen completed four-series order deliverables and provenance; source/generation material remains in panels and artwork-resources
 - `/doc/` - **zudo-doc documentation site**
 - `/__inbox/` - **Temporary files** (gitignored)
 

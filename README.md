@@ -49,4 +49,4 @@ The catalog, manufacturing, workflow, and Claude sections are new. The final cat
 
 ## Saved PCB art order candidates
 
-[Open the four-series PCB files, previews and order ZIPs](order-packages/four-art-series/current/README.md). The saved ordinary-Git snapshot includes individual, grouped red-ten and split-red six-plus-four alternatives for Coral Vault, Fault Line, Kumiko Void wide and Spider Nest. Choose one order list; prices and factory approval remain pending.
+[Open the completed four-series order](order-packages/four-art-series/ordered/README.md): Coral Vault, Fault Line, Kumiko Void wide and Spider Nest, with compact grouped lowers and the red6+4 split. The owner reported completion on 2026-10-10 JST: 25 stacks per series, 100 artworks / 850 useful PCB pieces, 13 lines at quantity 25. The retained fabrication files are committed in ordinary Git. The last verified quote was ¥204,169 (¥189,963 manufacturing + ¥14,206 shipping); this is not a receipt or final paid amount.

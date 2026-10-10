@@ -2,9 +2,9 @@
 
 This directory contains the retained source, immutable revision references, compact review evidence, and regeneration tools for the five layered 20HP PCB art panels. The 52 original native board IDs are preserved in pcb/manifest.json and pcb/manifest.csv.
 
-## Current four-series order files
+## Completed four-series order
 
-[Open saved KiCad boards, CAM previews and order ZIPs](../../order-packages/four-art-series/current/README.md). This ordinary-Git snapshot preserves the three verified four-series alternatives from PR #24. The source/history below also includes Woven Maze and standard Kumiko; those are excluded from the saved four-series order lists.
+[Open the completed four-series order](../../order-packages/four-art-series/ordered/README.md). The owner reported completion on 2026-10-10 JST: compact grouped lowers with red6+4, 25 stacks per series, 13 lines each quantity 25. Exact fabrication bytes from PR #24 / storage PR #26 remain in ordinary Git; abandoned candidate exports were removed. The source/history below also includes Woven Maze and standard Kumiko, outside the completed order.
 
 ## Panel homes
 

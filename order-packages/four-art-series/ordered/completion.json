@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "status": "owner-reported-completed",
+  "reportedCompletionDate": "2026-10-10",
+  "reportedCompletionTimezone": "Asia/Tokyo",
+  "acceptedChoice": "B: compact grouped lowers, red6+4",
+  "variant": "split-red",
+  "stacksPerSeries": 25,
+  "completeArtworks": 100,
+  "usefulPcbPieces": 850,
+  "lastVerifiedQuote": {
+    "currency": "JPY",
+    "total": 204169,
+    "manufacturing": 189963,
+    "shipping": 14206,
+    "basis": "Delegated user context; quote only, not a receipt or final paid amount"
+  },
+  "evidenceLimits": "No receipt, order ID, actual order timestamp, payment details or local quote files supplied. Completion date is the date of the owner report. Original run evidence describes pre-order local verification, not supplier approval or physical fit.",
+  "sourceCommit": "27481603195bb1318a0086d119294a5725dd36a0",
+  "runId": "37833323671",
+  "retainedFromCommit": "daca5d44e5b6ec382481a1c1e9a3e634b04381ea",
+  "packages": [
+    {
+      "id": "lower-panel-white-hasl",
+      "quantity": 25,
+      "path": "variants/split-red/cam/lower-panel-white-hasl.zip",
+      "sha256": "ac27018ef60cd6d8eac8d7790ba7f12ee7dc2a1e5f6e7b356139dbc94d7f9d1c",
+      "sizeBytes": 246151
+    },
+    {
+      "id": "lower-panel-black-enig",
+      "quantity": 25,
+      "path": "variants/split-red/cam/lower-panel-black-enig.zip",
+      "sha256": "04ffc4ceb58f5a15ff0eee2e1a6457416b94baf86417fb1b980c19d2cd4cff41",
+      "sizeBytes": 5465371
+    },
+    {
+      "id": "lower-panel-green-hasl",
+      "quantity": 25,
+      "path": "variants/split-red/cam/lower-panel-green-hasl.zip",
+      "sha256": "5da05be77f481085cb960fcbc73bebb4e07418cdfc5cda88d7aad4a70e3aa67b",
+      "sizeBytes": 418861
+    },
+    {
+      "id": "03-coral-vault-L03-purple-mask-only",
+      "quantity": 25,
+      "path": "packages/03-coral-vault-L03-purple-mask-only.zip",
+      "sha256": "c7183b8ab52c8ccacf0cdb91d6ec731fa59625c67af916058957da6a8f4fbea0"
+    },
+    {
+      "id": "03-coral-vault-L06-yellow-mask-only",
+      "quantity": 25,
+      "path": "packages/03-coral-vault-L06-yellow-mask-only.zip",
+      "sha256": "5418e8f51f80ad59904af98058e12a0adb7b67b6c881bcd345207cd2c3afac32"
+    },
+    {
+      "id": "03-coral-vault-L08-blue-mask-only",
+      "quantity": 25,
+      "path": "packages/03-coral-vault-L08-blue-mask-only.zip",
+      "sha256": "1dc65217a233e4aed5ee564b57f6171036a46b38dbdbef5f8f2c1b1e5c639d7c"
+    },
+    {
+      "id": "lower-panel-black-hasl",
+      "quantity": 25,
+      "path": "variants/split-red/cam/lower-panel-black-hasl.zip",
+      "sha256": "f2fa2d04ed35ba3995de378076eab9c5999189fcde2cd635fc6bb34d69295783",
+      "sizeBytes": 148235
+    },
+    {
+      "id": "lower-panel-red-hasl-six",
+      "quantity": 25,
+      "path": "variants/split-red/cam/lower-panel-red-hasl-six.zip",
+      "sha256": "55aed0625783b40b204cb0c7317c1b81000a152986f2aa3fa9dabbc691004e64",
+      "sizeBytes": 526932
+    },
+    {
+      "id": "lower-panel-red-hasl-fault",
+      "quantity": 25,
+      "path": "variants/split-red/cam/lower-panel-red-hasl-fault.zip",
+      "sha256": "52ac8fbfaa10e1281a494f20d123a166ec9fcc6f876507507ec0ed84aad68948",
+      "sizeBytes": 221575
+    },
+    {
+      "id": "01-spider-nest-L01-black-enig-art",
+      "quantity": 25,
+      "path": "packages/01-spider-nest-L01-black-enig-art.zip",
+      "sha256": "69faaff501ca0a2abb8691fe88550031cf10b0b6fc3d931f4b6efe02db18026d"
+    },
+    {
+      "id": "03-coral-vault-L01-black-enig-art",
+      "quantity": 25,
+      "path": "packages/03-coral-vault-L01-black-enig-art.zip",
+      "sha256": "6f936116ff478d05319f47b4dd12f654c4de4bfe9e642ee70474c1fc69b589fd"
+    },
+    {
+      "id": "13-fault-line-L01-black-enig-art",
+      "quantity": 25,
+      "path": "packages/13-fault-line-L01-black-enig-art.zip",
+      "sha256": "7ca7f2555f6fd94b247a50303511213cf3bf76870f7ef4466e802fd1bd3e88df"
+    },
+    {
+      "id": "17-kumiko-void-wide-L01-black-enig-art",
+      "quantity": 25,
+      "path": "packages/17-kumiko-void-wide-L01-black-enig-art.zip",
+      "sha256": "dbad05872e9ebeb60039b93d3f471ea3d386c31a9753ce8739ddb06237cbce62"
+    }
+  ]
+}
