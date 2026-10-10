@@ -109,7 +109,10 @@ def rotate_drc_witness_loops(items, native, board_id, extra_witnesses=()):
     return items
 
 
-def build(output=OUT, *, profile=None, variant="grouped", evidence_path=None):
+def build(output=OUT, *, profile=None, variant=None, evidence_path=None):
+    variant = variant or ("split-red" if profile else "grouped")
+    if output.resolve().is_relative_to(ROOT / "order-packages"):
+        raise ValueError("Completed order archives cannot be generation outputs")
     policy = json.loads(POLICY.read_text())
     manifest = json.loads(PCB_MANIFEST.read_text())
     generation = json.loads(GENERATION.read_text())
@@ -227,9 +230,9 @@ def build(output=OUT, *, profile=None, variant="grouped", evidence_path=None):
 
 if __name__ == "__main__":
     parser=argparse.ArgumentParser()
-    parser.add_argument("--output",type=Path,default=OUT)
+    parser.add_argument("--output",type=Path)
     parser.add_argument("--profile",type=Path)
-    parser.add_argument("--variant",choices=("individual","grouped","split-red"),default="grouped")
+    parser.add_argument("--variant",choices=("individual","grouped","split-red"),default=None)
     parser.add_argument("--evidence-path",type=Path)
     args=parser.parse_args()
-    print(json.dumps(build(args.output, profile=args.profile, variant=args.variant, evidence_path=args.evidence_path),indent=2))
+    print(json.dumps(build(args.output or (ROOT / "artwork-resources/pcb-art/generated/four-art-series-lowers" if args.profile else OUT), profile=args.profile, variant=args.variant or ("split-red" if args.profile else "grouped"), evidence_path=args.evidence_path),indent=2))

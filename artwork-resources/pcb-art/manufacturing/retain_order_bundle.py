@@ -10,7 +10,7 @@ import shutil
 import tempfile
 import zipfile
 
-from order_packages import safe_path, sha, verify_bundle
+from order_packages import ROOT, safe_path, sha, verify_bundle
 
 def local_editor_state(path):
     return (path.suffix in ('.kicad_prl', '.lck') or path.name == '.DS_Store'
@@ -140,6 +140,8 @@ See [the storage/update procedure](../../../scripts/art-order/README.md#ordinary
 
 
 def retain(bundle, destination, expected_source, expected_run_id):
+    if destination.resolve().is_relative_to(ROOT / 'order-packages'):
+        raise ValueError('Retain development candidates in ignored staging, not completed order storage')
     verification = verify_bundle(bundle, expected_source, expected_run_id)
     if verification['variants'] != ['individual', 'grouped', 'split-red']:
         raise ValueError('Retain all three alternatives together')

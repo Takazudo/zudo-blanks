@@ -8,6 +8,7 @@ sidebar_position: 3
 - [`artwork-resources/pcb-art/manufacturing`](https://github.com/Takazudo/zudo-blanks/tree/main/artwork-resources/pcb-art/manufacturing) holds the fabrication policy, indexed corrections, local validation, native/CAM and package records.
 - [`artwork-resources/pcb-art/resources`](https://github.com/Takazudo/zudo-blanks/tree/main/artwork-resources/pcb-art/resources) holds comparison images, review inputs and order planning sources.
 - [`footprints/`](https://github.com/Takazudo/zudo-blanks/tree/main/footprints) and [`symbols/`](https://github.com/Takazudo/zudo-blanks/tree/main/symbols) hold shared KiCad libraries.
+- [`order-packages/four-art-series/ordered/`](https://github.com/Takazudo/zudo-blanks/tree/main/order-packages/four-art-series/ordered) holds the frozen completed order, original fabrication bytes, completion report and provenance. Generators and original native designs remain in the source directories above.
 - `doc/` is the zudo-doc site. Its `public/assets` tree stages web copies from the canonical source data.
 - [`.claude/skills/panel-preview`](https://github.com/Takazudo/zudo-blanks/tree/main/.claude/skills/panel-preview) documents preview maintenance for future panels.
 

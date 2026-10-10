@@ -1,37 +1,21 @@
 ---
-title: Package and Order Planning
+title: Completed Four-Series Order
 sidebar_position: 4
 ---
 
-The current quote candidates select **Coral Vault, Fault Line, Kumiko Void wide and Spider Nest**: exactly 34 source boards, with four individually routed cosmetic tops and 30 lowers. Strip Mine has already been ordered and is outside this selection. Woven Maze and standard Kumiko remain historical/reference sources.
+The owner reported the four-series order completed on **2026-10-10 JST**. Accepted choice **B** uses compact grouped lowers with the **red6+4 split**, at **25 complete stacks each** of Coral Vault, Fault Line, Kumiko Void **wide**, and Spider Nest: **100 artworks / 850 useful PCB pieces**, from **13 cart lines, each quantity 25**.
 
-The [four-series profile](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/manufacturing/order-profiles/four-art-series.json) and [build/download guide](https://github.com/Takazudo/zudo-blanks/blob/main/scripts/art-order/README.md) define three alternatives. Choose **one** alternative's order list; never purchase every ZIP in the bundle.
+[Open the completed order archive](https://github.com/Takazudo/zudo-blanks/blob/main/order-packages/four-art-series/ordered/README.md) for the exact native boards, CAM previews, order ZIPs, quantity/settings table and provenance. These fabrication bytes are retained unchanged in ordinary Git. Individual-board baseline and red10 generated candidates have been removed; historical source profiles remain reproducible in Git history and the generators.
 
-| Alternative, 25 stacks per series | Order lines | Sheets / standalone units | Useful pieces | Blank cells |
-| --- | ---: | ---: | ---: | ---: |
-| Individual boards | 34 | 850 | 850 | 0 |
-| Grouped, one ten-member red sheet | 12 | 300 | 850 | 50 |
-| Split-red, six plus four | 13 | 325 | 850 | 0 |
+The last verified quote was **¥204,169 = ¥189,963 manufacturing + ¥14,206 shipping**. It is a quote, **not a receipt or final paid amount**. No order ID, actual transaction timestamp, receipt or payment details were supplied. The date above records the owner's completion report. This page does not request another purchase.
 
-All alternatives supply 100 complete stacks, comprising 100 top and 750 lower pieces. Requested hardware totals are 400 screws, 3,000 spacers and 400 nuts; dimensions and fit assumptions remain unchanged. Profile quantities can be adjusted per series. Supply rounds up to configured supplier sheet quantities and explicitly reports surplus per board ID and complete-stack yield. Confirm offered quantities with the quote.
+Exactly 34 native source boards comprise four unchanged, individually routed cosmetic tops and 30 lowers. Black ENIG and black lead-free HASL remain separate. Purple, yellow and blue lowers stay individual. The red six-member sheet contains Spider L08, Coral L05/L07 and Kumiko wide L02/L05/L08; the four-member sheet contains Fault L02/L04/L06/L08. The adopted layout has no blank cells or surplus.
 
-| Lower group | Compact grid | Sheet dimensions, mm |
-| --- | --- | --- |
-| White lead-free HASL, 3 members | 1 × 3 | 111.3 × 292.9 |
-| Black ENIG, 6 members | 3 × 2 | 313.9 × 198.6 |
-| Green lead-free HASL, 4 members | 2 × 2 | 212.6 × 198.6 |
-| Black lead-free HASL, 4 members | 2 × 2 | 212.6 × 198.6 |
-| Red lead-free HASL, 10 members | 3 × 4 | 313.9 × 387.2 |
-| Split red, 6 members | 2 × 3 | 212.6 × 292.9 |
-| Split red, Fault Line's 4 members | 2 × 2 | 212.6 × 198.6 |
+Original artwork, apertures, mounting holes and stack geometry remain unchanged. Lower sheets use translation-only placement and 5 mm rails. Scores are separate fabrication drawings; decorative apertures remain routed. FR-4, 1.6 mm, two copper layers, 1 oz and the original color/finish conditions are preserved. The archive contains the exact settings, DRC/CAM evidence, placements, source/tool/run hashes and nominal stack-side previews.
 
-Purple, yellow and blue remain individual lower boards. Color **and** finish determine compatibility: black ENIG is separate from black HASL. The red six-member sheet holds Spider L08, Coral L05/L07 and Kumiko wide L02/L05/L08. The four-member red sheet holds Fault L02/L04/L06/L08. The split has no blank cells and is the preferred compact candidate for quotation, not a proven cheaper option.
+[Verification and development tools](https://github.com/Takazudo/zudo-blanks/blob/main/scripts/art-order/README.md) distinguish the frozen completed archive from fresh ignored exports. PR checks verify the archive without regenerating unchanged fabrication bytes. Original pre-order run records retain their then-pending factory checks; local native/CAM verification does not establish supplier approval or physical-fit evidence.
 
-Native source artwork, apertures, mounting holes and stack geometry remain unchanged. Lower sheets use translation-only placement and 5 mm rails. Scores use a separate fabrication drawing; decorative apertures remain routed. Tops retain their finished routed edges and rail slots. The workflow checks actual native/CAM outputs and includes individual/placement previews, nominal stack-side views, DRC logs, package hashes and source/tool/run provenance.
-
-The read-only Actions workflow runs the same checked-in entry point used locally. The [guide](https://github.com/Takazudo/zudo-blanks/blob/main/scripts/art-order/README.md) explains exact-run artifact downloads and checksum/inventory verification. Each variant includes its own purchasing table and machine-readable manifest. The artifact records the PR merge commit as the tested source, with head/base SHAs separately. Later relevant edits need fresh evidence.
-
-Prices and engineering/design, routing/scoring, ENIG, area, shipping and tax charges remain **unknown** until an actual dated quote. Blank cells exclude rails and cutouts. Fewer sheets or order lines do not establish savings. Factory CAM/scoring approval, residual score-web depth, perforated-sheet support, side-edge appearance, finish availability and physical stack/fastener fit remain external checks. Native DRC is not factory approval; these candidates are not a purchase commitment.
+Strip Mine remains a separate already ordered project with all files and prior order documentation preserved. Woven Maze and standard Kumiko remain historical/reference sources.
 
 ## Historical five-series plan
 
