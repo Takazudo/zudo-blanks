@@ -47,6 +47,8 @@ try {
     const before = await page.evaluate(() => ({ url: location.href, y: scrollY, toc: [...document.querySelectorAll('[data-zd-toc] a')].map(a => a.getAttribute('href')) }));
     const focus = page.locator('[data-sidebar-focus][aria-label="Show only this branch: Artwork families"]:visible').first(); await focus.waitFor(); await focus.click(); await settle();
     await page.locator('[data-sidebar-broaden]:visible').first().click(); await settle();
+    // Broadening this branch reaches the page's baseline tree, so focus it again to exercise Restore.
+    await page.locator('[data-sidebar-focus][aria-label="Show only this branch: Artwork families"]:visible').first().click(); await settle();
     await page.locator('[data-sidebar-restore]:visible').first().click(); await settle();
     const after = await page.evaluate(() => ({ url: location.href, y: scrollY, toc: [...document.querySelectorAll('[data-zd-toc] a')].map(a => a.getAttribute('href')) }));
     assert.deepEqual(after, before); await shot('sidebar-restored');
