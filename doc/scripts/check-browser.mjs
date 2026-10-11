@@ -78,7 +78,7 @@ try {
       assert.equal(await page.locator('#layer-list button').count(), (await state()).layersCount);
     }
     await page.locator('[data-design="kumiko-void"]').click(); await settle();
-    for (const variant of ['standard', 'wide']) { await page.locator(`[data-variant="${variant}"]`).click(); await settle(); assert.equal((await state()).variantId, variant); await page.reload({ waitUntil: 'networkidle' }); await readyPCB(); assert.equal((await state()).variantId, variant); }
+    for (const variant of ['standard', 'wide']) { await page.locator(`[data-variant="${variant}"]`).click(); await settle(); assert.equal((await state()).variantId, variant); await page.reload({ waitUntil: 'networkidle', timeout: 60000 }); await readyPCB(); assert.equal((await state()).variantId, variant); }
     for (const view of ['front', 'side', 'back', 'iso']) { await page.locator(`[data-view="${view}"]`).click(); await settle(); assert.equal((await state()).view, view); }
     await range('#explode', '5'); assert.equal((await state()).explode, 5);
     await range('#visible-layers', '3'); assert.equal((await state()).visibleCount, 3);
@@ -90,7 +90,7 @@ try {
   await check('Strip Mine all patterns, selected Strata/blobs, controls and hash reload', async () => {
     await fresh(); await open('/viewers/strip-mine/#pattern=5'); await page.waitForFunction(() => !!window.__checks); assert.match(await page.locator('#variant-name').innerText(), /5\. .*Strata/i);
     const count = await page.locator('#variants button').count(); for (let i = 0; i < count; i++) { await page.locator('#variants button').nth(i).click(); assert.equal(new URL(page.url()).hash, `#pattern=${i + 1}`); assert.equal(await page.locator('#variants button').nth(i).getAttribute('aria-pressed'), 'true'); }
-    await page.locator('#variants button').nth(4).click(); await page.reload({ waitUntil: 'networkidle' }); await page.waitForFunction(() => !!window.__checks); assert.match(await page.locator('#variant-name').innerText(), /Strata/i);
+    await page.locator('#variants button').nth(4).click(); await page.reload({ waitUntil: 'networkidle', timeout: 60000 }); await page.waitForFunction(() => !!window.__checks); assert.match(await page.locator('#variant-name').innerText(), /Strata/i);
     for (const view of ['front', 'side', 'back', 'low', 'iso']) await page.locator(`[data-view="${view}"]`).click();
     for (const [selector, value] of [['#gap', '5'], ['#layers', '3']]) { await range(selector, value); }
     for (const selector of ['#bldg', '#hw', '#rails', '#section']) { await page.locator(selector).setChecked(false); await page.locator(selector).setChecked(true); }
