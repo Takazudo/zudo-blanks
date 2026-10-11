@@ -1,0 +1,71 @@
+---
+title: 3D & Files
+description: Explore layered PCB scenes and selected mechanical model downloads.
+wide: true
+hide_toc: true
+---
+
+Rotate a complete stack, separate the layers, and compare the visual alternatives. Each scene opens on demand; this index uses static posters so it does not start six WebGL contexts.
+
+The five-design collection uses frozen Revision 5 preview geometry. These visual models are distinct from manufacturing-adjusted native boards and the completed order archive. A rendered scene is not evidence of physical fit or factory acceptance.
+
+<div class="panel-grid">
+  <article class="panel-card">
+    <a href="/viewers/pcb-art/?design=spider-nest"><img src="/assets/panels/art-spider-nest.png" alt="Spider Nest layered panel poster" loading="lazy" /></a>
+    <h2>Spider Nest</h2>
+    <p>Eight layers form an irregular web above a red back board.</p>
+    <p><a href="/viewers/pcb-art/?design=spider-nest">Open 3D scene</a> · <a href="/docs/panels/art/spider-nest/">Design and files</a></p>
+  </article>
+  <article class="panel-card">
+    <a href="/viewers/pcb-art/?design=coral-vault"><img src="/assets/panels/art-coral-vault.png" alt="Coral Vault layered panel poster" loading="lazy" /></a>
+    <h2>Coral Vault</h2>
+    <p>Eight layers form flowing nested cavities and gold accents.</p>
+    <p><a href="/viewers/pcb-art/?design=coral-vault">Open 3D scene</a> · <a href="/docs/panels/art/coral-vault/">Design and files</a></p>
+  </article>
+  <article class="panel-card">
+    <a href="/viewers/pcb-art/?design=fault-line"><img src="/assets/panels/art-fault-line.png" alt="Fault Line layered panel poster" loading="lazy" /></a>
+    <h2>Fault Line</h2>
+    <p>Nine layers alternate rounded and angular cliffs.</p>
+    <p><a href="/viewers/pcb-art/?design=fault-line">Open 3D scene</a> · <a href="/docs/panels/art/fault-line/">Design and files</a></p>
+  </article>
+  <article class="panel-card">
+    <a href="/viewers/pcb-art/?design=kumiko-void&amp;variant=wide"><img src="/assets/panels/art-kumiko-void.png" alt="Kumiko Void layered panel poster" loading="lazy" /></a>
+    <h2>Kumiko Void</h2>
+    <p>Nine layers of angular Asanoha lattice. Wide is the selected set; standard is a historical alternative.</p>
+    <p><a href="/viewers/pcb-art/?design=kumiko-void&amp;variant=wide">Wide scene</a> · <a href="/viewers/pcb-art/?design=kumiko-void&amp;variant=standard">Standard scene</a> · <a href="/docs/panels/art/kumiko-void/">Design and files</a></p>
+  </article>
+  <article class="panel-card">
+    <a href="/viewers/pcb-art/?design=woven-maze"><img src="/assets/panels/art-woven-maze.png" alt="Woven Maze layered panel poster" loading="lazy" /></a>
+    <h2>Woven Maze</h2>
+    <p>Nine layers weave distinct lower paths above the black floor.</p>
+    <p><a href="/viewers/pcb-art/?design=woven-maze">Open 3D scene</a> · <a href="/docs/panels/art/woven-maze/">Design and files</a></p>
+  </article>
+  <article class="panel-card">
+    <a href="/viewers/strip-mine/#pattern=5"><img src="/assets/panels/art-strip-mine.png" alt="Strip Mine panel poster" loading="lazy" /></a>
+    <h2>Strip Mine</h2>
+    <p>The separate nine-board scene opens with the selected pattern 5, Strata / blobs.</p>
+    <p><a href="/viewers/strip-mine/#pattern=5">Open 3D scene</a> · <a href="/docs/panels/art/strip-mine/">Design and files</a></p>
+  </article>
+</div>
+
+## Viewer controls
+
+Drag to orbit, scroll to zoom, and use the scene's controls to inspect the stack. The five-design viewer retains design, layer, scene and Kumiko wide/standard controls; its query or hash selects the design and variant. Strip Mine retains its pattern selector and URL hash. Each full-size viewer includes a return link to this index. Dependencies are bundled locally, so no third-party CDN request is needed to open either viewer.
+
+[Browse selected local files](/files/)
+
+## Mechanical model downloads
+
+These selected files are copied byte-for-byte from the editable repository. Their presence does not establish manufacturing readiness. Open the STEP or STL in a compatible CAD/model viewer; FreeCAD is the editable document.
+
+| Family | File and role | Repository source |
+| --- | --- | --- |
+| 3U to 1U adapter | [STEP solid exchange](/assets/models/adapter-3u-to-1u.step) | [Original STEP](https://github.com/Takazudo/zudo-blanks/blob/main/panels/alumi-3u-to-1u-v1/3u-to-1u-v1.step) |
+| Plain 3U 8HP | [STL mesh](/assets/models/plain-3u-8hp.stl) | [Original STL](https://github.com/Takazudo/zudo-blanks/blob/main/panels/alumi-blanks-v1-3U-8hp/3d/panel.stl) |
+| Plain 3U 8HP | [FreeCAD document](/assets/models/plain-3u-8hp.FCStd) | [Original FreeCAD file](https://github.com/Takazudo/zudo-blanks/blob/main/panels/alumi-blanks-v1-3U-8hp/3d/panel.FCStd) |
+
+## Native boards and completed orders
+
+[Browse panel families](/docs/panels/) for every width and revision, editable KiCad files, preview images, and assembly references. Native sources remain in `panels/`; the preview scene does not replace them.
+
+[Manufacturing](/docs/manufacturing/) explains the completed order archive, exact repository downloads, checksums and provenance. Large archive downloads stay on GitHub; the documentation asset index deliberately includes only selected local models, not a second copy of the entire archive.

@@ -1,0 +1,44 @@
+{
+  "sources": {
+    "pcb-art/geometry.json": "00835f3a5db6cec4806d0747d274c7c65dff0e1f0f0a8c79316b488f6e5c870e",
+    "strip-mine/geometry.js": "a8fc7b58b6090cf775bb2dffc1f5fd9518af5352dcad908c0705fd0c30986992"
+  },
+  "files": {
+    "viewers/pcb-art/index.html": {
+      "bytes": 1990934,
+      "sha256": "c0e1b2ca54328693db4b82e58952fa73f33afe0564148c8b97ece6416f1f0623"
+    },
+    "viewers/pcb-art/THIRD_PARTY_NOTICES.txt": {
+      "bytes": 1116,
+      "sha256": "fa5bb163282178a7baf87defb748dbb3cb30b1c5541c19695454044a4ecbe963"
+    },
+    "viewers/strip-mine/index.html": {
+      "bytes": 4876,
+      "sha256": "311d539a0963254b4d7adf8765152b96f453536da668aff06d031ae08acd081c"
+    },
+    "viewers/strip-mine/viewer.js": {
+      "bytes": 543473,
+      "sha256": "d8727ec60a71c2ffcd37063d27ad37c7077e868abd5d31e97e21d14058faa53e"
+    },
+    "viewers/strip-mine/geometry.js": {
+      "bytes": 31404,
+      "sha256": "a8fc7b58b6090cf775bb2dffc1f5fd9518af5352dcad908c0705fd0c30986992"
+    },
+    "viewers/strip-mine/THREE-LICENSE.txt": {
+      "bytes": 1081,
+      "sha256": "4c40a1ef62450b857c3b2aaf294936304cd552d965fbcd9d32d4c5bcf4ba4454"
+    },
+    "assets/models/adapter-3u-to-1u.step": {
+      "bytes": 47121,
+      "sha256": "583be7a2c5d5115bd5df050ef1f59410267c14c3cfc8ca22b4ac94d3d5466e69"
+    },
+    "assets/models/plain-3u-8hp.stl": {
+      "bytes": 52284,
+      "sha256": "5963c93ee5217b9460d259f1a2d1ea23153f777c0da9f9868a3b84b6d6b25ae9"
+    },
+    "assets/models/plain-3u-8hp.FCStd": {
+      "bytes": 9718,
+      "sha256": "364a1c5dc3d056cb2363d0d4b081f2091157eeefb7d021bb7950a9f8f0cad9c8"
+    }
+  }
+}
