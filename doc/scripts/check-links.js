@@ -839,7 +839,8 @@ export async function checkHtmlLinksAndTrailing(
         cache.set(cacheKey, detail);
       }
       if (detail.type === "missing") broken.push({ file: relFile, line, href });
-      if (detail.fragment !== null) {
+      const viewerState = href.split("#")[0].split("?")[0] === "/viewers/strip-mine/" && /^pattern=(?:[1-9]|10)$/.test(detail.fragment ?? "");
+      if (detail.fragment !== null && !viewerState) {
         let reason = detail.fragmentError;
         if (reason === null && detail.type !== "missing" && detail.targetFile !== null && extname(detail.targetFile) === ".html") {
           let ids = idCache.get(detail.targetFile);
@@ -883,6 +884,7 @@ export async function checkMdxLinks(
       const content = await readFile(file, "utf-8");
       for (const { href, line } of extractMdxAbsoluteLinks(content, locales)) {
         if (distDir && await resolveLink(href, distDir, basePath)) continue;
+        if (basePath === "/" && await resolveMdxTarget(file, href, contentDirs, locales, basePath)) continue;
         warnings.push({ file: relative(rootDir, file), line, href });
       }
     }

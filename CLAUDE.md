@@ -6,15 +6,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a hardware project for designing blank panels for modular synthesizers. Unlike circuit-based projects, this contains **no electronic components, no BOM, no circuit design** - just blank PCB panels with mounting holes and optional silkscreen artwork. The panels are designed for manufacturing via JLCPCB.
 
-## Deployment
+## Documentation delivery
 
-The documentation is automatically deployed to Netlify:
-
-- **Production URL**: https://takazudomodular.com/pj/zblanks/
-- **Base Path**: `/pj/zblanks/`
-- **Deployment**: Automatic on every push to `main` branch
-- **Technology**: zudo-doc static site deployed via Netlify CLI on GitHub Actions
-- **Configuration**: See `.github/workflows/main-deploy.yml` for deployment workflow
+The documentation uses published zudo-doc 6 and the Cloudflare Workers Static
+Assets adapter. Its prepared URL is https://zudo-blanks.zudolab.dev with base `/`.
+Validation is credential-free; no automatic remote deployment is configured.
+Production activation is a separate authorized operation restricted to verified
+`main`. See `doc/OPERATIONS.md` and `.github/workflows/docs.yml`.
 
 ## Repository Structure
 
@@ -45,14 +43,11 @@ Use English for all text to ensure international accessibility and collaboration
 
 ## URL Reference Guidelines
 
-When the user provides URLs under `http://localhost:4321/pj/zblanks/` in the conversation:
-
-- **DO NOT fetch the URL** - These are local documentation URLs served by zudo-doc
-- **Instead, find and read the corresponding markdown file** in the `/doc/` directory
-- Map URLs to file paths following zudo-doc routing (note: `/pj/zblanks/` is the base path):
-  - `http://localhost:4321/pj/zblanks/` → `/doc/pages/index.tsx` (home page)
-  - `http://localhost:4321/pj/zblanks/docs/overview/project-overview` → `/doc/src/content/docs/overview/project-overview.md`
-- Use the Read tool to access the actual markdown source files
+Local documentation runs at `http://localhost:4321/`. Read corresponding source
+files rather than fetching a user's localhost URL. `/docs/panels/` maps to
+`doc/src/content/docs/panels/index.mdx`; the homepage uses package-owned home
+components. Historical `/pj/zblanks/` URLs belong to the old host and compatibility
+mapping, never a new asset prefix.
 
 ## File Types
 

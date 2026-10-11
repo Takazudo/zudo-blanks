@@ -19,6 +19,7 @@ export default defineConfig({
     docHistory: true,
     assetViewer: true,
     assetViewerIndex: true,
+    assetViewerExclude: ["panels/**", "pcb-art/**"],
     assetViewerIndexing: false,
     agentExport: false,
     mcp: false,

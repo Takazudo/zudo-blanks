@@ -8,9 +8,16 @@ This project contains KiCad PCB designs for blank panels in various HP widths fo
 
 ## Documentation
 
-- **Documentation site**: Built with zudo-doc
-- **Development**: `cd doc && pnpm install --frozen-lockfile && pnpm dev`
-- **URL**: `http://localhost:4321/pj/zblanks/`
+The zudo-doc 6 site organizes [Panels](doc/src/content/docs/panels/index.mdx),
+[3D & Files](doc/src/content/docs/models/index.mdx),
+[Manufacturing](doc/src/content/docs/manufacturing/index.mdx),
+[Guides](doc/src/content/docs/guides/index.mdx), and
+[About](doc/src/content/docs/overview/index.mdx).
+
+The prepared production URL is https://zudo-blanks.zudolab.dev (activation is
+separate). Develop with `cd doc && pnpm install --frozen-lockfile && pnpm dev` at
+`http://localhost:4321/`. Browse family pages for every width/revision and use the
+3D index for the canonical PCB art and Strip Mine viewers.
 
 ## Repository Structure
 
@@ -28,25 +35,22 @@ This project contains KiCad PCB designs for blank panels in various HP widths fo
 2. Export Gerber files
 3. Order from JLCPCB
 
-## Documentation build and deployment
+## Documentation maintenance and delivery
 
-The site is a static zudo-doc export in `doc/dist/`. GitHub Actions installs the pinned pnpm lockfile with Node 22, checks the docs, builds `dist/`, and stages it at `deploy-dir/pj/zblanks/` for the existing Netlify site. Production remains at https://takazudomodular.com/pj/zblanks/.
+[Operations and activation runbook](doc/OPERATIONS.md) covers frozen installs,
+source/built link and anchor checks, inventory drift, images, viewer and redirect
+checks, generated history, and local built-Worker verification. CI checks the
+actual PR merge target, including stacked PRs and retarget events. Full Git history
+is required. Metadata/content updates reuse committed previews; native rendering
+is separate from ordinary documentation builds.
 
-The migration used `create-zudo-doc@5.26.5` (`pnpm create zudo-doc /tmp/zblanks-zudo-doc-13 --yes --lang en --no-i18n --no-git --no-install --claude-resources`) in a scratch directory. The config keeps the starter defaults except for site identity, base path, repository-scoped Claude resources, navigation, and strict broken-link reporting. `--claude-resources` publishes project `.claude/skills`; it does not install zudo-doc's authoring skills. To roll back, revert the documentation migration commit(s) and redeploy the prior Docusaurus build.
+Cloudflare Workers Static Assets delivery is prepared at the site root. The
+adapter-generated `.assetsignore` is preserved. No workflow deploys remotely;
+production activation requires a separately authorized, verified `main` revision.
+The old host's `/pj/zblanks/*` redirect must be configured separately from
+compatibility redirects on the new hostname. See the runbook for query/hash
+preservation and the PR #27 integration boundary.
 
-### Published route migration
-
-| Previous URL below `/pj/zblanks/` | New URL | Handling |
-| --- | --- | --- |
-| `/docs/overview` | `/docs/overview` | Preserved |
-| `/docs/overview/project-overview` | same | Preserved by filename |
-| `/docs/overview/file-structure` | same | Preserved |
-| `/docs/how-to/*`, `/docs/misc`, `/docs/inbox` | same | Preserved |
-| `/docs/{overview,how-to,misc,inbox}/index` | `/docs/{section}` | Netlify 301 redirects |
-| `/` at the Netlify site root | `/pj/zblanks/` | Netlify 301 redirect |
-
-The catalog, manufacturing, workflow, and Claude sections are new. The final catalog content is maintained with the corresponding panel work.
-
-## Saved PCB art order candidates
+## Completed PCB art order archive
 
 [Open the completed four-series order](order-packages/four-art-series/ordered/README.md): Coral Vault, Fault Line, Kumiko Void wide and Spider Nest, with compact grouped lowers and the red6+4 split. The owner reported completion on 2026-10-10 JST: 25 stacks per series, 100 artworks / 850 useful PCB pieces, 13 lines at quantity 25. The retained fabrication files are committed in ordinary Git. The last verified quote was ¥204,169 (¥189,963 manufacturing + ¥14,206 shipping); this is not a receipt or final paid amount.
