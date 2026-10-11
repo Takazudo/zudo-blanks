@@ -22,6 +22,7 @@ pnpm check:links -- --strict-broken --strict-absolute --strict-anchors
 pnpm check:images
 pnpm check:viewers
 pnpm check:redirects
+pnpm check:history
 pnpm exec wrangler deploy --dry-run --outdir /tmp/zudo-blanks-worker-dry-run
 pnpm check:worker
 cd ..
@@ -38,6 +39,12 @@ and does not need Cloudflare or deployment credentials. Leave history-skip
 variables unset. `GEN_DOC_HISTORY=1` includes history JSON in local built reviews.
 The independent manufacturing workflow retains its regression suites and archive
 integrity guard; native fabrication generation remains an explicit manual task.
+
+The build enables package-owned history generation. A narrow migration helper
+uses the published history API and route map to restore prior canonical paths
+when Git rename detection follows duplicate overlays or misses edited moves.
+It supplies supported chrome metadata before rendering and reconciles history
+JSON afterward; `check:history` verifies both against full Git history.
 
 `check:content` covers dynamic inventory and generated-output drift without KiCad,
 Pillow or macOS `sips`. Normal builds reuse committed images. Native board image
@@ -75,8 +82,8 @@ The reviewed template is `scripts/old-host-redirect.mjs`; it retains the old
 prefix so the new hostname can apply its explicit migration map.
 The former host, `takazudomodular.com`, needs a **separate** authorized redirect
 handler for `/pj/zblanks` and `/pj/zblanks/*`. The new Worker cannot intercept
-requests addressed to that hostname. Redirect to the new root while retaining the
-suffix and query, then apply the committed new-host route mappings. Fragments are
+requests addressed to that hostname. Change the hostname while retaining the
+complete old pathname and query; let the new-host map select the final route. Fragments are
 not sent to servers; avoid adding or replacing fragments in redirect locations
 unless an explicit anchor migration requires it. Test old deep links, viewer
 selection queries and browser-held hashes before switching old-host traffic.

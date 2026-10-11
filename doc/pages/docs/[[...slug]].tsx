@@ -8,12 +8,21 @@ import { createChrome } from "@takazudo/zudo-doc/chrome";
 import { DocHistoryBoundary as DocHistory } from "@takazudo/zudo-doc/doc-history-area";
 import { defineChromeBindings } from "@takazudo/zudo-doc/chrome-bindings";
 import { chromeBindings } from "virtual:zudo-doc-chrome-bindings";
+import migratedDocHistoryMeta from "../../.zfb/migrated-doc-history-meta.json";
 
 const ctx = routeContext as unknown as RouteContextPayload;
 const routeCtx = createRouteContext(ctx);
 const { renderDocPage } = createChrome(routeCtx, {
   ...chromeBindings,
-  ...defineChromeBindings({ DocHistory }),
+  ...defineChromeBindings({
+    DocHistory,
+    // Explicit prior paths supplement Git's rename heuristic for this migration.
+    // Native chrome renders the metadata; unaffected pages keep package values.
+    docHistoryMeta: {
+      ...chromeBindings.docHistoryMeta,
+      ...migratedDocHistoryMeta,
+    },
+  }),
 });
 
 export const frontmatter = { title: "Docs" };
