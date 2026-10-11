@@ -1,0 +1,93 @@
+---
+title: "03 Coral Vault"
+description: "Layered decorative PCB art."
+sidebar_position: 2
+---
+
+## Interactive model
+
+<iframe class="viewer-frame" src="/viewers/pcb-art/?design=coral-vault" title="Coral Vault interactive 3D preview" loading="lazy"></iframe>
+
+<a href="/viewers/pcb-art/?design=coral-vault"><img src="/assets/panels/art-coral-vault.png" alt="Coral Vault native-layer poster; open the 3D scene" width="240" loading="lazy" /></a>
+
+<a href="/viewers/pcb-art/?design=coral-vault">Open full-size viewer</a> · [All 3D scenes](/docs/models/)
+
+
+
+Six large flowing cavities and four smaller openings start the view. Walls retreat by varying amounts with depth, and some cavities split as partitions appear. This avoids a repeated scaled-copy effect. The design abstracts cup, shared-wall, and radial-septum forms of colonial coral such as [Favites pentagona](https://www.coralsoftheworld.org/species_factsheets/species_factsheet_summary/favites-pentagona/); it is not a model of one organism.
+
+The top copper spreads cup and radial motifs across the remaining face. Revision 5 adds the gold frame and hole rims. Layer 4 is the only full-gold lower layer. The top opening grew about 62.0% from Revision 3.
+
+## Layering constraints
+
+Combined decorative aperture area decreases with depth, and every deeper aperture remains inside the preceding opening. Hole counts may change. Keep each layer connected and ensure top openings do not extend beyond lower-board material.
+
+## Front-to-back layers
+
+| Layer | Color | Finish |
+| ---: | --- | --- |
+| 1 | Black | ENIG artwork |
+| 2 | Green | Mask-only |
+| 3 | Purple | Mask-only |
+| 4 | Black with gold | Full ENIG |
+| 5 | Red | Mask-only |
+| 6 | Yellow | Mask-only |
+| 7 | Red | Mask-only |
+| 8 | Blue | Mask-only bottom |
+
+## Native boards and evidence
+
+The image below shows all selected layers from **manufacturing-adjusted native KiCad files**. The linked 3D viewer above shows Revision 5 **visual design geometry**. Small local routing and mask corrections mean the two representations are not identical.
+
+<img class="design-preview" src="/assets/panels/art-coral-vault.png" alt="All selected native KiCad layers for coral vault" />
+
+| Layer | Native KiCad board |
+| ---: | --- |
+| 1 | [03-coral-vault-L01-black-enig-art](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-coral-vault/03-coral-vault-L01-black-enig-art.kicad_pcb) |
+| 2 | [03-coral-vault-L02-green-mask-only](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-coral-vault/03-coral-vault-L02-green-mask-only.kicad_pcb) |
+| 3 | [03-coral-vault-L03-purple-mask-only](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-coral-vault/03-coral-vault-L03-purple-mask-only.kicad_pcb) |
+| 4 | [03-coral-vault-L04-gold-enig-fill](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-coral-vault/03-coral-vault-L04-gold-enig-fill.kicad_pcb) |
+| 5 | [03-coral-vault-L05-red-mask-only](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-coral-vault/03-coral-vault-L05-red-mask-only.kicad_pcb) |
+| 6 | [03-coral-vault-L06-yellow-mask-only](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-coral-vault/03-coral-vault-L06-yellow-mask-only.kicad_pcb) |
+| 7 | [03-coral-vault-L07-red-mask-only](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-coral-vault/03-coral-vault-L07-red-mask-only.kicad_pcb) |
+| 8 | [03-coral-vault-L08-blue-mask-only](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-coral-vault/03-coral-vault-L08-blue-mask-only.kicad_pcb) |
+
+[Project directory](https://github.com/Takazudo/zudo-blanks/tree/main/panels/art-coral-vault) · [Historical five-series package manifest](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/manufacturing/lower-panels-order-manifest.json) · [Local native/CAM evidence](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/manufacturing/native-kicad-cam-manifest.json)
+
+This design is part of the owner-reported completed four-series order. The [canonical archive](/docs/manufacturing/order/) records exact adopted packages and evidence limits; physical assembly results for this series have not yet been recorded.
+
+
+## Files and interpretation
+
+Native `.kicad_pcb` files are editable board layouts; `.kicad_pro` files carry project settings. PNGs are source-derived directory previews, not CAM approval. Alternate, fabrication-sheet and test boards are labeled separately in the inventory below. Repository downloads are external links; only the selected files on [3D & Files](/docs/models/) are indexed locally.
+
+[Manufacturing records](/docs/manufacturing/) · [Assembly guidance](/docs/guides/assembly/) · [Source roles](/docs/guides/engineering/source-of-truth/)
+
+{/* BEGIN GENERATED INVENTORY */}
+
+## Variants and native file roles
+
+Widths in project names are nominal labels. Dimensions, finishes and manufacturing status must be read from the native source and project evidence.
+
+| Variant | Native files | File roles |
+| --- | ---: | --- |
+| [art-coral-vault](#art-coral-vault) | 8 | layer source |
+
+<h3 id="art-coral-vault">art-coral-vault</h3>
+
+<img class="design-preview" src="/assets/panels/art-coral-vault.png" alt="Native KiCad preview of art-coral-vault" loading="lazy" />
+
+[Project directory](https://github.com/Takazudo/zudo-blanks/tree/main/panels/art-coral-vault)
+
+| Native file | Role |
+| --- | --- |
+| [03-coral-vault-L01-black-enig-art.kicad_pcb](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-coral-vault/03-coral-vault-L01-black-enig-art.kicad_pcb) | layer source |
+| [03-coral-vault-L02-green-mask-only.kicad_pcb](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-coral-vault/03-coral-vault-L02-green-mask-only.kicad_pcb) | layer source |
+| [03-coral-vault-L03-purple-mask-only.kicad_pcb](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-coral-vault/03-coral-vault-L03-purple-mask-only.kicad_pcb) | layer source |
+| [03-coral-vault-L04-gold-enig-fill.kicad_pcb](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-coral-vault/03-coral-vault-L04-gold-enig-fill.kicad_pcb) | layer source |
+| [03-coral-vault-L05-red-mask-only.kicad_pcb](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-coral-vault/03-coral-vault-L05-red-mask-only.kicad_pcb) | layer source |
+| [03-coral-vault-L06-yellow-mask-only.kicad_pcb](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-coral-vault/03-coral-vault-L06-yellow-mask-only.kicad_pcb) | layer source |
+| [03-coral-vault-L07-red-mask-only.kicad_pcb](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-coral-vault/03-coral-vault-L07-red-mask-only.kicad_pcb) | layer source |
+| [03-coral-vault-L08-blue-mask-only.kicad_pcb](https://github.com/Takazudo/zudo-blanks/blob/main/panels/art-coral-vault/03-coral-vault-L08-blue-mask-only.kicad_pcb) | layer source |
+
+{/* END GENERATED INVENTORY */}

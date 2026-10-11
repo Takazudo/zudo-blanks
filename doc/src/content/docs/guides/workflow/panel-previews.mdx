@@ -1,0 +1,29 @@
+---
+title: "Panel preview and inventory maintenance"
+---
+
+The catalog discovers every top-level `panels/` directory and every recursive `.kicad_pcb`. `doc/data/panel-pages.json` supplies the small curated family mapping; the inventory labels panel/layer sources, reference alternatives, fabrication sheets and test inputs. Archive copies are deliberately outside the design count.
+
+Run from the repository root:
+
+```sh
+python3 doc/scripts/generate_panel_catalog.py
+python3 doc/scripts/generate_panel_catalog.py --check
+python3 doc/scripts/check_panel_catalog.py
+```
+
+Normal metadata generation uses Python's standard library and committed PNGs. It changes only the delimited inventory blocks, preserving authored prose. A new family requires an explicit curated mapping and an authored page. Drift checks detect missing variants, board roles, native paths, source SHA256 values and generated content.
+
+Native image regeneration is an explicit, separate operation:
+
+```sh
+python3 doc/scripts/generate_panel_catalog.py --images --only art-spider-nest
+```
+
+That optional image workflow requires KiCad CLI, Pillow and macOS `sips`; ordinary documentation builds do not. For a layer stack, retain the contact sheet of all selected boards, and preserve image proportions. Do not depict a whole stack as one fabricated PCB.
+
+`python3 doc/scripts/stage_pcb_art_assets.py` stages the curated site resources and canonical viewers. The five-design bundle lives at `/viewers/pcb-art/`; use `?design=kumiko-void&variant=wide` or `variant=standard` for the complete variants. Strip Mine lives at `/viewers/strip-mine/` with its existing pattern 5, Strata/blobs selection. Viewer HTML stays outside `/assets` so the file-details rewriting cannot intercept it.
+
+The viewer build verifies frozen visual geometry; do not regenerate that geometry as a documentation maintenance step. Native PNGs and inspection vectors are illustrations, not fabrication release files. The completed archive is verified read-only by its existing independent verifier; never regenerate its ZIP or CAM bytes.
+
+After edits run the frozen install, `pnpm check`, strict source/built links and anchors, `pnpm build`, `pnpm check:images`, and `pnpm exec zfb wind audit --project-root . --fail-on error` from `doc/`. Production history generation needs full Git history with history-skip variables unset; use `GEN_DOC_HISTORY=1` for local built-Worker review.

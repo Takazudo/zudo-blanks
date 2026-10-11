@@ -11,6 +11,58 @@ The image above is a **before/after screen from the initial export**, not the fi
 
 ![Representative native KiCad CAM layers](/assets/pcb-art/cam-comparisons/native-cam-representative.png)
 
-The five [candidate before/after comparisons](./comparisons.mdx) show local geometry changes against the frozen design source. The representative CAM image above is a plotted layer check; supplier CAM inspection is still pending.
+The five [candidate before/after comparisons](/docs/manufacturing/comparisons/) show local geometry changes against the frozen design source. The representative CAM image above is a plotted layer check; supplier CAM inspection is still pending.
 
 The [policy](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/manufacturing/policy.json) and [process-class amendment](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/manufacturing/process-class-decision.json) set a 0.35 mm visible-gold clearance from route/drill edges, 0.30 mm copper clearance, and 0.05 mm copper margin under openings. Finished visible gold and special copper/channel widths use the 0.25 mm class. Black mask webs use 0.13 mm on Coral, Fault, Kumiko and Woven tops when retaining their source mask, and 0.25 mm on Spider. Four full-gold lower pours and isolated convex copper islands use the 0.10 mm general copper class. These are locally chosen process rules, not supplier approval. The exhaustive width certificate is an opt-in check and has not passed.
+
+
+## Historical import review
+
+The following is the original pre-adaptation screen, preserved for comparison. It describes the initial export, not the selected manufacturing-adjusted boards or the completed four-series order. Later corrections and evidence are linked above.
+
+## Export candidate rules
+
+The native-board draft offsets exposed gold and underlying copper from edges and drills. The chosen rules are not factory-approved requirements.
+
+| Feature | Candidate clearance |
+| --- | ---: |
+| Gold opening in F.Mask | At least 0.35 mm |
+| Copper in F.Cu | At least 0.30 mm |
+| Copper extension under the mask | 0.05 mm |
+
+Copper is represented as filled editable graphic polygons, not electrical zones. Regions are split around openings. Kumiko's black facets are excluded from gold openings in the original paint order.
+
+## Changes to visible gold
+
+![Approved art and export candidate comparison](/assets/pcb-art/images/pcb-art-cad-gold-comparison.png)
+
+The clearance adaptation reduces visible gold, especially on Spider full-gold layers and detailed Kumiko surfaces.
+
+| Board | Gold in preview, mm² | Exposed gold candidate, mm² | Reduced |
+| --- | ---: | ---: | ---: |
+| Spider top | 948.1 | 819.9 | 13.5% |
+| Spider layer 3 | 2743.2 | 2057.2 | 25.0% |
+| Spider layer 5 | 2743.0 | 2057.0 | 25.0% |
+| Spider layer 7 | 2724.1 | 2046.2 | 24.9% |
+| Coral top | 1440.3 | 1417.2 | 1.6% |
+| Coral layer 4 | 5281.8 | 4877.0 | 7.7% |
+| Fault top | 1093.8 | 1088.4 | 0.5% |
+| Wide Kumiko top | 2816.3 | 2509.4 | 10.9% |
+| Wide Kumiko layer 4 | 874.8 | 721.2 | 17.6% |
+| Wide Kumiko layer 7 | 716.5 | 590.0 | 17.7% |
+| Standard Kumiko top | 3286.9 | 3053.7 | 7.1% |
+| Standard Kumiko layer 4 | 601.3 | 495.4 | 17.6% |
+| Standard Kumiko layer 7 | 419.7 | 344.3 | 18.0% |
+| Woven Maze top | 672.1 | 542.5 | 19.3% |
+
+These rounded figures come from the original PCB manifest metrics. They are not price reductions.
+
+## Narrow gaps remain
+
+The independent export review reports gaps below 0.01 mm between some separate copper polygons and mask openings. Examples include about 0.000829 mm between Coral top copper, 0.009907 mm between Spider top copper, 0.009866 mm between wide Kumiko top copper, and 0.002195 mm between Kumiko top mask openings. Pair coordinates are in export-art-review.json and resources/manufacturing-review/artwork-gap-review.csv.
+
+The source screen compared copper gaps against 0.10 mm and black mask bridges against 0.13 mm reference thresholds. A detected pair is not necessarily a distinct defect; inspect its actual local shape. Possible edits include joining hidden copper under mask, widening black facets, or intentionally joining neighboring gold. Compare each proposed edit with the art before adopting it.
+
+## Decision evidence
+
+The export measurements establish only what the generated polygons contain. They do not prove current supplier capability, DRC status, CAM acceptance, or quote impact. Record the process rule agreed with the fabricator, the selected art change, and the resulting CAM review.

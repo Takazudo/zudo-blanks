@@ -22,11 +22,11 @@ The default five-design set is 43 boards: 11 ENIG boards and 32 mask-only boards
 - preview-source/assets/geometry.json is the current millimetre geometry input. reference-revision3.json and reference-revision4.json are immutable comparison inputs.
 - resources/images, resources/reference, and resources/manufacturing-review retain the curated reference and review images once.
 - resources/order retains the draft quantity and hardware inputs. Supplier quantities are blank.
-- docs-overlay/src/content/docs retains the curated English documentation source. Its public directory is generated during a site migration and is not copied here.
+- [`doc/src/content/docs`](../../doc/src/content/docs) is the maintained English documentation source. All 28 former overlay pages were reconciled into it; [`doc/data/route-migration.json`](../../doc/data/route-migration.json) records each destination and disposition. The duplicate overlay configuration and bootstrap/check scripts are retired.
 - tools and validation retain the source and compact records needed for local review. The import and geometry-source checks are summarized in validation/import-review.md.
 - SOURCE_RESOURCE_MANIFEST.json and SOURCE_SHA256SUMS.txt retain the incoming bundle inventory and checksums. IMPORT_MANIFEST.json maps all 944 listed source files to imported, transformed, deduplicated, or deliberately omitted repository paths.
 
-The bundle checksum file had SHA-256 268e1c329f94d2fa55d3641e0ca32b8698e8117ac91bc8dadb58263f643d39d8. All 944 listed source files matched it at intake. Run python tools/verify_import.py to verify the committed mapping and files. The optional --source-root argument checks the original handoff tree when it is available.
+The bundle checksum file had SHA-256 268e1c329f94d2fa55d3641e0ca32b8698e8117ac91bc8dadb58263f643d39d8. All 944 listed source files matched it at intake. The original intake verifier applies to the import snapshot, not the evolving working tree; see the verification boundary below. Its optional `--source-root` argument checks the original handoff tree when available.
 
 ## Regeneration
 
@@ -46,8 +46,21 @@ The exporter output is a review artifact. It does not replace the committed pane
 
 The pinned geometry generator completed from the imported source tree. Its raw Kumiko ring ordering differs from the retained JSON, but all 52 serialized board-layer polygons compared geometrically equal. One derived aperture-count statistic changed from 33 to 32 on standard Kumiko layer 5. The imported canonical geometry and validation records were kept unchanged; see validation/import-review.md before treating a future regeneration as a byte-for-byte replacement.
 
-## Review status
+## Review status and historical boundaries
 
-The incoming records describe geometry, S-expression, and independent data checks. This import did not run KiCad's native parser, DRC, or CAM. No factory acceptance, quote, physical-fit, or production-order claim is made. Those checks remain pending and must be recorded against the selected files and an actual fabrication process before ordering.
+The incoming records describe the original geometry, S-expression and independent data checks. Later manufacturing work recorded native KiCad 10 DRC/CAM and grouped-sheet checks. The completed four-series archive above records the owner's completion report and last verified quote, not a receipt or supplier acceptance. Strip Mine has separate owner-reported physical assembly experience; assembly results for the four newer series remain unrecorded. Keep each historical record's original scope separate from the newer order evidence.
 
 The viewer source includes its upstream three.js MIT notice in preview-source/THIRD_PARTY_NOTICES.txt. No additional standalone license file was present in the incoming bundle; the import manifest preserves provenance without adding a license claim.
+
+## Verify the appropriate boundary
+
+`tools/verify_import.py` is a historical intake verifier. It compares the original mapped documentation, tools and boards against their intake hashes. The parent commit `f31c49d3cad0364033c18d4f91d07139ea4872f5` already differs from that snapshot (the central README is one verified mismatch); current documentation edits and the retired overlay also intentionally differ. A current-tree import-verifier failure is not reported as a pass, and the original import manifest/checksums remain unchanged.
+
+To inspect the intake snapshot without changing the active checkout, use a detached disposable worktree at the original import commit:
+
+```sh
+git worktree add --detach /tmp/zudo-blanks-import-check b3e3f35b658bba2bad0400c1ee94b511857d5484
+python3 /tmp/zudo-blanks-import-check/artwork-resources/pcb-art/tools/verify_import.py
+```
+
+The verifier reads that snapshot; it does not regenerate native boards or CAM. The completed order instead uses the independent `manufacturing/verify_ordered.py` with the setup in [`scripts/art-order/README.md`](../../scripts/art-order/README.md). Current documentation checks cover the recursive panel inventory and SHA256 metadata, generated page drift, local assets, links and frozen viewer geometry. These checks have different scopes; no one result implies supplier approval or physical assembly.

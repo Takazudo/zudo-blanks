@@ -1,0 +1,13 @@
+---
+title: "Continuing design work"
+---
+
+Start with the [source contract](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/preview-source/src/CONTRACT.md), [finish policy](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/preview-source/FINISH_PLAN.md) and [board manifest](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/pcb/manifest.json). Keep original IDs, layers, colors and finishes in every change record. Wide Kumiko and standard Kumiko are complete separate sets.
+
+For an intentional shape change, record board ID, layer, coordinates and reason before updating the generator. Keep manufacturing adjustments distinct from frozen visual geometry. Regeneration must not overwrite manually adapted native boards or the completed archive.
+
+Open a representative top board in KiCad and check its outline, holes, slot orientation, Edge.Cuts loops and copper/mask relationship. Open a mask-only lower board separately. Save full DRC results with tool version and input hashes, export into a fresh ignored review directory, then inspect Gerbers and drill files independently. Keep supplier decisions and prototype measurements as separate evidence.
+
+Record part numbers, physical fit, rail clearance, bowing, edge feel and photographs. Strip Mine has owner-reported assembly experience; the four newer series do not yet have recorded physical assembly results. See [assembly notes](/docs/guides/assembly/stack/) and [completed-order evidence](/docs/manufacturing/order/).
+
+The former 28-page import overlay is reconciled into this site. Its original bibliography and historical review measurements remain available; its bootstrap/configuration/check pipeline is retired. The [migration inventory](https://github.com/Takazudo/zudo-blanks/blob/main/doc/data/route-migration.json) records every disposition.

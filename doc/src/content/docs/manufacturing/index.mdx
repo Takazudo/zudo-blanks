@@ -1,14 +1,18 @@
 ---
-title: Manufacturing and Release Status
-sidebar_position: 4
+title: "Manufacturing and preservation"
 ---
 
-The selected five art stacks have **43 individual native boards**: Spider Nest 8, Coral Vault 8, Fault Line 9, Kumiko Void **wide** 9, and Woven Maze 9. The nine standard Kumiko boards are reference-only. Local KiCad 10 DRC and CAM checks passed for the selected native boards and five grouped lower sheets. These checks do not constitute factory acceptance.
+The owner reported the **four-series order completed on 2026-10-10 JST**. Its frozen archive is the canonical order record: **13 adopted ZIPs**, **34 source boards**, and **25 complete stacks each** of Spider Nest, Coral Vault, Fault Line and Kumiko Void wide. No documentation build regenerates those bytes.
 
-The [order manifest](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/manufacturing/lower-panels-order-manifest.json) describes 13 packages for 25 complete stacks per design: 325 sheet or standalone order units, yielding 1,075 useful boards and 75 intentionally blank grid cells. It is a planning record. No boards have been purchased or accepted by a manufacturer.
+[Completed order, exact downloads and provenance](./order/)
 
-The chosen policy uses two-layer 1.6 mm FR-4 and a 1.0 mm decorative router. The source Revision 5 design needed indexed local adjustments before the native checks. [Read the policy](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/manufacturing/policy.json), [candidate comparison](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/manufacturing/CANDIDATE.md), [individual CAM manifest](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/manufacturing/native-kicad-cam-manifest.json), and [grouped sheet record](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/manufacturing/lower-panels-order-manifest.json) for exact scope.
+The historical five-design selection has 43 native layer boards and five grouped sheets, including Woven Maze. It is retained for provenance and future design work, not as the current cart. Standard Kumiko remains an unchanged reference alternative. Strip Mine has its own prior order and owner-reported physical assembly.
 
-**Pending external checks:** factory CAM and scoring strategy, actual mask color and finish availability, quote, handling strength, hardware tolerance and physical fit. The exhaustive width certificate is opt-in and has not passed; do not describe it as complete evidence.
+- [Native boards and CAM](./kicad/)
+- [Grouped lower sources](./grouped-lowers/)
+- [Copper, mask and gold review](./copper-review/)
+- [Kumiko routing and variants](./kumiko-routing/)
+- [Candidate comparisons](./comparisons/)
+- [Evidence still needed](./open-items/)
 
-<CategoryNav category="manufacturing" />
+Local geometry/DRC/CAM checks, owner-reported completion, supplier acceptance and physical fit are separate evidence. The last quote is not a receipt. Read the completed-order metadata for the exact limits.

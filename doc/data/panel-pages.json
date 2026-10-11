@@ -1,0 +1,155 @@
+[
+  {
+    "slug": "plain-1u",
+    "title": "Plain 1U blanks",
+    "patterns": [
+      "alumi-blanks-v1-1U-*"
+    ],
+    "summary": "Plain blank panels in the repository\u2019s 1U format. The HP names identify nominal width variants; consult each native board for the actual outline and mounting holes."
+  },
+  {
+    "slug": "plain-3u",
+    "title": "Plain 3U blanks",
+    "patterns": [
+      "alumi-blanks-v1-3U-*"
+    ],
+    "summary": "Plain blank panels in the repository\u2019s 3U format. Width variants share a family identity, but each native project retains its own outline and holes. The 8HP project also includes STL and editable FreeCAD files in 3D & Files."
+  },
+  {
+    "slug": "adapter",
+    "title": "3U to 1U adapter",
+    "patterns": [
+      "alumi-3u-to-1u-v1"
+    ],
+    "summary": "A mechanical adapter project connecting the 3U and 1U formats. Its native board is the editable panel source; the STEP file provides a separate mechanical model for fit inspection."
+  },
+  {
+    "slug": "frames-pads",
+    "title": "Side frames and pads",
+    "patterns": [
+      "zb-side-*"
+    ],
+    "summary": "Side frames have 1U, 3U and 7U variants. Matching pad projects are retained for 1U and 3U. Frames and pads are separate native parts; consult their outlines before combining them."
+  },
+  {
+    "slug": "saucer/slow-wave",
+    "title": "Saucer 1: Slow Wave",
+    "patterns": [
+      "saucer1-slow-wave-*"
+    ],
+    "summary": "The slow wave artwork family retains its 1, 2, 3, 4 and 12HP native variants. Each width is a separate editable board, not an automatic scale of a single fabrication file."
+  },
+  {
+    "slug": "saucer/crystal-flow",
+    "title": "Saucer 2: Crystal Flow",
+    "patterns": [
+      "saucer2-crystal-flow-*"
+    ],
+    "summary": "The crystal flow artwork family retains its 1, 2, 3, 4 and 12HP native variants. Each width is a separate editable board, not an automatic scale of a single fabrication file."
+  },
+  {
+    "slug": "saucer/grid-play",
+    "title": "Saucer 3: Grid Play",
+    "patterns": [
+      "saucer3-grid-play-*"
+    ],
+    "summary": "The grid play artwork family retains its 1, 2, 3, 4 and 12HP native variants. Each width is a separate editable board, not an automatic scale of a single fabrication file."
+  },
+  {
+    "slug": "saucer/streamlines",
+    "title": "Saucer 4: Streamlines",
+    "patterns": [
+      "saucer4-streamlines-*"
+    ],
+    "summary": "The streamlines artwork family retains its 1, 2, 3, 4 and 12HP native variants. Each width is a separate editable board, not an automatic scale of a single fabrication file."
+  },
+  {
+    "slug": "saucer/rhythm-wave",
+    "title": "Saucer 5: Rhythm Wave",
+    "patterns": [
+      "saucer5-rhythm-wave-*"
+    ],
+    "summary": "The rhythm wave artwork family retains its 1, 2, 3, 4 and 12HP native variants. Each width is a separate editable board, not an automatic scale of a single fabrication file."
+  },
+  {
+    "slug": "saucer/grainscape",
+    "title": "Saucer 6: Grainscape",
+    "patterns": [
+      "saucer6-grainscape-*"
+    ],
+    "summary": "The grainscape artwork family retains its 1, 2, 3, 4 and 12HP native variants. Each width is a separate editable board, not an automatic scale of a single fabrication file."
+  },
+  {
+    "slug": "art/spider-nest",
+    "title": "Spider Nest",
+    "patterns": [
+      "art-spider-nest"
+    ],
+    "summary": "Layered decorative PCB art. Use the complete layer set for this design and distinguish visual preview geometry from native fabrication sources."
+  },
+  {
+    "slug": "art/coral-vault",
+    "title": "Coral Vault",
+    "patterns": [
+      "art-coral-vault"
+    ],
+    "summary": "Layered decorative PCB art. Use the complete layer set for this design and distinguish visual preview geometry from native fabrication sources."
+  },
+  {
+    "slug": "art/fault-line",
+    "title": "Fault Line",
+    "patterns": [
+      "art-fault-line"
+    ],
+    "summary": "Layered decorative PCB art. Use the complete layer set for this design and distinguish visual preview geometry from native fabrication sources."
+  },
+  {
+    "slug": "art/kumiko-void",
+    "title": "Kumiko Void",
+    "patterns": [
+      "art-kumiko-void"
+    ],
+    "summary": "Layered decorative PCB art. Use the complete layer set for this design and distinguish visual preview geometry from native fabrication sources."
+  },
+  {
+    "slug": "art/woven-maze",
+    "title": "Woven Maze",
+    "patterns": [
+      "art-woven-maze"
+    ],
+    "summary": "Layered decorative PCB art. Use the complete layer set for this design and distinguish visual preview geometry from native fabrication sources."
+  },
+  {
+    "slug": "art/strip-mine",
+    "title": "Strip Mine",
+    "patterns": [
+      "art-strip-mine"
+    ],
+    "summary": "Layered decorative PCB art. Use the complete layer set for this design and distinguish visual preview geometry from native fabrication sources."
+  },
+  {
+    "slug": "art/takazudo-modular",
+    "title": "Takazudo Modular",
+    "patterns": [
+      "art-10hp-takazudo-modular"
+    ],
+    "summary": "The earlier Takazudo Modular artwork panel is retained as its own 10HP project. The native KiCad board records the artwork, outline and mounting features."
+  },
+  {
+    "slug": "art/sun",
+    "title": "Sun",
+    "patterns": [
+      "art-12hp-sun"
+    ],
+    "summary": "The earlier Sun artwork panel is retained as its own 12HP project. Consult its native board for the outline and artwork rather than inferring manufacturing settings from the name."
+  },
+  {
+    "slug": "art/ufo",
+    "title": "UFO",
+    "patterns": [
+      "art-ufo",
+      "art-ufo-v2"
+    ],
+    "summary": "Both UFO revisions are retained. Revision 2 is also the outline reference used by Strip Mine; keep the two editable project identities distinct when selecting files."
+  }
+]

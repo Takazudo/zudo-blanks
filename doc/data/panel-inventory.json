@@ -1,712 +1,1104 @@
 [
   {
     "directory": "alumi-3u-to-1u-v1",
-    "category": "Plain blanks and adapters",
-    "label": "Alumi 3U To 1U V1",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/adapter",
+    "preview": "assets/panels/alumi-3u-to-1u-v1.png",
     "boards": [
-      "panels/alumi-3u-to-1u-v1/3u-to-1u-v1.kicad_pcb"
-    ],
-    "preview": "assets/panels/alumi-3u-to-1u-v1.png"
+      {
+        "path": "panels/alumi-3u-to-1u-v1/3u-to-1u-v1.kicad_pcb",
+        "role": "panel source",
+        "sha256": "c6f52f1296143237891f1917802c6fda84a09e1aac3a633434b4300dc70b7400"
+      }
+    ]
   },
   {
     "directory": "alumi-blanks-v1-1U-10hp",
-    "category": "Plain blanks and adapters",
-    "label": "Plain 1U \u00b7 10 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/plain-1u",
+    "preview": "assets/panels/alumi-blanks-v1-1U-10hp.png",
     "boards": [
-      "panels/alumi-blanks-v1-1U-10hp/10hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/alumi-blanks-v1-1U-10hp.png"
+      {
+        "path": "panels/alumi-blanks-v1-1U-10hp/10hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "c151eb028774ce5ca1586e82c28d25ebb7162fe43998013b630d023801bdb85a"
+      }
+    ]
   },
   {
     "directory": "alumi-blanks-v1-1U-1hp",
-    "category": "Plain blanks and adapters",
-    "label": "Plain 1U \u00b7 1 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/plain-1u",
+    "preview": "assets/panels/alumi-blanks-v1-1U-1hp.png",
     "boards": [
-      "panels/alumi-blanks-v1-1U-1hp/1hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/alumi-blanks-v1-1U-1hp.png"
+      {
+        "path": "panels/alumi-blanks-v1-1U-1hp/1hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "554638cf07ee28a27034ca919f947f160eee8a8a831545d2e2e7c5f19e6328d4"
+      }
+    ]
   },
   {
     "directory": "alumi-blanks-v1-1U-2hp",
-    "category": "Plain blanks and adapters",
-    "label": "Plain 1U \u00b7 2 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/plain-1u",
+    "preview": "assets/panels/alumi-blanks-v1-1U-2hp.png",
     "boards": [
-      "panels/alumi-blanks-v1-1U-2hp/2hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/alumi-blanks-v1-1U-2hp.png"
+      {
+        "path": "panels/alumi-blanks-v1-1U-2hp/2hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "59d493a920e4168cc03804d144574be1909581a85b7cc5234f1947cf5574957b"
+      }
+    ]
   },
   {
     "directory": "alumi-blanks-v1-1U-3hp",
-    "category": "Plain blanks and adapters",
-    "label": "Plain 1U \u00b7 3 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/plain-1u",
+    "preview": "assets/panels/alumi-blanks-v1-1U-3hp.png",
     "boards": [
-      "panels/alumi-blanks-v1-1U-3hp/3hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/alumi-blanks-v1-1U-3hp.png"
+      {
+        "path": "panels/alumi-blanks-v1-1U-3hp/3hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "cb866fa8f92b4ac4f196082c45fac92dfb829857f76824652053e81dd375d006"
+      }
+    ]
   },
   {
     "directory": "alumi-blanks-v1-1U-4hp",
-    "category": "Plain blanks and adapters",
-    "label": "Plain 1U \u00b7 4 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/plain-1u",
+    "preview": "assets/panels/alumi-blanks-v1-1U-4hp.png",
     "boards": [
-      "panels/alumi-blanks-v1-1U-4hp/4hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/alumi-blanks-v1-1U-4hp.png"
+      {
+        "path": "panels/alumi-blanks-v1-1U-4hp/4hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "fbc16185f1c8f658ca7e3485ece86b5f9cf20fbe5b989231aefe1b37ed4a2483"
+      }
+    ]
   },
   {
     "directory": "alumi-blanks-v1-1U-5hp",
-    "category": "Plain blanks and adapters",
-    "label": "Plain 1U \u00b7 5 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/plain-1u",
+    "preview": "assets/panels/alumi-blanks-v1-1U-5hp.png",
     "boards": [
-      "panels/alumi-blanks-v1-1U-5hp/5hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/alumi-blanks-v1-1U-5hp.png"
+      {
+        "path": "panels/alumi-blanks-v1-1U-5hp/5hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "aff648a04d5d3ebbd78a9dd103163d1427741f4e5374754b38e22d87552cf842"
+      }
+    ]
   },
   {
     "directory": "alumi-blanks-v1-1U-6hp",
-    "category": "Plain blanks and adapters",
-    "label": "Plain 1U \u00b7 6 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/plain-1u",
+    "preview": "assets/panels/alumi-blanks-v1-1U-6hp.png",
     "boards": [
-      "panels/alumi-blanks-v1-1U-6hp/6hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/alumi-blanks-v1-1U-6hp.png"
+      {
+        "path": "panels/alumi-blanks-v1-1U-6hp/6hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "6e2d4d386ef7b1364b55da2990c08e3cb7aabc2776a570faa634af56de204c2f"
+      }
+    ]
   },
   {
     "directory": "alumi-blanks-v1-1U-8hp",
-    "category": "Plain blanks and adapters",
-    "label": "Plain 1U \u00b7 8 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/plain-1u",
+    "preview": "assets/panels/alumi-blanks-v1-1U-8hp.png",
     "boards": [
-      "panels/alumi-blanks-v1-1U-8hp/8hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/alumi-blanks-v1-1U-8hp.png"
+      {
+        "path": "panels/alumi-blanks-v1-1U-8hp/8hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "151d5d69fa3df00a63a71b2fd80ae11a91d882e1c1125e8d263f6bf72d02d9c4"
+      }
+    ]
   },
   {
     "directory": "alumi-blanks-v1-3U-10hp",
-    "category": "Plain blanks and adapters",
-    "label": "Plain 3U \u00b7 10 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/plain-3u",
+    "preview": "assets/panels/alumi-blanks-v1-3U-10hp.png",
     "boards": [
-      "panels/alumi-blanks-v1-3U-10hp/10hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/alumi-blanks-v1-3U-10hp.png"
+      {
+        "path": "panels/alumi-blanks-v1-3U-10hp/10hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "27760e621f2bd8938bb32b909ff386a06d74811dfe2edda9b6f184798d0a58e7"
+      }
+    ]
   },
   {
     "directory": "alumi-blanks-v1-3U-12hp",
-    "category": "Plain blanks and adapters",
-    "label": "Plain 3U \u00b7 12 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/plain-3u",
+    "preview": "assets/panels/alumi-blanks-v1-3U-12hp.png",
     "boards": [
-      "panels/alumi-blanks-v1-3U-12hp/12hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/alumi-blanks-v1-3U-12hp.png"
+      {
+        "path": "panels/alumi-blanks-v1-3U-12hp/12hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "b633b085cbe6dcd8473754bcffe5f39dcf0124c245f1bb8d29abcc3944f1b4ce"
+      }
+    ]
   },
   {
     "directory": "alumi-blanks-v1-3U-14hp",
-    "category": "Plain blanks and adapters",
-    "label": "Plain 3U \u00b7 14 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/plain-3u",
+    "preview": "assets/panels/alumi-blanks-v1-3U-14hp.png",
     "boards": [
-      "panels/alumi-blanks-v1-3U-14hp/14hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/alumi-blanks-v1-3U-14hp.png"
+      {
+        "path": "panels/alumi-blanks-v1-3U-14hp/14hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "c6a05589a61ec99e41edcc084611734756102167d8dd184223c7ed010efc062e"
+      }
+    ]
   },
   {
     "directory": "alumi-blanks-v1-3U-16hp",
-    "category": "Plain blanks and adapters",
-    "label": "Plain 3U \u00b7 16 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/plain-3u",
+    "preview": "assets/panels/alumi-blanks-v1-3U-16hp.png",
     "boards": [
-      "panels/alumi-blanks-v1-3U-16hp/16hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/alumi-blanks-v1-3U-16hp.png"
+      {
+        "path": "panels/alumi-blanks-v1-3U-16hp/16hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "f625f94f53877324acb52824f037f9c48784379ce043582ea0ee91968089daca"
+      }
+    ]
   },
   {
     "directory": "alumi-blanks-v1-3U-1hp",
-    "category": "Plain blanks and adapters",
-    "label": "Plain 3U \u00b7 1 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/plain-3u",
+    "preview": "assets/panels/alumi-blanks-v1-3U-1hp.png",
     "boards": [
-      "panels/alumi-blanks-v1-3U-1hp/1hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/alumi-blanks-v1-3U-1hp.png"
+      {
+        "path": "panels/alumi-blanks-v1-3U-1hp/1hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "e85f431b35db3e504c4ac2b9d5cf05c4b489939c56cde6488f3dae172c38dc34"
+      }
+    ]
   },
   {
     "directory": "alumi-blanks-v1-3U-2hp",
-    "category": "Plain blanks and adapters",
-    "label": "Plain 3U \u00b7 2 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/plain-3u",
+    "preview": "assets/panels/alumi-blanks-v1-3U-2hp.png",
     "boards": [
-      "panels/alumi-blanks-v1-3U-2hp/2hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/alumi-blanks-v1-3U-2hp.png"
+      {
+        "path": "panels/alumi-blanks-v1-3U-2hp/2hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "ae8382528bcc6ad25ca2a5e08ff6617b8eb2626ee506a8f064ca42491cf6e144"
+      }
+    ]
   },
   {
     "directory": "alumi-blanks-v1-3U-3hp",
-    "category": "Plain blanks and adapters",
-    "label": "Plain 3U \u00b7 3 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/plain-3u",
+    "preview": "assets/panels/alumi-blanks-v1-3U-3hp.png",
     "boards": [
-      "panels/alumi-blanks-v1-3U-3hp/3hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/alumi-blanks-v1-3U-3hp.png"
+      {
+        "path": "panels/alumi-blanks-v1-3U-3hp/3hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "92e49bfdcb6c481cf600120785beb1997a142cbce8848e4d44aadc9dc849225c"
+      }
+    ]
   },
   {
     "directory": "alumi-blanks-v1-3U-4hp",
-    "category": "Plain blanks and adapters",
-    "label": "Plain 3U \u00b7 4 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/plain-3u",
+    "preview": "assets/panels/alumi-blanks-v1-3U-4hp.png",
     "boards": [
-      "panels/alumi-blanks-v1-3U-4hp/4hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/alumi-blanks-v1-3U-4hp.png"
+      {
+        "path": "panels/alumi-blanks-v1-3U-4hp/4hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "8aad122ef69282554325046edf30fae670b4b86d899ab0e1b776a4e28dbd37bb"
+      }
+    ]
   },
   {
     "directory": "alumi-blanks-v1-3U-5hp",
-    "category": "Plain blanks and adapters",
-    "label": "Plain 3U \u00b7 5 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/plain-3u",
+    "preview": "assets/panels/alumi-blanks-v1-3U-5hp.png",
     "boards": [
-      "panels/alumi-blanks-v1-3U-5hp/5hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/alumi-blanks-v1-3U-5hp.png"
+      {
+        "path": "panels/alumi-blanks-v1-3U-5hp/5hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "108116bff2013f5b31be322f174d3819105a60c032aebbe2d58744f1854c5eea"
+      }
+    ]
   },
   {
     "directory": "alumi-blanks-v1-3U-6hp",
-    "category": "Plain blanks and adapters",
-    "label": "Plain 3U \u00b7 6 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/plain-3u",
+    "preview": "assets/panels/alumi-blanks-v1-3U-6hp.png",
     "boards": [
-      "panels/alumi-blanks-v1-3U-6hp/6hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/alumi-blanks-v1-3U-6hp.png"
+      {
+        "path": "panels/alumi-blanks-v1-3U-6hp/6hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "e504f0dbd8a00581bf2c3c2d13393a1ba2dbc40bba006b44e2a92e6069842733"
+      }
+    ]
   },
   {
     "directory": "alumi-blanks-v1-3U-8hp",
-    "category": "Plain blanks and adapters",
-    "label": "Plain 3U \u00b7 8 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/plain-3u",
+    "preview": "assets/panels/alumi-blanks-v1-3U-8hp.png",
     "boards": [
-      "panels/alumi-blanks-v1-3U-8hp/8hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/alumi-blanks-v1-3U-8hp.png"
+      {
+        "path": "panels/alumi-blanks-v1-3U-8hp/8hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "0b87dd0981fb42c51833c6a1601a38e621a5916a94393eea5e954e54d9c2d181"
+      }
+    ]
   },
   {
     "directory": "art-10hp-takazudo-modular",
-    "category": "Artwork and layered designs",
-    "label": "10Hp Takazudo Modular",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/art/takazudo-modular",
+    "preview": "assets/panels/art-10hp-takazudo-modular.png",
     "boards": [
-      "panels/art-10hp-takazudo-modular/10hp-z-gold.kicad_pcb"
-    ],
-    "preview": "assets/panels/art-10hp-takazudo-modular.png"
+      {
+        "path": "panels/art-10hp-takazudo-modular/10hp-z-gold.kicad_pcb",
+        "role": "panel source",
+        "sha256": "d249d23ccc2a4d71608878181c2adb3eaff47daf447421046e440c0b5eb61ff8"
+      }
+    ]
   },
   {
     "directory": "art-12hp-sun",
-    "category": "Artwork and layered designs",
-    "label": "12Hp Sun",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/art/sun",
+    "preview": "assets/panels/art-12hp-sun.png",
     "boards": [
-      "panels/art-12hp-sun/12hp-sun.kicad_pcb"
-    ],
-    "preview": "assets/panels/art-12hp-sun.png"
+      {
+        "path": "panels/art-12hp-sun/12hp-sun.kicad_pcb",
+        "role": "panel source",
+        "sha256": "06b7c09538533af49113020338d35d4803e834b51fd02922b2b9f54715d11bab"
+      }
+    ]
   },
   {
     "directory": "art-coral-vault",
-    "category": "Artwork and layered designs",
-    "label": "Coral Vault",
-    "status": "8 selected layers \u00b7 local native DRC/CAM checked \u00b7 factory review pending",
+    "family": "panels/art/coral-vault",
+    "preview": "assets/panels/art-coral-vault.png",
     "boards": [
-      "panels/art-coral-vault/03-coral-vault-L01-black-enig-art.kicad_pcb",
-      "panels/art-coral-vault/03-coral-vault-L02-green-mask-only.kicad_pcb",
-      "panels/art-coral-vault/03-coral-vault-L03-purple-mask-only.kicad_pcb",
-      "panels/art-coral-vault/03-coral-vault-L04-gold-enig-fill.kicad_pcb",
-      "panels/art-coral-vault/03-coral-vault-L05-red-mask-only.kicad_pcb",
-      "panels/art-coral-vault/03-coral-vault-L06-yellow-mask-only.kicad_pcb",
-      "panels/art-coral-vault/03-coral-vault-L07-red-mask-only.kicad_pcb",
-      "panels/art-coral-vault/03-coral-vault-L08-blue-mask-only.kicad_pcb"
-    ],
-    "preview": "assets/panels/art-coral-vault.png"
+      {
+        "path": "panels/art-coral-vault/03-coral-vault-L01-black-enig-art.kicad_pcb",
+        "role": "layer source",
+        "sha256": "f77bf5c1e682ae1ccf791a8fe8c2430e967059e8b45a4836289e8638b60a815c"
+      },
+      {
+        "path": "panels/art-coral-vault/03-coral-vault-L02-green-mask-only.kicad_pcb",
+        "role": "layer source",
+        "sha256": "2516f7cd235b19989394079811366275fc18dcc590f554fc5924258597e80eca"
+      },
+      {
+        "path": "panels/art-coral-vault/03-coral-vault-L03-purple-mask-only.kicad_pcb",
+        "role": "layer source",
+        "sha256": "f6621ae0e7369ebc6887136bd40a8c9d0d0bbc8bad497a35eaf4516c6e7f2c11"
+      },
+      {
+        "path": "panels/art-coral-vault/03-coral-vault-L04-gold-enig-fill.kicad_pcb",
+        "role": "layer source",
+        "sha256": "672b4874a5acd1ce8836a5c425769fc9c1c8f8679cdf710d638ca4c9b332c5cd"
+      },
+      {
+        "path": "panels/art-coral-vault/03-coral-vault-L05-red-mask-only.kicad_pcb",
+        "role": "layer source",
+        "sha256": "6a6454d961cc95e130c6a2dc7a0510298cf492eb27552123fd3535d4f05f10a8"
+      },
+      {
+        "path": "panels/art-coral-vault/03-coral-vault-L06-yellow-mask-only.kicad_pcb",
+        "role": "layer source",
+        "sha256": "556756b455f7146467b9d3c3a61b16a5ff03e4845b084034ece9cc330d8d0cce"
+      },
+      {
+        "path": "panels/art-coral-vault/03-coral-vault-L07-red-mask-only.kicad_pcb",
+        "role": "layer source",
+        "sha256": "ff0ef4aafa33b73257333c6cdbc38db5e791daeb8ce56515618522920057bd27"
+      },
+      {
+        "path": "panels/art-coral-vault/03-coral-vault-L08-blue-mask-only.kicad_pcb",
+        "role": "layer source",
+        "sha256": "77abd3322473fc4a70ba4b1ec1ccb3f2a3d0f0cf26efdb26cd57ed98f4c30dd2"
+      }
+    ]
   },
   {
     "directory": "art-fault-line",
-    "category": "Artwork and layered designs",
-    "label": "Fault Line",
-    "status": "9 selected layers \u00b7 local native DRC/CAM checked \u00b7 factory review pending",
+    "family": "panels/art/fault-line",
+    "preview": "assets/panels/art-fault-line.png",
     "boards": [
-      "panels/art-fault-line/13-fault-line-L01-black-enig-art.kicad_pcb",
-      "panels/art-fault-line/13-fault-line-L02-red-mask-only.kicad_pcb",
-      "panels/art-fault-line/13-fault-line-L03-black-mask-only.kicad_pcb",
-      "panels/art-fault-line/13-fault-line-L04-red-mask-only.kicad_pcb",
-      "panels/art-fault-line/13-fault-line-L05-black-mask-only.kicad_pcb",
-      "panels/art-fault-line/13-fault-line-L06-red-mask-only.kicad_pcb",
-      "panels/art-fault-line/13-fault-line-L07-black-mask-only.kicad_pcb",
-      "panels/art-fault-line/13-fault-line-L08-red-mask-only.kicad_pcb",
-      "panels/art-fault-line/13-fault-line-L09-black-mask-only.kicad_pcb"
-    ],
-    "preview": "assets/panels/art-fault-line.png"
+      {
+        "path": "panels/art-fault-line/13-fault-line-L01-black-enig-art.kicad_pcb",
+        "role": "layer source",
+        "sha256": "8702696831e34e6d91f0c3c3e81264b2ffaf2917930980a52e07682371e3bbb8"
+      },
+      {
+        "path": "panels/art-fault-line/13-fault-line-L02-red-mask-only.kicad_pcb",
+        "role": "layer source",
+        "sha256": "ecfbce2b27588109e1dc8da0f04e9051dfbe942e90cbde5748be39a9dd04d009"
+      },
+      {
+        "path": "panels/art-fault-line/13-fault-line-L03-black-mask-only.kicad_pcb",
+        "role": "layer source",
+        "sha256": "bc14462a4861871672b5b3fda9f1edb32b7e2fa3a57d810c391bf0295a514d53"
+      },
+      {
+        "path": "panels/art-fault-line/13-fault-line-L04-red-mask-only.kicad_pcb",
+        "role": "layer source",
+        "sha256": "d10312d884fce8e4b551293ebfcad0496e7a5b749bba9b9775ace33f23a58b35"
+      },
+      {
+        "path": "panels/art-fault-line/13-fault-line-L05-black-mask-only.kicad_pcb",
+        "role": "layer source",
+        "sha256": "0596888f9a0650e88532ae4139cf5f7a3875f084b2d41e5556bacc0b1110754b"
+      },
+      {
+        "path": "panels/art-fault-line/13-fault-line-L06-red-mask-only.kicad_pcb",
+        "role": "layer source",
+        "sha256": "81bfb4fc9a348748ec21fca97e1baa35923d0ee9de3d187d1c5018798aae6d95"
+      },
+      {
+        "path": "panels/art-fault-line/13-fault-line-L07-black-mask-only.kicad_pcb",
+        "role": "layer source",
+        "sha256": "4f0c1546c187155d1d04606e9d191b7bbf3d3e4d420538e694cda6f1ab8d0434"
+      },
+      {
+        "path": "panels/art-fault-line/13-fault-line-L08-red-mask-only.kicad_pcb",
+        "role": "layer source",
+        "sha256": "c728cc2c55440a0f207da079e2b522724bdd8e15e6470037867d3cb2cf40940d"
+      },
+      {
+        "path": "panels/art-fault-line/13-fault-line-L09-black-mask-only.kicad_pcb",
+        "role": "layer source",
+        "sha256": "f4adca85902c2085bf738e04dd2745b7a0433447ab1fbeb84cd7b3c3d760bd23"
+      }
+    ]
   },
   {
     "directory": "art-grouped-lowers",
-    "category": "Artwork and layered designs",
-    "label": "Grouped Lowers",
-    "status": "5 grouped sheets \u00b7 local native DRC/CAM checked \u00b7 factory review pending",
+    "family": "manufacturing/grouped-lowers",
+    "preview": "assets/panels/art-grouped-lowers.png",
     "boards": [
-      "panels/art-grouped-lowers/lower-panel-black-enig/lower-panel-black-enig.kicad_pcb",
-      "panels/art-grouped-lowers/lower-panel-black-hasl/lower-panel-black-hasl.kicad_pcb",
-      "panels/art-grouped-lowers/lower-panel-green-hasl/lower-panel-green-hasl.kicad_pcb",
-      "panels/art-grouped-lowers/lower-panel-red-hasl/lower-panel-red-hasl.kicad_pcb",
-      "panels/art-grouped-lowers/lower-panel-white-hasl/lower-panel-white-hasl.kicad_pcb"
-    ],
-    "preview": "assets/panels/art-grouped-lowers.png"
+      {
+        "path": "panels/art-grouped-lowers/lower-panel-black-enig/lower-panel-black-enig.kicad_pcb",
+        "role": "fabrication sheet",
+        "sha256": "00b9397644e2b6d181b9503e513314cabbef7e0b345a5fac06947ffe48599f82"
+      },
+      {
+        "path": "panels/art-grouped-lowers/lower-panel-black-hasl/lower-panel-black-hasl.kicad_pcb",
+        "role": "fabrication sheet",
+        "sha256": "8ce37a5a50890c5381838e55562c2c283ad1d6a1d2884c4d229b6c8120547e70"
+      },
+      {
+        "path": "panels/art-grouped-lowers/lower-panel-green-hasl/lower-panel-green-hasl.kicad_pcb",
+        "role": "fabrication sheet",
+        "sha256": "1f52ff5e844ef0c6b1a2ef81d94b0b22754f991c02ebd4c9b6e8ab5ad6ffaa51"
+      },
+      {
+        "path": "panels/art-grouped-lowers/lower-panel-red-hasl/lower-panel-red-hasl.kicad_pcb",
+        "role": "fabrication sheet",
+        "sha256": "c5dd1c702b31ee5801a1498fded6cf3b809ef223b6d15878793aa0d1010f0ed5"
+      },
+      {
+        "path": "panels/art-grouped-lowers/lower-panel-white-hasl/lower-panel-white-hasl.kicad_pcb",
+        "role": "fabrication sheet",
+        "sha256": "c36b1526a72bb2fab8709cd7bc29872da8c772fbd9185460ac8921b003e3da26"
+      }
+    ]
   },
   {
     "directory": "art-kumiko-void",
-    "category": "Artwork and layered designs",
-    "label": "Kumiko Void",
-    "status": "9 selected layers \u00b7 local native DRC/CAM checked \u00b7 factory review pending",
+    "family": "panels/art/kumiko-void",
+    "preview": "assets/panels/art-kumiko-void.png",
     "boards": [
-      "panels/art-kumiko-void/17-kumiko-void-wide-L01-black-enig-art.kicad_pcb",
-      "panels/art-kumiko-void/17-kumiko-void-wide-L02-red-mask-only.kicad_pcb",
-      "panels/art-kumiko-void/17-kumiko-void-wide-L03-green-mask-only.kicad_pcb",
-      "panels/art-kumiko-void/17-kumiko-void-wide-L04-black-enig-art.kicad_pcb",
-      "panels/art-kumiko-void/17-kumiko-void-wide-L05-red-mask-only.kicad_pcb",
-      "panels/art-kumiko-void/17-kumiko-void-wide-L06-green-mask-only.kicad_pcb",
-      "panels/art-kumiko-void/17-kumiko-void-wide-L07-black-enig-art.kicad_pcb",
-      "panels/art-kumiko-void/17-kumiko-void-wide-L08-red-mask-only.kicad_pcb",
-      "panels/art-kumiko-void/17-kumiko-void-wide-L09-green-mask-only.kicad_pcb"
-    ],
-    "preview": "assets/panels/art-kumiko-void.png"
+      {
+        "path": "panels/art-kumiko-void/17-kumiko-void-wide-L01-black-enig-art.kicad_pcb",
+        "role": "layer source",
+        "sha256": "66a9bfa4b323669e46989b0a879e73ca9c4b3b9f892d43b7873955ef1b37e431"
+      },
+      {
+        "path": "panels/art-kumiko-void/17-kumiko-void-wide-L02-red-mask-only.kicad_pcb",
+        "role": "layer source",
+        "sha256": "c64c75cef1f139bb05353c952784ebba4d090df12cd58156fcc2c7002332758d"
+      },
+      {
+        "path": "panels/art-kumiko-void/17-kumiko-void-wide-L03-green-mask-only.kicad_pcb",
+        "role": "layer source",
+        "sha256": "889783087ccf8983da77abf77bf0a2e7b4eb1222ebf9da1152a9483d1b1256f6"
+      },
+      {
+        "path": "panels/art-kumiko-void/17-kumiko-void-wide-L04-black-enig-art.kicad_pcb",
+        "role": "layer source",
+        "sha256": "e31f914f66c1d58434d28d3ae145fcdab1ef8bdbae99d845e4dc9560c647b25d"
+      },
+      {
+        "path": "panels/art-kumiko-void/17-kumiko-void-wide-L05-red-mask-only.kicad_pcb",
+        "role": "layer source",
+        "sha256": "16a0b3b961144aa7471ade7e4ead4a5bdec3f3de6bcd82d83a49663644890735"
+      },
+      {
+        "path": "panels/art-kumiko-void/17-kumiko-void-wide-L06-green-mask-only.kicad_pcb",
+        "role": "layer source",
+        "sha256": "3704ba5d96e16b3263edf4c23f8802ad3e15a583f7041ee6b1c8fc874d6bf8d9"
+      },
+      {
+        "path": "panels/art-kumiko-void/17-kumiko-void-wide-L07-black-enig-art.kicad_pcb",
+        "role": "layer source",
+        "sha256": "145130d8185fa247498d5ed1bf961fe91f6f6811d4aa96f89875ea175c46e871"
+      },
+      {
+        "path": "panels/art-kumiko-void/17-kumiko-void-wide-L08-red-mask-only.kicad_pcb",
+        "role": "layer source",
+        "sha256": "612b1253d37bdebb782306660f0238ee8c9ac8a40375d5b31e18e5be9bfa8b99"
+      },
+      {
+        "path": "panels/art-kumiko-void/17-kumiko-void-wide-L09-green-mask-only.kicad_pcb",
+        "role": "layer source",
+        "sha256": "51fd616c6d622e5eb844a5f865a4b4842a704e9a369e3c6c6da7adb1814829f2"
+      },
+      {
+        "path": "panels/art-kumiko-void/alternatives/standard/17-kumiko-void-standard-L01-black-enig-art.kicad_pcb",
+        "role": "reference alternative",
+        "sha256": "557526745d895670d33a344a2ba27b997199030d418fec5f5b581ecb8849b681"
+      },
+      {
+        "path": "panels/art-kumiko-void/alternatives/standard/17-kumiko-void-standard-L02-red-mask-only.kicad_pcb",
+        "role": "reference alternative",
+        "sha256": "9cec791fa5bd67b3a080ad2b2b33dac3ce03dfc73c11aa7c509d76424d82e0ac"
+      },
+      {
+        "path": "panels/art-kumiko-void/alternatives/standard/17-kumiko-void-standard-L03-green-mask-only.kicad_pcb",
+        "role": "reference alternative",
+        "sha256": "7b30645e7fd8cc5934882abcfe4ff42e003b69c1633782009ee303eada6aa5c9"
+      },
+      {
+        "path": "panels/art-kumiko-void/alternatives/standard/17-kumiko-void-standard-L04-black-enig-art.kicad_pcb",
+        "role": "reference alternative",
+        "sha256": "60884c82ba44c90c77d4b30a2119a48bb0af9d3594a22489d200bda1078d54b8"
+      },
+      {
+        "path": "panels/art-kumiko-void/alternatives/standard/17-kumiko-void-standard-L05-red-mask-only.kicad_pcb",
+        "role": "reference alternative",
+        "sha256": "3ad9d091ee71a81fd40bad1b6ff0b1c56fb6e07cc23551de069c6eabfe22a5a1"
+      },
+      {
+        "path": "panels/art-kumiko-void/alternatives/standard/17-kumiko-void-standard-L06-green-mask-only.kicad_pcb",
+        "role": "reference alternative",
+        "sha256": "cbf8b293db59b7d8e5d2500f4b0c82144f36f38bdfe26137afa183da3ae8ea4a"
+      },
+      {
+        "path": "panels/art-kumiko-void/alternatives/standard/17-kumiko-void-standard-L07-black-enig-art.kicad_pcb",
+        "role": "reference alternative",
+        "sha256": "d01d1915763fd061a462e27d3daa7dfff9427bc618bf7a3e5b98034c78e1d39e"
+      },
+      {
+        "path": "panels/art-kumiko-void/alternatives/standard/17-kumiko-void-standard-L08-red-mask-only.kicad_pcb",
+        "role": "reference alternative",
+        "sha256": "d36400afdb6bb5fde5c5bd374aaec348a38c68b198ee6d3cecff2a15b38cfbc9"
+      },
+      {
+        "path": "panels/art-kumiko-void/alternatives/standard/17-kumiko-void-standard-L09-green-mask-only.kicad_pcb",
+        "role": "reference alternative",
+        "sha256": "23d658dfc933f117fd8e34706d78c73879bc3e710b6642484a78c6361a68d5b4"
+      }
+    ]
   },
   {
     "directory": "art-spider-nest",
-    "category": "Artwork and layered designs",
-    "label": "Spider Nest",
-    "status": "8 selected layers \u00b7 local native DRC/CAM checked \u00b7 factory review pending",
+    "family": "panels/art/spider-nest",
+    "preview": "assets/panels/art-spider-nest.png",
     "boards": [
-      "panels/art-spider-nest/01-spider-nest-L01-black-enig-art.kicad_pcb",
-      "panels/art-spider-nest/01-spider-nest-L02-white-mask-only.kicad_pcb",
-      "panels/art-spider-nest/01-spider-nest-L03-gold-enig-fill.kicad_pcb",
-      "panels/art-spider-nest/01-spider-nest-L04-white-mask-only.kicad_pcb",
-      "panels/art-spider-nest/01-spider-nest-L05-gold-enig-fill.kicad_pcb",
-      "panels/art-spider-nest/01-spider-nest-L06-white-mask-only.kicad_pcb",
-      "panels/art-spider-nest/01-spider-nest-L07-gold-enig-fill.kicad_pcb",
-      "panels/art-spider-nest/01-spider-nest-L08-red-mask-only.kicad_pcb"
-    ],
-    "preview": "assets/panels/art-spider-nest.png"
+      {
+        "path": "panels/art-spider-nest/01-spider-nest-L01-black-enig-art.kicad_pcb",
+        "role": "layer source",
+        "sha256": "b2a61a01119911ab580c2a1fe1f5f062a59fa63b60b5e5754c7a07845552451d"
+      },
+      {
+        "path": "panels/art-spider-nest/01-spider-nest-L02-white-mask-only.kicad_pcb",
+        "role": "layer source",
+        "sha256": "15735b8ef6f982f46ffa4f04cbce090b7036f31e96552fbd34987a494f4dd7de"
+      },
+      {
+        "path": "panels/art-spider-nest/01-spider-nest-L03-gold-enig-fill.kicad_pcb",
+        "role": "layer source",
+        "sha256": "a86bf3aa467add382fe324830c577e47562e0b46dc35469a6bd5c563b88a9967"
+      },
+      {
+        "path": "panels/art-spider-nest/01-spider-nest-L04-white-mask-only.kicad_pcb",
+        "role": "layer source",
+        "sha256": "aedaf74567c3a7be565c765e33994365e1fe70c06aef555cbf71a7b11412a215"
+      },
+      {
+        "path": "panels/art-spider-nest/01-spider-nest-L05-gold-enig-fill.kicad_pcb",
+        "role": "layer source",
+        "sha256": "09059c06e75e2cec64ece3a5fad44992603e540582c106e098355fa8a49df55d"
+      },
+      {
+        "path": "panels/art-spider-nest/01-spider-nest-L06-white-mask-only.kicad_pcb",
+        "role": "layer source",
+        "sha256": "4aa07e20610dab934390286cc95564b82122a5833e49ca94da5a560c14f63ed5"
+      },
+      {
+        "path": "panels/art-spider-nest/01-spider-nest-L07-gold-enig-fill.kicad_pcb",
+        "role": "layer source",
+        "sha256": "ce88d9f53dc12090a9bc5ee0b8718e6e218a8317aac165b82aab14d53b0e16f8"
+      },
+      {
+        "path": "panels/art-spider-nest/01-spider-nest-L08-red-mask-only.kicad_pcb",
+        "role": "layer source",
+        "sha256": "44cf9e6a84bd2dcf50438de7d2ed0c991e09c19876b15a9519a6e6b754b37344"
+      }
+    ]
   },
   {
     "directory": "art-strip-mine",
-    "category": "Artwork and layered designs",
-    "label": "Strip Mine",
-    "status": "9 layered source boards \u00b7 historical project status",
+    "family": "panels/art/strip-mine",
+    "preview": "assets/panels/art-strip-mine.png",
     "boards": [
-      "panels/art-strip-mine/pcb-01-black/strip-mine-01.kicad_pcb",
-      "panels/art-strip-mine/pcb-02-red/strip-mine-02.kicad_pcb",
-      "panels/art-strip-mine/pcb-03-black/strip-mine-03.kicad_pcb",
-      "panels/art-strip-mine/pcb-04-red/strip-mine-04.kicad_pcb",
-      "panels/art-strip-mine/pcb-05-black/strip-mine-05.kicad_pcb",
-      "panels/art-strip-mine/pcb-06-red/strip-mine-06.kicad_pcb",
-      "panels/art-strip-mine/pcb-07-black/strip-mine-07.kicad_pcb",
-      "panels/art-strip-mine/pcb-08-red/strip-mine-08.kicad_pcb",
-      "panels/art-strip-mine/pcb-09-blue/strip-mine-09.kicad_pcb"
-    ],
-    "preview": "assets/panels/art-strip-mine.png"
+      {
+        "path": "panels/art-strip-mine/panel-black/strip-mine-black-panel.kicad_pcb",
+        "role": "fabrication sheet",
+        "sha256": "27590dd2516c23721241322262429247ff361f0bb510d725659947ab4fd85a3b"
+      },
+      {
+        "path": "panels/art-strip-mine/panel-red/strip-mine-red-panel.kicad_pcb",
+        "role": "fabrication sheet",
+        "sha256": "c1fc11e42cc4ee195fc5223f93abd8b4be0056781a4dd0555eb6c6c1431ca67b"
+      },
+      {
+        "path": "panels/art-strip-mine/pcb-01-black/strip-mine-01.kicad_pcb",
+        "role": "layer source",
+        "sha256": "282eacb51fc83d6bd2762749520fc13541e320f364812d8bcbd11fc1d9c69b6b"
+      },
+      {
+        "path": "panels/art-strip-mine/pcb-02-red/strip-mine-02.kicad_pcb",
+        "role": "layer source",
+        "sha256": "da47ce7ebfd65fd85fa5a637744a430886efcadb9d8f365961afdd37b1ecab0c"
+      },
+      {
+        "path": "panels/art-strip-mine/pcb-03-black/strip-mine-03.kicad_pcb",
+        "role": "layer source",
+        "sha256": "7a956acaaf5d324b2811c912e0289a1528e7a736a4170e55b7c0007f29dccc86"
+      },
+      {
+        "path": "panels/art-strip-mine/pcb-04-red/strip-mine-04.kicad_pcb",
+        "role": "layer source",
+        "sha256": "cdfbc883f12ac5b78c4beb73be0bf4148d1835f0ff28e01c45269993ff88e37a"
+      },
+      {
+        "path": "panels/art-strip-mine/pcb-05-black/strip-mine-05.kicad_pcb",
+        "role": "layer source",
+        "sha256": "0a3ffffe8bd8b3c1dcb8062784d85bfd5b1ce2d0d3896e0780a5ab6ad0b23f77"
+      },
+      {
+        "path": "panels/art-strip-mine/pcb-06-red/strip-mine-06.kicad_pcb",
+        "role": "layer source",
+        "sha256": "467bb5ffd3c000b199d43ce844fedaf2bc526c0d6344cec2a18bd8ddf0f54ac9"
+      },
+      {
+        "path": "panels/art-strip-mine/pcb-07-black/strip-mine-07.kicad_pcb",
+        "role": "layer source",
+        "sha256": "1c724dc945c58347639de18bae66e15b407884fee7cb867371db442a3abcd3c1"
+      },
+      {
+        "path": "panels/art-strip-mine/pcb-08-red/strip-mine-08.kicad_pcb",
+        "role": "layer source",
+        "sha256": "c7fd3aee53ad2d5b30b95a17218531b6dfed040e16d4cc3ed7bf291623fa4f2e"
+      },
+      {
+        "path": "panels/art-strip-mine/pcb-09-blue/strip-mine-09.kicad_pcb",
+        "role": "layer source",
+        "sha256": "879c4b98cbc220b0b7cd37c5ca63a8d79da86283eaa32c74235be37ff922b7f9"
+      },
+      {
+        "path": "panels/art-strip-mine/scripts/fixture/fixture.kicad_pcb",
+        "role": "test input",
+        "sha256": "5b2802237f5346539f7a019b596b9d5981d268dee6429265bb69cd3c9c88cdb5"
+      }
+    ]
   },
   {
     "directory": "art-ufo",
-    "category": "Artwork and layered designs",
-    "label": "Ufo",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/art/ufo",
+    "preview": "assets/panels/art-ufo.png",
     "boards": [
-      "panels/art-ufo/ufo-panel.kicad_pcb"
-    ],
-    "preview": "assets/panels/art-ufo.png"
+      {
+        "path": "panels/art-ufo/ufo-panel.kicad_pcb",
+        "role": "panel source",
+        "sha256": "114813eb45ce6de409abb6b05d1039278712d7e02cb1724e3ccdc07db2af311e"
+      }
+    ]
   },
   {
     "directory": "art-ufo-v2",
-    "category": "Artwork and layered designs",
-    "label": "Ufo V2",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/art/ufo",
+    "preview": "assets/panels/art-ufo-v2.png",
     "boards": [
-      "panels/art-ufo-v2/ufo-panel.kicad_pcb"
-    ],
-    "preview": "assets/panels/art-ufo-v2.png"
+      {
+        "path": "panels/art-ufo-v2/ufo-panel.kicad_pcb",
+        "role": "panel source",
+        "sha256": "c875a6329ded3fdc51bd747f59c086b5afe1e942ac20f22ab1290042813256d7"
+      }
+    ]
   },
   {
     "directory": "art-woven-maze",
-    "category": "Artwork and layered designs",
-    "label": "Woven Maze",
-    "status": "9 selected layers \u00b7 local native DRC/CAM checked \u00b7 factory review pending",
+    "family": "panels/art/woven-maze",
+    "preview": "assets/panels/art-woven-maze.png",
     "boards": [
-      "panels/art-woven-maze/18-woven-maze-L01-black-enig-art.kicad_pcb",
-      "panels/art-woven-maze/18-woven-maze-L02-white-mask-only.kicad_pcb",
-      "panels/art-woven-maze/18-woven-maze-L03-black-mask-only.kicad_pcb",
-      "panels/art-woven-maze/18-woven-maze-L04-white-mask-only.kicad_pcb",
-      "panels/art-woven-maze/18-woven-maze-L05-black-mask-only.kicad_pcb",
-      "panels/art-woven-maze/18-woven-maze-L06-white-mask-only.kicad_pcb",
-      "panels/art-woven-maze/18-woven-maze-L07-black-mask-only.kicad_pcb",
-      "panels/art-woven-maze/18-woven-maze-L08-white-mask-only.kicad_pcb",
-      "panels/art-woven-maze/18-woven-maze-L09-black-mask-only.kicad_pcb"
-    ],
-    "preview": "assets/panels/art-woven-maze.png"
+      {
+        "path": "panels/art-woven-maze/18-woven-maze-L01-black-enig-art.kicad_pcb",
+        "role": "layer source",
+        "sha256": "da4e5e80cf89c7e09244fce9d3f55b5b6c6e20581dc4755e5c480334b7f60538"
+      },
+      {
+        "path": "panels/art-woven-maze/18-woven-maze-L02-white-mask-only.kicad_pcb",
+        "role": "layer source",
+        "sha256": "95bfb1b3fa7f651d9348008e4f3e90d0ce471b30459b141daa5aeedf1d04ca01"
+      },
+      {
+        "path": "panels/art-woven-maze/18-woven-maze-L03-black-mask-only.kicad_pcb",
+        "role": "layer source",
+        "sha256": "1856bf4d095153446eb35a40dbe2ef7fdc24ca3d6988ca89e68c118a63d7ec11"
+      },
+      {
+        "path": "panels/art-woven-maze/18-woven-maze-L04-white-mask-only.kicad_pcb",
+        "role": "layer source",
+        "sha256": "93321b4464973c5c8e9b4099c23d114978311d3875937d697c0f8f2af531ee6a"
+      },
+      {
+        "path": "panels/art-woven-maze/18-woven-maze-L05-black-mask-only.kicad_pcb",
+        "role": "layer source",
+        "sha256": "dcdf71af640901d0d8247f9becbefb4cdf4e3d13acd737edceea21fbed8ef1ab"
+      },
+      {
+        "path": "panels/art-woven-maze/18-woven-maze-L06-white-mask-only.kicad_pcb",
+        "role": "layer source",
+        "sha256": "6b96a2f67d48d22e65169c0cdb9d5829d69be025bebad6a22b816784287a4b7f"
+      },
+      {
+        "path": "panels/art-woven-maze/18-woven-maze-L07-black-mask-only.kicad_pcb",
+        "role": "layer source",
+        "sha256": "a878119ff9ea214b3513be3b1cdb0429724c2e732d45f9e2d62c766b92ac990a"
+      },
+      {
+        "path": "panels/art-woven-maze/18-woven-maze-L08-white-mask-only.kicad_pcb",
+        "role": "layer source",
+        "sha256": "91165b09dde7e4cda954243ad161fc612cd86f271231628eaa7a77935f7cd670"
+      },
+      {
+        "path": "panels/art-woven-maze/18-woven-maze-L09-black-mask-only.kicad_pcb",
+        "role": "layer source",
+        "sha256": "767f4567fdd41d7145e92472164c09f123cd55b8ef44a12d038316412c62b1ed"
+      }
+    ]
   },
   {
     "directory": "saucer1-slow-wave-12hp",
-    "category": "Saucer series",
-    "label": "Saucer 1 \u00b7 Slow Wave \u00b7 12 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/saucer/slow-wave",
+    "preview": "assets/panels/saucer1-slow-wave-12hp.png",
     "boards": [
-      "panels/saucer1-slow-wave-12hp/12hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/saucer1-slow-wave-12hp.png"
+      {
+        "path": "panels/saucer1-slow-wave-12hp/12hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "a2afc84cd1452ec81513f4bd71b24ab33c82834dc73d399e2a995a46f4e3951a"
+      }
+    ]
   },
   {
     "directory": "saucer1-slow-wave-1hp",
-    "category": "Saucer series",
-    "label": "Saucer 1 \u00b7 Slow Wave \u00b7 1 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/saucer/slow-wave",
+    "preview": "assets/panels/saucer1-slow-wave-1hp.png",
     "boards": [
-      "panels/saucer1-slow-wave-1hp/1hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/saucer1-slow-wave-1hp.png"
+      {
+        "path": "panels/saucer1-slow-wave-1hp/1hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "fd002d4de831a40e31a0511c95ed0ab42fc5396a4636261d0f376089b35c1abc"
+      }
+    ]
   },
   {
     "directory": "saucer1-slow-wave-2hp",
-    "category": "Saucer series",
-    "label": "Saucer 1 \u00b7 Slow Wave \u00b7 2 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/saucer/slow-wave",
+    "preview": "assets/panels/saucer1-slow-wave-2hp.png",
     "boards": [
-      "panels/saucer1-slow-wave-2hp/2hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/saucer1-slow-wave-2hp.png"
+      {
+        "path": "panels/saucer1-slow-wave-2hp/2hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "178187a00580e2693473f7c141206dc7c01dfc6dba1caa0579f32e7e7f9217d4"
+      }
+    ]
   },
   {
     "directory": "saucer1-slow-wave-3hp",
-    "category": "Saucer series",
-    "label": "Saucer 1 \u00b7 Slow Wave \u00b7 3 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/saucer/slow-wave",
+    "preview": "assets/panels/saucer1-slow-wave-3hp.png",
     "boards": [
-      "panels/saucer1-slow-wave-3hp/3hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/saucer1-slow-wave-3hp.png"
+      {
+        "path": "panels/saucer1-slow-wave-3hp/3hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "e88ffb7f4018cc007834220c5076b334487cf3512014f435210c6eb28d5e0aad"
+      }
+    ]
   },
   {
     "directory": "saucer1-slow-wave-4hp",
-    "category": "Saucer series",
-    "label": "Saucer 1 \u00b7 Slow Wave \u00b7 4 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/saucer/slow-wave",
+    "preview": "assets/panels/saucer1-slow-wave-4hp.png",
     "boards": [
-      "panels/saucer1-slow-wave-4hp/4hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/saucer1-slow-wave-4hp.png"
+      {
+        "path": "panels/saucer1-slow-wave-4hp/4hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "a6be028fdf57ae77c461cb92c926764262502e92465e775b3b2722f6d91b10b1"
+      }
+    ]
   },
   {
     "directory": "saucer2-crystal-flow-12hp",
-    "category": "Saucer series",
-    "label": "Saucer 2 \u00b7 Crystal Flow \u00b7 12 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/saucer/crystal-flow",
+    "preview": "assets/panels/saucer2-crystal-flow-12hp.png",
     "boards": [
-      "panels/saucer2-crystal-flow-12hp/12hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/saucer2-crystal-flow-12hp.png"
+      {
+        "path": "panels/saucer2-crystal-flow-12hp/12hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "77eb26d0abd64c157ccb826745a22dbb11f4482f1cea71a8b4754bd52dc9cee3"
+      }
+    ]
   },
   {
     "directory": "saucer2-crystal-flow-1hp",
-    "category": "Saucer series",
-    "label": "Saucer 2 \u00b7 Crystal Flow \u00b7 1 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/saucer/crystal-flow",
+    "preview": "assets/panels/saucer2-crystal-flow-1hp.png",
     "boards": [
-      "panels/saucer2-crystal-flow-1hp/1hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/saucer2-crystal-flow-1hp.png"
+      {
+        "path": "panels/saucer2-crystal-flow-1hp/1hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "568056c6b3ba84a91c6fc7957ed4a7cb3eface77297c3be97b56ac0768edd5b7"
+      }
+    ]
   },
   {
     "directory": "saucer2-crystal-flow-2hp",
-    "category": "Saucer series",
-    "label": "Saucer 2 \u00b7 Crystal Flow \u00b7 2 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/saucer/crystal-flow",
+    "preview": "assets/panels/saucer2-crystal-flow-2hp.png",
     "boards": [
-      "panels/saucer2-crystal-flow-2hp/2hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/saucer2-crystal-flow-2hp.png"
+      {
+        "path": "panels/saucer2-crystal-flow-2hp/2hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "d00be1208f6e2960386f8937af523d660b15147d370f5c2710963fbf2410ea4c"
+      }
+    ]
   },
   {
     "directory": "saucer2-crystal-flow-3hp",
-    "category": "Saucer series",
-    "label": "Saucer 2 \u00b7 Crystal Flow \u00b7 3 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/saucer/crystal-flow",
+    "preview": "assets/panels/saucer2-crystal-flow-3hp.png",
     "boards": [
-      "panels/saucer2-crystal-flow-3hp/3hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/saucer2-crystal-flow-3hp.png"
+      {
+        "path": "panels/saucer2-crystal-flow-3hp/3hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "4d559f715074952fc305293327ac3d6e0c1a72c46837baad44cfb43eb57313a9"
+      }
+    ]
   },
   {
     "directory": "saucer2-crystal-flow-4hp",
-    "category": "Saucer series",
-    "label": "Saucer 2 \u00b7 Crystal Flow \u00b7 4 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/saucer/crystal-flow",
+    "preview": "assets/panels/saucer2-crystal-flow-4hp.png",
     "boards": [
-      "panels/saucer2-crystal-flow-4hp/4hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/saucer2-crystal-flow-4hp.png"
+      {
+        "path": "panels/saucer2-crystal-flow-4hp/4hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "05b494b75173c6bbbe684d17c89661363b3223bac984d6985b7bc80980aa3e1b"
+      }
+    ]
   },
   {
     "directory": "saucer3-grid-play-12hp",
-    "category": "Saucer series",
-    "label": "Saucer 3 \u00b7 Grid Play \u00b7 12 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/saucer/grid-play",
+    "preview": "assets/panels/saucer3-grid-play-12hp.png",
     "boards": [
-      "panels/saucer3-grid-play-12hp/12hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/saucer3-grid-play-12hp.png"
+      {
+        "path": "panels/saucer3-grid-play-12hp/12hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "fd3190f11aef08af5d091f4233f38745321e7596cb4fed98cf894a5f36618281"
+      }
+    ]
   },
   {
     "directory": "saucer3-grid-play-1hp",
-    "category": "Saucer series",
-    "label": "Saucer 3 \u00b7 Grid Play \u00b7 1 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/saucer/grid-play",
+    "preview": "assets/panels/saucer3-grid-play-1hp.png",
     "boards": [
-      "panels/saucer3-grid-play-1hp/1hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/saucer3-grid-play-1hp.png"
+      {
+        "path": "panels/saucer3-grid-play-1hp/1hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "32ebb70db020a2e1bbe2d4ce127cd97c1558e5715418a6273331cf0d2e28d1fc"
+      }
+    ]
   },
   {
     "directory": "saucer3-grid-play-2hp",
-    "category": "Saucer series",
-    "label": "Saucer 3 \u00b7 Grid Play \u00b7 2 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/saucer/grid-play",
+    "preview": "assets/panels/saucer3-grid-play-2hp.png",
     "boards": [
-      "panels/saucer3-grid-play-2hp/2hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/saucer3-grid-play-2hp.png"
+      {
+        "path": "panels/saucer3-grid-play-2hp/2hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "e4381cb590fcb668d6dc58216c7f14500762468705b2b07bc62ad07596d8d935"
+      }
+    ]
   },
   {
     "directory": "saucer3-grid-play-3hp",
-    "category": "Saucer series",
-    "label": "Saucer 3 \u00b7 Grid Play \u00b7 3 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/saucer/grid-play",
+    "preview": "assets/panels/saucer3-grid-play-3hp.png",
     "boards": [
-      "panels/saucer3-grid-play-3hp/3hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/saucer3-grid-play-3hp.png"
+      {
+        "path": "panels/saucer3-grid-play-3hp/3hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "2916aef0012a56fee2a87c1d32dc50c54792dea95a99877ce3bdf3cdf6933cb3"
+      }
+    ]
   },
   {
     "directory": "saucer3-grid-play-4hp",
-    "category": "Saucer series",
-    "label": "Saucer 3 \u00b7 Grid Play \u00b7 4 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/saucer/grid-play",
+    "preview": "assets/panels/saucer3-grid-play-4hp.png",
     "boards": [
-      "panels/saucer3-grid-play-4hp/4hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/saucer3-grid-play-4hp.png"
+      {
+        "path": "panels/saucer3-grid-play-4hp/4hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "2b149f7cfa6c723213f687cc0a1c72a2c3ad57fb151f457ae0dec2245afce28c"
+      }
+    ]
   },
   {
     "directory": "saucer4-streamlines-12hp",
-    "category": "Saucer series",
-    "label": "Saucer 4 \u00b7 Streamlines \u00b7 12 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/saucer/streamlines",
+    "preview": "assets/panels/saucer4-streamlines-12hp.png",
     "boards": [
-      "panels/saucer4-streamlines-12hp/12hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/saucer4-streamlines-12hp.png"
+      {
+        "path": "panels/saucer4-streamlines-12hp/12hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "be21e7220bfb158708c37c559dc20b012401ac454b725b85d008ab718d23f7c0"
+      }
+    ]
   },
   {
     "directory": "saucer4-streamlines-1hp",
-    "category": "Saucer series",
-    "label": "Saucer 4 \u00b7 Streamlines \u00b7 1 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/saucer/streamlines",
+    "preview": "assets/panels/saucer4-streamlines-1hp.png",
     "boards": [
-      "panels/saucer4-streamlines-1hp/1hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/saucer4-streamlines-1hp.png"
+      {
+        "path": "panels/saucer4-streamlines-1hp/1hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "92afeb20b64f555a23ab698f958d0807f72647c4e1c774755c8f6a4753e545be"
+      }
+    ]
   },
   {
     "directory": "saucer4-streamlines-2hp",
-    "category": "Saucer series",
-    "label": "Saucer 4 \u00b7 Streamlines \u00b7 2 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/saucer/streamlines",
+    "preview": "assets/panels/saucer4-streamlines-2hp.png",
     "boards": [
-      "panels/saucer4-streamlines-2hp/2hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/saucer4-streamlines-2hp.png"
+      {
+        "path": "panels/saucer4-streamlines-2hp/2hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "6e634e148240de7c1ca7bc122d03f15fa6f28ae055c4f549ea447ce25ca4d2c7"
+      }
+    ]
   },
   {
     "directory": "saucer4-streamlines-3hp",
-    "category": "Saucer series",
-    "label": "Saucer 4 \u00b7 Streamlines \u00b7 3 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/saucer/streamlines",
+    "preview": "assets/panels/saucer4-streamlines-3hp.png",
     "boards": [
-      "panels/saucer4-streamlines-3hp/3hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/saucer4-streamlines-3hp.png"
+      {
+        "path": "panels/saucer4-streamlines-3hp/3hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "4a0cb8d9ac55b3d96608f76168371abdf8c2ff5f00bd562ea6d96155b6bb69a5"
+      }
+    ]
   },
   {
     "directory": "saucer4-streamlines-4hp",
-    "category": "Saucer series",
-    "label": "Saucer 4 \u00b7 Streamlines \u00b7 4 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/saucer/streamlines",
+    "preview": "assets/panels/saucer4-streamlines-4hp.png",
     "boards": [
-      "panels/saucer4-streamlines-4hp/4hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/saucer4-streamlines-4hp.png"
+      {
+        "path": "panels/saucer4-streamlines-4hp/4hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "a536e00bd48fa258573559c82509bf526c185942aa4ada2d966cb058104e0d22"
+      }
+    ]
   },
   {
     "directory": "saucer5-rhythm-wave-12hp",
-    "category": "Saucer series",
-    "label": "Saucer 5 \u00b7 Rhythm Wave \u00b7 12 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/saucer/rhythm-wave",
+    "preview": "assets/panels/saucer5-rhythm-wave-12hp.png",
     "boards": [
-      "panels/saucer5-rhythm-wave-12hp/12hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/saucer5-rhythm-wave-12hp.png"
+      {
+        "path": "panels/saucer5-rhythm-wave-12hp/12hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "0943341e73bb43d761ca9382d568b1a8335e6105cf9d524d3ac7a3bba15804f5"
+      }
+    ]
   },
   {
     "directory": "saucer5-rhythm-wave-1hp",
-    "category": "Saucer series",
-    "label": "Saucer 5 \u00b7 Rhythm Wave \u00b7 1 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/saucer/rhythm-wave",
+    "preview": "assets/panels/saucer5-rhythm-wave-1hp.png",
     "boards": [
-      "panels/saucer5-rhythm-wave-1hp/1hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/saucer5-rhythm-wave-1hp.png"
+      {
+        "path": "panels/saucer5-rhythm-wave-1hp/1hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "7b081ae4e6f0e92a7831848629ad421b353ed012effc1e8b48afc1fb04ac09e7"
+      }
+    ]
   },
   {
     "directory": "saucer5-rhythm-wave-2hp",
-    "category": "Saucer series",
-    "label": "Saucer 5 \u00b7 Rhythm Wave \u00b7 2 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/saucer/rhythm-wave",
+    "preview": "assets/panels/saucer5-rhythm-wave-2hp.png",
     "boards": [
-      "panels/saucer5-rhythm-wave-2hp/2hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/saucer5-rhythm-wave-2hp.png"
+      {
+        "path": "panels/saucer5-rhythm-wave-2hp/2hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "57eaf76b43ca1142a13420f77336549fae6bfe88d9cc991fe67145e49559041b"
+      }
+    ]
   },
   {
     "directory": "saucer5-rhythm-wave-3hp",
-    "category": "Saucer series",
-    "label": "Saucer 5 \u00b7 Rhythm Wave \u00b7 3 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/saucer/rhythm-wave",
+    "preview": "assets/panels/saucer5-rhythm-wave-3hp.png",
     "boards": [
-      "panels/saucer5-rhythm-wave-3hp/3hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/saucer5-rhythm-wave-3hp.png"
+      {
+        "path": "panels/saucer5-rhythm-wave-3hp/3hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "a3e2f52f87b081672f509e527aef526fced3ff81222afa14ae96c12466c03914"
+      }
+    ]
   },
   {
     "directory": "saucer5-rhythm-wave-4hp",
-    "category": "Saucer series",
-    "label": "Saucer 5 \u00b7 Rhythm Wave \u00b7 4 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/saucer/rhythm-wave",
+    "preview": "assets/panels/saucer5-rhythm-wave-4hp.png",
     "boards": [
-      "panels/saucer5-rhythm-wave-4hp/4hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/saucer5-rhythm-wave-4hp.png"
+      {
+        "path": "panels/saucer5-rhythm-wave-4hp/4hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "96867f902c01305813842c07fd55cb4581929e11adabdb1edbfac514ac746d4f"
+      }
+    ]
   },
   {
     "directory": "saucer6-grainscape-12hp",
-    "category": "Saucer series",
-    "label": "Saucer 6 \u00b7 Grainscape \u00b7 12 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/saucer/grainscape",
+    "preview": "assets/panels/saucer6-grainscape-12hp.png",
     "boards": [
-      "panels/saucer6-grainscape-12hp/12hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/saucer6-grainscape-12hp.png"
+      {
+        "path": "panels/saucer6-grainscape-12hp/12hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "d9b92086ce77b9a21df7a3c2456de9fa75c1bd5b2fa65df977f11ed3327e629e"
+      }
+    ]
   },
   {
     "directory": "saucer6-grainscape-1hp",
-    "category": "Saucer series",
-    "label": "Saucer 6 \u00b7 Grainscape \u00b7 1 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/saucer/grainscape",
+    "preview": "assets/panels/saucer6-grainscape-1hp.png",
     "boards": [
-      "panels/saucer6-grainscape-1hp/1hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/saucer6-grainscape-1hp.png"
+      {
+        "path": "panels/saucer6-grainscape-1hp/1hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "fce630411a68637ec2b8b789d79e5bc444b499b92e52b657dd4b66d274f5295f"
+      }
+    ]
   },
   {
     "directory": "saucer6-grainscape-2hp",
-    "category": "Saucer series",
-    "label": "Saucer 6 \u00b7 Grainscape \u00b7 2 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/saucer/grainscape",
+    "preview": "assets/panels/saucer6-grainscape-2hp.png",
     "boards": [
-      "panels/saucer6-grainscape-2hp/2hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/saucer6-grainscape-2hp.png"
+      {
+        "path": "panels/saucer6-grainscape-2hp/2hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "0e08025ee97596ca44a0af4523d630a73a9ad663d61ba8d5a3834295dc9a5831"
+      }
+    ]
   },
   {
     "directory": "saucer6-grainscape-3hp",
-    "category": "Saucer series",
-    "label": "Saucer 6 \u00b7 Grainscape \u00b7 3 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/saucer/grainscape",
+    "preview": "assets/panels/saucer6-grainscape-3hp.png",
     "boards": [
-      "panels/saucer6-grainscape-3hp/3hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/saucer6-grainscape-3hp.png"
+      {
+        "path": "panels/saucer6-grainscape-3hp/3hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "548706cdcbf6d3fe5b808fa096a99edb9cc349df2ac40a4ec6ff1e200bbe054f"
+      }
+    ]
   },
   {
     "directory": "saucer6-grainscape-4hp",
-    "category": "Saucer series",
-    "label": "Saucer 6 \u00b7 Grainscape \u00b7 4 HP",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/saucer/grainscape",
+    "preview": "assets/panels/saucer6-grainscape-4hp.png",
     "boards": [
-      "panels/saucer6-grainscape-4hp/4hp.kicad_pcb"
-    ],
-    "preview": "assets/panels/saucer6-grainscape-4hp.png"
+      {
+        "path": "panels/saucer6-grainscape-4hp/4hp.kicad_pcb",
+        "role": "panel source",
+        "sha256": "e50db100cc36037e2a5b4196ef1a50a7587e36db1119d47e650cd37813d13858"
+      }
+    ]
   },
   {
     "directory": "zb-side-frame-1u",
-    "category": "Side frames",
-    "label": "Zb Side Frame 1U",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/frames-pads",
+    "preview": "assets/panels/zb-side-frame-1u.png",
     "boards": [
-      "panels/zb-side-frame-1u/zb-side-frame-1u.kicad_pcb"
-    ],
-    "preview": "assets/panels/zb-side-frame-1u.png"
+      {
+        "path": "panels/zb-side-frame-1u/zb-side-frame-1u.kicad_pcb",
+        "role": "panel source",
+        "sha256": "bc86dfdd5494d3d117f800197474874d09ea99d89e183390a0b650c5e995f8c0"
+      }
+    ]
   },
   {
     "directory": "zb-side-frame-3u",
-    "category": "Side frames",
-    "label": "Zb Side Frame 3U",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/frames-pads",
+    "preview": "assets/panels/zb-side-frame-3u.png",
     "boards": [
-      "panels/zb-side-frame-3u/zd-side-frame-3u.kicad_pcb"
-    ],
-    "preview": "assets/panels/zb-side-frame-3u.png"
+      {
+        "path": "panels/zb-side-frame-3u/zd-side-frame-3u.kicad_pcb",
+        "role": "panel source",
+        "sha256": "00174d7975b0565e0732544de5fdf3ada8b8d3a4a95d720819f104e384f5d2a7"
+      }
+    ]
   },
   {
     "directory": "zb-side-frame-7u",
-    "category": "Side frames",
-    "label": "Zb Side Frame 7U",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/frames-pads",
+    "preview": "assets/panels/zb-side-frame-7u.png",
     "boards": [
-      "panels/zb-side-frame-7u/zd-side-frame-7u.kicad_pcb"
-    ],
-    "preview": "assets/panels/zb-side-frame-7u.png"
+      {
+        "path": "panels/zb-side-frame-7u/zd-side-frame-7u.kicad_pcb",
+        "role": "panel source",
+        "sha256": "a99916e41e412404171cb16a24a252bb543eb56025ffe603ee3f1455a025ee86"
+      }
+    ]
   },
   {
     "directory": "zb-side-frame-pad-1u",
-    "category": "Side frames",
-    "label": "Zb Side Frame Pad 1U",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/frames-pads",
+    "preview": "assets/panels/zb-side-frame-pad-1u.png",
     "boards": [
-      "panels/zb-side-frame-pad-1u/1u-padder.kicad_pcb"
-    ],
-    "preview": "assets/panels/zb-side-frame-pad-1u.png"
+      {
+        "path": "panels/zb-side-frame-pad-1u/1u-padder.kicad_pcb",
+        "role": "panel source",
+        "sha256": "dbd1d41152bbaf7350b7f1d83fa88c492acfb3ee164c5f187f5b6c7862b3769e"
+      }
+    ]
   },
   {
     "directory": "zb-side-frame-pad-3u",
-    "category": "Side frames",
-    "label": "Zb Side Frame Pad 3U",
-    "status": "Repository design \u00b7 manufacturing status not established",
+    "family": "panels/frames-pads",
+    "preview": "assets/panels/zb-side-frame-pad-3u.png",
     "boards": [
-      "panels/zb-side-frame-pad-3u/3u-padder.kicad_pcb"
-    ],
-    "preview": "assets/panels/zb-side-frame-pad-3u.png"
+      {
+        "path": "panels/zb-side-frame-pad-3u/3u-padder.kicad_pcb",
+        "role": "panel source",
+        "sha256": "e7ea7daa33d98180f9f118e42b38d74d56d9a7ea685756a70123c9ffbf300b66"
+      }
+    ]
   }
 ]
