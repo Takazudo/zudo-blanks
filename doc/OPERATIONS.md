@@ -46,6 +46,15 @@ when Git rename detection follows duplicate overlays or misses edited moves.
 It supplies supported chrome metadata before rendering and reconciles history
 JSON afterward; `check:history` verifies both against full Git history.
 
+Published zudo-doc 6.0.0 can assign a move date as the creation date when a page
+arrives from outside the configured content root. The revision-history API still
+retains its earlier revisions. The [upstream reproduction](https://github.com/zudolab/zudo-doc/issues/2517#issuecomment-6111082841)
+tracks that metadata defect. This consumer's explicit prior-path mapping restores
+original creation metadata and History/Compare entries through supported APIs;
+regression tests and built-history checks guard both. Keep the workaround until
+a published fix passes the same continuity checks. No manufacturing data depends
+on this metadata.
+
 `check:content` covers dynamic inventory and generated-output drift without KiCad,
 Pillow or macOS `sips`. Normal builds reuse committed images. Native board image
 regeneration is a separate, intentional maintenance task; never refresh frozen
@@ -91,17 +100,19 @@ Retiring this repository's Netlify tooling does not remove or modify that host.
 
 ## Stack integration
 
-The docs branch starts after parent commit
+The docs branch originally started after parent commit
 `f31c49d3cad0364033c18d4f91d07139ea4872f5` on
-`chore/completed-four-art-order` (PR #27). Its initial draft PR targets that branch.
-The final target is `main`. After a separately authorized and verified merge of
-#27, fetch fresh `main`, identify **only** the docs commits after the recorded
-parent boundary, and transplant those commits onto fresh `main`. A squash/rebase
-merge changes parent commit IDs: do not replay the old #27 commits. Review the
-resulting diff and completed-order download references, retarget the PR, and rerun
-relevant checks against its actual head/base. Closed-unmerged is not delivery;
-reconcile any content decision explicitly. Keep #22 and #25 open until integration
-is authorized and completed.
+`chore/completed-four-art-order` (PR #27). That prerequisite merged normally as
+`fd93422741bd6f43b1ef73cfd6483dc135a53d2f`, after its legacy deployment job was
+disabled. Only the nine documentation commits after the recorded boundary were
+transplanted onto that fresh `main`; the documentation PR now targets `main`.
+The workflow's removal is the intended resolution of the deployment-gate conflict.
+
+Archive downloads remain pinned to the original completed-order commit, which is
+retained in main's ancestry. Their bytes must match the merged archive. For any
+future transplant after a squash/rebase merge, replay only documentation commits,
+never the old parent commits; recheck the archive references and actual head/base
+CI. Production activation remains separate from this integration.
 
 ## Production activation: separate authorization required
 
