@@ -1,30 +1,22 @@
 ---
-title: "Prepare Order Data"
-description: "Tie the selected files to process, color, finish, and quantity."
+title: Completed Four-Series Order
 sidebar_position: 4
 ---
 
-## Order unit
+The owner reported the four-series order completed on **2026-10-10 JST**. Accepted choice **B** uses compact grouped lowers with the **red6+4 split**, at **25 complete stacks each** of Coral Vault, Fault Line, Kumiko Void **wide**, and Spider Nest: **100 artworks / 850 useful PCB pieces**, from **13 cart lines, each quantity 25**.
 
-One layered design consists of multiple separate PCBs. L01 and L02 are board sequence numbers, not copper-layer counts. Each board needs its own outline, mask color, finish, and quantity. Different designs cannot be assumed to share a panel quote just because they use the same color.
+[Open the completed order archive](https://github.com/Takazudo/zudo-blanks/blob/main/order-packages/four-art-series/ordered/README.md) for the exact native boards, CAM previews, order ZIPs, quantity/settings table and provenance. These fabrication bytes are retained unchanged in ordinary Git. Individual-board baseline and red10 generated candidates have been removed; historical source profiles remain reproducible in Git history and the generators.
 
-The imported order-plan.csv describes required quantities for one selected 43-board set and leaves supplier order quantities blank. hardware-plan.csv lists candidate fasteners and spacers. Neither file is a purchase order.
+The last verified quote was **¥204,169 = ¥189,963 manufacturing + ¥14,206 shipping**. It is a quote, **not a receipt or final paid amount**. No order ID, actual transaction timestamp, receipt or payment details were supplied. The date above records the owner's completion report. This page does not request another purchase.
 
-## Confirm each specification
+Exactly 34 native source boards comprise four unchanged, individually routed cosmetic tops and 30 lowers. Black ENIG and black lead-free HASL remain separate. Purple, yellow and blue lowers stay individual. The red six-member sheet contains Spider L08, Coral L05/L07 and Kumiko wide L02/L05/L08; the four-member sheet contains Fault L02/L04/L06/L08. The adopted layout has no blank cells or surplus.
 
-Use pcb/manifest.csv as the starting point and confirm the chosen Kumiko variant as a complete set.
+Original artwork, apertures, mounting holes and stack geometry remain unchanged. Lower sheets use translation-only placement and 5 mm rails. Scores are separate fabrication drawings; decorative apertures remain routed. FR-4, 1.6 mm, two copper layers, 1 oz and the original color/finish conditions are preserved. The archive contains the exact settings, DRC/CAM evidence, placements, source/tool/run hashes and nominal stack-side previews.
 
-| Item | Record |
-| --- | --- |
-| Design and layer | Original design ID and L01 onward layer |
-| Revision and file | Source revision, native file hash, and final manufacturing package hash |
-| Material and thickness | Supplier-agreed FR-4 process and 1.6 mm thickness |
-| Mask color | Applicable black, white, green, purple, red, yellow, or blue |
-| Surface finish | Supplier-agreed ENIG or mask-only finish |
-| Cutouts and holes | Routing and NPTH treatment |
-| Quantity | Board quantity and number of complete sets |
-| Output data | Gerber archive, drill files, and notes |
+[Verification and development tools](https://github.com/Takazudo/zudo-blanks/blob/main/scripts/art-order/README.md) distinguish the frozen completed archive from fresh ignored exports. PR checks verify the archive without regenerating unchanged fabrication bytes. Original pre-order run records retain their then-pending factory checks; local native/CAM verification does not establish supplier approval or physical-fit evidence.
 
-Screen colors are approximate. Confirm supplier availability, physical colors, and any surcharge for purple and yellow. Confirm how empty copper layers on mask-only boards are handled.
+Strip Mine remains a separate already ordered project with all files and prior order documentation preserved. Woven Maze and standard Kumiko remain historical/reference sources.
 
-View final Gerbers and drills independently. Compare board outline, holes, slots, mask openings, layer direction, and file list with KiCad and the manifest. Link supplier answers to the open-item record before releasing an order package.
+## Historical five-series plan
+
+The [historical manifest](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/manufacturing/lower-panels-order-manifest.json) and [native grouped sources](https://github.com/Takazudo/zudo-blanks/tree/main/panels/art-grouped-lowers) retain the five-series selection including Woven Maze: 43 IDs, 1,075 useful pieces, 75 blank cells, 13 packages and 325 units at 25 stacks per series. Its hardware totals are 500 screws, 3,800 spacers and 500 nuts. Those preserved records are not the current four-series purchase list.

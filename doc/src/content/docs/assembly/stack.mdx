@@ -4,19 +4,30 @@ description: "Layer order, spacer counts, and assembly checks."
 sidebar_position: 1
 ---
 
-## Assembled dimensions
+## Four-series hardware counts
 
-| Design | Boards | Gaps | 3 mm spacers | Boards plus gaps |
-| --- | ---: | ---: | ---: | ---: |
-| Spider Nest | 8 | 7 | 28 | 33.8 mm |
-| Coral Vault | 8 | 7 | 28 | 33.8 mm |
-| Fault Line | 9 | 8 | 32 | 38.4 mm |
-| Kumiko Void | 9 | 8 | 32 | 38.4 mm |
-| Woven Maze | 9 | 8 | 32 | 38.4 mm |
+One artwork means one complete stack, including its top PCB. The four ordered series use the following counts, excluding spares and rack/rail mounting hardware:
 
-One spacer at each corner of every gap gives 152 spacers and 20 stack screw axes across all five designs. Recalculate if using threaded standoffs or a different support arrangement.
+| Artwork | Boards | Gaps | M3 ×45 mm screws | 3 mm spacers | M3 nuts | Boards plus gaps |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Coral Vault | 8 | 7 | 4 | 28 | 4 | 33.8 mm |
+| Fault Line | 9 | 8 | 4 | 32 | 4 | 38.4 mm |
+| Kumiko Void wide | 9 | 8 | 4 | 32 | 4 | 38.4 mm |
+| Spider Nest | 8 | 7 | 4 | 28 | 4 | 33.8 mm |
 
-The preview assumes 6 mm outer-diameter spacers. Board tolerances, screw heads, washers, nuts, and thread allowance are not included. Choose final screw lengths against actual hardware and case dimensions.
+All 34 original native boards were checked: each has four aligned Ø3.2 mm stack holes. One long screw passes through all layers at each axis and is secured by one rear nut. Each gap takes one 3 mm spacer on each of the four axes, so **spacers per artwork = 4 × (board layers − 1)**. Decorative apertures and the four top-only rail slots are separate from these stack holes; their mounting hardware is excluded. See [the mounting coordinates](../engineering/dimensions.mdx).
+
+A **four-series combined set** contains one complete artwork of each series: **16 screws, 120 spacers and 16 nuts**. The ordered **25 combined sets** (25 artworks per series, 100 artworks total) require **400 screws, 3,000 spacers and 400 nuts**, excluding spares.
+
+The owner reports that these exact M3 ×45 mm screws, M3-compatible 3 mm spacers and M3 nuts have already been purchased and successfully used to assemble Strip Mine. This records owner-reported experience with the parts. Assembly results for the four new series have not yet been recorded. With the same hardware and no added plates or changed washer arrangement, the 45 mm length has the same nominal reach as the working Strip Mine assembly for Fault Line and Kumiko Void wide: all three use nine 1.6 mm boards and eight 3 mm gaps, totaling 38.4 mm. Coral Vault and Spider Nest total 33.8 mm, which is 4.6 mm thinner.
+
+The [Strip Mine hardware record](https://github.com/Takazudo/zudo-blanks/blob/daca5d44e5b6ec382481a1c1e9a3e634b04381ea/panels/art-strip-mine/README.md#L35-L45) calculates screw length **under the head**, with an assumed 2.4 mm nut. On that basis, 45 mm leaves 6.6 mm beyond a nine-board stack (4.2 mm beyond the assumed nut), or 11.2 mm beyond an eight-board stack (8.8 mm beyond the assumed nut), before any washers. The actual purchased screw head type, washer arrangement and nut dimensions are not recorded; the comparison above uses the same parts the owner already assembled, rather than assuming a different screw-length convention.
+
+The board/gap heights above use 1.6 mm PCBs and 3.0 mm gaps, excluding heads, nuts and washers. The existing preview assumes 6 mm spacer outside diameter.
+
+## Historical five-design planning record
+
+Woven Maze remains outside the completed four-series order. Its historical stack has nine boards, eight gaps, 32 spacers and 38.4 mm of boards plus gaps. Including it gives the preserved five-design planning totals of 152 spacers and 20 stack screw axes. The imported five-design hardware CSV remains historical; use the four-series counts above for this completed order.
 
 ## Assembly sequence
 

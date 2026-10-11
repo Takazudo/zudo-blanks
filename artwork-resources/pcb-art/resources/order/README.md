@@ -1,4 +1,6 @@
-# Draft Quantity Inputs
+# Historical Five-Series Quantity Inputs
+
+These imported source-planning CSVs predate the completed four-series order. For the adopted red6+4 quantity-25 set, open [the completed archive](../../../../order-packages/four-art-series/ordered/README.md). These historical inputs are preserved; they are not its purchase list.
 
 The selected wide-Kumiko configuration contains 43 different boards for one five-design set. The draft CSV keeps required quantities separate from supplier order quantities; supplier quantities remain blank until a quote establishes minimum lots, panelization, and extras.
 

@@ -199,7 +199,7 @@ def checksum_manifest(output):
     (output/'SHA256SUMS').write_text(''.join(f'{sha(p)}  {relative(p,output)}\n' for p in files))
 
 
-def verify_bundle(output, expected_source=None, expected_run_id=None):
+def verify_bundle(output, expected_source=None, expected_run_id=None, *, selected_variants=None):
     output=output.resolve()
     sums={}
     for line in (output/'SHA256SUMS').read_text().splitlines():
@@ -249,6 +249,10 @@ def verify_bundle(output, expected_source=None, expected_run_id=None):
     variants=receipt['variants']
     if not variants or len(set(variants))!=len(variants) or set(variants)-set(VARIANTS):
         raise ValueError('Invalid variant receipt')
+    if selected_variants is not None:
+        if not selected_variants or not set(selected_variants).issubset(variants):
+            raise ValueError('Selected variants absent from original receipt')
+        variants = list(selected_variants)
     for variant in variants:
         target=output/'variants'/variant
         order=json.loads((target/'order.json').read_text())
@@ -332,6 +336,8 @@ def verify_bundle(output, expected_source=None, expected_run_id=None):
 
 def run(args):
     output=args.output.resolve()
+    if output.is_relative_to(ROOT / 'order-packages'):
+        raise ValueError('Completed order archives cannot be generation outputs')
     if output.exists() and any(output.iterdir()):
         raise ValueError('Use a fresh empty output directory')
     (output/'logs').mkdir(parents=True,exist_ok=True)
@@ -434,7 +440,7 @@ def run(args):
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--profile',type=Path,default=DEFAULT_PROFILE)
-    parser.add_argument('--variant',choices=('all',*VARIANTS),default='all')
+    parser.add_argument('--variant',choices=('all',*VARIANTS),default='split-red')
     parser.add_argument('--output',type=Path)
     parser.add_argument('--kicad-cli')
     parser.add_argument('--verify-bundle',type=Path)

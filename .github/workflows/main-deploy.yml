@@ -67,6 +67,8 @@ jobs:
 
   # Step 2: Deploy to production
   deploy:
+    # Production activation requires separate authorization; the docs migration retires this job.
+    if: ${{ false }}
     name: Deploy to Production
     needs: build
     runs-on: ubuntu-latest
