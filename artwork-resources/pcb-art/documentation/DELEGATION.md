@@ -1,3 +1,7 @@
+# Historical documentation handoff
+
+This file records the original import only. The maintained site now lives in [`doc/`](../../../doc/). Use its [continuation guide](../../../doc/src/content/docs/guides/continuation.mdx), [source roles](../../../doc/src/content/docs/guides/engineering/source-of-truth.mdx) and the [completed archive](../../../order-packages/four-art-series/ordered/README.md) for current instructions. Earlier pending/import-only status below is historical. The duplicate overlay bootstrap and checks are retired.
+
 # Local Continuation Guide
 
 Continue from the Revision 5 sources and the native boards in the five panels/art-* homes. Keep the wide Kumiko set selected; its nine standard boards are one complete alternative.

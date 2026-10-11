@@ -1,0 +1,42 @@
+name: Documentation
+
+on:
+  pull_request:
+    # All bases include the order stack; edited also covers a later retarget.
+    types: [opened, synchronize, reopened, edited, ready_for_review]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: docs-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  documentation:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Check out tested merge and complete history
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+          lfs: false
+      - name: Record tested revisions
+        env:
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha || '' }}
+          BASE_REF: ${{ github.base_ref || github.ref_name }}
+        run: |
+          git rev-parse HEAD
+          printf 'head=%s\nbase=%s\nbase_ref=%s\n' "$HEAD_SHA" "$BASE_SHA" "$BASE_REF"
+      - name: Validate documentation and built Worker without credentials
+        uses: ./.github/actions/build-zudo-doc
+      - name: Verify unchanged completed-order archive
+        run: |
+          python3 -m pip install -r scripts/art-order/requirements.txt
+          python3 artwork-resources/pcb-art/manufacturing/verify_ordered.py

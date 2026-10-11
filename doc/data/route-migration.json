@@ -1,0 +1,325 @@
+{
+  "schemaVersion": 1,
+  "oldHost": "https://takazudomodular.com",
+  "oldBase": "/pj/zblanks/",
+  "newOrigin": "https://zudo-blanks.zudolab.dev",
+  "routes": [
+    {
+      "from": "/docs/overview/project-overview/",
+      "to": "/docs/overview/project-overview/",
+      "source": "overview/project-overview.md"
+    },
+    {
+      "from": "/docs/overview/file-structure/",
+      "to": "/docs/overview/file-structure/",
+      "source": "overview/file-structure.md"
+    },
+    {
+      "from": "/docs/overview/references/",
+      "to": "/docs/overview/references/",
+      "source": "overview/references.mdx"
+    },
+    {
+      "from": "/docs/overview/",
+      "to": "/docs/overview/",
+      "source": "overview/index.mdx"
+    },
+    {
+      "from": "/docs/overview/review/",
+      "to": "/docs/overview/review/",
+      "source": "overview/review.mdx"
+    },
+    {
+      "from": "/docs/overview/decisions/",
+      "to": "/docs/overview/decisions/",
+      "source": "overview/decisions.mdx"
+    },
+    {
+      "from": "/docs/engineering/dimensions/",
+      "to": "/docs/guides/engineering/dimensions/",
+      "source": "engineering/dimensions.mdx"
+    },
+    {
+      "from": "/docs/engineering/",
+      "to": "/docs/guides/engineering/",
+      "source": "engineering/index.mdx"
+    },
+    {
+      "from": "/docs/engineering/finishes/",
+      "to": "/docs/guides/engineering/finishes/",
+      "source": "engineering/finishes.mdx"
+    },
+    {
+      "from": "/docs/engineering/source-of-truth/",
+      "to": "/docs/guides/engineering/source-of-truth/",
+      "source": "engineering/source-of-truth.mdx"
+    },
+    {
+      "from": "/docs/engineering/gold-borders/",
+      "to": "/docs/guides/engineering/gold-borders/",
+      "source": "engineering/gold-borders.mdx"
+    },
+    {
+      "from": "/docs/misc/",
+      "to": "/docs/guides/misc/",
+      "source": "misc/index.mdx"
+    },
+    {
+      "from": "/docs/how-to/kicad-workflow/",
+      "to": "/docs/guides/how-to/kicad-workflow/",
+      "source": "how-to/kicad-workflow.md"
+    },
+    {
+      "from": "/docs/how-to/",
+      "to": "/docs/guides/how-to/",
+      "source": "how-to/index.mdx"
+    },
+    {
+      "from": "/docs/how-to/kicad-parts-download/",
+      "to": "/docs/guides/how-to/kicad-parts-download/",
+      "source": "how-to/kicad-parts-download.md"
+    },
+    {
+      "from": "/docs/how-to/create-footprint-svg/",
+      "to": "/docs/guides/how-to/create-footprint-svg/",
+      "source": "how-to/create-footprint-svg.md"
+    },
+    {
+      "from": "/docs/workflow/panel-previews/",
+      "to": "/docs/guides/workflow/panel-previews/",
+      "source": "workflow/panel-previews.mdx"
+    },
+    {
+      "from": "/docs/workflow/",
+      "to": "/docs/guides/workflow/",
+      "source": "workflow/index.mdx"
+    },
+    {
+      "from": "/docs/inbox/",
+      "to": "/docs/guides/inbox/",
+      "source": "inbox/index.mdx"
+    },
+    {
+      "from": "/docs/catalog/",
+      "to": "/docs/panels/",
+      "source": "catalog/index.mdx"
+    },
+    {
+      "from": "/docs/assembly/",
+      "to": "/docs/guides/assembly/",
+      "source": "assembly/index.mdx"
+    },
+    {
+      "from": "/docs/assembly/stack/",
+      "to": "/docs/guides/assembly/stack/",
+      "source": "assembly/stack.mdx"
+    },
+    {
+      "from": "/docs/manufacturing/kumiko-routing/",
+      "to": "/docs/manufacturing/kumiko-routing/",
+      "source": "manufacturing/kumiko-routing.mdx"
+    },
+    {
+      "from": "/docs/manufacturing/order/",
+      "to": "/docs/manufacturing/order/",
+      "source": "manufacturing/order.mdx"
+    },
+    {
+      "from": "/docs/manufacturing/copper-review/",
+      "to": "/docs/manufacturing/copper-review/",
+      "source": "manufacturing/copper-review.mdx"
+    },
+    {
+      "from": "/docs/manufacturing/kicad/",
+      "to": "/docs/manufacturing/kicad/",
+      "source": "manufacturing/kicad.mdx"
+    },
+    {
+      "from": "/docs/manufacturing/",
+      "to": "/docs/manufacturing/",
+      "source": "manufacturing/index.mdx"
+    },
+    {
+      "from": "/docs/manufacturing/comparisons/",
+      "to": "/docs/manufacturing/comparisons/",
+      "source": "manufacturing/comparisons.mdx"
+    },
+    {
+      "from": "/docs/manufacturing/open-items/",
+      "to": "/docs/manufacturing/open-items/",
+      "source": "manufacturing/open-items.mdx"
+    },
+    {
+      "from": "/docs/designs/fault-line/",
+      "to": "/docs/panels/art/fault-line/",
+      "source": "designs/fault-line.mdx"
+    },
+    {
+      "from": "/docs/designs/kumiko-void/",
+      "to": "/docs/panels/art/kumiko-void/",
+      "source": "designs/kumiko-void.mdx"
+    },
+    {
+      "from": "/docs/designs/coral-vault/",
+      "to": "/docs/panels/art/coral-vault/",
+      "source": "designs/coral-vault.mdx"
+    },
+    {
+      "from": "/docs/designs/",
+      "to": "/docs/panels/art/",
+      "source": "designs/index.mdx"
+    },
+    {
+      "from": "/docs/designs/spider-nest/",
+      "to": "/docs/panels/art/spider-nest/",
+      "source": "designs/spider-nest.mdx"
+    },
+    {
+      "from": "/docs/designs/woven-maze/",
+      "to": "/docs/panels/art/woven-maze/",
+      "source": "designs/woven-maze.mdx"
+    }
+  ],
+  "overlay": [
+    {
+      "source": "artwork-resources/pcb-art/docs-overlay/src/content/docs/assembly/index.mdx",
+      "to": "/docs/guides/assembly/",
+      "disposition": "Merged section entry points into maintained ancestry indexes; preserved the newer maintained page prose and current navigation, replacing obsolete custom CategoryNav and import-only pending status."
+    },
+    {
+      "source": "artwork-resources/pcb-art/docs-overlay/src/content/docs/assembly/stack.mdx",
+      "to": "/docs/guides/assembly/stack/",
+      "disposition": "Preserved PR27 assembly prose, 34-board hole checks, 400/3000/400 hardware totals, Strip Mine owner experience and screw-length assumptions; only internal links relocated."
+    },
+    {
+      "source": "artwork-resources/pcb-art/docs-overlay/src/content/docs/designs/coral-vault.mdx",
+      "to": "/docs/panels/art/coral-vault/",
+      "disposition": "Preserved design intent and full front-to-back layer/color/finish tables; added native-board role inventory, canonical viewer and current completed-order/reference status. Index expanded to all nine art families."
+    },
+    {
+      "source": "artwork-resources/pcb-art/docs-overlay/src/content/docs/designs/fault-line.mdx",
+      "to": "/docs/panels/art/fault-line/",
+      "disposition": "Preserved design intent and full front-to-back layer/color/finish tables; added native-board role inventory, canonical viewer and current completed-order/reference status. Index expanded to all nine art families."
+    },
+    {
+      "source": "artwork-resources/pcb-art/docs-overlay/src/content/docs/designs/index.mdx",
+      "to": "/docs/panels/art/",
+      "disposition": "Preserved design intent and full front-to-back layer/color/finish tables; added native-board role inventory, canonical viewer and current completed-order/reference status. Index expanded to all nine art families."
+    },
+    {
+      "source": "artwork-resources/pcb-art/docs-overlay/src/content/docs/designs/kumiko-void.mdx",
+      "to": "/docs/panels/art/kumiko-void/",
+      "disposition": "Preserved wide/standard whole-set distinction and opening comparison; replaced original unresolved-screen claim with later indexed manufacturing correction evidence; retained both viewer selections and all 18 native boards."
+    },
+    {
+      "source": "artwork-resources/pcb-art/docs-overlay/src/content/docs/designs/spider-nest.mdx",
+      "to": "/docs/panels/art/spider-nest/",
+      "disposition": "Preserved design intent and full front-to-back layer/color/finish tables; added native-board role inventory, canonical viewer and current completed-order/reference status. Index expanded to all nine art families."
+    },
+    {
+      "source": "artwork-resources/pcb-art/docs-overlay/src/content/docs/designs/woven-maze.mdx",
+      "to": "/docs/panels/art/woven-maze/",
+      "disposition": "Preserved design intent and full front-to-back layer/color/finish tables; added native-board role inventory, canonical viewer and current completed-order/reference status. Index expanded to all nine art families."
+    },
+    {
+      "source": "artwork-resources/pcb-art/docs-overlay/src/content/docs/engineering/dimensions.mdx",
+      "to": "/docs/guides/engineering/dimensions/",
+      "disposition": "Retained authored dimensions, finish/layer tables and gold-border intent; source-role page additionally distinguishes frozen visual geometry, manufacturing adjustments, historical sheets and completed archive. Native indexes replace custom CategoryNav."
+    },
+    {
+      "source": "artwork-resources/pcb-art/docs-overlay/src/content/docs/engineering/finishes.mdx",
+      "to": "/docs/guides/engineering/finishes/",
+      "disposition": "Retained authored dimensions, finish/layer tables and gold-border intent; source-role page additionally distinguishes frozen visual geometry, manufacturing adjustments, historical sheets and completed archive. Native indexes replace custom CategoryNav."
+    },
+    {
+      "source": "artwork-resources/pcb-art/docs-overlay/src/content/docs/engineering/gold-borders.mdx",
+      "to": "/docs/guides/engineering/gold-borders/",
+      "disposition": "Retained authored dimensions, finish/layer tables and gold-border intent; source-role page additionally distinguishes frozen visual geometry, manufacturing adjustments, historical sheets and completed archive. Native indexes replace custom CategoryNav."
+    },
+    {
+      "source": "artwork-resources/pcb-art/docs-overlay/src/content/docs/engineering/index.mdx",
+      "to": "/docs/guides/engineering/",
+      "disposition": "Retained authored dimensions, finish/layer tables and gold-border intent; source-role page additionally distinguishes frozen visual geometry, manufacturing adjustments, historical sheets and completed archive. Native indexes replace custom CategoryNav."
+    },
+    {
+      "source": "artwork-resources/pcb-art/docs-overlay/src/content/docs/engineering/source-of-truth.mdx",
+      "to": "/docs/guides/engineering/source-of-truth/",
+      "disposition": "Retained authored dimensions, finish/layer tables and gold-border intent; source-role page additionally distinguishes frozen visual geometry, manufacturing adjustments, historical sheets and completed archive. Native indexes replace custom CategoryNav."
+    },
+    {
+      "source": "artwork-resources/pcb-art/docs-overlay/src/content/docs/handoff/delegation.mdx",
+      "to": "/docs/guides/continuation/",
+      "disposition": "Merged original-ID/color/finish requirements, geometry versus manual-production-edit boundaries, board/layer/location change records and independent evidence sequence into Continuing Design Work."
+    },
+    {
+      "source": "artwork-resources/pcb-art/docs-overlay/src/content/docs/handoff/index.mdx",
+      "to": "/docs/guides/continuation/",
+      "disposition": "Merged section entry points into maintained ancestry indexes; preserved the newer maintained page prose and current navigation, replacing obsolete custom CategoryNav and import-only pending status."
+    },
+    {
+      "source": "artwork-resources/pcb-art/docs-overlay/src/content/docs/handoff/references.mdx",
+      "to": "/docs/overview/references/",
+      "disposition": "Preserved original research bibliography link, design/process sources and attribution; historical framework setup links superseded by current published-consumer maintenance instructions."
+    },
+    {
+      "source": "artwork-resources/pcb-art/docs-overlay/src/content/docs/handoff/resources.mdx",
+      "to": "/docs/overview/file-structure/",
+      "disposition": "Merged repository source roles, original 52 versus 43 IDs, import mapping, vector/regeneration boundaries and deliberate asset selection into Repository Structure and Source of Truth."
+    },
+    {
+      "source": "artwork-resources/pcb-art/docs-overlay/src/content/docs/handoff/zudo-doc.mdx",
+      "to": "/docs/guides/workflow/panel-previews/",
+      "disposition": "Retired import-only future-migration/bootstrap instructions; replaced with current metadata/image separation, frozen viewers and published site verification commands."
+    },
+    {
+      "source": "artwork-resources/pcb-art/docs-overlay/src/content/docs/manufacturing/copper-review.mdx",
+      "to": "/docs/manufacturing/copper-review/",
+      "disposition": "Preserved the complete original clearance table, 14-board gold-area metrics and narrow-gap findings as a labeled historical import review beneath current correction/ledger/CAM links."
+    },
+    {
+      "source": "artwork-resources/pcb-art/docs-overlay/src/content/docs/manufacturing/index.mdx",
+      "to": "/docs/manufacturing/",
+      "disposition": "Merged section entry points into maintained ancestry indexes; preserved the newer maintained page prose and current navigation, replacing obsolete custom CategoryNav and import-only pending status."
+    },
+    {
+      "source": "artwork-resources/pcb-art/docs-overlay/src/content/docs/manufacturing/kicad.mdx",
+      "to": "/docs/manufacturing/kicad/",
+      "disposition": "Retained native-board semantics, independent review sequence, SVG/DXF origin/scale and filled-area caveats; replaced import-only no-DRC statement with later KiCad 10 evidence and completed-archive boundaries."
+    },
+    {
+      "source": "artwork-resources/pcb-art/docs-overlay/src/content/docs/manufacturing/kumiko-routing.mdx",
+      "to": "/docs/manufacturing/kumiko-routing/",
+      "disposition": "Preserved the complete original per-layer 8/56 aperture table, coordinates, slit/ligament figures, review image and CSV as a labeled historical screen; current wide corrections and standard reference status lead the page."
+    },
+    {
+      "source": "artwork-resources/pcb-art/docs-overlay/src/content/docs/manufacturing/open-items.mdx",
+      "to": "/docs/manufacturing/open-items/",
+      "disposition": "Reconciled supplier, mask/finish, thin-feature, drill/slot and physical-fit evidence needs with owner-reported completion; no repeat-order instruction; hardware comparison links current PR27 assembly prose."
+    },
+    {
+      "source": "artwork-resources/pcb-art/docs-overlay/src/content/docs/manufacturing/order.mdx",
+      "to": "/docs/manufacturing/order/",
+      "disposition": "Preserved PR27 completed four-series prose and all quantities/evidence limits; added exactly 13 external immutable ZIP references from completion.json."
+    },
+    {
+      "source": "artwork-resources/pcb-art/docs-overlay/src/content/docs/overview/decisions.mdx",
+      "to": "/docs/overview/decisions/",
+      "disposition": "Merged section entry points into maintained ancestry indexes; preserved the newer maintained page prose and current navigation, replacing obsolete custom CategoryNav and import-only pending status."
+    },
+    {
+      "source": "artwork-resources/pcb-art/docs-overlay/src/content/docs/overview/index.mdx",
+      "to": "/docs/overview/",
+      "disposition": "Merged section entry points into maintained ancestry indexes; preserved the newer maintained page prose and current navigation, replacing obsolete custom CategoryNav and import-only pending status."
+    },
+    {
+      "source": "artwork-resources/pcb-art/docs-overlay/src/content/docs/overview/project.mdx",
+      "to": "/docs/overview/project-overview/",
+      "disposition": "Preserved layered purpose, predecessor, five design identities, selected wide count and Revision 5 border intent across Project Overview, Art index and Design Decisions; replaced pre-native-check status with completed-order evidence."
+    },
+    {
+      "source": "artwork-resources/pcb-art/docs-overlay/src/content/docs/overview/review.mdx",
+      "to": "/docs/overview/review/",
+      "disposition": "Preserved separation of geometry, KiCad/CAM and physical evidence; current review links later policy, native checks and completed archive while retaining exhaustive-width limitations."
+    }
+  ]
+}

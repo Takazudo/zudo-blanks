@@ -40,7 +40,8 @@ def copy_tree(source: Path, destination: Path, pattern: str) -> int:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--kicad-cli", default="kicad-cli")
-    parser.add_argument("--without-vectors", action="store_true", help="Copy only existing art resources")
+    parser.add_argument("--without-vectors", action="store_true", help="Compatibility flag: existing vectors are reused by default")
+    parser.add_argument("--regenerate-vectors", action="store_true", help="Explicit native KiCad export; not needed for documentation builds")
     args = parser.parse_args()
     images = copy_tree(SOURCE / "resources/images", PUBLIC / "images", "*.png")
     images += copy_tree(SOURCE / "resources/images", PUBLIC / "images", "*.svg")
@@ -50,18 +51,10 @@ def main() -> None:
     for name in ("native-cam-representative.png", "top-border-comparisons.png"):
         shutil.copyfile(SOURCE / "manufacturing" / name, PUBLIC / "cam-comparisons" / name)
         comparisons += 1
-    # The viewer reads design and variant from URL queries or hashes. One offline file serves
-    # all five designs and both Kumiko variants without six duplicate 1.9 MiB files.
-    viewer = SOURCE / "preview-source/dist/index.html"
-    previews_dir = PUBLIC / "previews"
-    previews_dir.mkdir(parents=True, exist_ok=True)
-    if not viewer.is_file():
-        raise SystemExit(f"Generate the offline viewer first: {viewer}")
-    (previews_dir / "index.html").write_text(clean_line_ends(viewer.read_text()))
-    previews = 1
+    # Viewer HTML is staged separately outside /assets to avoid asset-viewer rewriting.
     vector_dir = PUBLIC / "vector"
     vector_dir.mkdir(parents=True, exist_ok=True)
-    if not args.without_vectors:
+    if args.regenerate_vectors and not args.without_vectors:
         for name, filename in DESIGNS.items():
             board = ROOT / "panels" / f"art-{name}" / filename
             output = vector_dir / f"{name}-top-edge-cuts.svg"
@@ -78,7 +71,7 @@ def main() -> None:
                 raise RuntimeError(f"KiCad SVG title missing: {board}")
             svg = svg[:start] + f"<title>{name} top Edge.Cuts inspection vector</title>" + svg[end + 8:]
             output.write_text(clean_line_ends(svg))
-    print(f"Staged {images} design images, {reviews} review files, {comparisons} CAM comparison images, {previews} interactive previews, {0 if args.without_vectors else len(DESIGNS)} top-edge vectors")
+    print(f"Staged {images} design images, {reviews} review files, {comparisons} CAM comparison images, {len(DESIGNS) if args.regenerate_vectors and not args.without_vectors else 0} top-edge vectors")
 
 
 if __name__ == "__main__":

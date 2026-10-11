@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Strip Mine Stack</title>
+<style>
+  :root {
+    --bg: #141517;
+    --panel: #1d1f22;
+    --line: #2e3136;
+    --text: #e6e3dc;
+    --muted: #9a968d;
+    --gold: #d9b45a;
+    --warn: #ff7a5c;
+    --ok: #7fd18b;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font: 13px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    overflow: hidden;
+  }
+  #viewport { position: relative; min-height: 0; }
+  #viewport canvas { display: block; width: 100%; height: 100%; }
+  .hint {
+    position: absolute; left: 12px; bottom: 10px; margin: 0;
+    color: var(--muted); font-size: 12px; pointer-events: none;
+  }
+  aside {
+    background: var(--panel);
+    border-left: 1px solid var(--line);
+    padding: 16px;
+    overflow-y: auto;
+  }
+  h1 { font-size: 16px; margin: 0 0 2px; }
+  h2 { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 20px 0 8px; }
+  p.sub { margin: 0; color: var(--muted); }
+  .buttons { display: flex; flex-wrap: wrap; gap: 6px; }
+  button {
+    background: #2a2d31; color: var(--text); border: 1px solid var(--line);
+    border-radius: 6px; padding: 5px 10px; font: inherit; cursor: pointer;
+  }
+  button:hover { border-color: var(--gold); }
+  label { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 8px 0 2px; }
+  label.check { justify-content: flex-start; margin: 4px 0; }
+  input[type=range] { width: 100%; }
+  .variants { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; }
+  .variants button {
+    position: relative; padding: 0; overflow: hidden; aspect-ratio: 101.3 / 128.5;
+    border-width: 2px; background: #0c0c0d;
+  }
+  .variants button[aria-pressed="true"] { border-color: var(--gold); }
+  .variants img { display: block; width: 100%; height: 100%; }
+  .variants span {
+    position: absolute; left: 3px; top: 1px; font-size: 10px; color: #fff; text-shadow: 0 0 3px #000;
+  }
+  #variant-name { margin: 8px 0 0; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  td { padding: 2px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  td:last-child { text-align: right; color: var(--gold); }
+  .swatch { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; border: 1px solid #555; }
+  ul.checks { list-style: none; padding: 0; margin: 0; }
+  ul.checks li { padding: 2px 0; }
+  ul.checks li.ok::before { content: "✓ "; color: var(--ok); }
+  ul.checks li.bad::before { content: "✗ "; color: var(--warn); }
+  ul.checks li.bad { color: var(--warn); }
+  @media (max-width: 760px) {
+    body { grid-template-columns: 1fr; grid-template-rows: 60vh auto; overflow: auto; }
+    aside { border-left: 0; border-top: 1px solid var(--line); }
+  }
+</style>
+</head>
+<body>
+<div id="viewport">
+  <p class="hint">Drag to orbit · scroll to zoom · right-drag to pan</p>
+</div>
+<aside><a href="/docs/models/" style="display:inline-block;padding:10px 14px;color:#f0dca3;background:#17191d;border-radius:5px">← 3D &amp; files documentation</a>
+  <h1>Strip Mine — 20HP stack</h1>
+  <p class="sub">9 PCBs + 3 mm spacers on 4 × M3 · dimensions in mm</p>
+
+  <h2>Top pattern</h2>
+  <div class="variants" id="variants"></div>
+  <p id="variant-name"></p>
+  <p class="sub" id="variant-note"></p>
+  <label class="check"><input id="bldg" type="checkbox" checked> Building symbols</label>
+
+  <h2>View</h2>
+  <div class="buttons">
+    <button data-view="iso">Iso</button>
+    <button data-view="front">Front</button>
+    <button data-view="side">Side</button>
+    <button data-view="back">Back</button>
+    <button data-view="low">Low angle</button>
+  </div>
+  <label for="gap">Explode <output id="gap-v">0 mm</output></label>
+  <input id="gap" type="range" min="0" max="20" step="0.5" value="0">
+  <label for="layers">Visible PCBs <output id="layers-v">9 / 9</output></label>
+  <input id="layers" type="range" min="1" max="9" step="1" value="9">
+  <label class="check"><input id="hw" type="checkbox" checked> Screws, spacers, nuts</label>
+  <label class="check"><input id="rails" type="checkbox" checked> Eurorack rails (from zudo-rail STL profile)</label>
+  <label class="check"><input id="section" type="checkbox"> Half section (cut at hole center)</label>
+
+  <h2>Stack (top → bottom)</h2>
+  <table id="stack"></table>
+
+  <h2>Key dimensions</h2>
+  <table id="dims"></table>
+
+  <h2>Checks</h2>
+  <ul class="checks" id="checks"></ul>
+</aside>
+
+<script src="geometry.js"></script>
+<script src="viewer.js"></script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-import { defineConfig } from "zfb/config";
+import { defineConfig } from "@takazudo/zfb/config";
 import { zudoDoc } from "@takazudo/zudo-doc/config";
 
 export default defineConfig({
@@ -6,8 +6,8 @@ export default defineConfig({
     siteName: "zudo-blanks",
     favicon: "/img/favicon.ico",
     siteDescription: "Blank panel PCB designs for modular synthesizers",
-    siteUrl: "https://takazudomodular.com",
-    base: "/pj/zblanks/",
+    siteUrl: "https://zudo-blanks.zudolab.dev",
+    base: "/",
     githubUrl: "https://github.com/Takazudo/zudo-blanks",
     onBrokenMarkdownLinks: "error",
     llmsTxt: true,
@@ -18,6 +18,17 @@ export default defineConfig({
     dynamicPageTransition: true,
     docHistory: true,
     assetViewer: true,
+    assetViewerIndex: true,
+    assetViewerExclude: ["panels/**", "pcb-art/**"],
+    assetViewerIndexing: false,
+    agentExport: false,
+    mcp: false,
+    adapter: "@takazudo/zfb-adapter-cloudflare",
+    siteTreeNavSecondary: ["claude", "claude-md", "claude-skills", "archive"],
+    home: {
+      wide: true,
+      introMarkdown: "Blank panels, layered PCB art and practical source files for modular synthesizers.\n\n[Browse panels](/docs/panels/) · [Explore 3D & files](/docs/models/)",
+    },
     claudeResources: {
       claudeDir: "../.claude",
       projectRoot: ".",
@@ -28,12 +39,15 @@ export default defineConfig({
       copyright: "Copyright © 2026 Takazudo. Built with zudo-doc.",
     },
     headerNav: [
-      { label: "Overview", path: "/docs/overview", categoryMatch: "overview" },
-      { label: "Catalog", path: "/docs/catalog", categoryMatch: "catalog" },
-      { label: "Manufacturing", path: "/docs/manufacturing", categoryMatch: "manufacturing" },
-      { label: "Workflow", path: "/docs/workflow", categoryMatch: "workflow" },
-      { label: "How-to", path: "/docs/how-to", categoryMatch: "how-to" },
-      { label: "Claude", path: "/docs/claude", categoryMatch: "claude" },
+      { label: "Panels", path: "/docs/panels/", categoryMatch: "panels" },
+      { label: "3D & Files", path: "/docs/models/", categoryMatch: "models" },
+      { label: "Manufacturing", path: "/docs/manufacturing/", categoryMatch: "manufacturing" },
+      { label: "Guides", path: "/docs/guides/", categoryMatch: "guides" },
+      { label: "About", path: "/docs/overview/", children: [
+        { label: "About the project", path: "/docs/overview/", categoryMatch: "overview" },
+        { label: "Contributor resources", path: "/docs/claude/", categoryMatch: "claude" },
+        { label: "Historical references", path: "/docs/archive/", categoryMatch: "archive" },
+      ] },
     ],
     headerRightItems: [
       {
@@ -46,7 +60,4 @@ export default defineConfig({
       },
     ],
   }),
-  // Netlify copies dist/ into /pj/zblanks/. Keep public files flat in dist/
-  // so deployed URLs have one base prefix and the built-image checker resolves them.
-  copyPublicWithBase: false,
 });

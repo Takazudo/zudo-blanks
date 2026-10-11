@@ -1,88 +1,82 @@
-name: 'Build zudo-doc Application'
-description: 'Setup environment, run quality checks, and build zudo-doc site'
-
-inputs:
-  node-version:
-    description: 'Node.js version to use'
-    required: false
-    default: '22'
-  pnpm-version:
-    description: 'pnpm version to use'
-    required: false
-    default: '10'
-  working-directory:
-    description: 'Working directory containing the zudo-doc project'
-    required: false
-    default: 'doc'
-
-outputs:
-  build-output-path:
-    description: 'Path to the build output directory'
-    value: 'dist'
+name: Build and verify zudo-doc
+description: Credential-free source, content, asset, and built Cloudflare Worker validation
 
 runs:
-  using: 'composite'
+  using: composite
   steps:
-    - name: Setup pnpm
-      uses: pnpm/action-setup@v4
+    - name: Set up Node.js
+      uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
       with:
-        version: ${{ inputs.pnpm-version }}
-
-    - name: Setup Node.js
-      uses: actions/setup-node@v6
+        node-version: '22'
+    - name: Set up pnpm
+      uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4
       with:
-        node-version: ${{ inputs.node-version }}
-        cache: 'pnpm'
-        cache-dependency-path: '${{ inputs.working-directory }}/pnpm-lock.yaml'
-
-    - name: Install dependencies
-      run: pnpm install --frozen-lockfile
+        version: '10.28.1'
+    - name: Install frozen documentation and viewer dependencies
       shell: bash
-      working-directory: ${{ inputs.working-directory }}
-
-    - name: Run code quality checks
       run: |
-        echo "🔍 Running code quality checks..."
+        pnpm --dir doc install --frozen-lockfile
+        npm ci --prefix artwork-resources/pcb-art/preview-source
+    - name: Check source, inventory, and generated content
+      shell: bash
+      working-directory: doc
+      run: |
+        pnpm check:content
+        node --test scripts/check-links.test.mjs scripts/old-host-redirect.test.mjs scripts/reconcile-history.test.mjs
         pnpm check
-        pnpm check:links -- --strict-absolute --strict-anchors
-        echo "✅ Code quality checks passed"
+        pnpm check:links -- --strict-broken --strict-absolute --strict-anchors
+        pnpm exec zfb wind audit --project-root . --fail-on error
+    - name: Build Worker and history
       shell: bash
-      working-directory: ${{ inputs.working-directory }}
-
-    - name: Build zudo-doc
-      run: pnpm build
-      shell: bash
-      working-directory: ${{ inputs.working-directory }}
+      working-directory: doc
       env:
         NODE_ENV: production
-        NODE_OPTIONS: '--max-old-space-size=4096'
-
-    - name: Verify build output
+        NODE_OPTIONS: --max-old-space-size=4096
+        GEN_DOC_HISTORY: '1'
+      run: pnpm build
+    - name: Check built links, images, viewers, and redirects
+      shell: bash
+      working-directory: doc
       run: |
-        echo "📦 Build Output Verification"
-        echo "============================"
-
-        if [ ! -d "dist" ]; then
-          echo "❌ Error: dist/ directory not found"
+        pnpm check:links -- --strict-broken --strict-absolute --strict-anchors
+        pnpm check:images
+        pnpm check:viewers
+        pnpm check:redirects
+        pnpm check:history
+    - name: Verify Wrangler package and local built-Worker responses
+      shell: bash
+      working-directory: doc
+      env:
+        CI: 'true'
+        WRANGLER_SEND_METRICS: 'false'
+      run: |
+        pnpm exec wrangler deploy --dry-run --outdir /tmp/zudo-blanks-worker-dry-run
+        pnpm check:worker
+    - name: Verify built Worker navigation and viewers in Chromium
+      shell: bash
+      working-directory: doc
+      env:
+        CI: 'true'
+        WRANGLER_SEND_METRICS: 'false'
+        BROWSER_OUTPUT: /tmp/blanks-browser
+      run: |
+        pnpm exec wrangler dev --local --port 8787 > /tmp/zudo-blanks-browser-worker.log 2>&1 &
+        browser_worker_pid=$!
+        trap 'kill "$browser_worker_pid" 2>/dev/null || true; wait "$browser_worker_pid" 2>/dev/null || true' EXIT
+        browser_worker_ready=false
+        for attempt in $(seq 1 60); do
+          if curl --silent --fail http://127.0.0.1:8787/ > /dev/null; then
+            browser_worker_ready=true
+            break
+          fi
+          if ! kill -0 "$browser_worker_pid" 2>/dev/null; then
+            cat /tmp/zudo-blanks-browser-worker.log
+            exit 1
+          fi
+          sleep 1
+        done
+        if [ "$browser_worker_ready" != true ]; then
+          cat /tmp/zudo-blanks-browser-worker.log
           exit 1
         fi
-
-        # Count output files
-        HTML_COUNT=$(find dist -name "*.html" | wc -l)
-        echo "📄 HTML files: $HTML_COUNT"
-
-        if [ -d "dist/assets" ]; then
-          echo "✅ zudo-doc assets found"
-        else
-          echo "⚠️ Warning: assets/ directory not found (might be ok for minimal builds)"
-        fi
-
-        echo "============================"
-        echo "✅ Build output verified"
-      shell: bash
-      working-directory: ${{ inputs.working-directory }}
-
-    - name: Check built links
-      run: pnpm check:links -- --strict-broken --strict-absolute --strict-anchors
-      shell: bash
-      working-directory: ${{ inputs.working-directory }}
+        pnpm check:browser

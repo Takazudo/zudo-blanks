@@ -10,3 +10,35 @@ The source screen found 56 small apertures in the selected wide set and eight in
 [Original findings CSV](/assets/pcb-art/manufacturing-review/kumiko-routing-issues.csv) · [Indexed correction policy](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/manufacturing/policy.json) · [Selected native boards](https://github.com/Takazudo/zudo-blanks/tree/main/panels/art-kumiko-void) · [Standard reference boards](https://github.com/Takazudo/zudo-blanks/tree/main/panels/art-kumiko-void/alternatives/standard)
 
 The image and CSV are **source review evidence** before correction. For the locally checked result, use the [candidate ledger](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/manufacturing/indexed-deltas.json) and [native CAM record](https://github.com/Takazudo/zudo-blanks/blob/main/artwork-resources/pcb-art/manufacturing/native-kicad-cam-manifest.json). The [design comparison](/assets/pcb-art/images/kumiko-void-variants.png) and interactive viewer show visual intent; they are not final CAM plots.
+
+
+## Historical import review
+
+The following is the original pre-adaptation screen, preserved for comparison. It describes the initial export, not the selected manufacturing-adjusted boards or the completed four-series order. Later corrections and evidence are linked above.
+
+## Process-dependent issues flagged
+
+The incoming geometry review found decorative openings too small for the assumed 1.0 mm circular router: 8 in standard Kumiko and 56 in wide Kumiko. The original large-opening design geometry is retained. These features have not been silently filled or enlarged.
+
+Confirm the actual fabrication process and router. Possible local decisions include enlarging an opening, combining adjacent openings, or closing a tiny opening. Use a reviewed, versioned board for any manufacturing adaptation.
+
+| Layer | Standard | Wide |
+| ---: | ---: | ---: |
+| 1 | 3 | 11 |
+| 2 | 0 | 5 |
+| 3 | 2 | 6 |
+| 4 | 2 | 9 |
+| 5 | 0 | 4 |
+| 6 | 0 | 9 |
+| 7 | 0 | 4 |
+| 8 | 1 | 8 |
+| 9, bottom | 0 | 0 |
+| Total | 8 | 56 |
+
+![Wide Kumiko routing review locations](/assets/pcb-art/manufacturing-review/kumiko-wide-routing-review.png)
+
+[Standard review image](/assets/pcb-art/manufacturing-review/kumiko-standard-routing-review.png) · [Issue coordinates and sizes](/assets/pcb-art/manufacturing-review/kumiko-routing-issues.csv)
+
+The CSV issue ID, variant, layer, and original JSON hole index identify each location. Standard layer 3 includes a 0.075 mm slit. A wide opening has a maximum inscribed-circle diameter near 0.0143 mm. Wide top openings also leave a local ligament about 0.1166 mm wide near opening indices 68 and 101, around coordinates (93.5172, 26.8) and (93.4162, 26.7417) mm.
+
+A 0.5 mm inward-offset connectivity result does not guarantee every local feature is at least 1.0 mm wide. The same review did not flag other designs for this particular whole-opening router screen, but that does not establish all corners, narrow features, or physical strength as acceptable.

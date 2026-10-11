@@ -1,3 +1,7 @@
+# Historical documentation handoff
+
+This file records the original import only. The maintained site now lives in [`doc/`](../../../doc/). Use its [continuation guide](../../../doc/src/content/docs/guides/continuation.mdx), [source roles](../../../doc/src/content/docs/guides/engineering/source-of-truth.mdx) and the [completed archive](../../../order-packages/four-art-series/ordered/README.md) for current instructions. Earlier pending/import-only status below is historical. The duplicate overlay bootstrap and checks are retired.
+
 # PCB Art Handoff Documentation
 
 The English source notes and the curated documentation pages are retained here and under docs-overlay/src/content/docs. This import does not create or migrate the repository's published documentation site.

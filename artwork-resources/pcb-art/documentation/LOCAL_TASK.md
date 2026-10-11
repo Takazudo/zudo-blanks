@@ -1,3 +1,7 @@
+# Historical documentation handoff
+
+This file records the original import only. The maintained site now lives in [`doc/`](../../../doc/). Use its [continuation guide](../../../doc/src/content/docs/guides/continuation.mdx), [source roles](../../../doc/src/content/docs/guides/engineering/source-of-truth.mdx) and the [completed archive](../../../order-packages/four-art-series/ordered/README.md) for current instructions. Earlier pending/import-only status below is historical. The duplicate overlay bootstrap and checks are retired.
+
 # Continuation Notes
 
 The Revision 5 handoff contains five layered blank panels. Its selected set is 43 boards with wide Kumiko; the nine standard Kumiko boards form a complete alternative. Keep the original IDs and layer numbers in any new manifest.
