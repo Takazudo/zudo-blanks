@@ -2,7 +2,7 @@ name: Documentation
 
 on:
   pull_request:
-    # All bases include the order stack; edited also covers a later retarget.
+    # Every target branch is tested; edited covers a later base change.
     types: [opened, synchronize, reopened, edited, ready_for_review]
   push:
     branches: [main]

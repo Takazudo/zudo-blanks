@@ -39,6 +39,10 @@
     "assets/models/plain-3u-8hp.FCStd": {
       "bytes": 9718,
       "sha256": "364a1c5dc3d056cb2363d0d4b081f2091157eeefb7d021bb7950a9f8f0cad9c8"
+    },
+    "assets/models/blank-module-spacer-m3.3mf": {
+      "bytes": 328756,
+      "sha256": "abee2b556ceaca78cddc9b486ec04e8c14bc8e0cae70aed8c17d5f032a3b14dd"
     }
   }
 }

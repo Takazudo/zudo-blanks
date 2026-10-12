@@ -26,4 +26,6 @@ That optional image workflow requires KiCad CLI, Pillow and macOS `sips`; ordina
 
 The viewer build verifies frozen visual geometry; do not regenerate that geometry as a documentation maintenance step. Native PNGs and inspection vectors are illustrations, not fabrication release files. The completed archive is verified read-only by its existing independent verifier; never regenerate its ZIP or CAM bytes.
 
+`_3dp/` holds printable accessory projects and stays outside the panel-family count. `pnpm prepare:viewers` copies each mapped project byte-for-byte into `/assets/models/`. `pnpm check:accessories` accepts `.3mf`, `.stl`, `.step`, `.stp`, and `.fcstd` only when that download mapping or an explicit exclusion reason exists.
+
 After edits run the frozen install, `pnpm check`, strict source/built links and anchors, `pnpm build`, `pnpm check:images`, and `pnpm exec zfb wind audit --project-root . --fail-on error` from `doc/`. Production history generation needs full Git history with history-skip variables unset; use `GEN_DOC_HISTORY=1` for local built-Worker review.
