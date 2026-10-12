@@ -5,7 +5,7 @@ from __future__ import annotations
 import json
 import struct
 from pathlib import Path
-from generate_panel_catalog import DOCS, ROOT, SITE, generated_outputs, inventory
+from generate_panel_catalog import DOCS, ROOT, SITE, generated_outputs, inventory, native_board_paths
 
 records = inventory()
 expected = generated_outputs(records)
@@ -14,7 +14,7 @@ for path, content in expected.items():
 families = json.loads((SITE / "data/panel-pages.json").read_text())
 assert len(families) == 19, "The curated family contract requires 19 families"
 assert len({entry["slug"] for entry in families}) == len(families), "Duplicate family slug"
-actual_boards = {str(path.relative_to(ROOT)) for path in (ROOT / "panels").rglob("*.kicad_pcb")}
+actual_boards = {str(path.relative_to(ROOT)) for path in native_board_paths(ROOT / "panels")}
 recorded_boards = [board["path"] for record in records for board in record["boards"]]
 assert len(recorded_boards) == len(set(recorded_boards)), "Native files counted twice"
 assert set(recorded_boards) == actual_boards, "Recursive board coverage incomplete"

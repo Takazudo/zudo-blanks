@@ -22,7 +22,8 @@ runs:
       working-directory: doc
       run: |
         pnpm check:content
-        node --test scripts/check-links.test.mjs scripts/old-host-redirect.test.mjs scripts/reconcile-history.test.mjs
+        pnpm check:accessories
+        node --test scripts/check-links.test.mjs scripts/old-host-redirect.test.mjs scripts/reconcile-history.test.mjs scripts/check-printable-accessories.test.mjs
         pnpm check
         pnpm check:links -- --strict-broken --strict-absolute --strict-anchors
         pnpm exec zfb wind audit --project-root . --fail-on error

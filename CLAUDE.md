@@ -8,11 +8,12 @@ This is a hardware project for designing blank panels for modular synthesizers. 
 
 ## Documentation delivery
 
-The documentation uses published zudo-doc 6 and the Cloudflare Workers Static
-Assets adapter. Its prepared URL is https://zudo-blanks.zudolab.dev with base `/`.
-Validation is credential-free; no automatic remote deployment is configured.
-Production activation is a separate authorized operation restricted to verified
-`main`. See `doc/OPERATIONS.md` and `.github/workflows/docs.yml`.
+The documentation uses published zudo-doc 6.0.2, zfb 4.3.2, and the Cloudflare
+Workers Static Assets adapter. Its prepared URL is https://zudo-blanks.zudolab.dev
+with base `/`. Validation is credential-free; no automatic remote deployment is
+configured. Production activation and the old-host cutover remain a separate
+authorized operation on verified `main`. See `doc/OPERATIONS.md` and
+`.github/workflows/docs.yml`.
 
 ## Repository Structure
 
@@ -20,6 +21,7 @@ For the full file structure documentation, see `/doc/src/content/docs/overview/f
 
 ### Key Directories
 - `/panels/` - **All KiCad panel projects** (flat structure, one dir per panel)
+- `/_3dp/` - **Printable accessory projects**, outside the panel inventory
   - `alumi-blanks-v1-{format}-{hp}/` - Plain aluminum blank panels
   - `art-{name}/` - Decorated art panels
   - `saucer{N}-{design}-{hp}/` - Saucer series panels

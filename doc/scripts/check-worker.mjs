@@ -43,12 +43,16 @@ try {
     console.log(`PASS page ${route}`);
   }
   const manifest = JSON.parse(await readFile(path.join(root, 'public/viewers/manifest.json')));
+  const spacerSource = await readFile(path.join(root, '../_3dp/blank-module-spacer-m3.3mf'));
+  const spacerRecord = manifest.files['assets/models/blank-module-spacer-m3.3mf'];
+  assert.equal(spacerRecord?.bytes, spacerSource.length, 'M3 spacer manifest size');
+  assert.equal(spacerRecord?.sha256, createHash('sha256').update(spacerSource).digest('hex'), 'M3 spacer manifest hash');
   for (const [name, expected] of Object.entries(manifest.files)) {
     const response = await fetch(`${base}/${name}`);
     assert.equal(response.status, 200, name);
     const bytes = Buffer.from(await response.arrayBuffer());
     assert.equal(createHash('sha256').update(bytes).digest('hex'), expected.sha256, `Raw bytes: ${name}`);
-    if (/\.(step|stl|FCStd)$/.test(name)) assert(!response.headers.get('content-type')?.includes('text/html'), `HTML substituted for CAD: ${name}`);
+    if (/\.(step|stl|FCStd|3mf)$/.test(name)) assert(!response.headers.get('content-type')?.includes('text/html'), `HTML substituted for model: ${name}`);
   }
   for (const route of ['/missing-page-for-verification/', ...hidden.map(name => `/${name}`)]) {
     const response = await fetch(base + route);

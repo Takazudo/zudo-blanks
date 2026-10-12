@@ -112,11 +112,16 @@ def board_role(board: Path) -> str:
     return "panel source"
 
 
+def native_board_paths(directory: Path) -> list[Path]:
+    # KiCad writes gitignored `.history` copies beside native boards. They are not panel sources.
+    return sorted(board for board in directory.rglob("*.kicad_pcb") if ".history" not in board.parts)
+
+
 def inventory() -> list[dict]:
     families = json.loads((SITE / "data/panel-pages.json").read_text())
     records = []
     for directory in sorted(path for path in PANELS.iterdir() if path.is_dir()):
-        boards = sorted(directory.rglob("*.kicad_pcb"))
+        boards = native_board_paths(directory)
         if not boards:
             raise ValueError(f"No native boards in {directory}")
         name = directory.name

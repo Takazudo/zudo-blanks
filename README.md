@@ -8,7 +8,7 @@ This project contains KiCad PCB designs for blank panels in various HP widths fo
 
 ## Documentation
 
-The zudo-doc 6 site organizes [Panels](doc/src/content/docs/panels/index.mdx),
+The zudo-doc 6.0.2 site organizes [Panels](doc/src/content/docs/panels/index.mdx),
 [3D & Files](doc/src/content/docs/models/index.mdx),
 [Manufacturing](doc/src/content/docs/manufacturing/index.mdx),
 [Guides](doc/src/content/docs/guides/index.mdx), and
@@ -22,6 +22,7 @@ separate). Develop with `cd doc && pnpm install --frozen-lockfile && pnpm dev` a
 ## Repository Structure
 
 - `panels/` - All KiCad panel projects (one directory per panel)
+- `_3dp/` - Printable accessory projects, published separately from the panel inventory
 - `footprints/` - Shared KiCad footprint library
 - `symbols/` - KiCad symbol library (minimal)
 - `artwork-resources/` - Source artwork files (AI, SVG)
@@ -38,18 +39,19 @@ separate). Develop with `cd doc && pnpm install --frozen-lockfile && pnpm dev` a
 ## Documentation maintenance and delivery
 
 [Operations and activation runbook](doc/OPERATIONS.md) covers frozen installs,
-source/built link and anchor checks, inventory drift, images, viewer and redirect
-checks, generated history, and local built-Worker verification. CI checks the
-actual PR merge target, including stacked PRs and retarget events. Full Git history
-is required. Metadata/content updates reuse committed previews; native rendering
-is separate from ordinary documentation builds.
+source/built link and anchor checks, inventory drift, printable-accessory
+coverage, images, viewer and redirect checks, generated history, and local
+built-Worker verification. CI checks each pull request's merge result and `main`
+pushes. Full Git history is required. Metadata/content updates reuse committed
+previews; native rendering is separate from ordinary documentation builds.
 
-Cloudflare Workers Static Assets delivery is prepared at the site root. The
-adapter-generated `.assetsignore` is preserved. No workflow deploys remotely;
-production activation requires a separately authorized, verified `main` revision.
-The old host's `/pj/zblanks/*` redirect must be configured separately from
-compatibility redirects on the new hostname. See the runbook for query/hash
-preservation and the PR #27 integration boundary.
+Cloudflare Workers Static Assets delivery is prepared and validated at the site
+root. The adapter-generated `.assetsignore` is preserved. No workflow deploys
+remotely. Production activation and the old-host cutover still require a
+separately authorized, verified `main` revision. The old host's `/pj/zblanks/*`
+redirect must be configured separately from compatibility redirects on the new
+hostname. See the runbook for query/hash preservation. [PR #27](https://github.com/Takazudo/zudo-blanks/pull/27)
+and [PR #28](https://github.com/Takazudo/zudo-blanks/pull/28) are merged.
 
 ## Completed PCB art order archive
 

@@ -13,7 +13,14 @@ await mkdir(out, { recursive: true });
 let browser, page;
 async function fresh(options = {}) {
   await browser?.close();
-  browser = await pw.launch({ executablePath: await chromium.executablePath(), args: chromium.args, headless: true });
+  // @sparticuz/chromium extracts a Linux headless-shell binary. CI runs that binary;
+  // BROWSER_EXECUTABLE selects a native browser when the host cannot execute it.
+  const executablePath = process.env.BROWSER_EXECUTABLE || await chromium.executablePath();
+  browser = await pw.launch({
+    executablePath,
+    headless: true,
+    ...(process.env.BROWSER_EXECUTABLE ? {} : { args: chromium.args }),
+  });
   const ctx = await browser.newContext({ acceptDownloads: true, viewport: { width: 1440, height: 1000 }, ...options });
   page = await ctx.newPage();
   page.on('pageerror', e => report.errors.push({ type: 'pageerror', url: page.url(), error: e.message }));
@@ -104,5 +111,50 @@ try {
   await check('mechanical downloads retain native format signatures', async () => {
     await fresh(); for (const [file, signature] of [['adapter-3u-to-1u.step', 'ISO-10303-21'], ['plain-3u-8hp.FCStd', 'PK']]) { const response = await page.request.get(base + '/assets/models/' + file); assert.equal(response.status(), 200); assert((await response.body()).subarray(0, 100).toString().includes(signature)); } const stl = await page.request.get(base + '/assets/models/plain-3u-8hp.stl'); assert.equal(stl.status(), 200); assert((await stl.body()).length > 100); }
   );
+  await check('M3 spacer is discoverable and the served 3MF matches the repository original', async () => {
+    await fresh(); await open('/docs/models/#m3-spacer');
+    const heading = page.locator('#m3-spacer'); await heading.waitFor(); assert.match(await heading.innerText(), /M3 spacer/);
+    const indexed = page.locator('a[href="/files/models/blank-module-spacer-m3.3mf/"]');
+    assert(await indexed.count() > 0, 'asset-index link missing');
+    await indexed.first().click();
+    await page.waitForURL('**/files/models/blank-module-spacer-m3.3mf/**');
+    await page.locator('a[download][href="/assets/models/blank-module-spacer-m3.3mf"]').first().waitFor();
+    const response = await page.request.get(base + '/assets/models/blank-module-spacer-m3.3mf');
+    assert.equal(response.status(), 200);
+    const served = await response.body();
+    const source = await readFile(new URL('../../_3dp/blank-module-spacer-m3.3mf', import.meta.url));
+    assert.ok(served.equals(source), 'served 3MF bytes differ from _3dp/blank-module-spacer-m3.3mf');
+    assert.equal(served.subarray(0, 2).toString(), 'PK');
+    await open('/docs/guides/assembly/stack/');
+    const guide = page.locator('a[href="/docs/models/#m3-spacer"]');
+    assert(await guide.count() > 0);
+    await guide.first().click();
+    await page.waitForURL('**/docs/models/**');
+    await page.locator('#m3-spacer').waitFor();
+  });
+  await check('server-rendered category descriptions stay outside sidebar hydration', async () => {
+    await fresh();
+    const response = await page.request.get(base + '/docs/models/');
+    assert.equal(response.status(), 200);
+    const html = await response.text();
+    const description = 'Explore layered PCB scenes and selected mechanical model downloads.';
+    const withoutProps = html.replace(/data-props=(?:"[^"]*"|'[^']*')/g, '');
+    assert(withoutProps.includes(description), 'category description missing from server HTML');
+    const payloads = [];
+    const pattern = /data-props=(?:"([^"]*)"|'([^']*)')/g;
+    let match;
+    while ((match = pattern.exec(html)) !== null) {
+      const raw = (match[1] ?? match[2]).replaceAll('&quot;', '"').replaceAll('&#34;', '"').replaceAll('&#39;', "'").replaceAll('&amp;', '&');
+      if (raw.includes('"nodes"')) payloads.push(raw);
+    }
+    assert(payloads.length > 0, 'sidebar hydration payload missing');
+    const visit = (value, where) => {
+      if (Array.isArray(value)) { value.forEach((item, index) => visit(item, `${where}[${index}]`)); return; }
+      if (!value || typeof value !== 'object') return;
+      assert.equal(Object.hasOwn(value, 'description'), false, where);
+      for (const [key, child] of Object.entries(value)) visit(child, `${where}.${key}`);
+    };
+    for (const payload of payloads) visit(JSON.parse(payload), 'sidebar');
+  });
 } finally { await browser?.close(); report.finishedAt = new Date().toISOString(); report.passed = report.checks.every(c => c.passed) && report.errors.length === 0; await writeFile(`${out}/report.json`, JSON.stringify(report, null, 2) + '\n'); }
 if (!report.passed) process.exitCode = 1;

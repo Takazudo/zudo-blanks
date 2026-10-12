@@ -19,6 +19,7 @@
     "dev:history": "doc-history-server --port 4322 --content-dir src/content/docs",
     "prepare:content": "python3 scripts/generate_panel_catalog.py",
     "check:content": "python3 scripts/generate_panel_catalog.py --check && python3 scripts/check_panel_catalog.py",
+    "check:accessories": "node scripts/check-printable-accessories.mjs",
     "prepare:viewers": "node scripts/stage_viewers.mjs",
     "check:viewers": "node scripts/stage_viewers.mjs --check",
     "prepare:redirects": "node scripts/redirects.mjs",
@@ -28,14 +29,14 @@
     "check:history": "node scripts/reconcile-history.mjs --metadata --check && node scripts/reconcile-history.mjs --check"
   },
   "dependencies": {
-    "@takazudo/zfb": "4.3.1",
-    "@takazudo/zfb-runtime": "4.3.1",
-    "@takazudo/zfb-md-wasm": "4.3.1",
-    "@takazudo/zudo-doc": "6.0.0",
+    "@takazudo/zfb": "4.3.2",
+    "@takazudo/zfb-runtime": "4.3.2",
+    "@takazudo/zfb-md-wasm": "4.3.2",
+    "@takazudo/zudo-doc": "6.0.2",
     "zod": "^4.3.6",
     "diff": "^8.0.3",
-    "@takazudo/zudo-doc-history-server": "6.0.0",
-    "@takazudo/zfb-adapter-cloudflare": "4.3.1"
+    "@takazudo/zudo-doc-history-server": "6.0.2",
+    "@takazudo/zfb-adapter-cloudflare": "4.3.2"
   },
   "devDependencies": {
     "typescript": "^5.9.0",
