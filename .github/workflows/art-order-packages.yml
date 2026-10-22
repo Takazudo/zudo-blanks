@@ -77,7 +77,7 @@ jobs:
         run: |
           set -o pipefail
           for suite in test_lower_panels.py test_native_cam.py test_order_profiles.py test_woven_profile.py test_woven_panels.py test_order_packages.py test_retained_order_bundle.py test_completed_order.py; do
-            python -m unittest discover -s artwork-resources/pcb-art/manufacturing/tests -p "$suite" -v
+            python -m unittest discover -s artwork-resources/pcb-art/manufacturing/tests -p "$suite" -v || exit 1
           done 2>&1 | tee "$RUNNER_TEMP/art-order-logs/tests.log"
       - name: Verify the order snapshot retained in Git
         run: |

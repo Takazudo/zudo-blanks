@@ -32,7 +32,7 @@ class WovenPanelTests(unittest.TestCase):
         record = next(p for p in self.record['panels'] if p['groupId'] == group)
         return record, self.root / 'native' / record['nativeBoard']
 
-    def corrupt(self, group, text_edit=None, record_edit=None):
+    def corrupt(self, group, message, text_edit=None, record_edit=None):
         record, pcb = self.panel(group)
         record = copy.deepcopy(record)
         target = self.root / 'corrupt' / pcb.name
@@ -41,7 +41,7 @@ class WovenPanelTests(unittest.TestCase):
         target.write_text(text_edit(text) if text_edit else text)
         if record_edit:
             record_edit(record)
-        with self.assertRaises(ValueError):
+        with self.assertRaisesRegex(ValueError, message):
             native_partition(target, record, self.boards)
 
     def test_two_sheets_keep_exact_translated_members_scores_and_clearances(self):
@@ -74,26 +74,26 @@ class WovenPanelTests(unittest.TestCase):
             index = next(i for i, l in enumerate(lines) if '(gr_line' in l and '"Edge.Cuts"' in l
                          and not re.search(r'\(start (0|212\.6) ', l))
             return ''.join(lines[:index] + lines[index+1:])
-        self.corrupt('white-hasl', drop_aperture)
+        self.corrupt('white-hasl', 'native routed contours changed', drop_aperture)
 
     def test_moved_npth_mount_rejected(self):
         def move_mount(text):
             match = re.search(r'\(footprint "[^"]*".*?\(at (-?[\d.]+) ', text, re.S)
             return text[:match.start(1)] + str(float(match[1]) + .1) + text[match.end(1):]
-        self.corrupt('black-hasl', move_mount)
+        self.corrupt('black-hasl', 'translated NPTH pads changed', move_mount)
 
     def test_missing_or_misplaced_score_rejected(self):
         def drop_score(text):
             lines = text.splitlines(keepends=True)
             index = next(i for i, l in enumerate(lines) if '"Dwgs.User"' in l and '(gr_line' in l)
             return ''.join(lines[:index] + lines[index+1:])
-        self.corrupt('white-hasl', drop_score)
-        self.corrupt('white-hasl', record_edit=lambda r: r['scoreXMm'].__setitem__(1, 106.0))
+        self.corrupt('white-hasl', 'Native scores differ', drop_score)
+        self.corrupt('white-hasl', 'Invalid score coordinate record', record_edit=lambda r: r['scoreXMm'].__setitem__(1, 106.0))
 
     def test_wrong_placement_or_member_rejected(self):
-        self.corrupt('black-hasl', record_edit=lambda r: r['placements'][0]['translationMm'].__setitem__(0, 5.5))
-        self.corrupt('black-hasl', record_edit=lambda r: r['placements'].reverse())
-        self.corrupt('white-hasl', record_edit=lambda r: r['placements'][0].update(sourceSha256='0' * 64))
+        self.corrupt('black-hasl', 'Placement differs', record_edit=lambda r: r['placements'][0]['translationMm'].__setitem__(0, 5.5))
+        self.corrupt('black-hasl', 'Placement differs', record_edit=lambda r: r['placements'].reverse())
+        self.corrupt('white-hasl', 'Source hash changed', record_edit=lambda r: r['placements'][0].update(sourceSha256='0' * 64))
 
 
 if __name__ == '__main__':
