@@ -1,4 +1,4 @@
-"""Bounded nine-board Woven Maze order selection and mutation checks."""
+"""Bounded nine-board Woven Maze order selection, grouped accounting and mutation checks."""
 import copy
 import json
 from pathlib import Path
@@ -45,6 +45,57 @@ class WovenProfileTests(unittest.TestCase):
             self.assertEqual((package['material'], package['thicknessMm'], package['copperLayers'],
                               package['copperOz'], package['silkscreen']), ('FR-4', 1.6, 2, 1, False))
 
+    def test_grouped_two_same_mask_sheets_and_standalone_top(self):
+        order = order_manifest(self.profile, 'grouped', self.boards)
+        self.assertEqual((order['packageCount'], order['orderedSheetsAndStandaloneUnits'],
+                          order['usefulBoardCount'], order['producedBoardCount'],
+                          order['wasteCells'], order['surplusFinishedBoards'],
+                          order['requestedCompleteStacks'], order['completeStackYield']),
+                         (3, 75, 225, 225, 0, 0, 25, 25))
+        self.assertEqual(set(order['supplyByBoardId'].values()), {25})
+        self.assertEqual(set(order['surplusByBoardId'].values()), {0})
+        white, black, top = order['packages']
+        for sheet, color, parity in ((white, 'white', 0), (black, 'black', 1)):
+            self.assertEqual(sheet['id'], f'lower-panel-{color}-hasl')
+            self.assertEqual(sheet['kind'], 'scored_lower_grid')
+            self.assertEqual(sheet['memberIds'],
+                             [f'18-woven-maze-L{n:02d}-{color}-mask-only' for n in range(2+parity, 10, 2)])
+            self.assertEqual((sheet['columns'], sheet['rows'], sheet['railMm'], sheet['unusedCells']), (2, 2, 5, 0))
+            self.assertEqual((sheet['widthMm'], sheet['heightMm']), (212.6, 198.6))
+            self.assertEqual((sheet['quantity'], sheet['distinctDesigns'], sheet['producedPieces']), (25, 4, 100))
+            self.assertEqual(set(sheet['copiesPerSheet'].values()), {1})
+            self.assertEqual((sheet['color'], sheet['finish']), (color, 'lead-free HASL'))
+        self.assertEqual((top['id'], top['kind'], top['memberIds'], top['quantity']),
+                         ('18-woven-maze-L01-black-enig-art', 'routed_standalone_top',
+                          ['18-woven-maze-L01-black-enig-art'], 25))
+        self.assertEqual((top['finish'], top['widthMm'], top['heightMm']), ('ENIG', 101.3, 128.5))
+        self.assertEqual(order_manifest(self.profile, 'individual', self.boards)['packageCount'], 9)
+
+    def test_grouped_membership_and_grid_mutations_rejected(self):
+        top = '18-woven-maze-L01-black-enig-art'
+        mutations = {
+            'top in sheet': lambda g: g[1]['memberIds'].__setitem__(0, top),
+            'mixed masks': lambda g: (g[0]['memberIds'].__setitem__(0, '18-woven-maze-L03-black-mask-only'),
+                                      g[1]['memberIds'].__setitem__(0, '18-woven-maze-L02-white-mask-only')),
+            'missing member': lambda g: g[0]['memberIds'].pop(),
+            'duplicate member': lambda g: g[0]['memberIds'].__setitem__(3, g[0]['memberIds'][0]),
+            'excluded series': lambda g: g[0]['memberIds'].__setitem__(0, '01-spider-nest-L02-white-mask-only'),
+            'enig finish': lambda g: g[1].update(finish='ENIG'),
+            'wrong grid': lambda g: g[0].update(columns=4, rows=1),
+            'float grid': lambda g: g[0].update(columns=2.0),
+            'blank cells': lambda g: g[0].update(rows=3),
+            'third sheet': lambda g: g.append(dict(g[0], id='white-extra')),
+            'one sheet': lambda g: g.pop(),
+        }
+        for name, mutate in mutations.items():
+            with self.subTest(name):
+                profile = copy.deepcopy(self.profile)
+                mutate(profile['variants']['grouped']['groups'])
+                self.reject(profile)
+        profile = copy.deepcopy(self.profile)
+        profile['railMm'] = 5.0
+        self.reject(profile)
+
     def test_missing_duplicate_reordered_or_unrelated_boards_rejected(self):
         for kind in ('missing', 'duplicate', 'reordered', 'unrelated'):
             with self.subTest(kind=kind):
@@ -72,12 +123,14 @@ class WovenProfileTests(unittest.TestCase):
         profile = copy.deepcopy(self.profile)
         profile['variants']['individual']['groups'] = [{'memberIds': list(self.boards)}]
         self.reject(profile)
-        for variant in ('grouped', 'split-red'):
-            profile = copy.deepcopy(self.profile)
-            profile['variants'][variant] = {'groups': []}
-            self.reject(profile)
-            with self.assertRaises(ValueError):
-                order_manifest(self.profile, variant, self.boards)
+        profile = copy.deepcopy(self.profile)
+        profile['variants']['split-red'] = {'groups': []}
+        self.reject(profile)
+        with self.assertRaises(ValueError):
+            order_manifest(self.profile, 'split-red', self.boards)
+        profile = copy.deepcopy(self.profile)
+        del profile['variants']['grouped']
+        self.reject(profile)
 
     def test_extra_keys_and_non_object_profile_rejected(self):
         for mutate in (lambda p: p['series']['woven-maze'].update(extra=1),

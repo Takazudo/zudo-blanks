@@ -5,7 +5,7 @@
   "supplierQuantities": [
     25
   ],
-  "quantityBasis": "25 complete nine-board stacks; standalone units, not PCBA or grouped sheets.",
+  "quantityBasis": "25 complete nine-board stacks. individual: nine standalone routed units. grouped: standalone L01 plus two 2x2 same-mask lower sheets, quantities in sheets.",
   "series": {
     "woven-maze": {
       "stacks": 25,
@@ -25,6 +25,36 @@
   "variants": {
     "individual": {
       "groups": []
+    },
+    "grouped": {
+      "groups": [
+        {
+          "id": "white-hasl",
+          "color": "white",
+          "finish": "lead-free HASL",
+          "columns": 2,
+          "rows": 2,
+          "memberIds": [
+            "18-woven-maze-L02-white-mask-only",
+            "18-woven-maze-L04-white-mask-only",
+            "18-woven-maze-L06-white-mask-only",
+            "18-woven-maze-L08-white-mask-only"
+          ]
+        },
+        {
+          "id": "black-hasl",
+          "color": "black",
+          "finish": "lead-free HASL",
+          "columns": 2,
+          "rows": 2,
+          "memberIds": [
+            "18-woven-maze-L03-black-mask-only",
+            "18-woven-maze-L05-black-mask-only",
+            "18-woven-maze-L07-black-mask-only",
+            "18-woven-maze-L09-black-mask-only"
+          ]
+        }
+      ]
     }
   }
 }

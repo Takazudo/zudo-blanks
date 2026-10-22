@@ -435,7 +435,10 @@ def run(args):
         receipt.update(status='pass_local_native_cam',finishedUtc=native.utc_now())
         write(output/'logs/progress.json',receipt)
         write(output/'receipt.json',receipt)
-        if grouped:
+        if grouped and profile['id']!='four-art-series':
+            readme=(f'# {profile["id"]} order candidates\n\nChoose ONE alternative in variants/*/ORDER.md and purchase only its listed ZIPs. Never purchase all ZIPs; individual reference exports are not extra orders.\n\n{len(selected)} byte-identical native sources, fresh DRC/CAM and previews are included. Grouped sheets keep the top as a standalone routed board; blue score overlays mark full-span V-scores, not routed cuts. Quantities of scored sheets mean sheets. Stack-side images are nominal geometry, not physical-fit evidence.\n\n'
+                    'Quoted prices are unknown. Factory CAM/scoring, residual web, scored-edge appearance, depanelization/handling and physical fit remain pending. Native verification does not establish factory approval or savings.\n\n')
+        elif grouped:
             readme=('# Four-series order candidates\n\nChoose one alternative in variants/*/ORDER.md. Never purchase all ZIPs.\n\n34 byte-identical native sources, fresh DRC/CAM and previews are included. Blue score overlays mark full-span V-scores, not routed cuts. Stack-side images are nominal geometry, not physical-fit evidence.\n\n'
                     'Quoted prices are unknown. Factory CAM/scoring, perforated sheet handling, edge appearance and physical fit remain pending. Native verification does not establish factory approval or savings.\n\n')
         else:

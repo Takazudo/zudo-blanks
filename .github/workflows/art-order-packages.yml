@@ -34,7 +34,7 @@ on:
         type: choice
         required: true
         default: split-red
-        options: [split-red, individual]
+        options: [split-red, individual, all]
 
 permissions:
   contents: read
@@ -76,7 +76,7 @@ jobs:
       - name: Focused manufacturing regression checks
         run: |
           set -o pipefail
-          for suite in test_lower_panels.py test_native_cam.py test_order_profiles.py test_woven_profile.py test_order_packages.py test_retained_order_bundle.py test_completed_order.py; do
+          for suite in test_lower_panels.py test_native_cam.py test_order_profiles.py test_woven_profile.py test_woven_panels.py test_order_packages.py test_retained_order_bundle.py test_completed_order.py; do
             python -m unittest discover -s artwork-resources/pcb-art/manufacturing/tests -p "$suite" -v
           done 2>&1 | tee "$RUNNER_TEMP/art-order-logs/tests.log"
       - name: Verify the order snapshot retained in Git
@@ -88,7 +88,7 @@ jobs:
         run: |
           set -o pipefail
           case "$PROFILE:$VARIANT" in
-            four-art-series:split-red|woven-maze:individual) ;;
+            four-art-series:split-red|woven-maze:individual|woven-maze:all) ;;
             *) echo "Unsupported profile/variant combination" >&2; exit 2 ;;
           esac
           timeout --signal=TERM --kill-after=1m 48m \
