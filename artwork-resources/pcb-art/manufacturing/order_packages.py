@@ -68,13 +68,15 @@ def check_drc(path, board_name):
 
 
 DRC_CONTOUR_SEAM_BOARDS = {'01-spider-nest-L07-gold-enig-fill',
-                           '03-coral-vault-L03-purple-mask-only'}
+                           '03-coral-vault-L03-purple-mask-only',
+                           '18-woven-maze-L01-black-enig-art'}
 
 
 def drc_input_text(source):
     """Rotate serialized contour seams; never change any native primitive.
 
-    Linux KiCad reports false self-intersections for Spider L07 and Coral L03.
+    Linux KiCad reports false self-intersections for Spider L07, Coral L03 and
+    Woven Maze L01.
     The same exact segments pass with each closed contour's seed moved halfway.
     CAM always consumes the unmodified committed source, not this DRC copy.
     """

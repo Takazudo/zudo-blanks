@@ -15,7 +15,10 @@ Each source ID is fixed in physical stack order.
 The existing export pipeline copies committed native boards and projects,
 checks their generation hashes, runs pinned KiCad DRC, checks CAM geometry,
 drills, copper and mask, and produces previews and per-package hashes.
-No Woven Maze contour-seam workaround or CAD regeneration is introduced.
+No CAD regeneration is introduced. Pinned Linux KiCad reports a false
+Edge.Cuts self-intersection on L01 only, so its DRC copy alone joins the
+existing contour-seam rotation; coordinates, UUIDs and segments are unchanged,
+and CAM consumes the committed source.
 A failure blocks the successful bundle upload; investigate it without
 changing source art or relaxing verification.
 
