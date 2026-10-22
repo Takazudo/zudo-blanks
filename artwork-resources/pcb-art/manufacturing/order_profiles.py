@@ -19,17 +19,26 @@ WOVEN_IDS = tuple(
         'black-enig-art' if layer == 1 else
         'white-mask-only' if layer % 2 == 0 else 'black-mask-only')
     for layer in range(1, 10))
+WOVEN_VARIANTS = {
+    'individual': {'groups': []},
+    'grouped': {'groups': [
+        {'id': 'white-hasl', 'color': 'white', 'finish': 'lead-free HASL', 'columns': 2, 'rows': 2,
+         'memberIds': list(WOVEN_IDS[1::2])},
+        {'id': 'black-hasl', 'color': 'black', 'finish': 'lead-free HASL', 'columns': 2, 'rows': 2,
+         'memberIds': list(WOVEN_IDS[2::2])}]}}
 
 
 def load_woven_profile(profile, inventory):
-    """Accept only the nine unchanged standalone boards for 25 complete stacks."""
-    if (profile.get('schemaVersion') != 1 or profile.get('railMm') != 5
+    """Accept nine unchanged boards for 25 stacks: standalone, or two 2x2 same-mask lower sheets."""
+    if (profile.get('schemaVersion') != 1 or type(profile.get('railMm')) is not int or profile['railMm'] != 5
             or profile.get('series') != {'woven-maze': {'stacks': 25, 'boardIds': list(WOVEN_IDS)}}
             or type(profile['series']['woven-maze']['stacks']) is not int
             or profile.get('supplierQuantities') != [25]
             or any(type(q) is not int for q in profile['supplierQuantities'])
-            or profile.get('variants') != {'individual': {'groups': []}}):
-        raise ValueError('Woven Maze requires exactly nine ordered boards, 25 stacks and individual packages')
+            or profile.get('variants') != WOVEN_VARIANTS
+            or any(type(g[k]) is not int for g in profile['variants']['grouped']['groups']
+                   for k in ('columns', 'rows'))):
+        raise ValueError('Woven Maze requires nine ordered boards, 25 stacks and the frozen individual/grouped variants')
     selected = [b for b in inventory
                 if b.get('category') == 'selected' and b.get('designId') == 'woven-maze']
     if Counter(b['id'] for b in selected) != Counter(WOVEN_IDS):

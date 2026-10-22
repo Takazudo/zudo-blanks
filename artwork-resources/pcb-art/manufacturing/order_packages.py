@@ -428,14 +428,18 @@ def run(args):
             o=json.loads((output/'variants'/variant/'order.json').read_text())
             comparison.append(f"| {variant} | {o['packageCount']} | {o['orderedSheetsAndStandaloneUnits']} | {o['usefulBoardCount']} | {o['wasteCells']} | {o['surplusFinishedBoards']} | unknown |")
         grouped=any(profile['variants'][v]['groups'] for v in variants)
-        sheets=('Each scored sheet contains multiple distinct designs; quantities mean sheets.' if grouped else
-                'Every package is a standalone routed board; quantities mean boards.')
+        sheets=('Every package is a standalone routed board; quantities mean boards.' if not grouped else
+                'Each scored sheet contains multiple distinct designs; quantities mean sheets.' if profile['id']=='four-art-series' else
+                'Scored-sheet quantities mean sheets; standalone quantities mean boards. Each order line has quantity 25 and the top is a standalone routed board in every alternative.')
         comparison += ['', f'Quote each alternative for the same requested output. {sheets} Ask for engineering/design, routing/scoring, ENIG, panel-area, shipping and tax amounts and currency/date. Unknown amounts are not zero. Blank cells omit rails/cutout waste. No savings or factory acceptance is established.']
         (output/'QUOTE-COMPARISON.md').write_text('\n'.join(comparison)+'\n')
         receipt.update(status='pass_local_native_cam',finishedUtc=native.utc_now())
         write(output/'logs/progress.json',receipt)
         write(output/'receipt.json',receipt)
-        if grouped:
+        if grouped and profile['id']!='four-art-series':
+            readme=(f'# {profile["id"]} order candidates\n\nChoose ONE alternative in variants/*/ORDER.md and purchase only its listed ZIPs. Never purchase all ZIPs; individual reference exports are not extra orders.\n\n{len(selected)} byte-identical native sources, fresh DRC/CAM and previews are included. Grouped sheets keep the top as a standalone routed board; blue score overlays mark full-span V-scores, not routed cuts. Quantities of scored sheets mean sheets. Stack-side images are nominal geometry, not physical-fit evidence.\n\n'
+                    'Quoted prices are unknown. Factory CAM/scoring, residual web, scored-edge appearance, depanelization/handling and physical fit remain pending. Native verification does not establish factory approval or savings.\n\n')
+        elif grouped:
             readme=('# Four-series order candidates\n\nChoose one alternative in variants/*/ORDER.md. Never purchase all ZIPs.\n\n34 byte-identical native sources, fresh DRC/CAM and previews are included. Blue score overlays mark full-span V-scores, not routed cuts. Stack-side images are nominal geometry, not physical-fit evidence.\n\n'
                     'Quoted prices are unknown. Factory CAM/scoring, perforated sheet handling, edge appearance and physical fit remain pending. Native verification does not establish factory approval or savings.\n\n')
         else:
