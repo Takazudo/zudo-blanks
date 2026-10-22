@@ -14,9 +14,43 @@ def finish(board):
     return 'ENIG' if board['finish'].startswith('enig') else 'lead-free HASL'
 
 
+WOVEN_IDS = tuple(
+    f'18-woven-maze-L{layer:02d}-' + (
+        'black-enig-art' if layer == 1 else
+        'white-mask-only' if layer % 2 == 0 else 'black-mask-only')
+    for layer in range(1, 10))
+
+
+def load_woven_profile(profile, inventory):
+    """Accept only the nine unchanged standalone boards for 25 complete stacks."""
+    if (profile.get('schemaVersion') != 1 or profile.get('railMm') != 5
+            or profile.get('series') != {'woven-maze': {'stacks': 25, 'boardIds': list(WOVEN_IDS)}}
+            or type(profile['series']['woven-maze']['stacks']) is not int
+            or profile.get('supplierQuantities') != [25]
+            or any(type(q) is not int for q in profile['supplierQuantities'])
+            or profile.get('variants') != {'individual': {'groups': []}}):
+        raise ValueError('Woven Maze requires exactly nine ordered boards, 25 stacks and individual packages')
+    selected = [b for b in inventory
+                if b['category'] == 'selected' and b['designId'] == 'woven-maze']
+    if Counter(b['id'] for b in selected) != Counter(WOVEN_IDS):
+        raise ValueError('Frozen Woven Maze inventory changed')
+    boards = {b['id']: b for b in selected}
+    for layer, board_id in enumerate(WOVEN_IDS, 1):
+        board = boards[board_id]
+        if (board['layerNumber'] != layer or board['thicknessMm'] != 1.6
+                or board['maskColor'] != ('white' if layer % 2 == 0 else 'black')
+                or board['finish'] != ('enig-art' if layer == 1 else 'mask-only')
+                or board['boardBoundsMm'] != ([0, 0, 101.3, 128.5] if layer == 1 else [0, 17.1, 101.3, 111.4])
+                or board['nativeBoard'] != f'panels/art-woven-maze/{board_id}.kicad_pcb'):
+            raise ValueError(f'Woven Maze source configuration changed: {board_id}')
+    return profile, boards
+
+
 def load_profile(path=DEFAULT_PROFILE, *, manifest_path=None):
     profile = json.loads(Path(path).read_text())
     inventory = json.loads(Path(manifest_path or HERE.parent / 'pcb/manifest.json').read_text())['boards']
+    if profile.get('id') == 'woven-maze':
+        return load_woven_profile(profile, inventory)
     expected = {b['id']: b for b in inventory
                 if b['category'] == 'selected' and b['designId'] in SERIES}
     if len(expected) != 34 or any('kumiko' in i and '-wide-' not in i for i in expected):
@@ -80,7 +114,7 @@ def load_profile(path=DEFAULT_PROFILE, *, manifest_path=None):
 
 
 def groups_for(profile, variant, boards):
-    if variant not in VARIANTS:
+    if variant not in VARIANTS or variant not in profile['variants']:
         raise ValueError(f'Unknown variant: {variant}')
     groups = []
     for spec in profile['variants'][variant]['groups']:
@@ -144,7 +178,7 @@ def order_manifest(profile, variant, boards):
             'wasteCells':sum(p['unusedCells']*p['quantity'] for p in packages),
             'requestedCompleteStacks':stacks, 'completeStackYield':sum(d['completeStacks'] for d in designs.values()),
             'designs':designs, 'hardwareForRequestedStacks':{'screws':stacks*4,'nuts':stacks*4,
-             'spacers':sum((SERIES[s]-1)*v['stacks']*4 for s,v in profile['series'].items())},
+             'spacers':sum((len(v['boardIds'])-1)*v['stacks']*4 for s,v in profile['series'].items())},
             'packages':packages, 'quote':{k:None for k in ('quotedOn','currency','pcbPrice','engineeringFees',
                 'designFees','routingScoring','enigEffects','panelAreaEffects','shipping','tax','total')},
             'pendingExternal':['dated quote and offered quantities','factory CAM/scoring and residual web approval',

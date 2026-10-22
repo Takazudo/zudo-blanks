@@ -247,7 +247,7 @@ def verify_bundle(output, expected_source=None, expected_run_id=None, *, selecte
         safe_path(output,record['preview']).read_bytes()
     orders=[]
     variants=receipt['variants']
-    if not variants or len(set(variants))!=len(variants) or set(variants)-set(VARIANTS):
+    if not variants or len(set(variants))!=len(variants) or set(variants)-set(profile['variants']):
         raise ValueError('Invalid variant receipt')
     if selected_variants is not None:
         if not selected_variants or not set(selected_variants).issubset(variants):
@@ -346,7 +346,9 @@ def run(args):
     try:
         profile, selected=load_profile(args.profile)
         inventory,evidence=native.load_inventory(selected_ids=set(selected))
-        variants=list(VARIANTS) if args.variant=='all' else [args.variant]
+        variants=list(profile['variants']) if args.variant=='all' else [args.variant]
+        if any(v not in profile['variants'] for v in variants):
+            raise ValueError('Variant is not supported by this profile')
         version,help_text=native._cli_info(args.kicad_cli,True)
         if not version.startswith('10.0.'):
             raise ValueError('Pinned compatible KiCad 10.0.x required')
@@ -428,7 +430,7 @@ def run(args):
         receipt.update(status='pass_local_native_cam',finishedUtc=native.utc_now())
         write(output/'logs/progress.json',receipt)
         write(output/'receipt.json',receipt)
-        (output/'README.md').write_text('# Four-series order candidates\n\nChoose one alternative in variants/*/ORDER.md. Never purchase all ZIPs.\n\n34 byte-identical native sources, fresh DRC/CAM and previews are included. Blue score overlays mark full-span V-scores, not routed cuts. Stack-side images are nominal geometry, not physical-fit evidence.\n\nQuoted prices are unknown. Factory CAM/scoring, perforated sheet handling, edge appearance and physical fit remain pending. Native verification does not establish factory approval or savings.\n\nVerify SHA256SUMS and receipt.json after download using the checked-in --verify-bundle command.\n')
+        (output/'README.md').write_text(f'# {profile["id"]} order candidates\n\nChoose one alternative in variants/*/ORDER.md. Never purchase all ZIPs.\n\n{len(selected)} byte-identical native sources, fresh DRC/CAM and previews are included. Blue score overlays mark full-span V-scores, not routed cuts. Stack-side images are nominal geometry, not physical-fit evidence.\n\nQuoted prices are unknown. Factory CAM/scoring, perforated sheet handling, edge appearance and physical fit remain pending. Native verification does not establish factory approval or savings.\n\nVerify SHA256SUMS and receipt.json after download using the checked-in --verify-bundle command.\n')
         checksum_manifest(output)
         print(json.dumps(verify_bundle(output),indent=2))
     except Exception as exc:
