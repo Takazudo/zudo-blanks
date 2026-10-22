@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "woven-maze",
+  "railMm": 5,
+  "supplierQuantities": [
+    25
+  ],
+  "quantityBasis": "25 complete nine-board stacks; standalone units, not PCBA or grouped sheets.",
+  "series": {
+    "woven-maze": {
+      "stacks": 25,
+      "boardIds": [
+        "18-woven-maze-L01-black-enig-art",
+        "18-woven-maze-L02-white-mask-only",
+        "18-woven-maze-L03-black-mask-only",
+        "18-woven-maze-L04-white-mask-only",
+        "18-woven-maze-L05-black-mask-only",
+        "18-woven-maze-L06-white-mask-only",
+        "18-woven-maze-L07-black-mask-only",
+        "18-woven-maze-L08-white-mask-only",
+        "18-woven-maze-L09-black-mask-only"
+      ]
+    }
+  },
+  "variants": {
+    "individual": {
+      "groups": []
+    }
+  }
+}

@@ -1,5 +1,6 @@
 """Downloaded evidence must fail closed on stale, missing or unsafe data."""
 import json
+import re
 from pathlib import Path
 import sys
 import tempfile
@@ -7,7 +8,7 @@ import unittest
 from collections import Counter
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
-from order_packages import checksum_manifest, verify_bundle, safe_path, check_drc, write_order_table, drc_input_text, ROOT
+from order_packages import checksum_manifest, verify_bundle, safe_path, check_drc, write_order_table, drc_input_text, DRC_CONTOUR_SEAM_BOARDS, ROOT
 from order_profiles import load_profile, order_manifest, VARIANTS
 
 
@@ -22,6 +23,23 @@ class BundleIntegrityTests(unittest.TestCase):
             self.assertEqual(Counter(original.splitlines()),Counter(normalized.splitlines()))
         top=ROOT/'panels/art-spider-nest/01-spider-nest-L01-black-enig-art.kicad_pcb'
         self.assertEqual(top.read_text(),drc_input_text(top))
+
+    def test_woven_l01_seam_copy_keeps_edge_coordinates_uuids_and_segments(self):
+        edge=r'\(gr_line \(start ([\d.-]+) ([\d.-]+)\) \(end ([\d.-]+) ([\d.-]+)\).*\(layer "Edge\.Cuts"\) \(uuid "([0-9a-f-]+)"\)\)'
+        source=ROOT/'panels/art-woven-maze/18-woven-maze-L01-black-enig-art.kicad_pcb'
+        original=source.read_bytes()
+        normalized=drc_input_text(source)
+        self.assertEqual(source.read_bytes(),original)
+        self.assertNotEqual(original.decode(),normalized)
+        before,after=original.decode().splitlines(),normalized.splitlines()
+        segments=lambda lines:[m.groups() for m in map(lambda l:re.search(edge,l),lines) if m]
+        self.assertEqual(len(segments(before)),2098)
+        self.assertEqual(Counter(segments(before)),Counter(segments(after)))
+        self.assertEqual(len({s[4] for s in segments(after)}),2098)
+        self.assertEqual([l for l in before if '"Edge.Cuts"' not in l],[l for l in after if '"Edge.Cuts"' not in l])
+        self.assertEqual(Counter(before),Counter(after))
+        woven_seams={i for i in DRC_CONTOUR_SEAM_BOARDS if i.startswith('18-woven-maze-')}
+        self.assertEqual(woven_seams,{'18-woven-maze-L01-black-enig-art'})
 
     def test_readable_orders_include_all_source_members(self):
         profile,boards=load_profile()

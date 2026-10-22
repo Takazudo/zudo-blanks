@@ -68,13 +68,15 @@ def check_drc(path, board_name):
 
 
 DRC_CONTOUR_SEAM_BOARDS = {'01-spider-nest-L07-gold-enig-fill',
-                           '03-coral-vault-L03-purple-mask-only'}
+                           '03-coral-vault-L03-purple-mask-only',
+                           '18-woven-maze-L01-black-enig-art'}
 
 
 def drc_input_text(source):
     """Rotate serialized contour seams; never change any native primitive.
 
-    Linux KiCad reports false self-intersections for Spider L07 and Coral L03.
+    Linux KiCad reports false self-intersections for Spider L07, Coral L03 and
+    Woven Maze L01.
     The same exact segments pass with each closed contour's seed moved halfway.
     CAM always consumes the unmodified committed source, not this DRC copy.
     """
@@ -247,7 +249,7 @@ def verify_bundle(output, expected_source=None, expected_run_id=None, *, selecte
         safe_path(output,record['preview']).read_bytes()
     orders=[]
     variants=receipt['variants']
-    if not variants or len(set(variants))!=len(variants) or set(variants)-set(VARIANTS):
+    if not variants or len(set(variants))!=len(variants) or set(variants)-set(profile['variants']):
         raise ValueError('Invalid variant receipt')
     if selected_variants is not None:
         if not selected_variants or not set(selected_variants).issubset(variants):
@@ -346,7 +348,9 @@ def run(args):
     try:
         profile, selected=load_profile(args.profile)
         inventory,evidence=native.load_inventory(selected_ids=set(selected))
-        variants=list(VARIANTS) if args.variant=='all' else [args.variant]
+        variants=list(profile['variants']) if args.variant=='all' else [args.variant]
+        if any(v not in profile['variants'] for v in variants):
+            raise ValueError('Variant is not supported by this profile')
         version,help_text=native._cli_info(args.kicad_cli,True)
         if not version.startswith('10.0.'):
             raise ValueError('Pinned compatible KiCad 10.0.x required')
@@ -423,12 +427,21 @@ def run(args):
         for variant in variants:
             o=json.loads((output/'variants'/variant/'order.json').read_text())
             comparison.append(f"| {variant} | {o['packageCount']} | {o['orderedSheetsAndStandaloneUnits']} | {o['usefulBoardCount']} | {o['wasteCells']} | {o['surplusFinishedBoards']} | unknown |")
-        comparison += ['', 'Quote each alternative for the same requested output. Each scored sheet contains multiple distinct designs; quantities mean sheets. Ask for engineering/design, routing/scoring, ENIG, panel-area, shipping and tax amounts and currency/date. Unknown amounts are not zero. Blank cells omit rails/cutout waste. No savings or factory acceptance is established.']
+        grouped=any(profile['variants'][v]['groups'] for v in variants)
+        sheets=('Each scored sheet contains multiple distinct designs; quantities mean sheets.' if grouped else
+                'Every package is a standalone routed board; quantities mean boards.')
+        comparison += ['', f'Quote each alternative for the same requested output. {sheets} Ask for engineering/design, routing/scoring, ENIG, panel-area, shipping and tax amounts and currency/date. Unknown amounts are not zero. Blank cells omit rails/cutout waste. No savings or factory acceptance is established.']
         (output/'QUOTE-COMPARISON.md').write_text('\n'.join(comparison)+'\n')
         receipt.update(status='pass_local_native_cam',finishedUtc=native.utc_now())
         write(output/'logs/progress.json',receipt)
         write(output/'receipt.json',receipt)
-        (output/'README.md').write_text('# Four-series order candidates\n\nChoose one alternative in variants/*/ORDER.md. Never purchase all ZIPs.\n\n34 byte-identical native sources, fresh DRC/CAM and previews are included. Blue score overlays mark full-span V-scores, not routed cuts. Stack-side images are nominal geometry, not physical-fit evidence.\n\nQuoted prices are unknown. Factory CAM/scoring, perforated sheet handling, edge appearance and physical fit remain pending. Native verification does not establish factory approval or savings.\n\nVerify SHA256SUMS and receipt.json after download using the checked-in --verify-bundle command.\n')
+        if grouped:
+            readme=('# Four-series order candidates\n\nChoose one alternative in variants/*/ORDER.md. Never purchase all ZIPs.\n\n34 byte-identical native sources, fresh DRC/CAM and previews are included. Blue score overlays mark full-span V-scores, not routed cuts. Stack-side images are nominal geometry, not physical-fit evidence.\n\n'
+                    'Quoted prices are unknown. Factory CAM/scoring, perforated sheet handling, edge appearance and physical fit remain pending. Native verification does not establish factory approval or savings.\n\n')
+        else:
+            readme=(f'# {profile["id"]} order candidates\n\nPurchase only the ZIPs listed in variants/individual/ORDER.md.\n\n{len(selected)} byte-identical native sources, fresh DRC/CAM and previews are included. Every package is a standalone routed board; no scored sheets. Stack-side images are nominal geometry, not physical-fit evidence.\n\n'
+                    'Quoted prices are unknown. Factory CAM, edge appearance and physical fit remain pending. Native verification does not establish factory approval.\n\n')
+        (output/'README.md').write_text(readme+'Verify SHA256SUMS and receipt.json after download using the checked-in --verify-bundle command.\n')
         checksum_manifest(output)
         print(json.dumps(verify_bundle(output),indent=2))
     except Exception as exc:

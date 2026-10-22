@@ -46,7 +46,7 @@ ART_ORDER_PYTHON=/tmp/art-order-venv/bin/python \
 
 Fresh bundles include all 34 source verification records and temporary individual reference CAM, even when the purchase list uses grouped lowers. Purchase membership always comes from the selected `variants/split-red/order.json`, never a directory-wide ZIP inventory. No purchase is requested by this cleanup.
 
-The original run's KiCad workaround cyclically rotates complete serialized contour segments only for DRC copies of unchanged Spider L07 and Coral L03. Source/CAM inputs are unchanged. Grouped contour-seam rotations preserve complete primitives, UUIDs and coordinates, including one Fault L08 aperture for split-red. No rule, geometry or tolerance is relaxed. The exhaustive all-boundary artwork-width certificate stays opt-in.
+The original run's KiCad workaround cyclically rotates complete serialized contour segments only for DRC copies of unchanged Spider L07, Coral L03 and Woven Maze L01. Source/CAM inputs are unchanged. Grouped contour-seam rotations preserve complete primitives, UUIDs and coordinates, including one Fault L08 aperture for split-red. No rule, geometry or tolerance is relaxed. The exhaustive all-boundary artwork-width certificate stays opt-in.
 
 ## Ordinary Git storage
 

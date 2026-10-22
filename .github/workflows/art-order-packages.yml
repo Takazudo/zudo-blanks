@@ -1,5 +1,5 @@
 name: Art order packages
-run-name: Art order packages (${{ inputs.variant || 'split-red' }})
+run-name: Art order packages (${{ inputs.profile || 'four-art-series' }} / ${{ inputs.variant || 'split-red' }})
 
 on:
   pull_request:
@@ -11,6 +11,7 @@ on:
       - 'panels/art-fault-line/**'
       - 'panels/art-kumiko-void/**'
       - 'panels/art-spider-nest/**'
+      - 'panels/art-woven-maze/**'
       - 'scripts/art-order/**'
       - 'doc/src/content/docs/manufacturing/**'
       - 'doc/src/content/docs/guides/assembly/**'
@@ -23,7 +24,7 @@ on:
         type: choice
         required: true
         default: four-art-series
-        options: [four-art-series]
+        options: [four-art-series, woven-maze]
       upload_bundle:
         description: Temporarily upload a verified bundle for explicit Git retention
         type: boolean
@@ -33,7 +34,7 @@ on:
         type: choice
         required: true
         default: split-red
-        options: [split-red]
+        options: [split-red, individual]
 
 permissions:
   contents: read
@@ -75,7 +76,7 @@ jobs:
       - name: Focused manufacturing regression checks
         run: |
           set -o pipefail
-          for suite in test_lower_panels.py test_native_cam.py test_order_profiles.py test_order_packages.py test_retained_order_bundle.py test_completed_order.py; do
+          for suite in test_lower_panels.py test_native_cam.py test_order_profiles.py test_woven_profile.py test_order_packages.py test_retained_order_bundle.py test_completed_order.py; do
             python -m unittest discover -s artwork-resources/pcb-art/manufacturing/tests -p "$suite" -v
           done 2>&1 | tee "$RUNNER_TEMP/art-order-logs/tests.log"
       - name: Verify the order snapshot retained in Git
@@ -86,8 +87,10 @@ jobs:
         if: github.event_name == 'workflow_dispatch'
         run: |
           set -o pipefail
-          [[ $PROFILE == four-art-series ]] || exit 2
-          case "$VARIANT" in split-red) ;; *) exit 2 ;; esac
+          case "$PROFILE:$VARIANT" in
+            four-art-series:split-red|woven-maze:individual) ;;
+            *) echo "Unsupported profile/variant combination" >&2; exit 2 ;;
+          esac
           timeout --signal=TERM --kill-after=1m 48m \
             bash scripts/art-order/run.sh \
               --profile "artwork-resources/pcb-art/manufacturing/order-profiles/$PROFILE.json" \
