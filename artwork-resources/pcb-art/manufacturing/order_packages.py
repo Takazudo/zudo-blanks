@@ -18,7 +18,7 @@ import PIL
 from PIL import Image, ImageDraw
 import shapely
 
-from order_profiles import DEFAULT_PROFILE, VARIANTS, load_profile, order_manifest, finish
+from order_profiles import DEFAULT_PROFILE, ALL_VARIANTS, load_profile, order_manifest, finish
 from build_lower_panels import build
 import verify_native_cam as native
 import verify_lower_panels as lower
@@ -457,7 +457,7 @@ def run(args):
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--profile',type=Path,default=DEFAULT_PROFILE)
-    parser.add_argument('--variant',choices=('all',*VARIANTS),default='split-red')
+    parser.add_argument('--variant',choices=('all',*ALL_VARIANTS),default='split-red')
     parser.add_argument('--output',type=Path)
     parser.add_argument('--kicad-cli')
     parser.add_argument('--verify-bundle',type=Path)

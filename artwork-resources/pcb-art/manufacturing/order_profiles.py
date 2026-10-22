@@ -7,6 +7,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 DEFAULT_PROFILE = HERE / 'order-profiles/four-art-series.json'
 VARIANTS = ('individual', 'grouped', 'split-red')
+ALL_VARIANTS = VARIANTS + ('split-pairs',)
 SERIES = {'coral-vault': 8, 'fault-line': 9, 'kumiko-void': 9, 'spider-nest': 8}
 
 
@@ -25,20 +26,25 @@ WOVEN_VARIANTS = {
         {'id': 'white-hasl', 'color': 'white', 'finish': 'lead-free HASL', 'columns': 2, 'rows': 2,
          'memberIds': list(WOVEN_IDS[1::2])},
         {'id': 'black-hasl', 'color': 'black', 'finish': 'lead-free HASL', 'columns': 2, 'rows': 2,
-         'memberIds': list(WOVEN_IDS[2::2])}]}}
+         'memberIds': list(WOVEN_IDS[2::2])}]},
+    'split-pairs': {'groups': [
+        {'id': f'{color}-hasl-l{a:02d}-l{b:02d}', 'color': color, 'finish': 'lead-free HASL',
+         'columns': 2, 'rows': 1, 'memberIds': [WOVEN_IDS[a-1], WOVEN_IDS[b-1]]}
+        for color, pairs in (('white', ((2, 4), (6, 8))), ('black', ((3, 5), (7, 9))))
+        for a, b in pairs]}}
 
 
 def load_woven_profile(profile, inventory):
-    """Accept nine unchanged boards for 25 stacks: standalone, or two 2x2 same-mask lower sheets."""
+    """Accept nine unchanged boards for 25 stacks: standalone, two 2x2 or four 2x1 same-mask lower sheets."""
     if (profile.get('schemaVersion') != 1 or type(profile.get('railMm')) is not int or profile['railMm'] != 5
             or profile.get('series') != {'woven-maze': {'stacks': 25, 'boardIds': list(WOVEN_IDS)}}
             or type(profile['series']['woven-maze']['stacks']) is not int
             or profile.get('supplierQuantities') != [25]
             or any(type(q) is not int for q in profile['supplierQuantities'])
             or profile.get('variants') != WOVEN_VARIANTS
-            or any(type(g[k]) is not int for g in profile['variants']['grouped']['groups']
-                   for k in ('columns', 'rows'))):
-        raise ValueError('Woven Maze requires nine ordered boards, 25 stacks and the frozen individual/grouped variants')
+            or any(type(g[k]) is not int for v in ('grouped', 'split-pairs')
+                   for g in profile['variants'][v]['groups'] for k in ('columns', 'rows'))):
+        raise ValueError('Woven Maze requires nine ordered boards, 25 stacks and the frozen individual/grouped/split-pairs variants')
     selected = [b for b in inventory
                 if b.get('category') == 'selected' and b.get('designId') == 'woven-maze']
     if Counter(b['id'] for b in selected) != Counter(WOVEN_IDS):
@@ -125,7 +131,7 @@ def load_profile(path=DEFAULT_PROFILE, *, manifest_path=None):
 
 
 def groups_for(profile, variant, boards):
-    if variant not in VARIANTS or variant not in profile['variants']:
+    if variant not in ALL_VARIANTS or variant not in profile['variants']:
         raise ValueError(f'Unknown variant: {variant}')
     groups = []
     for spec in profile['variants'][variant]['groups']:

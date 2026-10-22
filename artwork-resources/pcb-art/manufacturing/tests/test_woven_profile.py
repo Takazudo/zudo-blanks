@@ -71,6 +71,45 @@ class WovenProfileTests(unittest.TestCase):
         self.assertEqual((top['finish'], top['widthMm'], top['heightMm']), ('ENIG', 101.3, 128.5))
         self.assertEqual(order_manifest(self.profile, 'individual', self.boards)['packageCount'], 9)
 
+    def test_split_pairs_four_same_mask_sheets_and_standalone_top(self):
+        order = order_manifest(self.profile, 'split-pairs', self.boards)
+        self.assertEqual((order['packageCount'], order['orderedSheetsAndStandaloneUnits'],
+                          order['usefulBoardCount'], order['producedBoardCount'],
+                          order['wasteCells'], order['surplusFinishedBoards'],
+                          order['requestedCompleteStacks'], order['completeStackYield']),
+                         (5, 125, 225, 225, 0, 0, 25, 25))
+        self.assertEqual(set(order['supplyByBoardId'].values()), {25})
+        expected = [('white', 2, 4), ('white', 6, 8), ('black', 3, 5), ('black', 7, 9)]
+        for sheet, (color, a, b) in zip(order['packages'], expected):
+            self.assertEqual(sheet['id'], f'lower-panel-{color}-hasl-l{a:02d}-l{b:02d}')
+            self.assertEqual(sheet['kind'], 'scored_lower_grid')
+            self.assertEqual(sheet['memberIds'], [f'18-woven-maze-L{n:02d}-{color}-mask-only' for n in (a, b)])
+            self.assertEqual((sheet['columns'], sheet['rows'], sheet['railMm'], sheet['unusedCells']), (2, 1, 5, 0))
+            self.assertEqual((sheet['widthMm'], sheet['heightMm']), (212.6, 104.3))
+            self.assertEqual((sheet['quantity'], sheet['distinctDesigns'], sheet['producedPieces']), (25, 2, 50))
+            self.assertEqual((sheet['color'], sheet['finish']), (color, 'lead-free HASL'))
+        top = order['packages'][4]
+        self.assertEqual((top['id'], top['kind'], top['quantity'], top['finish']),
+                         ('18-woven-maze-L01-black-enig-art', 'routed_standalone_top', 25, 'ENIG'))
+
+    def test_split_pairs_mutations_rejected(self):
+        mutations = {
+            'top in sheet': lambda g: g[2]['memberIds'].__setitem__(0, '18-woven-maze-L01-black-enig-art'),
+            'cross-mask pair': lambda g: (g[0]['memberIds'].__setitem__(1, '18-woven-maze-L03-black-mask-only'),
+                                          g[2]['memberIds'].__setitem__(0, '18-woven-maze-L04-white-mask-only')),
+            'regrouped pairs': lambda g: (g[0]['memberIds'].__setitem__(1, '18-woven-maze-L06-white-mask-only'),
+                                          g[1]['memberIds'].__setitem__(0, '18-woven-maze-L04-white-mask-only')),
+            'missing pair': lambda g: g.pop(),
+            'vertical grid': lambda g: g[0].update(columns=1, rows=2),
+            'float grid': lambda g: g[3].update(rows=1.0),
+            'blank cell': lambda g: g[1].update(columns=3),
+        }
+        for name, mutate in mutations.items():
+            with self.subTest(name):
+                profile = copy.deepcopy(self.profile)
+                mutate(profile['variants']['split-pairs']['groups'])
+                self.reject(profile)
+
     def test_grouped_membership_and_grid_mutations_rejected(self):
         top = '18-woven-maze-L01-black-enig-art'
         mutations = {
