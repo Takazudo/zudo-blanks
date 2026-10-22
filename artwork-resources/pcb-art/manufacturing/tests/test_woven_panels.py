@@ -1,4 +1,4 @@
-"""Woven Maze 2x2 lower sheets: translation-only geometry, scores and corruption rejection."""
+"""Woven Maze 2x2 and 2x1 lower sheets: translation-only geometry, scores and corruption rejection."""
 import copy
 from pathlib import Path
 import re
@@ -22,6 +22,8 @@ class WovenPanelTests(unittest.TestCase):
         cls.root = Path(cls.tmp.name)
         cls.record = build(cls.root / 'native', profile=PROFILE, variant='grouped',
                            evidence_path=cls.root / 'native-panels.json')
+        cls.split = build(cls.root / 'split', profile=PROFILE, variant='split-pairs',
+                          evidence_path=cls.root / 'split-panels.json')
         cls.profile, cls.boards = load_profile(PROFILE)
 
     @classmethod
@@ -67,6 +69,32 @@ class WovenPanelTests(unittest.TestCase):
             self.assertIn('212.6 x 198.6 mm', fab)
             self.assertIn('lead-free HASL', fab)
             self.assertIn('order 25 sheets', fab)
+
+    def test_split_pairs_keep_exact_translated_members_scores_and_clearances(self):
+        self.assertEqual(self.split['variant'], 'split-pairs')
+        groups = self.profile['variants']['split-pairs']['groups']
+        self.assertEqual([p['groupId'] for p in self.split['panels']], [g['id'] for g in groups])
+        for record, group in zip(self.split['panels'], groups):
+            self.assertEqual([p['id'] for p in record['placements']], group['memberIds'])
+            self.assertEqual([p['translationMm'] for p in record['placements']], [[5, -12.1], [106.3, -12.1]])
+            self.assertEqual((record['widthMm'], record['heightMm'], record['unusedCells']), (212.6, 104.3, 0))
+            for got, want in ((record['scoreXMm'], [5, 106.3, 207.6]), (record['scoreYMm'], [5, 99.3])):
+                self.assertEqual(len(got), len(want))
+                for a, b in zip(got, want):
+                    self.assertAlmostEqual(a, b, places=6)
+            clearance = record['minimumScoreClearanceMm']
+            self.assertGreaterEqual(clearance['apertureMm'], .999)
+            self.assertGreaterEqual(clearance['supportDiskMm'], .999)
+            _, partition = native_partition(self.root / 'split' / record['nativeBoard'], record, self.boards)
+            self.assertTrue(partition['sheetMaterialConnected'])
+            self.assertEqual(partition['npthMounts'], 8)
+            fab = (self.root / 'split' / Path(record['nativeBoard']).parent / 'FABRICATION.txt').read_text()
+            self.assertIn('212.6 x 104.3 mm', fab)
+            self.assertIn('2 distinct lower-board designs; order 25 sheets', fab)
+        record = copy.deepcopy(self.split['panels'][0])
+        record['placements'][1]['translationMm'][0] = 106.0
+        with self.assertRaisesRegex(ValueError, 'Placement differs'):
+            native_partition(self.root / 'split' / record['nativeBoard'], record, self.boards)
 
     def test_removed_aperture_segment_rejected(self):
         def drop_aperture(text):

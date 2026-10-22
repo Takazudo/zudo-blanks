@@ -232,7 +232,7 @@ if __name__ == "__main__":
     parser=argparse.ArgumentParser()
     parser.add_argument("--output",type=Path)
     parser.add_argument("--profile",type=Path)
-    parser.add_argument("--variant",choices=("individual","grouped","split-red"),default=None)
+    parser.add_argument("--variant",choices=("individual","grouped","split-red","split-pairs"),default=None)
     parser.add_argument("--evidence-path",type=Path)
     args=parser.parse_args()
     print(json.dumps(build(args.output or (ROOT / "artwork-resources/pcb-art/generated/four-art-series-lowers" if args.profile else OUT), profile=args.profile, variant=args.variant or ("split-red" if args.profile else "grouped"), evidence_path=args.evidence_path),indent=2))

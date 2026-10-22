@@ -5,7 +5,7 @@
   "supplierQuantities": [
     25
   ],
-  "quantityBasis": "25 complete nine-board stacks. individual: nine standalone routed units. grouped: standalone L01 plus two 2x2 same-mask lower sheets, quantities in sheets.",
+  "quantityBasis": "25 complete nine-board stacks. individual: nine standalone routed units. grouped: standalone L01 plus two 2x2 same-mask lower sheets. split-pairs: standalone L01 plus four 2x1 same-mask lower sheets. Sheet quantities are sheets.",
   "series": {
     "woven-maze": {
       "stacks": 25,
@@ -50,6 +50,54 @@
           "memberIds": [
             "18-woven-maze-L03-black-mask-only",
             "18-woven-maze-L05-black-mask-only",
+            "18-woven-maze-L07-black-mask-only",
+            "18-woven-maze-L09-black-mask-only"
+          ]
+        }
+      ]
+    },
+    "split-pairs": {
+      "groups": [
+        {
+          "id": "white-hasl-l02-l04",
+          "color": "white",
+          "finish": "lead-free HASL",
+          "columns": 2,
+          "rows": 1,
+          "memberIds": [
+            "18-woven-maze-L02-white-mask-only",
+            "18-woven-maze-L04-white-mask-only"
+          ]
+        },
+        {
+          "id": "white-hasl-l06-l08",
+          "color": "white",
+          "finish": "lead-free HASL",
+          "columns": 2,
+          "rows": 1,
+          "memberIds": [
+            "18-woven-maze-L06-white-mask-only",
+            "18-woven-maze-L08-white-mask-only"
+          ]
+        },
+        {
+          "id": "black-hasl-l03-l05",
+          "color": "black",
+          "finish": "lead-free HASL",
+          "columns": 2,
+          "rows": 1,
+          "memberIds": [
+            "18-woven-maze-L03-black-mask-only",
+            "18-woven-maze-L05-black-mask-only"
+          ]
+        },
+        {
+          "id": "black-hasl-l07-l09",
+          "color": "black",
+          "finish": "lead-free HASL",
+          "columns": 2,
+          "rows": 1,
+          "memberIds": [
             "18-woven-maze-L07-black-mask-only",
             "18-woven-maze-L09-black-mask-only"
           ]
