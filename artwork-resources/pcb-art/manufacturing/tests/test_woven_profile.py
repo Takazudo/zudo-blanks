@@ -79,6 +79,15 @@ class WovenProfileTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 order_manifest(self.profile, variant, self.boards)
 
+    def test_extra_keys_and_non_object_profile_rejected(self):
+        for mutate in (lambda p: p['series']['woven-maze'].update(extra=1),
+                       lambda p: p['series'].update({'coral-vault': p['series']['woven-maze']}),
+                       lambda p: p['variants']['individual'].update(columns=1)):
+            profile = copy.deepcopy(self.profile)
+            mutate(profile)
+            self.reject(profile)
+        self.reject([self.profile])
+
     def test_inventory_membership_and_configuration_rejected(self):
         original = json.loads(MANIFEST.read_text())
         for key, value in [('maskColor', 'red'), ('finish', 'mask-only'),
@@ -89,6 +98,18 @@ class WovenProfileTests(unittest.TestCase):
             board = next(b for b in inventory['boards'] if b['id'] == '18-woven-maze-L01-black-enig-art')
             board[key] = value
             self.reject(inventory=inventory)
+        for board_id, key, value in [('18-woven-maze-L02-white-mask-only', 'maskColor', 'black'),
+                                     ('18-woven-maze-L09-black-mask-only', 'boardBoundsMm', [0, 0, 101.3, 128.5]),
+                                     ('18-woven-maze-L05-black-mask-only', 'finish', 'enig-art'),
+                                     ('18-woven-maze-L03-black-mask-only', 'layerNumber', None)]:
+            with self.subTest(board_id=board_id, key=key):
+                inventory = copy.deepcopy(original)
+                board = next(b for b in inventory['boards'] if b['id'] == board_id)
+                if value is None:
+                    del board[key]
+                else:
+                    board[key] = value
+                self.reject(inventory=inventory)
         inventory = copy.deepcopy(original)
         inventory['boards'].append(copy.deepcopy(next(b for b in inventory['boards'] if b['designId'] == 'woven-maze')))
         self.reject(inventory=inventory)

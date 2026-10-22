@@ -31,17 +31,17 @@ def load_woven_profile(profile, inventory):
             or profile.get('variants') != {'individual': {'groups': []}}):
         raise ValueError('Woven Maze requires exactly nine ordered boards, 25 stacks and individual packages')
     selected = [b for b in inventory
-                if b['category'] == 'selected' and b['designId'] == 'woven-maze']
+                if b.get('category') == 'selected' and b.get('designId') == 'woven-maze']
     if Counter(b['id'] for b in selected) != Counter(WOVEN_IDS):
         raise ValueError('Frozen Woven Maze inventory changed')
     boards = {b['id']: b for b in selected}
     for layer, board_id in enumerate(WOVEN_IDS, 1):
         board = boards[board_id]
-        if (board['layerNumber'] != layer or board['thicknessMm'] != 1.6
-                or board['maskColor'] != ('white' if layer % 2 == 0 else 'black')
-                or board['finish'] != ('enig-art' if layer == 1 else 'mask-only')
-                or board['boardBoundsMm'] != ([0, 0, 101.3, 128.5] if layer == 1 else [0, 17.1, 101.3, 111.4])
-                or board['nativeBoard'] != f'panels/art-woven-maze/{board_id}.kicad_pcb'):
+        if (board.get('layerNumber') != layer or board.get('thicknessMm') != 1.6
+                or board.get('maskColor') != ('white' if layer % 2 == 0 else 'black')
+                or board.get('finish') != ('enig-art' if layer == 1 else 'mask-only')
+                or board.get('boardBoundsMm') != ([0, 0, 101.3, 128.5] if layer == 1 else [0, 17.1, 101.3, 111.4])
+                or board.get('nativeBoard') != f'panels/art-woven-maze/{board_id}.kicad_pcb'):
             raise ValueError(f'Woven Maze source configuration changed: {board_id}')
     return profile, boards
 
@@ -49,6 +49,8 @@ def load_woven_profile(profile, inventory):
 def load_profile(path=DEFAULT_PROFILE, *, manifest_path=None):
     profile = json.loads(Path(path).read_text())
     inventory = json.loads(Path(manifest_path or HERE.parent / 'pcb/manifest.json').read_text())['boards']
+    if not isinstance(profile, dict):
+        raise ValueError('Order profile must be a JSON object')
     if profile.get('id') == 'woven-maze':
         return load_woven_profile(profile, inventory)
     expected = {b['id']: b for b in inventory
